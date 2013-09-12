@@ -1,0 +1,23 @@
+\documentclass{article}  
+\input{../library/preamble}  
+\input{../library/style}  
+
+\begin{document}
+\section{Specificatie voor PWM generator}
+De PWM generator is een pulse generator met een variable pulsbreedte.
+\subsection{Parameters}
+\begin{itemize}
+\item Divider (divider, 8-bit, std\_logic)
+\item Pulsebreedte (width, 8-bit, std\_logic)
+\end{itemize}
+\subsection{Inputs}
+\begin{itemize}
+\item Clock (clk, std\_logic)
+\item Reset (reset, std\_logic)
+\item Enabled (enabled, std\_logic)
+\end{itemize}
+\subsection{Outputs}
+\begin{itemize}
+\item Puls (pulse, std\_logic)
+\end{itemize}
+\end{document}
