@@ -1,6 +1,5 @@
 library IEEE;
 use IEEE.std_logic_1164.ALL;
-use IEEE.numeric_std.all;
 
 entity ram is
    port(clk  :in    std_logic;
@@ -12,9 +11,6 @@ entity ram is
 	d_out:out   byte;
         ready:out   std_logic);
 end ram;
-
-
-
 
 
 
