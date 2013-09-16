@@ -15,10 +15,14 @@ Setting up git on SUSE:
 	- Execute the following commands (no single quotes)
 		- 'mkdir GitHub' 
 		- 'cd GitHub'
+		- 'git config --global core.editor gedit'
+		- 'git config --global color.ui true'
+		- 'git config --global user.email email@eample.org'
+		- 'git config --global user.name "Voornaam van Achter"'
+		- 'git config --global credential.helper 'cache --timeout=3600'' (de single qoutes op cache --timeout=3600 moeten wel)
 		- 'git clone https://github.com/EraYaN/DaC.git' (enter your password and username when asked)
 		- 'cd DaC'
-		- 'linux-git-setup.sh email@example.org "Voornaam van Achter"' (je naam tussen enkele aanhalingstekens)
-	- De volgende keer als je pushed onthoud git voorjou je wachtwoord en username voor 1 uur.
+	- De volgende keer als je pushed onthoudt git voor jou je wachtwoord en username voor 1 uur.
 	- Vergeet aan het einde van de ochtend niet alles to committen met 'git add -A' en  'git commit' en daarna alles naar GitHub te pushen met 'git push'
 	- Aan het begin van de ochtend kun je alle nieuwe commits binnen halen met 'git pull'
 	- Mocht je willen weten wat de status is van een git repository type dan 'git status'
