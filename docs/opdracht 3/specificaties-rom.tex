@@ -4,18 +4,19 @@
 
 \begin{document}
 \section{Specificatie voor Read Only Memory (ROM)}
-ROM is een verzameling geheugencellen met voorgeprogrammeerde en niet-herschrijfbare inhoud.
+\subsection{Beschrijving}
+ROM is een verzameling geheugencellen met voorgeprogrammeerde en niet-herschrijfbare inhoud. Het ROM bestaat uit een vierkant grid van cellen die ieder 1 bit aan informatie vasthouden, iedere cel is benaderbaar met een x en y "coordinaat". Dit gebeurt met selectiebits, de inputs. Er zijn twee sets selectiebits: 1 om de juiste rij (y) te selecteren en 1 om de juiste kolom (x) te selecteren. Op de output van het ROM moet vervolgens de opgevraagde bit komen te staan.
 \subsection{Parameters}
 \begin{itemize}
-\item Size (n-bits, de grootte staat gelijk aan $2^{n}$ cellen, waar n een even getal is)
+	\item $n$: $n$ is een even getal en bepaalt de grootte van het geheugen. $n$-bits geheugen bevat $2^{n}$ geheugencellen, geordend in een vierkant grid (INTEGER)
 \end{itemize}
 \subsection{Inputs}
 \begin{itemize}
-\item a Rij selectiebits ($a=\frac{n}{2}$)
-\item b Kolom selectiebits ($b=\frac{n}{2}$)
+	\item Horizontale selectiebits: er zijn $\frac{n}{2}$ selectiebits nodig om alle kolommen te kunnen selecteren (std_logic_vector($\frac{n}{2}-1$ downto 0)
+	\item Verticale selectiebits: er zijn $\frac{n}{2}$ selectiebits nodig om alle kolommen te kunnen selecteren (std_logic_vector($\frac{n}{2}-1$ downto 0)
 \end{itemize}
 \subsection{Outputs}
 \begin{itemize}
-\item Data (inhoud van de cel op het geselecteerde adres), 1-bit
+	\item Data: de inhoud van de cel op het geselecteerde adres, 1-bit (std_logic)
 \end{itemize}
 \end{document}
