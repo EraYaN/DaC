@@ -1,0 +1,33 @@
+Library vendor : Model Technology
+Maximum unnamed designs : 3
+VHDL PACKAGE parameter_def
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Source modified time: Mon Sep 16 11:43:52 2013
+    Source directory: /home/rphes/DaC/hardware/opdracht3/pwm
+    HDL source file: VHDL/parameter_def_pkg.vhd
+    Source file: VHDL/parameter_def_pkg.vhd
+    Start location: VHDL/parameter_def_pkg.vhd:4
+    Version string: m7gUkEJUjEH=UP;PE_Fc90
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Needs a body: 1
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Debug Symbol file exists
+  PACKAGE BODY parameter_def
+    Depends on: P work parameter_def m7gUkEJUjEH=UP;PE_Fc90
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Start location: VHDL/parameter_def_pkg.vhd:8
+    Version string: 720AJ<@3TJIDT:OKkFe0C1
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Short name: body
+    Source directory: /home/rphes/DaC/hardware/opdracht3/pwm
+    Source file: VHDL/parameter_def_pkg.vhd
+    Source modified time: Mon Sep 16 11:43:52 2013
+    HDL source file: VHDL/parameter_def_pkg.vhd
+    Debug Symbol file exists
