@@ -7,14 +7,15 @@
 De PWM generator is een pulse generator met een variable pulsbreedte.
 \subsection{Parameters}
 \begin{itemize}
-\item Divider (divider, 8-bit, std\_logic)
-\item Pulsebreedte (width, 8-bit, std\_logic)
+\item Divider (divider, 8-bit, std\_logic) een paramter die de frequentie op clk deelt door zijn waarde
+
 \end{itemize}
 \subsection{Inputs}
 \begin{itemize}
 \item Clock (clk, std\_logic)
-\item Reset (reset, std\_logic)
-\item Enabled (enabled, std\_logic)
+\item Reset (reset, std\_logic) na laag gaan van reset starten met counter nul en hoge pulse
+\item Enabled (enabled, std\_logic) als hoog counter pauzeren en uitgang laag
+\item Pulsebreedte (width, 8-bit, std\_logic)
 \end{itemize}
 \subsection{Outputs}
 \begin{itemize}
