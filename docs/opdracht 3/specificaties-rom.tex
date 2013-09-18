@@ -5,18 +5,18 @@
 \begin{document}
 \section{Specificatie voor Read Only Memory (ROM)}
 \subsection{Beschrijving}
-ROM is een verzameling geheugencellen met voorgeprogrammeerde en niet-herschrijfbare inhoud. Het ROM bestaat uit een vierkant grid van cellen die ieder 1 bit aan informatie vasthouden, iedere cel is benaderbaar met een x en y "coordinaat". Dit gebeurt met selectiebits, de inputs. Er zijn twee sets selectiebits: 1 om de juiste rij (y) te selecteren en 1 om de juiste kolom (x) te selecteren. Op de output van het ROM moet vervolgens de opgevraagde bit komen te staan.
+ROM is een verzameling geheugens met voorgeprogrammeerde en niet-herschrijfbare inhoud. De geheugens kunnen ieder één \textit{WORD} bevatten, de grootte in bits van dit WORD is een parameter. Ieder WORD heeft een adres, beginnend bij 0 en eindigend bij $n-1$, waar de parameter $n$ een geheel getal is en het aantal WORDs wat het ROM bevat voor stelt. Bij de invoer van een adres, dient het ROM het WORD van dat adres terug te geven aan de output.
 \subsection{Parameters}
 \begin{itemize}
-	\item $n$: $n$ is een even getal en bepaalt de grootte van het geheugen. $n$-bits geheugen bevat $2^{n}$ geheugencellen, geordend in een vierkant grid (INTEGER)
+	\item $n$: $n$ is het aantal WORDs dat het ROM kan opslaan (INTEGER)
+	\item $w$: $w$ is de grootte van één WORD in bits (INTEGER)
 \end{itemize}
 \subsection{Inputs}
 \begin{itemize}
-	\item Horizontale selectiebits: er zijn $\frac{n}{2}$ selectiebits nodig om alle kolommen te kunnen selecteren (std_logic_vector($\frac{n}{2}-1$ downto 0)
-	\item Verticale selectiebits: er zijn $\frac{n}{2}$ selectiebits nodig om alle kolommen te kunnen selecteren (std_logic_vector($\frac{n}{2}-1$ downto 0)
+	\item Het adres van het terug te geven WORD. Het ROM dient het WORD dat zich op het gegeven adres bevindt aan de output weer te geven. (std_logic_vector)
 \end{itemize}
 \subsection{Outputs}
 \begin{itemize}
-	\item Data: de inhoud van de cel op het geselecteerde adres, 1-bit (std_logic)
+	\item Data: het WORD op het geselecteerde adres (std_logic_vector)
 \end{itemize}
 \end{document}
