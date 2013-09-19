@@ -1,4 +1,5 @@
 Specificaties RAM
+Gemaakt door Jorden en Kees
 =================
 
 Parameters:
@@ -19,4 +20,4 @@ Ingangen:
 
 Uitgang:
 	-(#bits) uitgang die opgeslagen waarde weergeeft
-	- ready (hoog als data klaar staat
+	- ready (hoog als data klaar staat)
