@@ -1,0 +1,51 @@
+# //  ModelSim SE 10.1b Apr 26 2012 Linux 3.0.80-0.5-default
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# vsim -do /data/public/common/software/opprog/do_files/init_simulator.do -lib work pwm_gen_tb_behaviour_extr_cfg 
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.parameter_def(body)
+# Loading cellslib.cellslib_decl_pack
+# Loading work.pwm_gen_tb_behaviour_extr_cfg#1
+# Loading work.pwm_gen_tb(behaviour)#1
+# Loading work.pwm_gen_extracted_cfg#1
+# Loading work.pwm_gen(extracted)#1
+# Loading cellslib.no210(dataflow)#1
+# Loading cellslib.iv110(dataflow)#1
+# Loading cellslib.dfr11(dataflow)#1
+# Loading cellslib.na210(dataflow)#1
+# Loading cellslib.no310(dataflow)#1
+# Loading cellslib.mu111(dataflow)#1
+# Loading cellslib.na310(dataflow)#1
+# do /data/public/common/software/opprog/do_files/init_simulator.do 
+# /data/public/common/software/opprog/do_files
+run
+# ** Warning: setup_violation of R
+#    Time: 0 ns  Iteration: 1  Instance: /pwm_gen_tb/lbl1/count_reg_4_inst
+# ** Warning: setup_violation of R
+#    Time: 0 ns  Iteration: 1  Instance: /pwm_gen_tb/lbl1/count_reg_7_inst
+# ** Warning: setup_violation of R
+#    Time: 0 ns  Iteration: 1  Instance: /pwm_gen_tb/lbl1/count_reg_2_inst
+# ** Warning: setup_violation of R
+#    Time: 0 ns  Iteration: 1  Instance: /pwm_gen_tb/lbl1/count_reg_5_inst
+# ** Warning: setup_violation of R
+#    Time: 0 ns  Iteration: 1  Instance: /pwm_gen_tb/lbl1/count_reg_8_inst
+# ** Warning: setup_violation of R
+#    Time: 0 ns  Iteration: 1  Instance: /pwm_gen_tb/lbl1/count_reg_0_inst
+# ** Warning: setup_violation of R
+#    Time: 0 ns  Iteration: 1  Instance: /pwm_gen_tb/lbl1/count_reg_3_inst
+# ** Warning: setup_violation of R
+#    Time: 0 ns  Iteration: 1  Instance: /pwm_gen_tb/lbl1/count_reg_6_inst
+# ** Warning: setup_violation of R
+#    Time: 0 ns  Iteration: 1  Instance: /pwm_gen_tb/lbl1/count_reg_9_inst
+# ** Warning: setup_violation of R
+#    Time: 0 ns  Iteration: 1  Instance: /pwm_gen_tb/lbl1/count_reg_1_inst
