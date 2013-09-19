@@ -1,4 +1,5 @@
 Specificaties RAM
+Gemaakt door Jorden en Kees
 =================
 
 Parameters:
@@ -11,8 +12,7 @@ Randvoorwaarden:
 
 
 Ingangen:
-  - klok
-  - enabled
+  - klok (periode 10 ns)
   - commando (2 bits) (read/ write)
   - adresslines (log2(words) aantal bits)
   - reset (waarbij je het gehele geheugen wist)
@@ -20,4 +20,4 @@ Ingangen:
 
 Uitgang:
 	-(#bits) uitgang die opgeslagen waarde weergeeft
-	- ready (hoog als data klaar staat
+	- ready (hoog als data klaar staat)
