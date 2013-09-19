@@ -1,0 +1,5 @@
+I clk clk
+I reset reset
+I a_1_0_1 a(1)
+I a_1_0_0 a(0)
+O d_out___ d_out()

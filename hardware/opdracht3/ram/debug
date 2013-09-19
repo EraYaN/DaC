@@ -1,3 +1,15 @@
-ram VHDL/ram.vhd
+ramlib VHDL/ram_pkg.vhd VHDL/ram_pkg.vhd E0 A0 C0 A1 C1 P0
+ram VHDL/ram.vhd 0
+ram_tb VHDL/ram_tb.vhd 1
+behaviour 0 VHDL/ram-behaviour.vhd
+behaviour 1 VHDL/ram_tb-behaviour.vhd
+ram_behaviour_cfg ram behaviour VHDL/ram_behaviour_cfg.vhd {}
+ram_tb_behaviour_cfg ram_tb behaviour VHDL/ram_tb_behaviour_cfg.vhd ram_behaviour_cfg
 AFTER
-ram VHDL/ram.vhd
+ramlib VHDL/ram_pkg.vhd VHDL/ram_pkg.vhd E0 A0 C0 A1 C1 P0
+ram VHDL/ram.vhd 0
+ram_tb VHDL/ram_tb.vhd 1
+behaviour 0 VHDL/ram-behaviour.vhd 0
+behaviour 1 VHDL/ram_tb-behaviour.vhd 1
+ram_behaviour_cfg ram behaviour VHDL/ram_behaviour_cfg.vhd {}
+ram_tb_behaviour_cfg ram_tb behaviour VHDL/ram_tb_behaviour_cfg.vhd ram_behaviour_cfg
