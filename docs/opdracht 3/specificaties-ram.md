@@ -11,8 +11,7 @@ Randvoorwaarden:
 
 
 Ingangen:
-  - klok
-  - enabled
+  - klok (periode 10 ns)
   - commando (2 bits) (read/ write)
   - adresslines (log2(words) aantal bits)
   - reset (waarbij je het gehele geheugen wist)
