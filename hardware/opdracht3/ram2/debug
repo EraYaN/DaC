@@ -1,0 +1,27 @@
+ramlib VHDL/ram_pkg.vhd VHDL/ram_pkg.vhd E0 A0 A1 C0 A2 C1 E2 A3 P0 E3 A4 C2
+ram VHDL/ram.vhd 0 1
+ram_tb VHDL/ram_tb.vhd 2
+rambank VHDL/rambank.vhd 3
+ramword VHDL/ramword.vhd 4
+behaviour 0 VHDL/ram-behaviour.vhd
+synthesised 0 VHDL/ram_SYNTH.vhd
+behaviour 1 VHDL/ram_tb-behaviour.vhd
+behaviour 2 VHDL/rambank-behaviour.vhd
+behaviour 3 VHDL/ramword-behaviour.vhd
+ram_behaviour_cfg ram behaviour VHDL/ram_behaviour_cfg.vhd {}
+ram_tb_behaviour_cfg ram_tb behaviour VHDL/ram_tb_behaviour_cfg.vhd ram_behaviour_cfg
+ramword_behaviour_cfg ramword behaviour VHDL/ramword_behaviour_cfg.vhd {}
+AFTER
+ramlib VHDL/ram_pkg.vhd VHDL/ram_pkg.vhd E0 A0 A1 C0 A2 C1 E2 A3 P0 E3 A4 C2
+ram VHDL/ram.vhd 0 1
+ram_tb VHDL/ram_tb.vhd 2
+rambank VHDL/rambank.vhd 3
+ramword VHDL/ramword.vhd 4
+behaviour 0 VHDL/ram-behaviour.vhd 0
+synthesised 0 VHDL/ram_SYNTH.vhd
+behaviour 1 VHDL/ram_tb-behaviour.vhd 1
+behaviour 2 VHDL/rambank-behaviour.vhd
+behaviour 3 VHDL/ramword-behaviour.vhd 2
+ram_behaviour_cfg ram behaviour VHDL/ram_behaviour_cfg.vhd {}
+ram_tb_behaviour_cfg ram_tb behaviour VHDL/ram_tb_behaviour_cfg.vhd ram_behaviour_cfg
+ramword_behaviour_cfg ramword behaviour VHDL/ramword_behaviour_cfg.vhd {}
