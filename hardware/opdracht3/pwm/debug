@@ -1,3 +1,27 @@
-parameter_def VHDL/parameter_def_pkg.vhd VHDL/parameter_def_pkg.vhd P0
+parameter_def VHDL/parameter_def_pkg.vhd VHDL/parameter_def_pkg.vhd P0 E0 A0 A1 A2 C0 C1 C2 A3 C3 C4 C5
+pwm_gen VHDL/pwm_gen.vhd 0 1 2
+pwm_gen_tb VHDL/pwm_gen_tb.vhd 3
+extracted 0 VHDL/pwm_gen_EXTR.vhd
+synthesised 0 VHDL/pwm_gen_SYNTH.vhd
+behaviour 0 VHDL/pwm_gen-behaviour.vhd
+behaviour 1 VHDL/pwm_gen_tb-behaviour.vhd
+pwm_gen_behaviour_cfg pwm_gen behaviour VHDL/pwm_gen_behaviour_cfg.vhd {}
+pwm_gen_extracted_cfg pwm_gen extracted VHDL/pwm_gen_extracted_cfg.vhd {}
+pwm_gen_synthesised_cfg pwm_gen synthesised VHDL/pwm_gen_synthesised_cfg.vhd {}
+pwm_gen_tb_behaviour_cfg pwm_gen_tb behaviour VHDL/pwm_gen_tb_behaviour_cfg.vhd pwm_gen_behaviour_cfg
+pwm_gen_tb_behaviour_extr_cfg pwm_gen_tb behaviour VHDL/pwm_gen_tb_behaviour_extr_cfg.vhd pwm_gen_extracted_cfg
+pwm_gen_tb_behaviour_syn_cfg pwm_gen_tb behaviour VHDL/pwm_gen_tb_behaviour_syn_cfg.vhd pwm_gen_synthesised_cfg
 AFTER
-parameter_def VHDL/parameter_def_pkg.vhd VHDL/parameter_def_pkg.vhd P0
+parameter_def VHDL/parameter_def_pkg.vhd VHDL/parameter_def_pkg.vhd P0 E0 A0 A1 A2 C0 C1 C2 A3 C3 C4 C5
+pwm_gen VHDL/pwm_gen.vhd 0 1 2
+pwm_gen_tb VHDL/pwm_gen_tb.vhd 3
+extracted 0 VHDL/pwm_gen_EXTR.vhd 1
+synthesised 0 VHDL/pwm_gen_SYNTH.vhd 2
+behaviour 0 VHDL/pwm_gen-behaviour.vhd 0
+behaviour 1 VHDL/pwm_gen_tb-behaviour.vhd 3 4 5
+pwm_gen_behaviour_cfg pwm_gen behaviour VHDL/pwm_gen_behaviour_cfg.vhd {}
+pwm_gen_extracted_cfg pwm_gen extracted VHDL/pwm_gen_extracted_cfg.vhd {}
+pwm_gen_synthesised_cfg pwm_gen synthesised VHDL/pwm_gen_synthesised_cfg.vhd {}
+pwm_gen_tb_behaviour_cfg pwm_gen_tb behaviour VHDL/pwm_gen_tb_behaviour_cfg.vhd pwm_gen_behaviour_cfg
+pwm_gen_tb_behaviour_extr_cfg pwm_gen_tb behaviour VHDL/pwm_gen_tb_behaviour_extr_cfg.vhd pwm_gen_extracted_cfg
+pwm_gen_tb_behaviour_syn_cfg pwm_gen_tb behaviour VHDL/pwm_gen_tb_behaviour_syn_cfg.vhd pwm_gen_synthesised_cfg
