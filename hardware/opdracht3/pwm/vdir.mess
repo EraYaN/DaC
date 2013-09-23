@@ -1,8 +1,8 @@
 Library vendor : Model Technology
 Maximum unnamed designs : 3
 OPTIMIZED DESIGN _opt
-    Version string: cMFiboZBP:C@nC@E81NFc3
-    Top-level model: work pwm_gen_tb_behaviour_extr_cfg 1
+    Version string: @lZL?`Q9^^E9n<aU[>IA82
+    Top-level model: work pwm_gen_tb_behaviour_cfg 1
     Compile options: -quiet -auto_acc_if_foreign -work work
     Short name: @_opt
     Opcode format: 10.1b; VCOM/VLOG SE Object version 51
@@ -15,16 +15,44 @@ OPTIMIZED DESIGN _opt1
     Opcode format: 10.1b; VCOM/VLOG SE Object version 51
     Source directory: /home/rphes/DaC/hardware/opdracht3/pwm
 OPTIMIZED DESIGN _opt2
-    Version string: AoUB6D<zffQR35NhYnXHe1
-    Top-level model: work pwm_gen_tb_behaviour_syn_cfg 1
+    Version string: >6TFi<?;B[XkAMz5_ega50
+    Top-level model: work pwm_gen_tb_behaviour_cfg 1
     Compile options: -quiet -auto_acc_if_foreign -work work
     Short name: @_opt2
+    Opcode format: 10.1b; VCOM/VLOG SE Object version 51
+    Source directory: /home/rphes/DaC/hardware/opdracht3/pwm
+OPTIMIZED DESIGN _opt3
+    Version string: AGeDE98eSJd]fheAYg>]Q2
+    Top-level model: work pwm_gen_tb_behaviour_cfg 1
+    Compile options: -quiet -auto_acc_if_foreign -work work
+    Short name: @_opt3
+    Opcode format: 10.1b; VCOM/VLOG SE Object version 51
+    Source directory: /home/rphes/DaC/hardware/opdracht3/pwm
+OPTIMIZED DESIGN _opt4
+    Version string: TXgk_ZbclIZG8OUkV:ldo3
+    Top-level model: work pwm_gen_tb_behaviour_cfg 1
+    Compile options: -quiet -auto_acc_if_foreign -work work
+    Short name: @_opt4
+    Opcode format: 10.1b; VCOM/VLOG SE Object version 51
+    Source directory: /home/rphes/DaC/hardware/opdracht3/pwm
+OPTIMIZED DESIGN _opt5
+    Version string: n1bl>PCbGNT<oO83o5U]Z2
+    Top-level model: work pwm_gen_tb_behaviour_cfg 1
+    Compile options: -quiet -auto_acc_if_foreign -work work
+    Short name: @_opt5
+    Opcode format: 10.1b; VCOM/VLOG SE Object version 51
+    Source directory: /home/rphes/DaC/hardware/opdracht3/pwm
+OPTIMIZED DESIGN _opt6
+    Version string: QPNiP]R=ce7o64>=`E<P_3
+    Top-level model: work pwm_gen_tb_behaviour_cfg 1
+    Compile options: -quiet -auto_acc_if_foreign -work work
+    Short name: @_opt6
     Opcode format: 10.1b; VCOM/VLOG SE Object version 51
     Source directory: /home/rphes/DaC/hardware/opdracht3/pwm
 VHDL PACKAGE parameter_def
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
     Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
-    Source modified time: Thu Sep 19 09:21:28 2013
+    Source modified time: Mon Sep 23 11:10:21 2013
     Source directory: /home/rphes/DaC/hardware/opdracht3/pwm
     HDL source file: VHDL/parameter_def_pkg.vhd
     Source file: VHDL/parameter_def_pkg.vhd
@@ -41,7 +69,7 @@ VHDL PACKAGE parameter_def
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
     Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
     Start location: VHDL/parameter_def_pkg.vhd:9
-    Version string: 9:^`AP<CBQCKW<;2Z2cBX0
+    Version string: Ek:`cha0R_OZO3HD:TPhN3
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
     Compile options: -lower -explicit -work work -quiet -nologo
@@ -49,7 +77,7 @@ VHDL PACKAGE parameter_def
     Short name: body
     Source directory: /home/rphes/DaC/hardware/opdracht3/pwm
     Source file: VHDL/parameter_def_pkg.vhd
-    Source modified time: Thu Sep 19 09:21:28 2013
+    Source modified time: Mon Sep 23 11:10:21 2013
     HDL source file: VHDL/parameter_def_pkg.vhd
     Debug Symbol file exists
 ENTITY pwm_gen
@@ -69,7 +97,7 @@ ENTITY pwm_gen
     Compile defaults: Explicit=1
     Debug Symbol file exists
   ARCHITECTURE BODY extracted
-    Source modified time: Thu Sep 19 11:17:06 2013
+    Source modified time: Mon Sep 23 11:14:12 2013
     Depends on: P work parameter_def Oia?UCgmV^?Pc:eKO?Rim2
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
     Depends on: E work pwm_gen ]zS`h=IB@@WhOD4ZkbhSY3
@@ -79,7 +107,7 @@ ENTITY pwm_gen
     HDL source file: VHDL/pwm_gen_EXTR.vhd
     Source file: VHDL/pwm_gen_EXTR.vhd
     Start location: VHDL/pwm_gen_EXTR.vhd:13
-    Version string: ^@I3POVEHOg5bIzRO[X:o1
+    Version string: =o<Z2]3`58^XHH0TG9gdW3
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
     Compile options: -lower -explicit -work work -quiet -nologo
@@ -87,7 +115,7 @@ ENTITY pwm_gen
     Source directory: /home/rphes/DaC/hardware/opdracht3/pwm
     Debug Symbol file exists
   ARCHITECTURE BODY synthesised
-    Source modified time: Thu Sep 19 10:59:19 2013
+    Source modified time: Mon Sep 23 11:13:02 2013
     Depends on: P work parameter_def Oia?UCgmV^?Pc:eKO?Rim2
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
     Depends on: E work pwm_gen ]zS`h=IB@@WhOD4ZkbhSY3
@@ -97,7 +125,7 @@ ENTITY pwm_gen
     HDL source file: VHDL/pwm_gen_SYNTH.vhd
     Source file: VHDL/pwm_gen_SYNTH.vhd
     Start location: VHDL/pwm_gen_SYNTH.vhd:7
-    Version string: ]Kn57OOSMGU3H;9W;c_gg1
+    Version string: CBNOLY`Ui2Zd>eaa<jTIA3
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
     Compile options: -lower -explicit -work work -quiet -nologo
@@ -105,7 +133,7 @@ ENTITY pwm_gen
     Source directory: /home/rphes/DaC/hardware/opdracht3/pwm
     Debug Symbol file exists
   ARCHITECTURE BODY behaviour
-    Source modified time: Thu Sep 19 10:55:35 2013
+    Source modified time: Mon Sep 23 10:19:32 2013
     Depends on: E work pwm_gen ]zS`h=IB@@WhOD4ZkbhSY3
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
     Depends on: P work parameter_def Oia?UCgmV^?Pc:eKO?Rim2
@@ -114,7 +142,7 @@ ENTITY pwm_gen
     HDL source file: VHDL/pwm_gen-behaviour.vhd
     Source file: VHDL/pwm_gen-behaviour.vhd
     Start location: VHDL/pwm_gen-behaviour.vhd:6
-    Version string: n89nA5D58IIOOPRz[B2313
+    Version string: U9UT[T7bdO12DSYdVD=i^0
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
     Compile options: -lower -explicit -work work -quiet -nologo
@@ -124,7 +152,7 @@ ENTITY pwm_gen
 VHDL CONFIGURATION pwm_gen_behaviour_cfg
     Configuration for architecture: behaviour
     Configuration for entity: pwm_gen
-    Depends on: A work pwm_gen behaviour n89nA5D58IIOOPRz[B2313
+    Depends on: A work pwm_gen behaviour U9UT[T7bdO12DSYdVD=i^0
     Depends on: P work parameter_def Oia?UCgmV^?Pc:eKO?Rim2
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
@@ -143,15 +171,15 @@ VHDL CONFIGURATION pwm_gen_behaviour_cfg
 VHDL CONFIGURATION pwm_gen_extracted_cfg
     Configuration for architecture: extracted
     Configuration for entity: pwm_gen
-    Depends on: E cellslib na310 z]klTlH8iZ77=SW_]c<[_0
     Depends on: E cellslib mu111 hknW;QzWV8Je@9eJh_5o`3
     Depends on: E cellslib no310 5C0Y^_:?0B6SKY[lPJEV>1
+    Depends on: E cellslib na310 z]klTlH8iZ77=SW_]c<[_0
     Depends on: E cellslib na210 Q7aJ;UTN[fYM;jh8iJg^41
     Depends on: E cellslib dfr11 8RHM1UV5ZACIokFFneMOO0
-    Depends on: E cellslib iv110 Bdg]QV`zZkg7kCgfbQ_;e3
     Depends on: E cellslib no210 ]lRe4fhV8=dVn]MWXCKmY1
+    Depends on: E cellslib iv110 Bdg]QV`zZkg7kCgfbQ_;e3
     Depends on: P cellslib cellslib_decl_pack jN>@fCZF[S;GLUBeoUn5^2
-    Depends on: A work pwm_gen extracted ^@I3POVEHOg5bIzRO[X:o1
+    Depends on: A work pwm_gen extracted ]AkfQH2U]fLD?boH^4L1C3
     Depends on: P work parameter_def Oia?UCgmV^?Pc:eKO?Rim2
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
@@ -170,15 +198,15 @@ VHDL CONFIGURATION pwm_gen_extracted_cfg
 VHDL CONFIGURATION pwm_gen_synthesised_cfg
     Configuration for architecture: synthesised
     Configuration for entity: pwm_gen
-    Depends on: E cellslib mu111 hknW;QzWV8Je@9eJh_5o`3
-    Depends on: E cellslib na310 z]klTlH8iZ77=SW_]c<[_0
-    Depends on: E cellslib na210 Q7aJ;UTN[fYM;jh8iJg^41
-    Depends on: E cellslib iv110 Bdg]QV`zZkg7kCgfbQ_;e3
-    Depends on: E cellslib no310 5C0Y^_:?0B6SKY[lPJEV>1
+    Depends on: E cellslib ex210 jfbZcVZ_zElhH?3Ngm^Z<3
     Depends on: E cellslib no210 ]lRe4fhV8=dVn]MWXCKmY1
+    Depends on: E cellslib no310 5C0Y^_:?0B6SKY[lPJEV>1
+    Depends on: E cellslib na310 z]klTlH8iZ77=SW_]c<[_0
+    Depends on: E cellslib iv110 Bdg]QV`zZkg7kCgfbQ_;e3
+    Depends on: E cellslib na210 Q7aJ;UTN[fYM;jh8iJg^41
     Depends on: E cellslib dfr11 8RHM1UV5ZACIokFFneMOO0
     Depends on: P cellslib cellslib_decl_pack jN>@fCZF[S;GLUBeoUn5^2
-    Depends on: A work pwm_gen synthesised ]Kn57OOSMGU3H;9W;c_gg1
+    Depends on: A work pwm_gen synthesised N4o4B;9A]`JnKFh`?nhAa1
     Depends on: P work parameter_def Oia?UCgmV^?Pc:eKO?Rim2
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
@@ -209,7 +237,7 @@ ENTITY pwm_gen_tb
     Compile defaults: Explicit=1
     Debug Symbol file exists
   ARCHITECTURE BODY behaviour
-    Source modified time: Thu Sep 19 11:04:08 2013
+    Source modified time: Mon Sep 23 11:11:37 2013
     Depends on: E work pwm_gen_tb VlieeL_`41V0@R0an^8c?1
     Depends on: P work parameter_def Oia?UCgmV^?Pc:eKO?Rim2
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
@@ -218,7 +246,7 @@ ENTITY pwm_gen_tb
     HDL source file: VHDL/pwm_gen_tb-behaviour.vhd
     Source file: VHDL/pwm_gen_tb-behaviour.vhd
     Start location: VHDL/pwm_gen_tb-behaviour.vhd:6
-    Version string: b>?M[03Gb=;`[CeaK<CKT3
+    Version string: 7=N3ZUmj]FZ1ANJ^QM3Mz2
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
     Compile options: -lower -explicit -work work -quiet -nologo
@@ -232,7 +260,7 @@ VHDL CONFIGURATION pwm_gen_tb_behaviour_cfg
     Depends on: C work pwm_gen_behaviour_cfg Cl9h95XeHmY1ij6enh=L?2
     Depends on: P work parameter_def Oia?UCgmV^?Pc:eKO?Rim2
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
-    Depends on: A work pwm_gen_tb behaviour cjf3`YOH_o4o[O2<9h`CA0
+    Depends on: A work pwm_gen_tb behaviour bIHJQP6SUDD?>Jaj2e@=D2
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
     Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
     Depends on: E work pwm_gen_tb VlieeL_`41V0@R0an^8c?1
@@ -253,7 +281,7 @@ VHDL CONFIGURATION pwm_gen_tb_behaviour_extr_cfg
     Depends on: C work pwm_gen_extracted_cfg jL32OL]YC@ncf8ORH:Z2F3
     Depends on: P work parameter_def Oia?UCgmV^?Pc:eKO?Rim2
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
-    Depends on: A work pwm_gen_tb behaviour b>?M[03Gb=;`[CeaK<CKT3
+    Depends on: A work pwm_gen_tb behaviour dCOA>6FKQXdSIFX5I@BSN2
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
     Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
     Depends on: E work pwm_gen_tb VlieeL_`41V0@R0an^8c?1
@@ -274,7 +302,7 @@ VHDL CONFIGURATION pwm_gen_tb_behaviour_syn_cfg
     Depends on: C work pwm_gen_synthesised_cfg >9QC[ha4Z2WY[[AEKUGB:0
     Depends on: P work parameter_def Oia?UCgmV^?Pc:eKO?Rim2
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
-    Depends on: A work pwm_gen_tb behaviour cjf3`YOH_o4o[O2<9h`CA0
+    Depends on: A work pwm_gen_tb behaviour ^5:nGiQdBe:R`=LTQ[^T>0
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
     Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
     Depends on: E work pwm_gen_tb VlieeL_`41V0@R0an^8c?1

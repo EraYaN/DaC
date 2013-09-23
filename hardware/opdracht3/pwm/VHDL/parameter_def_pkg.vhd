@@ -7,9 +7,21 @@ constant BITSIZE : INTEGER;
 END parameter_def;
 
 PACKAGE BODY parameter_def IS
-constant D : INTEGER := 1000;
-constant BITSIZE : INTEGER := 10;
+constant D : INTEGER := 15;
+constant BITSIZE : INTEGER := 4;
 END parameter_def;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

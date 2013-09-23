@@ -224,3 +224,6 @@ work/
 #sublime text shit
 *.sublime-workspace
 
+#GoWithTheFlow shit
+[Hh]ardware/**/[Tt]est/
+

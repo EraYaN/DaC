@@ -23,16 +23,47 @@ begin
 
 	lbl1: pwm_gen port map (clk, reset, enabled, width, pulse);
 	clk 	<= 	'1' after 0 ns,
-			'0' after 100 ns when clk /= '0' else '1' after 100 ns;
+			'0' after 50 ns when clk /= '0' else '1' after 50 ns;
 	reset 	<=	'1' after 0 ns,
 			'0' after 200 ns;
 	enabled <=		'0' after 0 ns,
 			'1' after 400 ns;
 	width 	<=	to_unsigned(0,width'length) after 0 ms,
-			to_unsigned(512, width'length) after 2 ms,
-			to_unsigned(1023, width'length) after 4 ms,
-			to_unsigned(256 ,width'length) after 6 ms;
+			to_unsigned(8, width'length) after 14 us,
+			to_unsigned(15, width'length) after 28 us,
+			to_unsigned(0,width'length) after 42 us,
+			to_unsigned(4, width'length) after 56 us;
 end behaviour;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
