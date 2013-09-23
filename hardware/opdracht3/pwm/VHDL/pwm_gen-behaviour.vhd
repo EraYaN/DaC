@@ -6,6 +6,7 @@ use IEEE.numeric_std.ALL;
 architecture behaviour of pwm_gen is
 
 signal count: unsigned((BITSIZE-1) downto 0);
+signal new_pulse: std_logic;
 
 begin
 
@@ -15,16 +16,19 @@ begin
 	if(rising_edge(clk)) then 
 		if(reset = '1') then 
 			count <= (others => '0');
+			pulse <= '0';
 		elsif(reset = '0' and enabled ='1') then 
 			if (count < D) then
-				count <= count +1;
+				count <= count + 1;
 			else
 				count <= (others => '0');
 			end if;
+			pulse <= new_pulse;
 		else 
 			count <= count;
-
+			pulse <= new_pulse;
 		end if;
+		
 	end if;
 
 end process;
@@ -32,17 +36,17 @@ end process;
 pulse_gen: process (clk)
 begin
 	if (enabled = '1') then 
-		if (width > D) then
-			pulse <= '1';
+		if (width >= D) then
+			new_pulse <= '1';
 		else
 			if (count < width) then 
-				pulse <= '1';
+				new_pulse <= '1';
 			else
-				pulse <= '0';
+				new_pulse <= '0';
 			end if;
 		end if;
 	else 
-		pulse <= '0';
+		new_pulse <= '0';
 	end if;
 end process;
 
@@ -50,6 +54,18 @@ end process;
     
 
 end behaviour;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

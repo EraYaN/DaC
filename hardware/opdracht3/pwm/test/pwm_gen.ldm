@@ -1,121 +1,44 @@
 :: no-origin mode LDM
 ms pwm_gen
-mc <U120> iv110 mx 3326 2010
-mc <U119> mu111 2126 988
-mc <U65> no310 4846 0
-mc <U121> no210 1926 988
-mc <U66> no210 4206 0
-mc <U122> na210 1766 988
-mc <U67> iv110 4046 988
-mc <U123> na210 1606 988
-mc <count_reg_1_inst> dfr11 mx -34 2010
-mc <U68> no210 4406 988
-mc <U124> na310 3366 988
-mc <U69> no210 4046 0
-mc <U70> na210 4366 0
-mc <U125> mu111 1246 988
-mc <U71> iv110 4566 988
-mc <U126> na210 926 0
-mc <U72> na210 3886 988
-mc <U127> na210 606 0
-mc <U73> iv110 4526 0
-mc <U128> iv110 766 0
-mc <U74> no210 5206 0
-mc <U130> mu111 mx 926 2010
-mc <U129> no310 1086 0
-mc <U75> no210 5926 988
-mc <U131> iv110 3206 988
-mc <U76> iv110 6646 988
-mc <U132> no210 mx 1286 2010
-mc <count_reg_9_inst> dfr11 326 988
-mc <U77> na210 3726 988
-mc <U133> na210 mx 6326 2998
-mc <U78> no210 7326 988
-mc <U134> na210 mx 7086 2010
-mc <U79> iv110 mx 6686 2998
-mc <U80> na210 7206 0
-mc <U135> iv110 446 0
-mc <U81> na210 7046 0
-mc <U136> iv110 mx 926 2998
-mc <U82> na310 6966 988
-mc <U137> mu111 mx 1486 2010
-mc <U83> no310 6846 0
-mc <count_reg_6_inst> dfr11 mx 3366 2998
-mc <U138> iv110 mx 1886 2010
-mc <U84> iv110 5886 0
-mc <U140> na210 mx 4926 2998
-mc <U139> na210 mx 4766 2998
-mc <U85> no210 6806 988
-mc <U141> no310 mx 5766 2010
-mc <U86> no210 3566 988
-mc <U142> iv110 mx 6166 2010
-mc <U87> no310 4206 988
-mc <U143> no210 mx 5966 2010
-mc <U88> iv110 4886 988
-mc <count_reg_3_inst> dfr11 2246 0
-mc <U144> iv110 mx 4526 2010
-mc <U90> na210 286 0
-mc <U89> iv110 5566 988
-mc <U145> no310 mx 5566 2010
-mc <U91> na210 126 988
-mc <U146> iv110 mx 5286 2010
-mc <U92> na210 126 0
-mc <U147> iv110 -34 0
-mc <U93> na210 -34 988
-mc <U148> iv110 2486 988
-mc <U94> mu111 2846 988
-mc <count_reg_0_inst> dfr11 mx -34 2998
-mc <U150> iv110 mx 2206 2010
-mc <U149> no210 mx 2006 2010
-mc <U95> no310 mx 6686 2010
-mc <U96> iv110 2646 988
-mc <U97> no210 mx 6166 2998
-mc <U98> mu111 mx 6326 2010
-mc <U99> no210 mx 6006 2998
-mc <count_reg_8_inst> dfr11 3166 0
-mc <count_reg_5_inst> dfr11 mx 2446 2998
-mc <U43> no210 mx 6486 2998
-mc <count_reg_2_inst> dfr11 1326 0
-mc <U44> no210 mx 7246 2010
-mc <U100> na210 mx 4606 2998
-mc <U45> no310 7366 0
-mc <U101> na210 mx 5406 2010
-mc <U46> no210 7166 988
-mc <U102> na310 mx 6886 2010
-mc <U47> no210 6686 0
-mc <U103> mu111 mx 4686 2010
-mc <U48> no210 6526 0
-mc <U104> no310 mx 5046 2010
-mc <U49> no210 6366 0
-mc <U50> no310 6446 988
-mc <U105> iv110 mx 4326 2998
-mc <U51> iv110 6086 988
-mc <U106> no210 mx 4446 2998
-mc <U52> na210 6046 0
-mc <U107> mu111 mx 3966 2010
-mc <U53> no210 6206 0
-mc <U108> no210 mx 4326 2010
-mc <U54> no310 6246 988
-mc <U110> na210 mx 3606 2010
-mc <U109> na210 mx 3446 2010
-mc <U55> no210 5726 0
-mc <U111> iv110 mx 3806 2010
-mc <U56> no310 5726 988
-mc <U112> no310 mx 2926 2010
-mc <count_reg_7_inst> dfr11 mx 5086 2998
-mc <U57> no210 5366 0
-mc <U113> mu111 mx 2366 2010
-mc <U58> no210 5406 988
-mc <U114> iv110 mx 3166 2010
-mc <U59> iv110 5246 988
-mc <U60> no310 5526 0
-mc <U115> no310 mx 2726 2010
-mc <U61> no210 5046 0
-mc <U116> na210 mx 1966 2998
-mc <U62> no310 5046 988
-mc <U117> na210 mx 2286 2998
-mc <count_reg_4_inst> dfr11 mx 1046 2998
-mc <U63> no210 4686 0
-mc <U118> iv110 mx 2166 2998
-mc <U64> no210 4726 988
+mc <U65> no210 126 0
+mc <U47> na210 1926 988
+mc <U66> iv110 -34 988
+mc <U48> na210 1766 988
+mc <U67> na210 -34 0
+mc <U50> iv110 1446 988
+mc <U49> na310 1726 0
+mc <U68> ex210 2886 988
+mc <U51> no210 1406 0
+mc <count_reg_1_inst> dfr11 4966 0
+mc <U70> iv110 3326 0
+mc <U69> no210 3646 0
+mc <U52> iv110 2726 988
+mc <U71> iv110 3486 0
+mc <U53> iv110 1566 0
+mc <count_reg_3_inst> dfr11 526 0
+mc <U72> ex210 4606 0
+mc <U54> no210 1286 988
+mc <pulse_reg> dfr11 2446 0
+mc <U73> no210 2406 988
+mc <U55> no210 766 988
+mc <U74> iv110 2566 988
+mc <U56> na210 1606 988
+mc <U75> iv110 3806 0
+mc <U57> na210 1126 988
+mc <U76> ex210 3966 0
+mc <U58> na210 2086 988
+mc <count_reg_0_inst> dfr11 4166 988
+mc <U77> no210 4446 0
+mc <U60> na310 926 988
+mc <U59> na210 606 988
+mc <U78> iv110 4286 0
+mc <U61> na210 446 988
+mc <count_reg_2_inst> dfr11 3246 988
+mc <U43> na210 2246 988
+mc <U62> na310 286 0
+mc <U44> na210 2086 0
+mc <U63> na210 286 988
+mc <U45> na210 1926 0
+mc <U64> iv110 126 988
+mc <U46> iv110 2246 0
 me
