@@ -1,0 +1,5 @@
+rm -rf /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu2/syn_work_bak
+mv -f /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu2/syn_work /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu2/syn_work_bak
+cp -r /tmp/jkerkhof/GitHub/DaC/hardware/opdracht3/alu2/syn_work /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu2
+cp /tmp/jkerkhof/GitHub/DaC/hardware/opdracht3/alu2/ADB/alu.ddc /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu2/ADB/alu.ddc
+cp /tmp/jkerkhof/GitHub/DaC/hardware/opdracht3/alu2/VHDL/alu_SYNTH.vhd /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu2/VHDL/alu_SYNTH.vhd

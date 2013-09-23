@@ -7,12 +7,19 @@ OPTIMIZED DESIGN _opt
     Short name: @_opt
     Opcode format: 10.1b; VCOM/VLOG SE Object version 51
     Source directory: /home/jkerkhof/Documents/Gowiththeflow/Opdr3
+OPTIMIZED DESIGN _opt1
+    Version string: T;G<]M6d7[chDK8hB8IDM2
+    Top-level model: work tb_behaviour_cfg 1
+    Compile options: -quiet -auto_acc_if_foreign -work work
+    Short name: @_opt1
+    Opcode format: 10.1b; VCOM/VLOG SE Object version 51
+    Source directory: /home/jkerkhof/Documents/Gowiththeflow/Opdr3
 ENTITY alu
-    Source modified time: Thu Sep 19 09:51:07 2013
+    Source modified time: Mon Sep 23 09:54:46 2013
     Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
     Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
-    Source directory: /home/jkerkhof/Documents/Gowiththeflow/Opdr3
+    Source directory: /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu
     HDL source file: VHDL/alu.vhd
     Source file: VHDL/alu.vhd
     Start location: VHDL/alu.vhd:5
@@ -22,25 +29,8 @@ ENTITY alu
     Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
     Debug Symbol file exists
-  ARCHITECTURE BODY behaviour
-    Source modified time: Thu Sep 19 12:27:28 2013
-    Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
-    Depends on: E work alu d@O;Q5_gk0gPNzhA4<`GT1
-    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
-    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
-    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
-    HDL source file: VHDL/alu-behaviour.vhd
-    Source file: VHDL/alu-behaviour.vhd
-    Start location: VHDL/alu-behaviour.vhd:5
-    Version string: A3I8j]D@enOon^V9LL6UR3
-    Opcode format: 10.1b; VCOM SE Object version 51
-    VHDL language standard: 2 (VHDL-2002)
-    Compile options: -lower -explicit -work work -quiet -nologo
-    Compile defaults: Explicit=1
-    Source directory: /home/jkerkhof/Documents/Gowiththeflow/Opdr3
-    Debug Symbol file exists
   ARCHITECTURE BODY synthesised
-    Source modified time: Thu Sep 19 12:26:22 2013
+    Source modified time: Mon Sep 23 09:59:35 2013
     Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
     Depends on: E work alu d@O;Q5_gk0gPNzhA4<`GT1
     Depends on: P cellslib cellslib_decl_pack jN>@fCZF[S;GLUBeoUn5^2
@@ -49,24 +39,41 @@ ENTITY alu
     HDL source file: VHDL/alu_SYNTH.vhd
     Source file: VHDL/alu_SYNTH.vhd
     Start location: VHDL/alu_SYNTH.vhd:7
-    Version string: ;9Yo`jaRKAJ67`E7F64hC0
+    Version string: YF56T?M]W70PIE^H=?JBn3
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
     Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
-    Source directory: /home/jkerkhof/Documents/Gowiththeflow/Opdr3
+    Source directory: /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu
+    Debug Symbol file exists
+  ARCHITECTURE BODY behaviour
+    Source modified time: Mon Sep 23 09:57:52 2013
+    Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
+    Depends on: E work alu d@O;Q5_gk0gPNzhA4<`GT1
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    HDL source file: VHDL/alu-behaviour.vhd
+    Source file: VHDL/alu-behaviour.vhd
+    Start location: VHDL/alu-behaviour.vhd:5
+    Version string: HTNEOAnBH2ELLT^6EmKja2
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Source directory: /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu
     Debug Symbol file exists
 VHDL CONFIGURATION alu_behaviour_cfg
     Configuration for architecture: behaviour
     Configuration for entity: alu
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
-    Depends on: A work alu behaviour A3I8j]D@enOon^V9LL6UR3
+    Depends on: A work alu behaviour kdVKo<TkAl5;;@EFgm1;n3
     Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
     Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
     Depends on: E work alu d@O;Q5_gk0gPNzhA4<`GT1
     Source modified time: Thu Sep 19 11:09:32 2013
-    Source directory: /home/jkerkhof/Documents/Gowiththeflow/Opdr3
+    Source directory: /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu
     HDL source file: VHDL/alu_behaviour_cfg.vhd
     Source file: VHDL/alu_behaviour_cfg.vhd
     Start location: VHDL/alu_behaviour_cfg.vhd:1
@@ -128,6 +135,7 @@ ENTITY tb
     Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
     Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Source directory: /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu
     HDL source file: VHDL/tb-behaviour.vhd
     Source file: VHDL/tb-behaviour.vhd
     Start location: VHDL/tb-behaviour.vhd:5
@@ -136,7 +144,6 @@ ENTITY tb
     VHDL language standard: 2 (VHDL-2002)
     Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
-    Source directory: /home/jkerkhof/Documents/Gowiththeflow/Opdr3
     Debug Symbol file exists
 VHDL CONFIGURATION tb_behaviour_cfg
     Configuration for architecture: behaviour
@@ -171,7 +178,7 @@ VHDL CONFIGURATION tb_behaviour_cfg_syn
     Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
     Depends on: E work tb C=0na@KL[zVIS4EU>>?8U0
     Source modified time: Thu Sep 19 12:16:31 2013
-    Source directory: /home/jkerkhof/Documents/Gowiththeflow/Opdr3
+    Source directory: /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu
     HDL source file: VHDL/tb_behaviour_cfg_syn.vhd
     Source file: VHDL/tb_behaviour_cfg_syn.vhd
     Start location: VHDL/tb_behaviour_cfg_syn.vhd:1
