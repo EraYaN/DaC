@@ -1,5 +1,5 @@
 # This is a maptable for nelsis <--> seadif conversion, generated/maintained by 'nelsea'
-# Written on: Thu Sep 19 12:26:43 2013
+# Written on: Mon Sep 23 10:00:32 2013
 # You can edit this file to control the mapping process
 # Each line contains the name of a nelsis cell and its corresponding seadif cell
 # The status field may contain the following values:
@@ -10,17 +10,14 @@
 #    N E L S I S     |                   S E A D I F                     | nelsis->sdf sdf->nelsis
 # view    cellname   | library      function     circuit      layout     |   status      status
 #--------------------+---------------------------------------------------+------------------------
- layout   Error_Marker_ test         Error_Marker_ Error_Marker_ Error_Marker_ not_written not_written
- layout   dfr11        g_digilib5_99 dfr11        dfr11        dfr11        not_written not_written
- layout   dfn10        g_digilib5_99 dfn10        dfn10        dfn10        not_written not_written
- layout   na310        g_digilib5_99 na310        na310        na310        not_written not_written
- layout   iv110        g_digilib5_99 iv110        iv110        iv110        not_written not_written
- layout   no310        g_digilib5_99 no310        no310        no310        not_written not_written
- layout   na210        g_digilib5_99 na210        na210        na210        not_written not_written
+ layout   ex210        g_digilib5_99 ex210        ex210        ex210        not_written not_written
  layout   no210        g_digilib5_99 no210        no210        no210        not_written not_written
  layout   mu111        g_digilib5_99 mu111        mu111        mu111        not_written not_written
- layout   ex210        g_digilib5_99 ex210        ex210        ex210        not_written not_written
- layout   Tmpnoname28211 test         alu          alu          Tmp_Cell_    not_written written
+ layout   no310        g_digilib5_99 no310        no310        no310        not_written not_written
+ layout   na310        g_digilib5_99 na310        na310        na310        not_written not_written
+ layout   iv110        g_digilib5_99 iv110        iv110        iv110        not_written not_written
+ layout   na210        g_digilib5_99 na210        na210        na210        not_written not_written
+ layout   Tmpalu15712  test         alu          alu          Tmp_Cell_    not_written written
  circuit  cap          primitives   cap          cap          $dummy       primitive   primitive
  circuit  res          primitives   res          res          $dummy       primitive   primitive
  circuit  penh         primitives   penh         penh         $dummy       primitive   primitive
