@@ -1,0 +1,19 @@
+:: no-origin mode LDM
+ms ramword
+mc <word_reg_3_inst> dfn10 mx -34 2010
+mc <U29> mu111 mx 766 2998
+mc <U30> mu111 766 1976
+mc <U31> mu111 mx 766 2010
+mc <U32> mu111 766 988
+mc <word_reg_5_inst> dfn10 mx -34 2998
+mc <U33> mu111 mx 766 1022
+mc <U34> mu111 766 0
+mc <word_reg_7_inst> dfn10 mx -34 3986
+mc <word_reg_0_inst> dfn10 -34 0
+mc <word_reg_2_inst> dfn10 -34 988
+mc <word_reg_4_inst> dfn10 -34 1976
+mc <word_reg_6_inst> dfn10 -34 2964
+mc <word_reg_1_inst> dfn10 mx -34 1022
+mc <U27> mu111 mx 766 3986
+mc <U28> mu111 766 2964
+me

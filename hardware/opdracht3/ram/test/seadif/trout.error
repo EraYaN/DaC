@@ -1,0 +1,60 @@
+This is the file 'seadif/trout.error' which was created by
+the program 'trout' on Mon Sep 23 10:14:22 2013
+Trout was verifying the netlist description of
+your circuit circuit 'ram' with the current layout in seadali.
+The following nets in the layout are not according to
+the netlist description of circuit 'ram'. They are also
+marked in the layout.
+------------------------- list of errors -------------------------
+@@@@@ partially unconnected net: 'ram_2_7_port' (1 unconnects among 2)
+@@@@@ partially unconnected net: 'ram_7_3_port' (1 unconnects among 2)
+@@@@@ partially unconnected net: 'ram_7_4_port' (1 unconnects among 2)
+@@@@@ partially unconnected net: 'ram_0_0_port' (1 unconnects among 2)
+@@@@@ entirely unconnected net:  'n450' (2 terminals)
+@@@@@ partially unconnected net: 'ram_7_0_port' (1 unconnects among 2)
+@@@@@ partially unconnected net: 'ram_4_2_port' (1 unconnects among 2)
+@@@@@ partially unconnected net: 'ram_3_3_port' (1 unconnects among 2)
+@@@@@ entirely unconnected net:  'ram_6_7_port' (4 terminals)
+@@@@@ partially unconnected net: 'ram_4_3_port' (1 unconnects among 2)
+@@@@@ entirely unconnected net:  'n454' (2 terminals)
+@@@@@ entirely unconnected net:  'n441' (2 terminals)
+@@@@@ partially unconnected net: 'n355' (7 unconnects among 9)
+@@@@@ entirely unconnected net:  'n418' (2 terminals)
+@@@@@ entirely unconnected net:  'n423' (2 terminals)
+@@@@@ partially unconnected net: 'd_in_7_0_6' (10 unconnects among 14)
+@@@@@ entirely unconnected net:  'n387' (2 terminals)
+@@@@@ partially unconnected net: 'n352' (5 unconnects among 7)
+@@@@@ partially unconnected net: 'ram_0_6_port' (1 unconnects among 2)
+@@@@@ partially unconnected net: 'n354' (11 unconnects among 15)
+@@@@@ partially unconnected net: 'ram_2_6_port' (1 unconnects among 2)
+@@@@@ entirely unconnected net:  'n504' (2 terminals)
+@@@@@ partially unconnected net: 'd_in_7_0_5' (1 unconnects among 8)
+@@@@@ partially unconnected net: 'd_in_7_0_4' (15 unconnects among 19)
+@@@@@ partially unconnected net: 'd_in_7_0_0' (8 unconnects among 13)
+@@@@@ entirely unconnected net:  'n322' (2 terminals)
+@@@@@ partially unconnected net: 'n359' (2 unconnects among 5)
+@@@@@ partially unconnected net: 'n360' (28 unconnects among 31)
+@@@@@ entirely unconnected net:  'ram_3_6_port' (4 terminals)
+@@@@@ partially unconnected net: 'n345' (18 unconnects among 23)
+@@@@@ partially unconnected net: 'd_in_7_0_7' (15 unconnects among 18)
+@@@@@ partially unconnected net: 'n349' (27 unconnects among 30)
+@@@@@ partially unconnected net: 'ram_3_4_port' (1 unconnects among 2)
+@@@@@ partially unconnected net: 'n356' (36 unconnects among 38)
+@@@@@ partially unconnected net: 'n344' (3 unconnects among 9)
+@@@@@ partially unconnected net: 'd_in_7_0_3' (28 unconnects among 29)
+@@@@@ entirely unconnected net:  'n346' (37 terminals)
+@@@@@ entirely unconnected net:  'n353' (56 terminals)
+@@@@@ partially unconnected net: 'n341' (3 unconnects among 6)
+@@@@@ partially unconnected net: 'd_in_7_0_2' (15 unconnects among 19)
+@@@@@ partially unconnected net: 'n358' (28 unconnects among 31)
+@@@@@ entirely unconnected net:  'n350' (37 terminals)
+@@@@@ partially unconnected net: 'd_in_7_0_1' (5 unconnects among 12)
+@@@@@ partially unconnected net: 'n348' (27 unconnects among 29)
+@@@@@ partially unconnected net: 'n351' (36 unconnects among 37)
+@@@@@ partially unconnected net: 'n347' (19 unconnects among 23)
+
+WARNING: 46 out of the 318 nets are not properly connected.
+         In the layout each of the unconnects is marked by
+         an arrow followed by the name of the net: <=-<net_name>
+------------------------------------------------------------------
+lock
