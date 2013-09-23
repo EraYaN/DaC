@@ -11,7 +11,7 @@ De PWM generator is een pulse generator, die de clock verdeelt in periodes waari
 \end{itemize}
 \subsection{Parameters}
 \begin{itemize}
-\item Divider (divider, 32-bit, integer) een parameter die de frequentie op clk deelt door zijn waarde, waarbij de divider minimaal 1 is en maximaal $2^{32} -1$ dit is het aantal klokpulsen dat 1 periode van het PWM signaal duurt.
+\item Divider (divider, 16-bit, integer) een parameter die de frequentie op clk deelt door zijn waarde, waarbij de divider minimaal 1 is en maximaal $2^{16} -1$ dit is het aantal klokpulsen dat 1 periode van het PWM signaal duurt.
 \item Bitsize  (bitsize, 2log(divider), naar boven afgerond, dit is het aantal bits van de resolutie.
 
 \end{itemize}
