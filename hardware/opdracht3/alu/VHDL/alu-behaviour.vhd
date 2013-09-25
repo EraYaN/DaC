@@ -21,6 +21,9 @@ begin
                 Reg3 <= std_logic_vector(signed(Reg1) + signed(Reg2) + signed(Reg4));  --addition
 		if (Reg3(S-1) = '1') then
 			Reg4 <= "0001";
+		 else
+			
+			Reg4 <= "0000";
 		end if;
             when "0101" =>
                 Reg3 <= std_logic_vector(signed(Reg1) - signed(Reg2)); --A-B
@@ -41,6 +44,10 @@ begin
                 Reg3 <= Reg1 and Reg2;  --AND gate
 		if (Reg3 = std_logic_vector(to_unsigned(0,S))) then
 			Reg4 <= "0010";
+		else
+		
+			Reg4 <= "0000";
+		
 		end if;
             when "1010" =>
                 Reg3 <= Reg1 or Reg2;  --OR gate  
@@ -62,6 +69,10 @@ begin
 		   
 		   if (Reg3(S-1) = '1') then
 			Reg4 <= "0001";
+		   else
+		
+			Reg4 <= "0000";
+			   
 		   end if;
 	    when "0010" =>
 		-- logic right shift input_B
@@ -74,9 +85,15 @@ begin
 		   
 		   if (Reg3(S-1) = '1') then
 			Reg4 <= "0001";
+		   else
+			
+			Reg4 <= "0000";
+	
 		   end if;
 	    when others =>
-                NULL;
+              Reg3 <= (others => '0');
+	      Reg4 <= "0000";
+		
         end case;      
     
    
@@ -84,6 +101,15 @@ end process;
 
 
 end behaviour;
+
+
+
+
+
+
+
+
+
 
 
 

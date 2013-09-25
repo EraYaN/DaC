@@ -8,24 +8,26 @@ architecture behaviour of ram is
    component rambank
        port(clk      :in    std_logic;
         write    :in    std_logic;
-        in_lines :in    std_logic_vector(WORDS*WORDSIZE downto 0);
-        out_lines:out   std_logic_vector(WORDS*WORDSIZE downto 0));
+        in_lines :in    std_logic_vector(WORDS*WORDSIZE-1 downto 0);
+        out_lines:out   std_logic_vector(WORDS*WORDSIZE-1 downto 0)
+	);
    end component;
 
-
+--TODO signals
+signal out_lines, in_lines :std_logic_vector(WORDS*WORDSIZE-1 downto 0);
 begin
 
-statereg: process(clk) 
-begin
-if(rising_edge(clk))then	
-	if(write='1')then
-		ram(to_integer(unsigned(a)))<=d_in;
-	end if;	
-end if;
-end process;
+rb: rambank port map (clk, write, in_lines,out_lines);
 
-d_out<=ram(to_integer(unsigned(a)));
+d_out<=out_lines(to_integer(unsigned(a)));
+in_lines(to_integer(unsigned(a)))<=d_in;
 end behaviour;
+
+
+
+
+
+
 
 
 

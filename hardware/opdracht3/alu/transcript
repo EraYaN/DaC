@@ -8,7 +8,7 @@
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
 # vsim -do /data/public/common/software/opprog/do_files/init_simulator.do -lib work tb_behaviour_cfg 
-# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Warning: (vopt-13) Recompile work.alu_behaviour_cfg because work.alu(behaviour) has changed.
 # ** Warning: (vopt-12) Recompile work.tb_behaviour_cfg after work.alu_behaviour_cfg is recompiled.
 # Loading std.standard
@@ -22,4 +22,5 @@
 # Loading work.alu(behaviour)#1
 # do /data/public/common/software/opprog/do_files/init_simulator.do 
 # /data/public/common/software/opprog/do_files
-run 4 us
+run 4000ns
+# Break key hit 

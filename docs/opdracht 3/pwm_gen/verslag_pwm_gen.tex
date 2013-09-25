@@ -1,0 +1,37 @@
+\documentclass{article}  
+\input{../../library/preamble}  
+\input{../../library/style}  
+
+\author{
+Robin Hes (4236815)\\
+Peter Stijnman (4215788)\\
+Xenia Wesdijk (4144074) \\
+|\\
+\textbf{In opdracht van:} \\
+Erwin de Haan (4222814) \\
+Tu Hoang (4203496) \\
+}
+\title{EPO3-1 - Opdracht 3: Moduleontwerp PWM generator}
+\date{23 september 2013}
+\begin{document}
+\maketitle
+\section{Samenvatting}
+Dit document is een ontwerprapport over de moduleopdracht bij het project EE2821. De gekozen module is een PWM-generator.
+In dit rapport wordt beschreven hoe aan de hand van een door twee medestudenten opgestelde specificaties tot een werkend ontwerp is gekomen.
+In de inleiding (sectie \ref{sec:pwm-inl}) wordt de context van deze opdracht uiteengezet, vervolgens wordt de opgestelde specificatie gegeven (sectie \ref{sec:pwm-spec}), daarna het opgestelde ontwerp (sectie \ref{sec:pwm-ontw}) en tot slot de uitgewerkte implementatie (sectie \ref{sec:pwm-impl}).
+
+\tableofcontents
+\section{Inleiding}
+\label{sec:pwm-inl}
+Het doel van deze opdracht is voornamelijk het oefenen met het maken van een ontwerp en implementatie voor een PWM-generator aan de hand van een lijst vastgestelde specificaties met tenminste één parameter (in ons geval twee, één hoofd). Ook helpt deze opdracht ons bij het verder eigen maken van het programma GOWithTheFlow.
+Mogelijkerwijs hebben we voor onze eindopdracht ook nog een PWM-generator nodig, bijvoorbeeld als tijdssignaal met een lagere frequentie dan de clk. Mocht dit het geval zijn, dan is het mooi meegenomen dat we deze implementatie al gebouwd hebben.
+
+\label{sec:pwm-spec}
+Wij hebben de volgende specificaties gekregen. Aan de hand van deze specificaties moesten we een ontwerp en implementatie voor een PWM-generator maken.
+\subimport{pwm_gen}{specificaties-pwm-gen.tex}
+
+\section{Ontwerp}
+\label{sec:pwm-ontw}
+\section{Implementatie}
+\label{sec:pwm-impl}
+\end{document}

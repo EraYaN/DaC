@@ -1,5 +1,5 @@
-rm -rf /home/jkerkhof/Documents/Gowiththeflow/Opdr3/syn_work_bak
-mv -f /home/jkerkhof/Documents/Gowiththeflow/Opdr3/syn_work /home/jkerkhof/Documents/Gowiththeflow/Opdr3/syn_work_bak
-cp -r /tmp/jkerkhof/Documents/Gowiththeflow/Opdr3/syn_work /home/jkerkhof/Documents/Gowiththeflow/Opdr3
-cp /tmp/jkerkhof/Documents/Gowiththeflow/Opdr3/ADB/alu.ddc /home/jkerkhof/Documents/Gowiththeflow/Opdr3/ADB/alu.ddc
-cp /tmp/jkerkhof/Documents/Gowiththeflow/Opdr3/VHDL/alu_SYNTH.vhd /home/jkerkhof/Documents/Gowiththeflow/Opdr3/VHDL/alu_SYNTH.vhd
+rm -rf /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu/syn_work_bak
+mv -f /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu/syn_work /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu/syn_work_bak
+cp -r /tmp/jkerkhof/GitHub/DaC/hardware/opdracht3/alu/syn_work /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu
+cp /tmp/jkerkhof/GitHub/DaC/hardware/opdracht3/alu/ADB/alu.ddc /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu/ADB/alu.ddc
+cp /tmp/jkerkhof/GitHub/DaC/hardware/opdracht3/alu/VHDL/alu_SYNTH.vhd /home/jkerkhof/GitHub/DaC/hardware/opdracht3/alu/VHDL/alu_SYNTH.vhd

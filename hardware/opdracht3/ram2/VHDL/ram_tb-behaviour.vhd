@@ -6,12 +6,10 @@ use work.ramlib.all;
 
 architecture behaviour of ram_tb is
 component ram is
-   port(clk  :in    std_logic;
-        reset:in    std_logic;
+   port(clk  :in    std_logic;        
 	a    :in   	std_logic_vector (ADRESSLINES-1 downto 0);
         d_in :in    std_logic_vector (WORDSIZE-1 downto 0);
 	write:in    std_logic;
-	read :in    std_logic;
 	d_out:out   std_logic_vector (WORDSIZE-1 downto 0)
 	);
 end component;
@@ -84,8 +82,11 @@ read<='0';
 wait for 20 ns;
 end process;
 
-ram1: ram port map(clk,reset,a,d_in,write,read,d_out);
+ram1: ram port map(clk,a,d_in,write,d_out);
 end behaviour;
+
+
+
 
 
 
