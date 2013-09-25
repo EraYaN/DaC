@@ -1,5 +1,5 @@
-rm -rf /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram/syn_work_bak
-mv -f /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram/syn_work /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram/syn_work_bak
-cp -r /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram/syn_work /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram
-cp /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram/ADB/ram.ddc /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram/ADB/ram.ddc
-cp /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram/VHDL/ram_SYNTH.vhd /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram/VHDL/ram_SYNTH.vhd
+rm -rf /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/syn_work_bak
+mv -f /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/syn_work /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/syn_work_bak
+cp -r /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/syn_work /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram2
+cp /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/ADB/ramword.ddc /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/ADB/ramword.ddc
+cp /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/VHDL/ramword_SYNTH.vhd /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/VHDL/ramword_SYNTH.vhd

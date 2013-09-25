@@ -10,10 +10,10 @@ set company "ontwerp_practicum"
 set designer "jkerkhof"
 set target_library  {"/data/public/common/software/opprog/synth_libs/g_digilib5_99.db"}
 set link_library [list "*" "/data/public/common/software/opprog/synth_libs/g_digilib5_99.db" "/data/public/common/software/opprog/synth_libs/g_analib8_00.db" "/data/public/common/software/opprog/synth_libs/buffers.db"]
-define_design_lib MY_LIB -path /tmp/jkerkhof/Documents/Gowiththeflow/Opdr3/syn_work
+define_design_lib MY_LIB -path /tmp/jkerkhof/GitHub/DaC/hardware/opdracht3/alu/syn_work
 define_design_lib CELLSLIB -path /data/public/common/software/opprog/synth_libs/CellsLib
-read_file -format vhdl -work MY_LIB /tmp/jkerkhof/Documents/Gowiththeflow/Opdr3/VHDL/Bitsize_pkg.vhd
-read_file -format vhdl -work MY_LIB {/tmp/jkerkhof/Documents/Gowiththeflow/Opdr3/VHDL/alu.vhd /tmp/jkerkhof/Documents/Gowiththeflow/Opdr3/VHDL/alu-behaviour.vhd}
+read_file -format vhdl -work MY_LIB /tmp/jkerkhof/GitHub/DaC/hardware/opdracht3/alu/VHDL/Bitsize_pkg.vhd
+read_file -format vhdl -work MY_LIB {/tmp/jkerkhof/GitHub/DaC/hardware/opdracht3/alu/VHDL/alu.vhd /tmp/jkerkhof/GitHub/DaC/hardware/opdracht3/alu/VHDL/alu-behaviour.vhd}
 set_dont_touch {g_analib8_00/*}
 # set_max_fanout 1.8 all_inputs() 
 # set_max_area 1000 
@@ -22,8 +22,8 @@ compile
 ungroup -all -flat
 report_area
 report_fsm
-write_file -f ddc alu -output /tmp/jkerkhof/Documents/Gowiththeflow/Opdr3/ADB/alu.ddc
-write_file -f vhdl alu -output /tmp/jkerkhof/Documents/Gowiththeflow/Opdr3/VHDL/alu_SYNTH.vhd
+write_file -f ddc alu -output /tmp/jkerkhof/GitHub/DaC/hardware/opdracht3/alu/ADB/alu.ddc
+write_file -f vhdl alu -output /tmp/jkerkhof/GitHub/DaC/hardware/opdracht3/alu/VHDL/alu_SYNTH.vhd
 quit
 
 

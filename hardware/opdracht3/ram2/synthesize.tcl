@@ -1,5 +1,5 @@
 #*********************************************************
-#  synthesize script for cell: ram                        *
+#  synthesize script for cell: ramword                    *
 #*********************************************************
 set hdlin_vhdl_93 false
 set hdlin_ff_always_async_set_reset true
@@ -10,10 +10,10 @@ set company "ontwerp_practicum"
 set designer "erdehaan"
 set target_library  {"/data/public/common/software/opprog/synth_libs/g_digilib5_99.db"}
 set link_library [list "*" "/data/public/common/software/opprog/synth_libs/g_digilib5_99.db" "/data/public/common/software/opprog/synth_libs/g_analib8_00.db" "/data/public/common/software/opprog/synth_libs/buffers.db"]
-define_design_lib MY_LIB -path /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram/syn_work
+define_design_lib MY_LIB -path /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/syn_work
 define_design_lib CELLSLIB -path /data/public/common/software/opprog/synth_libs/CellsLib
-read_file -format vhdl -work MY_LIB /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram/VHDL/ram_pkg.vhd
-read_file -format vhdl -work MY_LIB {/tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram/VHDL/ram.vhd /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram/VHDL/ram-behaviour.vhd}
+read_file -format vhdl -work MY_LIB /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/VHDL/ram_pkg.vhd
+read_file -format vhdl -work MY_LIB {/tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/VHDL/ramword.vhd /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/VHDL/ramword-behaviour.vhd}
 set_dont_touch {g_analib8_00/*}
 # set_max_fanout 1.8 all_inputs() 
 # set_max_area 1000 
@@ -22,8 +22,8 @@ compile
 ungroup -all -flat
 report_area
 report_fsm
-write_file -f ddc ram -output /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram/ADB/ram.ddc
-write_file -f vhdl ram -output /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram/VHDL/ram_SYNTH.vhd
+write_file -f ddc ramword -output /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/ADB/ramword.ddc
+write_file -f vhdl ramword -output /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/VHDL/ramword_SYNTH.vhd
 quit
 
 
