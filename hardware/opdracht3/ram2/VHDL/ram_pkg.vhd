@@ -4,15 +4,30 @@ use IEEE.numeric_std.ALL;
 
 library work;
 PACKAGE ramlib IS
-constant WORDS : INTEGER:=4; -- number of words
-constant ADRESSLINES: INTEGER:=2; -- numer of adresslines
-constant WORDSIZE : INTEGER:=4; -- word size
+constant WORDS : INTEGER:=8; -- number of words
+constant ADRESSLINES: INTEGER:=3; -- numer of adresslines
+constant WORDSIZE : INTEGER:=8; -- word size
 END ramlib;
 
 PACKAGE BODY ramlib IS
 
 
 END ramlib;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

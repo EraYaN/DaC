@@ -1,319 +1,228 @@
-extern network dfn10 (terminal D, CK, Q, vss, vdd)
-extern network mu111 (terminal A, B, S, Y, vss, vdd)
-extern network na210 (terminal A, B, Y, vss, vdd)
-extern network no310 (terminal A, B, C, Y, vss, vdd)
-extern network no210 (terminal A, B, Y, vss, vdd)
-extern network na310 (terminal A, B, C, Y, vss, vdd)
-extern network iv110 (terminal A, Y, vss, vdd)
-network ram (terminal clk, a_3_0_3, a_3_0_2, a_3_0_1, a_3_0_0, d_in_7_0_7, 
-                      d_in_7_0_6, d_in_7_0_5, d_in_7_0_4, d_in_7_0_3, 
-                      d_in_7_0_2, d_in_7_0_1, d_in_7_0_0, write, d_out_7_0_7, 
-                      d_out_7_0_6, d_out_7_0_5, d_out_7_0_4, d_out_7_0_3, 
-                      d_out_7_0_2, d_out_7_0_1, d_out_7_0_0, vss, vdd)
+extern network rambank (terminal clk, write_7_0_7, write_7_0_6, write_7_0_5, 
+                                 write_7_0_4, write_7_0_3, write_7_0_2, 
+                                 write_7_0_1, write_7_0_0, in_lines_63_0_63, 
+                                 in_lines_63_0_62, in_lines_63_0_61, 
+                                 in_lines_63_0_60, in_lines_63_0_59, 
+                                 in_lines_63_0_58, in_lines_63_0_57, 
+                                 in_lines_63_0_56, in_lines_63_0_55, 
+                                 in_lines_63_0_54, in_lines_63_0_53, 
+                                 in_lines_63_0_52, in_lines_63_0_51, 
+                                 in_lines_63_0_50, in_lines_63_0_49, 
+                                 in_lines_63_0_48, in_lines_63_0_47, 
+                                 in_lines_63_0_46, in_lines_63_0_45, 
+                                 in_lines_63_0_44, in_lines_63_0_43, 
+                                 in_lines_63_0_42, in_lines_63_0_41, 
+                                 in_lines_63_0_40, in_lines_63_0_39, 
+                                 in_lines_63_0_38, in_lines_63_0_37, 
+                                 in_lines_63_0_36, in_lines_63_0_35, 
+                                 in_lines_63_0_34, in_lines_63_0_33, 
+                                 in_lines_63_0_32, in_lines_63_0_31, 
+                                 in_lines_63_0_30, in_lines_63_0_29, 
+                                 in_lines_63_0_28, in_lines_63_0_27, 
+                                 in_lines_63_0_26, in_lines_63_0_25, 
+                                 in_lines_63_0_24, in_lines_63_0_23, 
+                                 in_lines_63_0_22, in_lines_63_0_21, 
+                                 in_lines_63_0_20, in_lines_63_0_19, 
+                                 in_lines_63_0_18, in_lines_63_0_17, 
+                                 in_lines_63_0_16, in_lines_63_0_15, 
+                                 in_lines_63_0_14, in_lines_63_0_13, 
+                                 in_lines_63_0_12, in_lines_63_0_11, 
+                                 in_lines_63_0_10, in_lines_63_0_9, 
+                                 in_lines_63_0_8, in_lines_63_0_7, 
+                                 in_lines_63_0_6, in_lines_63_0_5, 
+                                 in_lines_63_0_4, in_lines_63_0_3, 
+                                 in_lines_63_0_2, in_lines_63_0_1, 
+                                 in_lines_63_0_0, out_lines_63_0_63, 
+                                 out_lines_63_0_62, out_lines_63_0_61, 
+                                 out_lines_63_0_60, out_lines_63_0_59, 
+                                 out_lines_63_0_58, out_lines_63_0_57, 
+                                 out_lines_63_0_56, out_lines_63_0_55, 
+                                 out_lines_63_0_54, out_lines_63_0_53, 
+                                 out_lines_63_0_52, out_lines_63_0_51, 
+                                 out_lines_63_0_50, out_lines_63_0_49, 
+                                 out_lines_63_0_48, out_lines_63_0_47, 
+                                 out_lines_63_0_46, out_lines_63_0_45, 
+                                 out_lines_63_0_44, out_lines_63_0_43, 
+                                 out_lines_63_0_42, out_lines_63_0_41, 
+                                 out_lines_63_0_40, out_lines_63_0_39, 
+                                 out_lines_63_0_38, out_lines_63_0_37, 
+                                 out_lines_63_0_36, out_lines_63_0_35, 
+                                 out_lines_63_0_34, out_lines_63_0_33, 
+                                 out_lines_63_0_32, out_lines_63_0_31, 
+                                 out_lines_63_0_30, out_lines_63_0_29, 
+                                 out_lines_63_0_28, out_lines_63_0_27, 
+                                 out_lines_63_0_26, out_lines_63_0_25, 
+                                 out_lines_63_0_24, out_lines_63_0_23, 
+                                 out_lines_63_0_22, out_lines_63_0_21, 
+                                 out_lines_63_0_20, out_lines_63_0_19, 
+                                 out_lines_63_0_18, out_lines_63_0_17, 
+                                 out_lines_63_0_16, out_lines_63_0_15, 
+                                 out_lines_63_0_14, out_lines_63_0_13, 
+                                 out_lines_63_0_12, out_lines_63_0_11, 
+                                 out_lines_63_0_10, out_lines_63_0_9, 
+                                 out_lines_63_0_8, out_lines_63_0_7, 
+                                 out_lines_63_0_6, out_lines_63_0_5, 
+                                 out_lines_63_0_4, out_lines_63_0_3, 
+                                 out_lines_63_0_2, out_lines_63_0_1, 
+                                 out_lines_63_0_0, vss, vdd)
+extern network rammux (terminal clk, d_out_muxed_7_0_7, d_out_muxed_7_0_6, 
+                                d_out_muxed_7_0_5, d_out_muxed_7_0_4, 
+                                d_out_muxed_7_0_3, d_out_muxed_7_0_2, 
+                                d_out_muxed_7_0_1, d_out_muxed_7_0_0, 
+                                d_out_63_0_63, d_out_63_0_62, d_out_63_0_61, 
+                                d_out_63_0_60, d_out_63_0_59, d_out_63_0_58, 
+                                d_out_63_0_57, d_out_63_0_56, d_out_63_0_55, 
+                                d_out_63_0_54, d_out_63_0_53, d_out_63_0_52, 
+                                d_out_63_0_51, d_out_63_0_50, d_out_63_0_49, 
+                                d_out_63_0_48, d_out_63_0_47, d_out_63_0_46, 
+                                d_out_63_0_45, d_out_63_0_44, d_out_63_0_43, 
+                                d_out_63_0_42, d_out_63_0_41, d_out_63_0_40, 
+                                d_out_63_0_39, d_out_63_0_38, d_out_63_0_37, 
+                                d_out_63_0_36, d_out_63_0_35, d_out_63_0_34, 
+                                d_out_63_0_33, d_out_63_0_32, d_out_63_0_31, 
+                                d_out_63_0_30, d_out_63_0_29, d_out_63_0_28, 
+                                d_out_63_0_27, d_out_63_0_26, d_out_63_0_25, 
+                                d_out_63_0_24, d_out_63_0_23, d_out_63_0_22, 
+                                d_out_63_0_21, d_out_63_0_20, d_out_63_0_19, 
+                                d_out_63_0_18, d_out_63_0_17, d_out_63_0_16, 
+                                d_out_63_0_15, d_out_63_0_14, d_out_63_0_13, 
+                                d_out_63_0_12, d_out_63_0_11, d_out_63_0_10, 
+                                d_out_63_0_9, d_out_63_0_8, d_out_63_0_7, 
+                                d_out_63_0_6, d_out_63_0_5, d_out_63_0_4, 
+                                d_out_63_0_3, d_out_63_0_2, d_out_63_0_1, 
+                                d_out_63_0_0, d_in_muxed_7_0_7, 
+                                d_in_muxed_7_0_6, d_in_muxed_7_0_5, 
+                                d_in_muxed_7_0_4, d_in_muxed_7_0_3, 
+                                d_in_muxed_7_0_2, d_in_muxed_7_0_1, 
+                                d_in_muxed_7_0_0, d_in_63_0_63, d_in_63_0_62, 
+                                d_in_63_0_61, d_in_63_0_60, d_in_63_0_59, 
+                                d_in_63_0_58, d_in_63_0_57, d_in_63_0_56, 
+                                d_in_63_0_55, d_in_63_0_54, d_in_63_0_53, 
+                                d_in_63_0_52, d_in_63_0_51, d_in_63_0_50, 
+                                d_in_63_0_49, d_in_63_0_48, d_in_63_0_47, 
+                                d_in_63_0_46, d_in_63_0_45, d_in_63_0_44, 
+                                d_in_63_0_43, d_in_63_0_42, d_in_63_0_41, 
+                                d_in_63_0_40, d_in_63_0_39, d_in_63_0_38, 
+                                d_in_63_0_37, d_in_63_0_36, d_in_63_0_35, 
+                                d_in_63_0_34, d_in_63_0_33, d_in_63_0_32, 
+                                d_in_63_0_31, d_in_63_0_30, d_in_63_0_29, 
+                                d_in_63_0_28, d_in_63_0_27, d_in_63_0_26, 
+                                d_in_63_0_25, d_in_63_0_24, d_in_63_0_23, 
+                                d_in_63_0_22, d_in_63_0_21, d_in_63_0_20, 
+                                d_in_63_0_19, d_in_63_0_18, d_in_63_0_17, 
+                                d_in_63_0_16, d_in_63_0_15, d_in_63_0_14, 
+                                d_in_63_0_13, d_in_63_0_12, d_in_63_0_11, 
+                                d_in_63_0_10, d_in_63_0_9, d_in_63_0_8, 
+                                d_in_63_0_7, d_in_63_0_6, d_in_63_0_5, 
+                                d_in_63_0_4, d_in_63_0_3, d_in_63_0_2, 
+                                d_in_63_0_1, d_in_63_0_0, sel_2_0_2, sel_2_0_1, 
+                                sel_2_0_0, write, write_out_7_0_7, 
+                                write_out_7_0_6, write_out_7_0_5, 
+                                write_out_7_0_4, write_out_7_0_3, 
+                                write_out_7_0_2, write_out_7_0_1, 
+                                write_out_7_0_0, vss, vdd)
+network ram (terminal clk, a_2_0_2, a_2_0_1, a_2_0_0, d_in_7_0_7, d_in_7_0_6, 
+                      d_in_7_0_5, d_in_7_0_4, d_in_7_0_3, d_in_7_0_2, 
+                      d_in_7_0_1, d_in_7_0_0, write, d_out_7_0_7, d_out_7_0_6, 
+                      d_out_7_0_5, d_out_7_0_4, d_out_7_0_3, d_out_7_0_2, 
+                      d_out_7_0_1, d_out_7_0_0, vss, vdd)
 {
-   {ram_reg_0_7_inst} dfn10 (n339, clk, ram_0_7_port, vss, vdd);
-   {ram_reg_0_6_inst} dfn10 (n338, clk, ram_0_6_port, vss, vdd);
-   {ram_reg_0_5_inst} dfn10 (n337, clk, ram_0_5_port, vss, vdd);
-   {ram_reg_0_4_inst} dfn10 (n336, clk, ram_0_4_port, vss, vdd);
-   {ram_reg_0_3_inst} dfn10 (n335, clk, ram_0_3_port, vss, vdd);
-   {ram_reg_0_2_inst} dfn10 (n334, clk, ram_0_2_port, vss, vdd);
-   {ram_reg_0_1_inst} dfn10 (n333, clk, ram_0_1_port, vss, vdd);
-   {ram_reg_0_0_inst} dfn10 (n332, clk, ram_0_0_port, vss, vdd);
-   {ram_reg_1_7_inst} dfn10 (n331, clk, ram_1_7_port, vss, vdd);
-   {ram_reg_1_6_inst} dfn10 (n330, clk, ram_1_6_port, vss, vdd);
-   {ram_reg_1_5_inst} dfn10 (n329, clk, ram_1_5_port, vss, vdd);
-   {ram_reg_1_4_inst} dfn10 (n328, clk, ram_1_4_port, vss, vdd);
-   {ram_reg_1_3_inst} dfn10 (n327, clk, ram_1_3_port, vss, vdd);
-   {ram_reg_1_2_inst} dfn10 (n326, clk, ram_1_2_port, vss, vdd);
-   {ram_reg_1_1_inst} dfn10 (n325, clk, ram_1_1_port, vss, vdd);
-   {ram_reg_1_0_inst} dfn10 (n324, clk, ram_1_0_port, vss, vdd);
-   {ram_reg_2_7_inst} dfn10 (n323, clk, ram_2_7_port, vss, vdd);
-   {ram_reg_2_6_inst} dfn10 (n322, clk, ram_2_6_port, vss, vdd);
-   {ram_reg_2_5_inst} dfn10 (n321, clk, ram_2_5_port, vss, vdd);
-   {ram_reg_2_4_inst} dfn10 (n320, clk, ram_2_4_port, vss, vdd);
-   {ram_reg_2_3_inst} dfn10 (n319, clk, ram_2_3_port, vss, vdd);
-   {ram_reg_2_2_inst} dfn10 (n318, clk, ram_2_2_port, vss, vdd);
-   {ram_reg_2_1_inst} dfn10 (n317, clk, ram_2_1_port, vss, vdd);
-   {ram_reg_2_0_inst} dfn10 (n316, clk, ram_2_0_port, vss, vdd);
-   {ram_reg_3_7_inst} dfn10 (n315, clk, ram_3_7_port, vss, vdd);
-   {ram_reg_3_6_inst} dfn10 (n314, clk, ram_3_6_port, vss, vdd);
-   {ram_reg_3_5_inst} dfn10 (n313, clk, ram_3_5_port, vss, vdd);
-   {ram_reg_3_4_inst} dfn10 (n312, clk, ram_3_4_port, vss, vdd);
-   {ram_reg_3_3_inst} dfn10 (n311, clk, ram_3_3_port, vss, vdd);
-   {ram_reg_3_2_inst} dfn10 (n310, clk, ram_3_2_port, vss, vdd);
-   {ram_reg_3_1_inst} dfn10 (n309, clk, ram_3_1_port, vss, vdd);
-   {ram_reg_3_0_inst} dfn10 (n308, clk, ram_3_0_port, vss, vdd);
-   {ram_reg_4_7_inst} dfn10 (n307, clk, ram_4_7_port, vss, vdd);
-   {ram_reg_4_6_inst} dfn10 (n306, clk, ram_4_6_port, vss, vdd);
-   {ram_reg_4_5_inst} dfn10 (n305, clk, ram_4_5_port, vss, vdd);
-   {ram_reg_4_4_inst} dfn10 (n304, clk, ram_4_4_port, vss, vdd);
-   {ram_reg_4_3_inst} dfn10 (n303, clk, ram_4_3_port, vss, vdd);
-   {ram_reg_4_2_inst} dfn10 (n302, clk, ram_4_2_port, vss, vdd);
-   {ram_reg_4_1_inst} dfn10 (n301, clk, ram_4_1_port, vss, vdd);
-   {ram_reg_4_0_inst} dfn10 (n300, clk, ram_4_0_port, vss, vdd);
-   {ram_reg_5_7_inst} dfn10 (n299, clk, ram_5_7_port, vss, vdd);
-   {ram_reg_5_6_inst} dfn10 (n298, clk, ram_5_6_port, vss, vdd);
-   {ram_reg_5_5_inst} dfn10 (n297, clk, ram_5_5_port, vss, vdd);
-   {ram_reg_5_4_inst} dfn10 (n296, clk, ram_5_4_port, vss, vdd);
-   {ram_reg_5_3_inst} dfn10 (n295, clk, ram_5_3_port, vss, vdd);
-   {ram_reg_5_2_inst} dfn10 (n294, clk, ram_5_2_port, vss, vdd);
-   {ram_reg_5_1_inst} dfn10 (n293, clk, ram_5_1_port, vss, vdd);
-   {ram_reg_5_0_inst} dfn10 (n292, clk, ram_5_0_port, vss, vdd);
-   {ram_reg_6_7_inst} dfn10 (n291, clk, ram_6_7_port, vss, vdd);
-   {ram_reg_6_6_inst} dfn10 (n290, clk, ram_6_6_port, vss, vdd);
-   {ram_reg_6_5_inst} dfn10 (n289, clk, ram_6_5_port, vss, vdd);
-   {ram_reg_6_4_inst} dfn10 (n288, clk, ram_6_4_port, vss, vdd);
-   {ram_reg_6_3_inst} dfn10 (n287, clk, ram_6_3_port, vss, vdd);
-   {ram_reg_6_2_inst} dfn10 (n286, clk, ram_6_2_port, vss, vdd);
-   {ram_reg_6_1_inst} dfn10 (n285, clk, ram_6_1_port, vss, vdd);
-   {ram_reg_6_0_inst} dfn10 (n284, clk, ram_6_0_port, vss, vdd);
-   {ram_reg_7_7_inst} dfn10 (n283, clk, ram_7_7_port, vss, vdd);
-   {ram_reg_7_6_inst} dfn10 (n282, clk, ram_7_6_port, vss, vdd);
-   {ram_reg_7_5_inst} dfn10 (n281, clk, ram_7_5_port, vss, vdd);
-   {ram_reg_7_4_inst} dfn10 (n280, clk, ram_7_4_port, vss, vdd);
-   {ram_reg_7_3_inst} dfn10 (n279, clk, ram_7_3_port, vss, vdd);
-   {ram_reg_7_2_inst} dfn10 (n278, clk, ram_7_2_port, vss, vdd);
-   {ram_reg_7_1_inst} dfn10 (n277, clk, ram_7_1_port, vss, vdd);
-   {ram_reg_7_0_inst} dfn10 (n276, clk, ram_7_0_port, vss, vdd);
-   {U341} no210 (n353, n354, n340, vss, vdd);
-   {U342} no210 (n356, n354, n341, vss, vdd);
-   {U343} no210 (n358, n354, n342, vss, vdd);
-   {U344} no210 (n360, n354, n343, vss, vdd);
-   {U345} mu111 (d_in_7_0_7, ram_0_7_port, n344, n339, vss, vdd);
-   {U346} mu111 (d_in_7_0_6, ram_0_6_port, n344, n338, vss, vdd);
-   {U347} mu111 (d_in_7_0_5, ram_0_5_port, n344, n337, vss, vdd);
-   {U348} mu111 (d_in_7_0_4, ram_0_4_port, n344, n336, vss, vdd);
-   {U349} mu111 (d_in_7_0_3, ram_0_3_port, n344, n335, vss, vdd);
-   {U350} mu111 (d_in_7_0_2, ram_0_2_port, n344, n334, vss, vdd);
-   {U351} mu111 (d_in_7_0_1, ram_0_1_port, n344, n333, vss, vdd);
-   {U352} mu111 (d_in_7_0_0, ram_0_0_port, n344, n332, vss, vdd);
-   {U353} na210 (write, n345, n344, vss, vdd);
-   {U354} mu111 (d_in_7_0_7, ram_1_7_port, n346, n331, vss, vdd);
-   {U355} mu111 (d_in_7_0_6, ram_1_6_port, n346, n330, vss, vdd);
-   {U356} mu111 (d_in_7_0_5, ram_1_5_port, n346, n329, vss, vdd);
-   {U357} mu111 (d_in_7_0_4, ram_1_4_port, n346, n328, vss, vdd);
-   {U358} mu111 (d_in_7_0_3, ram_1_3_port, n346, n327, vss, vdd);
-   {U359} mu111 (d_in_7_0_2, ram_1_2_port, n346, n326, vss, vdd);
-   {U360} mu111 (d_in_7_0_1, ram_1_1_port, n346, n325, vss, vdd);
-   {U361} mu111 (d_in_7_0_0, ram_1_0_port, n346, n324, vss, vdd);
-   {U362} na210 (n347, write, n346, vss, vdd);
-   {U363} mu111 (d_in_7_0_7, ram_2_7_port, n348, n323, vss, vdd);
-   {U364} mu111 (d_in_7_0_6, ram_2_6_port, n348, n322, vss, vdd);
-   {U365} mu111 (d_in_7_0_5, ram_2_5_port, n348, n321, vss, vdd);
-   {U366} mu111 (d_in_7_0_4, ram_2_4_port, n348, n320, vss, vdd);
-   {U367} mu111 (d_in_7_0_3, ram_2_3_port, n348, n319, vss, vdd);
-   {U368} mu111 (d_in_7_0_2, ram_2_2_port, n348, n318, vss, vdd);
-   {U369} mu111 (d_in_7_0_1, ram_2_1_port, n348, n317, vss, vdd);
-   {U370} mu111 (d_in_7_0_0, ram_2_0_port, n348, n316, vss, vdd);
-   {U371} na210 (n349, write, n348, vss, vdd);
-   {U372} mu111 (d_in_7_0_7, ram_3_7_port, n350, n315, vss, vdd);
-   {U373} mu111 (d_in_7_0_6, ram_3_6_port, n350, n314, vss, vdd);
-   {U374} mu111 (d_in_7_0_5, ram_3_5_port, n350, n313, vss, vdd);
-   {U375} mu111 (d_in_7_0_4, ram_3_4_port, n350, n312, vss, vdd);
-   {U376} mu111 (d_in_7_0_3, ram_3_3_port, n350, n311, vss, vdd);
-   {U377} mu111 (d_in_7_0_2, ram_3_2_port, n350, n310, vss, vdd);
-   {U378} mu111 (d_in_7_0_1, ram_3_1_port, n350, n309, vss, vdd);
-   {U379} mu111 (d_in_7_0_0, ram_3_0_port, n350, n308, vss, vdd);
-   {U380} na210 (n351, write, n350, vss, vdd);
-   {U381} mu111 (ram_4_7_port, d_in_7_0_7, n340, n307, vss, vdd);
-   {U382} mu111 (ram_4_6_port, d_in_7_0_6, n352, n306, vss, vdd);
-   {U383} mu111 (ram_4_5_port, d_in_7_0_5, n340, n305, vss, vdd);
-   {U384} mu111 (ram_4_4_port, d_in_7_0_4, n352, n304, vss, vdd);
-   {U385} mu111 (ram_4_3_port, d_in_7_0_3, n340, n303, vss, vdd);
-   {U386} mu111 (ram_4_2_port, d_in_7_0_2, n352, n302, vss, vdd);
-   {U387} mu111 (ram_4_1_port, d_in_7_0_1, n340, n301, vss, vdd);
-   {U388} mu111 (ram_4_0_port, d_in_7_0_0, n352, n300, vss, vdd);
-   {U389} no210 (n353, n354, n352, vss, vdd);
-   {U390} mu111 (ram_5_7_port, d_in_7_0_7, n341, n299, vss, vdd);
-   {U391} mu111 (ram_5_6_port, d_in_7_0_6, n355, n298, vss, vdd);
-   {U392} mu111 (ram_5_5_port, d_in_7_0_5, n341, n297, vss, vdd);
-   {U393} mu111 (ram_5_4_port, d_in_7_0_4, n355, n296, vss, vdd);
-   {U394} mu111 (ram_5_3_port, d_in_7_0_3, n341, n295, vss, vdd);
-   {U395} mu111 (ram_5_2_port, d_in_7_0_2, n355, n294, vss, vdd);
-   {U396} mu111 (ram_5_1_port, d_in_7_0_1, n341, n293, vss, vdd);
-   {U397} mu111 (ram_5_0_port, d_in_7_0_0, n355, n292, vss, vdd);
-   {U398} no210 (n356, n354, n355, vss, vdd);
-   {U399} mu111 (ram_6_7_port, d_in_7_0_7, n342, n291, vss, vdd);
-   {U400} mu111 (ram_6_6_port, d_in_7_0_6, n357, n290, vss, vdd);
-   {U401} mu111 (ram_6_5_port, d_in_7_0_5, n342, n289, vss, vdd);
-   {U402} mu111 (ram_6_4_port, d_in_7_0_4, n357, n288, vss, vdd);
-   {U403} mu111 (ram_6_3_port, d_in_7_0_3, n342, n287, vss, vdd);
-   {U404} mu111 (ram_6_2_port, d_in_7_0_2, n357, n286, vss, vdd);
-   {U405} mu111 (ram_6_1_port, d_in_7_0_1, n342, n285, vss, vdd);
-   {U406} mu111 (ram_6_0_port, d_in_7_0_0, n357, n284, vss, vdd);
-   {U407} no210 (n358, n354, n357, vss, vdd);
-   {U408} mu111 (ram_7_7_port, d_in_7_0_7, n343, n283, vss, vdd);
-   {U409} mu111 (ram_7_6_port, d_in_7_0_6, n359, n282, vss, vdd);
-   {U410} mu111 (ram_7_5_port, d_in_7_0_5, n343, n281, vss, vdd);
-   {U411} mu111 (ram_7_4_port, d_in_7_0_4, n359, n280, vss, vdd);
-   {U412} mu111 (ram_7_3_port, d_in_7_0_3, n343, n279, vss, vdd);
-   {U413} mu111 (ram_7_2_port, d_in_7_0_2, n359, n278, vss, vdd);
-   {U414} mu111 (ram_7_1_port, d_in_7_0_1, n343, n277, vss, vdd);
-   {U415} mu111 (ram_7_0_port, d_in_7_0_0, n359, n276, vss, vdd);
-   {U416} no210 (n360, n354, n359, vss, vdd);
-   {U417} iv110 (write, n354, vss, vdd);
-   {U418} na310 (n361, n362, n363, d_out_7_0_7, vss, vdd);
-   {U419} no310 (n364, n365, n366, n363, vss, vdd);
-   {U420} iv110 (n367, n366, vss, vdd);
-   {U421} na210 (n351, ram_3_7_port, n367, vss, vdd);
-   {U422} iv110 (n368, n365, vss, vdd);
-   {U423} na210 (n349, ram_2_7_port, n368, vss, vdd);
-   {U424} na210 (n369, n370, n364, vss, vdd);
-   {U425} na210 (ram_1_7_port, n347, n370, vss, vdd);
-   {U426} na210 (ram_0_7_port, n345, n369, vss, vdd);
-   {U427} no210 (n371, n372, n362, vss, vdd);
-   {U428} no210 (n360, n373, n372, vss, vdd);
-   {U429} iv110 (ram_7_7_port, n373, vss, vdd);
-   {U430} no210 (n358, n374, n371, vss, vdd);
-   {U431} iv110 (ram_6_7_port, n374, vss, vdd);
-   {U432} no210 (n375, n376, n361, vss, vdd);
-   {U433} no210 (n356, n377, n376, vss, vdd);
-   {U434} iv110 (ram_5_7_port, n377, vss, vdd);
-   {U435} no210 (n353, n378, n375, vss, vdd);
-   {U436} iv110 (ram_4_7_port, n378, vss, vdd);
-   {U437} na310 (n379, n380, n381, d_out_7_0_6, vss, vdd);
-   {U438} no310 (n382, n383, n384, n381, vss, vdd);
-   {U439} iv110 (n385, n384, vss, vdd);
-   {U440} na210 (n351, ram_3_6_port, n385, vss, vdd);
-   {U441} iv110 (n386, n383, vss, vdd);
-   {U442} na210 (n349, ram_2_6_port, n386, vss, vdd);
-   {U443} na210 (n387, n388, n382, vss, vdd);
-   {U444} na210 (ram_1_6_port, n347, n388, vss, vdd);
-   {U445} na210 (ram_0_6_port, n345, n387, vss, vdd);
-   {U446} no210 (n389, n390, n380, vss, vdd);
-   {U447} no210 (n360, n391, n390, vss, vdd);
-   {U448} iv110 (ram_7_6_port, n391, vss, vdd);
-   {U449} no210 (n358, n392, n389, vss, vdd);
-   {U450} iv110 (ram_6_6_port, n392, vss, vdd);
-   {U451} no210 (n393, n394, n379, vss, vdd);
-   {U452} no210 (n356, n395, n394, vss, vdd);
-   {U453} iv110 (ram_5_6_port, n395, vss, vdd);
-   {U454} no210 (n353, n396, n393, vss, vdd);
-   {U455} iv110 (ram_4_6_port, n396, vss, vdd);
-   {U456} na310 (n397, n398, n399, d_out_7_0_5, vss, vdd);
-   {U457} no310 (n400, n401, n402, n399, vss, vdd);
-   {U458} iv110 (n403, n402, vss, vdd);
-   {U459} na210 (n351, ram_3_5_port, n403, vss, vdd);
-   {U460} iv110 (n404, n401, vss, vdd);
-   {U461} na210 (n349, ram_2_5_port, n404, vss, vdd);
-   {U462} na210 (n405, n406, n400, vss, vdd);
-   {U463} na210 (ram_1_5_port, n347, n406, vss, vdd);
-   {U464} na210 (ram_0_5_port, n345, n405, vss, vdd);
-   {U465} no210 (n407, n408, n398, vss, vdd);
-   {U466} no210 (n360, n409, n408, vss, vdd);
-   {U467} iv110 (ram_7_5_port, n409, vss, vdd);
-   {U468} no210 (n358, n410, n407, vss, vdd);
-   {U469} iv110 (ram_6_5_port, n410, vss, vdd);
-   {U470} no210 (n411, n412, n397, vss, vdd);
-   {U471} no210 (n356, n413, n412, vss, vdd);
-   {U472} iv110 (ram_5_5_port, n413, vss, vdd);
-   {U473} no210 (n353, n414, n411, vss, vdd);
-   {U474} iv110 (ram_4_5_port, n414, vss, vdd);
-   {U475} na310 (n415, n416, n417, d_out_7_0_4, vss, vdd);
-   {U476} no310 (n418, n419, n420, n417, vss, vdd);
-   {U477} iv110 (n421, n420, vss, vdd);
-   {U478} na210 (n351, ram_3_4_port, n421, vss, vdd);
-   {U479} iv110 (n422, n419, vss, vdd);
-   {U480} na210 (n349, ram_2_4_port, n422, vss, vdd);
-   {U481} na210 (n423, n424, n418, vss, vdd);
-   {U482} na210 (ram_1_4_port, n347, n424, vss, vdd);
-   {U483} na210 (ram_0_4_port, n345, n423, vss, vdd);
-   {U484} no210 (n425, n426, n416, vss, vdd);
-   {U485} no210 (n360, n427, n426, vss, vdd);
-   {U486} iv110 (ram_7_4_port, n427, vss, vdd);
-   {U487} no210 (n358, n428, n425, vss, vdd);
-   {U488} iv110 (ram_6_4_port, n428, vss, vdd);
-   {U489} no210 (n429, n430, n415, vss, vdd);
-   {U490} no210 (n356, n431, n430, vss, vdd);
-   {U491} iv110 (ram_5_4_port, n431, vss, vdd);
-   {U492} no210 (n353, n432, n429, vss, vdd);
-   {U493} iv110 (ram_4_4_port, n432, vss, vdd);
-   {U494} na310 (n433, n434, n435, d_out_7_0_3, vss, vdd);
-   {U495} no310 (n436, n437, n438, n435, vss, vdd);
-   {U496} iv110 (n439, n438, vss, vdd);
-   {U497} na210 (n351, ram_3_3_port, n439, vss, vdd);
-   {U498} iv110 (n440, n437, vss, vdd);
-   {U499} na210 (n349, ram_2_3_port, n440, vss, vdd);
-   {U500} na210 (n441, n442, n436, vss, vdd);
-   {U501} na210 (ram_1_3_port, n347, n442, vss, vdd);
-   {U502} na210 (ram_0_3_port, n345, n441, vss, vdd);
-   {U503} no210 (n443, n444, n434, vss, vdd);
-   {U504} no210 (n360, n445, n444, vss, vdd);
-   {U505} iv110 (ram_7_3_port, n445, vss, vdd);
-   {U506} no210 (n358, n446, n443, vss, vdd);
-   {U507} iv110 (ram_6_3_port, n446, vss, vdd);
-   {U508} no210 (n447, n448, n433, vss, vdd);
-   {U509} no210 (n356, n449, n448, vss, vdd);
-   {U510} iv110 (ram_5_3_port, n449, vss, vdd);
-   {U511} no210 (n353, n450, n447, vss, vdd);
-   {U512} iv110 (ram_4_3_port, n450, vss, vdd);
-   {U513} na310 (n451, n452, n453, d_out_7_0_2, vss, vdd);
-   {U514} no310 (n454, n455, n456, n453, vss, vdd);
-   {U515} iv110 (n457, n456, vss, vdd);
-   {U516} na210 (n351, ram_3_2_port, n457, vss, vdd);
-   {U517} iv110 (n458, n455, vss, vdd);
-   {U518} na210 (n349, ram_2_2_port, n458, vss, vdd);
-   {U519} na210 (n459, n460, n454, vss, vdd);
-   {U520} na210 (ram_1_2_port, n347, n460, vss, vdd);
-   {U521} na210 (ram_0_2_port, n345, n459, vss, vdd);
-   {U522} no210 (n461, n462, n452, vss, vdd);
-   {U523} no210 (n360, n463, n462, vss, vdd);
-   {U524} iv110 (ram_7_2_port, n463, vss, vdd);
-   {U525} no210 (n358, n464, n461, vss, vdd);
-   {U526} iv110 (ram_6_2_port, n464, vss, vdd);
-   {U527} no210 (n465, n466, n451, vss, vdd);
-   {U528} no210 (n356, n467, n466, vss, vdd);
-   {U529} iv110 (ram_5_2_port, n467, vss, vdd);
-   {U530} no210 (n353, n468, n465, vss, vdd);
-   {U531} iv110 (ram_4_2_port, n468, vss, vdd);
-   {U532} na310 (n469, n470, n471, d_out_7_0_1, vss, vdd);
-   {U533} no310 (n472, n473, n474, n471, vss, vdd);
-   {U534} iv110 (n475, n474, vss, vdd);
-   {U535} na210 (n351, ram_3_1_port, n475, vss, vdd);
-   {U536} iv110 (n476, n473, vss, vdd);
-   {U537} na210 (n349, ram_2_1_port, n476, vss, vdd);
-   {U538} na210 (n477, n478, n472, vss, vdd);
-   {U539} na210 (ram_1_1_port, n347, n478, vss, vdd);
-   {U540} na210 (ram_0_1_port, n345, n477, vss, vdd);
-   {U541} no210 (n479, n480, n470, vss, vdd);
-   {U542} no210 (n360, n481, n480, vss, vdd);
-   {U543} iv110 (ram_7_1_port, n481, vss, vdd);
-   {U544} no210 (n358, n482, n479, vss, vdd);
-   {U545} iv110 (ram_6_1_port, n482, vss, vdd);
-   {U546} no210 (n483, n484, n469, vss, vdd);
-   {U547} no210 (n356, n485, n484, vss, vdd);
-   {U548} iv110 (ram_5_1_port, n485, vss, vdd);
-   {U549} no210 (n353, n486, n483, vss, vdd);
-   {U550} iv110 (ram_4_1_port, n486, vss, vdd);
-   {U551} na310 (n487, n488, n489, d_out_7_0_0, vss, vdd);
-   {U552} no310 (n490, n491, n492, n489, vss, vdd);
-   {U553} iv110 (n493, n492, vss, vdd);
-   {U554} na210 (n351, ram_3_0_port, n493, vss, vdd);
-   {U555} no310 (n494, a_3_0_2, n495, n351, vss, vdd);
-   {U556} iv110 (n496, n491, vss, vdd);
-   {U557} na210 (n349, ram_2_0_port, n496, vss, vdd);
-   {U558} no310 (a_3_0_0, a_3_0_2, n495, n349, vss, vdd);
-   {U559} na210 (n497, n498, n490, vss, vdd);
-   {U560} na210 (ram_1_0_port, n347, n498, vss, vdd);
-   {U561} no310 (a_3_0_1, a_3_0_2, n494, n347, vss, vdd);
-   {U562} na210 (ram_0_0_port, n345, n497, vss, vdd);
-   {U563} no310 (a_3_0_1, a_3_0_2, a_3_0_0, n345, vss, vdd);
-   {U564} no210 (n499, n500, n488, vss, vdd);
-   {U565} no210 (n360, n501, n500, vss, vdd);
-   {U566} iv110 (ram_7_0_port, n501, vss, vdd);
-   {U567} na310 (a_3_0_1, a_3_0_0, a_3_0_2, n360, vss, vdd);
-   {U568} no210 (n358, n502, n499, vss, vdd);
-   {U569} iv110 (ram_6_0_port, n502, vss, vdd);
-   {U570} na310 (a_3_0_1, n494, a_3_0_2, n358, vss, vdd);
-   {U571} no210 (n503, n504, n487, vss, vdd);
-   {U572} no210 (n356, n505, n504, vss, vdd);
-   {U573} iv110 (ram_5_0_port, n505, vss, vdd);
-   {U574} na310 (a_3_0_0, n495, a_3_0_2, n356, vss, vdd);
-   {U575} no210 (n353, n506, n503, vss, vdd);
-   {U576} iv110 (ram_4_0_port, n506, vss, vdd);
-   {U577} na310 (n494, n495, a_3_0_2, n353, vss, vdd);
-   {U578} iv110 (a_3_0_1, n495, vss, vdd);
-   {U579} iv110 (a_3_0_0, n494, vss, vdd);
+   {rb} rambank (clk, write_out_7_port, write_out_6_port, write_out_5_port, 
+                 write_out_4_port, write_out_3_port, write_out_2_port, 
+                 write_out_1_port, write_out_0_port, in_lines_63_port, 
+                 in_lines_62_port, in_lines_61_port, in_lines_60_port, 
+                 in_lines_59_port, in_lines_58_port, in_lines_57_port, 
+                 in_lines_56_port, in_lines_55_port, in_lines_54_port, 
+                 in_lines_53_port, in_lines_52_port, in_lines_51_port, 
+                 in_lines_50_port, in_lines_49_port, in_lines_48_port, 
+                 in_lines_47_port, in_lines_46_port, in_lines_45_port, 
+                 in_lines_44_port, in_lines_43_port, in_lines_42_port, 
+                 in_lines_41_port, in_lines_40_port, in_lines_39_port, 
+                 in_lines_38_port, in_lines_37_port, in_lines_36_port, 
+                 in_lines_35_port, in_lines_34_port, in_lines_33_port, 
+                 in_lines_32_port, in_lines_31_port, in_lines_30_port, 
+                 in_lines_29_port, in_lines_28_port, in_lines_27_port, 
+                 in_lines_26_port, in_lines_25_port, in_lines_24_port, 
+                 in_lines_23_port, in_lines_22_port, in_lines_21_port, 
+                 in_lines_20_port, in_lines_19_port, in_lines_18_port, 
+                 in_lines_17_port, in_lines_16_port, in_lines_15_port, 
+                 in_lines_14_port, in_lines_13_port, in_lines_12_port, 
+                 in_lines_11_port, in_lines_10_port, in_lines_9_port, 
+                 in_lines_8_port, in_lines_7_port, in_lines_6_port, 
+                 in_lines_5_port, in_lines_4_port, in_lines_3_port, 
+                 in_lines_2_port, in_lines_1_port, in_lines_0_port, 
+                 out_lines_63_port, out_lines_62_port, out_lines_61_port, 
+                 out_lines_60_port, out_lines_59_port, out_lines_58_port, 
+                 out_lines_57_port, out_lines_56_port, out_lines_55_port, 
+                 out_lines_54_port, out_lines_53_port, out_lines_52_port, 
+                 out_lines_51_port, out_lines_50_port, out_lines_49_port, 
+                 out_lines_48_port, out_lines_47_port, out_lines_46_port, 
+                 out_lines_45_port, out_lines_44_port, out_lines_43_port, 
+                 out_lines_42_port, out_lines_41_port, out_lines_40_port, 
+                 out_lines_39_port, out_lines_38_port, out_lines_37_port, 
+                 out_lines_36_port, out_lines_35_port, out_lines_34_port, 
+                 out_lines_33_port, out_lines_32_port, out_lines_31_port, 
+                 out_lines_30_port, out_lines_29_port, out_lines_28_port, 
+                 out_lines_27_port, out_lines_26_port, out_lines_25_port, 
+                 out_lines_24_port, out_lines_23_port, out_lines_22_port, 
+                 out_lines_21_port, out_lines_20_port, out_lines_19_port, 
+                 out_lines_18_port, out_lines_17_port, out_lines_16_port, 
+                 out_lines_15_port, out_lines_14_port, out_lines_13_port, 
+                 out_lines_12_port, out_lines_11_port, out_lines_10_port, 
+                 out_lines_9_port, out_lines_8_port, out_lines_7_port, 
+                 out_lines_6_port, out_lines_5_port, out_lines_4_port, 
+                 out_lines_3_port, out_lines_2_port, out_lines_1_port, 
+                 out_lines_0_port, vss, vdd);
+   {rm} rammux (clk, d_out_7_0_7, d_out_7_0_6, d_out_7_0_5, d_out_7_0_4, 
+                d_out_7_0_3, d_out_7_0_2, d_out_7_0_1, d_out_7_0_0, 
+                out_lines_63_port, out_lines_62_port, out_lines_61_port, 
+                out_lines_60_port, out_lines_59_port, out_lines_58_port, 
+                out_lines_57_port, out_lines_56_port, out_lines_55_port, 
+                out_lines_54_port, out_lines_53_port, out_lines_52_port, 
+                out_lines_51_port, out_lines_50_port, out_lines_49_port, 
+                out_lines_48_port, out_lines_47_port, out_lines_46_port, 
+                out_lines_45_port, out_lines_44_port, out_lines_43_port, 
+                out_lines_42_port, out_lines_41_port, out_lines_40_port, 
+                out_lines_39_port, out_lines_38_port, out_lines_37_port, 
+                out_lines_36_port, out_lines_35_port, out_lines_34_port, 
+                out_lines_33_port, out_lines_32_port, out_lines_31_port, 
+                out_lines_30_port, out_lines_29_port, out_lines_28_port, 
+                out_lines_27_port, out_lines_26_port, out_lines_25_port, 
+                out_lines_24_port, out_lines_23_port, out_lines_22_port, 
+                out_lines_21_port, out_lines_20_port, out_lines_19_port, 
+                out_lines_18_port, out_lines_17_port, out_lines_16_port, 
+                out_lines_15_port, out_lines_14_port, out_lines_13_port, 
+                out_lines_12_port, out_lines_11_port, out_lines_10_port, 
+                out_lines_9_port, out_lines_8_port, out_lines_7_port, 
+                out_lines_6_port, out_lines_5_port, out_lines_4_port, 
+                out_lines_3_port, out_lines_2_port, out_lines_1_port, 
+                out_lines_0_port, d_in_7_0_7, d_in_7_0_6, d_in_7_0_5, 
+                d_in_7_0_4, d_in_7_0_3, d_in_7_0_2, d_in_7_0_1, d_in_7_0_0, 
+                in_lines_63_port, in_lines_62_port, in_lines_61_port, 
+                in_lines_60_port, in_lines_59_port, in_lines_58_port, 
+                in_lines_57_port, in_lines_56_port, in_lines_55_port, 
+                in_lines_54_port, in_lines_53_port, in_lines_52_port, 
+                in_lines_51_port, in_lines_50_port, in_lines_49_port, 
+                in_lines_48_port, in_lines_47_port, in_lines_46_port, 
+                in_lines_45_port, in_lines_44_port, in_lines_43_port, 
+                in_lines_42_port, in_lines_41_port, in_lines_40_port, 
+                in_lines_39_port, in_lines_38_port, in_lines_37_port, 
+                in_lines_36_port, in_lines_35_port, in_lines_34_port, 
+                in_lines_33_port, in_lines_32_port, in_lines_31_port, 
+                in_lines_30_port, in_lines_29_port, in_lines_28_port, 
+                in_lines_27_port, in_lines_26_port, in_lines_25_port, 
+                in_lines_24_port, in_lines_23_port, in_lines_22_port, 
+                in_lines_21_port, in_lines_20_port, in_lines_19_port, 
+                in_lines_18_port, in_lines_17_port, in_lines_16_port, 
+                in_lines_15_port, in_lines_14_port, in_lines_13_port, 
+                in_lines_12_port, in_lines_11_port, in_lines_10_port, 
+                in_lines_9_port, in_lines_8_port, in_lines_7_port, 
+                in_lines_6_port, in_lines_5_port, in_lines_4_port, 
+                in_lines_3_port, in_lines_2_port, in_lines_1_port, 
+                in_lines_0_port, a_2_0_2, a_2_0_1, a_2_0_0, write, 
+                write_out_7_port, write_out_6_port, write_out_5_port, 
+                write_out_4_port, write_out_3_port, write_out_2_port, 
+                write_out_1_port, write_out_0_port, vss, vdd);
 }
 
 
