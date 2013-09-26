@@ -1,0 +1,281 @@
+Library vendor : Model Technology
+Maximum unnamed designs : 3
+OPTIMIZED DESIGN _opt
+    Version string: 0D1gMGWaTT3DDC>oBEZo[2
+    Top-level model: work tb_behaviour_cfg 1
+    Compile options: -quiet -auto_acc_if_foreign -work work
+    Short name: @_opt
+    Opcode format: 10.1b; VCOM/VLOG SE Object version 51
+    Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
+OPTIMIZED DESIGN _opt1
+    Version string: TEP<Sz@bRd7=Z@aEiVa>D1
+    Top-level model: work alu_behaviour_cfg 1
+    Compile options: -quiet -auto_acc_if_foreign -work work
+    Short name: @_opt1
+    Opcode format: 10.1b; VCOM/VLOG SE Object version 51
+    Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
+ENTITY alu
+    Source modified time: Thu Sep 26 08:43:58 2013
+    Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
+    HDL source file: VHDL/alu.vhd
+    Source file: VHDL/alu.vhd
+    Start location: VHDL/alu.vhd:5
+    Version string: 9V]^DA>CMA>8`WCUQi9oj0
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Debug Symbol file exists
+  ARCHITECTURE BODY extracted
+    Source modified time: Thu Sep 26 10:59:15 2013
+    Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
+    Depends on: E work alu 9V]^DA>CMA>8`WCUQi9oj0
+    Depends on: P cellslib cellslib_decl_pack 4d9b4<M^C>bQk4nJmEVb^0
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    HDL source file: VHDL/alu_EXTR.vhd
+    Source file: VHDL/alu_EXTR.vhd
+    Start location: VHDL/alu_EXTR.vhd:13
+    Version string: 9Qc_4?5NgT21h7lziWY9d2
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
+    Debug Symbol file exists
+  ARCHITECTURE BODY synthesised
+    Source modified time: Thu Sep 26 10:56:22 2013
+    Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
+    Depends on: E work alu 9V]^DA>CMA>8`WCUQi9oj0
+    Depends on: P cellslib cellslib_decl_pack 4d9b4<M^C>bQk4nJmEVb^0
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    HDL source file: VHDL/alu_SYNTH.vhd
+    Source file: VHDL/alu_SYNTH.vhd
+    Start location: VHDL/alu_SYNTH.vhd:7
+    Version string: 6Um3`V=5>ed_G^J<[09I[1
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
+    Debug Symbol file exists
+  ARCHITECTURE BODY behaviour
+    Source modified time: Thu Sep 26 10:54:37 2013
+    Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
+    Depends on: E work alu 9V]^DA>CMA>8`WCUQi9oj0
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    HDL source file: VHDL/alu-behaviour.vhd
+    Source file: VHDL/alu-behaviour.vhd
+    Start location: VHDL/alu-behaviour.vhd:5
+    Version string: e?fecM8gefQeF5enVJC_k0
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
+    Debug Symbol file exists
+VHDL CONFIGURATION alu_behaviour_cfg
+    Configuration for architecture: behaviour
+    Configuration for entity: alu
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: A work alu behaviour e?fecM8gefQeF5enVJC_k0
+    Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Depends on: E work alu 9V]^DA>CMA>8`WCUQi9oj0
+    Source modified time: Thu Sep 26 10:20:31 2013
+    Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
+    HDL source file: VHDL/alu_behaviour_cfg.vhd
+    Source file: VHDL/alu_behaviour_cfg.vhd
+    Start location: VHDL/alu_behaviour_cfg.vhd:1
+    Version string: S6903MUSl@kRoA57bMg<h0
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+VHDL CONFIGURATION alu_extracted_cfg
+    Configuration for architecture: extracted
+    Configuration for entity: alu
+    Depends on: E cellslib buf40 fYh_:jK1MnK`S6jg]1d]e0
+    Depends on: E cellslib no310 5C0Y^_:?0B6SKY[lPJEV>1
+    Depends on: E cellslib mu111 hknW;QzWV8Je@9eJh_5o`3
+    Depends on: E cellslib na310 z]klTlH8iZ77=SW_]c<[_0
+    Depends on: E cellslib ex210 jfbZcVZ_zElhH?3Ngm^Z<3
+    Depends on: E cellslib iv110 Bdg]QV`zZkg7kCgfbQ_;e3
+    Depends on: E cellslib no210 ]lRe4fhV8=dVn]MWXCKmY1
+    Depends on: E cellslib na210 Q7aJ;UTN[fYM;jh8iJg^41
+    Depends on: P cellslib cellslib_decl_pack 4d9b4<M^C>bQk4nJmEVb^0
+    Depends on: A work alu extracted 9Qc_4?5NgT21h7lziWY9d2
+    Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Depends on: E work alu 9V]^DA>CMA>8`WCUQi9oj0
+    Source modified time: Thu Sep 26 10:59:25 2013
+    Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
+    HDL source file: VHDL/alu_extracted_cfg.vhd
+    Source file: VHDL/alu_extracted_cfg.vhd
+    Start location: VHDL/alu_extracted_cfg.vhd:1
+    Version string: Y]lRmfUjJLi:aWRXjPfRz3
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+VHDL CONFIGURATION alu_synthesised_cfg
+    Configuration for architecture: synthesised
+    Configuration for entity: alu
+    Depends on: E cellslib ex210 jfbZcVZ_zElhH?3Ngm^Z<3
+    Depends on: E cellslib no210 ]lRe4fhV8=dVn]MWXCKmY1
+    Depends on: E cellslib mu111 hknW;QzWV8Je@9eJh_5o`3
+    Depends on: E cellslib iv110 Bdg]QV`zZkg7kCgfbQ_;e3
+    Depends on: E cellslib na310 z]klTlH8iZ77=SW_]c<[_0
+    Depends on: E cellslib no310 5C0Y^_:?0B6SKY[lPJEV>1
+    Depends on: E cellslib buf40 fYh_:jK1MnK`S6jg]1d]e0
+    Depends on: E cellslib na210 Q7aJ;UTN[fYM;jh8iJg^41
+    Depends on: P cellslib cellslib_decl_pack 4d9b4<M^C>bQk4nJmEVb^0
+    Depends on: A work alu synthesised 6Um3`V=5>ed_G^J<[09I[1
+    Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Depends on: E work alu 9V]^DA>CMA>8`WCUQi9oj0
+    Source modified time: Thu Sep 26 10:58:41 2013
+    Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
+    HDL source file: VHDL/alu_synthesised_cfg.vhd
+    Source file: VHDL/alu_synthesised_cfg.vhd
+    Start location: VHDL/alu_synthesised_cfg.vhd:1
+    Version string: Om:nXb2G6IH[8GTV2@i@>1
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+VHDL PACKAGE bitsize
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Source modified time: Thu Sep 26 08:43:58 2013
+    Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
+    HDL source file: VHDL/Bitsize_pkg.vhd
+    Source file: VHDL/Bitsize_pkg.vhd
+    Start location: VHDL/Bitsize_pkg.vhd:4
+    Version string: _XI_]:h_2aWEH:`DbUMg;2
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Needs a body: 1
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Debug Symbol file exists
+  PACKAGE BODY bitsize
+    Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Start location: VHDL/Bitsize_pkg.vhd:8
+    Version string: C8cGn[O;;lP7C@lT8XkF93
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Short name: body
+    Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
+    Source file: VHDL/Bitsize_pkg.vhd
+    Source modified time: Thu Sep 26 08:43:58 2013
+    HDL source file: VHDL/Bitsize_pkg.vhd
+    Debug Symbol file exists
+ENTITY tb
+    Source modified time: Thu Sep 26 08:43:58 2013
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
+    HDL source file: VHDL/tb.vhd
+    Source file: VHDL/tb.vhd
+    Start location: VHDL/tb.vhd:6
+    Version string: C=0na@KL[zVIS4EU>>?8U0
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Debug Symbol file exists
+  ARCHITECTURE BODY behaviour
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: E work tb C=0na@KL[zVIS4EU>>?8U0
+    Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    HDL source file: VHDL/tb-behaviour.vhd
+    Source file: VHDL/tb-behaviour.vhd
+    Start location: VHDL/tb-behaviour.vhd:5
+    Version string: FK5X`J2hbMCOF8kZ9JMMM1
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
+    Source modified time: Thu Sep 26 08:43:58 2013
+    Debug Symbol file exists
+VHDL CONFIGURATION tb_behaviour_cfg
+    Configuration for architecture: behaviour
+    Configuration for entity: tb
+    Depends on: E work alu 9V]^DA>CMA>8`WCUQi9oj0
+    Depends on: C work alu_behaviour_cfg S6903MUSl@kRoA57bMg<h0
+    Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
+    Depends on: A work tb behaviour FK5X`J2hbMCOF8kZ9JMMM1
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Depends on: E work tb C=0na@KL[zVIS4EU>>?8U0
+    Source modified time: Thu Sep 26 10:20:43 2013
+    Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
+    HDL source file: VHDL/tb_behaviour_cfg.vhd
+    Source file: VHDL/tb_behaviour_cfg.vhd
+    Start location: VHDL/tb_behaviour_cfg.vhd:1
+    Version string: _C;3bgmZGH28AV]G3zBHS1
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+VHDL CONFIGURATION tb_behaviour_cfg_ext
+    Configuration for architecture: behaviour
+    Configuration for entity: tb
+    Depends on: E work alu 9V]^DA>CMA>8`WCUQi9oj0
+    Depends on: C work alu_extracted_cfg Y]lRmfUjJLi:aWRXjPfRz3
+    Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
+    Depends on: A work tb behaviour FK5X`J2hbMCOF8kZ9JMMM1
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Depends on: E work tb C=0na@KL[zVIS4EU>>?8U0
+    Source modified time: Thu Sep 26 10:59:40 2013
+    Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
+    HDL source file: VHDL/tb_behaviour_cfg_ext.vhd
+    Source file: VHDL/tb_behaviour_cfg_ext.vhd
+    Start location: VHDL/tb_behaviour_cfg_ext.vhd:1
+    Version string: n6XhKZB^_gEAn_jWNaA_n3
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+VHDL CONFIGURATION tb_behaviour_cfg_syn
+    Configuration for architecture: behaviour
+    Configuration for entity: tb
+    Depends on: E work alu 9V]^DA>CMA>8`WCUQi9oj0
+    Depends on: C work alu_synthesised_cfg Om:nXb2G6IH[8GTV2@i@>1
+    Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
+    Depends on: A work tb behaviour FK5X`J2hbMCOF8kZ9JMMM1
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Depends on: E work tb C=0na@KL[zVIS4EU>>?8U0
+    Source modified time: Thu Sep 26 10:58:58 2013
+    Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
+    HDL source file: VHDL/tb_behaviour_cfg_syn.vhd
+    Source file: VHDL/tb_behaviour_cfg_syn.vhd
+    Start location: VHDL/tb_behaviour_cfg_syn.vhd:1
+    Version string: HG12]R@?=NkFETZ1k5V5o1
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
