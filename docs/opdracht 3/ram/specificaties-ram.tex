@@ -1,29 +1,35 @@
+%feedback is gewenst
+
 \documentclass{article}  
 \input{../../library/preamble}  
 \input{../../library/style}  
 
 \begin{document}
 \section{Specificatie voor RAM}
-De PWM generator is een pulse generator, die de clock verdeelt in periodes waarin de generator een puls in plaatst met een variable pulsbreedte.
+De RAM is een component dat woorden inlaadt met write en woorden aan de uitgang uitgeeft na commando read. 
 \subsection{Randvoorwaarden}
 \begin{itemize}
-\item Hij moet een woord kunnen inladen en ophalen binnen 1 klokslag
-\item Hij moet meerdere woorden kunnen onthouden
+\item De RAM moet een woord kunnen inladen en ophalen binnen 1 klokslag
+\item De RAM moet meerdere woorden kunnen onthouden
+\item Na minimaal 20 ns moet het datasignaal opgeslagen worden in de RAM.(zie ook plaatje in RAM map)
+\item Na maximaal 40 ns moet het datasignaal weer beschikbaar zijn aan de uitgang.
 \end{itemize}
 \subsection{Parameters}
 \begin{itemize}
-\item Woord grootte
-\item Aantal woorden
+\item Woord grootte (N bits)
+\item Aantal woorden = M (2^M mogelijkheden)
+\item 8kb
 
 \end{itemize}
 \subsection{Inputs}
 \begin{itemize}
 \item Clock (clk, std\_logic)
+\item write, read
 \item Adresslines (a, std\_logic\_vector, log2(words) aantal bits)
-\item Data In (d\_in, std\_logic\_vector, wordsize aantal bits)
+\item Data In (d\_in, std\_logic\_vector,N)
 \end{itemize}
 \subsection{Outputs}
 \begin{itemize}
-\item Data Out (d\_out, std\_logic\_vector, wordsize aantal bits)
+\item Data Out (d\_out, std\_logic\_vector, N)
 \end{itemize}
 \end{document}
