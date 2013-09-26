@@ -1,8 +1,0 @@
-/pwm_gen_tb/lbl1/clk	  1	I
-/pwm_gen_tb/lbl1/reset	  2	I
-/pwm_gen_tb/lbl1/enabled	  3	I
-/pwm_gen_tb/lbl1/width(3)	  4	I
-/pwm_gen_tb/lbl1/width(2)	  5	I
-/pwm_gen_tb/lbl1/width(1)	  6	I
-/pwm_gen_tb/lbl1/width(0)	  7	I
-/pwm_gen_tb/lbl1/pulse	  8	O
