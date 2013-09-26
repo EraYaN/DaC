@@ -1,14 +1,16 @@
+%feedback is gewenst
+
 \documentclass{article}  
 \input{../../library/preamble}  
 \input{../../library/style}  
 
 \begin{document}
 \section{Specificatie voor RAM}
-De PWM generator is een pulse generator, die de clock verdeelt in periodes waarin de generator een puls in plaatst met een variable pulsbreedte.
+De RAM is een component dat woorden inlaadt met write en woorden aan de uitgang uitgeeft na commando read. 
 \subsection{Randvoorwaarden}
 \begin{itemize}
-\item Hij moet een woord kunnen inladen en ophalen binnen 1 klokslag
-\item Hij moet meerdere woorden kunnen onthouden
+\item De RAM moet een woord kunnen inladen en ophalen binnen 1 klokslag
+\item De RAM moet meerdere woorden kunnen onthouden
 \end{itemize}
 \subsection{Parameters}
 \begin{itemize}
@@ -19,6 +21,7 @@ De PWM generator is een pulse generator, die de clock verdeelt in periodes waari
 \subsection{Inputs}
 \begin{itemize}
 \item Clock (clk, std\_logic)
+\item write, read
 \item Adresslines (a, std\_logic\_vector, log2(words) aantal bits)
 \item Data In (d\_in, std\_logic\_vector, wordsize aantal bits)
 \end{itemize}
