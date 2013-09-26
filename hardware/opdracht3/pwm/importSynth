@@ -1,5 +1,0 @@
-rm -rf /home/rphes/DaC/hardware/opdracht3/pwm/syn_work_bak
-mv -f /home/rphes/DaC/hardware/opdracht3/pwm/syn_work /home/rphes/DaC/hardware/opdracht3/pwm/syn_work_bak
-cp -r /tmp/rphes/DaC/hardware/opdracht3/pwm/syn_work /home/rphes/DaC/hardware/opdracht3/pwm
-cp /tmp/rphes/DaC/hardware/opdracht3/pwm/ADB/pwm_gen.ddc /home/rphes/DaC/hardware/opdracht3/pwm/ADB/pwm_gen.ddc
-cp /tmp/rphes/DaC/hardware/opdracht3/pwm/VHDL/pwm_gen_SYNTH.vhd /home/rphes/DaC/hardware/opdracht3/pwm/VHDL/pwm_gen_SYNTH.vhd

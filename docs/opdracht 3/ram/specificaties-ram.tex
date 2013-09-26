@@ -11,11 +11,14 @@ De RAM is een component dat woorden inlaadt met write en woorden aan de uitgang 
 \begin{itemize}
 \item De RAM moet een woord kunnen inladen en ophalen binnen 1 klokslag
 \item De RAM moet meerdere woorden kunnen onthouden
+\item Na minimaal 20 ns moet het datasignaal opgeslagen worden in de RAM.(zie ook plaatje in RAM map)
+\item Na maximaal 40 ns moet het datasignaal weer beschikbaar zijn aan de uitgang.
 \end{itemize}
 \subsection{Parameters}
 \begin{itemize}
-\item Woord grootte
-\item Aantal woorden
+\item Woord grootte (N bits)
+\item Aantal woorden = M (2^M mogelijkheden)
+\item 8kb
 
 \end{itemize}
 \subsection{Inputs}
@@ -23,10 +26,10 @@ De RAM is een component dat woorden inlaadt met write en woorden aan de uitgang 
 \item Clock (clk, std\_logic)
 \item write, read
 \item Adresslines (a, std\_logic\_vector, log2(words) aantal bits)
-\item Data In (d\_in, std\_logic\_vector, wordsize aantal bits)
+\item Data In (d\_in, std\_logic\_vector,N)
 \end{itemize}
 \subsection{Outputs}
 \begin{itemize}
-\item Data Out (d\_out, std\_logic\_vector, wordsize aantal bits)
+\item Data Out (d\_out, std\_logic\_vector, N)
 \end{itemize}
 \end{document}

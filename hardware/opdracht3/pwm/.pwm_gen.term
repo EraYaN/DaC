@@ -1,7 +1,0 @@
-I clk clk
-I reset reset
-I enabled enabled
-I width_BITSIZE-1_0_BITSIZE-1 width(BITSIZE-1)
- width_3_0_1 width(1)
-I width_3_0_0 width(0)
-O pulse pulse
