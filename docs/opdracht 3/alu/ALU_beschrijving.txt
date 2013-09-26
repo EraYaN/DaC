@@ -1,0 +1,57 @@
+Beschrijving ALU
+
+De ALU is het centrale onderdeel van de processor van de computer die de rekenkundige en logische bewerkingen uitvoert. 
+Ook wordt hier gekeken op welke geheugenplaats de volgende opdracht van het programma staat.
+
+Enkele basisbewerkingen van de ALU zijn:
+- Shiften
+- arithmetische bewerkingen zoals: optellen, increment en complement
+- logische bewerkingen zoals: AND, OR, XOR, XNOR
+
+De verschillende operaties worden gekoppeld aan een bepaalde waarde van de vector "function_selector":
+
+"0000" -- Shift operatie links
+
+"0001" -- Shift operatie rechts
+
+"0100" -- optellen
+"0101" -- A - B
+"0111" -- B - A
+
+"1000" -- AND
+"1001" -- Clear output_R en output D
+"1010" -- OR
+"1011" -- XOR
+"1100" -- XNOR
+"1101" -- NAND
+"1110" -- NOR
+other	-- 0 op uitgang R en D
+
+De input operanden zijn "input_A" en "input_B", het resultaat is "output_R".
+Verder is er een uitvoerstatusvector "status_D" die aangeeft of er een Carry of Zero aanwezig is.
+status_D: 	00 geen carry, geen zero
+		01 geen carry, wel zero
+		10 wel carry, geen zero
+		11 wel carry, wel zero
+De maximale delay van de ALU is 100ns.
+
+De lengte van de input en output vectoren zijn van lengte N, waarbij N parameter is met een integer waarde.
+
+output_D
+
+Samengevat:
+inputs:
+- function_selector (3 downto 0 vector)
+- input_A (lengte N)
+- input_B (lengte N)
+
+outputs:
+- output_R (lengte N)
+- status_D (3 downto 0 vector)
+
+Voor een duidelijk plaatje zie: http://nl.wikipedia.org/wiki/Arithmetic_logic_unit
+
+
+
+
+
