@@ -15,8 +15,20 @@ begin
 GEN_REG: 
    for I in WORDS-1 downto 0 generate
       REGX : ramword port map
-        (clk, in_lines(I*WORDSIZE downto (I-1)*WORDSIZE), out_lines(I*WORDSIZE downto (I-1)*WORDSIZE), write);
+        (clk, in_lines((I+1)*WORDSIZE-1 downto I*WORDSIZE), out_lines((I+1)*WORDSIZE-1 downto I*WORDSIZE), write(I));
    end generate GEN_REG;
 end behaviour;
+
+
+
+
+
+
+
+
+
+
+
+
 
 

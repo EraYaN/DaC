@@ -27,16 +27,16 @@ process
 begin
 write<='1';
 a<="00";
-d_in<="0011";
+d_in<="00110000";
 wait for 20 ns;
 a<="01";
-d_in<="1100";
+d_in<="11000000";
 wait for 20 ns;
 a<="10";
-d_in<="1111";
+d_in<="11110000";
 wait for 20 ns;
 a<="11";
-d_in<="0000";
+d_in<="00000000";
 wait for 20 ns;
 write<='0';
 --reading
@@ -53,6 +53,9 @@ end process;
 
 ram1: ram port map(clk,a,d_in,write,d_out);
 end behaviour;
+
+
+
 
 
 

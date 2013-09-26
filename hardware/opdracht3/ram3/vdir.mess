@@ -1,22 +1,22 @@
 Library vendor : Model Technology
 Maximum unnamed designs : 3
 OPTIMIZED DESIGN _opt
-    Version string: 8_O1]:2>h]8]llgS:g]_73
+    Version string: _M4k<1D3o[6kiJe97WR::1
     Top-level model: work ram_tb_behaviour_cfg 1
     Compile options: -quiet -auto_acc_if_foreign -work work
     Short name: @_opt
     Opcode format: 10.1b; VCOM/VLOG SE Object version 51
     Source directory: /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram3
 OPTIMIZED DESIGN _opt1
-    Version string: M5o7Dd7C>8YC2oI=L=lBW0
-    Top-level model: work ramword_tb_behaviour_cfg 1
+    Version string: N_0^XT<gG8idk=2h[XCSo1
+    Top-level model: work rambank_tb_behaviour_cfg 1
     Compile options: -quiet -auto_acc_if_foreign -work work
     Short name: @_opt1
     Opcode format: 10.1b; VCOM/VLOG SE Object version 51
     Source directory: /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram3
 OPTIMIZED DESIGN _opt2
-    Version string: BdAK1nJ8L]K]Hj9T4ehZk2
-    Top-level model: work rambank_tb_behaviour_cfg 1
+    Version string: K]2Bd?9b6]9MN`nQ61lVb2
+    Top-level model: work rammux_tb_behaviour_cfg 1
     Compile options: -quiet -auto_acc_if_foreign -work work
     Short name: @_opt2
     Opcode format: 10.1b; VCOM/VLOG SE Object version 51
@@ -38,7 +38,7 @@ ENTITY ram
     Compile defaults: Explicit=1
     Debug Symbol file exists
   ARCHITECTURE BODY behaviour
-    Source modified time: Mon Sep 23 12:10:24 2013
+    Source modified time: Thu Sep 26 10:06:05 2013
     Depends on: E work ram nbJz5eeGWX5NS8N20mQjj3
     Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
@@ -47,19 +47,19 @@ ENTITY ram
     HDL source file: VHDL/ram-behaviour.vhd
     Source file: VHDL/ram-behaviour.vhd
     Start location: VHDL/ram-behaviour.vhd:7
-    Version string: bZoF1E0B[4K1h[PFzh`DA1
+    Version string: :i@fgYY5AzX;>eocHJjc93
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
-    Compile options: -2002 -lower -explicit -work work -quiet -nologo
+    Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
     Source directory: /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram3
     Debug Symbol file exists
 VHDL CONFIGURATION ram_behaviour_cfg
     Configuration for architecture: behaviour
     Configuration for entity: ram
-    Depends on: E work rammux H>BMmQ_PNoH[;0H1o3HMg2
-    Depends on: E work rambank MHI;0U?iJI<de8hVkImZF2
-    Depends on: A work ram behaviour bZoF1E0B[4K1h[PFzh`DA1
+    Depends on: E work rammux HZ>=9RoMWzkBY?JCf;z?j3
+    Depends on: E work rambank ghBfDSZ:7eaA2eo5D5PoE1
+    Depends on: A work ram behaviour :i@fgYY5AzX;>eocHJjc93
     Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
@@ -90,7 +90,7 @@ ENTITY ram_tb
     Compile defaults: Explicit=1
     Debug Symbol file exists
   ARCHITECTURE BODY behaviour
-    Source modified time: Mon Sep 23 11:47:14 2013
+    Source modified time: Thu Sep 26 10:00:38 2013
     Depends on: E work ram_tb 0b<6:SBE5S81i]<PKX[ZB1
     Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
@@ -99,10 +99,10 @@ ENTITY ram_tb
     HDL source file: VHDL/ram_tb-behaviour.vhd
     Source file: VHDL/ram_tb-behaviour.vhd
     Start location: VHDL/ram_tb-behaviour.vhd:7
-    Version string: jl1;mN0QDG39j=mCC5gZK0
+    Version string: h?XH;3B6XOmHGgE;cVobO3
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
-    Compile options: -2002 -lower -explicit -work work -quiet -nologo
+    Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
     Source directory: /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram3
     Debug Symbol file exists
@@ -113,7 +113,7 @@ VHDL CONFIGURATION ram_tb_behaviour_cfg
     Depends on: C work ram_behaviour_cfg H<mOaKkf3eS<A4jmR9j1a2
     Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
-    Depends on: A work ram_tb behaviour jl1;mN0QDG39j=mCC5gZK0
+    Depends on: A work ram_tb behaviour h?XH;3B6XOmHGgE;cVobO3
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
     Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
     Depends on: E work ram_tb 0b<6:SBE5S81i]<PKX[ZB1
@@ -128,7 +128,7 @@ VHDL CONFIGURATION ram_tb_behaviour_cfg
     Compile options: -2002 -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
 ENTITY rambank
-    Source modified time: Mon Sep 23 08:50:21 2013
+    Source modified time: Thu Sep 26 10:05:02 2013
     Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
@@ -137,33 +137,15 @@ ENTITY rambank
     HDL source file: VHDL/rambank.vhd
     Source file: VHDL/rambank.vhd
     Start location: VHDL/rambank.vhd:7
-    Version string: MHI;0U?iJI<de8hVkImZF2
+    Version string: ghBfDSZ:7eaA2eo5D5PoE1
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
-    Compile options: -2002 -lower -explicit -work work -quiet -nologo
+    Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
-    Debug Symbol file exists
-  ARCHITECTURE BODY synthesised
-    Source modified time: Mon Sep 23 11:24:15 2013
-    Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
-    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
-    Depends on: E work rambank MHI;0U?iJI<de8hVkImZF2
-    Depends on: P cellslib cellslib_decl_pack jN>@fCZF[S;GLUBeoUn5^2
-    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
-    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
-    HDL source file: VHDL/rambank_SYNTH.vhd
-    Source file: VHDL/rambank_SYNTH.vhd
-    Start location: VHDL/rambank_SYNTH.vhd:7
-    Version string: 2Q:oh]CMX;0i<fQ7o2i_D2
-    Opcode format: 10.1b; VCOM SE Object version 51
-    VHDL language standard: 2 (VHDL-2002)
-    Compile options: -2002 -lower -explicit -work work -quiet -nologo
-    Compile defaults: Explicit=1
-    Source directory: /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram3
     Debug Symbol file exists
   ARCHITECTURE BODY behaviour
-    Source modified time: Mon Sep 23 09:20:32 2013
-    Depends on: E work rambank MHI;0U?iJI<de8hVkImZF2
+    Source modified time: Thu Sep 26 10:05:16 2013
+    Depends on: E work rambank ghBfDSZ:7eaA2eo5D5PoE1
     Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
@@ -171,10 +153,10 @@ ENTITY rambank
     HDL source file: VHDL/rambank-behaviour.vhd
     Source file: VHDL/rambank-behaviour.vhd
     Start location: VHDL/rambank-behaviour.vhd:7
-    Version string: fYn<7KL;NP?@lA65G;cDV3
+    Version string: `mJXb4bA=Gn<4lC3RA67K1
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
-    Compile options: -2002 -lower -explicit -work work -quiet -nologo
+    Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
     Source directory: /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram3
     Debug Symbol file exists
@@ -183,21 +165,21 @@ VHDL CONFIGURATION rambank_behaviour_cfg
     Configuration for entity: rambank
     Depends on: E work ramword jDJa]kcj94]PQ85CYnR7V2
     Depends on: C work ramword_behaviour_cfg :YZIH@>QG838ziS9Z72PF0
-    Depends on: A work rambank behaviour fYn<7KL;NP?@lA65G;cDV3
+    Depends on: A work rambank behaviour `mJXb4bA=Gn<4lC3RA67K1
     Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
     Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
-    Depends on: E work rambank MHI;0U?iJI<de8hVkImZF2
+    Depends on: E work rambank ghBfDSZ:7eaA2eo5D5PoE1
     Source modified time: Mon Sep 23 08:47:29 2013
     Source directory: /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram3
     HDL source file: VHDL/rambank_behaviour_cfg.vhd
     Source file: VHDL/rambank_behaviour_cfg.vhd
     Start location: VHDL/rambank_behaviour_cfg.vhd:1
-    Version string: 75S]iA<ESD?HZ;mAem`aS1
+    Version string: Q6hFEk=N?@zaZ[zPKQR3f3
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
-    Compile options: -2002 -lower -explicit -work work -quiet -nologo
+    Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
 ENTITY rambank_tb
     Source modified time: Mon Sep 23 10:35:22 2013
@@ -214,7 +196,7 @@ ENTITY rambank_tb
     Compile defaults: Explicit=1
     Debug Symbol file exists
   ARCHITECTURE BODY behaviour
-    Source modified time: Mon Sep 23 11:46:43 2013
+    Source modified time: Thu Sep 26 10:08:13 2013
     Depends on: E work rambank_tb MFUZNaLS5Lb7e9TMcJZa41
     Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
@@ -223,21 +205,21 @@ ENTITY rambank_tb
     HDL source file: VHDL/rambank_tb-behaviour.vhd
     Source file: VHDL/rambank_tb-behaviour.vhd
     Start location: VHDL/rambank_tb-behaviour.vhd:7
-    Version string: 2:]Ng:FI8f]TCEUT=:Aec3
+    Version string: f<coHEEi>d@M18]_WDR?M0
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
-    Compile options: -2002 -lower -explicit -work work -quiet -nologo
+    Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
     Source directory: /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram3
     Debug Symbol file exists
 VHDL CONFIGURATION rambank_tb_behaviour_cfg
     Configuration for architecture: behaviour
     Configuration for entity: rambank_tb
-    Depends on: E work rambank MHI;0U?iJI<de8hVkImZF2
-    Depends on: C work rambank_behaviour_cfg 75S]iA<ESD?HZ;mAem`aS1
+    Depends on: E work rambank ghBfDSZ:7eaA2eo5D5PoE1
+    Depends on: C work rambank_behaviour_cfg Q6hFEk=N?@zaZ[zPKQR3f3
     Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
-    Depends on: A work rambank_tb behaviour 2:]Ng:FI8f]TCEUT=:Aec3
+    Depends on: A work rambank_tb behaviour f<coHEEi>d@M18]_WDR?M0
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
     Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
     Depends on: E work rambank_tb MFUZNaLS5Lb7e9TMcJZa41
@@ -284,7 +266,7 @@ VHDL PACKAGE ramlib
     HDL source file: VHDL/ram_pkg.vhd
     Debug Symbol file exists
 ENTITY rammux
-    Source modified time: Mon Sep 23 11:45:19 2013
+    Source modified time: Thu Sep 26 10:03:27 2013
     Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
@@ -293,15 +275,33 @@ ENTITY rammux
     HDL source file: VHDL/rammux.vhd
     Source file: VHDL/rammux.vhd
     Start location: VHDL/rammux.vhd:7
-    Version string: Zn@;T_i5aEZNmZFH]Ba0A1
+    Version string: HZ>=9RoMWzkBY?JCf;z?j3
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
     Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
     Debug Symbol file exists
+  ARCHITECTURE BODY synthesised
+    Source modified time: Thu Sep 26 10:13:14 2013
+    Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: E work rammux HZ>=9RoMWzkBY?JCf;z?j3
+    Depends on: P cellslib cellslib_decl_pack 4d9b4<M^C>bQk4nJmEVb^0
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    HDL source file: VHDL/rammux_SYNTH.vhd
+    Source file: VHDL/rammux_SYNTH.vhd
+    Start location: VHDL/rammux_SYNTH.vhd:7
+    Version string: RJjMa:7OC]feAn2^KzUAM3
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Source directory: /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram3
+    Debug Symbol file exists
   ARCHITECTURE BODY behaviour
-    Source modified time: Mon Sep 23 12:34:20 2013
-    Depends on: E work rammux Zn@;T_i5aEZNmZFH]Ba0A1
+    Source modified time: Thu Sep 26 10:03:49 2013
+    Depends on: E work rammux HZ>=9RoMWzkBY?JCf;z?j3
     Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
@@ -309,7 +309,7 @@ ENTITY rammux
     HDL source file: VHDL/rammux-behaviour.vhd
     Source file: VHDL/rammux-behaviour.vhd
     Start location: VHDL/rammux-behaviour.vhd:7
-    Version string: [m9E3nk5Ml5m;8F^SIW7i0
+    Version string: 6FnK37GEVG5Qh[e6B5EQM1
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
     Compile options: -lower -explicit -work work -quiet -nologo
@@ -319,18 +319,70 @@ ENTITY rammux
 VHDL CONFIGURATION rammux_behaviour_cfg
     Configuration for architecture: behaviour
     Configuration for entity: rammux
-    Depends on: A work rammux behaviour U1kkSHU[[T_`z1f`iEF8Y1
+    Depends on: A work rammux behaviour 6FnK37GEVG5Qh[e6B5EQM1
     Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
     Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
-    Depends on: E work rammux Zn@;T_i5aEZNmZFH]Ba0A1
+    Depends on: E work rammux HZ>=9RoMWzkBY?JCf;z?j3
     Source modified time: Mon Sep 23 11:42:53 2013
     Source directory: /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram3
     HDL source file: VHDL/rammux_behaviour_cfg.vhd
     Source file: VHDL/rammux_behaviour_cfg.vhd
     Start location: VHDL/rammux_behaviour_cfg.vhd:1
     Version string: 2io2aDHDKZN6Szj2VOK4b2
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+ENTITY rammux_tb
+    Source modified time: Thu Sep 26 09:15:21 2013
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Source directory: /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram3
+    HDL source file: VHDL/rammux_tb.vhd
+    Source file: VHDL/rammux_tb.vhd
+    Start location: VHDL/rammux_tb.vhd:4
+    Version string: NM7[7=5^aF[V3k5PHWaK_2
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Debug Symbol file exists
+  ARCHITECTURE BODY behaviour
+    Source modified time: Thu Sep 26 10:09:23 2013
+    Depends on: E work rammux_tb NM7[7=5^aF[V3k5PHWaK_2
+    Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    HDL source file: VHDL/rammux_tb-behaviour.vhd
+    Source file: VHDL/rammux_tb-behaviour.vhd
+    Start location: VHDL/rammux_tb-behaviour.vhd:7
+    Version string: G:U^h8QJ3d`=L8gV0clUd1
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Source directory: /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram3
+    Debug Symbol file exists
+VHDL CONFIGURATION rammux_tb_behaviour_cfg
+    Configuration for architecture: behaviour
+    Configuration for entity: rammux_tb
+    Depends on: E work rammux HZ>=9RoMWzkBY?JCf;z?j3
+    Depends on: C work rammux_behaviour_cfg 2io2aDHDKZN6Szj2VOK4b2
+    Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: A work rammux_tb behaviour G:U^h8QJ3d`=L8gV0clUd1
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Depends on: E work rammux_tb NM7[7=5^aF[V3k5PHWaK_2
+    Source modified time: Thu Sep 26 09:22:33 2013
+    Source directory: /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram3
+    HDL source file: VHDL/rammux_tb_behaviour_cfg.vhd
+    Source file: VHDL/rammux_tb_behaviour_cfg.vhd
+    Start location: VHDL/rammux_tb_behaviour_cfg.vhd:1
+    Version string: 0PlmeKP`eg<c<WBijih@=1
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
     Compile options: -lower -explicit -work work -quiet -nologo
@@ -351,24 +403,6 @@ ENTITY ramword
     Compile options: -2002 -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
     Debug Symbol file exists
-  ARCHITECTURE BODY synthesised
-    Source modified time: Mon Sep 23 11:15:11 2013
-    Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
-    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
-    Depends on: E work ramword jDJa]kcj94]PQ85CYnR7V2
-    Depends on: P cellslib cellslib_decl_pack jN>@fCZF[S;GLUBeoUn5^2
-    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
-    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
-    HDL source file: VHDL/ramword_SYNTH.vhd
-    Source file: VHDL/ramword_SYNTH.vhd
-    Start location: VHDL/ramword_SYNTH.vhd:7
-    Version string: VeL@DcWkX=VjKcI>g?14n1
-    Opcode format: 10.1b; VCOM SE Object version 51
-    VHDL language standard: 2 (VHDL-2002)
-    Compile options: -2002 -lower -explicit -work work -quiet -nologo
-    Compile defaults: Explicit=1
-    Source directory: /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram3
-    Debug Symbol file exists
   ARCHITECTURE BODY behaviour
     Source modified time: Thu Sep 19 12:17:04 2013
     Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
@@ -379,17 +413,17 @@ ENTITY ramword
     HDL source file: VHDL/ramword-behaviour.vhd
     Source file: VHDL/ramword-behaviour.vhd
     Start location: VHDL/ramword-behaviour.vhd:4
-    Version string: F?1aV7FQd@f<Dhd2KCMk`0
+    Version string: o2g>=5<XGzHGogE2H17Bg1
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
-    Compile options: -2002 -lower -explicit -work work -quiet -nologo
+    Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
     Source directory: /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram3
     Debug Symbol file exists
 VHDL CONFIGURATION ramword_behaviour_cfg
     Configuration for architecture: behaviour
     Configuration for entity: ramword
-    Depends on: A work ramword behaviour F?1aV7FQd@f<Dhd2KCMk`0
+    Depends on: A work ramword behaviour o2g>=5<XGzHGogE2H17Bg1
     Depends on: P work ramlib <liEl@dl1J^Wk3EDJ;RVk3
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
     Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0

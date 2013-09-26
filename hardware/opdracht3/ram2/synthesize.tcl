@@ -1,5 +1,5 @@
 #*********************************************************
-#  synthesize script for cell: ramword                    *
+#  synthesize script for cell: ram                        *
 #*********************************************************
 set hdlin_vhdl_93 false
 set hdlin_ff_always_async_set_reset true
@@ -13,7 +13,8 @@ set link_library [list "*" "/data/public/common/software/opprog/synth_libs/g_dig
 define_design_lib MY_LIB -path /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/syn_work
 define_design_lib CELLSLIB -path /data/public/common/software/opprog/synth_libs/CellsLib
 read_file -format vhdl -work MY_LIB /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/VHDL/ram_pkg.vhd
-read_file -format vhdl -work MY_LIB {/tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/VHDL/ramword.vhd /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/VHDL/ramword-behaviour.vhd}
+read_file -format vhdl -work MY_LIB {/tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/VHDL/ram.vhd /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/VHDL/ram-behaviour.vhd}
+set_dont_touch {rammux rambank}
 set_dont_touch {g_analib8_00/*}
 # set_max_fanout 1.8 all_inputs() 
 # set_max_area 1000 
@@ -22,8 +23,8 @@ compile
 ungroup -all -flat
 report_area
 report_fsm
-write_file -f ddc ramword -output /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/ADB/ramword.ddc
-write_file -f vhdl ramword -output /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/VHDL/ramword_SYNTH.vhd
+write_file -f ddc ram -output /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/ADB/ram.ddc
+write_file -f vhdl ram -output /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/VHDL/ram_SYNTH.vhd
 quit
 
 

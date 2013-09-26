@@ -18,13 +18,11 @@
 # Loading work.ram_tb(behaviour)#1
 # Loading work.ram_behaviour_cfg#1
 # Loading work.ram(behaviour)#1
-# Loading cellslib.cellslib_decl_pack
-# Loading work.rambank(synthesised)#1
-# Loading work.ramword(synthesised)#1
+# Loading work.rambank(behaviour)#1
 # Loading work.rammux(behaviour)#1
 # do /data/public/common/software/opprog/do_files/init_simulator.do 
 # /data/public/common/software/opprog/do_files
-run 340 ns
+run 600ns
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 0  Instance: /ram_tb/ram1/rm
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0

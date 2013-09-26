@@ -1,6 +1,6 @@
 I clk clk
-O d_out_muxed_7_0_7 d_out_muxed(7)
-O d_out_muxed_7_0_6 d_out_muxed(6)
+O d_out_muxed_WORDSIZE-1_0_WORDSIZE-1 d_out_muxed(WORDSIZE-1)
+uxed(6)
 O d_out_muxed_7_0_5 d_out_muxed(5)
 O d_out_muxed_7_0_4 d_out_muxed(4)
 O d_out_muxed_7_0_3 d_out_muxed(3)
@@ -81,3 +81,8 @@ O d_in_31_0_1 d_in(1)
 O d_in_31_0_0 d_in(0)
 I sel_1_0_1 sel(1)
 I sel_1_0_0 sel(0)
+I write write
+O write_out_3_0_3 write_out(3)
+O write_out_3_0_2 write_out(2)
+O write_out_3_0_1 write_out(1)
+O write_out_3_0_0 write_out(0)

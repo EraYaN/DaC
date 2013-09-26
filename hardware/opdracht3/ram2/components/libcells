@@ -18,5 +18,6 @@ mir_nin
 mir_pin
 mir_nout
 mir_pout
+tbuf10
 tbord_cout
 tbord_rout
