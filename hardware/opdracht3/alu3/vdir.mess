@@ -1,7 +1,7 @@
 Library vendor : Model Technology
 Maximum unnamed designs : 3
 OPTIMIZED DESIGN _opt
-    Version string: 0D1gMGWaTT3DDC>oBEZo[2
+    Version string: LLi94e<5PXb<Pc5odNYKH2
     Top-level model: work tb_behaviour_cfg 1
     Compile options: -quiet -auto_acc_if_foreign -work work
     Short name: @_opt
@@ -30,7 +30,7 @@ ENTITY alu
     Compile defaults: Explicit=1
     Debug Symbol file exists
   ARCHITECTURE BODY extracted
-    Source modified time: Thu Sep 26 10:59:15 2013
+    Source modified time: Thu Sep 26 11:37:15 2013
     Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
     Depends on: E work alu 9V]^DA>CMA>8`WCUQi9oj0
     Depends on: P cellslib cellslib_decl_pack 4d9b4<M^C>bQk4nJmEVb^0
@@ -39,7 +39,7 @@ ENTITY alu
     HDL source file: VHDL/alu_EXTR.vhd
     Source file: VHDL/alu_EXTR.vhd
     Start location: VHDL/alu_EXTR.vhd:13
-    Version string: 9Qc_4?5NgT21h7lziWY9d2
+    Version string: IRdd9NC25]`60@mNJlU[:1
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
     Compile options: -lower -explicit -work work -quiet -nologo
@@ -47,7 +47,7 @@ ENTITY alu
     Source directory: /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
     Debug Symbol file exists
   ARCHITECTURE BODY synthesised
-    Source modified time: Thu Sep 26 10:56:22 2013
+    Source modified time: Thu Sep 26 11:30:34 2013
     Depends on: P work bitsize _XI_]:h_2aWEH:`DbUMg;2
     Depends on: E work alu 9V]^DA>CMA>8`WCUQi9oj0
     Depends on: P cellslib cellslib_decl_pack 4d9b4<M^C>bQk4nJmEVb^0

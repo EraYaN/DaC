@@ -7,17 +7,26 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-# vsim -do /data/public/common/software/opprog/do_files/init_simulator.do -lib work tb_behaviour_cfg 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# vsim -do /data/public/common/software/opprog/do_files/init_simulator.do -lib work tb_behaviour_cfg_ext 
+# ** Note: (vsim-3812) Design is being optimized...
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading work.bitsize(body)
-# Loading work.tb_behaviour_cfg#1
+# Loading cellslib.cellslib_decl_pack
+# Loading work.tb_behaviour_cfg_ext#1
 # Loading work.tb(behaviour)#1
-# Loading work.alu_behaviour_cfg#1
-# Loading work.alu(behaviour)#1
+# Loading work.alu_extracted_cfg#1
+# Loading work.alu(extracted)#1
+# Loading cellslib.ex210(dataflow)#1
+# Loading cellslib.na210(dataflow)#1
+# Loading cellslib.iv110(dataflow)#1
+# Loading cellslib.na310(dataflow)#1
+# Loading cellslib.no310(dataflow)#1
+# Loading cellslib.no210(dataflow)#1
+# Loading cellslib.mu111(dataflow)#1
+# Loading cellslib.buf40(dataflow)#1
 # do /data/public/common/software/opprog/do_files/init_simulator.do 
 # /data/public/common/software/opprog/do_files
 run 4000ns
