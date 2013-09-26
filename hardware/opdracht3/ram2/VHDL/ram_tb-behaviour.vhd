@@ -26,33 +26,36 @@ clk	<=	'1' after 0 ns,'0' after 10 ns when clk /= '0' else '1' after 10 ns;
 process 
 begin
 write<='1';
-a<="00";
+a<="000";
 d_in<="00111111";
 wait for 20 ns;
-a<="01";
+a<="001";
 d_in<="11001010";
 wait for 20 ns;
-a<="10";
+a<="010";
 d_in<="11110011";
 wait for 20 ns;
-a<="11";
+a<="011";
 d_in<="01010011";
 wait for 20 ns;
-write<='0';
+write<='1';
 --reading
 wait for 80 ns;
-a<="00";
+a<="000";
 wait for 40 ns;
-a<="01";
+a<="001";
 wait for 40 ns;
-a<="10";
+a<="010";
 wait for 40 ns;
-a<="11";
+a<="011";
 wait for 40 ns;
 end process;
 
 ram1: ram port map(clk,a,d_in,write,d_out);
 end behaviour;
+
+
+
 
 
 
