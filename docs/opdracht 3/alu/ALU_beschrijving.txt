@@ -29,10 +29,11 @@ other	-- 0 op uitgang R en D
 
 De input operanden zijn "input_A" en "input_B", het resultaat is "output_R".
 Verder is er een uitvoerstatusvector "status_D" die aangeeft of er een Carry of Zero aanwezig is.
-status_D: 	00 geen carry, geen zero
-		01 geen carry, wel zero
-		10 wel carry, geen zero
-		11 wel carry, wel zero
+status_D: 	
+		0001 : carry is 1;
+		0010 : zero  is 1; 
+ 
+
 De maximale delay van de ALU is 100ns.
 
 De lengte van de input en output vectoren zijn van lengte N, waarbij N parameter is met een integer waarde.

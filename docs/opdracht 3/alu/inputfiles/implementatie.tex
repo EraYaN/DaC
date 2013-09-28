@@ -8,27 +8,43 @@
 \subsection{Implementatie}
 \begin{itemize}
 \item Nadat de VHDL is geschreven en gesimuleerd is het de bedoeling dat er een echt ontwerp van wordt gemaakt. Dit is gebeurd met het programma GoWithTheFlow in Linux. Hierin plaats je de VHDL-code en vervolgens ga je de code eerst synthetiseren. Het programma gaat er nu een circuit van maken. In dit  circuit staan nu vooral logische poorten zoals NAND, NOR, latches, etc. Hier kregen wij errors in. Deze errors waren veelal te verhelpen door de code aan te passen.
-
+\end{itemize}
 \subsection{Hoe ging de synthese?}
+\begin{itemize}
 \item 
- Nadat het voorgaande is gebeurd maak je met het programma een ontwerp voor op een chip. Hier kwamen de meeste errors. Dit omdat er te veel verbindingen en blokjes nodig waren voor de ruimte die we hadden. Hierop hebben we meerder aanpassingen gemaakt. Onnodige signalen zijn uit de code gehaald om onnodige ruimte te sparen. Ook zijn uitgangen beter en duidelijker vermeld om te voorkomen dat er latches worden gevormd. Nadat de code een stuk simpeler is gemaakt waren er nog errors. Dit is op twee manieren op te lossen. In het programma seadali kan je een box maken waarin de chip-layout word ontworpen. Door deze box groter  te maken heb je meer ruimte en kan alles worden verbonden. Het programma GoWithTheFlow bied ook de mogelijkheid zelf de blokken te plaatsen. Hiermee kan je precies de posities van de blokken zelf en tegenover elkaar aanpassen. Hiermee is uiteindelijk een goed ontwerp gekomen. Vervolgens kan je e resultaten van de chip en van je code vergelijken in het programma GoWithTheFlow. Het resultaat hiervan laat zien dat er geen verschillen zijn. Dit houdt in dat de code goed is geimplementeerd en dat er dus een goed ontwerp voor de chip tot stand is gekomen. 
-Layoutresultaat.
-\item 
-
-nog plaatjes includen
-Switch-level/Spice simulatieresultaten van de uit de layout ge-extraheerde schakeling.
-
-hier ook nog plaatjes includen
+ Nadat het voorgaande is gebeurd maak je met het programma een ontwerp voor op een chip. Hier kwamen de meeste errors. Dit omdat er te veel verbindingen en blokjes nodig waren voor de ruimte die we hadden. Hierop hebben we meerder aanpassingen gemaakt. Onnodige signalen zijn uit de code gehaald om onnodige ruimte te sparen. Ook zijn uitgangen beter en duidelijker vermeld om te voorkomen dat er latches worden gevormd. Nadat de code een stuk simpeler is gemaakt waren er nog errors. Dit is op twee manieren op te lossen. 
 \end{itemize}
 
+\begin{itemize} \item
+In het programma seadali kan je een box maken waarin de chip-layout word ontworpen. Door deze box groter  te maken heb je meer ruimte en kan alles worden verbonden.
+\item Het programma GoWithTheFlow bied ook de mogelijkheid zelf de blokken te plaatsen. Hiermee kan je precies de posities van de blokken zelf en tegenover elkaar aanpassen. Hiermee is uiteindelijk een goed ontwerp gekomen. Vervolgens kan je e resultaten van de chip en van je code vergelijken in het programma GoWithTheFlow. Het resultaat hiervan laat zien dat er geen verschillen zijn. Dit houdt in dat de code goed is geimplementeerd en dat er dus een goed ontwerp voor de chip tot stand is gekomen. Bij analyse wordt verder gesproken over de efficientie van de layout. 
+\end{itemize}
+\begin{figure} [h!]
+\includegraphics [width=\linewidth]{figures/lay-out}
+\caption{De layout van de alu}
+\label{a}
+\end{figure}
 
-
-
-
-
-
-
-
+%nog plaatjes includen
+%Switch-level/Spice simulatieresultaten van de uit de layout ge-extraheerde schakeling.
+Er zijn twee manieren om de schakeling te verifieren. De eerste is op switch level niveau. Hierbij wordt vanuit de layout een VHDL-beschrijving geëxtraheerd. Deze wordt dan met ModelSim gesimuleerd. Het resultaat hiervan staat in figuur \ref{b}.
+\begin{figure} [h!]
+\includegraphics [width=\linewidth]{figures/sim_extractedd}
+\caption{Verificatie op layout/Modelsim niveau}
+\label{b}
+\end{figure}
+De andere manier gaat dieper. Hierbij wordt  een uit de layout geëxtraheerde transistorbeschrijving gesimuleerd. Het resultaat hiervan staat in 
+\begin{figure} [h!]
+\includegraphics [width=\linewidth]{figures/switch-level}
+\caption{Verificatie op transistor beschrijvingsniveau}
+\label{a}
+\end{figure}
+Dan kunnen deze beide simulaties nog vergeleken worden door GoWithTheFlow. Het resultaat daarvan staat in figuur \ref{c}. Aan de figuur is te zien dat er geen verschillen zijn. Eerst was er 1 verschil doordat de carry in het ene geval wél en in het andere geval niet mee werd genomen. Dat is, zoals hierboven beschreven, opgelost. 
+\begin{figure} [h!]
+\includegraphics [width=\linewidth]{figures/comparez}
+\caption{Het vergelijken van de twee simulaties}
+\label{c}
+\end{figure}
 
 
 
