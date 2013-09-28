@@ -31,35 +31,3 @@ rm: rammux port map (clk, d_out, out_lines, d_in, in_lines, a, write, write_out)
  
 
 end behaviour;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
