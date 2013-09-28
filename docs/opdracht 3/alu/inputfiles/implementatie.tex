@@ -1,0 +1,46 @@
+%\documentclass{article}
+\input{../../../library/preamble}
+\input{../../../library/style}
+
+
+
+\begin{document}
+\subsection{Implementatie}
+\begin{itemize}
+\item Nadat de VHDL is geschreven en gesimuleerd is het de bedoeling dat er een echt ontwerp van wordt gemaakt. Dit is gebeurd met het programma GoWithTheFlow in Linux. Hierin plaats je de VHDL-code en vervolgens ga je de code eerst synthetiseren. Het programma gaat er nu een circuit van maken. In dit  circuit staan nu vooral logische poorten zoals NAND, NOR, latches, etc. Hier kregen wij errors in. Deze errors waren veelal te verhelpen door de code aan te passen.
+
+\subsection{Hoe ging de synthese?}
+\item 
+ Nadat het voorgaande is gebeurd maak je met het programma een ontwerp voor op een chip. Hier kwamen de meeste errors. Dit omdat er te veel verbindingen en blokjes nodig waren voor de ruimte die we hadden. Hierop hebben we meerder aanpassingen gemaakt. Onnodige signalen zijn uit de code gehaald om onnodige ruimte te sparen. Ook zijn uitgangen beter en duidelijker vermeld om te voorkomen dat er latches worden gevormd. Nadat de code een stuk simpeler is gemaakt waren er nog errors. Dit is op twee manieren op te lossen. In het programma seadali kan je een box maken waarin de chip-layout word ontworpen. Door deze box groter  te maken heb je meer ruimte en kan alles worden verbonden. Het programma GoWithTheFlow bied ook de mogelijkheid zelf de blokken te plaatsen. Hiermee kan je precies de posities van de blokken zelf en tegenover elkaar aanpassen. Hiermee is uiteindelijk een goed ontwerp gekomen. Vervolgens kan je e resultaten van de chip en van je code vergelijken in het programma GoWithTheFlow. Het resultaat hiervan laat zien dat er geen verschillen zijn. Dit houdt in dat de code goed is geimplementeerd en dat er dus een goed ontwerp voor de chip tot stand is gekomen. 
+Layoutresultaat.
+\item 
+
+nog plaatjes includen
+Switch-level/Spice simulatieresultaten van de uit de layout ge-extraheerde schakeling.
+
+hier ook nog plaatjes includen
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+

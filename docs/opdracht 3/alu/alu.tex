@@ -1,7 +1,11 @@
 %=========================================================================
 \documentclass[11pt,twoside,a4paper]{article}
-\usepackage[dutch]{babel}
+\input{../../library/preamble}
+\input{../../library/style}
+
 %\usepackage{a4wide,times}
+\usepackage{fullpage}
+\usepackage{verbatim}
 \title{Moduleopdracht ALU}
 \author{
 Gemaakt door\\
@@ -32,10 +36,12 @@ Daarna worden er in het rapport simulatieresultaten getoond, om aan te tonen dat
 \clearpage
 
 \section{Inleiding}
-Vertel i
+Bij deze opdracht was het de bedoeling om in kleine groepjes van de projectgroep afzonderlijk een module te ontwerpen. De specificaties werden gegeven door een ander groepje. Aan ons was de taak gegeven een Alu te ontwerpen. Verdere specificaties van deze Alu worden hieronder vermeld. Van deze  alu hebben we een ontwerp gemaakt in vhdl en gesimuleerd. Vervolgens hebben we hiervan een circuit gemodelleerd en chip lay-out gecreeerd. 
 
-\section{Specificatie}
-\input{..\}
+\section{Specificaties}
+\scriptsize
+\verbatiminput{ALU_beschrijving.txt}
+\normalsize
 
 \section{Ontwerp}
 Beschrijf hoe de beschrijving van de opdrachtgevers verder geïnterpreteerd is en hoe het ontwerp gedaan is, tot aan de VHDL beschrijving.
@@ -53,17 +59,10 @@ Simulatieresultaten van de VHDL behaviour beschrijving.
 \end{itemize}
 
 \section{Implementatie}
-Vertel over de implementatie van de schakeling:
-\begin{itemize}
-\item
-Hoe ging de synthese ?
-\item
-Layoutresultaat.
-\item
-Switch-level/Spice simulatieresultaten van de uit de layout ge-extraheerde schakeling.
-\end{itemize}
+\input{inputfiles/implementatie}
 
 \section{Conclusies}
+\input{inputfiles/conclusie}
 Voldoet het ontwerp aan de specificatie ?
 Wat zou er eventueel verbeterd kunnen worden ?
 
