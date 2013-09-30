@@ -1,6 +1,6 @@
-# Tabular Link File created on Mon 30 Sep 2013 17:01:59
+# Tabular Link File created on Mon 30 Sep 2013 17:54:41
 # By Program: design_flow
-# From Source: /home/thoang/Ram/ram.lst
+# From Source: /home/thoang/DaC/hardware/opdracht3/newRam/ram.lst
 # Clock_column: 0
 INP clk;
 INP a_2_0_2;
@@ -80,46 +80,5 @@ DATA_SECTION
            3200<HLLLLLHHHHHHHlhlhllhh
            3300<LLLLLLHHHHHHHlhlhllhh
            3400<HLLHHHLLHLHLHlhlhllhh
-           3460<HLLHHHLLHLHLHllllllll
-           3470<HLLHHHLLHLHLHlhlhllhh
-           3500<LLLHHHLLHLHLHlhlhllhh
-           3600<HLHLHHHHLLHHHlhlhllhh
-           3660<HLHLHHHHLLHHHllllllll
-           3670<HLHLHHHHLLHHHlhlhllhh
-           3700<LLHLHHHHLLHHHlhlhllhh
-           3800<HLHHLHLHLLHHHlhlhllhh
-           3860<HLHHLHLHLLHHHllllllll
-           3870<HLHHLHLHLLHHHlhlhllhh
-           3900<LLHHLHLHLLHHHlhlhllhh
-           4000<HLHHLHLHLLHHHlhlhllhh
-           4100<LLHHLHLHLLHHHlhlhllhh
-           4200<HLHHLHLHLLHHHlhlhllhh
-           4300<LLHHLHLHLLHHHlhlhllhh
-           4400<HLHHLHLHLLHHHlhlhllhh
-           4500<LLHHLHLHLLHHHlhlhllhh
-           4600<HLHHLHLHLLHHHlhlhllhh
-           4700<LLHHLHLHLLHHHlhlhllhh
-           4800<HLLLLHLHLLHHHlhlhllhh
-           4860<HLLLLHLHLLHHHlhhhhhhh
-           4870<HLLLLHLHLLHHHllhhhhhh
-           4900<LLLLLHLHLLHHHllhhhhhh
-           5000<HLLLLHLHLLHHHllhhhhhh
-           5080<HLLLLHLHLLHHHlhlhllhh
-           5100<LLLLLHLHLLHHHlhlhllhh
-           5200<HLLHLHLHLLHHHlhlhllhh
-           5260<HLLHLHLHLLHHHllllllll
-           5270<HLLHLHLHLLHHHhhllhlhl
-           5300<LLLHLHLHLLHHHhhllhlhl
-           5400<HLLHLHLHLLHHHhhllhlhl
-           5480<HLLHLHLHLLHHHlhlhllhh
-           5500<LLLHLHLHLLHHHlhlhllhh
-           5600<HLHLLHLHLLHHHlhlhllhh
-           5660<HLHLLHLHLLHHHllllllll
-           5670<HLHLLHLHLLHHHhhhhllhh
-           5700<LLHLLHLHLLHHHhhhhllhh
-           5800<HLHLLHLHLLHHHhhhhllhh
-           5880<HLHLLHLHLLHHHlhlhllhh
-           5900<LLHLLHLHLLHHHlhlhllhh
-           6000<HLHHLHLHLLHHHlhlhllhh
 
 

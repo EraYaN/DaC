@@ -1,5 +1,5 @@
-rm -rf /home/thoang/Ram/syn_work_bak
-mv -f /home/thoang/Ram/syn_work /home/thoang/Ram/syn_work_bak
-cp -r /tmp/thoang/Ram/syn_work /home/thoang/Ram
-cp /tmp/thoang/Ram/ADB/ram.ddc /home/thoang/Ram/ADB/ram.ddc
-cp /tmp/thoang/Ram/VHDL/ram_SYNTH.vhd /home/thoang/Ram/VHDL/ram_SYNTH.vhd
+rm -rf /home/thoang/DaC/hardware/opdracht3/newRam/syn_work_bak
+mv -f /home/thoang/DaC/hardware/opdracht3/newRam/syn_work /home/thoang/DaC/hardware/opdracht3/newRam/syn_work_bak
+cp -r /tmp/thoang/DaC/hardware/opdracht3/newRam/syn_work /home/thoang/DaC/hardware/opdracht3/newRam
+cp /tmp/thoang/DaC/hardware/opdracht3/newRam/ADB/ram.ddc /home/thoang/DaC/hardware/opdracht3/newRam/ADB/ram.ddc
+cp /tmp/thoang/DaC/hardware/opdracht3/newRam/VHDL/ram_SYNTH.vhd /home/thoang/DaC/hardware/opdracht3/newRam/VHDL/ram_SYNTH.vhd
