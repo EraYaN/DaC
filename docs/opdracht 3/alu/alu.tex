@@ -1,7 +1,11 @@
 %=========================================================================
 \documentclass[11pt,twoside,a4paper]{article}
-\usepackage[dutch]{babel}
+\input{../../library/preamble}
+\input{../../library/style}
+
 %\usepackage{a4wide,times}
+\usepackage{fullpage}
+\usepackage{verbatim}
 \title{Moduleopdracht ALU}
 \author{
 Gemaakt door\\
@@ -15,15 +19,15 @@ Alex, \\
 \date{\today}
 
 \begin{document}
-\maketitle1
+\maketitle
 \thispagestyle{empty}
 \vspace{30 mm}
-
 \begin{center}
 \Large \bf 
 Samenvatting
 \end{center}
-In dit rapport wordt beschreven hoe een groepje van twee studenten een module ontwerpt, in dit geval een ALU. Daarbij werden de specificaties bepaald door een ander groepje van twee in de projectgroep. Er moest minimaal 1 parameter bepaald worden door het andere groepje. De specificatie in dit rapport is het aantal bits input en output. \newline \\
+In dit rapport wordt beschreven hoe een groepje van twee studenten een module ontwerpt, in dit geval een ALU. Daarbij werden de specificaties bepaald door een ander groepje van twee in de projectgroep. Er moest minimaal 1 parameter bepaald worden door het andere groepje. De specificatie in dit rapport is het aantal bits input en output.
+ \\
 Vervolgens  wordt de aan het groepje opgedragen schakeling ontworpen en getest op VHDL behavior niveau, met verwisselende parameterwaarden. Daarna wordt de schakeling geïmplementeerd tot op layout niveau, inclusief switch-level simulatie. 
 Daarna worden er in het rapport simulatieresultaten getoond, om aan te tonen dat het circuit werkt. 
 \clearpage
@@ -32,58 +36,60 @@ Daarna worden er in het rapport simulatieresultaten getoond, om aan te tonen dat
 \clearpage
 
 \section{Inleiding}
-Vertel i
+Bij deze opdracht was het de bedoeling om in kleine groepjes van de projectgroep afzonderlijk een module te ontwerpen. De specificaties werden gegeven door een ander groepje. Aan ons was de taak gegeven een Alu te ontwerpen. Verdere specificaties van deze Alu worden hieronder vermeld. Van deze  alu hebben we een ontwerp gemaakt in vhdl en gesimuleerd. Vervolgens hebben we hiervan een circuit gemodelleerd en chip lay-out gecreëerd. 
 
-\section{Specificatie}
-\input{..\}
+\section{Specificaties}
+\scriptsize
+\verbatiminput{ALU_beschrijving.txt}
+\normalsize
 
 \section{Ontwerp}
-Beschrijf hoe de beschrijving van de opdrachtgevers verder geïnterpreteerd is en hoe het ontwerp gedaan is, tot aan de VHDL beschrijving.
-\begin{itemize}
-\item
-Blokrepresentatie met in en uitgangen
-\item
-Eventuele opdeling in deelschakelingen
-\item
-Een of meerdere toestandsdiagrammen 
-\item
-VHDL behaviour beschrijving van de schakeling.
-\item
-Simulatieresultaten van de VHDL behaviour beschrijving.
-\end{itemize}
+\input{inputfiles/ontwerp}
 
 \section{Implementatie}
-Vertel over de implementatie van de schakeling:
-\begin{itemize}
-\item
-Hoe ging de synthese ?
-\item
-Layoutresultaat.
-\item
-Switch-level/Spice simulatieresultaten van de uit de layout ge-extraheerde schakeling.
-\end{itemize}
+\input{inputfiles/implementatie}
 
 \section{Conclusies}
+\input{inputfiles/conclusie}
 Voldoet het ontwerp aan de specificatie ?
 Wat zou er eventueel verbeterd kunnen worden ?
 
-\begin{thebibliography}{9}
-\bibitem{labelboek1}
-Auteur1, 
-Boek1, 
-Uitgeverij, 
-jaar.
-\bibitem{labelTitel}
-Auteur1, 
-Titel, 
-Tijdschrift, 
-Vol. 1, 
-Nr. 1, 
-jaar, 
-pp. 12-15.
-\bibitem{labelWeb}
-Webpagina titel, 
-http link, 
-geraadpleegd op 19 sep. 2013.
+\begin{thebibliography}{7} %je kunt maximaal 9 verwijzingen hebben
+%Auteur, A. (jaar van uitgave). textit{Titel van het boek. Plaats: Uitgeverij.
+%Apa normen
+%
+\bibitem 
+HHendriks E.A., Bakker A., Frehe A., Groeneveld P., Nouta R., Verhoeven C., Graaf S. de , Liedorp J., Genderen A.J. van,  (2013) \textit{Projecthandleiding Ontwerp een chip}, Uitgegeven in Delft
+
+\bibitem 
+BBrown Stephen, Vranesic Zvonko (2009), \textit{Fundamentals of Digital Logic with VHDL Design}, Published by McGraw-Hill Education
+
+
+
 \end{thebibliography}
+
+
+
+
+
+
+\newpage
+
+\section{Appendix}
+\appendix
+\section{entity alu}
+\label{entity}
+\lstinputlisting{../../../hardware/opdracht3/alu3/VHDL/alu.vhd}
+
+
+\section{behaviour of alu}
+\label{behaviour}
+\lstinputlisting{../../../hardware/opdracht3/alu3/VHDL/alu-behaviour.vhd}
+
+\section{behaviour of tb}
+\label{tb}
+\lstinputlisting{../../../hardware/opdracht3/alu3/VHDL/tb-behaviour.vhd}
+
+
+
 \end{document}

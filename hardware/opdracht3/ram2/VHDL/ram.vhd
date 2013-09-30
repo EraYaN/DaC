@@ -12,29 +12,3 @@ entity ram is
 	d_out:out   std_logic_vector (WORDSIZE-1 downto 0)
 	);
 end ram;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
