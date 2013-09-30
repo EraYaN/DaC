@@ -3,16 +3,14 @@
 \input{../../library/style}  
 
 \begin{document}
-\section{Specificatie voor PWM generator}
-\label{sec:pwm-spec}
-De PWM generator is een pulse generator, die de clock verdeelt in periodes waarin de generator een puls in plaatst met een variable pulsbreedte.
+De PWM generator is een pulsgenerator, die de clock verdeelt in periodes, waarin de generator een puls in plaatst met een variable pulsbreedte.
 \subsection{Randvoorwaarden}
 \begin{itemize}
-\item Kristal die een Clock frequentie kan hebben van 0 Hz tot 100 MHz 
+\item Kristal dat een klokfrequentie kan hebben van 0 Hz tot 100 MHz 
 \end{itemize}
 \subsection{Parameters}
 \begin{itemize}
-\item Divider (divider, 16-bit, integer) een parameter die de frequentie op clk deelt door zijn waarde, waarbij de divider minimaal 1 is en maximaal $2^{16} -1$ dit is het aantal klokpulsen dat 1 periode van het PWM signaal duurt.
+\item Divider (divider, 16-bit, integer) een parameter die de frequentie op clk deelt door zijn waarde, waarbij de divider minimaal 1 is en maximaal $2^{16} -1$. Dit is het aantal klokpulsen dat 1 periode van het PWM signaal duurt.
 \item Bitsize  (bitsize, 2log(divider), naar boven afgerond, dit is het aantal bits van de resolutie.
 
 \end{itemize}

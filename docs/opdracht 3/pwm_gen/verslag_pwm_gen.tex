@@ -14,7 +14,7 @@ Tu Hoang (4203496) \\
 \begin{document}
 \maketitle
 \section{Samenvatting}
-Dit document is een ontwerprapport over de moduleopdracht bij het project "Maak een chip" (EE2821). De gekozen module is een PWM-generator.
+Dit document is een ontwerprapport over de moduleopdracht bij het project ``Maak een chip'' (EE2821). De gekozen module is een PWM-generator.
 In dit rapport wordt beschreven hoe er aan de hand van een, door twee medestudenten, opgestelde lijst met specificaties tot een werkend ontwerp is gekomen.
 In de inleiding (sectie \ref{sec:pwm-inl}) wordt de context van deze opdracht uiteengezet, vervolgens worden de opgestelde specificaties gegeven, zoals wij deze aangeleverd hebben gekregen (sectie \ref{sec:pwm-spec}), daarna het opgestelde ontwerp (sectie \ref{sec:pwm-ontw}) en tot slot de uitgewerkte implementatie met bebehorende validatie door middel van switch-level simulaties in Modelsim (sectie \ref{sec:pwm-impl}).
 
@@ -25,7 +25,13 @@ In de inleiding (sectie \ref{sec:pwm-inl}) wordt de context van deze opdracht ui
 Het doel van deze opdracht is voornamelijk het oefenen met het maken van een ontwerp en implementatie voor een PWM-generator. Dit doen we aan de hand van een lijst vastgestelde specificaties met tenminste één parameter. In ons geval zijn het er twee: één hoofdparameter en één die daarvan afhankelijk is. Deze constructie is zo gekozen om te voorkomen dat de chip arithmetiek toe moet passen op de parameter voordat deze bruikbaar is. Ook helpt deze opdracht ons bij het ons verder eigen maken van het programma GoWithTheFlow.
 Mogelijkerwijs hebben we voor onze eindopdracht ook nog een PWM-generator nodig, bijvoorbeeld als tijdssignaal met een lagere frequentie dan de clk. Mocht dit het geval zijn, dan is het mooi meegenomen dat we deze implementatie al gebouwd hebben.
 
+\section{Specificatie voor PWM generator}
+\label{sec:pwm-spec}
+Wij hebben de volgende specificaties gekregen, waaraan onze implementatie voldoet:
+
 \subimport{pwm_gen}{specificaties-pwm-gen.tex}
+
+De initiële specificaties lieten nog wat onduidelijkheden over. Na enig overleg met de opdrachtgevers zijn de specificaties verduidelijkt en konden wij aan de slag met ons ontwerp.
 
 \section{Ontwerp}
 \label{sec:pwm-ontw}
@@ -78,7 +84,7 @@ De gemaakte lay-out voor een 4-bits PWM-generator is te zien in figuur \ref{fig:
 
 \subsection{Switch-level simulatie}
 \label{ssec:pwm-impl-switch}
-Bovengenoemde lay-out hebben we voor elke geteste bitsize (4, 8 en 16) geëxtraheerd om ze vervolgens met Modelsim te simuleren. De testbench kan beschreven worden als devolgende sequentie: $width = 0$ (geen puls); $width = \frac{divider}{2}$ (lange puls); $width = divider$ (continu hoog): $width = 0$ (geen puls); $width = \frac{divider}{4}$ (korte puls). Bij de 16-bit simulatie geldt deze sequentie niet en werden andere (helaas willekeurige) pulslengten gebruikt, het gedrag is echter geverifiëerd tegen de gebruikte testbench.
+Bovengenoemde lay-out hebben we voor elke geteste bitsize (4, 8 en 16) geëxtraheerd om ze vervolgens met Modelsim te simuleren. De testbench kan beschreven worden als de volgende sequentie: $width = 0$ (geen puls); $width = \frac{divider}{2}$ (lange puls); $width = divider$ (continu hoog): $width = 0$ (geen puls); $width = \frac{divider}{4}$ (korte puls). Bij de 16-bit simulatie geldt deze sequentie niet en werden andere (helaas willekeurige) pulslengten gebruikt, het gedrag is echter geverifiëerd tegen de gebruikte testbench.
 De testbench (4-bit) is te vinden in bijlage \ref{vhdl:pwm-gen-tb}, de simulatieresultaten in de figuren \ref{sfig:pwm-sim-4bit}, \ref{sfig:pwm-sim-8bit} en \ref{sfig:pwm-sim-16bit}.
 
 \begin{figure}[H]
@@ -108,6 +114,14 @@ Vergeleken met de gebruikte testbenches leverden deze simulaties de verwachte re
 
 \section{Conclusie}
 \label{sec:pwm-conclusie}
+
+\subsection{Vergelijking met specificatie}
+\label{ssec:pwm-conclusie-spec-comp}
+Het ontwerp is volledig volgens de specificatie gemaakt en ook de implementatie voldoet aan al de gestelde eisen en randvoorwaarden. Voor de simulaties is gebruikgemaakt van de hoogste klokfrequentie die binnen de specificaties mogelijk is, namelijk 100 mHz. Er mag vanuit gegaan worden dat lagere klokfrequenties dan ook geen problemen opleveren.
+
+\subsection{Verbeterpunten}
+\label{ssec:pwm-conclusie-verb}
+Zoals vermeld in sectie \ref{ssec:pwm-impl-layout} zou het mogelijk moeten zijn om de efficiëntie tijdens place \& route te verhogen zodat minder chipoppervlak wordt gebruikt. Wanneer de PWM-generator gebruikt gaat worden in het eindproduct is het tijd om optimalisaties te overwegen.
 
 \section{Bijlagen}
 \label{sec:pwm-bijlagen}
