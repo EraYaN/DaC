@@ -21,7 +21,7 @@ Wij hebben een complete behavioural RAM gemaakt en daarna een RAM opgebouwd uit 
 \section{Inleiding}
 %TODO inleiding
 Wij moesten aan de hand van specificatie gopgesteld door andere leden van onze project groep een RAM module implementeren.
-De hebben wij gedaan door gebruik te maken van onder andere VHDL en GoWithTheFlow. \nocite{epo3-manual}
+De hebben wij gedaan door gebruik te maken van onder andere VHDL en GoWithTheFlow.
 
 \newpage
 \pagenumbering{arabic}
@@ -57,19 +57,63 @@ De rammux zijn gewoon een tweetal grote selectie multiplexers en een kleine die 
 \end{figure}
 De VHDL implementatie is te zien in Bijlage \ref{app:ram-vhdl}. De implementatie van onze eerste versie is te zien in Bijlage \ref{app:b-ram-vhdl}.
 
-%TODO sim results modelsim
+\begin{figure}[H]
+\centering
+		\includegraphics[width=\textwidth]{resource/modelsimsim}
+		\caption{De simulatie resultaten uit modelsim.}
+		\label{fig:modelsim-ram}
+\end{figure}
 
 \section{Implementatie}
 De eerste implementatie hadden we vrij snel klaar. De tweede en meer stucturele hebben we veel langer over gedaan, zelfs zo lang dat we uit eindelijk in tijdnood kwamen. De sysnthse heeft ons veel problemen gegeven vooral de synthese van de grote multiplexers. Maar uit eindelijk hebben we alle gesynthetiseerd gekregen. De layout hebben we waar mogelijk met de hand gedaan. Het routen van de multiplexers naar de rambank gaf het meeste problemen dit is ons uiteindelijk ook niet gelukt.
-%TODO switch level sim and layout
+\begin{figure}[H]
+\centering
+		\includegraphics[height=\textwidth, angle=90]{resource/ramword}
+		\caption{Layout van component ramword. (90 graden gedraaid)}
+		\label{fig:layout-ramword}
+\end{figure}
+\begin{figure}[H]
+\centering
+		\includegraphics[width=\textwidth]{resource/rambank}
+		\caption{Layout van component rambank.}
+		\label{fig:layout-rambank}
+\end{figure}
+\begin{figure}[H]
+\centering
+		\includegraphics[width=\textwidth]{resource/rammux}
+		\caption{Layout van component rammux.}
+		\label{fig:layout-rammux}
+\end{figure}
+\begin{figure}[H]
+\centering
+		\includegraphics[width=\textwidth]{resource/ram}
+		\caption{Layout van het RAM.}
+		\label{fig:layout-ram}
+\end{figure}
+\begin{figure}[H]
+\centering
+		\includegraphics[width=0.5\textwidth]{resource/compare}
+		\caption{De resultaten van de simulatie vergelijking.}
+		\label{fig:compare-ram}
+\end{figure}
 
 \section{Conclusies}
-We voldoen volledig eaan de specificaties.
+We voldoen volledig aan de specificaties.
+Wij hebben onze RAM gemaakt met 8 woorden van 8 bits.
 De data staat na <10ns stabiel op de uitgang.
 Het duurt maximaal 1 klokslag om data op te slaan.
 Iemand kan om snel vier woorden vol te schrijven, de write input pin hoog maken en dan in de zelfde klokslag het eerste adres en het eerste woord aanbieden.
 Daarna kan iedere volgende klokslag een nieuw adres en woord aangeboden worden.
-We zouden meer aandacht kunnen besteden aan de multiplexer structuul omdat onze rambank op zich zelf heeft een excellente efficientie van 100 procent maar de multiplexer maakte dat het alleen te routen was met een efficientie van rond de 30 procent.
+We zouden meer aandacht kunnen besteden aan de multiplexer structuur en plaating van de terminals, omdat onze rambank heeft op zichzelf een excellente efficientie van 100 procent.
+De multiplexer maakte dat het alleen te routen was met een efficientie van rond de 26.17 procent.
+Er worden 4376 van de 16720 transistoren gebruikt van het gebruikte oppervlakte in ons ontwerp.
+Wij hebben 100000 transistoren tot onze beschikking. \cite[93]{epo3-manual}
+Als de vorm dat toelaat zouden we in theorie dus $\frac{100000}{16720} \approx 5.9 \rightarrow 5$ RAMs kunnen gebruiken als we bijna geen andere logica zouden gebruiken.
+Als we dit als één RAM zouden willen implementeren wordt het pas echt een probleem.
+Dan word het maken van de correcte multiplexers echt een probleem.
+Men zou moeten kijken of men alle inputs van de rambank aan de bovenkant en de outputs aan de onderkant kan plaatsen.
+Als met dan de input en output multiplexer splitst en deze in twee relatief platte cellen te maken om deze dichtbij de inputs en output van de rambank te plaatsten.
+Het is dan belangrijk dat de pint dezelfde volgorde hebben.
 Hier kan dus nog aan gewerkt worden.
 
 \newpage
