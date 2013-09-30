@@ -29,8 +29,8 @@ WORK__ram_tb_behaviour_cfg = $(LIB_WORK)/ram_tb_behaviour_cfg/_primary.dat
 WORK__ram_tb__behaviour = $(LIB_WORK)/ram_tb/behaviour.dat
 WORK__ram_tb = $(LIB_WORK)/ram_tb/_primary.dat
 WORK__ram_behaviour_cfg = $(LIB_WORK)/ram_behaviour_cfg/_primary.dat
-WORK__ram__behaviour = $(LIB_WORK)/ram/behaviour.dat
 WORK__ram__synthesised = $(LIB_WORK)/ram/synthesised.dat
+WORK__ram__behaviour = $(LIB_WORK)/ram/behaviour.dat
 WORK__ram = $(LIB_WORK)/ram/_primary.dat
 VCOM = vcom
 VLOG = vlog
@@ -55,8 +55,8 @@ whole_library :     $(WORK__ramword_behaviour_cfg) \
     $(WORK__ram_tb__behaviour) \
     $(WORK__ram_tb) \
     $(WORK__ram_behaviour_cfg) \
-    $(WORK__ram__behaviour) \
     $(WORK__ram__synthesised) \
+    $(WORK__ram__behaviour) \
     $(WORK__ram)
 
 $(WORK__ram) : VHDL/ram.vhd \
@@ -67,6 +67,15 @@ $(WORK__ram) : VHDL/ram.vhd \
 	$(VCOM) -2002 -lower -explicit -work \
 		 work -quiet -nologo VHDL/ram.vhd
 
+$(WORK__ram__behaviour) : VHDL/ram-behaviour.vhd \
+		$(WORK__ram) \
+		$(WORK__ramlib) \
+		$(IEEE__numeric_std) \
+		$(STD__textio) \
+		$(IEEE__std_logic_1164)
+	$(VCOM) -2002 -lower -explicit -work \
+		 work -quiet -nologo VHDL/ram-behaviour.vhd
+
 $(WORK__ram__synthesised) : VHDL/ram_SYNTH.vhd \
 		$(WORK__ramlib) \
 		$(IEEE__numeric_std) \
@@ -76,15 +85,6 @@ $(WORK__ram__synthesised) : VHDL/ram_SYNTH.vhd \
 		$(IEEE__std_logic_1164)
 	$(VCOM) -2002 -lower -explicit -work \
 		 work -quiet -nologo VHDL/ram_SYNTH.vhd
-
-$(WORK__ram__behaviour) : VHDL/ram-behaviour.vhd \
-		$(WORK__ram) \
-		$(WORK__ramlib) \
-		$(IEEE__numeric_std) \
-		$(STD__textio) \
-		$(IEEE__std_logic_1164)
-	$(VCOM) -2002 -lower -explicit -work \
-		 work -quiet -nologo VHDL/ram-behaviour.vhd
 
 $(WORK__ram_behaviour_cfg) : VHDL/ram_behaviour_cfg.vhd \
 		$(WORK__rammux) \

@@ -8,8 +8,8 @@ OPTIMIZED DESIGN _opt
     Opcode format: 10.1b; VCOM/VLOG SE Object version 51
     Source directory: /home/thoang/Ram
 OPTIMIZED DESIGN _opt1
-    Version string: 8zR?OIf_>R0`kW[h?jB=>1
-    Top-level model: work ram_behaviour_cfg 1
+    Version string: Id<XU@?85RSmcV3E>81XA2
+    Top-level model: work ram_tb_behaviour_cfg 1
     Compile options: -quiet -auto_acc_if_foreign -work work
     Short name: @_opt1
     Opcode format: 10.1b; VCOM/VLOG SE Object version 51
@@ -37,25 +37,8 @@ ENTITY ram
     Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
     Debug Symbol file exists
-  ARCHITECTURE BODY behaviour
-    Depends on: E work ram ^hd0OXY=_Un8N=Aba5Vn23
-    Depends on: P work ramlib Z@e>CmHkk80kc9=<eCheR0
-    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
-    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
-    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
-    Source directory: /home/thoang/DaC/hardware/opdracht3/ram2
-    HDL source file: VHDL/ram-behaviour.vhd
-    Source file: VHDL/ram-behaviour.vhd
-    Start location: VHDL/ram-behaviour.vhd:7
-    Version string: :i@fgYY5AzX;>eocHJjc93
-    Opcode format: 10.1b; VCOM SE Object version 51
-    VHDL language standard: 2 (VHDL-2002)
-    Compile options: -lower -explicit -work work -quiet -nologo
-    Compile defaults: Explicit=1
-    Source modified time: Thu Sep 26 15:45:57 2013
-    Debug Symbol file exists
   ARCHITECTURE BODY synthesised
-    Source modified time: Thu Sep 26 17:42:07 2013
+    Source modified time: Mon Sep 30 17:04:15 2013
     Depends on: P work ramlib Z@e>CmHkk80kc9=<eCheR0
     Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
     Depends on: E work ram ^hd0OXY=_Un8N=Aba5Vn23
@@ -65,12 +48,29 @@ ENTITY ram
     HDL source file: VHDL/ram_SYNTH.vhd
     Source file: VHDL/ram_SYNTH.vhd
     Start location: VHDL/ram_SYNTH.vhd:7
-    Version string: 5X@H7lGYU52elCB>o=c4D0
+    Version string: OaY]L9:762DDfFN`ci07J2
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
     Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
     Source directory: /home/thoang/Ram
+    Debug Symbol file exists
+  ARCHITECTURE BODY behaviour
+    Depends on: E work ram ^hd0OXY=_Un8N=Aba5Vn23
+    Depends on: P work ramlib Z@e>CmHkk80kc9=<eCheR0
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    HDL source file: VHDL/ram-behaviour.vhd
+    Source file: VHDL/ram-behaviour.vhd
+    Start location: VHDL/ram-behaviour.vhd:7
+    Version string: :i@fgYY5AzX;>eocHJjc93
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Source directory: /home/thoang/Ram
+    Source modified time: Thu Sep 26 15:45:57 2013
     Debug Symbol file exists
 VHDL CONFIGURATION ram_behaviour_cfg
     Configuration for architecture: behaviour
@@ -136,14 +136,14 @@ VHDL CONFIGURATION ram_tb_behaviour_cfg
     Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
     Depends on: E work ram_tb 0b<6:SBE5S81i]<PKX[ZB1
     Source modified time: Thu Sep 26 15:45:57 2013
-    Source directory: /home/thoang/DaC/hardware/opdracht3/ram2
+    Source directory: /home/thoang/Ram
     HDL source file: VHDL/ram_tb_behaviour_cfg.vhd
     Source file: VHDL/ram_tb_behaviour_cfg.vhd
     Start location: VHDL/ram_tb_behaviour_cfg.vhd:1
-    Version string: Bd_UzL:e]gGm7kJP7L3`=1
+    Version string: Re<l>I8HH0F]=>I:9l<@J2
     Opcode format: 10.1b; VCOM SE Object version 51
     VHDL language standard: 2 (VHDL-2002)
-    Compile options: -2002 -lower -explicit -work work -quiet -nologo
+    Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
 ENTITY rambank
     Source modified time: Thu Sep 26 15:45:57 2013

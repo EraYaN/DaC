@@ -4,8 +4,8 @@ ram_tb VHDL/ram_tb.vhd 2
 rambank VHDL/rambank.vhd 3 4
 rammux VHDL/rammux.vhd 5 6
 ramword VHDL/ramword.vhd 7 8
-behaviour 0 VHDL/ram-behaviour.vhd
 synthesised 0 VHDL/ram_SYNTH.vhd
+behaviour 0 VHDL/ram-behaviour.vhd
 behaviour 1 VHDL/ram_tb-behaviour.vhd
 synthesised 2 VHDL/rambank_SYNTH.vhd
 behaviour 2 VHDL/rambank-behaviour.vhd
@@ -25,8 +25,8 @@ ram_tb VHDL/ram_tb.vhd 2
 rambank VHDL/rambank.vhd 3 4
 rammux VHDL/rammux.vhd 5 6
 ramword VHDL/ramword.vhd 7 8
-behaviour 0 VHDL/ram-behaviour.vhd 0
 synthesised 0 VHDL/ram_SYNTH.vhd
+behaviour 0 VHDL/ram-behaviour.vhd 0
 behaviour 1 VHDL/ram_tb-behaviour.vhd 1
 synthesised 2 VHDL/rambank_SYNTH.vhd
 behaviour 2 VHDL/rambank-behaviour.vhd 2
