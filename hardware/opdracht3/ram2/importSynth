@@ -1,5 +1,5 @@
-rm -rf /home/thoang/Ram/syn_work_bak
-mv -f /home/thoang/Ram/syn_work /home/thoang/Ram/syn_work_bak
-cp -r /tmp/thoang/Ram/syn_work /home/thoang/Ram
-cp /tmp/thoang/Ram/ADB/ram.ddc /home/thoang/Ram/ADB/ram.ddc
-cp /tmp/thoang/Ram/VHDL/ram_SYNTH.vhd /home/thoang/Ram/VHDL/ram_SYNTH.vhd
+rm -rf /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/syn_work_bak
+mv -f /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/syn_work /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/syn_work_bak
+cp -r /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/syn_work /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram2
+cp /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/ADB/ram.ddc /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/ADB/ram.ddc
+cp /tmp/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/VHDL/ram_SYNTH.vhd /home/erdehaan/GitHub/DaC/hardware/opdracht3/ram2/VHDL/ram_SYNTH.vhd
