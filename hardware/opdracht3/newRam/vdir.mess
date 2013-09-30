@@ -37,23 +37,6 @@ ENTITY ram
     Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
     Debug Symbol file exists
-  ARCHITECTURE BODY behaviour
-    Depends on: E work ram ^hd0OXY=_Un8N=Aba5Vn23
-    Depends on: P work ramlib Z@e>CmHkk80kc9=<eCheR0
-    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
-    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
-    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
-    Source directory: /home/thoang/DaC/hardware/opdracht3/newRam
-    HDL source file: VHDL/ram-behaviour.vhd
-    Source file: VHDL/ram-behaviour.vhd
-    Start location: VHDL/ram-behaviour.vhd:7
-    Version string: :i@fgYY5AzX;>eocHJjc93
-    Opcode format: 10.1b; VCOM SE Object version 51
-    VHDL language standard: 2 (VHDL-2002)
-    Compile options: -lower -explicit -work work -quiet -nologo
-    Compile defaults: Explicit=1
-    Source modified time: Thu Sep 26 15:45:57 2013
-    Debug Symbol file exists
   ARCHITECTURE BODY synthesised
     Source modified time: Mon Sep 30 17:38:13 2013
     Depends on: P work ramlib Z@e>CmHkk80kc9=<eCheR0
@@ -71,6 +54,23 @@ ENTITY ram
     VHDL language standard: 2 (VHDL-2002)
     Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
+    Debug Symbol file exists
+  ARCHITECTURE BODY behaviour
+    Depends on: E work ram ^hd0OXY=_Un8N=Aba5Vn23
+    Depends on: P work ramlib Z@e>CmHkk80kc9=<eCheR0
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Source directory: /home/thoang/DaC/hardware/opdracht3/newRam
+    HDL source file: VHDL/ram-behaviour.vhd
+    Source file: VHDL/ram-behaviour.vhd
+    Start location: VHDL/ram-behaviour.vhd:7
+    Version string: :i@fgYY5AzX;>eocHJjc93
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Source modified time: Thu Sep 26 15:45:57 2013
     Debug Symbol file exists
 VHDL CONFIGURATION ram_behaviour_cfg
     Configuration for architecture: behaviour
