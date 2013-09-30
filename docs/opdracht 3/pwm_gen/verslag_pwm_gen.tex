@@ -14,15 +14,15 @@ Tu Hoang (4203496) \\
 \begin{document}
 \maketitle
 \section{Samenvatting}
-Dit document is een ontwerprapport over de moduleopdracht bij het project EE2821. De gekozen module is een PWM-generator.
-In dit rapport wordt beschreven hoe aan de hand van een door twee medestudenten opgestelde specificaties tot een werkend ontwerp is gekomen.
-In de inleiding (sectie \ref{sec:pwm-inl}) wordt de context van deze opdracht uiteengezet, vervolgens wordt de opgestelde specificatie gegeven, zoals wij deze aangeleverd hebben gekregen (sectie \ref{sec:pwm-spec}), daarna het opgestelde ontwerp (sectie \ref{sec:pwm-ontw}) en tot slot de uitgewerkte implementatie met bebehorende validatie door middel van switch-level simulaties in Modelsim (sectie \ref{sec:pwm-impl}).
+Dit document is een ontwerprapport over de moduleopdracht bij het project "Maak een chip" (EE2821). De gekozen module is een PWM-generator.
+In dit rapport wordt beschreven hoe er aan de hand van een, door twee medestudenten, opgestelde lijst met specificaties tot een werkend ontwerp is gekomen.
+In de inleiding (sectie \ref{sec:pwm-inl}) wordt de context van deze opdracht uiteengezet, vervolgens worden de opgestelde specificaties gegeven, zoals wij deze aangeleverd hebben gekregen (sectie \ref{sec:pwm-spec}), daarna het opgestelde ontwerp (sectie \ref{sec:pwm-ontw}) en tot slot de uitgewerkte implementatie met bebehorende validatie door middel van switch-level simulaties in Modelsim (sectie \ref{sec:pwm-impl}).
 
 \tableofcontents
 
 \section{Inleiding}
 \label{sec:pwm-inl}
-Het doel van deze opdracht is voornamelijk het oefenen met het maken van een ontwerp en implementatie voor een PWM-generator aan de hand van een lijst vastgestelde specificaties met tenminste één parameter. In ons geval zijn het er twee: één hoofdparameter en één die daarvan afhankelijk is. Deze constructie is zo gekozen om te voorkomen dat de chip arithmetiek toe moet passen op de parameter voordat deze bruikbaar is. Ook helpt deze opdracht ons bij het verder eigen maken van het programma GoWithTheFlow.
+Het doel van deze opdracht is voornamelijk het oefenen met het maken van een ontwerp en implementatie voor een PWM-generator. Dit doen we aan de hand van een lijst vastgestelde specificaties met tenminste één parameter. In ons geval zijn het er twee: één hoofdparameter en één die daarvan afhankelijk is. Deze constructie is zo gekozen om te voorkomen dat de chip arithmetiek toe moet passen op de parameter voordat deze bruikbaar is. Ook helpt deze opdracht ons bij het ons verder eigen maken van het programma GoWithTheFlow.
 Mogelijkerwijs hebben we voor onze eindopdracht ook nog een PWM-generator nodig, bijvoorbeeld als tijdssignaal met een lagere frequentie dan de clk. Mocht dit het geval zijn, dan is het mooi meegenomen dat we deze implementatie al gebouwd hebben.
 
 \subimport{pwm_gen}{specificaties-pwm-gen.tex}
@@ -39,7 +39,7 @@ Schematisch kan dit worden weergegeven als in figuur \ref{fig:pwm-schem}. Er is 
 	\label{fig:pwm-schem}
 \end{figure}
 
-Er zou ervoor kunnen worden gekozen om de counter en de pulsgenerator modulair te implementeren. Dit zou kunnen resulteren in een kleiner chipoppervlak, omdat er dan meer controle kan worden uitgeoefend op de lay-out op switch-level. Omdat deze PWM-generator nog niet direct een doel heeft, hij maakt immers geen deel uit van een ander ontwerp en dus is er niet bepaald hoeveel bits deze PWM-generator dan zou moeten omvatten, hebben we er echter voor gekozen deze optimalisatiestap achterwege te laten. 
+Er zou ervoor gekozen kunnen worden om de counter en de pulsgenerator modulair te implementeren. Dit zou kunnen resulteren in een kleiner chipoppervlak, omdat er dan meer controle kan worden uitgeoefend op de lay-out op switch-level. Omdat deze PWM-generator nog niet direct een doel heeft, hij maakt immers geen deel uit van een ander ontwerp en dus is er niet bepaald hoeveel bits deze PWM-generator dan zou moeten omvatten, hebben we er echter voor gekozen deze optimalisatiestap achterwege te laten. 
 De schakeling bestaat dus uit slechts één ``blok''.
 
 \section{Implementatie}
@@ -54,7 +54,7 @@ Het reeds beschreven ontwerp is vervolgens uitgewerkt in VHDL. Het resultaat hie
 
 \subsection{Synthese}
 \label{ssec:pwm-impl-synth}
-Ook synthese van de schakeling leverde geen problemen op, totdat de bitsize van de counter opgevoerd werd naar 16. Op dat moment begon de schakeling tijdens PWM-pulsen dips te vertonen van enkele nanoseconden. Hoogstwaarschijnlijk kwam dit doordat de hoeveelheid logica moest worden opgevoerd naar een niveau waar één klokperiode (100 ns) niet langer genoeg was om het uitgangssignaal zich in te laten stellen. Om dit op te lossen hebben we het eerder genoemde buffer bij de counter geïmplementeerd, waarna ook de simulatie op logisch niveau met een 16-bits counter correct werkte.
+Ook synthese van de schakeling leverde geen problemen op, totdat de bitsize van de counter opgevoerd werd naar 16. Op dat moment begon de schakeling tijdens PWM-pulsen dips te vertonen van enkele nanoseconden. Hoogstwaarschijnlijk kwam dit doordat de hoeveelheid logica moest worden opgevoerd naar een niveau waar één klokperiode (100 ns) niet langer genoeg was om het uitgangssignaal zich in te laten stellen. Om dit op te lossen hebben we de eerder genoemde buffer bij de counter geïmplementeerd, waarna ook de simulatie op logisch niveau, met een 16-bits counter, correct werkte.
 De gesynthetiseerde logische schakeling met een 4-bits counter is te zien in figuur \ref{fig:pwm-logic}.
 
 \begin{figure}[H]
@@ -78,7 +78,7 @@ De gemaakte lay-out voor een 4-bits PWM-generator is te zien in figuur \ref{fig:
 
 \subsection{Switch-level simulatie}
 \label{ssec:pwm-impl-switch}
-Bovengenoemde lay-out hebben we voor elke geteste bitsize (4, 8 en 16) geëxtraheerd om vervolgens ze met Modelsim te simuleren. De testbench kan beschreven worden als deze sequentie: $width = 0$ (geen puls); $width = \frac{divider}{2}$ (lange puls); $width = divider$ (continu hoog): $width = 0$ (geen puls); $width = \frac{divider}{4}$ (korte puls). Bij de 16-bit simulatie geldt deze sequentie niet en werden andere (helaas willekeurige) pulslengten gebruikt, het gedrag is echter geverifiëerd tegen de gebruikte testbench.
+Bovengenoemde lay-out hebben we voor elke geteste bitsize (4, 8 en 16) geëxtraheerd om ze vervolgens met Modelsim te simuleren. De testbench kan beschreven worden als devolgende sequentie: $width = 0$ (geen puls); $width = \frac{divider}{2}$ (lange puls); $width = divider$ (continu hoog): $width = 0$ (geen puls); $width = \frac{divider}{4}$ (korte puls). Bij de 16-bit simulatie geldt deze sequentie niet en werden andere (helaas willekeurige) pulslengten gebruikt, het gedrag is echter geverifiëerd tegen de gebruikte testbench.
 De testbench (4-bit) is te vinden in bijlage \ref{vhdl:pwm-gen-tb}, de simulatieresultaten in de figuren \ref{sfig:pwm-sim-4bit}, \ref{sfig:pwm-sim-8bit} en \ref{sfig:pwm-sim-16bit}.
 
 \begin{figure}[H]
