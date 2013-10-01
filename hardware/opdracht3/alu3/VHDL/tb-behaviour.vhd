@@ -20,8 +20,8 @@ component alu
 	signal op, status_d : std_logic_vector (3 downto 0);
 
 	begin 
-		input_a <= "11110000" after 0 ns;
-		input_b <= "10101010" after 0 ns;
+		input_a <= "10" after 0 ns;
+		input_b <= "10" after 0 ns;
 		
 		
 		op	<=      "0000" after 0 ns,
@@ -44,6 +44,12 @@ component alu
 lbl0: alu port map ( input_a, input_b, op, output_r, status_d);
 				
 end behaviour;
+
+
+
+
+
+
 
 
 

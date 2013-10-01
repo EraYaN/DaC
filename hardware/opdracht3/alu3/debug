@@ -1,9 +1,9 @@
 bitsize VHDL/Bitsize_pkg.vhd VHDL/Bitsize_pkg.vhd E0 A0 A1 A2 C0 C1 C2 P0 A3 C3 C4 C5
 alu VHDL/alu.vhd 0 1 2
 tb VHDL/tb.vhd 3
-extracted 0 VHDL/alu_EXTR.vhd
-synthesised 0 VHDL/alu_SYNTH.vhd
 behaviour 0 VHDL/alu-behaviour.vhd
+synthesised 0 VHDL/alu_SYNTH.vhd
+extracted 0 VHDL/alu_EXTR.vhd
 behaviour 1 VHDL/tb-behaviour.vhd
 alu_behaviour_cfg alu behaviour VHDL/alu_behaviour_cfg.vhd {}
 alu_extracted_cfg alu extracted VHDL/alu_extracted_cfg.vhd {}
@@ -15,9 +15,9 @@ AFTER
 bitsize VHDL/Bitsize_pkg.vhd VHDL/Bitsize_pkg.vhd E0 A0 A1 A2 C0 C1 C2 P0 A3 C3 C4 C5
 alu VHDL/alu.vhd 0 1 2
 tb VHDL/tb.vhd 3
-extracted 0 VHDL/alu_EXTR.vhd 1
-synthesised 0 VHDL/alu_SYNTH.vhd 2
 behaviour 0 VHDL/alu-behaviour.vhd 0
+synthesised 0 VHDL/alu_SYNTH.vhd 2
+extracted 0 VHDL/alu_EXTR.vhd 1
 behaviour 1 VHDL/tb-behaviour.vhd 3 4 5
 alu_behaviour_cfg alu behaviour VHDL/alu_behaviour_cfg.vhd {}
 alu_extracted_cfg alu extracted VHDL/alu_extracted_cfg.vhd {}

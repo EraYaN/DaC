@@ -6,11 +6,13 @@ architecture behaviour of alu is
 
 signal  Reg3: std_logic_vector(S downto 0) := (others => '0');
 signal Reg4 : std_logic_vector(3 downto 0):= (others => '0');
+signal T: std_logic_vector(S-4 downto 0):= (others => '0');
 
 begin
 
 output_r    <= Reg3(S-1 downto 0); --maak output weer S-1 vector
 status_d    <= Reg4;
+
 
 
 
@@ -20,7 +22,7 @@ begin
     
         case op is
             when "0100" =>
-                Reg3 <= std_logic_vector(signed('0' & input_a) + signed('0' & input_b) + signed("00000" & Reg4));  --addition
+                Reg3 <= std_logic_vector(signed('0' & input_a) + signed('0' & input_b) + signed(T & Reg4));  --addition
 		if (Reg3(S) = '1') then
 			Reg4 <= "0001";
 		 else
@@ -103,6 +105,9 @@ begin
 
 
 end behaviour;
+
+
+
 
 
 

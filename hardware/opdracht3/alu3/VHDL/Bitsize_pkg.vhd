@@ -6,8 +6,15 @@ constant S : INTEGER;
 END Bitsize;
 
 PACKAGE BODY Bitsize IS
-constant S: INTEGER := 8;
+constant S: INTEGER := 2;
 END Bitsize;
+
+
+
+
+
+
+
 
 
 

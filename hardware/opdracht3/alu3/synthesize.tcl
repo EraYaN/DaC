@@ -13,7 +13,7 @@ set link_library [list "*" "/data/public/common/software/opprog/synth_libs/g_dig
 define_design_lib MY_LIB -path /tmp/khogenhout/GitHub/DaC/hardware/opdracht3/alu3/syn_work
 define_design_lib CELLSLIB -path /data/public/common/software/opprog/synth_libs/CellsLib
 read_file -format vhdl -work MY_LIB /tmp/khogenhout/GitHub/DaC/hardware/opdracht3/alu3/VHDL/Bitsize_pkg.vhd
-read_file -format vhdl -work MY_LIB {/tmp/khogenhout/GitHub/DaC/hardware/opdracht3/alu3/VHDL/alu.vhd /tmp/khogenhout/GitHub/DaC/hardware/opdracht3/alu3/VHDL/alu-behaviour.vhd}
+read_file -format vhdl -work MY_LIB {/tmp/khogenhout/GitHub/DaC/hardware/opdracht3/alu3/VHDL/alu.vhd /tmp/khogenhout/GitHub/DaC/hardware/opdracht3/alu3/VHDL/alu_SYNTH.vhd}
 set_dont_touch {g_analib8_00/*}
 # set_max_fanout 1.8 all_inputs() 
 # set_max_area 1000 
