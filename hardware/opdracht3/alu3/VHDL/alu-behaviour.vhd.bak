@@ -22,8 +22,7 @@ begin
     
         case op is
             when "0100" =>
-                Reg3 <= std_logic_vector(signed('0' & input_a) + signed('0' & input_b)
-                 + signed(T & Reg4));  --addition
+                Reg3 <= std_logic_vector(signed('0' & input_a) + signed('0' & input_b) + signed(T & Reg4));  --addition
 		if (Reg3(S) = '1') then
 			Reg4 <= "0001";
 		 else
@@ -31,12 +30,10 @@ begin
 			Reg4 <= "0000";
 		end if;
             when "0101" =>
-                Reg3 <= std_logic_vector(signed('0' & input_a) 
-                - signed('0' & input_b)); --A-B
+                Reg3 <= std_logic_vector(signed('0' & input_a) - signed('0' & input_b)); --A-B
 		Reg4 <= "0000";
 	    when "0111" =>
-		Reg3 <= std_logic_vector(signed('0' & input_b) 
-		- signed('0' & input_a));		--B-A
+		Reg3 <= std_logic_vector(signed('0' & input_b) - signed('0' & input_a));		--B-A
 		Reg4 <= "0000";
             when "1001" =>
                 Reg3 <=  (others => '0');  --Clear

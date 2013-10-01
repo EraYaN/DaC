@@ -49,11 +49,15 @@ Bij deze opdracht was het de bedoeling om in kleine groepjes van de projectgroep
 \section{Implementatie}
 \input{inputfiles/implementatie}
 
+\section{Analyse}
+\input{inputfiles/analyse}
+
 \section{Conclusies}
 \input{inputfiles/conclusie}
 Voldoet het ontwerp aan de specificatie ?
 Wat zou er eventueel verbeterd kunnen worden ?
 
+\newpage
 \begin{thebibliography}{7} %je kunt maximaal 9 verwijzingen hebben
 %Auteur, A. (jaar van uitgave). textit{Titel van het boek. Plaats: Uitgeverij.
 %Apa normen
@@ -65,6 +69,9 @@ HHendriks E.A., Bakker A., Frehe A., Groeneveld P., Nouta R., Verhoeven C., Graa
 BBrown Stephen, Vranesic Zvonko (2009), \textit{Fundamentals of Digital Logic with VHDL Design}, Published by McGraw-Hill Education
 
 
+\bibitem AAuteur: sectie EPO-3 Tu Delft, (18 juli 2008), \textit{Handleiding GoWithTheFlow } Geraadpleegd op 30-09 en 1-10 2013 van https://blackboard.tudelft.nl/bbcswebdav/pid-2127456-dt-content-rid-7113453\_2/courses/28188-131401/18222-101101\_ImportedContent\_20110725013802/Course\%20Documents/Handleidingen\%20software/man\_gowiththeflow.pdf
+
+
 
 \end{thebibliography}
 
@@ -72,10 +79,11 @@ BBrown Stephen, Vranesic Zvonko (2009), \textit{Fundamentals of Digital Logic wi
 
 
 
-
+\scriptsize
 \newpage
 
 \section{Appendix}
+
 \appendix
 \section{entity alu}
 \label{entity}
@@ -89,6 +97,27 @@ BBrown Stephen, Vranesic Zvonko (2009), \textit{Fundamentals of Digital Logic wi
 \section{behaviour of tb}
 \label{tb}
 \lstinputlisting{../../../hardware/opdracht3/alu3/VHDL/tb-behaviour.vhd}
+\normalsize
+
+\section{Figuren Place\&route resultaat}
+\label{c1}
+\begin{figure} [h!]
+\includegraphics [width=\linewidth]{figures/eff4} 
+\includegraphics [width=\linewidth]{figures/eff8}
+\caption{Verschillende efficienties na het Place\&routen van 4 en 8bits}
+\label{k}
+\end{figure}
+
+\begin{figure} [h!]
+\includegraphics [width=\linewidth]{figures/eff10} 
+
+\includegraphics [width=\linewidth]{figures/eff12}
+\caption{Verschillende efficienties na het Place\&routen van 10 en 12 bits}
+\label{k}
+\end{figure}
+
+
+
 
 
 

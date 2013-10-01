@@ -5,7 +5,20 @@
 
 
 \begin{document}
+\subsection {Efficientie}
+Het belangrijkst is wel het analyseren van de data. Hoe efficient is het circuit? Het circuit dat bij ons gemaakt is, was groot. De efficientie was in het begin hoog (90\%), maar dan kan het programma niet alle aansluitingen realiseren. Vervolgens moet je zelf een box tekenen, waarin je de grootte handmatig aangeeft. Daarbij werden efficienties tot 30\% behaald. Eerst kwamen efficienties van 3-5\% naar boven, maar na een aantal regels veranderd te hebben, behaalden we steeds tussen de 20 en 30 \%.  \newline \\
+De vraag die bij opkomt bij een alu is of hij bij weinig bits efficienter is dan bij veel bits (het aantal bits input is immers onze parameter). Dat is getest. Het resultaat kun je afbeelden door het aantal bits uit te zetten tegen de verkregen efficientie. Op deze manier kun je analyse doen op de data die je binnen krijgt. Het resultaat hiervan staat in de grafiek in figuur \ref{a1}. De screenshots, de basis voor deze figuur, staan in bijlage \ref{c1}. 
+\begin{figure} [h!]
+\begin{center}
+\includegraphics [scale = 0.5] {figures/efftot}
+\caption{Grafiek van de efficientie: efficientie versus aantal bits}
+\label{a1}
+\end{center}
+\end{figure}
+Wat zegt dit plaatje nu? Ten eerste dat de efficientie niet hoog is. Dat is hierboven uitgelegd. Verder is te zien dat de efficientie niet toeneemt naarmate het aantal bits input kleiner is. Dat kan komen doordat je nu volstrekt willekeurig een box tekent om je layout heen waar je circuit hopelijk inpast. Als je een circuit zou nemen dat wel binnen de place\&route ruimte "past", dan kun je beter zeggen of de efficientie hoger is bij minder inputbits. 
 
+\subsection{Grootte van het ciruit}
+Verder is het opmerkelijk dat ons circuit onevenredig groot blijft wanneer het aantal bits afneemt. Dan blijven er errors verschijnen, niet in de synthese of compiler, maar in seadaly.  (waardoor je weer handmatig een box moet gaan tekenen) Hieruit kun je óf de conclusie trekken dat de alu een groot component is, omdat er zoveel operaties plaats moeten vinden, óf dat onze behaviour niet efficient is. Het zou interessant zijn om dit uit te zoeken, maar de tijd binnen het project laat dit niet toe. Als we onze alu bekijken, bestaan er geen aparte componenten (zoals een COMPONENT add of COMPONENT or), maar is alles 1 blok.  Als er meer tijd beschikbaar was zou nog uitgezocht kunnen worden of dit uitmaakt. Dan zou ook uitgezocht kunnen worden of de efficientie omhooggaat, wanneer voor elke operatie componenten gebruikt worden. 
 
 
 
