@@ -20,8 +20,8 @@ Wij hebben een complete behavioural RAM gemaakt en daarna een RAM opgebouwd uit 
 
 \section{Inleiding}
 %TODO inleiding
-Wij moesten aan de hand van specificatie gopgesteld door andere leden van onze project groep een RAM module implementeren.
-De hebben wij gedaan door gebruik te maken van onder andere VHDL en GoWithTheFlow.
+Wij moesten aan de hand van specificaties opgesteld door andere leden van onze project groep een RAM module implementeren.
+Dit hebben wij gedaan door gebruik te maken van onder andere VHDL en GoWithTheFlow.
 
 \newpage
 \pagenumbering{arabic}
@@ -34,10 +34,10 @@ Ook hebben we een 2-bits input voor het commando (read/write) vervangen door een
 Als laatste hebben wij een ready (output) lijn eruit geoptimaliseerd.
 
 \section{Ontwerp}
-De woorden hebben we als losse entiteiten gezien die worden dus in één keer geschreven of gelezen.
+De woorden hebben we als losse entiteiten gezien die dus in één keer worden geschreven of gelezen.
 Het totaal aantal bit is dus een veelvoud van de woord grootte.
-Als het adres veranderd switch de multiplexor voor de uitgang meteen naar het correcte woord, de data staat dus na een korte vertraging meteen op de uitgang ook als er nieuwe data geschreven wordt.
-De nieuwe data wordt naar het goede word geleid net al het write signaal, dus alleen het woord dat aangewezen wordt door het adres krijgt de opdracht om te schrijven.
+Als het adres verandert, switcht de multiplexor voor de uitgang meteen naar het correcte woord, de data staat dus na een korte vertraging meteen op de uitgang ook als er nieuwe data geschreven wordt.
+De nieuwe data wordt naar het goede woord geleid net al het write signaal, dus alleen het woord dat aangewezen wordt door het adres krijgt de opdracht om te schrijven.
 Het blackbox model dat volgt uit de specificatie staat in Figuur \ref{fig:blackbox-ram}.
 \begin{figure}[H]
 \centering
@@ -45,7 +45,7 @@ Het blackbox model dat volgt uit de specificatie staat in Figuur \ref{fig:blackb
 		\caption{Het blackbox model van ons RAM met de ingangen en uitgangen.}
 		\label{fig:blackbox-ram}
 \end{figure}
-Ons ontwerp is opgedeeld in verschillende blokken omdat onze eerste compleet behavioural beschrijving niet lekker te routen was met een hoge efficientie. Zie figuur \ref{fig:subsystems-ram}.
+Ons ontwerp is opgedeeld in verschillende blokken, omdat onze eerste complete behavioural beschrijving niet goed te routen was met een hoge efficientie. Zie figuur \ref{fig:subsystems-ram}.
 De kleinste blokjes zijn ramword’s dit is gewoon een “stapel” flip-flop’s.
 Een rambank combineert al deze ramword’s.
 De rammux zijn gewoon een tweetal grote selectie multiplexers en een kleine die het write signaal goed verdeeld.
@@ -65,7 +65,7 @@ De VHDL implementatie is te zien in Bijlage \ref{app:ram-vhdl}. De implementatie
 \end{figure}
 
 \section{Implementatie}
-De eerste implementatie hadden we vrij snel klaar. De tweede en meer stucturele hebben we veel langer over gedaan, zelfs zo lang dat we uit eindelijk in tijdnood kwamen. De sysnthse heeft ons veel problemen gegeven vooral de synthese van de grote multiplexers. Maar uit eindelijk hebben we alle gesynthetiseerd gekregen. De layout hebben we waar mogelijk met de hand gedaan. Het routen van de multiplexers naar de rambank gaf het meeste problemen dit is ons uiteindelijk ook niet gelukt.
+De eerste implementatie hadden we vrij snel klaar. De tweede en meer stucturele hebben we veel langer over gedaan, zelfs zo lang dat we uit eindelijk in tijdnood kwamen. De sysnthese heeft ons veel problemen gegeven vooral de synthese van de grote multiplexers. Maar uit eindelijk hebben we alles gesynthetiseerd gekregen. De layout hebben we waar mogelijk met de hand gedaan. Het routen van de multiplexers naar de rambank gaf het meeste problemen, maar dit is ons uiteindelijk wel gelukt.
 \begin{figure}[H]
 \centering
 		\includegraphics[height=\textwidth, angle=90]{resource/ramword}
@@ -116,7 +116,12 @@ Als met dan de input en output multiplexer splitst en deze in twee relatief plat
 Het is dan belangrijk dat de pint dezelfde volgorde hebben.
 Hier kan dus nog aan gewerkt worden.
 
-\newpage
+\section{Discussie}
+Het ontworpen circuit en daarbij met name de efficiëntie kan veel verbeterd worden. 
+Vooral door de beperkende software van place & route is de efficiëntie veel lager dan het had kunnen zijn. 
+Bij het maken van de rammux layout kan het programma niet op een uitvoerbare manier de onderdelen plaatsen, waardoor we de rammux zoveel chip ruimte moesten geven dat het maar ongeveer 60 procent efficiënt was.
+De plaatsing van de in- en uitgangen van de subcellen wordt bepaald door het programma en het heeft de in- en uitgangen op willekeurige plaatsen op de rand van de cel geplaatst, dit heeft ervoor gezorgd dat we de rambank en rammux cellen midden op de chip moesten plaatsen om ruimte te geven voor de bedrading van de desbetreffende in- en uitgangen, zoals je op fig:layout-ram kan zien.
+Om het toch zo efficiënt mogelijk te maken moet er gedacht worden aan de plaatsing van de multiplexer om zo de multiplexer in- en uitgangen bij het desbetreffende woord te plaatsen, zo zal de software hier een betere plaatsing mee kunnen maken en zal het uiteindelijke resultaat een efficiëntere ram zijn met een beter mogelijkheid tot uitbreiding. 
 \pagenumbering{Roman}
 
 \printbibliography
