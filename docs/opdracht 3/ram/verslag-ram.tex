@@ -3,9 +3,9 @@
 \input{../../library/style}
 \addbibresource{../../library/bibliography.bib}
 
-\author{Erwin {de Haan} (4222814) \and {Tu Hoang} (xxxxxxxx)}
+\author{Erwin {de Haan} (4222814) \and {Tu Hoang} (4203496)}
 \title{EPO3-1 - Opdracht 3: Moduleontwerp RAM}
-\subtitle{In opdracht van Kees Hogenhout (xxxxxxxx) en Jorden Kerhof (xxxxxxxx)}
+\subtitle{In opdracht van Kees Hogenhout (xxxxxxxx) en Jorden Kerhof (3458923)}
 \date{28 September 2013}
 
 \begin{document}
@@ -36,7 +36,7 @@ Als laatste hebben wij een ready (output) lijn eruit geoptimaliseerd.
 \section{Ontwerp}
 De woorden hebben we als losse entiteiten gezien die dus in één keer worden geschreven of gelezen.
 Het totaal aantal bit is dus een veelvoud van de woord grootte.
-Als het adres verandert, switcht de multiplexor voor de uitgang meteen naar het correcte woord, de data staat dus na een korte vertraging meteen op de uitgang ook als er nieuwe data geschreven wordt.
+Als het adres verandert, switcht de multiplexer voor de uitgang meteen naar het correcte woord, de data staat dus na een korte vertraging meteen op de uitgang ook als er nieuwe data geschreven wordt.
 De nieuwe data wordt naar het goede woord geleid net al het write signaal, dus alleen het woord dat aangewezen wordt door het adres krijgt de opdracht om te schrijven.
 Het blackbox model dat volgt uit de specificatie staat in Figuur \ref{fig:blackbox-ram}.
 \begin{figure}[H]
@@ -118,7 +118,7 @@ Hier kan dus nog aan gewerkt worden.
 
 \section{Discussie}
 Het ontworpen circuit en daarbij met name de efficiëntie kan veel verbeterd worden. 
-Vooral door de beperkende software van place & route is de efficiëntie veel lager dan het had kunnen zijn. 
+Vooral door de beperkende software van place \& route is de efficiëntie veel lager dan het had kunnen zijn. 
 Bij het maken van de rammux layout kan het programma niet op een uitvoerbare manier de onderdelen plaatsen, waardoor we de rammux zoveel chip ruimte moesten geven dat het maar ongeveer 60 procent efficiënt was.
 De plaatsing van de in- en uitgangen van de subcellen wordt bepaald door het programma en het heeft de in- en uitgangen op willekeurige plaatsen op de rand van de cel geplaatst, dit heeft ervoor gezorgd dat we de rambank en rammux cellen midden op de chip moesten plaatsen om ruimte te geven voor de bedrading van de desbetreffende in- en uitgangen, zoals je op fig:layout-ram kan zien.
 Om het toch zo efficiënt mogelijk te maken moet er gedacht worden aan de plaatsing van de multiplexer om zo de multiplexer in- en uitgangen bij het desbetreffende woord te plaatsen, zo zal de software hier een betere plaatsing mee kunnen maken en zal het uiteindelijke resultaat een efficiëntere ram zijn met een beter mogelijkheid tot uitbreiding. 
