@@ -1,0 +1,86 @@
+\documentclass{article}  
+\input{../../library/preamble}  
+\input{../../library/style} 
+\addbibresource{../../library/bibliography.bib}
+
+\author{Robin Hes (4236815) \and Jorden Kerkhof (3458923)}
+
+\title{EPO3-1 - Opdracht 4: Unified Model Parameters}
+\date{3 oktober 2013}
+\begin{document}
+\maketitle
+
+\section{Abstract}
+\label{sec:ump-abstr}
+
+\tableofcontents
+
+\section{Inleiding}
+\label{sec:ump-inl}
+
+\section{Probleemstelling}
+\label{sec:ump-prob}
+
+\section{Theorie}
+\label{sec:ump-theorie}
+In SPICE-simulaties wordt uiteraard een model gebruikt, dat een werkelijke transistor zo goed mogelijk nabootst. Een computer rekent immers veel sneller dan een mens en dus is de complexiteit van het model een minder groot probleem. Voor handmatige analyse van een CMOS-transistor is het echter wenselijk om een model te hebben dat ook voor de mens te gebruiken is.
+Het unified transistormodel van Rabaey biedt hier een uitkomst. Het model beschrijft, met slechts een enkele vergelijking, de drainstroom $I_{D}$ door de transistor, aan de hand van een vrij beperkt aantal parameters. De drainstroom wordt gemodelleerd in de drie verschillende werkgebieden waarin de transistor zich kan bevinden, wanneer deze in geleiding is, afhankelijk van de spanning over drain en source ($V_{DS}$). Daarnaast beschrijft het model de effecten van velocity saturation.
+De vergelijking voor $I_{D}$, zoals gegeven door Rabaey, is als volgt:
+
+\begin{equation}
+	I_{D} = k' \frac{W}{L} (V_{GT}V_{min} - \frac{V_{min}^2}{2})(1 + \lambda V_{DS})
+	\label{ump-cmos-model-rab}
+\end{equation}
+
+Waarbij geldt dat: \\
+$$V_{min} = min(V_{GT}, V_{DS}, V_{DSAT})$$
+$$V_{GT} = V_{GS} - V_{T}$$
+$$V_{T} = V_{T0} + \gamma ( \sqrt{\abs{-2\phi_{F} + V_{SB}}} - \sqrt{\abs{-2\phi_{F}}} )$$
+\cite[101]{rabaey-integrated-circuits}\\
+
+Hierin hangen $V_{GS}$, $V_{DS}$ en $V_{SB}$ af van de situatie en zijn $W$, $L$, $k'$, $V_{T0}$, $V_{DSAT}$, $\gamma$, $\lambda$ en $\phi_{F}$ eigenschappen van de transistor.
+\\
+
+In sectie \ref{sec:ump-methode} zal de gebruikte methode uiteen gezet worden, om relevante parameters ($k'$, $V_{T0}$, $V_{DSAT}$ en $\lambda$) uit het gegeven model te bepalen, aan de hand van een SPICE-simulatie. Met deze parameters kan vervolgens gerekend worden aan de MOS-transistors uit de bij EPO-3 gebruikte Sea-of-Gates-chip.
+
+\section{Methode}
+\label{sec:ump-methode}
+
+Om de voor deze opdracht vereiste parameters te bepalen is er als eerste data nodig om deze uit te bepalen. Dit kunnen metingen aan een daadwerkelijke transistor zijn, maar voor het doel van deze opdracht volstaat het om gegevens uit een SPICE-simulatie te gebruiken. Daarom simuleren we het onderstaande circuit (figuur \ref{fig:ump-sim-circuit}).
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{resource/sim-circuit}
+	\caption{Het circuit zoals gebruikt bij simulatie met SPICE}
+	\label{fig:ump-sim-circuit}
+\end{figure}
+
+Aan de hand van dit circuit kan vervolgens gesimuleerd worden met SPICE. Voor relevante simulatieresultaten kan als eerste een DC-sweep voor $I_{D}$ met als sweepvariabele $V_{DS}$ en tweede parameter $V_{GS}$ worden uitgevoerd en vervolgens een DC-sweep voor $I_{D}$ met als sweepvariabele $V_{GS}$ en als tweede parameter $V_{DS}$.
+
+In dit circuit geldt als randvoorwaarde dat $V_{SB} = 0$, waaruit volgt dat $V_{T} = V_{T0}$ (zie sectie \ref{sec:ump-theorie}).
+
+Gegeven is de volgende vergelijking voor de drainstroom $I_{D}$ door een CMOS-transistor:
+
+\begin{equation}
+	I_{D} = \frac{1}{2} k (V_{GS} - V_{T})^2(1 + \lambda V_{DS})
+\end{equation}
+
+met
+
+\begin{equation}
+	k = k' \frac{W}{L}
+\end{equation}
+
+\section{Resultaten}
+\label{sec:ump-res}
+
+\section{Conclusie}
+\label{sec:ump-conclusie}
+
+\printbibliography
+
+\section{Bijlagen}
+\label{sec:ump-bijlagen}
+
+
+\end{document}
