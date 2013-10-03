@@ -1,14 +1,13 @@
-* H:\GitHub\DaC\docs\opdracht 4\unified-model-parameters\NMOS.sch
+* H:\GitHub\DaC\docs\opdracht 4\unified-model-parameters\resource\NMOS.sch
 
 * Schematics Version 9.1 - Web Update 1
-* Mon Sep 30 10:45:51 2013
+* Thu Oct 03 10:24:25 2013
 
 
 
 ** Analysis setup **
-.DC LIN V_V1 0 7 0.05 
-.STEP LIN V_V2 0 5 1 
-.OP 
+.DC LIN V_V2 0 5 0.05 
+.STEP LIN V_V1 1 5 1 
 .LIB "h:\Desktop\ModelLibEPO3.lib"
 
 
