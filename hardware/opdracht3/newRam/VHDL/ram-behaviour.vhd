@@ -26,11 +26,24 @@ signal out_lines, in_lines :std_logic_vector(WORDS*WORDSIZE-1 downto 0);
 signal write_out : std_logic_vector(WORDS-1 downto 0);
 begin
 
+process(sel)
+begin
+d_out_muxed <= (others=>'0');
+d_in <= (others=>'Z');
+GEN_MUX_IN: for I in 0 to WORDS-1 loop
+  in_lines ((I+1)*WORDSIZE-1 downto I*WORDSIZE) <= d_in; 
+	d_out <= out_lines((I+1)*WORDSIZE-1 downto I*WORDSIZE); 
+end loop GEN_MUX_IN;
+end process;
+
 rb: rambank port map (clk, write_out, in_lines,out_lines);
-rm: rammux port map (clk, d_out, out_lines, d_in, in_lines, a, write, write_out);
+rm: rammux port map (clk, a, write, write_out);
  
 
 end behaviour;
+
+
+
 
 
 
