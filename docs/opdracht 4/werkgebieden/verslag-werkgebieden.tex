@@ -3,16 +3,16 @@
 \input{../../library/style}
 \addbibresource{../../library/bibliography.bib}
 
-\author{Erwin {de Haan} (4222814) \and {Tu Hoang} (4203496)}
-\title{EPO3-1 - Opdracht 3: Moduleontwerp RAM}
-\subtitle{In opdracht van Kees Hogenhout (xxxxxxxx) en Jorden Kerhof (3458923)}
-\date{28 September 2013}
+\author{Erwin {de Haan} (4222814) \and {Xenia Wesdijk} (4144074)}
+\title{EPO3-1   Opdracht 4.5.1: Werkgebieden}
+\date{3 Oktober 2013}
 
 \begin{document}
 \maketitle
 \pagenumbering{roman}
+\vspace{80 mm}
 \section*{Abstract}
-%TODO
+In dit verslag zullen we het gaan hebben over de invloed van verschillende gate-source-spanningen op de drainstroom van een NMOS transistor wanneer er sprake is van een oplopende waarde van de drain-soruce-spaning. Allereerst zullen we de theorie behandelen achter de NMOS transistor en de verschillende werkgebieden. Vervolgens zullen we onze verkregen simulaties en de bijbehorende resultaten verwerken. Als laatste geven we nog een korte conclusie aan de hand van de door ons verkregen resultaten. 
 \newpage
 \setlength{\cftbeforetoctitleskip}{-3em}
 \tableofcontents
@@ -23,21 +23,40 @@
 \newpage
 \pagenumbering{arabic}
 
-\section{Circuit}
-%TODO
+\section{Theorie}
+Voor we gaan beschrijven hoe wij deze opdracht hebben aangepakt zal er nu eerst worden toegelicht hoe een NMOS transistor nu eigenlijk werkt. De NMOS transistor bestaat eigenlijk uit drie delen....
+Wanneer er een spanningsverschil wordt gemaakt tussen de gate en de source zal er door het elektrische veld een depletiegebied ontstaan. Het depletiegebied zorgt ervoor dat er als het ware een stroom kan lopen van de source naar de drain. 
 
-\section{Simulatie}
-%TODO
+\section{Simulaties}
+\begin{figure}[H]
+\centering
+		\includegraphics[width=\textwidth]{resources/NMOS_circuit}
+		\caption{Het circuit gebruikt om te simlueren.}
+		\label{fig:circuit}
+\end{figure}
 
-\section{Conclusies}
 
-\section{Circuit}
-%TODO
+\section{Resultaten}
+\begin{figure}[H]
+\centering
+		\includegraphics[width=\textwidth]{resources/Id}
+		\caption{Het resultaat van de simulatie.}
+		\label{fig:Id}
+\end{figure}
+\begin{figure}[H]
+\centering
+		\includegraphics[width=\textwidth]{resources/Id_Vds_2nd_div}
+		\caption{De tweede afgeleide van de originele grafiek.}
+		\label{fig:Id_Vds_2nd_div}
+\end{figure}
 
 \section{Discussie}
 
-\section{Circuit}
-%TODO
+\section{Conclusie}
+
+
+\section{Bibliografie}
+
 \pagenumbering{Roman}
 
 \printbibliography
