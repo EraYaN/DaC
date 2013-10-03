@@ -1,5 +1,0 @@
-rm -rf /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3/syn_work_bak
-mv -f /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3/syn_work /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3/syn_work_bak
-cp -r /tmp/khogenhout/GitHub/DaC/hardware/opdracht3/alu3/syn_work /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3
-cp /tmp/khogenhout/GitHub/DaC/hardware/opdracht3/alu3/ADB/alu.ddc /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3/ADB/alu.ddc
-cp /tmp/khogenhout/GitHub/DaC/hardware/opdracht3/alu3/VHDL/alu_SYNTH.vhd /home/khogenhout/GitHub/DaC/hardware/opdracht3/alu3/VHDL/alu_SYNTH.vhd

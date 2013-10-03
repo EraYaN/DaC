@@ -1,8 +1,0 @@
-I clk clk
-I reset reset
-I enabled enabled
-I width_3_0_3 width(3)
-I width_3_0_2 width(2)
-I width_3_0_1 width(1)
-I width_3_0_0 width(0)
-O pulse pulse
