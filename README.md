@@ -17,6 +17,7 @@ Setting up git on SUSE:
 	- 'cd GitHub'
 	- 'git config --global core.editor gedit'
 	- 'git config --global color.ui true'
+	- 'git config --global core.autocrlf input'
 	- 'git config --global user.email email@eample.org'
 	- 'git config --global user.name "Voornaam van Achter"'
 	- 'git config --global credential.helper 'cache --timeout=3600'' (de single qoutes op cache --timeout=3600 moeten wel)
