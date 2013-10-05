@@ -1,6 +1,5 @@
 %cleanup
-clf; clc; clear;
-hold all;
+clc; clear;
 load parameters.mat;
 
 %initialize arrays
@@ -18,6 +17,8 @@ colors = hsv(num_parameters);
 V_GS_begin = 1;
 V_GS_stepsize = 1;
 legend_string = cell(num_parameters+1, 1);
+figure;
+hold all;
 
 for i = 1:num_parameters 
     V_GS_temp = V_GS_begin + V_GS_stepsize * (i - 1);
@@ -41,6 +42,7 @@ for i = 1:num_parameters
     
     %plot relevant data and construct legend
     plot(V_DS, I_D1(:,i), 'color', colors(i,:));
+    plot(V_DS, slope(:,i), 'color', colors(i,:));
     legend_string{i} = ['V_{GS}: ', num2str(V_GS_begin + V_GS_stepsize * (i - 1), 2), ' V'];
 end
 
@@ -49,8 +51,10 @@ parabolaavg = mean(sat_y);
 plot(V_DS, parabolaavg*V_DS.^2);
 
 %display legend
-legend_string{i+1} = 'V_{DS} = V_{GS} - V_{T}';
+legend_string{i+1} = 'V_{DS} \approx V_{GS} - V_{T}';
 legend(legend_string{:});
 
-%limit axes
+%set axes
 axis([0 max(V_DS) 0 max(max(I_D1))]);
+xlabel('V_{DS}');
+ylabel('I_{D}');
