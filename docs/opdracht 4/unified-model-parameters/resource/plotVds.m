@@ -1,9 +1,12 @@
 %cleanup
 clc; clear;
+%load known transistor parameters
 load parameters.mat;
+%load simulation data
+load sim.mat
 
 %prealloc and init loop variables
-num_parameters = size(I_D1,2);
+num_parameters = size(sim_I_D1,2);
 V_DS_begin = 1;
 V_DS_stepsize = 1;
 colors = hsv(num_parameters);
@@ -15,7 +18,7 @@ hold all;
 
 for i = 1:num_parameters 
     %plot relevant data and construct legend
-    plot(V_GS, I_D2(:,i), 'color', colors(i,:));
+    plot(sim_V_GS, sim_I_D2(:,i), 'color', colors(i,:));
     legend_string{i} = ['V_{DS}: ', num2str(V_DS_begin + V_DS_stepsize * (i - 1), 2), ' V'];
 end
 

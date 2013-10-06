@@ -68,7 +68,7 @@ Aan de hand van dit circuit kan vervolgens gesimuleerd worden met SPICE. Voor re
 	\label{fig:ump-sim-fig-vds}
 \end{figure}
 
-Uit deze simulatie kan de belangrijkste informatie worden gehaald om de vereiste parameters te bepalen, aan de hand van vergelijking~\ref{eq:ump-cmos-model-rab}. Vervolgens kan een aantal relevante datapunten in een tabel gezet worden, voor gebruik in vergelijking vergelijking~\ref{eq:ump-cmos-model-rab}, zie hiervoor tabel~\ref{tab:ump-sim-tab-vds}. De werkgebieden per datapunten zijn aannames, gemaakt aan de hand van figuur~\ref{fig:ump-sim-fig-vds}. Een daadwerkelijke waarde voor bijvoorbeeld $V_{DSAT}$ moet immers nog bepaald worden. Er is bewust gekozen voor waarden van $V_{GS}$ rond de 5 V, aangezien dit de voedingsspanning ($V_{DD}$) van de uiteindelijk te gebruiken Sea-of-Gates chip is.
+Uit deze simulatie kan de belangrijkste informatie worden gehaald om de vereiste parameters te bepalen, aan de hand van vergelijking~\ref{eq:ump-cmos-model-rab}. Vervolgens kan een aantal relevante datapunten in een tabel gezet worden, voor gebruik in vergelijking vergelijking~\ref{eq:ump-cmos-model-rab}, zie hiervoor tabel~\ref{tab:ump-sim-tab-vds}. De werkgebieden per datapunten zijn aannames, gemaakt aan de hand van figuur~\ref{fig:ump-sim-fig-vds}. Een daadwerkelijke waarde voor bijvoorbeeld $V_{DSAT}$ moet immers nog bepaald worden. 
 
 \begin{table}[h]
 	\centering
@@ -78,11 +78,11 @@ Uit deze simulatie kan de belangrijkste informatie worden gehaald om de vereiste
 		\hline
 		Datapunt & $V_{GS}$ & $V_{DS}$ & $I_{D}$ & Werkgebied \\
 		\hline
-		1 & 4 V & 2.4 V & 3.775 mA & Verzadiging \\
+		1 & 1 V & 3 V & 0.1364 mA & Verzadiging \\
 		\hline
-		2 & 4 V & 1.8 V & 3.416 mA & Verzadiging \\
+		2 & 1 V & 2 V & 0.1230 mA & Verzadiging \\
 		\hline
-		3 & 5 V & 1.8 V & 4.805 mA & Verzadiging \\
+		3 & 2 V & 2 V & 0.9409 mA & Verzadiging \\
 		\hline
 		4 & 5 V & 5 V & 5.997 mA & Snelheidsverzadiging \\
 		\hline	
@@ -154,7 +154,7 @@ Waaruit dan de uiteindelijke vergelijking voor $\lambda$ kan worden afgeleid. De
 \end{equation}
 
 \subsubsection{k'}
-\label{subsubsec:ump-methode-verw-lambda}
+\label{subsubsec:ump-methode-verw-kprime}
 Met $V_{T}$ en $\lambda$ zijn twee van de drie onbekende parameters uit vergelijking~\ref{eq:ump-cmos-model-rab-sat} berekend, er blijft dus slechts één onbekende over. Deze kan vervolgens voor willekeurige waarden van $V_{DS}$ en $V_{GS}$ worden berekend, mits in het verzadigingsgebied. Uit vergelijking~\ref{eq:ump-cmos-model-rab-sat} volgt dan voor $k$:
 
 $$k = \frac{2I_{D}}{(V_{GS} - V_{T})^2(1 + \lambda V_{DS})}$$
@@ -166,7 +166,7 @@ Dan volgt hieruit, omdat zoals al eerder vermeld geldt dat $k = k'\frac{W}{L}$, 
 \end{equation}
 
 \subsubsection{Snelheidsverzadiging}
-\label{subsubsec:ump-methode-verw-lambda}
+\label{subsubsec:ump-methode-verw-vdsat}
 Omdat in het voorgaande elke onbekende uit het model van Rabaey is bepaald, kan deze opgelost worden voor $V_{DSAT}$, waarna alle reeds bepaalde parameters, samen met waarden voor $V_{DS}$, $V_{GS}$ en de bijbehorende waarde van $I_{D}$ kunnen worden ingevuld om tot een oplossing te komen. Een voorwaarde aan de waarde van $V_{DS}$ is uiteraard dat deze in het snelheidsverzadigingswerkgebied van de transistor valt. Het model van Rabaey geeft de volgende vergelijking voor $I_{D}$:
 
 \begin{equation}
@@ -187,6 +187,32 @@ Met deze laatste uitdrukkingen is er voor iedere gevraagde parameter een uitdruk
 
 \section{Resultaten}
 \label{sec:ump-res}
+Om waarden voor de vier gevraagde parameters te bepalen, vullen we de relevante waarden uit tabel~\ref{tab:ump-sim-tab-vds} in de vergelijkingen uit sectie~\ref{subsec:ump-methode-verw}.
+Ten eerste bepalen we $V_{T0}$. Hiervoor nemen we twee datapunten uit tabel~\ref{tab:ump-sim-tab-vds}, met gelijke $V_{DS}$, welke in het verzadigingsgebied valt. Dit zijn datapunten 2 en 3. Deze vullen we vervolgens in vergelijking \ref{eq:ump-vt0}. Dit geeft:
+
+\begin{equation} \label{ump-vt0-num}
+	V_{T0} = \frac{2\sqrt{0.1230 \cdot 10^{-3}} - \sqrt{0.9409 \cdot 10^{-3}}}{\sqrt{0.1230 \cdot 10^{-3}} - \sqrt{0.9409 \cdot 10^{-3}}} = 0.4337 \, \textrm{V}
+\end{equation}
+
+Vervolgens nemen we datapunten 1 en 2 om $\lambda$ te bepalen aan de hand van vergelijking~\ref{eq:ump-lambda}:
+
+\begin{equation} \label{ump-lambda-num}
+	\lambda = \frac{0.1364 \cdot 10^{-3} - 0.1230 \cdot 10^{-3}}{3 \cdot 0.1230 \cdot 10^{-3} - 2 \cdot 0.1364 \cdot 10^{-3}} = 0.1393 \, \textrm{V}^{-1}
+\end{equation}
+
+Dan kunnen de gegevens van datapunt 3 samen met de zojuist berekende $V_{T0}$ en $\lambda$ gebruikt worden in vergelijking~\ref{eq:ump-kprime} om $k'$ te berekenen:
+
+\begin{equation} \label{eq:ump-kprime-num}
+	k' = \frac{1.6 \cdot 10^{-6}}{23.2 \cdot 10^{-6}}\frac{2 \cdot 0.9409 \cdot 10^{-3}}{(2 - 0.4337)^2(1 + 0.1393 \cdot 2)} = 41.37 \,\frac{\textrm{µA}}{\textrm{V}^{2}}
+\end{equation}
+
+Als laatste komen de gegevens van datapunt 4 met elke reeds berekende parameter samen om $V_{DSAT}$ te berekenen met vergelijking~\ref{eq:ump-vdsat}:
+
+\begin{equation} \label{eq:ump-vdsat-num}
+	V_{DSAT} = \frac{-41.37 \cdot 10^{-6} \frac{23.2 \cdot 10^{-6}}{1.6 \cdot 10^{-6}}(5-0.4337) \pm \sqrt{[41.37 \cdot 10^{-6}\frac{23.2 \cdot 10^{-6}}{1.6 \cdot 10^{-6}}(5-0.4337)]^2 - 41.37 \cdot 10^{-6}\frac{2 \cdot 23.2 \cdot 10^{-6}}{1.6 \cdot 10^{-6}}\frac{5.997 \cdot 10^{-3}}{1 + 0.1393 \cdot 5}}}{-41.37 \cdot 10^{-6}\frac{23.2 \cdot 10^{-6}}{1.6 \cdot 10^{-6}}}	
+\end{equation}
+
+$$V_{DSAT} = 1.555 \, \textrm{V} \vee V_{DSAT} = 7.577 \, \textrm{V}$$
 
 \section{Conclusie}
 \label{sec:ump-conclusie}
