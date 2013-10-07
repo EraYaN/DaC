@@ -9,7 +9,8 @@
 \usepackage{caption}
 \usepackage[list=true]{subcaption}
 \usepackage{float}
-%\usepackage{mathtools}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \usepackage{standalone}
 \usepackage{import}
 \usepackage{tocloft}
@@ -19,8 +20,11 @@
 \usepackage{booktabs}
 \usepackage[toc,page,title,titletoc]{appendix}
 \usepackage{xunicode}
-\usepackage{amsmath}
 \usepackage{fontspec}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\newlength\figureheight 
+\newlength\figurewidth
 \usepackage{unicode-math}
 \usepackage[
     backend=bibtexu,
