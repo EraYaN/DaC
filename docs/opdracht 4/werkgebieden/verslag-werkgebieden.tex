@@ -5,6 +5,7 @@
 
 \author{Erwin {de Haan} (4222814)  \\{Xenia Wesdijk} (4144074)}
 \title{EPO3-1   Opdracht 4.5.1: Werkgebieden}
+\subtitle{EE2821}
 \date{9 Oktober 2013}
 
 \begin{document}
@@ -25,17 +26,28 @@ In dit verslag zullen we het gaan hebben over de invloed van verschillende gate-
 
 \section{Theorie}
 Voor we gaan beschrijven hoe wij deze opdracht hebben aangepakt zal er nu eerst worden toegelicht hoe een NMOS transistor nu eigenlijk werkt. De NMOS transistor bestaat eigenlijk uit drie delen gedopeerd silicium, een stuk polysilicium, een stuk gate-oxide en metalen aansluitpunten. Van de drie delen gedopeerd silicium is één stuk gedopeerd met extra gaten en de andere twee stukken zijn gedopeerd met extra elektronen. De opbouw van de transistor is dan als volgt.
-%(AFBEELDING van slides van der meijs!!! (of deze http://www.google.nl/imgres?imgurl=http://img.docstoccdn.com/thumb/orig/32677077.png&imgrefurl=http://www.docstoc.com/docs/32677077/MOS-Transistor-Details-Static-Behavior-An-nMOS-transistor-cross&h=1275&w=1650&sz=125&tbnid=OjpKU-xpcEHtQM:&tbnh=90&tbnw=116&zoom=1&usg=__uTglymTw83ryYL0rEaqMRau955o=&docid=mWaF4wI6uxCkrM&sa=X&ei=gLZRUrq1Fq3a4QS774CABQ&ved=0CGAQ9QEwBA) andere afbeelding voor bij depletiegebied van http://www.engr.uconn.edu/~tehrani/teaching/ece3421/Lec-02.pdf gebruiken)
+\begin{figure}[H]
+\centering
+		\includegraphics[width=\textwidth]{resources/MOS-opbouw}
+		\caption{Opbouw van een NMOS transistor.\cite{patel-slides}}
+		\label{fig:NMOS-transistor}
+\end{figure}
 
 Wanneer er een spanningsverschil wordt gemaakt tussen de gate en de source zal er een depletiegebied ontstaan onder de gate. Dit depletiegebied zorgt ervoor dat er als het ware een stroom kan lopen tussen de source naar de drain. \\
-Omdat we de drain hebben aangesloten op $V_{DS}$ en de source hebben aangesloten op de ground kan er nu ook daadwerkelijk stroom gaan lopen tussen source en drain. Als we het spanningsverschil over de gate en de source groter maken, zal ook het elektrisch veld groter worden, waardoor er meer stroom zal lopen. Dit gaat niet oneindig door. Voor dat je de grens bereikt zit je in het resistieve of lineaire gebied en na de grens bevindt de transistor zich in het verzadegingsgebied. Wanneer de transistor zich in dit gebied bevindt, zal er niet meer stroom gaan lopen naarmate het spanningsverschil toeneemt. De formule die we gebruiken om de stroom te berekenen in het verzadigingsgebied is:
+\begin{figure}[H]
+\centering
+		\includegraphics[width=\textwidth]{resources/depletiegebied}
+		\caption{Een depletiegebied.\cite{nick-slides}}
+		\label{fig:depletiegebied}
+\end{figure}
+Omdat we de drain hebben aangesloten op $V_{DS}$ en de source hebben aangesloten op de ground kan er nu ook daadwerkelijk stroom gaan lopen tussen source en drain. Als we het spanningsverschil over de gate en de source groter maken, zal ook het elektrisch veld groter worden, waardoor er meer stroom zal lopen. Dit gaat niet oneindig door. Voordat je de grens bereikt zit je in het resistieve of lineaire gebied en na de grens bevindt de transistor zich in het verzadegingsgebied. Wanneer de transistor zich in dit gebied bevindt, zal er niet meer stroom gaan lopen naarmate het spanningsverschil toeneemt. De formule die we gebruiken om de stroom te berekenen in het verzadigingsgebied is:
 \begin{equation}
 I_{D} = k((V_{GS} - V_{T})(V_{GS} - V_{T}) - 0.5(V_{GS} - V_{T})^{2}). 
 \end{equation}
 \newline Dit is te vereenvoudigen tot: 
 \begin{equation} I_{D} = 0.5k(V_{GS} - V_{T})^{2}.
 \end{equation}
-\newline Voor het lineaire gebied gebruiken we devolgende formule: 
+\newline Voor het lineaire gebied gebruiken we de volgende formule: 
 \begin{equation}
 I_{D} = k(V_{GS} - V_{T})V_{DS} - 0.5V_{DS}^{2}.
 \end{equation}
@@ -55,22 +67,22 @@ I_{D} = k(V_{GS} - V_{T})V_{DS} - 0.5V_{DS}^{2}.
 Het resultaat van de simulatie van ons circuit ziet er als volgt uit.
 \begin{figure}[H]
 \centering
-		\setlength\figureheight{0.4\textwidth} 
-		\setlength\figurewidth{0.6\textwidth}
-		\input{resource/Id.tikz}
+		\setlength\figureheight{0.6\textwidth} 
+		\setlength\figurewidth{0.9\textwidth}
+		\input{resources/Id.tikz}
 		\caption{Het resultaat van de simulatie.}
 		\label{fig:Id}
 \end{figure}
-De verschillende $I_{D}$ lijnen komen rechtstreeks van het circuit. Om de andere 2 lijnen ($V_{DSAT}$ en $V_{GT}$) te kunnen plotten hebben we echter andere dingen moeten doen. Zo hebben we om de $V_{DSAT}$ te kunnen plotten allereerst de tweede afgeleide van de $I_{D}$ grafieken geplot (zie figuur \ref{fig:Id}) en vervolgens daarvan de minima genomen. 
-Om vervolgens $V_{GT}$ te kunnen plotten, hebben we de formule: 
+De verschillende $I_{D}$ lijnen komen rechtstreeks van het gesimuleerde circuit. Om de andere 2 lijnen ($V_{DSAT}$ en $V_{GT}$) te kunnen plotten hebben we echter andere dingen moeten doen, omdat deze niet rechtstreeks uit de simulatie voortkwamen. Zo hebben we om de $V_{DSAT}$ te kunnen plotten allereerst de tweede afgeleide van de $I_{D}$ grafieken geplot (zie figuur \ref{fig:Id-2nd-div}) en vervolgens daarvan de minima genomen. \\
+Om aansluitend $V_{GT}$ te kunnen plotten, hebben we de formule: 
 \begin{equation}
 V_{GS} - V_{T} = V_{DS} 
-\end{equation} gebruikt.
-\newline $V_{T}$ vonden we door de formule: 
+\end{equation} gebruikt.\\
+$V_{T}$ vonden we door de formule: 
 \begin{equation}
 V_{T} = V_{T0} + \gamma (\sqrt {2 \phi F + |V_{SB}|} - \sqrt{ 2 \phi F} ) 
-\end{equation} in te vullen. $V_{SB}$ = 0, waardoor $V_{T}$  gelijk is aan $V_{T0}$. $V_{T0}$ heeft een vaste waarde van 0.43V. Hiermee konden we dus heel makkeijk vijf verschillende punten vinden en door deze met elkaar te verbinden vonden we de $V_{GT}$ grafiek. 
-\newline Aan de van de simulatieresultaten kunnen we nu de werkgebieden aangeven.
+\end{equation} in te vullen. Hierin is $V_{SB}$ = 0, waardoor $V_{T}$  gelijk is aan $V_{T0}$. $V_{T0}$ heeft een vaste waarde van 0.43V \cite[103]{rabaey-integrated-circuits}. Hiermee konden we dus heel gemakkeijk vijf verschillende punten vinden. Door deze met elkaar te verbinden vonden we de $V_{GT}$ grafiek. \\
+Aan de hand van de simulatieresultaten kunnen we nu de verschillende werkgebieden aangeven.
 \begin{itemize}
 	\item Het lineaire gebied is het gebied dat links ligt ten opzichte van de $V_{DSAT}$ lijn;
 	\item Het snelheisverzadigingsgebied is het gebied ligt rechts ten opzichte van de $V_{DSAT}$ lijn;
@@ -79,9 +91,9 @@ V_{T} = V_{T0} + \gamma (\sqrt {2 \phi F + |V_{SB}|} - \sqrt{ 2 \phi F} )
 
 \begin{figure}[H]
 \centering
-		\setlength\figureheight{0.4\textwidth} 
-		\setlength\figurewidth{0.6\textwidth}
-		\input{resource/Id-2nd-div.tikz}
+		\setlength\figureheight{0.6\textwidth} 
+		\setlength\figurewidth{0.9\textwidth}
+		\input{resources/Id-2nd-div.tikz}
 		\caption{De tweede afgeleide van de originele grafiek.}
 		\label{fig:Id-2nd-div}
 \end{figure}
