@@ -9,9 +9,11 @@ entity rammux is
        sel     :in    std_logic_vector(ADRESSLINES-1 downto 0);
   write     :in    std_logic;
   write_out  :out   std_logic_vector(WORDS-1 downto 0);
-drive     :in    std_logic;
   drive_out  :out   std_logic_vector(WORDS-1 downto 0));
 end rammux; 
+
+
+
 
 
 

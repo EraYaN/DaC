@@ -15,7 +15,7 @@ IF to_integer(unsigned(sel)) = I then
   --d_in ((I+1)*WORDSIZE-1 downto I*WORDSIZE) <= d_in_muxed; 
   --d_out_muxed <= d_out((I+1)*WORDSIZE-1 downto I*WORDSIZE); 
   write_out(I) <= write;
-  drive_out(I) <= drive;
+  drive_out(I) <= '1';
 end if;
 end loop GEN_MUX;
 
@@ -29,6 +29,9 @@ end process;
 
 
 end behaviour; 
+
+
+
 
 
 

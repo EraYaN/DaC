@@ -7,58 +7,28 @@ use CellsLib.CellsLib_DECL_PACK.all;
 architecture synthesised of ram is
 
    component rammux
-      port( clk : in std_logic;  d_out_muxed : out std_logic_vector (7 downto 
-            0);  d_out : in std_logic_vector (63 downto 0);  d_in_muxed : in 
-            std_logic_vector (7 downto 0);  d_in : out std_logic_vector (63 
-            downto 0);  sel : in std_logic_vector (2 downto 0);  write : in 
-            std_logic;  write_out : out std_logic_vector (7 downto 0));
+      port( clk : in std_logic;  sel : in std_logic_vector (2 downto 0);  write
+            : in std_logic;  write_out, drive_out : out std_logic_vector (7 
+            downto 0));
    end component;
    
    component rambank
-      port( clk : in std_logic;  write : in std_logic_vector (7 downto 0);  
-            in_lines : in std_logic_vector (63 downto 0);  out_lines : out 
+      port( clk : in std_logic;  write, drive : in std_logic_vector (7 downto 
+            0);  in_lines : in std_logic_vector (63 downto 0);  out_lines : out
             std_logic_vector (63 downto 0));
    end component;
    
    signal write_out_7_port, write_out_6_port, write_out_5_port, 
       write_out_4_port, write_out_3_port, write_out_2_port, write_out_1_port, 
-      write_out_0_port, in_lines_63_port, in_lines_62_port, in_lines_61_port, 
-      in_lines_60_port, in_lines_59_port, in_lines_58_port, in_lines_57_port, 
-      in_lines_56_port, in_lines_55_port, in_lines_54_port, in_lines_53_port, 
-      in_lines_52_port, in_lines_51_port, in_lines_50_port, in_lines_49_port, 
-      in_lines_48_port, in_lines_47_port, in_lines_46_port, in_lines_45_port, 
-      in_lines_44_port, in_lines_43_port, in_lines_42_port, in_lines_41_port, 
-      in_lines_40_port, in_lines_39_port, in_lines_38_port, in_lines_37_port, 
-      in_lines_36_port, in_lines_35_port, in_lines_34_port, in_lines_33_port, 
-      in_lines_32_port, in_lines_31_port, in_lines_30_port, in_lines_29_port, 
-      in_lines_28_port, in_lines_27_port, in_lines_26_port, in_lines_25_port, 
-      in_lines_24_port, in_lines_23_port, in_lines_22_port, in_lines_21_port, 
-      in_lines_20_port, in_lines_19_port, in_lines_18_port, in_lines_17_port, 
-      in_lines_16_port, in_lines_15_port, in_lines_14_port, in_lines_13_port, 
-      in_lines_12_port, in_lines_11_port, in_lines_10_port, in_lines_9_port, 
-      in_lines_8_port, in_lines_7_port, in_lines_6_port, in_lines_5_port, 
-      in_lines_4_port, in_lines_3_port, in_lines_2_port, in_lines_1_port, 
-      in_lines_0_port, out_lines_63_port, out_lines_62_port, out_lines_61_port,
-      out_lines_60_port, out_lines_59_port, out_lines_58_port, 
-      out_lines_57_port, out_lines_56_port, out_lines_55_port, 
-      out_lines_54_port, out_lines_53_port, out_lines_52_port, 
-      out_lines_51_port, out_lines_50_port, out_lines_49_port, 
-      out_lines_48_port, out_lines_47_port, out_lines_46_port, 
-      out_lines_45_port, out_lines_44_port, out_lines_43_port, 
-      out_lines_42_port, out_lines_41_port, out_lines_40_port, 
-      out_lines_39_port, out_lines_38_port, out_lines_37_port, 
-      out_lines_36_port, out_lines_35_port, out_lines_34_port, 
-      out_lines_33_port, out_lines_32_port, out_lines_31_port, 
-      out_lines_30_port, out_lines_29_port, out_lines_28_port, 
-      out_lines_27_port, out_lines_26_port, out_lines_25_port, 
-      out_lines_24_port, out_lines_23_port, out_lines_22_port, 
-      out_lines_21_port, out_lines_20_port, out_lines_19_port, 
-      out_lines_18_port, out_lines_17_port, out_lines_16_port, 
-      out_lines_15_port, out_lines_14_port, out_lines_13_port, 
-      out_lines_12_port, out_lines_11_port, out_lines_10_port, out_lines_9_port
-      , out_lines_8_port, out_lines_7_port, out_lines_6_port, out_lines_5_port,
-      out_lines_4_port, out_lines_3_port, out_lines_2_port, out_lines_1_port, 
-      out_lines_0_port : std_logic;
+      write_out_0_port, drive_out_7_port, drive_out_6_port, drive_out_5_port, 
+      drive_out_4_port, drive_out_3_port, drive_out_2_port, drive_out_1_port, 
+      drive_out_0_port, n_1000, n_1001, n_1002, n_1003, n_1004, n_1005, n_1006,
+      n_1007, n_1008, n_1009, n_1010, n_1011, n_1012, n_1013, n_1014, n_1015, 
+      n_1016, n_1017, n_1018, n_1019, n_1020, n_1021, n_1022, n_1023, n_1024, 
+      n_1025, n_1026, n_1027, n_1028, n_1029, n_1030, n_1031, n_1032, n_1033, 
+      n_1034, n_1035, n_1036, n_1037, n_1038, n_1039, n_1040, n_1041, n_1042, 
+      n_1043, n_1044, n_1045, n_1046, n_1047, n_1048, n_1049, n_1050, n_1051, 
+      n_1052, n_1053, n_1054, n_1055 : std_logic;
 
 begin
    
@@ -67,210 +37,90 @@ begin
                            write(4) => write_out_4_port, write(3) => 
                            write_out_3_port, write(2) => write_out_2_port, 
                            write(1) => write_out_1_port, write(0) => 
-                           write_out_0_port, in_lines(63) => in_lines_63_port, 
-                           in_lines(62) => in_lines_62_port, in_lines(61) => 
-                           in_lines_61_port, in_lines(60) => in_lines_60_port, 
-                           in_lines(59) => in_lines_59_port, in_lines(58) => 
-                           in_lines_58_port, in_lines(57) => in_lines_57_port, 
-                           in_lines(56) => in_lines_56_port, in_lines(55) => 
-                           in_lines_55_port, in_lines(54) => in_lines_54_port, 
-                           in_lines(53) => in_lines_53_port, in_lines(52) => 
-                           in_lines_52_port, in_lines(51) => in_lines_51_port, 
-                           in_lines(50) => in_lines_50_port, in_lines(49) => 
-                           in_lines_49_port, in_lines(48) => in_lines_48_port, 
-                           in_lines(47) => in_lines_47_port, in_lines(46) => 
-                           in_lines_46_port, in_lines(45) => in_lines_45_port, 
-                           in_lines(44) => in_lines_44_port, in_lines(43) => 
-                           in_lines_43_port, in_lines(42) => in_lines_42_port, 
-                           in_lines(41) => in_lines_41_port, in_lines(40) => 
-                           in_lines_40_port, in_lines(39) => in_lines_39_port, 
-                           in_lines(38) => in_lines_38_port, in_lines(37) => 
-                           in_lines_37_port, in_lines(36) => in_lines_36_port, 
-                           in_lines(35) => in_lines_35_port, in_lines(34) => 
-                           in_lines_34_port, in_lines(33) => in_lines_33_port, 
-                           in_lines(32) => in_lines_32_port, in_lines(31) => 
-                           in_lines_31_port, in_lines(30) => in_lines_30_port, 
-                           in_lines(29) => in_lines_29_port, in_lines(28) => 
-                           in_lines_28_port, in_lines(27) => in_lines_27_port, 
-                           in_lines(26) => in_lines_26_port, in_lines(25) => 
-                           in_lines_25_port, in_lines(24) => in_lines_24_port, 
-                           in_lines(23) => in_lines_23_port, in_lines(22) => 
-                           in_lines_22_port, in_lines(21) => in_lines_21_port, 
-                           in_lines(20) => in_lines_20_port, in_lines(19) => 
-                           in_lines_19_port, in_lines(18) => in_lines_18_port, 
-                           in_lines(17) => in_lines_17_port, in_lines(16) => 
-                           in_lines_16_port, in_lines(15) => in_lines_15_port, 
-                           in_lines(14) => in_lines_14_port, in_lines(13) => 
-                           in_lines_13_port, in_lines(12) => in_lines_12_port, 
-                           in_lines(11) => in_lines_11_port, in_lines(10) => 
-                           in_lines_10_port, in_lines(9) => in_lines_9_port, 
-                           in_lines(8) => in_lines_8_port, in_lines(7) => 
-                           in_lines_7_port, in_lines(6) => in_lines_6_port, 
-                           in_lines(5) => in_lines_5_port, in_lines(4) => 
-                           in_lines_4_port, in_lines(3) => in_lines_3_port, 
-                           in_lines(2) => in_lines_2_port, in_lines(1) => 
-                           in_lines_1_port, in_lines(0) => in_lines_0_port, 
-                           out_lines(63) => out_lines_63_port, out_lines(62) =>
-                           out_lines_62_port, out_lines(61) => 
-                           out_lines_61_port, out_lines(60) => 
-                           out_lines_60_port, out_lines(59) => 
-                           out_lines_59_port, out_lines(58) => 
-                           out_lines_58_port, out_lines(57) => 
-                           out_lines_57_port, out_lines(56) => 
-                           out_lines_56_port, out_lines(55) => 
-                           out_lines_55_port, out_lines(54) => 
-                           out_lines_54_port, out_lines(53) => 
-                           out_lines_53_port, out_lines(52) => 
-                           out_lines_52_port, out_lines(51) => 
-                           out_lines_51_port, out_lines(50) => 
-                           out_lines_50_port, out_lines(49) => 
-                           out_lines_49_port, out_lines(48) => 
-                           out_lines_48_port, out_lines(47) => 
-                           out_lines_47_port, out_lines(46) => 
-                           out_lines_46_port, out_lines(45) => 
-                           out_lines_45_port, out_lines(44) => 
-                           out_lines_44_port, out_lines(43) => 
-                           out_lines_43_port, out_lines(42) => 
-                           out_lines_42_port, out_lines(41) => 
-                           out_lines_41_port, out_lines(40) => 
-                           out_lines_40_port, out_lines(39) => 
-                           out_lines_39_port, out_lines(38) => 
-                           out_lines_38_port, out_lines(37) => 
-                           out_lines_37_port, out_lines(36) => 
-                           out_lines_36_port, out_lines(35) => 
-                           out_lines_35_port, out_lines(34) => 
-                           out_lines_34_port, out_lines(33) => 
-                           out_lines_33_port, out_lines(32) => 
-                           out_lines_32_port, out_lines(31) => 
-                           out_lines_31_port, out_lines(30) => 
-                           out_lines_30_port, out_lines(29) => 
-                           out_lines_29_port, out_lines(28) => 
-                           out_lines_28_port, out_lines(27) => 
-                           out_lines_27_port, out_lines(26) => 
-                           out_lines_26_port, out_lines(25) => 
-                           out_lines_25_port, out_lines(24) => 
-                           out_lines_24_port, out_lines(23) => 
-                           out_lines_23_port, out_lines(22) => 
-                           out_lines_22_port, out_lines(21) => 
-                           out_lines_21_port, out_lines(20) => 
-                           out_lines_20_port, out_lines(19) => 
-                           out_lines_19_port, out_lines(18) => 
-                           out_lines_18_port, out_lines(17) => 
-                           out_lines_17_port, out_lines(16) => 
-                           out_lines_16_port, out_lines(15) => 
-                           out_lines_15_port, out_lines(14) => 
-                           out_lines_14_port, out_lines(13) => 
-                           out_lines_13_port, out_lines(12) => 
-                           out_lines_12_port, out_lines(11) => 
-                           out_lines_11_port, out_lines(10) => 
-                           out_lines_10_port, out_lines(9) => out_lines_9_port,
-                           out_lines(8) => out_lines_8_port, out_lines(7) => 
-                           out_lines_7_port, out_lines(6) => out_lines_6_port, 
-                           out_lines(5) => out_lines_5_port, out_lines(4) => 
-                           out_lines_4_port, out_lines(3) => out_lines_3_port, 
-                           out_lines(2) => out_lines_2_port, out_lines(1) => 
-                           out_lines_1_port, out_lines(0) => out_lines_0_port);
-   rm : rammux port map( clk => clk, d_out_muxed(7) => d_out(7), d_out_muxed(6)
-                           => d_out(6), d_out_muxed(5) => d_out(5), 
-                           d_out_muxed(4) => d_out(4), d_out_muxed(3) => 
-                           d_out(3), d_out_muxed(2) => d_out(2), d_out_muxed(1)
-                           => d_out(1), d_out_muxed(0) => d_out(0), d_out(63) 
-                           => out_lines_63_port, d_out(62) => out_lines_62_port
-                           , d_out(61) => out_lines_61_port, d_out(60) => 
-                           out_lines_60_port, d_out(59) => out_lines_59_port, 
-                           d_out(58) => out_lines_58_port, d_out(57) => 
-                           out_lines_57_port, d_out(56) => out_lines_56_port, 
-                           d_out(55) => out_lines_55_port, d_out(54) => 
-                           out_lines_54_port, d_out(53) => out_lines_53_port, 
-                           d_out(52) => out_lines_52_port, d_out(51) => 
-                           out_lines_51_port, d_out(50) => out_lines_50_port, 
-                           d_out(49) => out_lines_49_port, d_out(48) => 
-                           out_lines_48_port, d_out(47) => out_lines_47_port, 
-                           d_out(46) => out_lines_46_port, d_out(45) => 
-                           out_lines_45_port, d_out(44) => out_lines_44_port, 
-                           d_out(43) => out_lines_43_port, d_out(42) => 
-                           out_lines_42_port, d_out(41) => out_lines_41_port, 
-                           d_out(40) => out_lines_40_port, d_out(39) => 
-                           out_lines_39_port, d_out(38) => out_lines_38_port, 
-                           d_out(37) => out_lines_37_port, d_out(36) => 
-                           out_lines_36_port, d_out(35) => out_lines_35_port, 
-                           d_out(34) => out_lines_34_port, d_out(33) => 
-                           out_lines_33_port, d_out(32) => out_lines_32_port, 
-                           d_out(31) => out_lines_31_port, d_out(30) => 
-                           out_lines_30_port, d_out(29) => out_lines_29_port, 
-                           d_out(28) => out_lines_28_port, d_out(27) => 
-                           out_lines_27_port, d_out(26) => out_lines_26_port, 
-                           d_out(25) => out_lines_25_port, d_out(24) => 
-                           out_lines_24_port, d_out(23) => out_lines_23_port, 
-                           d_out(22) => out_lines_22_port, d_out(21) => 
-                           out_lines_21_port, d_out(20) => out_lines_20_port, 
-                           d_out(19) => out_lines_19_port, d_out(18) => 
-                           out_lines_18_port, d_out(17) => out_lines_17_port, 
-                           d_out(16) => out_lines_16_port, d_out(15) => 
-                           out_lines_15_port, d_out(14) => out_lines_14_port, 
-                           d_out(13) => out_lines_13_port, d_out(12) => 
-                           out_lines_12_port, d_out(11) => out_lines_11_port, 
-                           d_out(10) => out_lines_10_port, d_out(9) => 
-                           out_lines_9_port, d_out(8) => out_lines_8_port, 
-                           d_out(7) => out_lines_7_port, d_out(6) => 
-                           out_lines_6_port, d_out(5) => out_lines_5_port, 
-                           d_out(4) => out_lines_4_port, d_out(3) => 
-                           out_lines_3_port, d_out(2) => out_lines_2_port, 
-                           d_out(1) => out_lines_1_port, d_out(0) => 
-                           out_lines_0_port, d_in_muxed(7) => d_in(7), 
-                           d_in_muxed(6) => d_in(6), d_in_muxed(5) => d_in(5), 
-                           d_in_muxed(4) => d_in(4), d_in_muxed(3) => d_in(3), 
-                           d_in_muxed(2) => d_in(2), d_in_muxed(1) => d_in(1), 
-                           d_in_muxed(0) => d_in(0), d_in(63) => 
-                           in_lines_63_port, d_in(62) => in_lines_62_port, 
-                           d_in(61) => in_lines_61_port, d_in(60) => 
-                           in_lines_60_port, d_in(59) => in_lines_59_port, 
-                           d_in(58) => in_lines_58_port, d_in(57) => 
-                           in_lines_57_port, d_in(56) => in_lines_56_port, 
-                           d_in(55) => in_lines_55_port, d_in(54) => 
-                           in_lines_54_port, d_in(53) => in_lines_53_port, 
-                           d_in(52) => in_lines_52_port, d_in(51) => 
-                           in_lines_51_port, d_in(50) => in_lines_50_port, 
-                           d_in(49) => in_lines_49_port, d_in(48) => 
-                           in_lines_48_port, d_in(47) => in_lines_47_port, 
-                           d_in(46) => in_lines_46_port, d_in(45) => 
-                           in_lines_45_port, d_in(44) => in_lines_44_port, 
-                           d_in(43) => in_lines_43_port, d_in(42) => 
-                           in_lines_42_port, d_in(41) => in_lines_41_port, 
-                           d_in(40) => in_lines_40_port, d_in(39) => 
-                           in_lines_39_port, d_in(38) => in_lines_38_port, 
-                           d_in(37) => in_lines_37_port, d_in(36) => 
-                           in_lines_36_port, d_in(35) => in_lines_35_port, 
-                           d_in(34) => in_lines_34_port, d_in(33) => 
-                           in_lines_33_port, d_in(32) => in_lines_32_port, 
-                           d_in(31) => in_lines_31_port, d_in(30) => 
-                           in_lines_30_port, d_in(29) => in_lines_29_port, 
-                           d_in(28) => in_lines_28_port, d_in(27) => 
-                           in_lines_27_port, d_in(26) => in_lines_26_port, 
-                           d_in(25) => in_lines_25_port, d_in(24) => 
-                           in_lines_24_port, d_in(23) => in_lines_23_port, 
-                           d_in(22) => in_lines_22_port, d_in(21) => 
-                           in_lines_21_port, d_in(20) => in_lines_20_port, 
-                           d_in(19) => in_lines_19_port, d_in(18) => 
-                           in_lines_18_port, d_in(17) => in_lines_17_port, 
-                           d_in(16) => in_lines_16_port, d_in(15) => 
-                           in_lines_15_port, d_in(14) => in_lines_14_port, 
-                           d_in(13) => in_lines_13_port, d_in(12) => 
-                           in_lines_12_port, d_in(11) => in_lines_11_port, 
-                           d_in(10) => in_lines_10_port, d_in(9) => 
-                           in_lines_9_port, d_in(8) => in_lines_8_port, d_in(7)
-                           => in_lines_7_port, d_in(6) => in_lines_6_port, 
-                           d_in(5) => in_lines_5_port, d_in(4) => 
-                           in_lines_4_port, d_in(3) => in_lines_3_port, d_in(2)
-                           => in_lines_2_port, d_in(1) => in_lines_1_port, 
-                           d_in(0) => in_lines_0_port, sel(2) => a(2), sel(1) 
-                           => a(1), sel(0) => a(0), write => write, 
-                           write_out(7) => write_out_7_port, write_out(6) => 
-                           write_out_6_port, write_out(5) => write_out_5_port, 
-                           write_out(4) => write_out_4_port, write_out(3) => 
-                           write_out_3_port, write_out(2) => write_out_2_port, 
-                           write_out(1) => write_out_1_port, write_out(0) => 
-                           write_out_0_port);
+                           write_out_0_port, drive(7) => drive_out_7_port, 
+                           drive(6) => drive_out_6_port, drive(5) => 
+                           drive_out_5_port, drive(4) => drive_out_4_port, 
+                           drive(3) => drive_out_3_port, drive(2) => 
+                           drive_out_2_port, drive(1) => drive_out_1_port, 
+                           drive(0) => drive_out_0_port, in_lines(63) => 
+                           d_in(7), in_lines(62) => d_in(6), in_lines(61) => 
+                           d_in(5), in_lines(60) => d_in(4), in_lines(59) => 
+                           d_in(3), in_lines(58) => d_in(2), in_lines(57) => 
+                           d_in(1), in_lines(56) => d_in(0), in_lines(55) => 
+                           d_in(7), in_lines(54) => d_in(6), in_lines(53) => 
+                           d_in(5), in_lines(52) => d_in(4), in_lines(51) => 
+                           d_in(3), in_lines(50) => d_in(2), in_lines(49) => 
+                           d_in(1), in_lines(48) => d_in(0), in_lines(47) => 
+                           d_in(7), in_lines(46) => d_in(6), in_lines(45) => 
+                           d_in(5), in_lines(44) => d_in(4), in_lines(43) => 
+                           d_in(3), in_lines(42) => d_in(2), in_lines(41) => 
+                           d_in(1), in_lines(40) => d_in(0), in_lines(39) => 
+                           d_in(7), in_lines(38) => d_in(6), in_lines(37) => 
+                           d_in(5), in_lines(36) => d_in(4), in_lines(35) => 
+                           d_in(3), in_lines(34) => d_in(2), in_lines(33) => 
+                           d_in(1), in_lines(32) => d_in(0), in_lines(31) => 
+                           d_in(7), in_lines(30) => d_in(6), in_lines(29) => 
+                           d_in(5), in_lines(28) => d_in(4), in_lines(27) => 
+                           d_in(3), in_lines(26) => d_in(2), in_lines(25) => 
+                           d_in(1), in_lines(24) => d_in(0), in_lines(23) => 
+                           d_in(7), in_lines(22) => d_in(6), in_lines(21) => 
+                           d_in(5), in_lines(20) => d_in(4), in_lines(19) => 
+                           d_in(3), in_lines(18) => d_in(2), in_lines(17) => 
+                           d_in(1), in_lines(16) => d_in(0), in_lines(15) => 
+                           d_in(7), in_lines(14) => d_in(6), in_lines(13) => 
+                           d_in(5), in_lines(12) => d_in(4), in_lines(11) => 
+                           d_in(3), in_lines(10) => d_in(2), in_lines(9) => 
+                           d_in(1), in_lines(8) => d_in(0), in_lines(7) => 
+                           d_in(7), in_lines(6) => d_in(6), in_lines(5) => 
+                           d_in(5), in_lines(4) => d_in(4), in_lines(3) => 
+                           d_in(3), in_lines(2) => d_in(2), in_lines(1) => 
+                           d_in(1), in_lines(0) => d_in(0), out_lines(63) => 
+                           d_out(7), out_lines(62) => d_out(6), out_lines(61) 
+                           => d_out(5), out_lines(60) => d_out(4), 
+                           out_lines(59) => d_out(3), out_lines(58) => d_out(2)
+                           , out_lines(57) => d_out(1), out_lines(56) => 
+                           d_out(0), out_lines(55) => n_1000, out_lines(54) => 
+                           n_1001, out_lines(53) => n_1002, out_lines(52) => 
+                           n_1003, out_lines(51) => n_1004, out_lines(50) => 
+                           n_1005, out_lines(49) => n_1006, out_lines(48) => 
+                           n_1007, out_lines(47) => n_1008, out_lines(46) => 
+                           n_1009, out_lines(45) => n_1010, out_lines(44) => 
+                           n_1011, out_lines(43) => n_1012, out_lines(42) => 
+                           n_1013, out_lines(41) => n_1014, out_lines(40) => 
+                           n_1015, out_lines(39) => n_1016, out_lines(38) => 
+                           n_1017, out_lines(37) => n_1018, out_lines(36) => 
+                           n_1019, out_lines(35) => n_1020, out_lines(34) => 
+                           n_1021, out_lines(33) => n_1022, out_lines(32) => 
+                           n_1023, out_lines(31) => n_1024, out_lines(30) => 
+                           n_1025, out_lines(29) => n_1026, out_lines(28) => 
+                           n_1027, out_lines(27) => n_1028, out_lines(26) => 
+                           n_1029, out_lines(25) => n_1030, out_lines(24) => 
+                           n_1031, out_lines(23) => n_1032, out_lines(22) => 
+                           n_1033, out_lines(21) => n_1034, out_lines(20) => 
+                           n_1035, out_lines(19) => n_1036, out_lines(18) => 
+                           n_1037, out_lines(17) => n_1038, out_lines(16) => 
+                           n_1039, out_lines(15) => n_1040, out_lines(14) => 
+                           n_1041, out_lines(13) => n_1042, out_lines(12) => 
+                           n_1043, out_lines(11) => n_1044, out_lines(10) => 
+                           n_1045, out_lines(9) => n_1046, out_lines(8) => 
+                           n_1047, out_lines(7) => n_1048, out_lines(6) => 
+                           n_1049, out_lines(5) => n_1050, out_lines(4) => 
+                           n_1051, out_lines(3) => n_1052, out_lines(2) => 
+                           n_1053, out_lines(1) => n_1054, out_lines(0) => 
+                           n_1055);
+   rm : rammux port map( clk => clk, sel(2) => addr(2), sel(1) => addr(1), 
+                           sel(0) => addr(0), write => write, write_out(7) => 
+                           write_out_7_port, write_out(6) => write_out_6_port, 
+                           write_out(5) => write_out_5_port, write_out(4) => 
+                           write_out_4_port, write_out(3) => write_out_3_port, 
+                           write_out(2) => write_out_2_port, write_out(1) => 
+                           write_out_1_port, write_out(0) => write_out_0_port, 
+                           drive_out(7) => drive_out_7_port, drive_out(6) => 
+                           drive_out_6_port, drive_out(5) => drive_out_5_port, 
+                           drive_out(4) => drive_out_4_port, drive_out(3) => 
+                           drive_out_3_port, drive_out(2) => drive_out_2_port, 
+                           drive_out(1) => drive_out_1_port, drive_out(0) => 
+                           drive_out_0_port);
 
 end synthesised;
 

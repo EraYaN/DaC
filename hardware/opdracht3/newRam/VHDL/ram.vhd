@@ -6,12 +6,15 @@ use work.ramlib.all;
 
 entity ram is
    port(clk  :in    std_logic;
-        a    :in   	std_logic_vector (ADRESSLINES-1 downto 0);
+        addr    :in   	std_logic_vector (ADRESSLINES-1 downto 0);
         d_in :in    std_logic_vector (WORDSIZE-1 downto 0);
 	write:in    std_logic;
 	d_out:out   std_logic_vector (WORDSIZE-1 downto 0)
 	);
 end ram;
+
+
+
 
 
 
