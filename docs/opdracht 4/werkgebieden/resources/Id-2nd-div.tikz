@@ -21,16 +21,16 @@ height=\figureheight,
 scale only axis,
 xmin=0,
 xmax=5,
-xlabel={$\text{\$\$\mathsf}{\text{V}_{\text{DS}}}\text{\$\$}$},
+xlabel={$\mathsf{V_{DS}}$},
 ymin=-0.009,
 ymax=0.0001,
-ylabel={$\text{\$\$\mathsf}{\text{I}_{\text{D}}}\text{\$\$}$},
-legend style={draw=black,fill=white,legend cell align=left}
+ylabel={$\mathsf{I_{D}}$},
+legend style={draw=black,fill=white,legend cell align=left,legend style={row sep=0.3cm}}
 ]
 \addplot [
 color=blue,
 solid,
-line width=2.0pt
+line width=1.5pt
 ]
 table[row sep=crcr]{
 0 -0.000373556758859357\\
@@ -1035,7 +1035,7 @@ table[row sep=crcr]{
 4.99499999999992 -0.000481377355756022\\
 4.99999999999992 0\\
 };
-\addlegendentry{$\text{\$\$\mathsf}{\text{\frac}{\text{d}^\text{2}\text{(I}_\text{D}\text{)}}{\text{d(}{\text{V}_{\text{DS}}}^\text{2}\text{)}}\text{ (V}_{\text{GS}}\text{ = 1 V)}}\text{\$\$}$};
+\addlegendentry{$\mathsf{\frac{d^2(I_D)}{d({V_{DS}}^2)} (V_{GS} = 1 V)}$};
 
 \addplot [
 color=green!50!black,
@@ -2045,7 +2045,7 @@ table[row sep=crcr]{
 4.99499999999992 -0.00257277861236019\\
 4.99999999999992 0\\
 };
-\addlegendentry{$\text{\$\$\mathsf}{\text{\frac}{\text{d}^\text{2}\text{(I}_\text{D}\text{)}}{\text{d(}{\text{V}_{\text{DS}}}^\text{2}\text{)}}\text{ (V}_{\text{GS}}\text{ = 2 V)}}\text{\$\$}$};
+\addlegendentry{$\mathsf{\frac{d^2(I_D)}{d({V_{DS}}^2)} (V_{GS} = 2 V)}$};
 
 \addplot [
 color=red,
@@ -3055,7 +3055,7 @@ table[row sep=crcr]{
 4.99499999999992 -0.00547384843232006\\
 4.99999999999992 0\\
 };
-\addlegendentry{$\text{\$\$\mathsf}{\text{\frac}{\text{d}^\text{2}\text{(I}_\text{D}\text{)}}{\text{d(}{\text{V}_{\text{DS}}}^\text{2}\text{)}}\text{ (V}_{\text{GS}}\text{ = 3 V)}}\text{\$\$}$};
+\addlegendentry{$\mathsf{\frac{d^2(I_D)}{d({V_{DS}}^2)} (V_{GS} = 3 V)}$};
 
 \addplot [
 color=mycolor1,
@@ -4065,7 +4065,7 @@ table[row sep=crcr]{
 4.99499999999992 -0.00880798324940024\\
 4.99999999999992 0\\
 };
-\addlegendentry{$\text{\$\$\mathsf}{\text{\frac}{\text{d}^\text{2}\text{(I}_\text{D}\text{)}}{\text{d(}{\text{V}_{\text{DS}}}^\text{2}\text{)}}\text{ (V}_{\text{GS}}\text{ = 4 V)}}\text{\$\$}$};
+\addlegendentry{$\mathsf{\frac{d^2(I_D)}{d({V_{DS}}^2)} (V_{GS} = 4 V)}$};
 
 \addplot [
 color=mycolor2,
@@ -5075,7 +5075,7 @@ table[row sep=crcr]{
 4.99499999999992 -0.0124052166936011\\
 4.99999999999992 0\\
 };
-\addlegendentry{$\text{\$\$\mathsf}{\text{\frac}{\text{d}^\text{2}\text{(I}_\text{D}\text{)}}{\text{d(}{\text{V}_{\text{DS}}}^\text{2}\text{)}}\text{ (V}_{\text{GS}}\text{ = 5 V)}}\text{\$\$}$};
+\addlegendentry{$\mathsf{\frac{d^2(I_D)}{d({V_{DS}}^2)} (V_{GS} = 5 V)}$};
 
 \end{axis}
 \end{tikzpicture}%
