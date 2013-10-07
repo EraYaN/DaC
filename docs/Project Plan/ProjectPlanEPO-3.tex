@@ -1,21 +1,19 @@
-%=========================================================================
-\documentclass[11pt,twoside,a4paper]{article}
-\usepackage[dutch]{babel}
-\usepackage{a4wide,times}
-\usepackage{graphicx}
+\documentclass{scrartcl} 
+\input{../library/preamble.tex}
+\input{../library/style.tex}
+\addbibresource{../library/bibliography.bib}
+
 \title{EPO-3 "Maak een Chip"}
 \author{Groep 1}
 \date{}
+
 \begin{document}
 \maketitle
-\thispagestyle{empty}
-\vspace{30 mm}
-\begin{center}
-\Large \bf 
-Samenvatting
-\end{center}
-Nog in te vullen
-\clearpage
+\pagenumbering{roman}
+\vspace{80 mm}
+\section*{Samenvatting}
+\newpage
+\setlength{\cftbeforetoctitleskip}{-3em}
 
 \tableofcontents
 \clearpage
@@ -50,14 +48,20 @@ Zo zal het ontwerpen van de chip makkelijker verlopen en bepaalde problemen en l
 
 
 Wat zijn de verschillende activiteiten die moeten worden uitgevoerd om het eindresultaat te bereiken ?   Probeer - mede aan de hand van de ervaring met de FSM en de moduleopdracht - zo goed mogelijk in te schatten welke stappen hiervoor moeten worden gezet.
-\section{Randvoorwaarden}
-??????Nog onbepaald???????
 
+\section{Specificaties}
+\subsection {Functionele Eisen}
+Blablabla
+\subsection {Randvoorwaarden}
+\begin {itemize}
+\item De algemene technische randvoorwaarden zijn bepaald in hoofdstuk 11.8 "\Algemene Technologische Randvoorwaarden"  van het EPO-3 Handleiding/cite{epo3-manual}
+\item Beeldresolutie van 640x480 in 16 kleuren.
+\end{itemize}
 \section{Producten}
 \begin{itemize}
 \item Het Projectplan
-\item Specificaties \& Randvoorwaarden van GAME
-\item Functieblokschema Ontwerp GAME
+\item Specificaties \& Randvoorwaarden van GPU
+\item Functieblokschema Ontwerp GPU
 \item Ontwerp IC
 \item FPGA Prototype
 \item Het Tussenrapport
@@ -81,7 +85,7 @@ Joris Coenen & Studentmentor\\
 \hline
 Efraïm Eland & Projectlid\\
 \hline
-Robin Hes & Projectlid\\
+Robin Hes & Voorzitter\\
 \hline
 Tu Hoang & Projectlid\\
 \hline
@@ -97,12 +101,14 @@ Xenia Wesdijk & Projectlid\\
 \hline
 Erwin de Haan & Projectlid\\
 \hline
-
-
 \end {tabular}
+\\
+\\Er zullen elke middag twee vergaderingen plaatsvinden. Een openingsvergadering om 8:50 en een afsluitende vergadering om 12:30.
+Alle documentatie zal geplaatst worden op github met dropbox als backup.
+Alle offici"ele documentatie zal gemaakt worden in Latex en worden gepubliceerd in pdf formaat.
 
-Wie doet er mee en hoe wordt er samengewerkt ?  Hoe wordt er gecoördineerd ?  Hoe vaak wordt er vergaderd ?  Welke afspraken worden er verder gemaakt voor communicatie en documentatie ?
 \section{Planning}
+
 Als je weet welke activiteiten er worden uitgevoerd, welke producten (milestones) er worden geleverd, en wie deelnemen aan het project, dan kan er een planning worden gemaakt. Hiervoor kan eventueel software zoals MicroSoft Project of GanttProject gebruikt worden.  De volgende overzichten zijn bijvoorbeeld gegenereerd m.b.v. het gratis te downloaden pakket GanttProject.
 
 
@@ -111,23 +117,5 @@ Als je weet welke activiteiten er worden uitgevoerd, welke producten (milestones
 Wat zijn de gevaren die het succes het van het project bedreigen ? Wat doe je om de risico's op falen zo klein mogelijk te houden? Een van de mogelijke maatregelen is het werken met 'fall-back' scenario’s. Welke scenario's zijn dit dan?
 
 
-\begin{thebibliography}{9}
-\bibitem{labelboek1}
-Auteur1, 
-Boek1, 
-Uitgeverij, 
-jaar.
-\bibitem{labelTitel}
-Auteur1, 
-Titel, 
-Tijdschrift, 
-Vol. 1, 
-Nr. 1, 
-jaar, 
-pp. 12-15.
-\bibitem{labelWeb}
-Webpagina titel, 
-http link, 
-geraadpleegd op 19 sep. 2011.
-\end{thebibliography}
 \end{document}
+
