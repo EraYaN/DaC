@@ -13,9 +13,6 @@ sslope = zeros(num_steps, num_parameters);
 minindices = zeros(1, num_parameters);
 sat_x = zeros(1, num_parameters);
 sat_y = zeros(1, num_parameters);
-V_T0 = zeros(1, num_parameters);
-k = zeros(1, num_parameters);
-k_n = zeros(1, num_parameters);
 colors = hsv(num_parameters);
 legend_string = cell(num_parameters+1, 1);
 figure;
@@ -31,14 +28,7 @@ for i = 1:num_parameters
     minindices(i) = find(sslope(:,i) == minval, 1, 'first');
     sat_x(i) = sim_V_DS1(minindices(i));
     sat_y(i) = sim_I_D1(minindices(i),i);
-    
-    %calculate V_{T0}
-    V_T0(i) = sim_V_GS1(i) - sat_x(i);
-    
-    %calculate k'_{n}
-    k(i) = 2 * sat_y(i) / (sat_x(i)^2);
-    k_n(i) = k(i) * parameter_L / parameter_W;
-    
+     
     %plot relevant data and construct legend
     plot(sim_V_DS1, sim_I_D1(:,i), 'color', colors(i,:));
     legend_string{i} = ['V_{GS}: ', num2str(sim_V_GS1(i), 2), ' V'];
@@ -46,7 +36,7 @@ end
 
 %devise parabola constant and plot data
 parabolaavg = mean(sat_y);
-plot(sim_V_DS1, parabolaavg*sim_V_DS1.^2);
+%plot(sim_V_DS1, parabolaavg*sim_V_DS1.^2);
 
 %display legend
 legend_string{i+1} = 'V_{DS} \approx V_{GS} - V_{T}';
