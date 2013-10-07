@@ -55,7 +55,9 @@ I_{D} = k(V_{GS} - V_{T})V_{DS} - 0.5V_{DS}^{2}.
 Het resultaat van de simulatie van ons circuit ziet er als volgt uit.
 \begin{figure}[H]
 \centering
-		\includegraphics[width=\textwidth]{resources/Id}
+		\setlength\figureheight{0.4\textwidth} 
+		\setlength\figurewidth{0.6\textwidth}
+		\input{resource/Id.tikz}
 		\caption{Het resultaat van de simulatie.}
 		\label{fig:Id}
 \end{figure}
@@ -77,7 +79,9 @@ V_{T} = V_{T0} + \gamma (\sqrt {2 \phi F + |V_{SB}|} - \sqrt{ 2 \phi F} )
 
 \begin{figure}[H]
 \centering
-		\includegraphics[width=\textwidth]{resources/Id_Vds_2nd_div}
+		\setlength\figureheight{0.4\textwidth} 
+		\setlength\figurewidth{0.6\textwidth}
+		\input{resource/Id-2nd-div.tikz}
 		\caption{De tweede afgeleide van de originele grafiek.}
 		\label{fig:Id-2nd-div}
 \end{figure}
@@ -91,3 +95,4 @@ Uit onze verkregen resultaten kunnen we de volgende conclusie trekken:
 
 \section{Bibliografie}
 \printbibliography
+\end{document}
