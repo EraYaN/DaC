@@ -24,10 +24,10 @@ height=\figureheight,
 scale only axis,
 xmin=0,
 xmax=6.99999999999998,
-xlabel={$\text{V}_{\text{DS}}$},
+xlabel={$V_{DS}$},
 ymin=0,
 ymax=0.00657962635159492,
-ylabel={$\text{I}_{\text{D}}$},
+ylabel={$I_{D}$},
 axis x line*=bottom,
 axis y line*=left,
 legend style={draw=black,fill=white,legend cell align=left}
@@ -179,7 +179,7 @@ table[row sep=crcr]{
 6.94999999999998 0.000183388357982039\\
 6.99999999999998 0.000183968208148144\\
 };
-\addlegendentry{$\text{V}_{\text{GS}}\text{: 1 V}$};
+\addlegendentry{$V_{GS}: 1 V$};
 
 \addplot [
 color=mycolor1,
@@ -328,7 +328,7 @@ table[row sep=crcr]{
 6.94999999999998 0.00126693502534181\\
 6.99999999999998 0.00126997416373342\\
 };
-\addlegendentry{$\text{V}_{\text{GS}}\text{: 2 V}$};
+\addlegendentry{$V_{GS}: 2 V$};
 
 \addplot [
 color=mycolor2,
@@ -477,7 +477,7 @@ table[row sep=crcr]{
 6.94999999999998 0.00283482787199318\\
 6.99999999999998 0.00284122326411307\\
 };
-\addlegendentry{$\text{V}_{\text{GS}}\text{: 3 V}$};
+\addlegendentry{$V_{GS}: 3 V$};
 
 \addplot [
 color=mycolor3,
@@ -626,7 +626,7 @@ table[row sep=crcr]{
 6.94999999999998 0.00463700061663985\\
 6.99999999999998 0.00464720465242863\\
 };
-\addlegendentry{$\text{V}_{\text{GS}}\text{: 4 V}$};
+\addlegendentry{$V_{GS}: 4 V$};
 
 \addplot [
 color=mycolor4,
@@ -775,7 +775,7 @@ table[row sep=crcr]{
 6.94999999999998 0.00656535243615508\\
 6.99999999999998 0.00657962635159492\\
 };
-\addlegendentry{$\text{V}_{\text{GS}}\text{: 5 V}$};
+\addlegendentry{$V_{GS}: 5 V$};
 
 \addplot [
 color=mycolor5,
@@ -924,7 +924,7 @@ table[row sep=crcr]{
 6.94999999999998 0.0990342994816159\\
 6.99999999999998 0.100464379164622\\
 };
-\addlegendentry{$\text{V}_{\text{DS}}\text{ }\approx\text{ V}_{\text{GS}}\text{ - V}_{\text{T}}$};
+\addlegendentry{$V_{DS} \approx V_{GS} - V_{T}$};
 
 \end{axis}
 \end{tikzpicture}%

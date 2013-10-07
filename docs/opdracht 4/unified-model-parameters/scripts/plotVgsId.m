@@ -1,3 +1,9 @@
+%plotVdsId.m
+%
+%Robin Hes - TU Delft
+%
+%A script to plot V_GS-I_D simulation data
+
 %cleanup
 clc; clear;
 %load known transistor parameters

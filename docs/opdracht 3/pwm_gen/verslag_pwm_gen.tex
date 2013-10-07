@@ -56,7 +56,7 @@ Het onderstaande proces is doorlopen met drie verschillende bitsizes als paramet
 \normalsize
 \subsection{Abstract}
 \label{ssec:pwm-impl-abstr}
-Het reeds beschreven ontwerp is vervolgens uitgewerkt in VHDL. Het resultaat hiervan, met bitsize 4, is te vinden in bijlage \ref{vhdl:pwm-gen} en de bijbehorende parameter package in bijlage \ref{vhdl:pwm-gen-pack}. Om de implementatie te testen hebben we deze gesimuleerd in Modelsim. Dit leverde het gewenste resultaat op, maar is slechts een indicatie voor de werkelijkheid.
+Het reeds beschreven ontwerp is vervolgens uitgewerkt in VHDL. Het resultaat hiervan, met bitsize 4, is te vinden in bijlage \ref{lst:pwm-gen} en de bijbehorende parameter package in bijlage \ref{lst:pwm-gen-pack}. Om de implementatie te testen hebben we deze gesimuleerd in Modelsim. Dit leverde het gewenste resultaat op, maar is slechts een indicatie voor de werkelijkheid.
 
 \subsection{Synthese}
 \label{ssec:pwm-impl-synth}
@@ -85,7 +85,7 @@ De gemaakte lay-out voor een 4-bits PWM-generator is te zien in figuur \ref{fig:
 \subsection{Switch-level simulatie}
 \label{ssec:pwm-impl-switch}
 Bovengenoemde lay-out hebben we voor elke geteste bitsize (4, 8 en 16) geëxtraheerd om ze vervolgens met Modelsim te simuleren. De testbench kan beschreven worden als de volgende sequentie: $width = 0$ (geen puls); $width = \frac{divider}{2}$ (lange puls); $width = divider$ (continu hoog): $width = 0$ (geen puls); $width = \frac{divider}{4}$ (korte puls). Bij de 16-bit simulatie geldt deze sequentie niet en werden andere (helaas willekeurige) pulslengten gebruikt, het gedrag is echter geverifiëerd tegen de gebruikte testbench.
-De testbench (4-bit) is te vinden in bijlage \ref{vhdl:pwm-gen-tb}, de simulatieresultaten in de figuren \ref{sfig:pwm-sim-4bit}, \ref{sfig:pwm-sim-8bit} en \ref{sfig:pwm-sim-16bit}.
+De testbench (4-bit) is te vinden in bijlage \ref{lst:pwm-gen-tb}, de simulatieresultaten in de figuren \ref{sfig:pwm-sim-4bit}, \ref{sfig:pwm-sim-8bit} en \ref{sfig:pwm-sim-16bit}.
 
 \begin{figure}[H]
 	\centering
@@ -128,16 +128,16 @@ Zoals vermeld in sectie \ref{ssec:pwm-impl-layout} zou het mogelijk moeten zijn 
 \label{sec:pwm-bijlagen}
 
 \subsection{VHDL parameter package (4-bit)}
-\label{vhdl:pwm-gen-pack}
+\label{lst:pwm-gen-pack}
 \includecode[VHDL]{parameter\_def\_pkg.vhd}{resource/parameter_def_pkg.vhd}
 
 \subsection{VHDL PWM-generator (4-bit)}
-\label{vhdl:pwm-gen}
+\label{lst:pwm-gen}
 \includecode[VHDL]{pwm\_gen.vhd}{resource/pwm_gen.vhd}
 \includecode[VHDL]{pwm\_gen-behaviour.vhd}{resource/pwm_gen-behaviour.vhd}
 
 \subsection{VHDL PWM-generator testbench (4-bit)}
-\label{vhdl:pwm-gen-tb}
+\label{lst:pwm-gen-tb}
 \includecode[VHDL]{pwm\_gen\_tb.vhd}{resource/pwm_gen_tb.vhd}
 \includecode[VHDL]{pwm\_gen\_tb-behaviour.vhd}{resource/pwm_gen_tb-behaviour.vhd}
 

@@ -1,5 +1,12 @@
+%plotVdsId.m
+%
+%Robin Hes - TU Delft
+%
+%A script to plot V_DS-I_D simulation data and calculate a threshold
+%intersection parabola
+
 %cleanup
-clc; clear;
+clc; clear; close all;
 %load known transistor parameters
 load parameters.mat;
 %load simulation data
