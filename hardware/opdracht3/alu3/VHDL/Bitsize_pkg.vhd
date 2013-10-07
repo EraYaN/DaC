@@ -1,0 +1,22 @@
+library IEEE;
+use IEEE.std_logic_1164.ALL;
+
+PACKAGE Bitsize IS
+constant S : INTEGER;
+END Bitsize;
+
+PACKAGE BODY Bitsize IS
+constant S: INTEGER := 2;
+END Bitsize;
+
+
+
+
+
+
+
+
+
+
+
+

@@ -224,3 +224,10 @@ work/
 #sublime text shit
 *.sublime-workspace
 
+#GoWithTheFlow
+*/test/
+test
+#GoWithTheFlow shit
+[Hh]ardware/**/**/
+![Hh]ardware/**/VHDL/*.vhd
+

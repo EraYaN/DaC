@@ -1,0 +1,82 @@
+\documentclass{article}  
+\input{../../library/preamble}  
+\input{../../library/style}  
+
+\author{
+Tu Hoang(4203496) \and Peter Stijnman (4215788) \and Alex Janssen (4231333) \\
+}
+\title{EPO3-1 - Opdracht 4: Process Variaties}
+\date{9 Oktoberr 2013}
+\begin{document}
+\maketitle
+
+\section{Samenvatting}
+
+\tableofcontents
+\clearpage
+
+\section{Inleiding}
+Het doel van deze opdracht is om meer kennis op te doen over MOSFET transistoren, in specifiek meer over de variatie in de productie hiervan. Tijdens het produceren van de transistoren zijn er bepaalde foutmarges in bijvoorbeeld de lengte en de breedte van de transistor. In dit verslag gaan we kijken wat deze foutmarges voor een invloed hebben op de uiteindelijke stroom die er door de transistor gaat lopen. In het verloop van de rest van dit project zullen we met deze process variaties rekening moeten houden voor het uiteindelijke ontwerp, het is daarom handig dat we daar nu al aandacht aan besteden.\\
+Het verslag bestaat uit een probleemstelling, een theorie die bespreekt waardoor de process variaties onstaan, hoe we deze opdracht hebben aangepakt gevolgt door de simulatie met resultaten en als laatste een discussie over de resultaten en de conclusie om het af te ronden.
+
+\section{Probleemstelling}
+\textbf{Process Variaties}\\
+In de praktijk zullen de transistoreigenschappen varieren van device tot device, van chip tot chip en van 
+wafer tot wafer. Zie Sectie 3.4 van het boek. Bepaal welke combinatie van parameterafwijkingen hieronder
+de transistor oplevert met de grootste en met de kleinste maximale stroom (bij maximale VGS en maximale
+VDS) en bepaal de waarden van de maximale en minimale stroom.\\
+Met als variaties:
+\newline
+\begin {itemize}
+	\item Vdd \pm 10\%
+	\item Vt0  \pm 120mV
+	\item Tox \pm 5\%
+	\item L \pm 0.1\textmu m
+	\item W \pm 0.1\textmu m
+\end {itemize}
+
+Om deze variaties te kunnen simuleren, is het nodig om de modelparameters (zie de ModelLibEPO3.lib
+ﬁle) aan te passen. Sommige parameters zijn aan te passen in de schematic editor, voor sommige moet je
+misschien de .lib ﬁle aanpassen. Geef in het rapport ook kwalitatieve verklaringen van de effecten die je
+ziet.
+
+\section{Theorie}
+
+Hoewel in theorie alle transistoren van hetzelfde type als identiek worden beschouwd, is dit natuurlijk in het echt niet het geval. 
+Bij elke wafer zullen die parameters van een transistor net iets anders zijn en daar moet dus ook rekening worden gehouden tijdens het ontwerpen van een schakeling. Deze verschillen in de parameters komt voornamelijk door het resultaat van twee factoren:
+\newline
+\begin {itemize}
+	\item Variaties in het process ,zoals dat het materiaal niet overal even zuiver is, de dikte van de oxidelaag, de diffusie dieptes, die komen door in verandering in omstandigheden tijdens het maken van de transistor. Het resultaat hiervan is dat de vierkantsweerstand veranderd, en transistor parameters zoals de drempelspanning.
+	\item Variaties in de demensies van het apparaat, als resultaat van de gelimiteerde nauwkeurigheid van het printen. Dit veroorzaakt bijvoorbeeld veranderingen in de W/L verhoudingen en de breedte van verbindende draden.
+\end {itemize}
+
+Gelukkig komen de beste en slechste gevallen qua variaties niet vaak voor. Meestal zijn de waardes van de variatie normaal verdeeld. 
+Tijdens het ontwerpen van een schakeling moet dus een afweging gemaakt worden tussen betrouwbaarheid van de schakeling en de complexiteit van de schakeling, er wordt vaak voor gekozen om rond een 98\% betrouwbaarheid van de schakeling te zitten. Dit wil dus zeggen dat 98\% van alle geproduceerde schakelingen het doen zoals in de specificaties gemeld wordt. Als je een hoger percentage wilt hebben dan wordt automatisch je schakeling ook groter en complexer en dat is het vaak niet waard.\\
+Al deze variaties zorgen ervoor dat er een andere stroom door de transistor gaat lopen. En zo kan het dus zijn dat er fouten optreden in de logica van de schakeling. De stroom de transistor wordt gegeven door:
+\newline
+\begin {equation}
+	I_D = k(V_{GT}*V_{MIN} - 0.5V_{MIN}^2)(1+\lambda V_{DS})    \mathrm{~~~voor~~~}    V_{GT}>= 0
+\end {equation}
+ met 
+\begin {equation}
+	V_{MIN} = MIN(V_{DS},V_{GT},V_{DSAT})
+\end {equation}
+
+
+\section{Aanpak}
+
+Om te kijken wat al deze variaties voor een invloed hebben gaan we eerst voor alle parameters apart kijken hoe de stroom door de transistor gaat veranderen. We willen dit zo duidelijk mogelijk in beeld brengen dus hebben voor elke parameter de maximale afwijking genomen om mee te simuleren. En als laatste kijken we wat de grootste en de kleinste stroom door de transistor kan zijn door deze afwijkingen.\\
+Het simuleren gaat met het programma PSpice en vanuit daar exporteren we de data naar een Excel sheet. Hier kunnen we duidelijk mooie leesbare grafieken maken en blijft alle data in de sheet zelf ook overzichtelijk.
+
+\section{De Simulatie}
+
+\section{Resultaten}
+
+\section{Discussie}
+
+\section{Conclusie}
+
+
+
+
+\end{document}

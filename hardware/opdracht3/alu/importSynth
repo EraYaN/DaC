@@ -1,5 +1,0 @@
-rm -rf /home/jkerkhof/Documents/Gowiththeflow/Opdr3/syn_work_bak
-mv -f /home/jkerkhof/Documents/Gowiththeflow/Opdr3/syn_work /home/jkerkhof/Documents/Gowiththeflow/Opdr3/syn_work_bak
-cp -r /tmp/jkerkhof/Documents/Gowiththeflow/Opdr3/syn_work /home/jkerkhof/Documents/Gowiththeflow/Opdr3
-cp /tmp/jkerkhof/Documents/Gowiththeflow/Opdr3/ADB/alu.ddc /home/jkerkhof/Documents/Gowiththeflow/Opdr3/ADB/alu.ddc
-cp /tmp/jkerkhof/Documents/Gowiththeflow/Opdr3/VHDL/alu_SYNTH.vhd /home/jkerkhof/Documents/Gowiththeflow/Opdr3/VHDL/alu_SYNTH.vhd

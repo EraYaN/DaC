@@ -1,0 +1,24 @@
+\documentclass{article}
+\input{../../../library/preamble}
+\input{../../../library/style}
+\usepackage{verbatim}
+
+
+\begin{document}
+\newcommand{\tss}{\textsubscript}
+Bij de conclusie worden twee dingen besproken: \\
+Voldoet het ontwerp aan de specificatie? \\
+Wat zou er eventueel verbeterd kunnen worden ?
+\subsection{Voldoet het ontwerp aan de specificatie?}
+Dit is natuurlijk een van de belangrijkste punten bij de conclusie. De specificaties staan in een apart onderdeel vermeld. In onze schakeling is het mogelijk om binnen de delay van 100 ns te blijven. Verder is het mogelijk om, met verschillende opcodes, een correcte berekening te doen. Vervolgens hebben we ook voor verschillende waarden van de parameter de schakeling getest. Dit treft u aan bij Analyse. Het resultaat daarvan is dat de efficientie niet aantoonbaar afneemt (in ons experiment) bij een stijgende S (parameter voor het aantal bits). \newline \\
+ \subsection{Wat zou er eventueel verbeterd kunnen worden?}
+Bij analyse is al een manier vermeld om de schakeling eventueel te verbeteren, door het opdelen van de berekeningen in componenten. Dit is nog niet uitgezocht, dus ik zeg niet dat het er beter op wordt, maar het kan wel uitgezocht worden. 
+Verder zou de oorzaak opgespoord kunnen worden, waardoor de schakeling zo groot is en blijft. (bij een veranderende S) \newline \\
+Verder zou uitgezocht kunnen worden of de schakeling in het echt wel werkt. In de realiteit zijn er namelijk omschakeltijden, namelijk t\tss{pHL} en t\tss{pLH} en t\tss{rise}. Het is dan wellicht nodig om de opcode precies op de helft,  tussen twee klokflanken (wij hebben geen klok, maar bijv. wel output\_r), aanbieden zodat je eventuele spikes uitsluit.  In onze simulatie van de geëxtraheerde VHDL-code is te zien dat er soms spikes ontstaan. Dit kan het gevolg zijn van omschakeleffecten. \newline \\
+\subsection{Reflectie}
+Hoe is de opdracht gegaan? We hebben lang nagedacht over het goed onderbrengen ván en checken op de carry. Dat is al eerder besproken. Ten tweede hadden we eerst veel errors in GoWithTheFlow, die we opgelost hebben door in het vervolg de "set box" optie in seadali te gebruiken. Verder zijn we goed binnen de tijd gebleven en is de opdracht op tijd ingeleverd. 
+
+
+
+
+\end{document}
