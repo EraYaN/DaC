@@ -14,8 +14,8 @@ num_steps = length(sim_V_DS1);
 
 %set parameter calculation preconditions
 %DATAPOINT:     1       2       3       4
-data_V_DS = [   3       2.4       2.4       5];
-data_V_GS = [   0.8     0.8     1     5];
+data_V_DS = [   3       2.4     2.4     5];
+data_V_GS = [   0.8     0.8     1.8     5];
 data_I_D = zeros(length(data_V_DS), 1);
 
 for i = 1 : length(data_V_DS)
@@ -53,7 +53,7 @@ for i = 1 : length(sim_V_GS1)
     if mod(i, 5) == 0
         %plot relevant data and construct legend
         plot(sim_V_DS1, I_D(:,i), 'color', colors(i,:));
-        legend_string{i} = ['V_{GS}: ', num2str(sim_V_GS1(i)), ' V'];
+        legend_string{i/5} = ['V_{GS}: ', num2str(sim_V_GS1(i)), ' V'];
     end
 end
 
