@@ -13,7 +13,7 @@
 \maketitle
 
 \section*{Abstract}
-In dit verslag zal blijken dat het ook mogelijk is, om met berekende parameters voor een CMOS-transistor die allen meer dan 60\% afwijken van een set gegeven parameters, toch een simulatie met een gemiddelde afwijking van minder dan 5\% uit te voeren. Daarmee blijkt het unified transistor model van Rabaey een goede representatie die in een aantal gevallen bruikbaar is voor handmatige analyse.
+In dit verslag zal blijken dat het mogelijk is, om met een set berekende parameters voor een CMOS-transistor die allen meer dan 60\% afwijken van een set gegeven parameters, toch een simulatie met een gemiddelde afwijking van minder dan 5\%, tegenover een SPICE-model, uit te voeren. Daarmee blijkt het unified transistor model van Rabaey een goede representatie die in een aantal gevallen bruikbaar is voor handmatige analyse.
 
 \newpage
 \label{sec:ump-abstr}
@@ -30,14 +30,14 @@ Voor deze opdracht was het de bedoeling om meer inzicht te krijgen in het gedrag
 De probleemstelling is zoals gegeven in opdracht 4: \\
 \textit{
 ``Bepaal voor een NMOS transistor de volgende parameters uit het unified transistor model van Rabaey:
-$V_{T0}$ $V_{DSAT}$ $k'$ $\lambda$
+$V_{T0}$ \quad $V_{DSAT}$ \quad $k'$ \quad $\lambda$ \\
 Vergelijk vervolgens de uitkomsten van het Unified Model met de SPICE simulaties zoals bijvoorbeeld
 gedaan is in figuur 3.25. Vergelijk ook de gevonden waarde met waarden van de technologie uit het Rabaey
 boek en bediscussieer het verschil in het licht van de discussie over schaling in sectie 3.5 van het Rabaey
 boek. Vergelijk ook met de parameters van de gegeven SPICE modellen van de SoG technologie en bediscussieer
 eventuele verschillen.''
 }
-\cite[4]{opdracht-4}
+\cite[4]{epo3-opdracht-4}
 
 
 \section{Theorie}
@@ -207,26 +207,35 @@ Met deze laatste uitdrukkingen is er voor iedere gevraagde parameter een uitdruk
 \section{Resultaten}
 \label{sec:ump-res}
 \subsection{Waarden}
-\label{sec:ump-res-val}
+\label{subsec:ump-res-val}
 Om waarden voor de vier gevraagde parameters te bepalen, vullen we de relevante waarden uit tabel~\ref{tab:ump-sim-tab-vds} in de vergelijkingen uit sectie~\ref{subsec:ump-methode-verw}.
+
+\subsubsection{Drempelspanning}
+\label{subsubsec:ump-res-val-vt0}
 Ten eerste bepalen we $V_{T0}$. Hiervoor nemen we twee datapunten uit tabel~\ref{tab:ump-sim-tab-vds}, met gelijke $V_{DS}$, welke in het verzadigingsgebied valt. Dit zijn datapunten 2 en 3. Deze vullen we vervolgens in vergelijking \ref{eq:ump-vt0}. Dit geeft:
 
 \begin{equation} \label{ump-vt0-num}
 	V_{T0} = \frac{1.4\sqrt{0.2292 \cdot 10^{-3}} - 1.2\sqrt{0.3682 \cdot 10^{-3}}}{\sqrt{0.2292 \cdot 10^{-3}} - \sqrt{0.3682 \cdot 10^{-3}}} = 0.4521 \, \textrm{V}
 \end{equation}
 
+\subsubsection{Lambda}
+\label{subsubsec:ump-res-val-lambda}
 Vervolgens nemen we datapunten 1 en 2 om $\lambda$ te bepalen aan de hand van vergelijking~\ref{eq:ump-lambda}:
 
 \begin{equation} \label{ump-lambda-num}
 	\lambda = \frac{0.2438 \cdot 10^{-3} - 0.2292 \cdot 10^{-3}}{2.6 \cdot 0.2292 \cdot 10^{-3} - 2.2 \cdot 0.2438 \cdot 10^{-3}} = 0.1281 \, \textrm{V}^{-1}
 \end{equation}
 
+\subsubsection{k'}
+\label{subsubsec:ump-res-val-kprime}
 Dan kunnen de gegevens van datapunt 3 samen met de zojuist berekende $V_{T0}$ en $\lambda$ gebruikt worden in vergelijking~\ref{eq:ump-kprime} om $k'$ te berekenen:
 
 \begin{equation} \label{eq:ump-kprime-num}
 	k' = \frac{1.6 \cdot 10^{-6}}{23.2 \cdot 10^{-6}}\frac{2 \cdot 0.3682 \cdot 10^{-3}}{(1.4 - 0.4521)^2(1 + 0.1281 \cdot 2.6)} = 0.4690 \,\frac{\textrm{mA}}{\textrm{V}^{2}}
 \end{equation}
 
+\subsubsection{Snelheidsverzadiging}
+\label{subsubsec:ump-res-val-vdsat}
 Als laatste komen de gegevens van datapunt 4 met elke reeds berekende parameter samen om $V_{DSAT}$ te berekenen met vergelijking~\ref{eq:ump-vdsat}:
 
 \begin{equation} \label{eq:ump-vdsat-num}
@@ -235,9 +244,9 @@ Als laatste komen de gegevens van datapunt 4 met elke reeds berekende parameter 
 
 $$V_{DSAT} = 1.396 \, \textrm{V} \vee V_{DSAT} = 7.700 \, \textrm{V}$$
 
-Hierbij is 1.396 V een aannemelijke waarde, 7.700 V niet, deze ligt te hoog om normaal gedrag van de transistor te veroorzaken.\\
+Hierbij is 1.396 V een aannemelijke waarde, 7.700 V niet, deze ligt te hoog om normaal gedrag van de transistor te veroorzaken. Opvallend is, dat de gekozen waarde voor $V_{GS}$ (zie tabel~\ref{tab:ump-sim-tab-vds}, datapunt 3) nu iets boven $V_{DSAT}$ blijken te liggen, waardoor eigenlijk niet aan de randvoorwaarden wordt voldaan. Wanneer $V_{GS}$ echter lager werd gemaakt om toch onder deze waarde van $V_{DSAT}$ te blijven, daalde die gewoon mee. Wij hebben hier geen verklaring voor.
 
-\subsection{Vergelijking}
+\subsection{Simulatie en vergelijking}
 \label{sec:ump-res-verg}
 Er zijn meteen een aantal opvallendheden aan de berekende parameters. Zo ligt $V_{T0}$ veel lager dan de verwachte 0.7 V en ook wanneer we de waarden vergelijken met de in de handleiding *gegeven parameters zijn er grote verschillen. Een vergelijk is gemaakt in tabel~\ref{tab:ump-par-comp}. Het SPICE-model lijkt alleen een waarde voor $V_{T0}$ te bevatten (eveneens 0.7 V) en is daarom niet opgenomen in de tabel. Daarnaast zijn de waarden die in het boek van Rabaey gegeven staan voor een transistor van een geheel andere orde van grootte dan die op de Sea-of-Gates-chip en daarom niet geheel relevant. \cite[103]{rabaey-integrated-circuits}
 
@@ -260,7 +269,7 @@ Er zijn meteen een aantal opvallendheden aan de berekende parameters. Zo ligt $V
 	\end{tabular}
 \end{table}
 
-Er kan echter pas echt bepaald worden of de bepaalde parameters een goed model vormen voor het gedrag van de transistor aan de hand van een simulatie. Voor deze simulatie is een Matlab-script gemaakt, dat te vinden is in bijlage~\ref{lst-ump-simulate}. Het script rekent een set gegeven waarden, zoals in tabel~\ref{tab:ump-sim-tab-vds} om naar de correcte parameterwaarden, volgens de vergelijkingen uit sectie~\ref{subsec:ump-methode-verw} en plot deze vervolgens, samen met de simulatieresultaten uit SPICE. Onderstaande grafiek (figuur \ref{fig:ump-sim-fig-vds-rab}) is het resultaat met de parameters zoals berekend in sectie~\ref{sec:ump-res-val}.
+Er kan echter pas echt bepaald worden of de bepaalde parameters een goed model vormen voor het gedrag van de transistor aan de hand van een simulatie. Voor deze simulatie is een Matlab-script gemaakt, dat te vinden is in bijlage~\ref{lst-ump-simulate}. Het script rekent een set gegeven waarden, zoals in tabel~\ref{tab:ump-sim-tab-vds} om naar de correcte parameterwaarden, volgens de vergelijkingen uit sectie~\ref{subsec:ump-methode-verw} en plot deze vervolgens, samen met de simulatieresultaten uit SPICE. Onderstaande grafiek (figuur \ref{fig:ump-sim-fig-vds-rab}) is het resultaat met de parameters zoals berekend in sectie~\ref{subsec:ump-res-val}.
 
 \begin{figure}[H]
 	\centering
@@ -291,6 +300,7 @@ Te zien is dat de afwijking rond $V_{T0}$ te verwaarlozen is en verder niet bove
 Naar aanleiding van sectie \ref{sec:ump-res-verg} blijkt dat de berekende parameters, voor gefitte waarden van $V_{DS}$ en $V_{GS}$, op zichzelf staand grote afwijkingen vertonen met de gegeven waarden. Wanneer de parameters echter worden gebruikt in simulatie blijft de gemiddelde afwijking met de SPICE-simulatie echter onder de 5\% en zal daarmee vaak bruikbaar zijn voor handmatige analyse van de transistor. Of het model daadwerkelijk bruikbaar is hangt geheel van de eisen en situatie af.
 
 \printbibliography
+\newpage
 
 \section{Bijlagen}
 \label{sec:ump-bijlagen}
