@@ -1,4 +1,0 @@
-R3:			R = 5k
-I2			I = 1mA
-NENH M5: 		L = [2.2u, 4.8u] m
-			W = 3.0um
