@@ -1,4 +1,5 @@
 \documentclass{scrartcl}  % scrartcl of scrreprt
+\usepackage{SIunits}
 \input{../../library/preamble}  
 \input{../../library/style}
 \addbibresource{../../library/bibliography.bib}
@@ -9,57 +10,96 @@
 \date{9 Oktober 2013}
 
 \begin{document}
-\maketitle
 \pagenumbering{roman}
+\maketitle
 \vspace{80 mm}
 \section*{Abstract}
-In dit verslag zullen we het gaan hebben over de invloed van verschillende gate-source-spanningen op de drainstroom van een NMOS transistor wanneer er sprake is van een oplopende waarde van de drain-soruce-spanning. Allereerst zullen we de theorie behandelen achter de NMOS transistor en de verschillende werkgebieden. Vervolgens zullen we onze verkregen simulaties en de bijbehorende resultaten verwerken. Als laatste geven we nog een korte conclusie aan de hand van de door ons verkregen resultaten. In onze conclusie vertellen we dat hebben geconstateerd dat een NMOS transistor met onze specificaties terecht komt in het snelheidsverzadigingsgebied. In onze conclusie concluderen we ook dat aan de hand van onze simulaties blijkt dat de grens tussen het verzadigingsgebied en het lineaire gebied, bij een drain-source-spanning, vele malen hoger zal liggen dan waar de grens ligt tussen het snelheidsverzadigingsgebied en het lineaire gebied.
+In dit verslag zullen we het gaan hebben over de invloed van verschillende gate-source-spanningen op de drainstroom van een NMOS transistor wanneer er sprake is van een oplopende waarde van de drain-soruce-spanning. 
+Allereerst zullen we de theorie behandelen achter de NMOS transistor en de verschillende werkgebieden. 
+Vervolgens zullen we onze verkregen simulaties en de bijbehorende resultaten verwerken. 
+Als laatste geven we nog een korte conclusie aan de hand van de door ons verkregen resultaten. 
+In onze conclusie vertellen we dat we hebben geconstateerd dat een NMOS transistor met onze specificaties terecht komt in het snelheidsverzadigingsgebied. 
+Ook concluderen we dat aan de hand van onze simulaties blijkt de waarde van de drain-source-spanning waarbij de snelheidsverzadiging begint toeneemt, naarmate de gate-source-spanning toeneemt.
 \newpage
 \setlength{\cftbeforetoctitleskip}{-3em}
 \tableofcontents
-
-\section{Inleiding}
-%TODO inleiding
-
 \newpage
-
+\pagenumbering{arabic}
+\section{Inleiding}
+Voor deze opdracht moesten wij een simulatie in PSPICE doen van de werk gebeiden van een MOS transistoren die werkgebeiden analyseren.
+Wij beginnen met een klein stukje theorie en we gaan daarna over op het besprkeen van de simulaties en het proces.
 
 \section{Theorie}
-Voor we gaan beschrijven hoe wij deze opdracht hebben aangepakt zal er nu eerst worden toegelicht hoe een NMOS transistor nu eigenlijk werkt. De NMOS transistor bestaat eigenlijk uit drie delen gedopeerd silicium, een stuk polysilicium, een stuk gate-oxide en metalen aansluitpunten. Van de drie delen gedopeerd silicium is één stuk gedopeerd met extra gaten en de andere twee stukken zijn gedopeerd met extra elektronen. De opbouw van de transistor is dan als volgt.
+Voor we gaan beschrijven hoe wij deze opdracht hebben aangepakt, zal er nu eerst worden toegelicht hoe een NMOS transistor nu eigenlijk werkt. 
+De NMOS transistor bestaat eigenlijk uit drie delen gedopeerd silicium, een stuk polysilicium, een stuk gate-oxide en metalen aansluitpunten. 
+Van de drie delen gedopeerd silicium is één stuk gedopeerd met extra gaten en de andere twee stukken zijn gedopeerd met extra elektronen. 
+De opbouw van de transistor is dan als volgt.
 \begin{figure}[H]
 \centering
-		\includegraphics[width=\textwidth]{resources/MOS-opbouw}
-		\caption{Opbouw van een NMOS transistor.\cite{patel-slides}}
-		\label{fig:NMOS-transistor}
+	\includegraphics[width=\textwidth]{resources/MOS-opbouw}
+	\caption{Opbouw van een NMOS transistor.\cite{patel-slides}}
+	\label{fig:NMOS-transistor}
 \end{figure}
 
-Wanneer er een spanningsverschil wordt gemaakt tussen de gate en de source zal er een depletiegebied ontstaan onder de gate. Dit depletiegebied zorgt ervoor dat er als het ware een stroom kan lopen tussen de source naar de drain. \\
-\begin{figure}[H]
-\centering
-		\includegraphics[width=\textwidth]{resources/depletiegebied}
-		\caption{Een depletiegebied.\cite{nick-slides}}
-		\label{fig:depletiegebied}
-\end{figure}
-Omdat we de drain hebben aangesloten op $V_{DS}$ en de source hebben aangesloten op de ground kan er nu ook daadwerkelijk stroom gaan lopen tussen source en drain. Als we het spanningsverschil over de gate en de source groter maken, zal ook het elektrisch veld groter worden, waardoor er meer stroom zal lopen. Dit gaat niet oneindig door. Voordat je de grens bereikt zit je in het resistieve of lineaire gebied en na de grens bevindt de transistor zich in het verzadegingsgebied. Wanneer de transistor zich in dit gebied bevindt, zal er niet meer stroom gaan lopen naarmate het spanningsverschil toeneemt. De formule die we gebruiken om de stroom te berekenen in het verzadigingsgebied is:
+Wanneer er een spanningsverschil wordt gemaakt tussen de gate en de source zal er een depletiegebied ontstaan onder de gate. 
+Dit depletiegebied zorgt ervoor dat er als het ware een stroom kan lopen tussen de source naar de drain. 
+Zie ook figuur \ref{fig:depletiegebied}. 
+\\
+Omdat we de drain hebben aangesloten op $V_{DS}$ en de source hebben aangesloten op de ground kan er nu ook daadwerkelijk stroom gaan lopen tussen source en drain. 
+Als we het spanningsverschil over de gate en de source groter maken, zal ook het elektrisch veld groter worden, waardoor er meer stroom zal lopen. 
+Dit gaat niet oneindig door. 
+Voordat je de grens bereikt zit je in het resistieve of lineaire gebied en na de grens bevindt de transistor zich in het verzadigingsgebied. 
+Wanneer de transistor zich in dit laatste gebied bevindt, zal er niet meer stroom gaan lopen naarmate het spanningsverschil toeneemt. 
+De formule die we gebruiken om de stroom te berekenen in het verzadigingsgebied is:
 \begin{equation}
-I_{D} = k((V_{GS} - V_{T})(V_{GS} - V_{T}) - 0.5(V_{GS} - V_{T})^{2}). 
+I_{D} = k((V_{GS} - V_{T})(V_{GS} - V_{T}) - 0.5(V_{GS} - V_{T})^{2})
 \end{equation}
 \newline Dit is te vereenvoudigen tot: 
-\begin{equation} I_{D} = 0.5k(V_{GS} - V_{T})^{2}.
+\begin{equation} I_{D} = 0.5k(V_{GS} - V_{T})^{2}
 \end{equation}
 \newline Voor het lineaire gebied gebruiken we de volgende formule: 
 \begin{equation}
-I_{D} = k(V_{GS} - V_{T})V_{DS} - 0.5V_{DS}^{2}.
+I_{D} = k(V_{GS} - V_{T})V_{DS} - 0.5V_{DS}^{2}
 \end{equation}
+\begin{figure}[H]
+\centering
+	\includegraphics[width=\textwidth]{resources/depletiegebied}
+	\caption{Een depletiegebied.\cite{nick-slides}}
+	\label{fig:depletiegebied}
+\end{figure}
+
 
 
 \section{Simulaties}
+Om de invloed van de verschillende gate-source-spanningen op de drainstroom van de NMOS transistor te bepalen, wanneer er ook nog sprake is van een oplopende waarde van de drain-source-spanningen, hebben we, met behulp van het programma Spice, simulaties gemaakt. 
+Het circuit wat voor de simulaties is gebruikt, is te zien in figuur \ref{fig:circuit}. 
+
+We hebben ervoor gekozen om in het circuit maar één NMOS transistor te gebruiken. 
+We hadden er ook voor kunnen kiezen om meerdere transistoren parallel te plaatsen en daarover steeds een andere gate-source-spanning laten lopen. 
+Dit hebben we echter niet gedaan, omdat bij zo'n circuit de transistors een kleine invloed op elkaar uitoefenen en dit zou kleine verschillen in de drainstroom tot gevolg kunnen hebben. 
+Waarschijnlijk zouden de verschillen wel verwaarloosbaar klein zijn, maar toch hebben we het risico niet genomen. 
+\\
+Hoewel de NMOS transistor al beschreven was in een library (modellibEPO3.slb), moesten we wel nog zelf de kanaallengte en breedte van onze transistor invoeren. 
+Voor onze simulatie moesten we werken met: \\
+L = \unit{1.6}{\micro\meter} \\
+W = \unit{4.8}{\micro\meter} \\
+Na het circuit te hebben gesimuleerd moesten we er nog voor zorgen dat de werkgebieden van de transistor goed zichtbaar waren. 
+Dit hebben we gedaan door 2 extra lijnen te tekenen, namelijk: 
+\begin{enumerate}
+	\item De lijn: 
+\begin{equation}
+V_{GS} - V_{T} = V_{DS} 
+\end{equation}
+	\item De lijn door alle buigpunten van de $I_{D}$ grafiek.
+\end{enumerate}
+Hoe deze lijnen precies tot stand zijn gekomen is te lezen in het volgende hoofdstuk. 
+
 
 \begin{figure}[H]
 \centering
-		\includegraphics[width=\textwidth]{resources/NMOS_circuit}
-		\caption{Het circuit gebruikt om te simlueren.}
-		\label{fig:circuit}
+	\includegraphics[width=\textwidth]{resources/NMOS_circuit}
+	\caption{Het circuit dat gebruikt is voor de simulaties.}
+	\label{fig:circuit}
 \end{figure}
 
 
@@ -67,13 +107,16 @@ I_{D} = k(V_{GS} - V_{T})V_{DS} - 0.5V_{DS}^{2}.
 Het resultaat van de simulatie van ons circuit ziet er als volgt uit.
 \begin{figure}[H]
 \centering
-		\setlength\figureheight{0.6\textwidth} 
-		\setlength\figurewidth{0.9\textwidth}
-		\input{resources/Id.tikz}
-		\caption{Het resultaat van de simulatie.}
-		\label{fig:Id}
+	\setlength\figureheight{0.6\textwidth} 
+	\setlength\figurewidth{0.9\textwidth}
+	\input{resources/Id.tikz}
+	\caption{Het resultaat van de simulatie.}
+	\label{fig:Id}
 \end{figure}
-De verschillende $I_{D}$ lijnen komen rechtstreeks van het gesimuleerde circuit. Om de andere 2 lijnen ($V_{DSAT}$ en $V_{GT}$) te kunnen plotten hebben we echter andere dingen moeten doen, omdat deze niet rechtstreeks uit de simulatie voortkwamen. Zo hebben we om de $V_{DSAT}$ te kunnen plotten allereerst de tweede afgeleide van de $I_{D}$ grafieken geplot (zie figuur \ref{fig:Id-2nd-div}) en vervolgens daarvan de minima genomen. \\
+De verschillende $I_{D}$ lijnen komen rechtstreeks van het gesimuleerde circuit. 
+Om de andere 2 lijnen ($V_{DSAT}$ en $V_{GT}$) te kunnen plotten hebben we echter andere dingen moeten doen, omdat deze niet rechtstreeks uit de simulatie voortkwamen. 
+Zo hebben we om de $V_{DSAT}$ te kunnen plotten allereerst de tweede afgeleide van de $I_{D}$ grafieken geplot (zie figuur \ref{fig:Id-2nd-div}) en vervolgens daarvan de minima genomen. 
+\\
 Om aansluitend $V_{GT}$ te kunnen plotten, hebben we de formule: 
 \begin{equation}
 V_{GS} - V_{T} = V_{DS} 
@@ -81,7 +124,12 @@ V_{GS} - V_{T} = V_{DS}
 $V_{T}$ vonden we door de formule: 
 \begin{equation}
 V_{T} = V_{T0} + \gamma (\sqrt {2 \phi F + |V_{SB}|} - \sqrt{ 2 \phi F} ) 
-\end{equation} in te vullen. Hierin is $V_{SB}$ = 0, waardoor $V_{T}$  gelijk is aan $V_{T0}$. $V_{T0}$ heeft een vaste waarde van 0.43V \cite[103]{rabaey-integrated-circuits}. Hiermee konden we dus heel gemakkeijk vijf verschillende punten vinden. Door deze met elkaar te verbinden vonden we de $V_{GT}$ grafiek. \\
+\end{equation} in te vullen. 
+Hierin is $V_{SB}$ = 0, waardoor $V_{T}$  gelijk is aan $V_{T0}$. 
+$V_{T0}$ heeft een vaste waarde van 0.43V \cite[103]{rabaey-integrated-circuits}. 
+Hiermee konden we dus heel gemakkeijk vijf verschillende punten vinden. 
+Door deze met elkaar te verbinden vonden we de $V_{GT}$ grafiek. 
+\\
 Aan de hand van de simulatieresultaten kunnen we nu de verschillende werkgebieden aangeven.
 \begin{itemize}
 	\item Het lineaire gebied is het gebied dat links ligt ten opzichte van de $V_{DSAT}$ lijn;
@@ -91,20 +139,29 @@ Aan de hand van de simulatieresultaten kunnen we nu de verschillende werkgebiede
 
 \begin{figure}[H]
 \centering
-		\setlength\figureheight{0.6\textwidth} 
-		\setlength\figurewidth{0.9\textwidth}
-		\input{resources/Id-2nd-div.tikz}
-		\caption{De tweede afgeleide van de originele grafiek.}
-		\label{fig:Id-2nd-div}
+	\setlength\figureheight{0.6\textwidth} 
+	\setlength\figurewidth{0.9\textwidth}
+	\input{resources/Id-2nd-div.tikz}
+	\caption{De tweede afgeleide van de originele grafiek.}
+	\label{fig:Id-2nd-div}
 \end{figure}
 
-
 \section{Discussie}
-Zoals te lezen is in de vorige paragraaf konden we goed de verschillende werkgebieden aflezen uit de grafiek. De verkregen resultaten zijn zoals we vooraf al verwacht hadden. Wanneer we de opdracht nog een keer zouden moeten doen, dan zouden we dit op dezelfde manier doen, omdat we geen grote fouten of onnauwkeurigheden hebben geconstateerd. 
+Zoals te lezen is in de vorige paragraaf konden we goed de verschillende werkgebieden aflezen uit de grafiek. 
+De verkregen resultaten zijn zoals we vooraf al verwacht hadden. 
+Wanneer we de opdracht nog een keer zouden moeten doen, dan zouden we dit op dezelfde manier doen, omdat we geen grote fouten of onnauwkeurigheden hebben geconstateerd. 
 
 \section{Conclusie}
 Uit onze verkregen resultaten kunnen we de volgende conclusie trekken: 
+\begin{itemize}
+	\item Wanneer de drain-source-spanning oploopt zal de NMOS transistor in het snelheidsverzadigingsgebied komen.
+	\item De waarde van $V_{DS}$ waarbij de snelheidsverzadiging begint neemt toe naarmate de $V_{GS}$ toeneemt.
+\end{itemize}
+Dit laatste kunnen we verklaren aan de hand van een bredere depletiegebied. 
+Dit bredere depletiegebied onstaat door het elektrische veld dat opgewekt wordt door de gate-source-spanning.
 
+\newpage
+\pagenumbering{Roman}
 \section{Bibliografie}
 \printbibliography
 \end{document}
