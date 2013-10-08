@@ -1,0 +1,76 @@
+\documentclass{report}
+\input{../../../library/preamble}
+%\input{../../../library/style}
+
+
+\begin{document}
+\newcommand{\tss}{\textsubscript}
+\section{Beschrijving}
+De resultaten van het onderzoek, dat hierboven beschreven wordt, bestaan vooral uit grafieken, waaruit een juiste waarde voor C\tss{g} wordt afgelezen. Die grafiek wordt verkregen door de formule (blz 109 uit het boek van Rabae [1])
+\begin{equation}
+I = C_g(V\tss{GS}) \frac{dV\tss{GS}}{dt}
+\end{equation}
+om te schrijven naar:
+\begin{equation}
+C_g(V\tss{GS})= \frac{I}{ \frac{dV\tss{GS}}{dt}}
+\end{equation}
+Deze functie kun je uit laten rekenen door SPICE. Dan komt er de volgende grafiek uit: (figuur \ref{res:1}) \newline
+\begin{figure} [h!]
+\includegraphics [width = \textwidth] {../figures/nmos/C_L_2_2}
+\caption{$C_g$ als functie van V\tss{GS} met W=3um en L = 2.2um.}
+\label{res:1}
+\end{figure}
+Vervolgens kun je SPICE de capaciteit laten bepalen. Dit is het vlakke deel van de grafiek in figuur \ref{res:1}. Zowel voor  de NMOS als voor de PMOS is dit gedaan voor verschillende waarden van L. De strategie is hierboven al beschreven, maar de formule voor de totale gate capaciteit verduidelijkt veel. Deze komt uit de projectopdracht. 
+\begin{equation} \label{res:eq1}
+C_g = W *c_0 + L *W *C\tss{GC}
+\end{equation}
+Wanneer W vastgezet en L gevarieerd wordt, verkrijgt met een lineair verband. Voor dezelfde waardes van W en bij verschillende waardes van L is steeds de totale capaciteit bepaald. De resulaten voor zowel de NMOS als de PMOS transistor staan in figuur \ref{res:2}.
+\begin{figure} [h!]
+\includegraphics [scale = 0.4] {../figures/tabel}
+\caption{De door SPICE berekende waarden van $C_g$ bij veranderende L}
+\label{res:2}
+\end{figure}
+Zoals eerder gezegd, wordt een lineair verband tussen $C_g$ en L verwacht. Wanneer we deze plotten in Matlab (appendix  \ref{M1}) zien we inderdaad een lineair verband, zowel voor de NMOS als voor de PMOS. Met de "Basic Fitting" functie van Matlab werden beide functies bepaald. Die staan onder de figuren \ref{res:3} en \ref{res:4}.
+
+\begin{figure} [h!]
+\centering
+\includegraphics [scale = 0.4] {../figures/c0.jpg}
+\caption{$C_g$ vs L, 4.1449x - 0.78078 voor de NMOS}
+\label{res:3}
+\end{figure}
+
+\begin{figure} [h!]
+\centering
+\includegraphics [scale = 0.4] {../figures/c0p.jpg}
+\caption{$C_g$ vs L, 4.1464x - 0.57784 voor de PMOS}
+\label{res:4}
+\end{figure}
+Het uiteindelijke doel is om C\tss{GC} te bepalen in vergelijking \ref{res:eq1}. Als je nu de afgeleide naar L neemt, valt de term met $c_0$ eruit:
+\begin{equation} \label{res:eq2}
+\frac{dC_g}{dL} = \frac{d(W *c_0 + L *W *C\tss{GC})}{dL} = WC\tss{GC} =richtingscoefficient
+\end{equation}
+De richtingscoëfficient is bepaald met de "basic fitting" functie van Matlab. Uit vergelijking \ref{res:eq2} volgt: 
+\begin{equation} \label{res:eq3}
+C\tss{GC}= \frac{dC_g}{dL}*\frac{1}{W}
+\end{equation}
+$\frac{dC_g}{dL}$ is bekend uit de grafiek en W is de vaste waarde die gekozen is. Dan kan C\tss{GC} dus bepaald worden. Hierbij moet vermeld worden dat C\tss{GC} de capaciteit per oppervlakte is. In vergelijking \ref{res:eq3} staat de mogelijkheid om de dikte van het gateoxide te berekenen. Dit is de algemene formule voor een vlakke plaatcondensator.
+\begin{equation} \label{res:eq3}
+C\tss{GC}*A = \frac { \epsilon \tss{0} \epsilon \tss{r}A } {d}
+\end{equation}
+Vervolgens kun je de A wegstrepen, waaruit de dikte dan te berekenen is. Om deze dikte snel te kunnen berekenen, is even een matlabcode geschreven. (appendix \ref{M2}). De diktes van de gateoxides van de PMOS en de NMOS staan in tabel \ref{res:tab1}.
+\begin{table} [h!]
+ \begin{tabular}{ | c |c| } 
+\hline
+  Dikte gateoxide NMOS (nm) & Dikte gateoxide NMOS (nm) \\ \hline
+  30  & 40  \\ \hline
+\end{tabular}
+\caption{Diktes van gateoxide van de gesimuleerde NMOS en PMOS-transistors}
+\label{res:tab1}
+ \end{table}
+\section{Analyse}
+\subsection{Bespreking grafiek in figuur \ref{res:1}}
+
+\subsection{Bespreking uitkomsten}
+
+
+\end{document}
