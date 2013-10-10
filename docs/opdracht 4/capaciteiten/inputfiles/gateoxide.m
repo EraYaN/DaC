@@ -2,7 +2,10 @@
 %30-9-2013
 %Berekening dikte gateoxide
 
-e0 =4*pi*10^-7;
-er =3.5*10^-13;
-D= ((e0*er)/Gc);
+
+Cgc = (Cg - ckeerw)/(W*L);
+
+eOx = 3.5e-11;
+D= ((eOx)/Cgc);
+
 disp(D);
