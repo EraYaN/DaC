@@ -1,7 +1,0 @@
-* Schematics Netlist *
-
-
-
-V_V2         $N_0001 0 5V
-M_M1         $N_0002 $N_0001 0 0 NENH           
-V_V1         $N_0002 0 5V

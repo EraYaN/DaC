@@ -11,10 +11,17 @@ if(rising_edge(clk))then
 		word<=d_in;
 	end if;	
 end if;
+if drive = '1' then
+d_out<=word;
+else 
+d_out<=(others=>'Z');
+end if;
 end process;
 
-d_out<=word;
 end behaviour;
+
+
+
 
 
 

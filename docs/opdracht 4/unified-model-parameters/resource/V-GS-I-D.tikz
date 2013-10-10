@@ -23,10 +23,10 @@ height=\figureheight,
 scale only axis,
 xmin=0,
 xmax=5,
-xlabel={$\text{V}_{\text{DS}}$},
+xlabel={$V_{DS}$},
 ymin=0,
 ymax=0.006,
-ylabel={$\text{I}_{\text{D}}$},
+ylabel={$I_{D}$},
 axis x line*=bottom,
 axis y line*=left,
 legend style={draw=black,fill=white,legend cell align=left}
@@ -138,7 +138,7 @@ table[row sep=crcr]{
 4.94999999999999 0.00320870825089514\\
 4.99999999999999 0.00324334064498544\\
 };
-\addlegendentry{$\text{V}_{\text{DS}}\text{: 1 V}$};
+\addlegendentry{$V_{DS}: 1 V$};
 
 \addplot [
 color=mycolor1,
@@ -247,7 +247,7 @@ table[row sep=crcr]{
 4.94999999999999 0.00484815379604697\\
 4.99999999999999 0.00492079742252827\\
 };
-\addlegendentry{$\text{V}_{\text{DS}}\text{: 2 V}$};
+\addlegendentry{$V_{DS}: 2 V$};
 
 \addplot [
 color=mycolor2,
@@ -356,7 +356,7 @@ table[row sep=crcr]{
 4.94999999999999 0.00526681030169129\\
 4.99999999999999 0.0053469748236239\\
 };
-\addlegendentry{$\text{V}_{\text{DS}}\text{: 3 V}$};
+\addlegendentry{$V_{DS}: 3 V$};
 
 \addplot [
 color=mycolor3,
@@ -465,7 +465,7 @@ table[row sep=crcr]{
 4.94999999999999 0.00560226570814848\\
 4.99999999999999 0.00568774482235312\\
 };
-\addlegendentry{$\text{V}_{\text{DS}}\text{: 4 V}$};
+\addlegendentry{$V_{DS}: 4 V$};
 
 \addplot [
 color=mycolor4,
@@ -574,7 +574,7 @@ table[row sep=crcr]{
 4.94999999999999 0.00590730784460902\\
 4.99999999999999 0.00599744357168674\\
 };
-\addlegendentry{$\text{V}_{\text{DS}}\text{: 5 V}$};
+\addlegendentry{$V_{DS}: 5 V$};
 
 \end{axis}
 \end{tikzpicture}%

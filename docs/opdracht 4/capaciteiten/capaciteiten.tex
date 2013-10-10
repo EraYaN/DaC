@@ -1,0 +1,69 @@
+\documentclass{report}
+\input{../library/preamble}
+%\input{../../library/style}
+
+\begin{document}
+\newcommand{\rp}{$\rightarrow$}
+\newcommand{\Ohm}{$\Omega$}
+\newcommand{\ohm}{$\omega$}
+\newcommand{\gmu}{$\mu$}
+\newcommand{\tss}{\textsubscript}
+\newcommand{\lijst}{\lstinputlisting}
+
+\input{inputfiles/title_page_1.tex}
+\tableofcontents
+\chapter{Inleiding}
+\input{inputfiles/inleiding.tex}
+
+\chapter{Probleemstelling}
+\input{inputfiles/probleemstelling.tex}
+
+\section{Theorie}
+\input{inputfiles/theorie.tex}
+
+\section{Eisen}
+\input{inputfiles/eisen.tex}
+
+\section{Methode}
+\input{inputfiles/methode.tex}
+
+\chapter{Resultaten}
+\input{inputfiles/resultaten}
+
+\chapter {Discussie}
+\input{inputfiles/discussie}
+
+\chapter{Conclusie}
+\input{inputfiles/conclusie}
+
+\begin{thebibliography}{La}
+%Internetbron
+%Auteur, A. (jaar van uitgave). Titel van het document. Geraadpleegd op dag maand jaar, van http://url
+%
+%Hoofdstuk uit boek
+%Auteur, A. (jaar van uitgave). Titel van hoofdstuk. In A. Redacteur (Red.), Titel van het boek. (pp. xx-xx). Plaats: %Uitgeverij.
+\bibitem{verwijzing}
+Rabae. Jan.M(2009). Chapter 3, The Devices, in Rabae, Digital integrated circuits, Pearson education, upper seadle river
+
+\bibitem{verwijzing2}
+(verdere data ontbreekt), http://www-inst.eecs.berkeley.edu/~ee130/sp06/chp7full.pdf, geraadpleegd op 9-10-2013, pagina 10 en 11. 
+
+\bibitem {verwijzing3}
+ Addison Wesley Longman, Transistor Parasitic Capacitance, Geraadpleegd op 9-10-13, van http://iroi.seu.edu.cn/books/asics/Book2/CH03/CH03.2.htm
+
+\end{thebibliography}
+
+
+\chapter{Appendix}
+\section{Matlab code}
+\tiny
+\subsection{Matlab code om Cg vs. L te plotten}
+\label{M1}
+
+\lijst{inputfiles/c0.m}
+
+\subsection{Bereken de dikte van het gate-oxide}
+\label{M2}
+\lijst{inputfiles/gateoxide.m}
+
+\end{document}
