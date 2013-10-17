@@ -29,12 +29,12 @@ Bij deze opdracht gingen we verder met het bestuderen van transistoren. Hierdoor
 Voor de simulaties hebben wij een schema gemaakt in PSPICE. Een ringoscillator is een oscillator die enkel uit inverters bestaat. Een inverter is eenvoudig op te bouwen uit twee MOS transistoren. Een inverter is in feite niets anders dan een PMOS transistor bovenop een NMOS transistor. Wij hebben dezelfde MOS transistoren gebruikt als in opdracht 4. De technische specificaties die wij hiervoor hebben gebruikt zijn:
 \begin{itemize}
 	\item Nominale $V_{DD}$ : 5 V
-	\item Minimale kanaallengte: 1.6  \micro\meter
-	\item Maximale kanaallengte: 4.8 \micro\meter
-	\item Minimale kanaalbreedte: 2.4 \micro\meter
-	\item Maximale kanaalbreedte: 10000 \micro\meter
+	\item Minimale kanaallengte: 1.6  \micro\meter\
+	\item Maximale kanaallengte: 4.8 \micro\meter\
+	\item Minimale kanaalbreedte: 2.4 \micro\meter\
+	\item Maximale kanaalbreedte: 10000 \micro\meter\
 \end{itemize}
-Omdat we gebruik maken van de Sea-of-Gates Chip hebben wij ervoor gekozen om een nmos transistor van 1.6 x 23.2 \micro\meter en pmos transistor van 1.6 x 29.6 \micro\meter te gebruiken.
+Omdat we gebruik maken van de Sea-of-Gates Chip hebben wij ervoor gekozen om een nmos transistor van 1.6 x 23.2 \micro\meter\ en pmos transistor van 1.6 x 29.6 \micro\meter\ te gebruiken.
 
 Een ringoscillator is een schakeling van inverters. Al deze inverters worden in serie aangesloten zodat de ingang van de ene inverter de uitgang is van de vorige inverter. En dat zo in een ketting. Je kan zoveel inverters gebruiken als je wilt. De enige voorwaarde: je hebt een oneven aantal inverters nodig. Dit omdat je anders geen oscillatie krijgt. De oscillatie ontstaat doordat het signaal van hoog naar laag (en omgekeerd) veranderd. Wat hierbij ook belangrijk is dat je geen ideale inverters gebruikt. Bij ideale inverters zou je waarschijnlijk wel een soort van oscillatie krijgen, waarvan de frequentie dan oneindig hoog is. Omdat inverters in werkelijkheid een delay tijd hebben kan je mooiere oscillaties vormen. Hieronder een afbeelding van de schakeling.
 \begin{figure}[H]
@@ -47,12 +47,15 @@ Een ringoscillator is een schakeling van inverters. Al deze inverters worden in 
 Vervolgens hebben wij dit schema voor 5\nano\second\  laten lopen. We hebben het Voltage gemeten op het punt waar in figuur \ref{fig:schema} meet staat. De gekregen data hiervan wordt vermeld in de resultaten. We hebben dit gedaan voor een schakeling van 3 inverters en 5 inverters. 7 inverters was ook een optie om te meten, maar helaas faalde PSPICE erin om dit te simuleren. Uit onze conclusie is te herleiden dat 7 inverters waarschijnlijk geen (betere) betrouwbaardere ringoscillator zou vormen.
 
 \section{Resultaten}
-Het resultaat van de simulatie van ons circuit ziet er als volgt uit.
+
+
 \section{Conclusie}
 
 
 \section{Discussie}
-
+Altijd zijn er natuurlijk een aantal zaken te verbeteren. Bij deze opdracht hebben we ook een aantal punten waar verbetering in zit. Zo waren we uiteraard beperkt door het programma PSPICE die een grens heeft tot waar deze nog kan simuleren. Helaas probeerden wij een schema te simuleren dat boven deze grens lag. Hierdoor missen we resultaten die misschien wel interessant zouden kunnen zijn. 
+De grafieken die we hebben gebruikt voor berekeningen en analyses hebben we geanalyseerd in matlab. De oorspronkelijke grafiek kwam uit de simulatie van PSPICE. Deze hebben we moeten extraheren vanuit PSPICE en via notepad moeten implementeren in Matlab. Hier kan uiteraard het een en ander fout zijn gegaan waardoor de grafieken van matlab en PSPICE niet identiek aan elkaar waren. Dit heeft invloed op de resultaten aangezien je met de waarden van matlab verdere conclusies gaat trekken. 
+De transistoren die we hebben geimplenteerd in PSPICE zijn immers ook maar simulaties. De resultaten die we uit deze simulaties hebbben verkregen kunnen uiteraard verschillen met de resultaten die te verkrijgen zijn als je deze schakeling in het echt bouwt. Dit heeft opzich niet veel invloed op deze opdracht, aangezien we de transistoren allen theoretisch hoefden te benaderen. 
 
 \newpage
 \pagenumbering{Roman}
