@@ -13,22 +13,60 @@
 \pagenumbering{roman}
 \maketitle
 \vspace{80 mm}
+
 \section*{Abstract}
+\label{sec:trig-abstr}
 We hebben een CMOS Schmitt Trigger geanalyseerd en gesimuleerd voor de SoG techniek en de analyse en simulatie met elkaar vergeleken.
+
 \newpage
 \setlength{\cftbeforetoctitleskip}{-3em}
 \tableofcontents
-\newpage
-\pagenumbering{arabic}
+
 \section{Inleiding}
+\label{sec:trig-inl}
 %TODO
 
+\newpage
+\pagenumbering{arabic}
+
+\section{Probleemstelling}
+\label{sec:trig-prob}
+De probleemstelling is zoals gegeven in opdracht 4: \\
+\textit{
+``Figuur 42 (uitlezen toetsenbord) uit de EPO-3 handleiding laat een Schmitt-trigger zien. Deze is gelijk
+aan die uit Problem 7.7 (figuur 7-49) van het boek van Rabaey. Los dit ‘Problem’ op, maar voor SoG
+transistoren met parameters uit Tabel 3 van de EPO-3 handleiding en neem voor $V_{DSAT}$ een waarde van
+2V (dit is een benadering). Neem voor alle transistoren de standaard afmetingen uit het SoG image.
+Vergelijk je uitkomst met simulaties en reflecteer op de overeenkomsten en verschillen.''
+}
+\cite[2]{epo3-opdracht-5}
+
 \section{Theorie}
+\label{sec:trig-theorie}
 %TODO
-\section{Simulaties}
+
+\section{Methode}
+\label{sec:trig-methode}
+\subsection{M-}
+\label{subsec:trig-methode-minus}
+
+\subsection{M+}
+\label{subsec:trig-methode-plus}
+
+
+\section{Resultaten}
+\label{sec:trig-res}
+\subsection{M-}
+\label{subsec:trig-res-minus}
+
+\subsection{M+}
+\label{subsec:trig-res-plus}
+
+\subsection{Simulatie en vergelijking}
+\label{subsec:trig-res-verg}
 %TODO
 $V_{M+} = 2.500 \volt$\\
-$V_{M+} = 1.566 \volt$
+$V_{M-} = 1.566 \volt$
 \begin{figure}[H]
 \centering
 	\setlength\figureheight{0.6\textwidth} 
@@ -38,10 +76,8 @@ $V_{M+} = 1.566 \volt$
 	\label{fig:st}
 \end{figure}
 
-\section{Discussie}
-%TODO
-
 \section{Conclusie}
+\label{sec:trig-conclusie}
 %TODO
 
 \newpage
