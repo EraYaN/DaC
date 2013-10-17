@@ -1,12 +1,10 @@
 \documentclass{article}  
 \input{../../library/preamble}  
 \input{../../library/style}  
-\usepackage{graphicx}
-\usepackage{hyperref}
 
 
 \author{
-Efraïm Eland() \and Peter Stijnman (4215788) \and Alex Janssen (4231333) \\
+Efraïm Eland(4170563) \and Peter Stijnman (4215788) \and Alex Janssen (4231333) \\
 }
 \title{TU Delft EPO3-1 - Opdracht 5: NAND-parameters delay}
 \date{25 Oktober 2013}
@@ -15,30 +13,46 @@ Efraïm Eland() \and Peter Stijnman (4215788) \and Alex Janssen (4231333) \\
 
 \section{Samenvatting}
 
+\subimport{}{samenvattingopdracht5}
 
 \tableofcontents
 \clearpage
 
 \section{Inleiding}
 
+Het doel van deze opdracht is om nog meer kennis op te doen over MOSFET transistoren en CMOS schakelingen, in specifiek  meer over de NAND-schakeling en de delay die daarbij komt. Deze delay ontstaat door de capaciteiten in de transistoren die opgeladen moeten worden en de weerstand van de transistoren. In dit verslag gaan we kijken hoe we een NAND schakeling kunnen doorrekenen en bepalen wat de delay van deze schakeling is. Voor de rest van dit project moeten we rekening houden met deze gate delays, anders onstaan er fouten in de schakeling en zal de chip niet werken.\\
+Het verslag bestaat verder uit een probleemstelling, een theorie die bespreekt hoe we de NAND schakeling kunnen doorrekenen, hoe we deze opdracht hebben aangepakt en daarna volgen de simulatie met resultaten. Deze resultaten zullen daarna besproken worden in de discussie en conclusie.
+
 \section{Probleemstelling}
+\textbf {NAND-Parameters voor delay}\\
+
+Neem een transistorschakeling gelijk aan de opbouw van een 2-input NAND uit SoG bibliiotheek (zelfde transistorafmetingen).
+Voeg een variabele belastingscapaciteit toe, met waarden tussen 0,5 en 10pF. Bepaal door middel van simulaties de  $R_{eq,n}$ (equivalente weerstand voor pulldown) en de $C_{out}$ (uitgangscapaciteit) van de 2 input NAND. Het betreft hier de parameters van de NAND, niet van een individuele transistor. Vergelijk, als sanity chack, de gevonden waarden met waarden die je knt berekenen uit de gegevens van de transistoren en de NAND zoals in appendix C van de EPO-3 handleiding te vinden zijn. Reflecteer op overeenkomsten en verschillen.
 
 \section{Theorie}
 
+\subimport{}{theorieopdracht5.tex}
+
 \section{Aanpak}
+
+Voor deze opdracht zijn we begonnen met het tekenen van het circuit van de NAND-gate met PSpice en hebben hierbij gekeken naar het opladen en het ontladen van de belastingscapaciteit. Voor beide hebben we het zelfde circuit alleen andere start waardes. Voor het opladen en het ontladen van de condensator hebben we 3 verschillende waardes genomen voor de belastingscapaciteit, 1 ; 5 en 10 pF. Verder hebben we met PSpice nauwkeurig waardes uit de grafiek kunnen aflezen.
 
 
 \section{De Simulatie}
  
+\subimport{}{simulatieopdracht5}
 
 \section{Resultaten}
 
+\subimport{}{resultatenopdracht5}
 
 \section{Discussie}
 
+\subimport{}{discussieopdracht5}
 
 \section{Conclusie}
 
+\subimport{}{conclusieopdracht5}
 
 \section{Bronvermelding}
 

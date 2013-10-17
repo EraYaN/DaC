@@ -1,0 +1,60 @@
+Library vendor : Model Technology
+Maximum unnamed designs : 3
+ENTITY hw_image_generator
+    Source modified time: Thu Oct 10 10:41:22 2013
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Source directory: /home/erdehaan/GitHub/DaC/hardware/vga
+    HDL source file: VHDL/hw_image_generator.vhd
+    Source file: VHDL/hw_image_generator.vhd
+    Start location: VHDL/hw_image_generator.vhd:26
+    Version string: RHBSD?j[OVDSQefZ1kd@30
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Debug Symbol file exists
+  ARCHITECTURE BODY behavior
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Depends on: E work hw_image_generator RHBSD?j[OVDSQefZ1kd@30
+    Start location: VHDL/hw_image_generator.vhd:39
+    Version string: 5?9SW`?5aJ:o]BATj;KS20
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Source directory: /home/erdehaan/GitHub/DaC/hardware/vga
+    Source file: VHDL/hw_image_generator.vhd
+    Source modified time: Thu Oct 10 10:41:22 2013
+    HDL source file: VHDL/hw_image_generator.vhd
+    Debug Symbol file exists
+ENTITY vga_controller
+    Source modified time: Thu Oct 10 10:41:11 2013
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Source directory: /home/erdehaan/GitHub/DaC/hardware/vga
+    HDL source file: VHDL/vga_controller.vhd
+    Source file: VHDL/vga_controller.vhd
+    Start location: VHDL/vga_controller.vhd:26
+    Version string: Ul0W]RG0UX^9FDO_inz4k2
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Debug Symbol file exists
+  ARCHITECTURE BODY behavior
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Depends on: E work vga_controller Ul0W]RG0UX^9FDO_inz4k2
+    Start location: VHDL/vga_controller.vhd:50
+    Version string: :0:FR:=LlQ;cN[W^l5H>91
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Source directory: /home/erdehaan/GitHub/DaC/hardware/vga
+    Source file: VHDL/vga_controller.vhd
+    Source modified time: Thu Oct 10 10:41:11 2013
+    HDL source file: VHDL/vga_controller.vhd
+    Debug Symbol file exists
