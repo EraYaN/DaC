@@ -3,28 +3,30 @@
 \input{../library/style.tex}
 \addbibresource{../library/bibliography.bib}
 
-\title{EPO-3 "Maak een Chip"}
 \author{Groep 1 (DaC)}
-\date{}
+\title{EPO-3 "Maak een Chip" Project Plan}
+
+\date{14-10-2013}
 
 \begin{document}
-\maketitle
 \pagenumbering{roman}
+\maketitle
 \vspace{80 mm}
 \section*{Samenvatting}
+In dit verslag zal de opzet van het project uitgelegd worden. Het uiteindelijke resultaat van dit project is het maken van een functionele chip, waarbij de chip volledig zal worden gespecificeerd, ontworpen en gesimuleerd door en groep studenten. De chip zal gefabriceerd worden door DIMES. 
 \newpage
 \setlength{\cftbeforetoctitleskip}{-3em}
 
 \tableofcontents
-\clearpage
-
+\newpage
+\pagenumbering{arabic}
 \section{Achtergrond}
-Het project "Maak een Chip"\ is een vervolg op de projecten uit het eerste jaar van de bachelor Electrical Engineering, waarbij de nadruk is gelegd op het gestructureerd hierarchisch ontwerpen van een chip en zoals bij elk project het samenwerken in een groep. Dit wordt gedaan met een groep van 9 bsc electrical engineering studenten. Wanneer het ontwerp af is, wordt deze in het 2e semester tot werkelijkheid gebracht in de chipfabriek DIMES en in het 4de kwartaal zal de chip af zijn en getest kunnen worden. Bij dit project zal de kennis van bepaalde vakken zoals lineaire schakelingen, halfgeleiders en versterkerschakelingen uit het eerste jaar electrical engineering toegepast worden om zo een goed en werkend product te krijgen.
+Het project "Maak een Chip"\ is een vervolg op de projecten uit het eerste jaar van de bachelor Electrical Engineering, waarbij de nadruk is gelegd op het gestructureerd hierarchisch ontwerpen van een chip en zoals bij elk project het samenwerken in een groep. Dit wordt gedaan met een groep van 9 bsc electrical engineering studenten. Wanneer het ontwerp af is, wordt deze in het tweede semester gerealiseerd in de chipfabriek DIMES en in het vierde kwartaal zal de chip af zijn en getest kunnen worden. Bij dit project zal de kennis van bepaalde vakken zoals lineaire schakelingen, halfgeleiders en versterkerschakelingen uit het eerste jaar electrical engineering toegepast worden om zo een goed en werkend product te krijgen.
 
 \section{Projectopdracht}
 Het uiteindelijke resultaat dat moet worden bereikt met dit project is het maken van een correct ontwerp van een chip met alle bijbehorende stappen. Om dit te kunnen bereiken dienen een aantal doelen bereikt te worden;
 \begin {itemize}
-\item Het ontwerpen aan de hand van algemene producspecificaties met randvoorwaarden.
+\item Het ontwerpen aan de hand van algemene productspecificaties met randvoorwaarden.
 \end {itemize}
 \quad Het is belangrijk voor het ontwerpen van de chip, dat de productspecificaties met randvoorwaarden zo goed en duidelijk mogelijk worden gespecificeerd. 
 Zo zal het ontwerpen van de chip makkelijker verlopen en bepaalde problemen en limitaties zullen voor de deadline verholpen kunnen worden.
@@ -122,17 +124,21 @@ Erwin de Haan & Projectlid\\
 \\
 \\Er zullen elke middag twee vergaderingen plaatsvinden. Een openingsvergadering om 8:50 en een afsluitende vergadering om 12:30.
 Alle documentatie zal geplaatst worden op github met dropbox als backup.
-Alle offici"ele documentatie zal gemaakt worden in Latex en worden gepubliceerd in pdf formaat.
-
+Alle officiële documentatie zal gemaakt worden in Latex en gepubliceerd worden in pdf-formaat.
+\newpage
 \section{Planning}
-
-
-
-
+Zie Figuur 1.
+ \begin{figure}[H]
+\centering
+	\includegraphics[width=18cm]{Planner}
+	\caption{De voorlopige planning}
+	\label{fig:planning}
+\end{figure}
 
 \section{Risico's}
-Wat zijn de gevaren die het succes het van het project bedreigen ? Wat doe je om de risico's op falen zo klein mogelijk te houden? Een van de mogelijke maatregelen is het werken met 'fall-back' scenario’s. Welke scenario's zijn dit dan?
+Het grootste risico bij dit project is dat de gekozen specificaties en randvoorwaarden niet gehaald kunnen worden, omdat het met het aantal transistoren op de chip niet mogelijk is om al de functies te maken. Om dit te voorkomen zal er tijdens het bepalen van de specificaties en randvoorwaarden kleinschalige simulaties worden gedaan met het test FPGA-bordje om echte haalbaarheid te testen. Zo zal er voor de implementatie fase al zeker zijn van wat er tenminste haalbaar is.
+\\Daarnaast zal de planning ook een rol spelen in de haalbaarheid van het project, omdat zonder een duidelijke planning bepaalde aspecten van het gekozen ontwerp niet goed uitgevoerd kunnen worden en dan zal het eindproduct niet werken.
+\\Nog een risico is dat de vertaling van code naar hardware niet klakkeloos zal verlopen. Er kunnen problemen onstaan, omdat bepaalde gedeeltes van de code niet goed overgezetzijn en dan zal het eindproduct ook niet werken.
+\\Een ander risico is dat bij het uiteindelijke product sommige verbindingen tussen transistoren niet goed zijn aangelegd, maar de chip wordt drie maal gefabriceerd, dus die kans zal erg klein zijn.
 
-\makebibliography
 \end{document}
-
