@@ -1,0 +1,51 @@
+\documentclass{scrartcl}  % scrartcl of scrreprt
+\usepackage{SIunits}
+\input{../../library/preamble}  
+\input{../../library/style}
+\addbibresource{../../library/bibliography.bib}
+
+\author{Erwin {de Haan} (4222814)  \\{Robin Hes} (4236815)}
+\title{EPO3-1 Opdracht 5: Schmitt Trigger}
+\subtitle{EE2821}
+\date{14 oktober 2013}
+
+\begin{document}
+\pagenumbering{roman}
+\maketitle
+\vspace{80 mm}
+\section*{Abstract}
+We hebben een CMOS Schmitt Trigger geanalyseerd en gesimuleerd voor de SoG techniek en de analyse en simulatie met elkaar vergeleken.
+\newpage
+\setlength{\cftbeforetoctitleskip}{-3em}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\section{Inleiding}
+%TODO
+
+\section{Theorie}
+%TODO
+\section{Simulaties}
+%TODO
+$V_{M+} = 2.500 \volt$\\
+$V_{M+} = 1.566 \volt$
+\begin{figure}[H]
+\centering
+	\setlength\figureheight{0.6\textwidth} 
+	\setlength\figurewidth{0.9\textwidth}
+	\input{resources/schmitt-trigger.tikz}
+	\caption{Het resultaat van de simulatie.}
+	\label{fig:st}
+\end{figure}
+
+\section{Discussie}
+%TODO
+
+\section{Conclusie}
+%TODO
+
+\newpage
+\pagenumbering{Roman}
+\section{Bibliografie}
+\printbibliography
+\end{document}

@@ -1,0 +1,3 @@
+http://denethor.wlu.ca/PSpice/pspice_tutorial.html#vpulse
+http://electronics.stackexchange.com/questions/30287/cascaded-logic-inverters
+http://www.edaboard.com/thread119364.html

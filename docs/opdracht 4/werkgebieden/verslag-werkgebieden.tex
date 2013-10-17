@@ -14,11 +14,11 @@
 \maketitle
 \vspace{80 mm}
 \section*{Abstract}
-In dit verslag zullen we het gaan hebben over de invloed van verschillende gate-source-spanningen op de drainstroom van een NMOS transistor wanneer er sprake is van een oplopende waarde van de drain-soruce-spanning. 
+In dit verslag zullen we het gaan hebben over de invloed van verschillende $V_{GS}$ (gate-source) op de drainstroom van een NMOS transistor wanneer er sprake is van een oplopende waarde van $V_{DS}$ (drain-source). 
 Allereerst zullen we de theorie behandelen achter de NMOS transistor en de verschillende werkgebieden. 
 Vervolgens zullen we onze verkregen simulaties en de bijbehorende resultaten verwerken. 
 Als laatste geven we nog een korte conclusie aan de hand van de door ons verkregen resultaten. 
-In onze conclusie vertellen we dat we hebben geconstateerd dat een NMOS transistor met onze specificaties terecht komt in het snelheidsverzadigingsgebied. 
+In onze conclusie vertellen we dat we hebben geconstateerd dat een NMOS transistor met onze specificaties terecht komt in het snelheidsverzadigingsgebied binnen ons testbereik van $V_{GS} = 0\volt \textrm{tot} 5\volt$. 
 Ook concluderen we dat aan de hand van onze simulaties blijkt de waarde van de drain-source-spanning waarbij de snelheidsverzadiging begint toeneemt, naarmate de gate-source-spanning toeneemt.
 \newpage
 \setlength{\cftbeforetoctitleskip}{-3em}
@@ -26,14 +26,14 @@ Ook concluderen we dat aan de hand van onze simulaties blijkt de waarde van de d
 \newpage
 \pagenumbering{arabic}
 \section{Inleiding}
-Voor deze opdracht moesten wij een simulatie in PSPICE doen van de werk gebeiden van een MOS transistoren die werkgebeiden analyseren.
-Wij beginnen met een klein stukje theorie en we gaan daarna over op het besprkeen van de simulaties en het proces.
+Voor deze opdracht moesten wij een simulatie in PSPICE doen van de werkgebeiden van een MOS transistor en die werkgebeiden analyseren.
+Wij beginnen met een klein stukje theorie en we gaan daarna over op het bespreken van de simulaties en het proces.
 
 \section{Theorie}
 Voor we gaan beschrijven hoe wij deze opdracht hebben aangepakt, zal er nu eerst worden toegelicht hoe een NMOS transistor nu eigenlijk werkt. 
 De NMOS transistor bestaat eigenlijk uit drie delen gedopeerd silicium, een stuk polysilicium, een stuk gate-oxide en metalen aansluitpunten. 
-Van de drie delen gedopeerd silicium is één stuk gedopeerd met extra gaten en de andere twee stukken zijn gedopeerd met extra elektronen. 
-De opbouw van de transistor is dan als volgt.
+Van de drie delen gedoteerd silicium is één stuk gedoteerd zodat er extra vrije gaten zijn en de andere twee stukken zijn gedoteerd zodat er extra vrije elektronen zijn. 
+Een voorbeel van transistoropbouw is te zien in Figuur \ref{fig:NMOS-transistor}.
 \begin{figure}[H]
 \centering
 	\includegraphics[width=\textwidth]{resources/MOS-opbouw}
@@ -42,9 +42,14 @@ De opbouw van de transistor is dan als volgt.
 \end{figure}
 
 Wanneer er een spanningsverschil wordt gemaakt tussen de gate en de source zal er een depletiegebied ontstaan onder de gate. 
-Dit depletiegebied zorgt ervoor dat er als het ware een stroom kan lopen tussen de source naar de drain. 
-Zie ook figuur \ref{fig:depletiegebied}. 
-\\
+Dit depletiegebied zorgt ervoor dat er een stroom kan lopen tussen de source en de drain. 
+Zie ook Figuur \ref{fig:depletiegebied}.
+\begin{figure}[H]
+\centering
+	\includegraphics[width=\textwidth]{resources/depletiegebied}
+	\caption{Een depletiegebied.\cite{nick-slides}}
+	\label{fig:depletiegebied}
+\end{figure}
 Omdat we de drain hebben aangesloten op $V_{DS}$ en de source hebben aangesloten op de ground kan er nu ook daadwerkelijk stroom gaan lopen tussen source en drain. 
 Als we het spanningsverschil over de gate en de source groter maken, zal ook het elektrisch veld groter worden, waardoor er meer stroom zal lopen. 
 Dit gaat niet oneindig door. 
@@ -61,18 +66,9 @@ I_{D} = k((V_{GS} - V_{T})(V_{GS} - V_{T}) - 0.5(V_{GS} - V_{T})^{2})
 \begin{equation}
 I_{D} = k(V_{GS} - V_{T})V_{DS} - 0.5V_{DS}^{2}
 \end{equation}
-\begin{figure}[H]
-\centering
-	\includegraphics[width=\textwidth]{resources/depletiegebied}
-	\caption{Een depletiegebied.\cite{nick-slides}}
-	\label{fig:depletiegebied}
-\end{figure}
-
-
-
 \section{Simulaties}
-Om de invloed van de verschillende gate-source-spanningen op de drainstroom van de NMOS transistor te bepalen, wanneer er ook nog sprake is van een oplopende waarde van de drain-source-spanningen, hebben we, met behulp van het programma Spice, simulaties gemaakt. 
-Het circuit wat voor de simulaties is gebruikt, is te zien in figuur \ref{fig:circuit}. 
+Om de invloed van de verschillende $V_{GS}$ op de drainstroom van de NMOS transistor te bepalen, wanneer er ook nog sprake is van een oplopende waarde van $V_{DS}$, hebben we, met behulp van het programma PSpice, simulaties gemaakt. 
+Het circuit wat voor de simulaties is gebruikt, is te zien in Figuur \ref{fig:circuit}. 
 
 We hebben ervoor gekozen om in het circuit maar één NMOS transistor te gebruiken. 
 We hadden er ook voor kunnen kiezen om meerdere transistoren parallel te plaatsen en daarover steeds een andere gate-source-spanning laten lopen. 
@@ -97,7 +93,7 @@ Hoe deze lijnen precies tot stand zijn gekomen is te lezen in het volgende hoofd
 
 \begin{figure}[H]
 \centering
-	\includegraphics[width=\textwidth]{resources/NMOS_circuit}
+	\includegraphics[width=0.8\textwidth]{resources/NMOS_circuit}
 	\caption{Het circuit dat gebruikt is voor de simulaties.}
 	\label{fig:circuit}
 \end{figure}
@@ -128,7 +124,7 @@ V_{T} = V_{T0} + \gamma (\sqrt {2 \phi F + |V_{SB}|} - \sqrt{ 2 \phi F} )
 Hierin is $V_{SB}$ = 0, waardoor $V_{T}$  gelijk is aan $V_{T0}$. 
 $V_{T0}$ heeft een vaste waarde van 0.43V \cite[103]{rabaey-integrated-circuits}. 
 Hiermee konden we dus heel gemakkeijk vijf verschillende punten vinden. 
-Door deze met elkaar te verbinden vonden we de $V_{GT}$ grafiek. 
+Door deze kwadratisch met elkaar te verbinden vonden we de $V_{GT}$ grafiek. 
 \\
 Aan de hand van de simulatieresultaten kunnen we nu de verschillende werkgebieden aangeven.
 \begin{itemize}
@@ -154,11 +150,11 @@ Wanneer we de opdracht nog een keer zouden moeten doen, dan zouden we dit op dez
 \section{Conclusie}
 Uit onze verkregen resultaten kunnen we de volgende conclusie trekken: 
 \begin{itemize}
-	\item Wanneer de drain-source-spanning oploopt zal de NMOS transistor in het snelheidsverzadigingsgebied komen.
-	\item De waarde van $V_{DS}$ waarbij de snelheidsverzadiging begint neemt toe naarmate de $V_{GS}$ toeneemt.
+	\item Wanneer $V_{DS}$ oploopt zal de NMOS transistor in het snelheidsverzadigingsgebied komen.
+	\item De waarde van $V_{DS}$ waarbij de snelheidsverzadiging begint neemt toe naarmate $V_{GS}$ toeneemt.
 \end{itemize}
 Dit laatste kunnen we verklaren aan de hand van een bredere depletiegebied. 
-Dit bredere depletiegebied onstaat door het elektrische veld dat opgewekt wordt door de gate-source-spanning.
+Dit bredere depletiegebied onstaat door het elektrische veld dat opgewekt wordt door $V_{GS}$.
 
 \newpage
 \pagenumbering{Roman}

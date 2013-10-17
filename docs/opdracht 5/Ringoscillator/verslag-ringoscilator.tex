@@ -1,0 +1,57 @@
+\documentclass{scrartcl}  % scrartcl of scrreprt
+\usepackage{SIunits}
+\input{../../library/preamble}  
+\input{../../library/style}
+\addbibresource{../../library/bibliography.bib}
+
+\author{Jorden {Kerkhof} (4232461)  \\{Xenia Wesdijk} (4144074)}
+\title{EPO3-1   Opdracht 5.3.1: Ringoscillator}
+\subtitle{EE2821}
+\date{23 Oktober 2013}
+
+\begin{document}
+\pagenumbering{roman}
+\maketitle
+\vspace{80 mm}
+\section*{Abstract}
+
+\newpage
+\setlength{\cftbeforetoctitleskip}{-3em}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\section{Inleiding}
+Bij deze opdracht gingen we verder met het bestuderen van transistoren. Hierdoor snappen we de transistoren beter en zijn deze voor ons eenvoudiger toe te passen in het verdere gevolg van het project. Ieder kreeg zijn eigen opdracht om het gedrag en de werking van de transistoren te analyseren. Voor ons was dit de ringoscillator. Dit is een oscillator die enkel bestaat uit inverters. En inverters bestaan dan weer uit een NMOS en een PMOS transistor. Het was de bedoeling dat we uizochten voor hoeveel inverters je een betrouwbare oscillator had en met welke frequentie dit gebeurde. Hierbij komt uiteraarde de delay tijd van beide transistoren naar voren. Met enkel ideale inverters zou je natuurlijk nooit een werkende oscillator kunnen bouwen. De delay tijd is dus cruciaal in deze opdracht.  
+
+\section{Theorie}
+
+\section{Simulaties}
+\begin{figure}[H]
+\centering
+	\setlength\figureheight{0.6\textwidth} 
+	\setlength\figurewidth{0.9\textwidth}
+	\input{images/t-v_meet.tikz}
+	\caption{Het resultaat van de simulatie.}
+	\label{fig:Id}
+\end{figure}
+\section{Resultaten}
+Het resultaat van de simulatie van ons circuit ziet er als volgt uit.
+\section{Discussie}
+Zoals te lezen is in de vorige paragraaf konden we goed de verschillende werkgebieden aflezen uit de grafiek. 
+De verkregen resultaten zijn zoals we vooraf al verwacht hadden. 
+Wanneer we de opdracht nog een keer zouden moeten doen, dan zouden we dit op dezelfde manier doen, omdat we geen grote fouten of onnauwkeurigheden hebben geconstateerd. 
+
+\section{Conclusie}
+Uit onze verkregen resultaten kunnen we de volgende conclusie trekken: 
+\begin{itemize}
+	\item Wanneer $V_{DS}$ oploopt zal de NMOS transistor in het snelheidsverzadigingsgebied komen.
+	\item De waarde van $V_{DS}$ waarbij de snelheidsverzadiging begint neemt toe naarmate $V_{GS}$ toeneemt.
+\end{itemize}
+Dit laatste kunnen we verklaren aan de hand van een bredere depletiegebied. 
+Dit bredere depletiegebied onstaat door het elektrische veld dat opgewekt wordt door $V_{GS}$.
+
+\newpage
+\pagenumbering{Roman}
+\section{Bibliografie}
+\printbibliography
+\end{document}

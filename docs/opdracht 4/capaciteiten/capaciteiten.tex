@@ -1,5 +1,5 @@
 \documentclass{report}
-\input{../../library/preamble}
+\input{../library/preamble}
 %\input{../../library/style}
 
 \begin{document}
@@ -11,32 +11,12 @@
 \newcommand{\lijst}{\lstinputlisting}
 
 \input{inputfiles/title_page_1.tex}
-
+\tableofcontents
 \chapter{Inleiding}
-In de inleiding beschrijf je het probleem wat je op wilt lossen, zonder al te diep hierop in te gaan. Je
-geeft hier ook de motivatie en context van je werk (waar is het belangrijk voor, welk groter probleem
-wordt hiermee opgelost of geadresseerd).
-
 \input{inputfiles/inleiding.tex}
 
 \chapter{Probleemstelling}
-De probleemstelling kan bij een beknopt rapport als deze wellicht volledig in de inleiding verwerkt
-worden. In sommige gevallen is het beter om een letterlijke kopie van de opdracht op te nemen, in
-andere gevallen is het beter om de opdracht in eigen woorden op te nemen met daaromheen je eigen
-interpretatie. Wanneer de opdracht niet voldoende eenduidig gespeciﬁceerd is, bijvoorbeeld, moet je
-aangeven hoe je die verder ingeperkt hebt.
-
 \input{inputfiles/probleemstelling.tex}
-
-\chapter{Aanpak}
-De kern van het rapport kan uiteen vallen in verschillende delen, bijvoorbeeld een eerste gedeelte
-met achtergrondkennis en -theorie, en een volgend gedeelte met je eigen werk. Het eerste stuk
-heeft dan tot doel om de theorie zodanig samen te vatten dat de rest van het rapport gemakkelijker
-begrepen kan worden. Het hoofdgedeelte kan uit meerdere secties bestaan, het hangt heel sterk van
-het onderwerp af wat dan de beste indeling is. Een min of meer gebruikelijke indeling is achtergrond
-kennis - methode (opzet van experimenten) - resultaten, maar dat is niet meer dan een vuistregel.
-
-
 
 \section{Theorie}
 \input{inputfiles/theorie.tex}
@@ -48,37 +28,38 @@ kennis - methode (opzet van experimenten) - resultaten, maar dat is niet meer da
 \input{inputfiles/methode.tex}
 
 \chapter{Resultaten}
+\input{inputfiles/resultaten}
 
-\section{Plain results}
-\input{inputfiles/table}
-
-
-\section{Analyse}+
 \chapter {Discussie}
-In de ‘discussie’ sectie reﬂecteer je op de resultaten. Een uitkomst zonder discussie en/of reﬂectie
-heeft zelden ‘impact’. Welke doelen zijn wel bereikt, welke niet. Komt je resultaat overeen met de
-verwachte uitkomst? Zo niet, wat zou de oorzaak van het verschil kunnen zijn? Wat zijn de sterkepunten van je werk, en welke de zwakke? Wat zou je een andere keer anders doen? Bespreek, indien
-van toepassing, implicaties, van je werk. Voorbeeld: wat is het mogelijke gevolg van Neutrino’s die
-sneller reizen dan het licht? Wat zijn mogelijke bronnen van meetfouten of interpretatiefouten?
+\input{inputfiles/discussie}
 
 \chapter{Conclusie}
-De conclusie is zeer belangrijk. Deze is meestal relatief kort, en vat heel beknopt de resultaten en
-belangrijkste reﬂectie daarop nog eens samen. Wanneer de conclusie te lang zou worden, is het beter
-om een aparte discussie sectie (zie hierboven) toe te voegen. In de conclusie kun je, indien van
-toepassing, aanbevelingen doen voor verder werk/onderzoek. (Indien dat te lang zou worden, kun je
-daar ook weer een aparte sectie van maken.) In de conclusie maak je ook eventuele slotopmerkingen.
-Hou er rekening mee dat er lezers zijn die alleen het abstract en de conclusie lezen, en maak deze
-stukken ook voor hen nuttig, bijvoorbeeld om te beslissen of ze het gehele rapport gaan lezen
+\input{inputfiles/conclusie}
 
-\section{Conclusie}
-\section{Discussie}
+\begin{thebibliography}{La}
+%Internetbron
+%Auteur, A. (jaar van uitgave). Titel van het document. Geraadpleegd op dag maand jaar, van http://url
+%
+%Hoofdstuk uit boek
+%Auteur, A. (jaar van uitgave). Titel van hoofdstuk. In A. Redacteur (Red.), Titel van het boek. (pp. xx-xx). Plaats: %Uitgeverij.
+\bibitem{verwijzing}
+Rabae. Jan.M(2009). Chapter 3, The Devices, in Rabae, Digital integrated circuits, Pearson education, upper seadle river
 
+\bibitem{verwijzing2}
+(verdere data ontbreekt), http://www-inst.eecs.berkeley.edu/~ee130/sp06/chp7full.pdf, geraadpleegd op 9-10-2013, pagina 10 en 11. 
+
+\bibitem {verwijzing3}
+ Addison Wesley Longman, Transistor Parasitic Capacitance, Geraadpleegd op 9-10-13, van http://iroi.seu.edu.cn/books/asics/Book2/CH03/CH03.2.htm
+
+\end{thebibliography}
 
 
 \chapter{Appendix}
 \section{Matlab code}
+\tiny
 \subsection{Matlab code om Cg vs. L te plotten}
 \label{M1}
+
 \lijst{inputfiles/c0.m}
 
 \subsection{Bereken de dikte van het gate-oxide}

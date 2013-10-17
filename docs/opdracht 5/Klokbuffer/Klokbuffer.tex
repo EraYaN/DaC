@@ -1,0 +1,78 @@
+\documentclass{report}
+\input{../../library/preamble}
+%\input{../../library/style}
+\usepackage{fullpage}
+
+\begin{document}
+\newcommand{\rp}{$\rightarrow$}
+\newcommand{\Ohm}{$\Omega$}
+\newcommand{\ohm}{$\omega$}
+\newcommand{\gmu}{$\mu$}
+\newcommand{\tss}{\textsubscript}
+\newcommand{\ci}{\lstinputlisting} % code input = ci
+
+\input{inputfiles/title_page_1.tex}
+\tableofcontents
+\chapter{Inleiding}
+Bij het vak geintegreerde schakelingen werd behandeld dat de klok bij elke tik in die mate capaciteiten oplaad, dat dat de helft van de vermogensconsumptie van de chip vormt. Daar gaat het in dit rapport niet direct over, maar wel dat er tussen de klok en het circuit (C\tss{load}) een capaciteit zit, die opgeladen wordt door de klok. Die kan zorgen voor meer afvlakking van de voltage transfer characteristic. (VTC) In dit onderzoek wordt erop ingegaan of het plaatsen van een buffer tussen de klok en het netwerk (met C\tss{load} = 25pF) zorgt voor een kleinere t-90\%. \newline \\
+De probleemstelling is net genoemd. Vervolgens is er theorie nodig om de begrippen, zoals t-90\% en afvlakking te begrijpen. Dit zal kort zijn, omdat het onderzoek klein is. Verder zal de methode beschreven worden, die daarna ook gevolgd is. Daarna worden de resultaten gepresenteerd en bediscussieerd. Als laatste wordt een conclusie gegeven. 
+
+\chapter{Theorie}
+In figuur \ref{Th1} staat de VTC van de inverter. Wanneer de ingang van 0-1 gaat, gaat de uitgang van 1-0. De t\tss{r} is de tijd waarin wij geïnteresseerd zijn. Daarin komen een t-10\% en een t-90\% voor. Dat zijn de punten waar de VTC een buigpunt heeft binnen t\tss{r}. 
+\begin{figure} [h!]
+\includegraphics [scale= 0.3] {inputfiles/vtc}
+\caption{Voltage Transfer characteristic, bron: slides geïntegreerde schakelingen}
+\label{Th1}
+\end{figure}
+De afvlakking wordt veroorzaakt doordat de capaciteit opgeladen moet worden. De verwachting is dat de afvlakking kleiner wordt door de buffer, omdat de bredere transistors meer stroom kunnen leveren, die de C\tss{load} sneller oplaadt. 
+
+
+
+\chapter{Eisen}
+\input{inputfiles/eisen.tex}
+
+\chapter{Methode}
+\input{inputfiles/methode.tex}
+
+\chapter{Resultaten}
+%\input{inputfiles/resultaten}
+
+\chapter {Discussie}
+%\input{inputfiles/discussie}
+
+\chapter{Conclusie}
+%\input{inputfiles/conclusie}
+
+\begin{thebibliography}{La}
+%Internetbron
+%Auteur, A. (jaar van uitgave). Titel van het document. Geraadpleegd op dag maand jaar, van http://url
+%
+%Hoofdstuk uit boek
+%Auteur, A. (jaar van uitgave). Titel van hoofdstuk. In A. Redacteur (Red.), Titel van het boek. (pp. xx-xx). Plaats: %Uitgeverij.
+\bibitem{verwijzing}
+Rabae. Jan.M(2009). Chapter 3, The Devices, in Rabae, Digital integrated circuits, Pearson education, upper seadle river
+
+\bibitem{verwijzing2}
+Laurier, among Canada's best, \textit{PSpice Tutorial|} Geraadpleegd op 14-10-2013, van http://denethor.wlu.ca/PSpice/pspice\_tutorial.html\#vpulse
+
+\bibitem{verwijzing3}
+Stack exchange document, \textit{Cascaded logic inverters}, Geraadpleegd op 14-10-2013, van http://electronics.stackexchange.com/questions/30287/cascaded-logic-inverters
+
+\bibitem{verwijzing4}
+edaboard.com, overshoot, undershoot capacitor charching, Geraadpleegd op 14-10-2013, van http://www.edaboard.com/thread119364.html
+
+ 
+\end{thebibliography}
+
+\appendix
+\chapter{Matlabcode}
+\label{Aa}
+\section{Code om grafieken netter te plotten in matlab}
+\label{A1}
+\tiny
+\ci {Klokbuffer.m}
+\normalsize
+Deze code bevat vectoren om alle data, geëxporteerd uit SPICE, goed te plotten. In de figuur staat slecht een gedeelte van de vector, die loopt nog een eind naar rechts door. Het is dus slechts illustratief. 
+
+
+\end{document}
