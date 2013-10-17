@@ -29,18 +29,19 @@ Bij deze opdracht gingen we verder met het bestuderen van transistoren. Hierdoor
 Voor de simulaties hebben wij een schema gemaakt in PSPICE. Een ringoscillator is een oscillator die enkel uit inverters bestaat. Een inverter is eenvoudig op te bouwen uit twee MOS transistoren. Een inverter is in feite niets anders dan een PMOS transistor bovenop een NMOS transistor. Wij hebben dezelfde MOS transistoren gebruikt als in opdracht 4. De technische specificaties die wij hiervoor hebben gebruikt zijn:
 \begin{itemize}
 	\item Nominale $V_{DD}$ : 5 V
-	\item Minimale kanaallengte: 1.6 $\mu$m
-	\item Maximale kanaallengte: 4.8 $\mu$m
-	\item Minimale kanaalbreedte: 2.4$\mu$m
-	\item Maximale kanaalbreedte: 10000$\mu$m
+	\item Minimale kanaallengte: 1.6  \micro\meter
+	\item Maximale kanaallengte: 4.8 \micro\meter
+	\item Minimale kanaalbreedte: 2.4 \micro\meter
+	\item Maximale kanaalbreedte: 10000 \micro\meter
 \end{itemize}
+Omdat we gebruik maken van de Sea-of-Gates Chip hebben wij ervoor gekozen om een nmos transistor van 1.6 x 23.2 \micro\meter en pmos transistor van 1.6 x 29.6 \micro\meter te gebruiken.
 
+Een ringoscillator is een schakeling van inverters. Al deze inverters worden in serie aangesloten zodat de ingang van de ene inverter de uitgang is van de vorige inverter. En dat zo in een ketting. Je kan zoveel inverters gebruiken als je wilt. De enige voorwaarde: je hebt een oneven aantal inverters nodig. Dit omdat je anders geen oscillatie krijgt. De oscillatie ontstaat doordat het signaal van hoog naar laag (en omgekeerd) veranderd. Wat hierbij ook belangrijk is dat je geen ideale inverters gebruikt. Bij ideale inverters zou je waarschijnlijk wel een soort van oscillatie krijgen, waarvan de frequentie dan oneindig hoog is. Omdat inverters in werkelijkheid een delay tijd hebben kan je mooiere oscillaties vormen. Hieronder een afbeelding van de schakeling.
 \begin{figure}[H]
 \centering
-	\setlength\figureheight{0.6\textwidth} 
-	\setlength\figurewidth{0.9\textwidth}
-	\input{images/t-v_meet.tikz}
-	\caption{Het resultaat van de simulatie.}
+	
+	\includegraphics[width=\linewidth]{images/ringoscillator-rc.pdf}
+	\caption{De schematische schakeling van de ringoscillator in SPICE}
 	\label{fig:Id}
 \end{figure}
 \section{Resultaten}
