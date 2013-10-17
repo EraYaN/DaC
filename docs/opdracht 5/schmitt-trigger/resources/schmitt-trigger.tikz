@@ -11,17 +11,22 @@
 \begin{tikzpicture}
 
 \begin{axis}[%
-width=7.72578125in,
-height=5.1446875in,
+width=\figurewidth,
+height=\figureheight,
 scale only axis,
 xmin=0,
 xmax=5,
-xlabel={$\text{V}_{\text{IN}}\text{ (V)}$},
+xlabel={$V_{IN} (V)$},
 ymin=0,
 ymax=4.5,
-ylabel={$\text{V}_\text{X}\text{ (V)}$},
+ylabel={$V_{X} (V)$},
 legend style={at={(0.795541623127831,0.792629262926293)},anchor=south west,draw=black,fill=white,legend cell align=left}
 ]
+\addplot[color=black,
+solid,
+line width=1.0pt] (0,0) -- (500,500);
+\addlegendentry{$V_{X}=V_{IN}$};
+
 \addplot [
 color=blue,
 solid,
@@ -530,7 +535,7 @@ table[row sep=crcr]{
 4.98999999999994 1.60017055161887e-09\\
 4.99999999999994 1.59732915783195e-09\\
 };
-\addlegendentry{$\text{V}_{\text{M+}}$};
+\addlegendentry{$V_{M+}$};
 
 \addplot [
 color=green!50!black,
@@ -1040,7 +1045,7 @@ table[row sep=crcr]{
 0.0100000000000623 4.406898021698\\
 0 4.406898021698\\
 };
-\addlegendentry{$\text{V}_{\text{M-}}$};
+\addlegendentry{$V_{M-}$};
 
 \end{axis}
 \end{tikzpicture}%
