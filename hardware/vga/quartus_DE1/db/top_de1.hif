@@ -1,0 +1,296 @@
+Quartus II
+Version 10.0 Build 262 08/18/2010 Service Pack 1 SJ Full Version
+12
+985
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+pre_vga_dac_4
+# storage
+db|top_de1.(1).cnf
+db|top_de1.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+pre_vga_dac_4.vhd
+d5323963986d50a13f920e07906f
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# lmf
+|data|public|common|software|altera|10.0|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# entity
+gen6mhz
+# storage
+db|top_de1.(4).cnf
+db|top_de1.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+gen6mhz.vhd
+e8587db6b02423b1edcb757f202973
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+gen6mhz:inst1
+}
+# lmf
+|data|public|common|software|altera|10.0|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# entity
+vga_controller
+# storage
+db|top_de1.(2).cnf
+db|top_de1.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|home|erdehaan|GitHub|DaC|hardware|vga|VHDL|vga_controller.vhd
+444d3a69f426449ea3ddfa161cecc353
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+h_pulse
+208
+PARAMETER_SIGNED_DEC
+USR
+h_bp
+336
+PARAMETER_SIGNED_DEC
+USR
+h_pixels
+1920
+PARAMETER_SIGNED_DEC
+USR
+h_fp
+128
+PARAMETER_SIGNED_DEC
+USR
+h_pol
+'0'
+PARAMETER_ENUM
+USR
+v_pulse
+3
+PARAMETER_SIGNED_DEC
+USR
+v_bp
+38
+PARAMETER_SIGNED_DEC
+USR
+v_pixels
+1200
+PARAMETER_SIGNED_DEC
+USR
+v_fp
+1
+PARAMETER_SIGNED_DEC
+USR
+v_pol
+'1'
+PARAMETER_ENUM
+USR
+}
+# lmf
+|data|public|common|software|altera|10.0|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# entity
+vga_controller
+# storage
+db|top_de1.(5).cnf
+db|top_de1.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|home|erdehaan|GitHub|DaC|hardware|vga|VHDL|vga_controller.vhd
+444d3a69f426449ea3ddfa161cecc353
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+h_pulse
+24
+PARAMETER_SIGNED_DEC
+USR
+h_bp
+12
+PARAMETER_SIGNED_DEC
+USR
+h_pixels
+160
+PARAMETER_SIGNED_DEC
+USR
+h_fp
+4
+PARAMETER_SIGNED_DEC
+USR
+h_pol
+'0'
+PARAMETER_ENUM
+USR
+v_pulse
+2
+PARAMETER_SIGNED_DEC
+USR
+v_bp
+33
+PARAMETER_SIGNED_DEC
+USR
+v_pixels
+480
+PARAMETER_SIGNED_DEC
+USR
+v_fp
+10
+PARAMETER_SIGNED_DEC
+USR
+v_pol
+'0'
+PARAMETER_ENUM
+USR
+}
+# hierarchies {
+vga_controller:inst3
+}
+# lmf
+|data|public|common|software|altera|10.0|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# entity
+top_de1
+# storage
+db|top_de1.(0).cnf
+db|top_de1.(0).cnf
+# case_insensitive
+# source_file
+top_de1.bdf
+74b51d2befe9ea493df533cf1d4f7479
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+hw_image_generator
+# storage
+db|top_de1.(3).cnf
+db|top_de1.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|home|erdehaan|GitHub|DaC|hardware|vga|VHDL|hw_image_generator.vhd
+ba834f8b78f083a0feae51ee494d876d
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+pixels_y
+240
+PARAMETER_SIGNED_DEC
+USR
+pixels_x
+80
+PARAMETER_SIGNED_DEC
+USR
+}
+# hierarchies {
+hw_image_generator:inst4
+}
+# lmf
+|data|public|common|software|altera|10.0|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# complete
+
