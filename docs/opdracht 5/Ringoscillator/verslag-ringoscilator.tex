@@ -26,29 +26,33 @@ Bij deze opdracht gingen we verder met het bestuderen van transistoren. Hierdoor
 \section{Theorie}
 
 \section{Simulaties}
+Voor de simulaties hebben wij een schema gemaakt in PSPICE. Een ringoscillator is een oscillator die enkel uit inverters bestaat. Een inverter is eenvoudig op te bouwen uit twee MOS transistoren. Een inverter is in feite niets anders dan een PMOS transistor bovenop een NMOS transistor. Wij hebben dezelfde MOS transistoren gebruikt als in opdracht 4. De technische specificaties die wij hiervoor hebben gebruikt zijn:
+\begin{itemize}
+	\item Nominale $V_{DD}$ : 5 V
+	\item Minimale kanaallengte: 1.6  \micro\meter
+	\item Maximale kanaallengte: 4.8 \micro\meter
+	\item Minimale kanaalbreedte: 2.4 \micro\meter
+	\item Maximale kanaalbreedte: 10000 \micro\meter
+\end{itemize}
+Omdat we gebruik maken van de Sea-of-Gates Chip hebben wij ervoor gekozen om een nmos transistor van 1.6 x 23.2 \micro\meter en pmos transistor van 1.6 x 29.6 \micro\meter te gebruiken.
+
+Een ringoscillator is een schakeling van inverters. Al deze inverters worden in serie aangesloten zodat de ingang van de ene inverter de uitgang is van de vorige inverter. En dat zo in een ketting. Je kan zoveel inverters gebruiken als je wilt. De enige voorwaarde: je hebt een oneven aantal inverters nodig. Dit omdat je anders geen oscillatie krijgt. De oscillatie ontstaat doordat het signaal van hoog naar laag (en omgekeerd) veranderd. Wat hierbij ook belangrijk is dat je geen ideale inverters gebruikt. Bij ideale inverters zou je waarschijnlijk wel een soort van oscillatie krijgen, waarvan de frequentie dan oneindig hoog is. Omdat inverters in werkelijkheid een delay tijd hebben kan je mooiere oscillaties vormen. Hieronder een afbeelding van de schakeling.
 \begin{figure}[H]
 \centering
-	\setlength\figureheight{0.6\textwidth} 
-	\setlength\figurewidth{0.9\textwidth}
-	\input{images/t-v_meet.tikz}
-	\caption{Het resultaat van de simulatie.}
-	\label{fig:Id}
+	
+	\includegraphics[width=\linewidth]{images/ringoscillator2.png}
+	\caption{De schematische schakeling van de ringoscillator in SPICE}
+	\label{fig:schema}
 \end{figure}
+Vervolgens hebben wij dit schema voor 5\nano\second\  laten lopen. We hebben het Voltage gemeten op het punt waar in figuur \ref{fig:schema} meet staat. De gekregen data hiervan wordt vermeld in de resultaten. We hebben dit gedaan voor een schakeling van 3 inverters en 5 inverters. 7 inverters was ook een optie om te meten, maar helaas faalde PSPICE erin om dit te simuleren. Uit onze conclusie is te herleiden dat 7 inverters waarschijnlijk geen (betere) betrouwbaardere ringoscillator zou vormen.
+
 \section{Resultaten}
 Het resultaat van de simulatie van ons circuit ziet er als volgt uit.
-\section{Discussie}
-Zoals te lezen is in de vorige paragraaf konden we goed de verschillende werkgebieden aflezen uit de grafiek. 
-De verkregen resultaten zijn zoals we vooraf al verwacht hadden. 
-Wanneer we de opdracht nog een keer zouden moeten doen, dan zouden we dit op dezelfde manier doen, omdat we geen grote fouten of onnauwkeurigheden hebben geconstateerd. 
-
 \section{Conclusie}
-Uit onze verkregen resultaten kunnen we de volgende conclusie trekken: 
-\begin{itemize}
-	\item Wanneer $V_{DS}$ oploopt zal de NMOS transistor in het snelheidsverzadigingsgebied komen.
-	\item De waarde van $V_{DS}$ waarbij de snelheidsverzadiging begint neemt toe naarmate $V_{GS}$ toeneemt.
-\end{itemize}
-Dit laatste kunnen we verklaren aan de hand van een bredere depletiegebied. 
-Dit bredere depletiegebied onstaat door het elektrische veld dat opgewekt wordt door $V_{GS}$.
+
+
+\section{Discussie}
+
 
 \newpage
 \pagenumbering{Roman}
