@@ -1,4 +1,4 @@
-% This file was created by matlab2tikz v0.4.2.
+﻿% This file was created by matlab2tikz v0.4.2.
 % Copyright (c) 2008--2013, Nico Schlömer <nico.schloemer@gmail.com>
 % All rights reserved.
 % 
@@ -14,7 +14,7 @@
 width=\figurewidth,
 height=\figureheight,
 scale only axis,
-xmin=0,
+xmin=5e-13,
 xmax=5e-09,
 xlabel={t (s)},
 ymin=-1,
@@ -28,7 +28,7 @@ line width=2.0pt,
 forget plot
 ]
 table[row sep=crcr]{
-0 4.99998807907104\\
+5e-13 4.99998807907104\\
 1e-12 4.9354453086853\\
 2e-12 4.87093925476074\\
 4.00016074813902e-12 4.74276828765869\\
