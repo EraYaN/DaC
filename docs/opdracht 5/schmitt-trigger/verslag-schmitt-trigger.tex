@@ -24,14 +24,15 @@ We hebben een CMOS Schmitt Trigger geanalyseerd en gesimuleerd voor de SoG techn
 
 \section{Inleiding}
 \label{sec:trig-inl}
-%TODO
+
+%TODO dit gaan we doen blaat, dat gaan we doen blaat, dit doen we hier blaat, dat doen we daar blaat
 
 \newpage
 \pagenumbering{arabic}
 
 \section{Probleemstelling}
 \label{sec:trig-prob}
-De probleemstelling is zoals gegeven in opdracht 4: \\
+De probleemstelling is zoals gegeven in opdracht 5: \\
 \textit{
 ``Figuur 42 (uitlezen toetsenbord) uit de EPO-3 handleiding laat een Schmitt-trigger zien. Deze is gelijk
 aan die uit Problem 7.7 (figuur 7-49) van het boek van Rabaey. Los dit ‘Problem’ op, maar voor SoG
@@ -40,45 +41,120 @@ transistoren met parameters uit Tabel 3 van de EPO-3 handleiding en neem voor $V
 Vergelijk je uitkomst met simulaties en reflecteer op de overeenkomsten en verschillen.''
 }
 \cite[2]{epo3-opdracht-5}
+\\
+
+Problem 7.7 uit het boek van Rabaey is als volgt: \\
+\textit{
+``Another CMOS Schmitt trigger is shown in Figure 7-49. Discuss the operation of the gate, and derive expressions for $V_{M-}$ and $V_{M+}$.''
+}
+\cite[367]{rabaey-integrated-circuits}
+\\
+
+En Figure 7-49 (``Alternate CMOS Schmitt trigger'') weergeeft onderstaande schakeling:
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.6\textwidth]{resource/schmitt-rc.pdf}
+	\caption{De voor deze opdracht gebruikte CMOS Schmitt trigger}
+	\label{fig:schmitt-schem}
+\end{figure}
 
 \section{Theorie}
 \label{sec:trig-theorie}
-%TODO
+
+%TODO Schmitt trigger blaat, nonbistable blaat, blaat blaat
 
 \section{Methode}
 \label{sec:trig-methode}
+$V_{M-}$ en $V_{M+}$ zijn gedefinieerd als de spanningen op knooppunt $X$ ($V_{X}$), waarvoor geldt dat de ingangsspanning van de Schmitt trigger ($V_{in}$) gelijk is aan de spanning op het knooppunt ($V_{X} = V_{in}$). Het knooppunt $X$ is het knooppunt tussen de transistoren $M_{1}$, $M_{2}$ en $M_{5}$. $V_{M-}$ en $V_{M+}$ geven een indicatie voor de schakelmomenten van de Schmitt trigger.
+
 \subsection{M-}
-\label{subsec:trig-methode-minus}
+\label{subsec:trig-methode-mminus}
+Bij een uitgangsovergang van een logische 1 naar een logische 0 (high-to-low) is transistor $M_{6}$ in eerste instantie uitgeschakeld. Hierdoor kan de gegeven schakeling gereduceerd worden tot die in figuur~\ref{fig:schmitt-schem-high-to-low}:
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.6\textwidth]{resource/schmitt-high-to-low-rc.pdf}
+	\caption{De vereenvoudigde schakeling voor een \textit{high-to-low}-overgang}
+	\label{fig:schmitt-schem-high-to-low}
+\end{figure}
+
+Een voorwaarde voor het omslaan van de uitgang is dat de transistoren $M_{1}$ en $M_{2}$ beide aan staan. Hierdoor ontstaat een pad naar ground, waardoor $Out$ laag wordt. Transistor $M_{2}$ gaat echter pas aan, wanneer de spanning op knooppunt $X$ gestegen is tot een waarde $V_{X} = V_{in} - V_{Tn}$. Op dat punt geldt immers dat de gate-sourcespanning van $M_{2}$ groter is dan dan zijn drempelspanning ($V_{gs} = V_{in} - V_{X} > V_{Tn}$). De waarde van $V_{in}$ op dat moment (het schakelpunt) kan gebruikt worden als approximatie voor $V_{M-}$. Wanneer het body-effect verwaarloosd wordt en aangenomen wordt dat $M_{1}$ en $M_{5}$ beide gesatureerd zijn, kunnen de drainstromen door deze transistoren aan elkaar gelijkgesteld worden ($I_{D1} = I_{D5})$). Daaruit volgt onderstaande vergelijking uit het model van Rabaey:
+
+$$k'_{n}(\frac{W}{L})_{1}((V_{M-}-V_{Tn})V_{DSATn} - \frac{V^{2}_{DSATn}}{2}) = k'_{n}(\frac{W}{L})_{5}((V_{DD}-(V_{M-}-V_{Tn})-V_{Tn})V_{DSATn} - \frac{V^{2}_{DSATn}}{2})$$
+
+Omdat beide transistoren fysiek aan elkaar gelijk zijn geldt:
+
+$$(V_{M-}-V_{Tn})V_{DSATn} - \frac{V^{2}_{DSATn}}{2} = (V_{DD}-V_{M-})V_{DSATn} - \frac{V^{2}_{DSATn}}{2}$$
+
+Hieruit kan de vergelijking voor $V_{M-}$ worden afgeleid:
+
+\begin{equation} \label{eq:schmitt-mminus}
+V_{M-} = \frac{V_{DD}+V_{Tn}}{2}
+\end{equation}
 
 \subsection{M+}
-\label{subsec:trig-methode-plus}
+\label{subsec:trig-methode-mplus}
+``De andere kant op'', bij een overgang van laag naar hoog aan de uitgang (low-to-high), kan eenzelfde principe toegepast worden. Ditmaal is de spanning op knooppunt $Y$ ($V_{Y}$, het knooppunt tussen transistoren $M_{3}$, $M_{4}$ en $M_{6}$ relevant. Dit levert wederom een gereduceerde schakeling op, zoals in figuur~\ref{fig:schmitt-schem-low-to-high}:
 
+\begin{figure}[H]
+\centering
+	\includegraphics[width=0.6\textwidth]{resource/schmitt-low-to-high-rc.pdf}
+	\caption{De vereenvoudigde schakeling voor een \textit{low-to-high}-overgang}
+	\label{fig:schmitt-schem-low-to-high}
+\end{figure}
+
+Nu geldt dat het schakelmoment plaatsvindt wanneer $M_{3}$ en $M_{4}$ beide ingeschakeld zijn. $M_{3}$ gaat hierbij aan wanneer $V_{Y}$ gedaald is tot een waarde $V_{Y} = V_{in} - V_{Tp}$, omdat dan geldt dat $V_{gs} = V_{in} - V_{Y} < V_{Tp}$. Op eenzelfde manier als bij de afleiding van $V_{M-}$ kan zo de volgende vergelijking worden opgesteld voor transistoren $M_{4}$ en $M_{6}$:
+
+$$k'_{n}(\frac{W}{L})_{4}((V_{M+}-V_{DD}-V_{Tp})V_{DSATp} - \frac{V^{2}_{DSATp}}{2}) = k'_{n}(\frac{W}{L})_{6}(-(V_{M+}-V_{Tp})-V_{Tp})V_{DSATp} - \frac{V^{2}_{DSATp}}{2})$$
+
+Ook hier zijn de transistoren $M_{4}$ en $M_{6}$ fysiek equivalent:
+
+$$(V_{M+}-V_{DD}-V_{Tp})V_{DSATp} - \frac{V^{2}_{DSATp}}{2} = -V_{M+}V_{DSATp} - \frac{V^{2}_{DSATp}}{2}$$
+
+Hieruit kan de vergelijking voor $V_{M+}$ worden afgeleid:
+
+\begin{equation} \label{eq:schmitt-mplus}
+V_{M+} = \frac{V_{DD}+V_{Tp}}{2}
+\end{equation}
 
 \section{Resultaten}
 \label{sec:trig-res}
 \subsection{M-}
-\label{subsec:trig-res-minus}
+\label{subsec:trig-res-mminus}
+Invullen van reeds gegeven waarden ($V_{DD} = 5 \,\textrm{V}$ en $V_{Tn} = 0.7 \,\textrm{V}$) in vergelijking~\ref{eq:schmitt-mminus} levert:
+
+\begin{equation} \label{eq:schmitt-mminus-val}
+V_{M-} = \frac{5+0.7}{2} = 2.85 \,\textrm{V}
+\end{equation}
 
 \subsection{M+}
-\label{subsec:trig-res-plus}
+\label{subsec:trig-res-mplus}
+Invullen van reeds gegeven waarden ($V_{DD} = 5 \,\textrm{V}$ en $V_{Tp} = -1.2 \,\textrm{V}$) in vergelijking~\ref{eq:schmitt-mplus} levert:
+
+\begin{equation} \label{eq:schmitt-mplus-val}
+V_{M+} = \frac{5-1.2}{2} = 1.9 \,\textrm{V}
+\end{equation}
 
 \subsection{Simulatie en vergelijking}
 \label{subsec:trig-res-verg}
-%TODO
+
+%TODO er klopt geen aars van onze berekening blaat, daarom blaat
+
 $V_{M+} = 2.500 \volt$\\
 $V_{M-} = 1.566 \volt$
 \begin{figure}[H]
 \centering
 	\setlength\figureheight{0.6\textwidth} 
 	\setlength\figurewidth{0.9\textwidth}
-	\input{resources/schmitt-trigger.tikz}
+	\input{resource/schmitt-trigger.tikz}
 	\caption{Het resultaat van de simulatie.}
 	\label{fig:st}
 \end{figure}
 
 \section{Conclusie}
 \label{sec:trig-conclusie}
-%TODO
+
+%TODO dus blaat
 
 \newpage
 \pagenumbering{Roman}
