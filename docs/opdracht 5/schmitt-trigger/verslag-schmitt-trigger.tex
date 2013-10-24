@@ -24,7 +24,7 @@ We hebben een CMOS Schmitt Trigger geanalyseerd en gesimuleerd voor de SoG techn
 \section{Inleiding}
 \label{sec:trig-inl}
 We hebben een CMOS Schmitt Trigger geanalyseerd en gesimuleerd voor de SoG techniek en de analyse en simulatie met elkaar vergeleken.
-%TODO dit gaan we doen blaat, dat gaan we doen blaat, dit doen we hier blaat, dat doen we daar blaat
+De schmitt trigger die wij hebben gesimuleerd en geanalyseerd is een inverterende schmitt trigger.
 
 \newpage
 \pagenumbering{arabic}
@@ -59,12 +59,16 @@ En Figure 7-49 (``Alternate CMOS Schmitt trigger'') weergeeft onderstaande schak
 
 \section{Theorie}
 \label{sec:trig-theorie}
-
-%TODO Schmitt trigger blaat, nonbistable blaat, blaat blaat
+De schmitt trigger is een stukje elektronica dat zijn uitgang pas weer hoog laat worden als de ingang spanning boven een bepaalde spanning is gekomen en de andere knt op geld het zelfde.
+Deze twee spanningen gaan wij later proberen te bepalen door middel van analyse.
+De schmitt trigger is een circuit met hysterese.
+De trigger kan goed worden gebruikt als men een comaparator nodig heeft voor een signaal met veel ruis.
+Het voorkomt daarbij het veelvuldig schakelen van de uitgang.
 
 \section{Methode}
 \label{sec:trig-methode}
-$V_{M-}$ en $V_{M+}$ zijn gedefinieerd als de spanningen op knooppunt $X$ ($V_{X}$), waarvoor geldt dat de ingangsspanning van de Schmitt trigger ($V_{in}$) gelijk is aan de spanning op het knooppunt ($V_{X} = V_{in}$). Het knooppunt $X$ is het knooppunt tussen de transistoren $M_{1}$, $M_{2}$ en $M_{5}$. $V_{M-}$ en $V_{M+}$ geven een indicatie voor de schakelmomenten van de Schmitt trigger.
+$V_{M-}$ en $V_{M+}$ zijn gedefinieerd als de spanningen op knooppunt $X$ ($V_{X}$), waarvoor geldt dat de ingangsspanning van de Schmitt trigger ($V_{in}$) gelijk is aan de spanning op het knooppunt ($V_{X} = V_{in}$).
+Het knooppunt $X$ is het knooppunt tussen de transistoren $M_{1}$, $M_{2}$ en $M_{5}$. $V_{M-}$ en $V_{M+}$ geven een indicatie voor de schakelmomenten van de Schmitt trigger.
 
 \subsection{M-}
 \label{subsec:trig-methode-mminus}
@@ -77,7 +81,13 @@ Bij een uitgangsovergang van een logische 1 naar een logische 0 (high-to-low) is
 	\label{fig:schmitt-schem-high-to-low}
 \end{figure}
 
-Een voorwaarde voor het omslaan van de uitgang is dat de transistoren $M_{1}$ en $M_{2}$ beide aan staan. Hierdoor ontstaat een pad naar ground, waardoor $Out$ laag wordt. Transistor $M_{2}$ gaat echter pas aan, wanneer de spanning op knooppunt $X$ gestegen is tot een waarde $V_{X} = V_{in} - V_{Tn}$. Op dat punt geldt immers dat de gate-sourcespanning van $M_{2}$ groter is dan dan zijn drempelspanning ($V_{gs} = V_{in} - V_{X} > V_{Tn}$). De waarde van $V_{in}$ op dat moment (het schakelpunt) kan gebruikt worden als approximatie voor $V_{M-}$. Wanneer het body-effect verwaarloosd wordt en aangenomen wordt dat $M_{1}$ en $M_{5}$ beide gesatureerd zijn, kunnen de drainstromen door deze transistoren aan elkaar gelijkgesteld worden ($I_{D1} = I_{D5})$). Daaruit volgt onderstaande vergelijking uit het model van Rabaey:
+Een voorwaarde voor het omslaan van de uitgang is dat de transistoren $M_{1}$ en $M_{2}$ beide aan staan.
+Hierdoor ontstaat een pad naar ground, waardoor $Out$ laag wordt.
+Transistor $M_{2}$ gaat echter pas aan, wanneer de spanning op knooppunt $X$ gestegen is tot een waarde $V_{X} = V_{in} - V_{Tn}$.
+ Op dat punt geldt immers dat de gate-sourcespanning van $M_{2}$ groter is dan dan zijn drempelspanning ($V_{gs} = V_{in} - V_{X} > V_{Tn}$). 
+ De waarde van $V_{in}$ op dat moment (het schakelpunt) kan gebruikt worden als approximatie voor $V_{M-}$. 
+ Wanneer het body-effect verwaarloosd wordt en aangenomen wordt dat $M_{1}$ en $M_{5}$ beide gesatureerd zijn, kunnen de drainstromen door deze transistoren aan elkaar gelijkgesteld worden ($I_{D1} = I_{D5})$). 
+ Daaruit volgt onderstaande vergelijking uit het model van Rabaey:
 
 $$k'_{n}(\frac{W}{L})_{1}((V_{M-}-V_{Tn})V_{DSATn} - \frac{V^{2}_{DSATn}}{2}) = k'_{n}(\frac{W}{L})_{5}((V_{DD}-(V_{M-}-V_{Tn})-V_{Tn})V_{DSATn} - \frac{V^{2}_{DSATn}}{2})$$
 
