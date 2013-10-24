@@ -1,5 +1,4 @@
 \documentclass{scrartcl}  % scrartcl of scrreprt
-\usepackage{SIunits}
 \input{../../library/preamble}  
 \input{../../library/style}
 \addbibresource{../../library/bibliography.bib}
@@ -16,7 +15,7 @@
 
 \section*{Abstract}
 \label{sec:trig-abstr}
-We hebben een CMOS Schmitt Trigger geanalyseerd en gesimuleerd voor de SoG techniek en de analyse en simulatie met elkaar vergeleken.
+We hebben een CMOS Schmitt Trigger geanalyseerd en gesimuleerd voor de SoG techniek en de analyse en simulatie met elkaar vergeleken. Het model van Rabaey geeft een aardige indicatie van de voltages voor $V_{M-}$ en $V_{M+}$.
 
 \newpage
 \setlength{\cftbeforetoctitleskip}{-3em}
@@ -24,7 +23,7 @@ We hebben een CMOS Schmitt Trigger geanalyseerd en gesimuleerd voor de SoG techn
 
 \section{Inleiding}
 \label{sec:trig-inl}
-
+We hebben een CMOS Schmitt Trigger geanalyseerd en gesimuleerd voor de SoG techniek en de analyse en simulatie met elkaar vergeleken.
 %TODO dit gaan we doen blaat, dat gaan we doen blaat, dit doen we hier blaat, dat doen we daar blaat
 
 \newpage
@@ -124,7 +123,7 @@ V_{M+} = \frac{V_{DD}+V_{Tp}}{2}
 Invullen van reeds gegeven waarden ($V_{DD} = 5 \,\textrm{V}$ en $V_{Tn} = 0.7 \,\textrm{V}$) in vergelijking~\ref{eq:schmitt-mminus} levert:
 
 \begin{equation} \label{eq:schmitt-mminus-val}
-V_{M-} = \frac{5+0.7}{2} = 2.85 \,\textrm{V}
+V_{M-} = \frac{5.0+0.7}{2} = 2.9 \,\textrm{V}
 \end{equation}
 
 \subsection{M+}
@@ -132,16 +131,26 @@ V_{M-} = \frac{5+0.7}{2} = 2.85 \,\textrm{V}
 Invullen van reeds gegeven waarden ($V_{DD} = 5 \,\textrm{V}$ en $V_{Tp} = -1.2 \,\textrm{V}$) in vergelijking~\ref{eq:schmitt-mplus} levert:
 
 \begin{equation} \label{eq:schmitt-mplus-val}
-V_{M+} = \frac{5-1.2}{2} = 1.9 \,\textrm{V}
+V_{M+} = \frac{5.0-1.2}{2} = 1.9 \,\textrm{V}
 \end{equation}
 
 \subsection{Simulatie en vergelijking}
 \label{subsec:trig-res-verg}
+Door de aannames en gereduceerde circuits wijken de gesimuleerde waarden sterk af van de uitgerekende waarden. Onze gesimuleerde waarden zijn te zien in Tabel \ref{tab:trig-results}
 
-%TODO er klopt geen aars van onze berekening blaat, daarom blaat
-
-$V_{M+} = 2.500 \volt$\\
-$V_{M-} = 1.566 \volt$
+\begin{table}[H]
+\centering
+\caption{De resultaten met elkaar vergeleken.}
+\label{tab:trig-results}
+\begin{tabular}{c c c c}
+\hline\hline
+ & Simulatie & Berekening & Afwijking \\
+ \hline
+$V_{M-}$ & $2.500\volt$ & $2.9\volt$ & $16\%$ \\
+$V_{M+}$ & $1.566\volt$ & $1.9\volt$ & $21\%$ \\
+  \hline
+\end{tabular}
+\end{table}
 \begin{figure}[H]
 \centering
 	\setlength\figureheight{0.6\textwidth} 
@@ -150,12 +159,12 @@ $V_{M-} = 1.566 \volt$
 	\caption{Het resultaat van de simulatie.}
 	\label{fig:st}
 \end{figure}
-
 \section{Conclusie}
 \label{sec:trig-conclusie}
-
-%TODO dus blaat
-
+De schmitt trigger met allemaal symetrische transistoren geeft geen symmetrisch schakelbeeld.
+Het schakelbeeld neigt naar links waardoor de twee thresholdvoltages dichter bij de nul liggen dan bij $V_{DD}$.
+Het model van Rabaey geeft toch nog een redelijk beeld van de voltages.
+Er moet voor iedere situatie een zorgvuldige afweging worden gemaakt of de getoonde afwijkingen in Tabel \ref{tab:trig-results} te groot zijn en dus het mdoel van Rabaey niet gebruikt kan worden.
 \newpage
 \pagenumbering{Roman}
 \section{Bibliografie}

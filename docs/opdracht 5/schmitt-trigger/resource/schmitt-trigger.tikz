@@ -535,7 +535,7 @@ table[row sep=crcr]{
 4.98999999999994 1.60017055161887e-09\\
 4.99999999999994 1.59732915783195e-09\\
 };
-\addlegendentry{$V_{out}\textrm{: low-to-high}$};
+\addlegendentry{$V_{out}\textrm{: high-to-low}$};
 
 \addplot [
 color=green!50!black,
@@ -1045,7 +1045,7 @@ table[row sep=crcr]{
 0.0100000000000623 4.406898021698\\
 0 4.406898021698\\
 };
-\addlegendentry{$V_{out}\textrm{: high-to-low}$};
+\addlegendentry{$V_{out}\textrm{: low-to-high}$};
 
 \end{axis}
 \end{tikzpicture}%
