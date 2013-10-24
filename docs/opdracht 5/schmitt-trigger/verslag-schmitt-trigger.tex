@@ -15,7 +15,7 @@
 
 \section*{Abstract}
 \label{sec:trig-abstr}
-We hebben een CMOS Schmitt Trigger geanalyseerd en gesimuleerd voor de SoG techniek en de analyse en simulatie met elkaar vergeleken. Het model van Rabaey geeft een aardige indicatie van de voltages voor $V_{M-}$ en $V_{M+}$.
+In dit verslag zal blijken dat het transistormodel van Rabaey een aardige indicatie geeft van enkele relevante spanningen in een inverterende CMOS Schmitt trigger. Als referentiemateriaal is een SPICE simulatie van de Schmitt trigger gebruikt.
 
 \newpage
 \setlength{\cftbeforetoctitleskip}{-3em}
@@ -23,8 +23,7 @@ We hebben een CMOS Schmitt Trigger geanalyseerd en gesimuleerd voor de SoG techn
 
 \section{Inleiding}
 \label{sec:trig-inl}
-We hebben een CMOS Schmitt Trigger geanalyseerd en gesimuleerd voor de SoG techniek en de analyse en simulatie met elkaar vergeleken.
-De schmitt trigger die wij hebben gesimuleerd en geanalyseerd is een inverterende schmitt trigger.
+In dit verslag wordt een inverterende CMOS Schmitt trigger geanalyseerd en gesimuleerd voor de bij EPO-3 gebruikte SoG CMOS-techniek. Na een korte beschrijving van de probleemstelling en een inleiding in de theorie volgt een handmatige analyse van deze Schmitt trigger, die vervolgens vergeleken wordt met een SPICE simulatie. Tot slot volgt een korte conclusie.
 
 \newpage
 \pagenumbering{arabic}
@@ -59,11 +58,7 @@ En Figure 7-49 (``Alternate CMOS Schmitt trigger'') weergeeft onderstaande schak
 
 \section{Theorie}
 \label{sec:trig-theorie}
-De schmitt trigger is een stukje elektronica dat zijn uitgang pas weer hoog laat worden als de ingang spanning boven een bepaalde spanning is gekomen en de andere knt op geld het zelfde.
-Deze twee spanningen gaan wij later proberen te bepalen door middel van analyse.
-De schmitt trigger is een circuit met hysterese.
-De trigger kan goed worden gebruikt als men een comaparator nodig heeft voor een signaal met veel ruis.
-Het voorkomt daarbij het veelvuldig schakelen van de uitgang.
+De Schmitt trigger is een schakeling waarvan de uitgangsspanning pas omslaat wanneer de ingangsspanning een bepaalde spanning passeert, deze spanning verschilt per overgang: high-to-low en low-to-high, dit effect wordt hysterese genoemd. De twee schakelspanningen kunnen bepaald worden door analyse met het transistormodel van Rabaey. Een Schmitt trigger kan goed worden gebruikt wanneer een comparator nodig is voor een signaal met veel ruis. Het hysterese-effect voorkomt daarbij het veelvuldig schakelen van de uitgang.
 
 \section{Methode}
 \label{sec:trig-methode}
@@ -84,12 +79,14 @@ Bij een uitgangsovergang van een logische 1 naar een logische 0 (high-to-low) is
 Een voorwaarde voor het omslaan van de uitgang is dat de transistoren $M_{1}$ en $M_{2}$ beide aan staan.
 Hierdoor ontstaat een pad naar ground, waardoor $Out$ laag wordt.
 Transistor $M_{2}$ gaat echter pas aan, wanneer de spanning op knooppunt $X$ gestegen is tot een waarde $V_{X} = V_{in} - V_{Tn}$.
- Op dat punt geldt immers dat de gate-sourcespanning van $M_{2}$ groter is dan dan zijn drempelspanning ($V_{gs} = V_{in} - V_{X} > V_{Tn}$). 
- De waarde van $V_{in}$ op dat moment (het schakelpunt) kan gebruikt worden als approximatie voor $V_{M-}$. 
- Wanneer het body-effect verwaarloosd wordt en aangenomen wordt dat $M_{1}$ en $M_{5}$ beide gesatureerd zijn, kunnen de drainstromen door deze transistoren aan elkaar gelijkgesteld worden ($I_{D1} = I_{D5})$). 
- Daaruit volgt onderstaande vergelijking uit het model van Rabaey:
+Op dat punt geldt immers dat de gate-sourcespanning van $M_{2}$ groter is dan dan zijn drempelspanning ($V_{gs} = V_{in} - V_{X} > V_{Tn}$). 
+De waarde van $V_{in}$ op dat moment (het schakelpunt) kan gebruikt worden als approximatie voor $V_{M-}$. 
+Wanneer het body-effect verwaarloosd wordt en aangenomen wordt dat $M_{1}$ en $M_{5}$ beide gesatureerd zijn, kunnen de drainstromen door deze transistoren aan elkaar gelijkgesteld worden ($I_{D1} = I_{D5})$). 
+Daaruit volgt onderstaande vergelijking uit het model van Rabaey:
 
 $$k'_{n}(\frac{W}{L})_{1}((V_{M-}-V_{Tn})V_{DSATn} - \frac{V^{2}_{DSATn}}{2}) = k'_{n}(\frac{W}{L})_{5}((V_{DD}-(V_{M-}-V_{Tn})-V_{Tn})V_{DSATn} - \frac{V^{2}_{DSATn}}{2})$$
+
+Met $k'_{n}$, de transconductantieparameter uit het model van Rabaey; $W$ en $L$ de breedte en lengte van de transistor; $V_{Tn}$ de drempelspanning van de NMOS-transitor en $V_{DSAT}$ de snelheidsverzadigingsspanning van de NMOS-transistor.\\
 
 Omdat beide transistoren fysiek aan elkaar gelijk zijn geldt:
 
@@ -103,7 +100,7 @@ V_{M-} = \frac{V_{DD}+V_{Tn}}{2}
 
 \subsection{M+}
 \label{subsec:trig-methode-mplus}
-``De andere kant op'', bij een overgang van laag naar hoog aan de uitgang (low-to-high), kan eenzelfde principe toegepast worden. Ditmaal is de spanning op knooppunt $Y$ ($V_{Y}$, het knooppunt tussen transistoren $M_{3}$, $M_{4}$ en $M_{6}$ relevant. Dit levert wederom een gereduceerde schakeling op, zoals in figuur~\ref{fig:schmitt-schem-low-to-high}:
+``De andere kant op'', bij een overgang van laag naar hoog aan de uitgang (low-to-high), kan eenzelfde principe toegepast worden. Ditmaal is de spanning op knooppunt $Y$ ($V_{Y}$), het knooppunt tussen transistoren $M_{3}$, $M_{4}$ en $M_{6}$ relevant. Dit levert wederom een gereduceerde schakeling op, zoals in figuur~\ref{fig:schmitt-schem-low-to-high}:
 
 \begin{figure}[H]
 \centering
@@ -126,57 +123,66 @@ Hieruit kan de vergelijking voor $V_{M+}$ worden afgeleid:
 V_{M+} = \frac{V_{DD}+V_{Tp}}{2}
 \end{equation}
 
+Er blijkt dat bij gebruik van NMOS- en PMOS-transistoren die onderling fysiek aan elkaar gelijk zijn, de exacte fysieke eigenschappen van deze transistoren niet relevant zijn.
+
 \section{Resultaten}
 \label{sec:trig-res}
 \subsection{M-}
 \label{subsec:trig-res-mminus}
-Invullen van reeds gegeven waarden ($V_{DD} = 5 \,\textrm{V}$ en $V_{Tn} = 0.7 \,\textrm{V}$) in vergelijking~\ref{eq:schmitt-mminus} levert:
+Invullen van reeds gegeven waarden ($V_{DD} = 5 \,\volt$ en $V_{Tn} = 0.7 \,\volt$) in vergelijking~\ref{eq:schmitt-mminus} levert:
 
 \begin{equation} \label{eq:schmitt-mminus-val}
-V_{M-} = \frac{5.0+0.7}{2} = 2.9 \,\textrm{V}
+V_{M-} = \frac{5.0+0.7}{2} = 2.9 \,\volt
 \end{equation}
 
 \subsection{M+}
 \label{subsec:trig-res-mplus}
-Invullen van reeds gegeven waarden ($V_{DD} = 5 \,\textrm{V}$ en $V_{Tp} = -1.2 \,\textrm{V}$) in vergelijking~\ref{eq:schmitt-mplus} levert:
+Invullen van reeds gegeven waarden ($V_{DD} = 5 \,\volt$ en $V_{Tp} = -1.2 \,\volt$) in vergelijking~\ref{eq:schmitt-mplus} levert:
 
 \begin{equation} \label{eq:schmitt-mplus-val}
-V_{M+} = \frac{5.0-1.2}{2} = 1.9 \,\textrm{V}
+V_{M+} = \frac{5.0-1.2}{2} = 1.9 \,\volt
 \end{equation}
 
 \subsection{Simulatie en vergelijking}
 \label{subsec:trig-res-verg}
-Door de aannames en gereduceerde circuits wijken de gesimuleerde waarden sterk af van de uitgerekende waarden. Onze gesimuleerde waarden zijn te zien in Tabel \ref{tab:trig-results}
+Als verificatie van de berekende waarden, kunnen deze vergeleken worden met resultaten van een SPICE-simulatie. Teneinde dit doel hebben wij de schakeling uit figuur~\ref{fig:schmitt-schem} gesimuleerd in SPICE. Het resultaat hiervan is te vinden in figuur~\ref{fig:trig-sim}:
 
-\begin{table}[H]
-\centering
-\caption{De resultaten met elkaar vergeleken.}
-\label{tab:trig-results}
-\begin{tabular}{c c c c}
-\hline\hline
- & Simulatie & Berekening & Afwijking \\
- \hline
-$V_{M-}$ & $2.500\volt$ & $2.9\volt$ & $16\%$ \\
-$V_{M+}$ & $1.566\volt$ & $1.9\volt$ & $21\%$ \\
-  \hline
-\end{tabular}
-\end{table}
 \begin{figure}[H]
 \centering
 	\setlength\figureheight{0.6\textwidth} 
-	\setlength\figurewidth{0.9\textwidth}
+	\setlength\figurewidth{0.8\textwidth}
 	\input{resource/schmitt-trigger.tikz}
-	\caption{Het resultaat van de simulatie.}
-	\label{fig:st}
+	\caption{Het resultaat van de SPICE-simulatie}
+	\label{fig:trig-sim}
 \end{figure}
+
+Uit deze simulatieresultaten kunnen de waarden van $V_{M-}$ (het snijpunt van de zwarte en de blauwe lijn) en $V_{M+}$ (het snijpunt van de zwarte en de groene lijn) bepaald worden. Deze zijn, samen met de door ons berekende waarden, te vinden in tabel~\ref{tab:trig-results}:
+
+\begin{table}[H]
+\centering
+\caption{De resultaten uit SPICE-simulatie en berekening met elkaar vergeleken}
+\label{tab:trig-results}
+\begin{tabular}{c c c c}
+	\hline\hline
+ 	& Simulatie & Berekening & Afwijking \\
+ 	\hline
+	$V_{M-}$ & $2.500\,\volt$ & $2.9\,\volt$ & $16\%$ \\
+	$V_{M+}$ & $1.566\,\volt$ & $1.9\,\volt$ & $21\%$ \\
+  	\hline
+\end{tabular}
+\end{table}
+
+De aanwezige verschillen tussen simulatie en berekening kunnen uiteraard verklaard worden door onvolkomenheden in het model van Rabaey en aannames die gedaan zijn om het handmatig bepalen van de gevraagde waarden mogelijk te maken.
+
 \section{Conclusie}
 \label{sec:trig-conclusie}
-De schmitt trigger met allemaal symetrische transistoren geeft geen symmetrisch schakelbeeld.
-Het schakelbeeld neigt naar links waardoor de twee thresholdvoltages dichter bij de nul liggen dan bij $V_{DD}$.
-Het model van Rabaey geeft toch nog een redelijk beeld van de voltages.
-Er moet voor iedere situatie een zorgvuldige afweging worden gemaakt of de getoonde afwijkingen in Tabel \ref{tab:trig-results} te groot zijn en dus het mdoel van Rabaey niet gebruikt kan worden.
+Gebleken is dat in de door ons gebruikte opstelling de parameters van de transistoren niet relevant zijn. Bovendien blijkt dat het model van Rabaey een redelijk beeld van de gevraagde schakelspanningen geeft, wanneer vergeleken met een SPICE-simulatie.
+Er moet voor iedere situatie een zorgvuldige afweging worden gemaakt of de in tabel~\ref{tab:trig-results} getoonde afwijkingen te groot zijn, maar in een aantal gevallen zal het model van Rabaey voldoende nauwkeurige informatie bieden.
+
 \newpage
 \pagenumbering{Roman}
+
 \section{Bibliografie}
 \printbibliography
+
 \end{document}
