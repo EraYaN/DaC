@@ -8,7 +8,23 @@
 
 %Voor deze opdracht zijn we begonnen met het tekenen van het circuit van de NAND-gate met PSpice en hebben hierbij gekeken naar het opladen en het %ontladen van de belastingscapaciteit. Voor beide hebben we het zelfde circuit alleen andere start waardes. Voor het opladen en het ontladen van de condensator %hebben we 3 verschillende waardes genomen voor de belastingscapaciteit, 1 ; 5 en 10 pF. Verder hebben we met PSpice nauwkeurig waardes uit de grafiek %kunnen aflezen.
 
-Voor het bepalen van de \emph{R\tss{eq,n}} en de \emph{C\tss{out}} wordt er gebruikt gemaakt van een SPICE model en enkele berekeningen. Een vereenvoudigde schakeling om de \emph{C\tss{out,n}} en de \emph{C\tss{out,p}} te bepalen zijn te zien in figuur !!TODO!! en figuur !!TODO!!, respectievelijk. Het bepalen van deze weerstand en deze capaciteiten wordt gedaan aan de hand van het volgende stappenplan:
+Voor het bepalen van de \emph{R\tss{eq,n}} en de \emph{C\tss{out}} wordt er gebruikt gemaakt van een SPICE model en enkele berekeningen. Een vereenvoudigde schakeling om de \emph{C\tss{out,n}} en de \emph{C\tss{out,p}} te bepalen zijn te zien in figuur \ref{res:PDN_schematic} en figuur \ref{res:PUN_schematic}, respectievelijk. Het bepalen van deze weerstand en deze capaciteiten wordt gedaan aan de hand van het volgende stappenplan:
+
+ \begin{figure} [h!]
+ \begin{center}
+ \includegraphics [scale = 0.5] {figures/PDN_schematic}
+ \caption{Vereenvoudigde schakeling van het PDN, op \emph{t = 0} is de spanning over \emph{C\tss{load}} gelijk aan \emph{5V}}
+ \label{res:PDN_schematic}
+ \end{center}
+ \end{figure}
+
+ \begin{figure} [h!]
+ \begin{center}
+ \includegraphics [scale = 0.5] {figures/PUN_schematic}
+ \caption{Vereenvoudigde schakeling van het PUN, op \emph{t = 0} is de spanning over \emph{C\tss{load}} gelijk aan \emph{0V}}
+ \label{res:PUN_schematic}
+ \end{center}
+ \end{figure}
 
 \begin{enumerate}
 
@@ -32,7 +48,7 @@ R\tss{eq,p} = \frac{V\tss{SS}}{i\tss{p}(0)}
 
 %%%STAP 3%%%
 \item \textbf{De RC tijd bepalen}\\
-Om de RC tijd voor het PDN $\tau$\tss{n} uit figuur !!TODO!! te bepalen en de RC tijd voor het PUN $\tau$\tss{p} uit figuur !!TODO!! te bepalen moeten we eerst voor beide schakelingen een functie voor de stroom bepalen. Dit kan aan de hand van de volgende formule uit het Lineaire Schakelingen boek [2], p. 307:
+Om de RC tijd voor het PDN $\tau$\tss{n} uit figuur \ref{res:PDN_schematic} te bepalen en de RC tijd voor het PUN $\tau$\tss{p} uit figuur \ref{res:PUN_schematic} te bepalen moeten we eerst voor beide schakelingen een functie voor de stroom bepalen. Dit kan aan de hand van de volgende formule uit het Lineaire Schakelingen boek [2], p. 307:
 
 \begin{equation}
 i(t) = i(\infty) + [i(0+) - i(\infty)]e\tsss{-t/$\tau$}
