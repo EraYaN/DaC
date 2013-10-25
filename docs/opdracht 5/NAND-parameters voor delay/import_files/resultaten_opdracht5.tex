@@ -1,0 +1,89 @@
+\documentclass{article}  
+\input{../../../library/preamble}  
+\input{../../../library/style}  
+\begin{document}
+
+
+
+De volgende grafieken komen allemaal uit PSpice en geven de stroom door de belastings condensator weer uitgezet tegenover de tijd. Als eerste hebben we gesimuleerd voor het opladen van de condensator.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{opladen1p}
+	\caption{Opladen van een 1pF condensator}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{opladen5p}
+	\caption{Opladen van een 5pF condensator}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{opladen10p}
+	\caption{Opladen van een 10pF condensator}
+\end{figure}
+
+Na het opladen van de condensator hebben we het ontladen van de condensator gesimuleerd.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{ontladen1p}
+	\caption{Ontladen van een 1pF condensator}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{ontladen5p}
+	\caption{Ontladen van een 5pF condensator}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{ontladen10p}
+	\caption{Ontladen van een 10pF condensator}
+\end{figure}
+
+Uit deze grafieken hebben we de waarde van de stroom op tijdstip 0 bepaald en op een willekeurig andere tijdstip, met deze gegevens kan de equivalente weerstand van het PDN en de $C_{out}$ van de NAND-gate worden bepaald zoals beschreven in de theorie van dit verslag.
+
+
+
+
+\begin{center}
+
+Voor het opladen van de condensator.
+
+\begin{tabular}{|c |c |c | c| c|c |c|}
+	\hline
+Opladen condensator	& I op t=0	& I op t=T 	&  T 		& $R_{eq}$		&RC-tijd 	& $C_{out,p}$ \\
+	\hline
+1pF 				& 5,5396 mA	& 1,3821 mA	& 1,2 ns	& 902\Omega	& 0,864 ns	& 22,7pF \\
+	\hline
+5pF				& 5,6574 mA	& 2,0772 mA	&3,7 ns	& 884\Omega	& 4,990 ns	& -43,6pF  \\
+	\hline
+10pF				&5,6740 mA	& 2,0595 mA	& 10 ns	& 898\Omega	& 9.86 ns	& -98,0pF \\
+	\hline
+\end{tabular}
+\newline
+
+Voor het ontladen van de condensator.
+
+\begin{tabular}{|c |c |c | c| c|c |c|}
+	\hline
+Ontladen condensator	& I op t=0	& I op t=T 	&  T 		& $R_{eq}$		&RC-tijd 	& $C_{out,p}$ \\
+	\hline
+1pF 				& 3,6014 mA	& 1,1319 mA	& 1,6 ns	& 1388\Omega	& 1,382 ns	& 230,3pF \\
+	\hline
+5pF				& 3,6774 mA	& 1,0877 mA	& 8 ns 	& 1359\Omega	& 6,567 ns	& 144,0pF  \\
+	\hline
+10pF				& 3,6882 mA	& 1,0810 mA	& 16 ns	& 1355\Omega	& 8,148 ns	& 15,08pF \\
+	\hline
+
+\end{tabular}
+\end{center}
+
+
+
+
+\end{document}
