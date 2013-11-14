@@ -25,16 +25,17 @@ USE ieee.std_logic_1164.all;
 
 ENTITY vga_controller IS
   GENERIC(
-    h_pulse  :  INTEGER   := 48;   --horiztonal sync pulse width in pixels
-    h_bp     :  INTEGER   := 24;   --horiztonal back porch width in pixels
-    h_pixels :  INTEGER   := 320;  --horiztonal display width in pixels
-    h_fp     :  INTEGER   := 8;   --horiztonal front porch width in pixels
-    h_pol    :  STD_LOGIC := '0';   --horizontal sync pulse polarity (1 = positive, 0 = negative)
-    v_pulse  :  INTEGER   := 1;     --vertical sync pulse width in rows
-    v_bp     :  INTEGER   := 16;    --vertical back porch width in rows
-    v_pixels :  INTEGER   := 240;  --vertical display width in rows
-    v_fp     :  INTEGER   := 6;     --vertical front porch width in rows
-    v_pol    :  STD_LOGIC := '0');  --vertical sync pulse polarity (1 = positive, 0 = negative)
+    -- default mode is 640x480@60Hz Pixel Clock (25.175 Mhz)
+    h_pulse  :  INTEGER   := 24;   --horiztonal sync pulse width in pixels (default = 96)
+    h_bp     :  INTEGER   := 12;   --horiztonal back porch width in pixels (default = 48)
+    h_pixels :  INTEGER   := 160;  --horiztonal display width in pixels (default = 640)
+    h_fp     :  INTEGER   := 4;   --horiztonal front porch width in pixels (default = 16)
+    h_pol    :  STD_LOGIC := '0';   --horizontal sync pulse polarity (1 = positive, 0 = negative) (default = 0)
+    v_pulse  :  INTEGER   := 2;     --vertical sync pulse width in rows (default = 2)
+    v_bp     :  INTEGER   := 33;    --vertical back porch width in rows (default = 33)
+    v_pixels :  INTEGER   := 480;  --vertical display width in rows (default = 480)
+    v_fp     :  INTEGER   := 10;     --vertical front porch width in rows (default = 10)
+    v_pol    :  STD_LOGIC := '0');  --vertical sync pulse polarity (1 = positive, 0 = negative) (default = 0)
   PORT(
     pixel_clk :  IN   STD_LOGIC;  --pixel clock at frequency of VGA mode being used
     reset_n   :  IN   STD_LOGIC;  --active low asycnchronous reset
