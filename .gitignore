@@ -228,6 +228,7 @@ work/
 */test/
 test
 #GoWithTheFlow shit
-[Hh]ardware/**/**/
-!*.vhd
+[Hh]ardware/*
+![Hh]ardware/*/
+![Hh]ardware/**/VHDL/*.vhd
 
