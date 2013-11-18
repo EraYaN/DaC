@@ -9,6 +9,7 @@ PACKAGE parameter_def IS
 	constant NumStateReg : INTEGER;
 	constant SizeRAMData : INTEGER;
 	constant SizeRAMAddr : INTEGER;
+	constant SizeColor : INTEGER;
 END parameter_def;
 
 PACKAGE BODY parameter_def IS
@@ -19,4 +20,5 @@ PACKAGE BODY parameter_def IS
 	constant NumStateReg : INTEGER := 1;
 	constant SizeRAMData : INTEGER := 4;
 	constant SizeRAMAddr : INTEGER := 16;
+	constant SizeColor : INTEGER := 4;
 END parameter_def;
