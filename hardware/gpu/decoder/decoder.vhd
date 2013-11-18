@@ -4,17 +4,25 @@ use work.parameter_def.ALL;
 
 entity decoder is
 	port (
-		DI		:in		std_logic_vector(7 downto 0);	--Data In
-		DO		:out	std_logic_vector(7 downto 0);	--Data Out
-		DR		:in		std_logic;						--Data Ready
-		DAV		:in		std_logic;						--Data Available
-		RTS		:out	std_logic;						--Request To Send
-		X0		:out	std_logic_vector(7 downto 0);	--Entity X0 coord
-		X1		:out	std_logic_vector(7 downto 0);	--Entity X1 coord
-		Y0		:out	std_logic_vector(7 downto 0);	--Entity	Y0 coord
-		Y1		:out	std_logic_vector(7 downto 0);	--Entity Y1 coord
-		COL		:out	std_logic_vector(3 downto 0);	--Entity Color
-		DRWRDY	:in		std_logic;						--Draw Ready
-		EN		:out	std_logic_vector(3 downto 0)	--Draw Module Enabled
+		--Clock/reset
+		clk		: in	std_logic;						--Clock
+		rst		: in	std_logic;						--Reset
+		--SPI-interface interaction
+		di		: in	std_logic_vector(7 downto 0);	--Data In
+		do		: out	std_logic_vector(7 downto 0);	--Data Out
+		dav		: in	std_logic;						--Data Available in SPI interface, commence data sampling
+		rts		: out	std_logic;						--Ready To Send to SPI interface
+		--Draw data
+		x0		: out	std_logic_vector(7 downto 0);	--Entity x0 coord
+		x1		: out	std_logic_vector(7 downto 0);	--Entity x1 coord
+		y0		: out	std_logic_vector(7 downto 0);	--Entity y0 coord
+		y1		: out	std_logic_vector(7 downto 0);	--Entity y1 coord
+		col		: out	std_logic_vector(3 downto 0);	--Entity Color
+		dwr		: in	std_logic;						--Draw Ready
+		en		: out	std_logic_vector((NumDrawModules - 1) downto 0); --Draw Module Enabled
+		--Internal registers
+		id		: out	std_logic;						--Register id/address
+		val		: out	std_logic;						--Value
+		set		: out	std_logic						--Set
 	);
-end decoder;
+end entity decoder;

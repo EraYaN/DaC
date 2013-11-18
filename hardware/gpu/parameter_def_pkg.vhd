@@ -2,6 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.ALL;
 
 PACKAGE parameter_def IS
+	constant MaxInstLen : INTEGER;
 	constant NumDrawModules : INTEGER;
 	constant SizeX : INTEGER;
 	constant SizeY : INTEGER;
@@ -14,6 +15,7 @@ PACKAGE parameter_def IS
 END parameter_def;
 
 PACKAGE BODY parameter_def IS
+	constant MaxInstLen : INTEGER := 3;
 	constant NumDrawModules : INTEGER := 4; -- 0: pixel; 1: square; 2: line; 3: circle;
 	constant SizeX : INTEGER := 8;
 	constant SizeY : INTEGER := 7;
