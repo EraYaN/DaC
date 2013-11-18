@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="top_de1">
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_de1|hw_image_generator:inst4|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_oto.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_de1|hw_image_generator:inst4|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_oto.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

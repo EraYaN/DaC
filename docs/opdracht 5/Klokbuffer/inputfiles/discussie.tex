@@ -1,0 +1,17 @@
+\documentclass{report}
+\input{../../library/preamble}
+%\input{../../library/style}
+\usepackage{fullpage}
+
+\begin{document}
+
+Een zwak punt van dit onzerzoek is dat het gebaseerd is op simulaties in SPICE. Dat betekent dat je nu alleen de werkelijkheid nabootst, wellicht met te ideale omstandigheden. Om het echt goed te doen, zou je echt een NMOS en een PMOS aan moeten sluiten zoals dat in SPICE ook gedaan is. Dan heb je ook direct een check hoe goed je simulaties zijn. Verder is nu een standaard transistor gekozen in SPICE, terwijl  een transistor in werkelijkheid altijd toleranties heeft, die een fabrikant opgeeft. Deze toleranties ontstaan door het fabricageproces. (bijv 5\% afwijking van de standaardstroom die hij kan leveren). \\
+Verder is het zo dat nu met een blokgolf gesimuleerd is. In werkelijkheid is dat niet precies een blokgolf, zoals te zien in figuur \ref{d1}. 
+\begin{figure} [h!]
+\includegraphics[scale = 0.5] {inputfiles/sw.jpg}
+\caption{Blokgolf (bron: SquareWave.gif, wikpedia}
+\label{d1}
+\end{figure}
+Er zou nog meer onderzoek uitgevoerd moeten worden om te kijken of dit uitmaakt in de realiteit. Bij het kopje conclusies wordt ook al beschreven wat de voor- en nadelen zijn van de bij methode genoemde circuits. Een aanbeveling is om dit ook eens met bestaande componenten uit te voeren. 
+
+\end{document}

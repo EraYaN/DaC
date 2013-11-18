@@ -1,0 +1,315 @@
+\documentclass{scrartcl}  
+\input{../../library/preamble}  
+\input{../../library/style} 
+\addbibresource{../../library/bibliography.bib}
+
+\author{Robin Hes (4236815) \and Jorden Kerkhof (4232461)}
+
+
+\title{EPO3-1 - Opdracht 4: Unified Model Parameters}
+\subtitle{EE2821 - TU Delft}
+\date{3 oktober 2013}
+
+\begin{document}
+\maketitle
+
+\section*{Abstract}
+\label{sec:ump-abstr}
+In dit verslag zal blijken dat het mogelijk is, om met een set berekende parameters voor een CMOS-transistor die allen meer dan 60\% afwijken van een set gegeven parameters, toch een simulatie met een gemiddelde afwijking van minder dan 5\%, tegenover een SPICE-model, uit te voeren. Daarmee blijkt het unified transistor model van Rabaey een goede representatie die in een aantal gevallen bruikbaar is voor handmatige analyse.
+
+\newpage
+\tableofcontents
+
+\section{Inleiding}
+\label{sec:ump-inl}
+Voor deze opdracht was het de bedoeling om meer inzicht te krijgen in het gedrag en de werking van MOS transistoren. Er moet een model van de transistoren worden gesimuleerd in PSPICE. Vervolgens moesten de resultaten hiervan worden geanalyseerd en juist worden geinterpreteerd. Iedereen kreeg een eigen opdracht met wat er onderzocht moest worden aan de transistor. Wij hadden de opdracht Unified Model Parameters.
+
+\newpage
+\section{Probleemstelling}
+\label{sec:ump-prob}
+De probleemstelling is zoals gegeven in opdracht 4: \\
+\textit{
+``Bepaal voor een NMOS transistor de volgende parameters uit het unified transistor model van Rabaey:
+$V_{T0}$ \quad $V_{DSAT}$ \quad $k'$ \quad $\lambda$ \\
+Vergelijk vervolgens de uitkomsten van het Unified Model met de SPICE simulaties zoals bijvoorbeeld
+gedaan is in figuur 3.25. Vergelijk ook de gevonden waarde met waarden van de technologie uit het Rabaey
+boek en bediscussieer het verschil in het licht van de discussie over schaling in sectie 3.5 van het Rabaey
+boek. Vergelijk ook met de parameters van de gegeven SPICE modellen van de SoG technologie en bediscussieer
+eventuele verschillen.''
+}
+\cite[4]{epo3-opdracht-4}
+
+\section{Theorie}
+\label{sec:ump-theorie}
+In SPICE-simulaties wordt uiteraard een model gebruikt, dat een werkelijke transistor zo goed mogelijk nabootst. Een computer rekent immers veel sneller dan een mens en dus is de complexiteit van het model een minder groot probleem. Voor handmatige analyse van een CMOS-transistor is het echter wenselijk om een model te hebben dat ook voor de mens te gebruiken is.
+Het unified transistormodel van Rabaey biedt hier een uitkomst. Het model beschrijft, met slechts een enkele vergelijking, de drainstroom $I_{D}$ door de transistor, aan de hand van een vrij beperkt aantal parameters. De drainstroom wordt gemodelleerd in de drie verschillende werkgebieden waarin de transistor zich kan bevinden, wanneer deze in geleiding is, afhankelijk van de spanning over drain en source ($V_{DS}$). Daarnaast beschrijft het model de effecten van velocity saturation.
+De vergelijking voor $I_{D}$, zoals gegeven door Rabaey, is als volgt:
+
+\begin{equation} \label{eq:ump-cmos-model-rab}
+	I_{D} = k' \frac{W}{L} (V_{GT}V_{min} - \frac{V_{min}^2}{2})(1 + \lambda V_{DS})	
+\end{equation}
+
+Waarbij geldt dat: \\
+$$V_{min} = min(V_{GT}, V_{DS}, V_{DSAT})$$
+$$V_{GT} = V_{GS} - V_{T}$$
+$$V_{T} = V_{T0} + \gamma ( \sqrt{|-2\phi_{F} + V_{SB}|} - \sqrt{|-2\phi_{F}|} )$$
+\cite[101]{rabaey-integrated-circuits}\\
+
+Hierin hangen $V_{GS}$, $V_{DS}$ en $V_{SB}$ af van de situatie en zijn $W$, $L$, $k'$, $V_{T0}$, $V_{DSAT}$, $\gamma$, $\lambda$ en $\phi_{F}$ eigenschappen van de transistor. Tevens kan de term $k' \frac{W}{L}$ genoteerd worden als $k$, deze notatie wordt in dit verslag waar dat mogelijk is gebruikt.
+\\
+
+In sectie~\ref{sec:ump-methode} zal de gebruikte methode uiteen gezet worden, om relevante parameters ($k'$, $V_{T0}$, $V_{DSAT}$ en $\lambda$) uit het gegeven model te bepalen, aan de hand van een SPICE-simulatie. Met deze parameters kan vervolgens gerekend worden aan de MOS-transistors uit de bij EPO-3 gebruikte Sea-of-Gates-chip.
+
+\section{Methode}
+\label{sec:ump-methode}
+\subsection{Simulatie}
+\label{subsec:ump-methode-sim}
+
+Om de voor deze opdracht vereiste parameters te bepalen is er als eerste data nodig om deze uit te bepalen. Dit kunnen metingen aan een daadwerkelijke transistor zijn, maar voor het doel van deze opdracht volstaat het om gegevens uit een SPICE-simulatie te gebruiken. Daarom simuleren we het onderstaande circuit (figuur~\ref{fig:ump-sim-circuit}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{resource/sim-circuit}
+	\caption{Het circuit zoals gebruikt bij simulatie met SPICE}
+	\label{fig:ump-sim-circuit}
+\end{figure}
+
+In dit circuit geldt als randvoorwaarde dat $V_{SB} = 0$, waaruit volgt dat $V_{T} = V_{T0}$ (zie sectie~\ref{sec:ump-theorie}).
+Aan de hand van dit circuit kan vervolgens gesimuleerd worden met SPICE. Voor relevante simulatieresultaten kan als eerste een DC-sweep voor $I_{D}$ met als sweepvariabele $V_{DS}$ en tweede parameter $V_{GS}$ worden uitgevoerd. In figuur~\ref{fig:ump-sim-fig-vds} is het resultaat hiervan weergegeven. De grafiek is geplot met Matlab, het gebruikte script is te vinden in bijlage~\ref{lst:ump-plotVdsId}.
+	
+\begin{figure}[H]
+	\centering
+	\setlength\figureheight{0.4\textwidth} 
+	\setlength\figurewidth{0.6\textwidth}
+	\input{resource/V-DS-I-D.tikz}
+	\caption{SPICE-simulatie: $I_{D}$ uitgezet tegen $V_{DS}$ met vijf verschillende waarden voor $V_{GS}$. De lijn $V_{DS} \approx V_{GS} - V_{T}$ is een gefitte parabool en dient dus slechts als indicatie.}
+	\label{fig:ump-sim-fig-vds}
+\end{figure}
+
+Uit deze simulatie kan de belangrijkste informatie worden gehaald om de vereiste parameters te bepalen, aan de hand van vergelijking~\ref{eq:ump-cmos-model-rab}. Vervolgens kan een aantal relevante datapunten in een tabel gezet worden, voor gebruik in vergelijking vergelijking~\ref{eq:ump-cmos-model-rab}, zie hiervoor tabel~\ref{tab:ump-sim-tab-vds}. De werkgebieden per datapunten zijn aannames, gemaakt aan de hand van figuur~\ref{fig:ump-sim-fig-vds}. Een daadwerkelijke waarde voor bijvoorbeeld $V_{DSAT}$ moet immers nog bepaald worden. De gebruikte waarden zijn zo bepaald, dat het uiteindelijke $V_{DS}$ - $I_{D}$-diagram de SPICE-simulatie zo dicht mogelijk benadert (enige fitting is dus nodig geweest).
+
+\begin{table}[H]
+	\centering
+	\caption{Relevante waarden uit de simulatie van figuur \ref{fig:ump-sim-fig-vds}}
+	\label{tab:ump-sim-tab-vds}
+	\begin{tabular}{|c|c|c|c|c|} 	
+		\hline
+		Datapunt & $V_{GS}$ & $V_{DS}$ & $I_{D}$ & Werkgebied \\
+		\hline
+		1 & 1.2 V & 2.2 V & 0.2438 mA & Verzadiging \\
+		\hline
+		2 & 1.2 V & 2.6 V & 0.2292 mA & Verzadiging \\
+		\hline
+		3 & 1.4 V & 2.6 V & 0.3682 mA & Verzadiging \\
+		\hline
+		4 & 5.0 V & 5.0 V & 5.997 mA & Snelheidsverzadiging \\
+		\hline	
+	\end{tabular}
+\end{table}
+
+Daarnaast kan ook een DC-sweep voor $I_{D}$ met als sweepvariabele $V_{GS}$ en als tweede parameter $V_{DS}$ worden uitgevoerd. De resultaten van deze simulatie is te vinden in figuur~\ref{fig:ump-sim-fig-vgs}. Ook deze grafiek is geplot met Matlab, het gebruikte script is te vinden in bijlage~\ref{lst:ump-plotVgsId}.
+
+\begin{figure}[H]
+	\centering
+	\setlength\figureheight{0.4\textwidth} 
+	\setlength\figurewidth{0.6\textwidth}
+	\input{resource/V-GS-I-D.tikz}
+	\caption{SPICE-simulatie: $I_{D}$ uitgezet tegen $V_{GS}$ met vijf verschillende waarden voor $V_{DS}$}
+	\label{fig:ump-sim-fig-vgs}
+\end{figure}
+
+Dit figuur biedt een indicatie voor de threshholdspanning, $V_{T0}$. Te zien is dat de stroom pas bij een gate-sourcespanning ($V_GS$) van 0.7 V begint op te lopen. Bij de algebraïsche bepaling van een waarde voor $V_{T0}$ is deze 0.7 V dus een waarde om rekening mee te houden. Voor de verdere verwerking van de simulatieresultaten komt deze grafiek niet meer aan de orde en wordt alleen de data uit figuur~\ref{fig:ump-sim-fig-vds} gebruikt.
+\\
+
+Met bovenstaande data kunnen de gevraagde parameters vervolgens berekend worden.
+
+\subsection{Verwerking}
+\label{subsec:ump-methode-verw}
+\subsubsection{Drempelspanning}
+\label{subsubsec:ump-methode-verw-vt0}
+Voor het berekenen van $V_{T0}$ gebruiken we vergelijking~\ref{eq:ump-cmos-model-rab} tweemaal voor twee verschillende datapunten in het verzadigingsgebied van de transistor, waarbij $V_{DS}$ constant is. De vergelijking voor de drainstroom is dan als volgt:
+
+\begin{equation} \label{eq:ump-cmos-model-rab-sat}
+	I_{D} = \frac{1}{2} k (V_{GS} - V_{T})^2(1 + \lambda V_{DS})
+\end{equation}
+
+Deze uitdrukking kan worden omgeschreven naar de volgende:
+
+$$\frac{2}{k(1 + \lambda V_{DS)}} = \frac{(V_{GS} - V_{T})^2}{I_{D}}$$
+
+Aangezien $V_{DS}$ over de twee datapunten constant gehouden is en $\lambda$ en $k$ transistoreigenschappen zijn die dus gedurende de gehele simulatie constant blijven, geldt het volgende voor de twee datapunten:
+
+$$\frac{1}{k(1 + \lambda V_{DS1})} = \frac{1}{k(1 + \lambda V_{DS2})}$$
+
+Dan mag gesteld worden dat:
+
+$$\frac{(V_{GS1} - V_{T})^2}{I_{D1}} = \frac{(V_{GS2} - V_{T})^2}{I_{D2}} \Rightarrow I_{D1}(V_{GS2} - V_{T})^2 = I_{D2}(V_{GS1} - V_{T})^2$$
+
+Waaruit een uitdrukking voor $V_{T}$ kan worden afgeleid, die afhankelijk is van twee waarden voor $V_{GS}$ en $I_{D}$ bij gelijke $V_{DS}$. En dus, omdat $V_{SB} = 0$ en dus $V_{T0} = V_{T}$ bereiken we de uiteindelijke uitdrukking voor $V_{T0}$:
+
+\begin{equation} \label{eq:ump-vt0}
+	V_{T0} = \frac{\sqrt{I_{D1}}V_{GS2} - \sqrt{I_{D2}}V_{GS1}}{\sqrt{I_{D1}} - \sqrt{I_{D2}}}
+\end{equation}
+
+\subsubsection{Lambda}
+\label{subsubsec:ump-methode-verw-lambda}
+Voor het berekenen van $\lambda$ kan min of meer dezelfde methode worden gebruikt als voor $V_{T0}$. Nu kiezen we echter twee datapunten waarop $V_{GS}$ constant is. Vergelijking~\ref{eq:ump-cmos-model-rab-sat} kan dan worden omgeschreven naar de volgende uitdrukking:
+
+$$\frac{2}{k(V_{GS}-V_{T})^2} = \frac{1 + \lambda V_{DS}}{I_{D}}$$
+
+Nu is $V_{GS}$ over de twee datapunten constant en zijn $k$ en $V_{T}$ constante transistoreigenschappen, dus geldt:
+
+$$\frac{2}{k(V_{GS1}-V_{T})^2} = \frac{2}{k(V_{GS2}-V_{T})^2}$$
+
+En ook:
+
+$$\frac{1 + \lambda V_{DS1}}{I_{D1}} = \frac{1 + \lambda V_{DS2}}{I_{D2}} \Rightarrow I_{D2}(1 + \lambda V_{DS1}) = I_{D1}(1 + \lambda V_{DS2})$$
+
+Waaruit dan de uiteindelijke vergelijking voor $\lambda$ kan worden afgeleid. Deze is dan afhankelijk van de twee verschillende waarden van $V_{DS}$ en $I_{D}$:
+
+\begin{equation} \label{eq:ump-lambda}
+	\lambda = \frac{I_{D1} - I_{D2}}{V_{DS1}I_{D2} - V_{DS2}I_{D1}}
+\end{equation}
+
+\subsubsection{k'}
+\label{subsubsec:ump-methode-verw-kprime}
+Met $V_{T}$ en $\lambda$ zijn twee van de drie onbekende parameters uit vergelijking~\ref{eq:ump-cmos-model-rab-sat} berekend, er blijft dus slechts één onbekende over. Deze kan vervolgens voor willekeurige waarden van $V_{DS}$ en $V_{GS}$ worden berekend, mits in het verzadigingsgebied. Uit vergelijking~\ref{eq:ump-cmos-model-rab-sat} volgt dan voor $k$:
+
+$$k = \frac{2I_{D}}{(V_{GS} - V_{T})^2(1 + \lambda V_{DS})}$$
+
+Dan volgt hieruit, omdat zoals al eerder vermeld geldt dat $k = k'\frac{W}{L}$, de uiteindelijke uitdrukking voor $k'$:
+
+\begin{equation} \label{eq:ump-kprime}
+	k' = \frac{L}{W}\frac{2I_{D}}{(V_{GS} - V_{T})^2(1 + \lambda V_{DS})}
+\end{equation}
+
+\subsubsection{Snelheidsverzadiging}
+\label{subsubsec:ump-methode-verw-vdsat}
+Omdat in het voorgaande elke onbekende uit het model van Rabaey is bepaald, kan deze opgelost worden voor $V_{DSAT}$, waarna alle reeds bepaalde parameters, samen met waarden voor $V_{DS}$, $V_{GS}$ en de bijbehorende waarde van $I_{D}$ kunnen worden ingevuld om tot een oplossing te komen. Een voorwaarde aan de waarde van $V_{DS}$ is uiteraard dat deze in het snelheidsverzadigingswerkgebied van de transistor valt. Het model van Rabaey geeft de volgende vergelijking voor $I_{D}$:
+
+\begin{equation}
+	I_{D} = k' \frac{W}{L}[(V_{GS} - V_{T})V_{DSAT} - \frac{V_{DSAT}^2}{2}](1 + \lambda V_{DS})
+\end{equation}
+
+Oplossen van deze vergelijking levert een tweedegraads vergelijking op:
+
+$$-k'\frac{W}{2L}V_{DSAT}^2 + k'\frac{W}{L}(V_{GS}-V_{T})V_{DSAT} - \frac{I_{D}}{1 + \lambda V_{DS}} = 0$$
+
+Met de wortelformule lost deze vergelijking op tot de uiteindelijke uitdrukking voor $V_{DSAT}$:
+
+\begin{equation} \label{eq:ump-vdsat}
+	V_{DSAT} = \frac{-k'\frac{W}{L}(V_{GS}-V_{T}) \pm \sqrt{[k'\frac{W}{L}(V_{GS}-V_{T})]^2 - k'\frac{2W}{L}\frac{I_{D}}{1 + \lambda V_{DS}}}}{-k'\frac{W}{L}}
+\end{equation}
+
+Met deze laatste uitdrukkingen is er voor iedere gevraagde parameter een uitdrukking.
+
+\section{Resultaten}
+\label{sec:ump-res}
+\subsection{Waarden}
+\label{subsec:ump-res-val}
+Om waarden voor de vier gevraagde parameters te bepalen, vullen we de relevante waarden uit tabel~\ref{tab:ump-sim-tab-vds} in de vergelijkingen uit sectie~\ref{subsec:ump-methode-verw}.
+
+\subsubsection{Drempelspanning}
+\label{subsubsec:ump-res-val-vt0}
+Ten eerste bepalen we $V_{T0}$. Hiervoor nemen we twee datapunten uit tabel~\ref{tab:ump-sim-tab-vds}, met gelijke $V_{DS}$, welke in het verzadigingsgebied valt. Dit zijn datapunten 2 en 3. Deze vullen we vervolgens in vergelijking \ref{eq:ump-vt0}. Dit geeft:
+
+\begin{equation} \label{ump-vt0-num}
+	V_{T0} = \frac{1.4\sqrt{0.2292 \cdot 10^{-3}} - 1.2\sqrt{0.3682 \cdot 10^{-3}}}{\sqrt{0.2292 \cdot 10^{-3}} - \sqrt{0.3682 \cdot 10^{-3}}} = 0.4521 \, \textrm{V}
+\end{equation}
+
+\subsubsection{Lambda}
+\label{subsubsec:ump-res-val-lambda}
+Vervolgens nemen we datapunten 1 en 2 om $\lambda$ te bepalen aan de hand van vergelijking~\ref{eq:ump-lambda}:
+
+\begin{equation} \label{ump-lambda-num}
+	\lambda = \frac{0.2438 \cdot 10^{-3} - 0.2292 \cdot 10^{-3}}{2.6 \cdot 0.2292 \cdot 10^{-3} - 2.2 \cdot 0.2438 \cdot 10^{-3}} = 0.1281 \, \textrm{V}^{-1}
+\end{equation}
+
+\subsubsection{k'}
+\label{subsubsec:ump-res-val-kprime}
+Dan kunnen de gegevens van datapunt 3 samen met de zojuist berekende $V_{T0}$ en $\lambda$ gebruikt worden in vergelijking~\ref{eq:ump-kprime} om $k'$ te berekenen:
+
+\begin{equation} \label{eq:ump-kprime-num}
+	k' = \frac{1.6 \cdot 10^{-6}}{23.2 \cdot 10^{-6}}\frac{2 \cdot 0.3682 \cdot 10^{-3}}{(1.4 - 0.4521)^2(1 + 0.1281 \cdot 2.6)} = 0.4690 \,\frac{\textrm{mA}}{\textrm{V}^{2}}
+\end{equation}
+
+\subsubsection{Snelheidsverzadiging}
+\label{subsubsec:ump-res-val-vdsat}
+Als laatste komen de gegevens van datapunt 4 met elke reeds berekende parameter samen om $V_{DSAT}$ te berekenen met vergelijking~\ref{eq:ump-vdsat}:
+
+\begin{equation} \label{eq:ump-vdsat-num}
+	V_{DSAT} = \frac{-46.90 \cdot 10^{-6}\frac{23.2 \cdot 10^{-6}}{1.6 \cdot 10^{-6}}(5-0.4521) \pm \sqrt{[46.90 \cdot 10^{-6}\frac{23.2 \cdot 10^{-6}}{1.6 \cdot 10^{-6}}(5-0.4521)]^2 - 46.90 \cdot 10^{-6}\frac{2 \cdot 23.2 \cdot 10^{-6}}{1.6 \cdot 10^{-6}}\frac{5.997 \cdot 10^{-3}}{1 + 0.1281 \cdot 5}}}{-46.90 \cdot 10^{-6}\frac{23.2 \cdot 10^{-6}}{1.6 \cdot 10^{-6}}}	
+\end{equation}
+
+$$V_{DSAT} = 1.396 \, \textrm{V} \vee V_{DSAT} = 7.700 \, \textrm{V}$$
+
+Hierbij is 1.396 V een aannemelijke waarde, 7.700 V niet, deze ligt te hoog om normaal gedrag van de transistor te veroorzaken. Opvallend is, dat de gekozen waarde voor $V_{GS}$ (zie tabel~\ref{tab:ump-sim-tab-vds}, datapunt 3) nu iets boven $V_{DSAT}$ blijken te liggen, waardoor eigenlijk niet aan de randvoorwaarden wordt voldaan. Wanneer $V_{GS}$ echter lager werd gemaakt om toch onder deze waarde van $V_{DSAT}$ te blijven, daalde die gewoon mee. Wij hebben hier geen verklaring voor.
+
+\subsection{Simulatie en vergelijking}
+\label{sec:ump-res-verg}
+Er zijn meteen een aantal opvallendheden aan de berekende parameters. Zo ligt $V_{T0}$ veel lager dan de verwachte 0.7 V en ook wanneer we de waarden vergelijken met de in de handleiding *gegeven parameters zijn er grote verschillen. Een vergelijk is gemaakt in tabel~\ref{tab:ump-par-comp}. Het SPICE-model lijkt alleen een waarde voor $V_{T0}$ te bevatten (eveneens 0.7 V) en is daarom niet opgenomen in de tabel. Daarnaast zijn de waarden die in het boek van Rabaey gegeven staan voor een transistor van een geheel andere orde van grootte dan die op de Sea-of-Gates-chip en daarom niet geheel relevant. \cite[103]{rabaey-integrated-circuits}
+
+\begin{table}[H]
+	\centering
+	\caption{Een vergelijking tussen de berekende en gegeven waarden. \cite[98]{epo3-manual}}
+	\label{tab:ump-par-comp}
+	\begin{tabular}{|c|c|c|c|} 	
+		\hline
+		Parameter & Berekende waarde & Gegeven waarde & Relatieve afwijking \\
+		\hline
+		$V_{T0}$ & $0.4521 \,\textrm{V}$ & $0.7 \,\textrm{V}$ & $65\%$ \\
+		\hline
+		$\lambda$ & $0.1281 \,\textrm{V}^{-1}$ & $0.027 \,\textrm{V}^{-1}$ & $474\%$ \\
+		\hline
+		$k$ ($\beta$) & $0.4690 \,\frac{\textrm{mA}}{\textrm{V}^{2}}$ & $0.65 \,\frac{\textrm{mA}}{\textrm{V}^{2}}$ & $72\%$ \\
+		\hline
+		$V_{DSAT}$ & $1.396 \, \textrm{V}$ & - & - \\
+		\hline	
+	\end{tabular}
+\end{table}
+
+Er kan echter pas echt bepaald worden of de bepaalde parameters een goed model vormen voor het gedrag van de transistor aan de hand van een simulatie. Voor deze simulatie is een Matlab-script gemaakt, dat te vinden is in bijlage~\ref{lst-ump-simulate}. Het script rekent een set gegeven waarden, zoals in tabel~\ref{tab:ump-sim-tab-vds} om naar de correcte parameterwaarden, volgens de vergelijkingen uit sectie~\ref{subsec:ump-methode-verw} en plot deze vervolgens, samen met de simulatieresultaten uit SPICE. Onderstaande grafiek (figuur \ref{fig:ump-sim-fig-vds-rab}) is het resultaat met de parameters zoals berekend in sectie~\ref{subsec:ump-res-val}.
+
+\begin{figure}[H]
+	\centering
+	\setlength\figureheight{0.4\textwidth} 
+	\setlength\figurewidth{0.6\textwidth}
+	\input{resource/V-DS-I-D-Rabaey.tikz}
+	\caption{Simulatie aan de hand van het model van Rabaey met de berekende parameters. Doorgetrokken lijnen staan voor simulatie met het model, onderbroken lijnen voor de SPICE-simulatie}
+	\label{fig:ump-sim-fig-vds-rab}
+\end{figure}
+
+Op het oog ontlopen de corresponderende plots elkaar niet veel. Wel is te zien dat het model van Rabaey een lineaire benadering aanhoudt voor kanaallengtemodulatie, waar SPICE een complexere functie gebruikt. Het resultaat hiervan is een rechte lijn in het verzadigingsgebied voor het simpele model, waar deze in het SPICE-model licht afvlakt. Ook komen de kantelpunten niet geheel overeen. \\
+
+Voor een exacter beeld van de afwijking tussen Rabaey en SPICE, is wederom een script in Matlab geschreven, te vinden in bijlage~\ref{lst-ump-compare}. Dit script berekent de afwijking tussen $I_{D}$ uit SPICE en die uit het model van Rabaey, middelt deze per waarde van $V_{GS}$ (de simulatieparameter) en berekent ten slotte de relatieve afwijking en maakt daar een grafiek van. Het resultaat is te vinden in figuur~\ref{fig:ump-sim-fig-vds-rel-dev}.
+
+\begin{figure}[H]
+	\centering
+	\setlength\figureheight{0.4\textwidth} 
+	\setlength\figurewidth{0.6\textwidth}
+	\input{resource/V-DS-I-D-rel-dev.tikz}
+	\caption{De relatieve gemiddelde afwijking in $I_{D}$ tussen Rabaey en SPICE, uitgezet tegen $V_{GS}$}
+	\label{fig:ump-sim-fig-vds-rel-dev}
+\end{figure}
+
+Te zien is dat de afwijking rond $V_{T0}$ te verwaarlozen is en verder niet boven de 5\% uit komt. Vanzelfsprekend ligt het aan de toepassing of het model toereikend is, maar een gemiddelde afwijking van 5\% zal in veel gevallen geen probleem zijn. Daarentegen zal het model bij gebruik voor analyse van nieuwere en dus kleinere CMOS-techniek hoogstwaarschijnlijk tekortschieten, door de als maar kleiner wordende marge. Dan zal dus een ander model gebruikt moeten worden wat waarschijnlijk te complex is om handmatig te gebruiken, zoals SPICE.
+
+\section{Conclusie}
+\label{sec:ump-conclusie}
+Naar aanleiding van sectie \ref{sec:ump-res-verg} blijkt dat de berekende parameters, voor gefitte waarden van $V_{DS}$ en $V_{GS}$, op zichzelf staand grote afwijkingen vertonen met de gegeven waarden. Wanneer de parameters echter worden gebruikt in simulatie blijft de gemiddelde afwijking met de SPICE-simulatie echter onder de 5\% en zal daarmee vaak bruikbaar zijn voor handmatige analyse van de transistor. Of het model daadwerkelijk bruikbaar is hangt geheel van de eisen en situatie af.
+
+\printbibliography
+\newpage
+
+\section{Bijlagen}
+\label{sec:ump-bijlagen}
+\label{lst:ump-plotVdsId}
+\includecode[Matlab]{plotVdsId.m}{scripts/plotVdsId.m}
+\label{lst:ump-plotVgsId}
+\includecode[Matlab]{plotVgsId.m}{scripts/plotVgsId.m}
+\label{lst-ump-simulate}
+\includecode[Matlab]{simulate.m}{scripts/simulate.m}
+\label{lst-ump-compare}
+\includecode[Matlab]{compare.m}{scripts/compare.m}
+
+\end{document}

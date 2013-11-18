@@ -1,0 +1,11 @@
+library IEEE;
+use IEEE.std_logic_1164.ALL;
+
+PACKAGE zeros IS
+constant T : INTEGER;
+END zeros;
+
+PACKAGE BODY zeros IS
+constant T: INTEGER := S-4;
+END zeros;
+

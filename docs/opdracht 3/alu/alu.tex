@@ -1,0 +1,127 @@
+%=========================================================================
+\documentclass[11pt,twoside,a4paper]{article}
+\input{../../library/preamble}
+\input{../../library/style}
+
+%\usepackage{a4wide,times}
+\usepackage{fullpage}
+\usepackage{verbatim}
+\title{Moduleopdracht ALU}
+\author{
+Gemaakt door\\
+Jorden Kerkhof, 4232461\\
+Kees Hogenhout, 4220927 \\
+\\
+In opdracht van \\
+Efraïm, \\
+Alex, \\
+}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\vspace{30 mm}
+\begin{center}
+\Large \bf 
+Samenvatting
+\end{center}
+In dit rapport wordt beschreven hoe een groepje van twee studenten een module ontwerpt, in dit geval een ALU. Daarbij werden de specificaties bepaald door een ander groepje van twee in de projectgroep. Er moest minimaal 1 parameter bepaald worden door het andere groepje. De specificatie in dit rapport is het aantal bits input en output.
+ \\
+Vervolgens  wordt de aan het groepje opgedragen schakeling ontworpen en getest op VHDL behavior niveau, met verwisselende parameterwaarden. Daarna wordt de schakeling geïmplementeerd tot op layout niveau, inclusief switch-level simulatie. 
+Daarna worden er in het rapport simulatieresultaten getoond, om aan te tonen dat het circuit werkt. 
+\clearpage
+
+\tableofcontents
+\clearpage
+
+\section{Inleiding}
+Bij deze opdracht was het de bedoeling om in kleine groepjes van de projectgroep afzonderlijk een module te ontwerpen. De specificaties werden gegeven door een ander groepje. Aan ons was de taak gegeven een Alu te ontwerpen. Verdere specificaties van deze Alu worden hieronder vermeld. Van deze  alu hebben we een ontwerp gemaakt in vhdl en gesimuleerd. Vervolgens hebben we hiervan een circuit gemodelleerd en chip lay-out gecreëerd. 
+
+\section{Specificaties}
+\scriptsize
+\verbatiminput{ALU_beschrijving.txt}
+\normalsize
+
+\section{Ontwerp}
+\input{inputfiles/ontwerp}
+
+\section{Implementatie}
+\input{inputfiles/implementatie}
+
+\section{Analyse}
+\input{inputfiles/analyse}
+
+\section{Conclusies}
+\input{inputfiles/conclusie}
+
+
+
+
+\newpage
+\begin{thebibliography}{7} %je kunt maximaal 9 verwijzingen hebben
+%Auteur, A. (jaar van uitgave). textit{Titel van het boek. Plaats: Uitgeverij.
+%Apa normen
+%
+\bibitem{hl}
+Hendriks E.A., Bakker A., Frehe A., Groeneveld P., Nouta R., Verhoeven C., Graaf S. de , Liedorp J., Genderen A.J. van,  (2013) \textit{Projecthandleiding Ontwerp een chip}, Uitgegeven in Delft
+
+\bibitem{vhdlboek}
+Brown Stephen, Vranesic Zvonko (2009), \textit{Fundamentals of Digital Logic with VHDL Design}, Published by McGraw-Hill Education
+
+
+\bibitem{gwtfboek}
+Auteur: sectie EPO-3 Tu Delft, (18 juli 2008), \textit{Handleiding GoWithTheFlow } Geraadpleegd op 30-09 en 1-10 2013 van https://blackboard.tudelft.nl/bbcswebdav/pid-2127456-dt-content-rid-7113453\_2/courses/28188-131401/18222-101101\_ImportedContent\_20110725013802/Course\%20Documents/Handleidingen\%20software/man\_gowiththeflow.pdf
+
+
+
+\end{thebibliography}
+
+
+
+
+
+\scriptsize
+\newpage
+
+\section{Appendix}
+
+
+\appendix
+\section{entity alu}
+\label{entity}
+\lstinputlisting{../../../hardware/opdracht3/alu3/VHDL/alu.vhd}
+
+
+\section{behaviour of alu}
+\label{behaviour}
+\lstinputlisting{../../../hardware/opdracht3/alu3/VHDL/alu-behaviour.vhd}
+
+\section{behaviour of tb}
+\label{tb}
+\lstinputlisting{../../../hardware/opdracht3/alu3/VHDL/tb-behaviour.vhd}
+\normalsize
+
+\section{Figuren Place\&route resultaat}
+\label{c1}
+\begin{figure} [h!]
+\includegraphics [width=\linewidth]{figures/eff4} 
+\includegraphics [width=\linewidth]{figures/eff8}
+\caption{Verschillende efficienties na het Place\&routen van 4 en 8bits}
+\label{k}
+\end{figure}
+
+\begin{figure} [h!]
+\includegraphics [width=\linewidth]{figures/eff10} 
+
+\includegraphics [width=\linewidth]{figures/eff12}
+\caption{Verschillende efficienties na het Place\&routen van 10 en 12 bits}
+\label{k}
+\end{figure}
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,101 @@
+\documentclass{article}
+\input{../../library/preamble}
+\input{../../library/style}
+
+\begin{document}
+
+\title{Notulen EPO-3 B-1 week 6 }%<---WEEK NR
+\author{Jorden Kerkhof}%<----AUTEUR
+\maketitle
+
+\section*{Informatie}
+Datum van vergadering:07-010-13 \\ %<----DATUM
+Locatie van vergadering: TU Delft - Drebbelweg zaal 0.210 %<----LOCATIE
+\subsection*{Genodigden}
+\begin{center}
+\begin{tabular}{|c |c | c| c|}
+	%%VUL AANWEZIGHEID IN: "Aanwezig", "Afwezig", "Te laat"
+	\hline
+Efraïm Eland  & Aanwezig & Erwin de Haan & Aanwezig \\
+	\hline
+Robin Hes (voorzitter) & Aanwezig & Tu Hoang & Aanwezig \\
+	\hline
+Kees Hogenhout & Aanwezig & Alex Janssen & Aanwezig\\
+	\hline
+Jorden Kerkhof(notulist) & Aanwezig & Peter Stijnman & Aanwezig \\
+	\hline
+Xenia Wesdijk & Aanwezig & & \\
+	\hline
+\end{tabular}
+\end{center}
+
+\section*{Vergadering}
+\begin{enumerate}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%
+	%----- VOORAF
+	\subsection*{Vooraf}
+	\item Vergadering geopend om 8:55 %<----OPENINGSTIJD
+	\item Notulen vorige vergadering
+	\begin{itemize}
+		%%NOTULEN VORIGE VERGADERING
+		\item De notulen van de vorige vergadering zijn goedgekeurd.
+	\end{itemize}
+	\item Agenda is vastgesteld
+	\item Mededelingen
+	\begin{itemize}
+		%%MEDEDELINGEN
+		\item Bartek: de specificaties van onze GPU moeten we verder uitwerken.
+	\end{itemize}
+
+	%%%%%%%%%%%%%%%%%%%%%%%
+	%----- DEADLINES
+	\subsection*{Deadlines}
+	\item Verstreken deadlines
+	\begin{itemize}
+		%%VERSTREKEN DEADLINES
+		\item Afgelopen woensdag moest opdracht 4 over SPICE worden ingeleverd.
+	\end{itemize}
+	\item Komende deadlines
+	\begin{itemize}
+		%%KOMENDE DEADLINES
+		\item 16 oktober moet het projectplan af.
+	\end{itemize}
+
+	%%%%%%%%%%%%%%%%%%%%%%%
+	%----- AGENDAPUNTEN
+	\subsection*{Agendapunten}
+	
+
+	%%%%%%%%%%%%%%%%%%%%%%%
+	%----- ACTIES
+	\subsection*{Actiepunten}
+	\item Todo vandaag
+	\begin{itemize}
+		%%TODO VANDAAG
+		\item Vandaag gaat iedereen verder met de opdracht. Degene die al klaar zijn kunnen beginnen met het projectplan. Peter en Alex hebben aangegeven dat zij hiermee wilden beginnen. Ook Erwin en Xenia zijn al ver gevorderd in hun opdracht.
+	\end{itemize}
+	\item Todo later
+	\begin{itemize}
+		%%TODO LATER
+		\item Iedereen is al bezig met het verslag en bijna klaar.
+	\end{itemize}
+
+	%%%%%%%%%%%%%%%%%%%%%%%
+	%----- BESLUITEN
+	\subsection*{Besluiten}
+	\item Genomen besluiten
+	\begin{itemize}
+		%%GENOMEN BESLUITEN
+		\item We hebben definitief besloten om voor de GPU te gaan voor ons project.
+	\end{itemize}
+
+	%%%%%%%%%%%%%%%%%%%%%%%
+	%----- AFSLUITING
+	\noindent 
+	\subsection*{Afsluitend}
+	\item Vergadering gesloten om 12:32%<----SLUITINGSTIJD
+
+\end{enumerate}
+
+\end{document}

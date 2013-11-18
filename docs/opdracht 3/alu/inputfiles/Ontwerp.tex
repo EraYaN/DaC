@@ -1,0 +1,37 @@
+\documentclass{article}
+\input{../../../library/preamble}
+\input{../../../library/style}
+
+
+
+\begin{document}
+De beschrijving van de opdrachtgevers hebben we verder geïnterpreteerd in VHDL-code. Hieronder worden de verschillende aspecten van het ontwerp besproken. 
+%Beschrijf hoe de beschrijving van de opdrachtgevers verder geïnterpreteerd is en hoe het ontwerp gedaan is, tot aan de %VHDL beschrijving.
+\begin{itemize}
+\item Eerst is gekeken wat een Alu is en wat hij eigenlijk doet. Daaruit kwam naar voren dat het een soort calculator is, die berekeningen met - of operaties op - bits uitvoert.  Daarbij is in ons geval het aantal bits de parameter. (zie Specificaties)
+
+\item Daarna  is men begonnen met het schrijven van een entity (appendix \ref{entity}) met alle in en uitgangen en een behaviour hierbij. Dit wordt hieronder uitgewerkt.  
+\end{itemize}
+\subsection{Blokrepresentatie met in- en uitgangen}
+Het systeem wordt weergegeven in figuur \ref{1}. 
+\begin{figure} [h!]
+\includegraphics [scale = .4]{figures/blk}
+\caption{Het blokschema van de Alu}
+\label{1}
+\end{figure}
+De Alu wordt bediend door de Op-code, een 4 bits signaal. De ingangssignalen zijn input\_a en input\_b met een variabel aantal bits N. Die wordt als parameter meegegeven aan de Alu. (te zien aan het woord "package") Vervolgens wordt de berekening uitgevoerd in behaviour VHDL. Stel dat er een carry ontstaat, dan wordt signaal status\_D 0001. Stel dat er een zero ontstaat (bij and-operatie), dan wordt status\_D 0010. Hier zou je op aan kunnen merken dat je lang niet zoveel status\_D signalen nodig hebt en dus ook een 2-bit\_vector zou aan kunnen maken. Wellicht is dit gedaan omdat later complexere alu's meer uitgangscontrolesignalen nodig zijn. De berekende waarde wordt weergegeven aan output\_R
+met als lengte de waarde van de parameter. De parameter heet in ons programma S. 
+\subsection{Een of meerdere toestandsdiagrammen }
+We hebben niet echt een toestandsdiagram, maar in de VHDL-code in \ref{behaviour} kun je precies zien wat er gebeurd als de opcode veranderd of niet gedefinieerd is. 
+\subsection{VHDL behaviour beschrijving van de schakeling}
+De behaviour beschrijving staat in appendix \ref{behaviour}. Bovenaan staan de nodige singalen. Dan wordt een process gestart met Op in de sensitivity list. Als variabelen in de sensitivity list veranderen, verandert ook de uitgang. In dit geval zorgt een verandering in Op voor een andere output (behalve als bij een Op geen operatie bestaat, dan komt hij in de default (when others) terecht, waarbij de uitgang en de status\_D allebei nul worden). Uiteindelijk wordt Reg3 gelijkgemaakt aan output\_R. 
+\subsection{Simulatieresultaten van de VHDL behaviour beschrijving}
+\begin{figure} [h!]
+\includegraphics [scale = .35]{figures/simtb}
+\caption{Het simulatieresultaat van de alu}
+\label{2}
+\end{figure}
+Nadat de behaviour uitvoerig gecompileerd is, is er een testbench geschreven (appendix \ref{tb}). Daarna zijn er configuraties aangemaakt in GoWithTheFlow. Vervolgens werd de simulatie gestart. In figuur \ref{2} staat het resultaat.
+Eerst klopte deze simulatie nog niet. Het bleek namelijk dat de carry niet werd meegenomen. Dat is aangepast in de behaviour, waarna de carry wel werd meegenomen. Nu worden input\_a en input\_b een S+1 bits signaal gemaakt, waarna na een operatie wordt gechekct of het MSB 1 is. Is dat het geval, dan is er een carry ontstaan en wordt status\_D 0001.  Dit is overeenkomstig de specificaties. De rest van de VHDL-simulatie is ook gecontroleerd en goed bevonden. 
+
+\end{document}

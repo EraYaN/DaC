@@ -1,0 +1,48 @@
+\documentclass{article}  
+\input{../../../library/preamble}  
+\input{../../../library/style}  
+\begin{document}
+
+\newcommand{\tss}{\textsubscript}
+
+De NAND poort is een schakeling die veel gebruikt wordt in de digitale logica. Het kan twee of meerdere ingangen hebben en heeft vaak maar een uitgang. Bij een 2-input NAND is de uitgang altijd 1, behalve wanneer beide ingangen 1 zijn, dan is de uitgang 0. Een van de manieren om deze elektrische logische schakeling te realiseren is door middel van 4 MOS transistoren te gebruiken, 2 NMOS en 2 PMOS transistoren. Als deze worden geschakeld zoals in figuur \ref{res:NAND_schakeling}, Ontstaat de volgende logische functie: 
+
+\begin{equation}
+Y = (AB)'
+\end{equation}
+
+ \begin{figure} [h!]
+ \begin{center}
+ \includegraphics [scale = 1] {figures/NAND}
+ \caption{NAND schakeling m.b.v. NMOS en PMOS transistoren uit [1]}
+ \label{res:NAND_schakeling}
+ \end{center}
+ \end{figure}
+
+Een van de keerzijden van deze manier van schakelen, is het feit dat de NAND poort een bepaalde vertraging kent om het nieuwe signaal op de uitgang te zetten. Deze vertraging kan opgesplitst worden in twee gevallen. Enerzijds, wanneer het uitgangssignaal van hoog naar laag moet (T\tss{HL}) en anderzijds, wanneer het uitgangssignaal van laag naar hoog moet (T\tss{LH}). Deze vertraging kan worden beschreven aan de hand van een interne capaciteit van de NAND poort en een equivalente weer stand van de NAND poort.\\
+
+Om de interne capaciteit te bepalen van de NAND poort zullen er tenminste twee capaciteiten bepaald worden, eentje ten gevolge van T\tss{HL} en eentje ten gevolge van T\tss{LH}. Om de capaciteit te bepalen van T\tss{HL} kan er gebruik worden gemaakt van het  circuit in figuur \ref{res:PDN_schakeling}, waarbij de beide ingangen gelijk zijn aan \emph{5V}. Het pull-up network (PUN) is dan dicht en het pull-down network (PDN) in geleiding. Deze capaciteit van het PDN wordt \emph{C\tss{out,n}} genoemd, waarbij de \emph{n} op de NMOS transistoren duidt. Ook staat er een capaciteit parallel aan de NAND poort die de capaciteit van een eventuele load simuleert (\emph{C\tss{load} = 1pF}) die in de schakeling als C2 staat geschreven.
+
+Om de capaciteit van T\tss{LH} te bepalen kan gebruik worden gemaakt van het circuit in figuur \ref{res:PUN_schakeling}, waarbij de ingangen gelijk zijn aan \emph{0V}. In dit geval is het PUN in geleiding en het PDN in dicht. Deze capaciteit van het PDN wordt \emph{C\tss{out,p}} genoemd, waarbij de \emph{p} op de NMOS transistoren duidt. Ook in deze schakeling staat er een capaciteit parallel aan de NAND poort die de capaciteit van een eventuele load simuleert (\emph{C\tss{load} = 1pF}) die in de schakeling als C2 staat geschreven.
+
+Verder wordt de vertragingstijd bepaal door de interne weerstand \emph{R\tss{eq,n}} en \emph{R\tss{eq,p}} die op de interne weerstand van het PDN en het PUN duiden, respectievelijk.\\
+
+Hoe deze capaciteiten en weerstanden kunnen worden gesimuleerd en berekend, wordt uitgelegd in hoofdstuk 4 Methode.
+
+ \begin{figure} [h!]
+ \begin{center}
+ \includegraphics [scale = 0.4] {figures/PDN}
+ \caption{Simulatie opstelling voor het bepalen van \emph{C\tss{out,n} en R\tss{eq,n}}, de NENH en PENH zijn NMOS en PMOS transistoren, respectievelijk}
+ \label{res:PDN_schakeling}
+ \end{center}
+ \end{figure}
+
+ \begin{figure} [h!]
+ \begin{center}
+ \includegraphics [scale = 0.4] {figures/PUN}
+ \caption{Simulatie opstelling voor het bepalen van \emph{C\tss{out,p} en R\tss{eq,n}}, de NENH en PENH zijn NMOS en PMOS transistoren, respectievelijk}
+ \label{res:PUN_schakeling}
+ \end{center}
+ \end{figure}
+
+\end{document}

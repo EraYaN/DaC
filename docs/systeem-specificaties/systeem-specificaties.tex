@@ -1,0 +1,40 @@
+\documentclass{scrartcl} 
+\input{../library/preamble.tex}
+\input{../library/style.tex}
+\addbibresource{../library/bibliography.bib}
+
+\author{Groep 1 (DaC)}
+\title{EPO-3 "Maak een Chip" Systeem Specificaties}
+
+\date{17-10-2013}
+
+\begin{document}
+\pagenumbering{roman}
+\maketitle
+\vspace{80 mm}
+\section*{Samenvatting}
+In dit verslag zal de opzet van het project uitgelegd worden. Het uiteindelijke resultaat van dit project is het maken van een functionele chip, waarbij de chip volledig zal worden gespecificeerd, ontworpen en gesimuleerd door en groep studenten. De chip zal gefabriceerd worden door DIMES. 
+\newpage
+\setlength{\cftbeforetoctitleskip}{-3em}
+
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\section{Specificaties}
+\subsection {Functionele Eisen}
+\begin {itemize}
+\item Minimale beeldresolutie van 320x240 of 160x480 in 16 kleuren.
+\item Minimaal 2 vertexes te verbinden met een lijn.
+\item Interfacing met een AVR zodat een PC systeem gesimuleerd wordt. Met de AVR als CPU en RAM en onze chip als GPU en VRAM.
+\item VGA signaal uitsturen met extrene of interne DAC.
+\item 
+\end{itemize}
+
+\subsection {Randvoorwaarden}
+\begin {itemize}
+\item De algemene technische randvoorwaarden zijn bepaald in hoofdstuk 11.8 "\Algemene Technologische Randvoorwaarden"  van het EPO-3 Handleiding/cite{epo3-manual}
+
+\end{itemize}
+
+
+\end{document}

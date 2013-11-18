@@ -1,0 +1,133 @@
+\documentclass{scrartcl}  % scrartcl of scrreprt
+\usepackage{SIunits}
+\input{../../library/preamble}  
+\input{../../library/style}
+\addbibresource{../../library/bibliography.bib}
+
+\author{Jorden {Kerkhof} (4232461)  \\{Xenia Wesdijk} (4144074)}
+\title{EPO3-1   Opdracht 5.3.1: Ringoscillator}
+\subtitle{EE2821}
+\date{23 Oktober 2013}
+
+\begin{document}
+\pagenumbering{roman}
+\maketitle
+\vspace{80 mm}
+\section*{Abstract}
+In dit verslag zullen we het gaan heben over de oscillatiefrequentie van een ringoscilator. We gaan bepalen wat het kleinste aantal inverters is waarbij een betrouwbare oscillatie zal optreden. Allereerst zullen we de theorie behandelen achter de opbouw van een inverter bestaande uit en NMOS en CMOS transistor. Vervolgens zullen we onze verkregen simulaties en de daarbij horende resultaten verwerken. Als laatste geven we nog een korte conclusie aan de hand van onze verkregen resultaten. Deze resultaten vergelijken we, als een sanity check, met de oscillatiefrequentie die we hebben berekend aan de hand van de gegevens voor een inverter uit appendix D van de EPO 3 handleiding. Aan de hand van het bovengenoemde zullen we kunnen concluderen dat het minst aantal inverters dat nodig is vijf zal zijn
+
+\newpage
+\setlength{\cftbeforetoctitleskip}{-3em}
+\tableofcontents
+\newpage
+\section{Inleiding}
+Bij deze opdracht gingen we verder met het bestuderen van transistoren. Hierdoor snappen we de transistoren beter en zijn deze voor ons eenvoudiger toe te passen in het verdere gevolg van het project. Ieder kreeg zijn eigen opdracht om het gedrag en de werking van de transistoren te analyseren. Voor ons was dit de ringoscillator. Dit is een oscillator die enkel bestaat uit inverters. En inverters bestaan dan weer uit een NMOS en een PMOS transistor. Het was de bedoeling dat we uizochten voor hoeveel inverters je een betrouwbare oscillator had en met welke frequentie dit gebeurde. Hierbij komt uiteraarde de delay tijd van beide transistoren naar voren. Met enkel ideale inverters zou je natuurlijk nooit een werkende oscillator kunnen bouwen. De delay tijd is dus cruciaal in deze opdracht.  
+
+\section{Theorie}
+Een ringoscillator is een schakeling bestaande uit een oneven aantal op elkaar aangesloten inverters, zie figuur \ref{fig:ringoscillator drie inverters}.
+\begin{figure}[H]
+\centering
+        \includegraphics[width=\linewidth]{images/ringoscilatortheorie.png}
+        \caption{Een ringoscillator van drie inverters \cite{wikipedia}}
+        \label{fig:ringoscillator drie inverters}
+\end{figure}
+Als de ingang van de eerste inverter hoog is, zal er aan de uitgang van het circuit een laag signaal worden waargenomen. Dit uitgangssignaal wordt dan weer teruggevoerd naar de ingang van het circuit. Hierdoor zal het volgende uitgangssignaal hoog worden en zo verder. Een ringoscillator zou men kunnen gebruiken voor het maken van een kloksignaal, omdat er (zo als net is uitgelegd) een constant signaal van afwisselend hoog en laag wordt waargenomen aan de uitgang. De frequentie van het signaal is afhankelijk van de delay van de oscillator. De delay van de oscillator bestaat uit de opgetelde waarde van de vertragingstijden van de afzonderlijke inverters. Door meer inverters toe te voegen zal de delay groter worden, waardoor de frequentie van de oscillator juist kleiner zal worden. De periode tijd is als volgt:
+\begin{equation}
+T= 2*t_{p}*N 
+\end{equation}\cite[368]{rabaey-integrated-circuits}
+\\en
+\begin{equation}
+t_{p}=(T_{pHL}+T_{pLH})/2 
+\end{equation}\cite[28]{rabaey-integrated-circuits}
+\\Hierin staat N voor het aantal inverters, $T_{pHL}$ is de high-to-low propegatietijd en $T_{pLH}$ is dan de low-to-high propegatietijd. 
+
+
+\section{Simulaties}
+Voor de simulaties hebben wij een schema gemaakt in PSPICE. Een ringoscillator is een oscillator die enkel uit inverters bestaat. Een inverter is eenvoudig op te bouwen uit twee MOS transistoren. Een inverter is in feite niets anders dan een PMOS transistor bovenop een NMOS transistor. Wij hebben dezelfde MOS transistoren gebruikt als in opdracht 4. De technische specificaties die wij hiervoor hebben gebruikt zijn:
+\begin{itemize}
+        \item Nominale $V_{DD}$ : 5 V
+        \item Minimale kanaallengte: 1.6  \micro\meter\
+        \item Maximale kanaallengte: 4.8 \micro\meter\
+        \item Minimale kanaalbreedte: 2.4 \micro\meter\
+        \item Maximale kanaalbreedte: 10000 \micro\meter\
+\end{itemize}
+Omdat we gebruik maken van de Sea-of-Gates Chip hebben wij ervoor gekozen om een NMOS transistor van 1.6 x 23.2 \micro\meter\ en PMOS transistor van 1.6 x 29.6 \micro\meter\ te gebruiken.
+
+Een ringoscillator is een schakeling van inverters. Al deze inverters worden in serie aangesloten zodat de ingang van de ene inverter de uitgang is van de vorige inverter. En dat zo in een ketting. Je kan zoveel inverters gebruiken als je wilt. De enige voorwaarde: je hebt een oneven aantal inverters nodig. Dit omdat je anders geen oscillatie krijgt. De oscillatie ontstaat doordat het signaal van hoog naar laag (en omgekeerd) veranderd. Wat hierbij ook belangrijk is dat je geen ideale inverters gebruikt. Bij ideale inverters zou je waarschijnlijk wel een soort van oscillatie krijgen, waarvan de frequentie dan oneindig hoog is. Omdat inverters in werkelijkheid een delay tijd hebben kan je mooiere oscillaties vormen. Hieronder een afbeelding van onze schakeling.
+\begin{figure}[H]
+\centering
+        \includegraphics[width=\linewidth]{images/ringoscillator2.png}
+        \caption{De schematische schakeling van de ringoscillator in SPICE}
+        \label{fig:schema}
+\end{figure}
+Vervolgens hebben wij dit schema voor 5\nano\second\  laten lopen. We hebben het Voltage gemeten op het punt waar in figuur \ref{fig:schema} {\it meet} staat. De verkregen data hiervan wordt vermeld in het volgende hoofdstuk. We hebben dit gedaan voor een schakeling van drie inverters en vijf inverters. Zeven inverters was ook een optie om te meten, maar helaas kon PSPICE dit niet simuleren, omdat het circuit 'te groot' zou zijn. In onze conclusie is te lezen dat zeven inverters waarschijnlijk geen (betere/) betrouwbaardere ringoscillator zou vormen.
+
+\section{Resultaten}
+Het resultaat van de simulatie van ons circuit met drie inverters ziet er als volgt uit.
+\begin{figure}[H]
+\centering
+                \setlength\figureheight{0.6\textwidth} 
+                \setlength\figurewidth{0.9\textwidth}
+                \input{images/t-v_meet.tikz}
+                \caption{Het resultaat van de simulatie met drie inverters.}
+                \label{fig:meetdrie}
+\end{figure}
+En het resultaat van de simulatie met vijf inverters is zoals in figuur \ref{fig:meetvijf}.
+\begin{figure}[H]
+\centering
+                \setlength\figureheight{0.6\textwidth} 
+                \setlength\figurewidth{0.9\textwidth}
+                \input{images/t-v_meet5inv.tikz}
+                \caption{Het resultaat van de simulatie met vijf inverters.}
+                \label{fig:meetvijf}
+\end{figure}
+Aan alleen deze plots hadden we niet zoveel om de vraag {\it 'Wat is het kleinst aantal inverters waarbij een betrouwbare oscillatie optreed?'} te beantwoorden. Om deze vraag wel te kunnen beantwoorden hebben we nog een extra plot gemaakt, zie figuur \ref{fig:tplhtphl5}. Uit deze plot hebben we de $T_{pHL}$ en $T_{pLH}$ waarde van onze simulatie afgelezen. De $T_{pHL}$ waarde vonden we door bij de eerste opgaande flank van de blauwe golf op ongeveer 50\% van de golf een horizontale lijn (helaas konden we die niet weergeven in de figuur) te tekenen tot er een raakpunt is met de rode lijn. Door vervolgens de resultaten van elkaar af te halen vonden we een $T_{pHL}$ van 0.107\nano\second\ . Om nu vervolgens de waarde van $T_{pLH}$ te vinden hebben we wederom een horizontale lijn getrokken met het beginpunt op 50\% van de neergaande flank van de eerste blauwe golf en het eindpunt op de opgaande flank van de tweede rode golf. Dit gaf ons een waarde van 0.21\nano\second\ voor $T_{pLH}$.
+
+\begin{figure}[H]
+\centering
+                \setlength\figureheight{0.6\textwidth} 
+                \setlength\figurewidth{0.9\textwidth}
+                \input{images/tplh-tphl5.tikz}
+                \caption{Figuur gebruikt om de $T_{pLH}$ en $T_{pHL}$ te berekenen.}
+                \label{fig:tplhtphl5}
+\end{figure}
+Aan de hand van deze waarde kunnen we de oscillatiefrequentie berekenen met de volgende formule: 
+\begin{equation}
+Frequentie = 1/(N*(T_{pHL}+T_{pLH}))
+\end{equation}
+Hierin staat N wederom voor het aantal inverters. 
+\\Voor ons circuit met drie inverters geeft dit ons: 
+\begin{equation}
+Frequentie = 1/(3*(0.107\nano\second\ + 0.21\nano\second\ )) = 1051.5 MHz
+\end{equation} 
+\\en voor vijf inverters:
+\begin{equation}
+Frequentie = 1/(5*(0.107\nano\second\ + 0.21\nano\second\ )) = 630.9 MHz
+\end{equation} 
+Als sanity-check moesten we dit vergelijken met de gegeven informatie in Appendix D van de EPO3 handleiding. In deze handleiding waren de gegeven waarden voor  $T_{pLH}$ =  0.19\nano\second\ en voor  $T_{pHL}$ = 0.23\nano\second .  De sanity-check levert ons de volgende berekeningen en resultaten op: 
+\begin{equation}
+Frequentie = 1/(3*(0.23\nano\second\ + 0.19\nano\second\ )) = 793.7 MHz
+\end{equation} 
+\\en voor vijf inverters:
+\begin{equation}
+Frequentie = 1/(5*(0.23\nano\second\ + 0.19\nano\second\ )) = 476.2 MHz
+\end{equation} 
+
+\section{Conclusie}
+Uit onze verkregen resultaten kunnen we het volgende concluderen:
+\begin{itemize}
+	\item Hoe meer inverters je gebruikt, hoe groter de delay, hoe kleiner de oscillatiefrequentie.
+	\item Hoe meer inverters we gebruiken, hoe kleiner het verschil wordt tussen onze gemeten waarde en de waarde verkregen uit de sanity-check.
+\end{itemize}
+Hierdoor kunnen wij concluderen dat het minst aantal inverters wat nodig is voor een betrouwbare oscillatie zal liggen bij vijf inverters. 
+
+
+\section{Discussie}
+Altijd zijn er natuurlijk een aantal zaken te verbeteren. Bij deze opdracht hebben we ook een aantal punten waar verbetering in zit. Zo waren we uiteraard beperkt door het programma PSPICE die een grens heeft tot waar deze nog kan simuleren. Helaas probeerden wij een schema te simuleren dat boven deze grens lag. Hierdoor missen we resultaten die misschien wel interessant zouden kunnen zijn. 
+De grafieken die we hebben gebruikt voor berekeningen en analyses hebben we geanalyseerd in matlab. De oorspronkelijke grafiek kwam uit de simulatie van PSPICE. Deze hebben we moeten extraheren vanuit PSPICE en via notepad moeten implementeren in Matlab. Hier kan uiteraard het een en ander fout zijn gegaan waardoor de grafieken van matlab en PSPICE niet identiek aan elkaar waren. Dit heeft invloed op de resultaten aangezien je met de waarden van matlab verdere conclusies gaat trekken. 
+De transistoren die we hebben geimplenteerd in PSPICE zijn immers ook maar simulaties. De resultaten die we uit deze simulaties hebbben verkregen kunnen uiteraard verschillen met de resultaten die te verkrijgen zijn als je deze schakeling in het echt bouwt. Dit heeft opzich niet veel invloed op deze opdracht, aangezien we de transistoren allen theoretisch hoefden te benaderen. 
+
+\newpage
+\section{Bibliografie}
+\printbibliography
+\end{document}
