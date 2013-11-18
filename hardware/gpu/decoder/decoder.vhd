@@ -3,7 +3,7 @@ use IEEE.std_logic_1164.ALL;
 use work.parameter_def.ALL;
 
 entity decoder is
-	port(
+	port (
 		DI		:in		std_logic_vector(7 downto 0);	--Data In
 		DO		:out	std_logic_vector(7 downto 0);	--Data Out
 		DR		:in		std_logic;						--Data Ready
