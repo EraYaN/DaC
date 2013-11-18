@@ -1,0 +1,45 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+USE work.parameter_def.all;
+
+ENTITY gpu IS
+   PORT(
+    clk : IN STD_LOGIC;
+	reset : IN STD_LOGIC;
+	spiclk : IN STD_LOGIC;
+	spimiso : OUT STD_LOGIC;
+	spimosi : IN STD_LOGIC;
+	ramdata : INOUT STD_LOGIC_VECTOR(SizeRAMData-1 downto 0);
+	ramaddr : INOUT STD_LOGIC_VECTOR(SizeRAMAddr-1 downto 0);
+	ramwe : OUT STD_lOGIC;
+	vgahsync : OUT STD_LOGIC;
+	vgavsync : OUT STD_LOGIC;
+	vgacolor : OUT STD_LOGIC_VECTOR(SizeColor-1 downto 0)
+	);
+END gpu;
+
+ARCHITECTURE structural OF gpu IS
+COMPONENT vgacontroller IS
+ PORT(
+    clk :  IN   STD_LOGIC;  --pixel clock at frequency of VGA mode being used
+    reset  :  IN   STD_LOGIC;  --active low asycnchronous reset
+    vgahsync    :  OUT  STD_LOGIC;  --horiztonal sync pulse
+    vgavsync    :  OUT  STD_LOGIC;  --vertical sync pulse
+	 vgacolor : OUT STD_LOGIC_VECTOR(SizeColor-1 downto 0);
+    ramclaim  :  OUT  STD_LOGIC;  --display enable ('1' = display time, '0' = blanking time)	 
+	 ramaddr  :  OUT  STD_LOGIC_VECTOR(SizeRAMAddr-1 downto 0);
+	 ramdata  :  IN  STD_LOGIC_VECTOR(SizeRAMData-1 downto 0); 
+	 ramread : OUT STD_LOGIC;
+	 asb : IN STD_LOGIC
+	 ); 
+END COMPONENT;
+
+SIGNAL ramclaim : std_logic;
+signal ramaddr_int :std_logic_vector(SizeRAMAddr-1 downto 0);
+signal ramdata_int :std_logic_vector(SizeRAMData-1 downto 0);
+signal ramread :std_logic;
+signal asb : std_logic;
+BEGIN
+vga: vgacontroller PORT MAP (clk,reset,vgahsync,vgavsync,vgacolor,ramclaim,ramaddr_int,ramdata_int,ramread,asb);
+END structural;

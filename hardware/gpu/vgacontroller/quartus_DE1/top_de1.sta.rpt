@@ -1,0 +1,1218 @@
+TimeQuest Timing Analyzer report for top_de1
+Mon Nov 18 10:13:00 2013
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'gen6mhz:inst1|count[2]'
+ 12. Slow Model Setup: 'clock_50mhz'
+ 13. Slow Model Hold: 'clock_50mhz'
+ 14. Slow Model Hold: 'gen6mhz:inst1|count[2]'
+ 15. Slow Model Minimum Pulse Width: 'clock_50mhz'
+ 16. Slow Model Minimum Pulse Width: 'gen6mhz:inst1|count[2]'
+ 17. Clock to Output Times
+ 18. Minimum Clock to Output Times
+ 19. Fast Model Setup Summary
+ 20. Fast Model Hold Summary
+ 21. Fast Model Recovery Summary
+ 22. Fast Model Removal Summary
+ 23. Fast Model Minimum Pulse Width Summary
+ 24. Fast Model Setup: 'gen6mhz:inst1|count[2]'
+ 25. Fast Model Setup: 'clock_50mhz'
+ 26. Fast Model Hold: 'clock_50mhz'
+ 27. Fast Model Hold: 'gen6mhz:inst1|count[2]'
+ 28. Fast Model Minimum Pulse Width: 'clock_50mhz'
+ 29. Fast Model Minimum Pulse Width: 'gen6mhz:inst1|count[2]'
+ 30. Clock to Output Times
+ 31. Minimum Clock to Output Times
+ 32. Multicorner Timing Analysis Summary
+ 33. Clock to Output Times
+ 34. Minimum Clock to Output Times
+ 35. Setup Transfers
+ 36. Hold Transfers
+ 37. Report TCCS
+ 38. Report RSKM
+ 39. Unconstrained Paths
+ 40. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; top_de1                                                           ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C20F484C7                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                         ;
++------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------+
+; Clock Name             ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                    ;
++------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------+
+; clock_50mhz            ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clock_50mhz }            ;
+; gen6mhz:inst1|count[2] ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { gen6mhz:inst1|count[2] } ;
++------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Slow Model Fmax Summary                                                                                               ;
++------------+-----------------+------------------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name             ; Note                                                          ;
++------------+-----------------+------------------------+---------------------------------------------------------------+
+; 9.98 MHz   ; 9.98 MHz        ; gen6mhz:inst1|count[2] ;                                                               ;
+; 798.08 MHz ; 380.08 MHz      ; clock_50mhz            ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------------------------+
+; Slow Model Setup Summary                         ;
++------------------------+---------+---------------+
+; Clock                  ; Slack   ; End Point TNS ;
++------------------------+---------+---------------+
+; gen6mhz:inst1|count[2] ; -99.219 ; -1253.521     ;
+; clock_50mhz            ; -0.253  ; -0.253        ;
++------------------------+---------+---------------+
+
+
++-------------------------------------------------+
+; Slow Model Hold Summary                         ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; clock_50mhz            ; -2.690 ; -2.690        ;
+; gen6mhz:inst1|count[2] ; 0.445  ; 0.000         ;
++------------------------+--------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++-------------------------------------------------+
+; Slow Model Minimum Pulse Width Summary          ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; clock_50mhz            ; -1.631 ; -5.297        ;
+; gen6mhz:inst1|count[2] ; -0.611 ; -96.538       ;
++------------------------+--------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'gen6mhz:inst1|count[2]'                                                                                                                                     ;
++---------+----------------------------------------+----------------------------------+------------------------+------------------------+--------------+------------+------------+
+; Slack   ; From Node                              ; To Node                          ; Launch Clock           ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++---------+----------------------------------------+----------------------------------+------------------------+------------------------+--------------+------------+------------+
+; -99.219 ; hw_image_generator:inst4|new_count[31] ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.004      ; 100.261    ;
+; -99.218 ; hw_image_generator:inst4|new_count[31] ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.004      ; 100.260    ;
+; -99.139 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 100.179    ;
+; -99.138 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 100.178    ;
+; -99.109 ; hw_image_generator:inst4|new_count[5]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 100.149    ;
+; -99.108 ; hw_image_generator:inst4|new_count[5]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 100.148    ;
+; -98.885 ; hw_image_generator:inst4|new_count[6]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.925     ;
+; -98.884 ; hw_image_generator:inst4|new_count[6]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.924     ;
+; -98.849 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.889     ;
+; -98.848 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.888     ;
+; -98.831 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.871     ;
+; -98.830 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.870     ;
+; -98.824 ; hw_image_generator:inst4|new_count[31] ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.004      ; 99.866     ;
+; -98.744 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.784     ;
+; -98.726 ; hw_image_generator:inst4|new_count[31] ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.004      ; 99.768     ;
+; -98.724 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.763     ;
+; -98.723 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.762     ;
+; -98.721 ; hw_image_generator:inst4|new_count[31] ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.004      ; 99.763     ;
+; -98.721 ; hw_image_generator:inst4|new_count[31] ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.004      ; 99.763     ;
+; -98.714 ; hw_image_generator:inst4|new_count[5]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.754     ;
+; -98.685 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.724     ;
+; -98.684 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.723     ;
+; -98.658 ; hw_image_generator:inst4|new_count[0]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.698     ;
+; -98.657 ; hw_image_generator:inst4|new_count[0]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.697     ;
+; -98.646 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.686     ;
+; -98.645 ; hw_image_generator:inst4|new_count[4]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.685     ;
+; -98.644 ; hw_image_generator:inst4|new_count[4]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.684     ;
+; -98.641 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.681     ;
+; -98.641 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.681     ;
+; -98.616 ; hw_image_generator:inst4|new_count[5]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.656     ;
+; -98.611 ; hw_image_generator:inst4|new_count[5]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.651     ;
+; -98.611 ; hw_image_generator:inst4|new_count[5]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.651     ;
+; -98.518 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.557     ;
+; -98.517 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.556     ;
+; -98.490 ; hw_image_generator:inst4|new_count[6]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.530     ;
+; -98.454 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.494     ;
+; -98.436 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.476     ;
+; -98.392 ; hw_image_generator:inst4|new_count[6]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.432     ;
+; -98.387 ; hw_image_generator:inst4|new_count[6]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.427     ;
+; -98.387 ; hw_image_generator:inst4|new_count[6]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.427     ;
+; -98.356 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.396     ;
+; -98.353 ; hw_image_generator:inst4|new_count[31] ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.004      ; 99.395     ;
+; -98.351 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.391     ;
+; -98.351 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.391     ;
+; -98.338 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.378     ;
+; -98.333 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.373     ;
+; -98.333 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.373     ;
+; -98.329 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.368     ;
+; -98.290 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.329     ;
+; -98.273 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.313     ;
+; -98.263 ; hw_image_generator:inst4|new_count[0]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.303     ;
+; -98.250 ; hw_image_generator:inst4|new_count[4]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.290     ;
+; -98.243 ; hw_image_generator:inst4|new_count[5]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.283     ;
+; -98.231 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.270     ;
+; -98.226 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.265     ;
+; -98.226 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.265     ;
+; -98.192 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.231     ;
+; -98.187 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.226     ;
+; -98.187 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.226     ;
+; -98.170 ; hw_image_generator:inst4|new_count[1]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.210     ;
+; -98.169 ; hw_image_generator:inst4|new_count[1]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.209     ;
+; -98.165 ; hw_image_generator:inst4|new_count[0]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.205     ;
+; -98.160 ; hw_image_generator:inst4|new_count[0]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.200     ;
+; -98.160 ; hw_image_generator:inst4|new_count[0]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.200     ;
+; -98.152 ; hw_image_generator:inst4|new_count[4]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.192     ;
+; -98.147 ; hw_image_generator:inst4|new_count[4]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.187     ;
+; -98.147 ; hw_image_generator:inst4|new_count[4]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.187     ;
+; -98.123 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.162     ;
+; -98.088 ; hw_image_generator:inst4|new_count[31] ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.004      ; 99.130     ;
+; -98.025 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.064     ;
+; -98.020 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.059     ;
+; -98.020 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 99.059     ;
+; -98.019 ; hw_image_generator:inst4|new_count[6]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.059     ;
+; -98.008 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.048     ;
+; -97.983 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.023     ;
+; -97.978 ; hw_image_generator:inst4|new_count[5]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.018     ;
+; -97.965 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 99.005     ;
+; -97.865 ; hw_image_generator:inst4|new_count[12] ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.905     ;
+; -97.864 ; hw_image_generator:inst4|new_count[12] ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.904     ;
+; -97.858 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 98.897     ;
+; -97.819 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 98.858     ;
+; -97.803 ; hw_image_generator:inst4|new_count[11] ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.843     ;
+; -97.802 ; hw_image_generator:inst4|new_count[11] ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.842     ;
+; -97.792 ; hw_image_generator:inst4|new_count[0]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.832     ;
+; -97.779 ; hw_image_generator:inst4|new_count[4]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.819     ;
+; -97.775 ; hw_image_generator:inst4|new_count[1]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.815     ;
+; -97.754 ; hw_image_generator:inst4|new_count[6]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.794     ;
+; -97.718 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.758     ;
+; -97.700 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.740     ;
+; -97.677 ; hw_image_generator:inst4|new_count[1]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.717     ;
+; -97.672 ; hw_image_generator:inst4|new_count[1]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.712     ;
+; -97.672 ; hw_image_generator:inst4|new_count[1]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.712     ;
+; -97.652 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 98.691     ;
+; -97.593 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 98.632     ;
+; -97.554 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 98.593     ;
+; -97.527 ; hw_image_generator:inst4|new_count[0]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.567     ;
+; -97.514 ; hw_image_generator:inst4|new_count[4]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.554     ;
+; -97.470 ; hw_image_generator:inst4|new_count[12] ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.510     ;
+; -97.408 ; hw_image_generator:inst4|new_count[11] ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 98.448     ;
+; -97.387 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.001      ; 98.426     ;
++---------+----------------------------------------+----------------------------------+------------------------+------------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'clock_50mhz'                                                                                                          ;
++--------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node              ; To Node                ; Launch Clock           ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+; -0.253 ; gen6mhz:inst1|count[1] ; gen6mhz:inst1|count[2] ; clock_50mhz            ; clock_50mhz ; 1.000        ; 0.000      ; 1.291      ;
+; 0.128  ; gen6mhz:inst1|count[0] ; gen6mhz:inst1|count[2] ; clock_50mhz            ; clock_50mhz ; 1.000        ; 0.000      ; 0.910      ;
+; 0.132  ; gen6mhz:inst1|count[0] ; gen6mhz:inst1|count[1] ; clock_50mhz            ; clock_50mhz ; 1.000        ; 0.000      ; 0.906      ;
+; 0.307  ; gen6mhz:inst1|count[0] ; gen6mhz:inst1|count[0] ; clock_50mhz            ; clock_50mhz ; 1.000        ; 0.000      ; 0.731      ;
+; 0.307  ; gen6mhz:inst1|count[1] ; gen6mhz:inst1|count[1] ; clock_50mhz            ; clock_50mhz ; 1.000        ; 0.000      ; 0.731      ;
+; 2.942  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; clock_50mhz ; 0.500        ; 2.858      ; 0.731      ;
+; 3.442  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; clock_50mhz ; 1.000        ; 2.858      ; 0.731      ;
++--------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'clock_50mhz'                                                                                                           ;
++--------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node              ; To Node                ; Launch Clock           ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+; -2.690 ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; clock_50mhz ; 0.000        ; 2.858      ; 0.731      ;
+; -2.190 ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; clock_50mhz ; -0.500       ; 2.858      ; 0.731      ;
+; 0.445  ; gen6mhz:inst1|count[0] ; gen6mhz:inst1|count[0] ; clock_50mhz            ; clock_50mhz ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445  ; gen6mhz:inst1|count[1] ; gen6mhz:inst1|count[1] ; clock_50mhz            ; clock_50mhz ; 0.000        ; 0.000      ; 0.731      ;
+; 0.620  ; gen6mhz:inst1|count[0] ; gen6mhz:inst1|count[1] ; clock_50mhz            ; clock_50mhz ; 0.000        ; 0.000      ; 0.906      ;
+; 0.624  ; gen6mhz:inst1|count[0] ; gen6mhz:inst1|count[2] ; clock_50mhz            ; clock_50mhz ; 0.000        ; 0.000      ; 0.910      ;
+; 1.005  ; gen6mhz:inst1|count[1] ; gen6mhz:inst1|count[2] ; clock_50mhz            ; clock_50mhz ; 0.000        ; 0.000      ; 1.291      ;
++--------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'gen6mhz:inst1|count[2]'                                                                                                                                          ;
++-------+----------------------------------------+----------------------------------------+------------------------+------------------------+--------------+------------+------------+
+; Slack ; From Node                              ; To Node                                ; Launch Clock           ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------+----------------------------------------+------------------------+------------------------+--------------+------------+------------+
+; 0.445 ; hw_image_generator:inst4|ledstate      ; hw_image_generator:inst4|ledstate      ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.731      ;
+; 1.254 ; vga_controller:inst3|v_count[8]        ; vga_controller:inst3|v_count[8]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.540      ;
+; 1.259 ; vga_controller:inst3|v_count[0]        ; vga_controller:inst3|v_count[0]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.545      ;
+; 1.291 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.577      ;
+; 1.378 ; vga_controller:inst3|v_count[2]        ; vga_controller:inst3|v_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.664      ;
+; 1.609 ; vga_controller:inst3|v_count[6]        ; vga_controller:inst3|v_count[6]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.895      ;
+; 1.612 ; vga_controller:inst3|h_count[2]        ; vga_controller:inst3|h_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.898      ;
+; 1.631 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|h_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.917      ;
+; 1.659 ; vga_controller:inst3|v_count[1]        ; vga_controller:inst3|v_count[1]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.945      ;
+; 1.680 ; vga_controller:inst3|v_count[7]        ; vga_controller:inst3|v_count[7]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.966      ;
+; 1.882 ; vga_controller:inst3|v_count[3]        ; vga_controller:inst3|v_count[3]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.168      ;
+; 2.010 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|column[1]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.296      ;
+; 2.010 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|column[2]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.296      ;
+; 2.097 ; vga_controller:inst3|h_count[5]        ; vga_controller:inst3|h_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.383      ;
+; 2.125 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|column[0]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.411      ;
+; 2.143 ; vga_controller:inst3|disp_ena          ; hw_image_generator:inst4|blue[3]       ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.429      ;
+; 2.145 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_count[1]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.431      ;
+; 2.162 ; vga_controller:inst3|h_count[0]        ; vga_controller:inst3|h_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.448      ;
+; 2.193 ; vga_controller:inst3|v_count[8]        ; vga_controller:inst3|row[8]            ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.008      ; 2.487      ;
+; 2.205 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|column[4]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.491      ;
+; 2.206 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_count[4]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.492      ;
+; 2.207 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|column[3]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.493      ;
+; 2.260 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|new_count[9]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.546      ;
+; 2.261 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|new_count[10] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.547      ;
+; 2.261 ; vga_controller:inst3|h_count[4]        ; vga_controller:inst3|h_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.547      ;
+; 2.272 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|column[7]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.558      ;
+; 2.273 ; vga_controller:inst3|disp_ena          ; hw_image_generator:inst4|red[3]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.559      ;
+; 2.312 ; vga_controller:inst3|h_count[5]        ; vga_controller:inst3|h_sync            ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.598      ;
+; 2.317 ; vga_controller:inst3|h_count[5]        ; vga_controller:inst3|column[5]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.603      ;
+; 2.331 ; vga_controller:inst3|h_count[2]        ; vga_controller:inst3|column[2]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.617      ;
+; 2.343 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|column[6]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.629      ;
+; 2.350 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|column[1]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.636      ;
+; 2.350 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|column[2]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.636      ;
+; 2.364 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|column[7]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.650      ;
+; 2.391 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_sync            ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.677      ;
+; 2.396 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|column[5]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.682      ;
+; 2.414 ; vga_controller:inst3|h_count[3]        ; vga_controller:inst3|column[3]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.700      ;
+; 2.427 ; vga_controller:inst3|h_count[4]        ; vga_controller:inst3|column[4]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.713      ;
+; 2.428 ; vga_controller:inst3|h_count[4]        ; vga_controller:inst3|h_count[4]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.714      ;
+; 2.460 ; vga_controller:inst3|h_count[1]        ; vga_controller:inst3|h_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.746      ;
+; 2.461 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_count[0]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.747      ;
+; 2.465 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|column[0]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.751      ;
+; 2.485 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|h_count[1]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.771      ;
+; 2.495 ; hw_image_generator:inst4|new_count[13] ; hw_image_generator:inst4|new_count[13] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.781      ;
+; 2.530 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|new_count[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.816      ;
+; 2.530 ; vga_controller:inst3|h_count[3]        ; vga_controller:inst3|h_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.816      ;
+; 2.545 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|column[4]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.831      ;
+; 2.546 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|h_count[4]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.832      ;
+; 2.547 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|column[3]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.833      ;
+; 2.571 ; vga_controller:inst3|v_count[4]        ; vga_controller:inst3|v_count[6]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.857      ;
+; 2.575 ; vga_controller:inst3|h_count[0]        ; vga_controller:inst3|h_sync            ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.861      ;
+; 2.576 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|h_sync            ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.862      ;
+; 2.586 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_count[3]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.872      ;
+; 2.592 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_count[6]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.878      ;
+; 2.598 ; vga_controller:inst3|v_count[1]        ; vga_controller:inst3|row[1]            ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.008      ; 2.892      ;
+; 2.614 ; vga_controller:inst3|disp_ena          ; hw_image_generator:inst4|blue[0]       ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.900      ;
+; 2.615 ; vga_controller:inst3|h_count[2]        ; vga_controller:inst3|column[3]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.901      ;
+; 2.634 ; vga_controller:inst3|h_count[5]        ; vga_controller:inst3|column[7]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.920      ;
+; 2.642 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|new_count[8]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.928      ;
+; 2.676 ; vga_controller:inst3|v_count[0]        ; vga_controller:inst3|row[0]            ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.008      ; 2.970      ;
+; 2.683 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|h_count[7]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.969      ;
+; 2.683 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|column[6]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.969      ;
+; 2.685 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|new_count[10] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.971      ;
+; 2.691 ; vga_controller:inst3|h_count[2]        ; vga_controller:inst3|column[4]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.977      ;
+; 2.692 ; vga_controller:inst3|h_count[2]        ; vga_controller:inst3|h_count[4]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.978      ;
+; 2.701 ; vga_controller:inst3|h_count[5]        ; vga_controller:inst3|h_count[5]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 2.987      ;
+; 2.718 ; vga_controller:inst3|v_count[4]        ; vga_controller:inst3|v_count[1]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.004      ;
+; 2.720 ; vga_controller:inst3|v_count[4]        ; vga_controller:inst3|v_count[0]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.006      ;
+; 2.733 ; vga_controller:inst3|v_count[4]        ; vga_controller:inst3|v_count[7]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.019      ;
+; 2.736 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|column[5]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.022      ;
+; 2.755 ; vga_controller:inst3|h_count[5]        ; vga_controller:inst3|column[6]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.041      ;
+; 2.775 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_count[7]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.061      ;
+; 2.780 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_count[5]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.066      ;
+; 2.793 ; vga_controller:inst3|h_count[3]        ; vga_controller:inst3|h_count[3]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.079      ;
+; 2.797 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|new_count[13] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; -0.001     ; 3.082      ;
+; 2.801 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|h_count[0]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.087      ;
+; 2.813 ; vga_controller:inst3|h_count[0]        ; vga_controller:inst3|column[3]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.099      ;
+; 2.815 ; vga_controller:inst3|v_count[5]        ; vga_controller:inst3|v_count[5]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.101      ;
+; 2.816 ; vga_controller:inst3|h_count[5]        ; vga_controller:inst3|column[1]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.102      ;
+; 2.816 ; vga_controller:inst3|h_count[5]        ; vga_controller:inst3|column[2]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.102      ;
+; 2.819 ; vga_controller:inst3|v_count[5]        ; vga_controller:inst3|row[5]            ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.105      ;
+; 2.831 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|v_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.010      ; 3.127      ;
+; 2.839 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|v_count[1]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.010      ; 3.135      ;
+; 2.842 ; vga_controller:inst3|h_count[3]        ; vga_controller:inst3|column[4]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.128      ;
+; 2.843 ; vga_controller:inst3|h_count[3]        ; vga_controller:inst3|h_count[4]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.129      ;
+; 2.850 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|v_count[7]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.010      ; 3.146      ;
+; 2.867 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|new_count[8]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.001      ; 3.154      ;
+; 2.869 ; vga_controller:inst3|v_count[2]        ; vga_controller:inst3|v_count[6]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.155      ;
+; 2.869 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|new_count[13] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; -0.001     ; 3.154      ;
+; 2.870 ; vga_controller:inst3|v_count[7]        ; vga_controller:inst3|v_count[6]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.156      ;
+; 2.876 ; vga_controller:inst3|h_count[2]        ; vga_controller:inst3|column[7]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.162      ;
+; 2.878 ; vga_controller:inst3|h_count[0]        ; vga_controller:inst3|column[0]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.164      ;
+; 2.881 ; vga_controller:inst3|h_count[0]        ; vga_controller:inst3|column[2]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.167      ;
+; 2.883 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|v_count[4]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.010      ; 3.179      ;
+; 2.889 ; vga_controller:inst3|h_count[0]        ; vga_controller:inst3|column[4]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.175      ;
+; 2.890 ; vga_controller:inst3|h_count[0]        ; vga_controller:inst3|h_count[4]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.176      ;
+; 2.893 ; hw_image_generator:inst4|new_count[12] ; hw_image_generator:inst4|new_count[13] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.179      ;
+; 2.896 ; vga_controller:inst3|v_count[8]        ; vga_controller:inst3|v_count[6]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.182      ;
+; 2.906 ; vga_controller:inst3|disp_ena          ; hw_image_generator:inst4|red[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.192      ;
+; 2.906 ; vga_controller:inst3|disp_ena          ; hw_image_generator:inst4|red[1]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 3.192      ;
++-------+----------------------------------------+----------------------------------------+------------------------+------------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'clock_50mhz'                                                                       ;
++--------+--------------+----------------+------------------+-------------+------------+------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock       ; Clock Edge ; Target                       ;
++--------+--------------+----------------+------------------+-------------+------------+------------------------------+
+; -1.631 ; 1.000        ; 2.631          ; Port Rate        ; clock_50mhz ; Rise       ; clock_50mhz                  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock_50mhz ; Rise       ; gen6mhz:inst1|count[0]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock_50mhz ; Rise       ; gen6mhz:inst1|count[0]       ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock_50mhz ; Rise       ; gen6mhz:inst1|count[1]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock_50mhz ; Rise       ; gen6mhz:inst1|count[1]       ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clock_50mhz ; Rise       ; gen6mhz:inst1|count[2]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clock_50mhz ; Rise       ; gen6mhz:inst1|count[2]       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_50mhz ; Rise       ; clock_50mhz|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_50mhz ; Rise       ; clock_50mhz|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_50mhz ; Rise       ; clock_50mhz~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_50mhz ; Rise       ; clock_50mhz~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_50mhz ; Rise       ; clock_50mhz~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_50mhz ; Rise       ; clock_50mhz~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_50mhz ; Rise       ; inst1|count[0]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_50mhz ; Rise       ; inst1|count[0]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_50mhz ; Rise       ; inst1|count[1]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_50mhz ; Rise       ; inst1|count[1]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_50mhz ; Rise       ; inst1|count[2]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_50mhz ; Rise       ; inst1|count[2]|clk           ;
++--------+--------------+----------------+------------------+-------------+------------+------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'gen6mhz:inst1|count[2]'                                                                                 ;
++--------+--------------+----------------+------------------+------------------------+------------+----------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock                  ; Clock Edge ; Target                                 ;
++--------+--------------+----------------+------------------+------------------------+------------+----------------------------------------+
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|blue[0]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|blue[0]       ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|blue[1]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|blue[1]       ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|blue[2]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|blue[2]       ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|blue[3]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|blue[3]       ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|ledstate      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|ledstate      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[0]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[0]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[10] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[10] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[11] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[11] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[12] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[12] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[13] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[13] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[14] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[14] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[15] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[15] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[16] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[16] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[17] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[17] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[18] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[18] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[19] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[19] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[1]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[1]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[20] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[20] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[21] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[21] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[22] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[22] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[23] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[23] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[24] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[24] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[25] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[25] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[26] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[26] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[27] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[27] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[28] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[28] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[29] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[29] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[2]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[2]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[30] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[30] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[31] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[31] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[3]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[3]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[4]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[4]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[5]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[5]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[6]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[6]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[7]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[7]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[8]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[8]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[9]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[9]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|red[0]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|red[0]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|red[1]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|red[1]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|red[2]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|red[2]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|red[3]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|red[3]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[0]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[0]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[1]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[1]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[2]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[2]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[3]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[3]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[4]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[4]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[5]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[5]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[6]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[6]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[7]         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[7]         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|disp_ena          ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|disp_ena          ;
++--------+--------------+----------------+------------------+------------------------+------------+----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                     ;
++------------+------------------------+-------+-------+------------+------------------------+
+; Data Port  ; Clock Port             ; Rise  ; Fall  ; Clock Edge ; Clock Reference        ;
++------------+------------------------+-------+-------+------------+------------------------+
+; led_output ; gen6mhz:inst1|count[2] ; 7.601 ; 7.601 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_b[*]   ; gen6mhz:inst1|count[2] ; 8.843 ; 8.843 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[0]  ; gen6mhz:inst1|count[2] ; 8.843 ; 8.843 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[1]  ; gen6mhz:inst1|count[2] ; 8.285 ; 8.285 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[2]  ; gen6mhz:inst1|count[2] ; 8.566 ; 8.566 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[3]  ; gen6mhz:inst1|count[2] ; 8.503 ; 8.503 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_hsync  ; gen6mhz:inst1|count[2] ; 8.271 ; 8.271 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_r[*]   ; gen6mhz:inst1|count[2] ; 9.196 ; 9.196 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[0]  ; gen6mhz:inst1|count[2] ; 8.933 ; 8.933 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[1]  ; gen6mhz:inst1|count[2] ; 9.196 ; 9.196 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[2]  ; gen6mhz:inst1|count[2] ; 9.188 ; 9.188 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[3]  ; gen6mhz:inst1|count[2] ; 8.235 ; 8.235 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_vsync  ; gen6mhz:inst1|count[2] ; 8.271 ; 8.271 ; Rise       ; gen6mhz:inst1|count[2] ;
++------------+------------------------+-------+-------+------------+------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                             ;
++------------+------------------------+-------+-------+------------+------------------------+
+; Data Port  ; Clock Port             ; Rise  ; Fall  ; Clock Edge ; Clock Reference        ;
++------------+------------------------+-------+-------+------------+------------------------+
+; led_output ; gen6mhz:inst1|count[2] ; 7.601 ; 7.601 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_b[*]   ; gen6mhz:inst1|count[2] ; 8.285 ; 8.285 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[0]  ; gen6mhz:inst1|count[2] ; 8.843 ; 8.843 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[1]  ; gen6mhz:inst1|count[2] ; 8.285 ; 8.285 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[2]  ; gen6mhz:inst1|count[2] ; 8.566 ; 8.566 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[3]  ; gen6mhz:inst1|count[2] ; 8.503 ; 8.503 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_hsync  ; gen6mhz:inst1|count[2] ; 8.271 ; 8.271 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_r[*]   ; gen6mhz:inst1|count[2] ; 8.235 ; 8.235 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[0]  ; gen6mhz:inst1|count[2] ; 8.933 ; 8.933 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[1]  ; gen6mhz:inst1|count[2] ; 9.196 ; 9.196 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[2]  ; gen6mhz:inst1|count[2] ; 9.188 ; 9.188 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[3]  ; gen6mhz:inst1|count[2] ; 8.235 ; 8.235 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_vsync  ; gen6mhz:inst1|count[2] ; 8.271 ; 8.271 ; Rise       ; gen6mhz:inst1|count[2] ;
++------------+------------------------+-------+-------+------------+------------------------+
+
+
++--------------------------------------------------+
+; Fast Model Setup Summary                         ;
++------------------------+---------+---------------+
+; Clock                  ; Slack   ; End Point TNS ;
++------------------------+---------+---------------+
+; gen6mhz:inst1|count[2] ; -38.200 ; -437.671      ;
+; clock_50mhz            ; 0.513   ; 0.000         ;
++------------------------+---------+---------------+
+
+
++-------------------------------------------------+
+; Fast Model Hold Summary                         ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; clock_50mhz            ; -1.720 ; -1.720        ;
+; gen6mhz:inst1|count[2] ; 0.215  ; 0.000         ;
++------------------------+--------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++-------------------------------------------------+
+; Fast Model Minimum Pulse Width Summary          ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; clock_50mhz            ; -1.380 ; -4.380        ;
+; gen6mhz:inst1|count[2] ; -0.500 ; -79.000       ;
++------------------------+--------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'gen6mhz:inst1|count[2]'                                                                                                                                     ;
++---------+----------------------------------------+----------------------------------+------------------------+------------------------+--------------+------------+------------+
+; Slack   ; From Node                              ; To Node                          ; Launch Clock           ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++---------+----------------------------------------+----------------------------------+------------------------+------------------------+--------------+------------+------------+
+; -38.200 ; hw_image_generator:inst4|new_count[31] ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.005      ; 39.237     ;
+; -38.199 ; hw_image_generator:inst4|new_count[31] ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.005      ; 39.236     ;
+; -38.137 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 39.172     ;
+; -38.136 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 39.171     ;
+; -38.123 ; hw_image_generator:inst4|new_count[5]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 39.158     ;
+; -38.122 ; hw_image_generator:inst4|new_count[5]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 39.157     ;
+; -38.021 ; hw_image_generator:inst4|new_count[31] ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.005      ; 39.058     ;
+; -38.016 ; hw_image_generator:inst4|new_count[6]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 39.051     ;
+; -38.015 ; hw_image_generator:inst4|new_count[6]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 39.050     ;
+; -38.004 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 39.039     ;
+; -38.003 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 39.038     ;
+; -38.000 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 39.035     ;
+; -37.999 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 39.034     ;
+; -37.969 ; hw_image_generator:inst4|new_count[4]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 39.004     ;
+; -37.968 ; hw_image_generator:inst4|new_count[4]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 39.003     ;
+; -37.958 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.993     ;
+; -37.957 ; hw_image_generator:inst4|new_count[31] ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.005      ; 38.994     ;
+; -37.957 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.991     ;
+; -37.956 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.990     ;
+; -37.951 ; hw_image_generator:inst4|new_count[31] ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.005      ; 38.988     ;
+; -37.951 ; hw_image_generator:inst4|new_count[31] ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.005      ; 38.988     ;
+; -37.951 ; hw_image_generator:inst4|new_count[0]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.986     ;
+; -37.950 ; hw_image_generator:inst4|new_count[0]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.985     ;
+; -37.945 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.979     ;
+; -37.944 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.978     ;
+; -37.944 ; hw_image_generator:inst4|new_count[5]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.979     ;
+; -37.894 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.929     ;
+; -37.888 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.923     ;
+; -37.888 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.923     ;
+; -37.880 ; hw_image_generator:inst4|new_count[5]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.915     ;
+; -37.874 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.908     ;
+; -37.874 ; hw_image_generator:inst4|new_count[5]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.909     ;
+; -37.874 ; hw_image_generator:inst4|new_count[5]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.909     ;
+; -37.873 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.907     ;
+; -37.858 ; hw_image_generator:inst4|new_count[31] ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.005      ; 38.895     ;
+; -37.837 ; hw_image_generator:inst4|new_count[6]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.872     ;
+; -37.825 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.860     ;
+; -37.821 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.856     ;
+; -37.800 ; hw_image_generator:inst4|new_count[1]  ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.835     ;
+; -37.799 ; hw_image_generator:inst4|new_count[1]  ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.834     ;
+; -37.795 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.830     ;
+; -37.790 ; hw_image_generator:inst4|new_count[4]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.825     ;
+; -37.781 ; hw_image_generator:inst4|new_count[5]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.816     ;
+; -37.778 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.812     ;
+; -37.773 ; hw_image_generator:inst4|new_count[6]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.808     ;
+; -37.772 ; hw_image_generator:inst4|new_count[0]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.807     ;
+; -37.767 ; hw_image_generator:inst4|new_count[6]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.802     ;
+; -37.767 ; hw_image_generator:inst4|new_count[6]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.802     ;
+; -37.766 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.800     ;
+; -37.761 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.796     ;
+; -37.757 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.792     ;
+; -37.755 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.790     ;
+; -37.755 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.790     ;
+; -37.751 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.786     ;
+; -37.751 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.786     ;
+; -37.726 ; hw_image_generator:inst4|new_count[4]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.761     ;
+; -37.720 ; hw_image_generator:inst4|new_count[4]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.755     ;
+; -37.720 ; hw_image_generator:inst4|new_count[4]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.755     ;
+; -37.714 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.748     ;
+; -37.708 ; hw_image_generator:inst4|new_count[0]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.743     ;
+; -37.708 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.742     ;
+; -37.708 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.742     ;
+; -37.702 ; hw_image_generator:inst4|new_count[0]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.737     ;
+; -37.702 ; hw_image_generator:inst4|new_count[0]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.737     ;
+; -37.702 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.736     ;
+; -37.696 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.730     ;
+; -37.696 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.730     ;
+; -37.695 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.729     ;
+; -37.691 ; hw_image_generator:inst4|new_count[31] ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.005      ; 38.728     ;
+; -37.674 ; hw_image_generator:inst4|new_count[6]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.709     ;
+; -37.662 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.697     ;
+; -37.658 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.693     ;
+; -37.652 ; hw_image_generator:inst4|new_count[12] ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.687     ;
+; -37.651 ; hw_image_generator:inst4|new_count[12] ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.686     ;
+; -37.631 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.665     ;
+; -37.628 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.663     ;
+; -37.627 ; hw_image_generator:inst4|new_count[11] ; hw_image_generator:inst4|blue[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.662     ;
+; -37.627 ; hw_image_generator:inst4|new_count[4]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.662     ;
+; -37.626 ; hw_image_generator:inst4|new_count[11] ; hw_image_generator:inst4|blue[1] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.661     ;
+; -37.625 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.659     ;
+; -37.625 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.659     ;
+; -37.621 ; hw_image_generator:inst4|new_count[1]  ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.656     ;
+; -37.615 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.649     ;
+; -37.614 ; hw_image_generator:inst4|new_count[5]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.649     ;
+; -37.609 ; hw_image_generator:inst4|new_count[0]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.644     ;
+; -37.603 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.637     ;
+; -37.557 ; hw_image_generator:inst4|new_count[1]  ; hw_image_generator:inst4|red[0]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.592     ;
+; -37.551 ; hw_image_generator:inst4|new_count[1]  ; hw_image_generator:inst4|red[2]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.586     ;
+; -37.551 ; hw_image_generator:inst4|new_count[1]  ; hw_image_generator:inst4|red[1]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.586     ;
+; -37.532 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.566     ;
+; -37.507 ; hw_image_generator:inst4|new_count[6]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.542     ;
+; -37.495 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.530     ;
+; -37.491 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.526     ;
+; -37.473 ; hw_image_generator:inst4|new_count[12] ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.508     ;
+; -37.460 ; hw_image_generator:inst4|new_count[4]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.495     ;
+; -37.458 ; hw_image_generator:inst4|new_count[1]  ; hw_image_generator:inst4|blue[3] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.493     ;
+; -37.448 ; hw_image_generator:inst4|new_count[11] ; hw_image_generator:inst4|blue[0] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.483     ;
+; -37.448 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.482     ;
+; -37.442 ; hw_image_generator:inst4|new_count[0]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.003      ; 38.477     ;
+; -37.436 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|red[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 1.000        ; 0.002      ; 38.470     ;
++---------+----------------------------------------+----------------------------------+------------------------+------------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'clock_50mhz'                                                                                                         ;
++-------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+; Slack ; From Node              ; To Node                ; Launch Clock           ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+; 0.513 ; gen6mhz:inst1|count[1] ; gen6mhz:inst1|count[2] ; clock_50mhz            ; clock_50mhz ; 1.000        ; 0.000      ; 0.519      ;
+; 0.637 ; gen6mhz:inst1|count[0] ; gen6mhz:inst1|count[2] ; clock_50mhz            ; clock_50mhz ; 1.000        ; 0.000      ; 0.395      ;
+; 0.640 ; gen6mhz:inst1|count[0] ; gen6mhz:inst1|count[1] ; clock_50mhz            ; clock_50mhz ; 1.000        ; 0.000      ; 0.392      ;
+; 0.665 ; gen6mhz:inst1|count[0] ; gen6mhz:inst1|count[0] ; clock_50mhz            ; clock_50mhz ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; gen6mhz:inst1|count[1] ; gen6mhz:inst1|count[1] ; clock_50mhz            ; clock_50mhz ; 1.000        ; 0.000      ; 0.367      ;
+; 2.100 ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; clock_50mhz ; 0.500        ; 1.794      ; 0.367      ;
+; 2.600 ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; clock_50mhz ; 1.000        ; 1.794      ; 0.367      ;
++-------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'clock_50mhz'                                                                                                           ;
++--------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node              ; To Node                ; Launch Clock           ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+; -1.720 ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; clock_50mhz ; 0.000        ; 1.794      ; 0.367      ;
+; -1.220 ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; clock_50mhz ; -0.500       ; 1.794      ; 0.367      ;
+; 0.215  ; gen6mhz:inst1|count[0] ; gen6mhz:inst1|count[0] ; clock_50mhz            ; clock_50mhz ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; gen6mhz:inst1|count[1] ; gen6mhz:inst1|count[1] ; clock_50mhz            ; clock_50mhz ; 0.000        ; 0.000      ; 0.367      ;
+; 0.240  ; gen6mhz:inst1|count[0] ; gen6mhz:inst1|count[1] ; clock_50mhz            ; clock_50mhz ; 0.000        ; 0.000      ; 0.392      ;
+; 0.243  ; gen6mhz:inst1|count[0] ; gen6mhz:inst1|count[2] ; clock_50mhz            ; clock_50mhz ; 0.000        ; 0.000      ; 0.395      ;
+; 0.367  ; gen6mhz:inst1|count[1] ; gen6mhz:inst1|count[2] ; clock_50mhz            ; clock_50mhz ; 0.000        ; 0.000      ; 0.519      ;
++--------+------------------------+------------------------+------------------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'gen6mhz:inst1|count[2]'                                                                                                                                          ;
++-------+----------------------------------------+----------------------------------------+------------------------+------------------------+--------------+------------+------------+
+; Slack ; From Node                              ; To Node                                ; Launch Clock           ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------+----------------------------------------+------------------------+------------------------+--------------+------------+------------+
+; 0.215 ; hw_image_generator:inst4|ledstate      ; hw_image_generator:inst4|ledstate      ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.367      ;
+; 0.461 ; vga_controller:inst3|v_count[0]        ; vga_controller:inst3|v_count[0]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.613      ;
+; 0.482 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.634      ;
+; 0.497 ; vga_controller:inst3|v_count[8]        ; vga_controller:inst3|v_count[8]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.649      ;
+; 0.513 ; vga_controller:inst3|v_count[2]        ; vga_controller:inst3|v_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.665      ;
+; 0.606 ; vga_controller:inst3|v_count[1]        ; vga_controller:inst3|v_count[1]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.758      ;
+; 0.613 ; vga_controller:inst3|v_count[7]        ; vga_controller:inst3|v_count[7]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.765      ;
+; 0.617 ; vga_controller:inst3|h_count[2]        ; vga_controller:inst3|h_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.769      ;
+; 0.621 ; vga_controller:inst3|v_count[6]        ; vga_controller:inst3|v_count[6]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.773      ;
+; 0.624 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|h_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.776      ;
+; 0.719 ; vga_controller:inst3|v_count[3]        ; vga_controller:inst3|v_count[3]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.871      ;
+; 0.737 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|column[1]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.889      ;
+; 0.738 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|column[2]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.890      ;
+; 0.757 ; vga_controller:inst3|h_count[5]        ; vga_controller:inst3|h_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.909      ;
+; 0.797 ; vga_controller:inst3|disp_ena          ; hw_image_generator:inst4|blue[3]       ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.949      ;
+; 0.799 ; vga_controller:inst3|h_count[0]        ; vga_controller:inst3|h_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.951      ;
+; 0.817 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|new_count[10] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.969      ;
+; 0.821 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_count[1]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.973      ;
+; 0.824 ; vga_controller:inst3|h_count[4]        ; vga_controller:inst3|h_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.976      ;
+; 0.827 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|new_count[9]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.979      ;
+; 0.829 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|column[0]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.981      ;
+; 0.837 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|column[7]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.989      ;
+; 0.840 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|column[4]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.992      ;
+; 0.841 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_count[4]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.993      ;
+; 0.841 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|column[3]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.993      ;
+; 0.842 ; vga_controller:inst3|disp_ena          ; hw_image_generator:inst4|red[3]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 0.994      ;
+; 0.857 ; vga_controller:inst3|h_count[5]        ; vga_controller:inst3|h_sync            ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.009      ;
+; 0.862 ; vga_controller:inst3|h_count[5]        ; vga_controller:inst3|column[5]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.014      ;
+; 0.866 ; vga_controller:inst3|v_count[8]        ; vga_controller:inst3|row[8]            ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.007      ; 1.025      ;
+; 0.873 ; vga_controller:inst3|h_count[2]        ; vga_controller:inst3|column[2]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.025      ;
+; 0.877 ; vga_controller:inst3|h_count[3]        ; vga_controller:inst3|column[3]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.029      ;
+; 0.879 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|column[1]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.031      ;
+; 0.879 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_sync            ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.031      ;
+; 0.880 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|column[2]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.032      ;
+; 0.880 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|column[7]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.032      ;
+; 0.881 ; vga_controller:inst3|h_count[4]        ; vga_controller:inst3|column[4]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.033      ;
+; 0.882 ; vga_controller:inst3|h_count[4]        ; vga_controller:inst3|h_count[4]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.034      ;
+; 0.884 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|column[5]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.036      ;
+; 0.886 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|column[6]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.038      ;
+; 0.892 ; vga_controller:inst3|h_count[1]        ; vga_controller:inst3|h_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.044      ;
+; 0.910 ; hw_image_generator:inst4|new_count[13] ; hw_image_generator:inst4|new_count[13] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.062      ;
+; 0.915 ; hw_image_generator:inst4|new_count[3]  ; hw_image_generator:inst4|new_count[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.067      ;
+; 0.921 ; vga_controller:inst3|h_count[0]        ; vga_controller:inst3|h_sync            ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.073      ;
+; 0.934 ; vga_controller:inst3|h_count[2]        ; vga_controller:inst3|column[3]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.086      ;
+; 0.938 ; vga_controller:inst3|h_count[3]        ; vga_controller:inst3|h_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.090      ;
+; 0.940 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_count[0]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.092      ;
+; 0.952 ; vga_controller:inst3|h_count[5]        ; vga_controller:inst3|column[7]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.104      ;
+; 0.960 ; vga_controller:inst3|disp_ena          ; hw_image_generator:inst4|blue[0]       ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.112      ;
+; 0.960 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|h_sync            ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.112      ;
+; 0.962 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|new_count[10] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.114      ;
+; 0.963 ; vga_controller:inst3|v_count[4]        ; vga_controller:inst3|v_count[6]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.115      ;
+; 0.963 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|h_count[1]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.115      ;
+; 0.965 ; vga_controller:inst3|h_count[2]        ; vga_controller:inst3|column[4]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.117      ;
+; 0.966 ; vga_controller:inst3|h_count[2]        ; vga_controller:inst3|h_count[4]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.118      ;
+; 0.970 ; vga_controller:inst3|v_count[1]        ; vga_controller:inst3|row[1]            ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.007      ; 1.129      ;
+; 0.971 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|column[0]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.123      ;
+; 0.976 ; hw_image_generator:inst4|new_count[8]  ; hw_image_generator:inst4|new_count[8]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.128      ;
+; 0.978 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_count[6]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.130      ;
+; 0.982 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|column[4]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.134      ;
+; 0.983 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|h_count[4]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.135      ;
+; 0.983 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|column[3]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.135      ;
+; 0.992 ; vga_controller:inst3|v_count[4]        ; vga_controller:inst3|v_count[1]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.144      ;
+; 0.994 ; vga_controller:inst3|v_count[4]        ; vga_controller:inst3|v_count[0]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.146      ;
+; 0.998 ; vga_controller:inst3|v_count[4]        ; vga_controller:inst3|v_count[7]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.150      ;
+; 1.010 ; hw_image_generator:inst4|new_count[10] ; hw_image_generator:inst4|new_count[13] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; -0.001     ; 1.161      ;
+; 1.011 ; vga_controller:inst3|h_count[3]        ; vga_controller:inst3|column[4]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.163      ;
+; 1.012 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_count[3]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.164      ;
+; 1.012 ; vga_controller:inst3|h_count[5]        ; vga_controller:inst3|column[1]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.164      ;
+; 1.012 ; vga_controller:inst3|h_count[5]        ; vga_controller:inst3|column[6]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.164      ;
+; 1.012 ; vga_controller:inst3|h_count[3]        ; vga_controller:inst3|h_count[4]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.164      ;
+; 1.013 ; vga_controller:inst3|h_count[5]        ; vga_controller:inst3|column[2]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.165      ;
+; 1.013 ; vga_controller:inst3|h_count[0]        ; vga_controller:inst3|column[3]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.165      ;
+; 1.025 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|h_count[7]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.177      ;
+; 1.026 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|column[5]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.178      ;
+; 1.033 ; vga_controller:inst3|h_count[5]        ; vga_controller:inst3|h_count[5]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.185      ;
+; 1.041 ; hw_image_generator:inst4|new_count[2]  ; hw_image_generator:inst4|new_count[3]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.193      ;
+; 1.044 ; vga_controller:inst3|h_count[0]        ; vga_controller:inst3|column[4]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.196      ;
+; 1.045 ; vga_controller:inst3|h_count[0]        ; vga_controller:inst3|h_count[4]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.197      ;
+; 1.047 ; vga_controller:inst3|v_count[0]        ; vga_controller:inst3|row[0]            ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.007      ; 1.206      ;
+; 1.048 ; vga_controller:inst3|h_count[3]        ; vga_controller:inst3|h_count[3]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.200      ;
+; 1.052 ; hw_image_generator:inst4|new_count[12] ; hw_image_generator:inst4|new_count[13] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.204      ;
+; 1.052 ; hw_image_generator:inst4|new_count[9]  ; hw_image_generator:inst4|new_count[13] ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; -0.001     ; 1.203      ;
+; 1.055 ; vga_controller:inst3|h_count[0]        ; vga_controller:inst3|column[2]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.207      ;
+; 1.055 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_count[5]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.207      ;
+; 1.057 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|v_count[2]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.011      ; 1.220      ;
+; 1.059 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|v_count[1]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.011      ; 1.222      ;
+; 1.059 ; vga_controller:inst3|h_count[2]        ; vga_controller:inst3|column[7]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.211      ;
+; 1.061 ; vga_controller:inst3|h_count[0]        ; vga_controller:inst3|column[1]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.213      ;
+; 1.062 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|v_count[7]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.011      ; 1.225      ;
+; 1.062 ; hw_image_generator:inst4|new_count[7]  ; hw_image_generator:inst4|new_count[8]  ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.001      ; 1.215      ;
+; 1.063 ; vga_controller:inst3|h_count[7]        ; vga_controller:inst3|column[6]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.215      ;
+; 1.066 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|v_count[4]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.011      ; 1.229      ;
+; 1.067 ; vga_controller:inst3|h_count[2]        ; vga_controller:inst3|h_sync            ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.219      ;
+; 1.068 ; vga_controller:inst3|h_count[6]        ; vga_controller:inst3|h_count[7]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.220      ;
+; 1.071 ; vga_controller:inst3|v_count[6]        ; vga_controller:inst3|v_count[7]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.223      ;
+; 1.072 ; vga_controller:inst3|h_count[2]        ; vga_controller:inst3|column[5]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.224      ;
+; 1.076 ; vga_controller:inst3|v_count[2]        ; vga_controller:inst3|v_count[6]        ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.228      ;
+; 1.078 ; vga_controller:inst3|h_count[2]        ; vga_controller:inst3|column[1]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.230      ;
+; 1.078 ; vga_controller:inst3|h_count[4]        ; vga_controller:inst3|column[7]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.230      ;
+; 1.079 ; vga_controller:inst3|h_count[4]        ; vga_controller:inst3|column[1]         ; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; 0.000        ; 0.000      ; 1.231      ;
++-------+----------------------------------------+----------------------------------------+------------------------+------------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'clock_50mhz'                                                                       ;
++--------+--------------+----------------+------------------+-------------+------------+------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock       ; Clock Edge ; Target                       ;
++--------+--------------+----------------+------------------+-------------+------------+------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clock_50mhz ; Rise       ; clock_50mhz                  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock_50mhz ; Rise       ; gen6mhz:inst1|count[0]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock_50mhz ; Rise       ; gen6mhz:inst1|count[0]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock_50mhz ; Rise       ; gen6mhz:inst1|count[1]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock_50mhz ; Rise       ; gen6mhz:inst1|count[1]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clock_50mhz ; Rise       ; gen6mhz:inst1|count[2]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clock_50mhz ; Rise       ; gen6mhz:inst1|count[2]       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_50mhz ; Rise       ; clock_50mhz|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_50mhz ; Rise       ; clock_50mhz|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_50mhz ; Rise       ; clock_50mhz~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_50mhz ; Rise       ; clock_50mhz~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_50mhz ; Rise       ; clock_50mhz~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_50mhz ; Rise       ; clock_50mhz~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_50mhz ; Rise       ; inst1|count[0]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_50mhz ; Rise       ; inst1|count[0]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_50mhz ; Rise       ; inst1|count[1]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_50mhz ; Rise       ; inst1|count[1]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_50mhz ; Rise       ; inst1|count[2]|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_50mhz ; Rise       ; inst1|count[2]|clk           ;
++--------+--------------+----------------+------------------+-------------+------------+------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'gen6mhz:inst1|count[2]'                                                                                 ;
++--------+--------------+----------------+------------------+------------------------+------------+----------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock                  ; Clock Edge ; Target                                 ;
++--------+--------------+----------------+------------------+------------------------+------------+----------------------------------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|blue[0]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|blue[0]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|blue[1]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|blue[1]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|blue[2]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|blue[2]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|blue[3]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|blue[3]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|ledstate      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|ledstate      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[10] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[10] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[11] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[11] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[12] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[12] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[13] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[13] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[14] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[14] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[15] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[15] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[16] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[16] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[17] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[17] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[18] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[18] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[19] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[19] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[20] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[20] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[21] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[21] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[22] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[22] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[23] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[23] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[24] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[24] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[25] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[25] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[26] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[26] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[27] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[27] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[28] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[28] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[29] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[29] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[2]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[2]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[30] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[30] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[31] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[31] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[3]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[3]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[5]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[5]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[6]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[6]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[7]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[7]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[8]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[8]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[9]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|new_count[9]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|red[0]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|red[0]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|red[1]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|red[1]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|red[2]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|red[2]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|red[3]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; hw_image_generator:inst4|red[3]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[0]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[0]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[1]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[1]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[2]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[2]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[3]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[3]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[4]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[4]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[5]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[5]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[6]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[6]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[7]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|column[7]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|disp_ena          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; gen6mhz:inst1|count[2] ; Rise       ; vga_controller:inst3|disp_ena          ;
++--------+--------------+----------------+------------------+------------------------+------------+----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                     ;
++------------+------------------------+-------+-------+------------+------------------------+
+; Data Port  ; Clock Port             ; Rise  ; Fall  ; Clock Edge ; Clock Reference        ;
++------------+------------------------+-------+-------+------------+------------------------+
+; led_output ; gen6mhz:inst1|count[2] ; 3.919 ; 3.919 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_b[*]   ; gen6mhz:inst1|count[2] ; 4.456 ; 4.456 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[0]  ; gen6mhz:inst1|count[2] ; 4.456 ; 4.456 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[1]  ; gen6mhz:inst1|count[2] ; 4.238 ; 4.238 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[2]  ; gen6mhz:inst1|count[2] ; 4.348 ; 4.348 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[3]  ; gen6mhz:inst1|count[2] ; 4.295 ; 4.295 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_hsync  ; gen6mhz:inst1|count[2] ; 4.236 ; 4.236 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_r[*]   ; gen6mhz:inst1|count[2] ; 4.599 ; 4.599 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[0]  ; gen6mhz:inst1|count[2] ; 4.505 ; 4.505 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[1]  ; gen6mhz:inst1|count[2] ; 4.597 ; 4.597 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[2]  ; gen6mhz:inst1|count[2] ; 4.599 ; 4.599 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[3]  ; gen6mhz:inst1|count[2] ; 4.267 ; 4.267 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_vsync  ; gen6mhz:inst1|count[2] ; 4.224 ; 4.224 ; Rise       ; gen6mhz:inst1|count[2] ;
++------------+------------------------+-------+-------+------------+------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                             ;
++------------+------------------------+-------+-------+------------+------------------------+
+; Data Port  ; Clock Port             ; Rise  ; Fall  ; Clock Edge ; Clock Reference        ;
++------------+------------------------+-------+-------+------------+------------------------+
+; led_output ; gen6mhz:inst1|count[2] ; 3.919 ; 3.919 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_b[*]   ; gen6mhz:inst1|count[2] ; 4.238 ; 4.238 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[0]  ; gen6mhz:inst1|count[2] ; 4.456 ; 4.456 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[1]  ; gen6mhz:inst1|count[2] ; 4.238 ; 4.238 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[2]  ; gen6mhz:inst1|count[2] ; 4.348 ; 4.348 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[3]  ; gen6mhz:inst1|count[2] ; 4.295 ; 4.295 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_hsync  ; gen6mhz:inst1|count[2] ; 4.236 ; 4.236 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_r[*]   ; gen6mhz:inst1|count[2] ; 4.267 ; 4.267 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[0]  ; gen6mhz:inst1|count[2] ; 4.505 ; 4.505 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[1]  ; gen6mhz:inst1|count[2] ; 4.597 ; 4.597 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[2]  ; gen6mhz:inst1|count[2] ; 4.599 ; 4.599 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[3]  ; gen6mhz:inst1|count[2] ; 4.267 ; 4.267 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_vsync  ; gen6mhz:inst1|count[2] ; 4.224 ; 4.224 ; Rise       ; gen6mhz:inst1|count[2] ;
++------------+------------------------+-------+-------+------------+------------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                     ;
++-------------------------+-----------+--------+----------+---------+---------------------+
+; Clock                   ; Setup     ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
++-------------------------+-----------+--------+----------+---------+---------------------+
+; Worst-case Slack        ; -99.219   ; -2.690 ; N/A      ; N/A     ; -1.631              ;
+;  clock_50mhz            ; -0.253    ; -2.690 ; N/A      ; N/A     ; -1.631              ;
+;  gen6mhz:inst1|count[2] ; -99.219   ; 0.215  ; N/A      ; N/A     ; -0.611              ;
+; Design-wide TNS         ; -1253.774 ; -2.69  ; 0.0      ; 0.0     ; -101.835            ;
+;  clock_50mhz            ; -0.253    ; -2.690 ; N/A      ; N/A     ; -5.297              ;
+;  gen6mhz:inst1|count[2] ; -1253.521 ; 0.000  ; N/A      ; N/A     ; -96.538             ;
++-------------------------+-----------+--------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                     ;
++------------+------------------------+-------+-------+------------+------------------------+
+; Data Port  ; Clock Port             ; Rise  ; Fall  ; Clock Edge ; Clock Reference        ;
++------------+------------------------+-------+-------+------------+------------------------+
+; led_output ; gen6mhz:inst1|count[2] ; 7.601 ; 7.601 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_b[*]   ; gen6mhz:inst1|count[2] ; 8.843 ; 8.843 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[0]  ; gen6mhz:inst1|count[2] ; 8.843 ; 8.843 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[1]  ; gen6mhz:inst1|count[2] ; 8.285 ; 8.285 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[2]  ; gen6mhz:inst1|count[2] ; 8.566 ; 8.566 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[3]  ; gen6mhz:inst1|count[2] ; 8.503 ; 8.503 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_hsync  ; gen6mhz:inst1|count[2] ; 8.271 ; 8.271 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_r[*]   ; gen6mhz:inst1|count[2] ; 9.196 ; 9.196 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[0]  ; gen6mhz:inst1|count[2] ; 8.933 ; 8.933 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[1]  ; gen6mhz:inst1|count[2] ; 9.196 ; 9.196 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[2]  ; gen6mhz:inst1|count[2] ; 9.188 ; 9.188 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[3]  ; gen6mhz:inst1|count[2] ; 8.235 ; 8.235 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_vsync  ; gen6mhz:inst1|count[2] ; 8.271 ; 8.271 ; Rise       ; gen6mhz:inst1|count[2] ;
++------------+------------------------+-------+-------+------------+------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                             ;
++------------+------------------------+-------+-------+------------+------------------------+
+; Data Port  ; Clock Port             ; Rise  ; Fall  ; Clock Edge ; Clock Reference        ;
++------------+------------------------+-------+-------+------------+------------------------+
+; led_output ; gen6mhz:inst1|count[2] ; 3.919 ; 3.919 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_b[*]   ; gen6mhz:inst1|count[2] ; 4.238 ; 4.238 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[0]  ; gen6mhz:inst1|count[2] ; 4.456 ; 4.456 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[1]  ; gen6mhz:inst1|count[2] ; 4.238 ; 4.238 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[2]  ; gen6mhz:inst1|count[2] ; 4.348 ; 4.348 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_b[3]  ; gen6mhz:inst1|count[2] ; 4.295 ; 4.295 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_hsync  ; gen6mhz:inst1|count[2] ; 4.236 ; 4.236 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_r[*]   ; gen6mhz:inst1|count[2] ; 4.267 ; 4.267 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[0]  ; gen6mhz:inst1|count[2] ; 4.505 ; 4.505 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[1]  ; gen6mhz:inst1|count[2] ; 4.597 ; 4.597 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[2]  ; gen6mhz:inst1|count[2] ; 4.599 ; 4.599 ; Rise       ; gen6mhz:inst1|count[2] ;
+;  vga_r[3]  ; gen6mhz:inst1|count[2] ; 4.267 ; 4.267 ; Rise       ; gen6mhz:inst1|count[2] ;
+; vga_vsync  ; gen6mhz:inst1|count[2] ; 4.224 ; 4.224 ; Rise       ; gen6mhz:inst1|count[2] ;
++------------+------------------------+-------+-------+------------+------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                 ;
++------------------------+------------------------+--------------+----------+----------+----------+
+; From Clock             ; To Clock               ; RR Paths     ; FR Paths ; RF Paths ; FF Paths ;
++------------------------+------------------------+--------------+----------+----------+----------+
+; clock_50mhz            ; clock_50mhz            ; 5            ; 0        ; 0        ; 0        ;
+; gen6mhz:inst1|count[2] ; clock_50mhz            ; 1            ; 1        ; 0        ; 0        ;
+; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; > 2147483647 ; 0        ; 0        ; 0        ;
++------------------------+------------------------+--------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                  ;
++------------------------+------------------------+--------------+----------+----------+----------+
+; From Clock             ; To Clock               ; RR Paths     ; FR Paths ; RF Paths ; FF Paths ;
++------------------------+------------------------+--------------+----------+----------+----------+
+; clock_50mhz            ; clock_50mhz            ; 5            ; 0        ; 0        ; 0        ;
+; gen6mhz:inst1|count[2] ; clock_50mhz            ; 1            ; 1        ; 0        ; 0        ;
+; gen6mhz:inst1|count[2] ; gen6mhz:inst1|count[2] ; > 2147483647 ; 0        ; 0        ; 0        ;
++------------------------+------------------------+--------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 38    ; 38   ;
+; Unconstrained Output Ports      ; 11    ; 11   ;
+; Unconstrained Output Port Paths ; 11    ; 11   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon Nov 18 10:12:58 2013
+Info: Command: quartus_sta de1 -c top_de1
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'top_de1.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name gen6mhz:inst1|count[2] gen6mhz:inst1|count[2]
+    Info (332105): create_clock -period 1.000 -name clock_50mhz clock_50mhz
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -99.219
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):   -99.219     -1253.521 gen6mhz:inst1|count[2] 
+    Info (332119):    -0.253        -0.253 clock_50mhz 
+Info (332146): Worst-case hold slack is -2.690
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -2.690        -2.690 clock_50mhz 
+    Info (332119):     0.445         0.000 gen6mhz:inst1|count[2] 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.631
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.631        -5.297 clock_50mhz 
+    Info (332119):    -0.611       -96.538 gen6mhz:inst1|count[2] 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -38.200
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):   -38.200      -437.671 gen6mhz:inst1|count[2] 
+    Info (332119):     0.513         0.000 clock_50mhz 
+Info (332146): Worst-case hold slack is -1.720
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.720        -1.720 clock_50mhz 
+    Info (332119):     0.215         0.000 gen6mhz:inst1|count[2] 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380        -4.380 clock_50mhz 
+    Info (332119):    -0.500       -79.000 gen6mhz:inst1|count[2] 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 513 megabytes
+    Info: Processing ended: Mon Nov 18 10:13:00 2013
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+

@@ -1,0 +1,223 @@
+Library vendor : Model Technology
+Maximum unnamed designs : 3
+ENTITY gpu
+    Source modified time: Mon Nov 18 14:38:25 2013
+    Depends on: P work parameter_def V[2MMolUaU>:<Ic73DRPR0
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Source directory: /GWTF
+    HDL source file: VHDL/gpu.vhd
+    Source file: VHDL/gpu.vhd
+    Start location: VHDL/gpu.vhd:5
+    Version string: KF?7Knoa[>oXSNjN1PfU;1
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -2002 -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Debug Symbol file exists
+  ARCHITECTURE BODY structural
+    Source modified time: Mon Nov 18 14:59:49 2013
+    Depends on: E work gpu KF?7Knoa[>oXSNjN1PfU;1
+    Depends on: P work parameter_def V[2MMolUaU>:<Ic73DRPR0
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    HDL source file: VHDL/gpu-structural.vhd
+    Source file: VHDL/gpu-structural.vhd
+    Start location: VHDL/gpu-structural.vhd:5
+    Version string: <BjCjAV=:cSZaoO3zTO^g0
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -2002 -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Source directory: /GWTF
+    Debug Symbol file exists
+VHDL CONFIGURATION gpu_structural_cfg
+    Configuration for architecture: structural
+    Configuration for entity: gpu
+    Depends on: E work spi =6RjKnfgY>f9DiA;HWzgo2
+    Depends on: E work vgacontroller KRW?DFF`:50<oT2oDJ@<e2
+    Depends on: P ieee std_logic_arith 4`Y?g_lkdn;7UL9IiJck01
+    Depends on: C work spi_logic_cfg AXm01<I<nIdT>bVhW11Q90
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: C work vgacontroller_behaviour_cfg J]b23<g<Yc=MXmT7LA;[J1
+    Depends on: A work gpu structural <BjCjAV=:cSZaoO3zTO^g0
+    Depends on: P work parameter_def V[2MMolUaU>:<Ic73DRPR0
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Depends on: E work gpu KF?7Knoa[>oXSNjN1PfU;1
+    Source modified time: Mon Nov 18 15:25:10 2013
+    Source directory: /GWTF
+    HDL source file: VHDL/gpu_structural_cfg.vhd
+    Source file: VHDL/gpu_structural_cfg.vhd
+    Start location: VHDL/gpu_structural_cfg.vhd:1
+    Version string: 14kzCLTzkWgo6>5S@M@Y51
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+VHDL PACKAGE parameter_def
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Source modified time: Mon Nov 18 14:57:27 2013
+    Source directory: /GWTF
+    HDL source file: VHDL/parameter_def_pkg.vhd
+    Source file: VHDL/parameter_def_pkg.vhd
+    Start location: VHDL/parameter_def_pkg.vhd:4
+    Version string: V[2MMolUaU>:<Ic73DRPR0
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Needs a body: 1
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Debug Symbol file exists
+  PACKAGE BODY parameter_def
+    Depends on: P work parameter_def V[2MMolUaU>:<Ic73DRPR0
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Start location: VHDL/parameter_def_pkg.vhd:16
+    Version string: <CQf5ALS8Tn6e2k7`:gh93
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Short name: body
+    Source directory: /GWTF
+    Source file: VHDL/parameter_def_pkg.vhd
+    Source modified time: Mon Nov 18 14:57:27 2013
+    HDL source file: VHDL/parameter_def_pkg.vhd
+    Debug Symbol file exists
+ENTITY spi
+    Source modified time: Mon Nov 18 14:56:50 2013
+    Depends on: P work parameter_def V[2MMolUaU>:<Ic73DRPR0
+    Depends on: P ieee std_logic_arith 4`Y?g_lkdn;7UL9IiJck01
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Source directory: /GWTF
+    HDL source file: VHDL/spi.vhd
+    Source file: VHDL/spi.vhd
+    Start location: VHDL/spi.vhd:6
+    Version string: =6RjKnfgY>f9DiA;HWzgo2
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -2002 -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Debug Symbol file exists
+  ARCHITECTURE BODY logic
+    Source modified time: Mon Nov 18 15:19:30 2013
+    Depends on: E work spi =6RjKnfgY>f9DiA;HWzgo2
+    Depends on: P work parameter_def V[2MMolUaU>:<Ic73DRPR0
+    Depends on: P ieee std_logic_arith 4`Y?g_lkdn;7UL9IiJck01
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    HDL source file: VHDL/spi-logic.vhd
+    Source file: VHDL/spi-logic.vhd
+    Start location: VHDL/spi-logic.vhd:6
+    Version string: DL5n]JdS=eOL=0m?LATGo2
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -2002 -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Source directory: /GWTF
+    Debug Symbol file exists
+VHDL CONFIGURATION spi_logic_cfg
+    Configuration for architecture: logic
+    Configuration for entity: spi
+    Depends on: A work spi logic DL5n]JdS=eOL=0m?LATGo2
+    Depends on: P work parameter_def V[2MMolUaU>:<Ic73DRPR0
+    Depends on: P ieee std_logic_arith 4`Y?g_lkdn;7UL9IiJck01
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Depends on: E work spi =6RjKnfgY>f9DiA;HWzgo2
+    Source modified time: Mon Nov 18 15:25:04 2013
+    Source directory: /GWTF
+    HDL source file: VHDL/spi_logic_cfg.vhd
+    Source file: VHDL/spi_logic_cfg.vhd
+    Start location: VHDL/spi_logic_cfg.vhd:1
+    Version string: AXm01<I<nIdT>bVhW11Q90
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+ENTITY spi_slave
+    Source modified time: Mon Nov 18 15:29:18 2013
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Source directory: /GWTF
+    HDL source file: VHDL/spi.vhd
+    Source file: VHDL/spi.vhd
+    Start location: VHDL/spi.vhd:5
+    Version string: ^PY`<?l=;d8_lQ6cU4a9C0
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Debug Symbol file exists
+  ARCHITECTURE BODY behavioral
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Depends on: E work spi_slave ^PY`<?l=;d8_lQ6cU4a9C0
+    Start location: VHDL/spi.vhd:15
+    Version string: OUEcSg49DKLJA;60B1R`S2
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Source directory: /GWTF
+    Source file: VHDL/spi.vhd
+    Source modified time: Mon Nov 18 15:29:18 2013
+    HDL source file: VHDL/spi.vhd
+    Debug Symbol file exists
+ENTITY vgacontroller
+    Source modified time: Mon Nov 18 14:54:01 2013
+    Depends on: P work parameter_def V[2MMolUaU>:<Ic73DRPR0
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Source directory: /GWTF
+    HDL source file: VHDL/vgacontroller.vhd
+    Source file: VHDL/vgacontroller.vhd
+    Start location: VHDL/vgacontroller.vhd:6
+    Version string: KRW?DFF`:50<oT2oDJ@<e2
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Debug Symbol file exists
+  ARCHITECTURE BODY behaviour
+    Source modified time: Mon Nov 18 15:24:49 2013
+    Depends on: E work vgacontroller KRW?DFF`:50<oT2oDJ@<e2
+    Depends on: P work parameter_def V[2MMolUaU>:<Ic73DRPR0
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Source directory: GWTF
+    HDL source file: VHDL/vgacontroller-behaviour.vhd
+    Source file: VHDL/vgacontroller-behaviour.vhd
+    Start location: VHDL/vgacontroller-behaviour.vhd:6
+    Version string: L27eD2YN:PmJN7[NBNgRd2
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Debug Symbol file exists
+VHDL CONFIGURATION vgacontroller_behaviour_cfg
+    Configuration for architecture: behaviour
+    Configuration for entity: vgacontroller
+    Depends on: A work vgacontroller behaviour L27eD2YN:PmJN7[NBNgRd2
+    Depends on: P work parameter_def V[2MMolUaU>:<Ic73DRPR0
+    Depends on: P ieee numeric_std O3PF8EB`?j9=z7KT`fn941
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Depends on: E work vgacontroller KRW?DFF`:50<oT2oDJ@<e2
+    Source modified time: Mon Nov 18 15:24:13 2013
+    Source directory: /GWTF
+    HDL source file: VHDL/vgacontroller_behaviour_cfg.vhd
+    Source file: VHDL/vgacontroller_behaviour_cfg.vhd
+    Start location: VHDL/vgacontroller_behaviour_cfg.vhd:1
+    Version string: J]b23<g<Yc=MXmT7LA;[J1
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
