@@ -2,6 +2,9 @@ library IEEE;
 use IEEE.std_logic_1164.ALL;
 
 PACKAGE parameter_def IS
+	constant InstrSize : INTEGER;
+	constant InstrPacketSize : INTEGER;
+	constant MaxNumInstrPackets : INTEGER;
 	constant NumDrawModules : INTEGER;
 	constant SizeX : INTEGER;
 	constant SizeY : INTEGER;
@@ -14,6 +17,9 @@ PACKAGE parameter_def IS
 END parameter_def;
 
 PACKAGE BODY parameter_def IS
+	constant InstrSize : INTEGER := 4; --bits
+	constant InstrPacketSize : INTEGER := 8; --bits
+	constant MaxNumInstrPackets : INTEGER := 3; -- aantal bits voor counter, log2(7 bytes) => 3 bits
 	constant NumDrawModules : INTEGER := 4; -- 0: pixel; 1: square; 2: line; 3: circle;
 	constant SizeX : INTEGER := 8;
 	constant SizeY : INTEGER := 7;
