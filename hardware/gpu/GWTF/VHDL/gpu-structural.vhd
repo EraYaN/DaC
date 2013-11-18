@@ -18,7 +18,7 @@ COMPONENT vgacontroller IS
 	 ); 
 END COMPONENT;
 COMPONENT spi IS
- PORT(
+     PORT(
     sclk         : IN     STD_LOGIC;  --spi clk from master
     reset_n      : IN     STD_LOGIC;  --active low reset
     ss_n         : IN     STD_LOGIC;  --active low slave select
@@ -99,3 +99,9 @@ spi1: spi PORT MAP (
 );
 
 END structural;
+
+
+
+
+
+

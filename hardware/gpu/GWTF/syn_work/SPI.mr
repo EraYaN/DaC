@@ -1,1 +1,3 @@
+behaviour presto presto_vhdl
 logic presto presto_vhdl
+behavioral presto presto_vhdl

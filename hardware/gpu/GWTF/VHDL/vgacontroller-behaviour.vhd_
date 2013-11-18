@@ -52,10 +52,10 @@ BEGIN
       
       --set pixel coordinates
       IF(h_count < h_pixels) THEN  --horiztonal display time
-        ramaddr(SizeX-1 downto 0) <= std_logic_vector(to_unsigned(h_count,SizeX));         --set horiztonal pixel coordinate
+        ramaddr(SizeX+SizeX-1 downto 0) <= std_logic_vector(to_unsigned(h_count,SizeX));         --set horiztonal pixel coordinate
       END IF;
       IF(v_count < v_pixels) THEN  --vertical display time
-        ramaddr(SizeY-1 downto SizeX)<= std_logic_vector(to_unsigned(v_count,SizeY));            --set vertical pixel coordinate
+        ramaddr(SizeY+SizeX-1 downto SizeX)<= std_logic_vector(to_unsigned(v_count,SizeY));            --set vertical pixel coordinate
       END IF;
 		ramaddr(SizeRAMAddr-1) <= NOT asb;
 
@@ -71,7 +71,10 @@ BEGIN
     END IF;
   END PROCESS;
 
-END behavior;
+END behaviour;
+
+
+
 
 
 

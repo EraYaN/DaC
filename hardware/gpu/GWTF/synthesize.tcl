@@ -13,12 +13,12 @@ set link_library [list "*" "/data/public/common/software/opprog/synth_libs/g_dig
 define_design_lib MY_LIB -path ./syn_work
 define_design_lib CELLSLIB -path /data/public/common/software/opprog/synth_libs/CellsLib
 read_file -format vhdl -work MY_LIB VHDL/parameter_def_pkg.vhd
-read_file -format vhdl -work MY_LIB {VHDL/spi.vhd VHDL/spi-logic.vhd}
+read_file -format vhdl -work MY_LIB {VHDL/spi.vhd VHDL/spi-behaviour.vhd}
 set_dont_touch {g_analib8_00/*}
 # set_max_fanout 1.8 all_inputs() 
 # set_max_area 1000 
 set compile_preserve_subdesign_interfaces true
-compile
+compile_ultra
 ungroup -all -flat
 report_area
 report_fsm

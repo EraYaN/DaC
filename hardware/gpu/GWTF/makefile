@@ -6,12 +6,12 @@ LIB_IEEE = /data/public/common/software/modeltech/10.1b/modeltech/linux/../ieee
 LIB_WORK = work
 
 # Define path to each design unit
-IEEE__std_logic_arith = $(LIB_IEEE)/std_logic_arith/_primary.dat
 IEEE__std_logic_1164 = $(LIB_IEEE)/std_logic_1164/_primary.dat
 STD__textio = $(LIB_STD)/textio/_primary.dat
 IEEE__numeric_std = $(LIB_IEEE)/numeric_std/_primary.dat
+WORK__vgacontroller_behaviour_cfg = $(LIB_WORK)/vgacontroller_behaviour_cfg/_primary.dat
+WORK__vgacontroller__behaviour = $(LIB_WORK)/vgacontroller/behaviour.dat
 WORK__vgacontroller = $(LIB_WORK)/vgacontroller/_primary.dat
-WORK__spi__logic = $(LIB_WORK)/spi/logic.dat
 WORK__spi = $(LIB_WORK)/spi/_primary.dat
 WORK__parameter_def__body = $(LIB_WORK)/parameter_def/body.dat
 WORK__parameter_def = $(LIB_WORK)/parameter_def/_primary.dat
@@ -22,8 +22,9 @@ VLOG = vlog
 VOPT = vopt
 SCCOM = sccom
 
-whole_library :     $(WORK__vgacontroller) \
-    $(WORK__spi__logic) \
+whole_library :     $(WORK__vgacontroller_behaviour_cfg) \
+    $(WORK__vgacontroller__behaviour) \
+    $(WORK__vgacontroller) \
     $(WORK__spi) \
     $(WORK__parameter_def__body) \
     $(WORK__parameter_def) \
@@ -54,20 +55,10 @@ $(WORK__parameter_def__body) : VHDL/parameter_def_pkg.vhd \
 
 $(WORK__spi) : VHDL/spi.vhd \
 		$(WORK__parameter_def) \
-		$(IEEE__std_logic_arith) \
 		$(STD__textio) \
 		$(IEEE__std_logic_1164)
 	$(VCOM) -2002 -lower -explicit -work \
 		 work -quiet -nologo VHDL/spi.vhd
-
-$(WORK__spi__logic) : VHDL/spi-logic.vhd \
-		$(WORK__spi) \
-		$(WORK__parameter_def) \
-		$(IEEE__std_logic_arith) \
-		$(STD__textio) \
-		$(IEEE__std_logic_1164)
-	$(VCOM) -2002 -lower -explicit -work \
-		 work -quiet -nologo VHDL/spi-logic.vhd
 
 $(WORK__vgacontroller) : VHDL/vgacontroller.vhd \
 		$(WORK__parameter_def) \
@@ -76,4 +67,23 @@ $(WORK__vgacontroller) : VHDL/vgacontroller.vhd \
 		$(IEEE__std_logic_1164)
 	$(VCOM) -2002 -lower -explicit -work \
 		 work -quiet -nologo VHDL/vgacontroller.vhd
+
+$(WORK__vgacontroller__behaviour) : VHDL/vgacontroller-behaviour.vhd \
+		$(WORK__vgacontroller) \
+		$(WORK__parameter_def) \
+		$(IEEE__numeric_std) \
+		$(STD__textio) \
+		$(IEEE__std_logic_1164)
+	$(VCOM) -2002 -lower -explicit -work \
+		 work -quiet -nologo VHDL/vgacontroller-behaviour.vhd
+
+$(WORK__vgacontroller_behaviour_cfg) : VHDL/vgacontroller_behaviour_cfg.vhd \
+		$(WORK__vgacontroller__behaviour) \
+		$(WORK__parameter_def) \
+		$(IEEE__numeric_std) \
+		$(STD__textio) \
+		$(IEEE__std_logic_1164) \
+		$(WORK__vgacontroller)
+	$(VCOM) -2002 -lower -explicit -work \
+		 work -quiet -nologo VHDL/vgacontroller_behaviour_cfg.vhd
 
