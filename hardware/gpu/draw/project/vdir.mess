@@ -92,3 +92,18 @@ ENTITY set_pixel
     Compile options: -lower -explicit -work work -quiet -nologo
     Compile defaults: Explicit=1
     Debug Symbol file exists
+  ARCHITECTURE BODY behaviour
+    Source modified time: Tue Nov 19 13:16:18 2013
+    Depends on: E work set_pixel ]MlMjWRa`470K:l049[XF2
+    Depends on: P std textio 5>J:;AW>W0[[dW0I6EN1Q0
+    Depends on: P ieee std_logic_1164 5=aWaoGZSMWIcH0i^f`XF1
+    Source directory: /project
+    HDL source file: VHDL/set_pixel-behaviour.vhd
+    Source file: VHDL/set_pixel-behaviour.vhd
+    Start location: VHDL/set_pixel-behaviour.vhd:4
+    Version string: Zmg2JiC5J_W_ejJoT4TfG2
+    Opcode format: 10.1b; VCOM SE Object version 51
+    VHDL language standard: 2 (VHDL-2002)
+    Compile options: -lower -explicit -work work -quiet -nologo
+    Compile defaults: Explicit=1
+    Debug Symbol file exists
