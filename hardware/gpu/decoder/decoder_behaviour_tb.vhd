@@ -8,49 +8,73 @@ architecture behaviour of decoder_tb is
 		port (
 			--Clock/reset
 			clk		: in	std_logic;						--Clock
-			rst		: in	std_logic;						--Reset
+			reset		: in	std_logic;						--Reset
 			--SPI-interface interaction
 			di		: in	std_logic_vector(InstrPacketSize-1 downto 0);	--Data In
-			do		: out	std_logic_vector(InstrPacketSize-1 downto 0);	--Data Out
+			--do		: out	std_logic_vector(InstrPacketSize-1 downto 0);	--Data Out
 			dav		: in	std_logic;						--Data Available in SPI interface, commence data sampling
-			rts		: out	std_logic;						--Ready To Send to SPI interface
+			--rts		: out	std_logic;						--Ready To Send to SPI interface
 			--Draw data
 			x0		: buffer	std_logic_vector(SizeX-1 downto 0);	--Entity x0 coord
 			x1		: buffer	std_logic_vector(SizeX-1 downto 0);	--Entity x1 coord
 			y0		: buffer	std_logic_vector(SizeY-1 downto 0);	--Entity y0 coord
 			y1		: buffer	std_logic_vector(SizeY-1 downto 0);	--Entity y1 coord
-			col		: buffer	std_logic_vector(SizeColor-1 downto 0);	--Entity Color
-			dwr		: in	std_logic;						--Draw Ready
-			en		: out	std_logic_vector(NumDrawModules-1 downto 0); --Draw Module Enabled
+			col		: buffer	std_logic_vector(SizeColor-1 downto 0)	--Entity Color
+			--dwr		: in	std_logic;						--Draw Ready
+			--en		: out	std_logic_vector(NumDrawModules-1 downto 0); --Draw Module Enabled
 			--Internal registers
-			id		: out	std_logic;						--Register id/address
-			val		: out	std_logic;						--Value
-			set		: out	std_logic						--Set
+			--id		: out	std_logic;						--Register id/address
+			--val		: out	std_logic;						--Value
+			--set		: out	std_logic						--Set
 		);
 	end component;
 
 signal clk : std_logic;
-signal rst : std_logic;
+signal reset : std_logic;
 signal dav : std_logic;
-signal dwr : std_logic;
+--signal dwr : std_logic;
 signal di : std_logic_vector(7 downto 0);
 
 begin
 
-	lbl1: decoder port map (clk=>clk, rst=>rst, di=>di, dav=>dav, dwr=>dwr);
+	lbl1: decoder port map (clk=>clk, reset=>reset, di=>di, dav=>dav);
 	clk		<= '1' after 0 ns,
 			'0' after 10 ns when clk /= '0' else '1' after 10 ns;
-	rst 	<= '1' after 0 ns,
+	reset 	<= '1' after 0 ns,
 			'0' after 40 ns;
-	di		<= "00111111" after 100 ns,
+	di		<= "00000000" after 0 ns,
+			"00111111" after 100 ns,
 			"01010101" after 200 ns,
 			"10101010" after 300 ns,
 			"11111111" after 400 ns,
-			"00000000" after 500 ns;
+			"00000000" after 500 ns,
+			"00000000" after 600 ns,
+			"10101010" after 700 ns,
+			"01010101" after 800 ns,
+			"00000000" after 900 ns,
+			"11111111" after 1000 ns;
 	dav		<= '0' after 0 ns,
-			'0' after 100 ns when dav /= '0' else '1' after 100 ns;
-
-	dwr		<= '0' after 0 ns;
+			'1' after 80 ns,
+			'0' after 140 ns,
+			'1' after 180 ns,
+			'0' after 240 ns,
+			'1' after 280 ns,
+			'0' after 340 ns,
+			'1' after 380 ns,
+			'0' after 440 ns,
+			'1' after 480 ns,
+			'0' after 540 ns,
+			'1' after 580 ns,
+			'0' after 640 ns,
+			'1' after 680 ns,
+			'0' after 740 ns,
+			'1' after 780 ns,
+			'0' after 840 ns,
+			'1' after 880 ns,
+			'0' after 940 ns,
+			'1' after 980 ns,
+			'0' after 1040 ns;
+	--dwr		<= '0' after 0 ns;
 
 end behaviour;
 
