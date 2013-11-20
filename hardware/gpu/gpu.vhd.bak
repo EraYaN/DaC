@@ -11,7 +11,7 @@ ENTITY gpu IS
 	spimosi : IN STD_LOGIC;
 	ramdata : INOUT STD_LOGIC_VECTOR(SizeRAMData-1 downto 0);
 	ramaddr : INOUT STD_LOGIC_VECTOR(SizeRAMAddr-1 downto 0);
-	ramwe_n : OUT STD_lOGIC;
+	ramwe : OUT STD_lOGIC;
 	vgahsync : OUT STD_LOGIC;
 	vgavsync : OUT STD_LOGIC;
 	vgacolor : OUT STD_LOGIC_VECTOR(SizeColor-1 downto 0)

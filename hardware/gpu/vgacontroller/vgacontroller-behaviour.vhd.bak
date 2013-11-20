@@ -22,7 +22,7 @@ BEGIN
 			vgahsync <= NOT h_pol;  --deassert horizontal sync
 			vgavsync <= NOT v_pol;  --deassert vertical sync
 			ramclaim <= '0';      --disable display
-			ramaddr <= (others=>'0');
+			
 		END IF;
       --counters
       IF(h_count < h_period - 1) THEN    --horizontal counter (pixels)

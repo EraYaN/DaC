@@ -61,8 +61,8 @@ applicable agreement for further details.
 	(port
 		(pt 192 80)
 		(output)
-		(text "ramwe" (rect 0 0 27 12)(font "Arial" ))
-		(text "ramwe" (rect 144 75 171 87)(font "Arial" ))
+		(text "ramwe_n" (rect 0 0 37 12)(font "Arial" ))
+		(text "ramwe_n" (rect 134 75 171 87)(font "Arial" ))
 		(line (pt 192 80)(pt 176 80)(line_width 1))
 	)
 	(port

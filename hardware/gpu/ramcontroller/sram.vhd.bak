@@ -24,7 +24,7 @@
 -- 
 -- Features:
 --
---  o  generic memory size, SizeRAMData and timing parameters
+--  o  generic memory size, width and timing parameters
 --
 --  o  18 typical SRAM timing parameters supported
 --
@@ -46,9 +46,9 @@
 -- The format of the ASCII-files for RAM download or dump is very simple:
 -- Each line of the file consists of the memory address (given as a decimal number).
 -- and the corresponding RAM data at this address (given as a binary number).
--- Any text in a line following the SizeRAMData-th digit of the binary number is ignored.
+-- Any text in a line following the width-th digit of the binary number is ignored.
 -- Please notice that address and data have to be seperated by a SINGLE blank,
--- that the binary number must have as many digits as specified by the generic  SizeRAMData,
+-- that the binary number must have as many digits as specified by the generic  width,
 -- and that no additional blanks or blank lines are tolerated. Example:
 --                
 --            0 0111011010111101 This text is interpreted as a comment
@@ -99,22 +99,33 @@ USE IEEE.std_logic_1164.all;
 USE IEEE.std_logic_unsigned.all;
 USE IEEE.std_logic_textio.all;
 
-USE work.parameter_def.ALL;
-
 ENTITY sram IS
 
   GENERIC (
 
     clear_on_power_up: boolean := FALSE;    -- if TRUE, RAM is initialized with zeroes at start of simulation
                                             -- Clearing of RAM is carried out before download takes place
-    download_on_power_up: boolean := TRUE;  -- if TRUE, RAM is downloaded at start of simulation       
+
+    download_on_power_up: boolean := TRUE;  -- if TRUE, RAM is downloaded at start of simulation 
+      
     trace_ram_load: boolean := TRUE;        -- Echoes the data downloaded to the RAM on the screen
                                             -- (included for debugging purposes)
+
+
     enable_nWE_only_control: boolean := TRUE;  -- Read-/write access controlled by nWE only
                                                -- nOE may be kept active all the time
+
+
+
     -- Configuring RAM size
-    size:      INTEGER :=  (2 ** SizeRAMAddr);  -- number of memory words   
-	-- READ-cycle timing parameters
+
+    size:      INTEGER :=  524288;  -- number of memory words
+    adr_width: INTEGER :=  19;  -- number of address bits
+    width:     INTEGER :=  8;  -- number of bits per memory word
+
+
+    -- READ-cycle timing parameters
+
     tAA_max:    TIME := 55 NS; -- Address Access Time
     tOHA_min:   TIME := 10 NS; -- Output Hold Time
     tACE_max:   TIME := 55 NS; -- nCE/CE2 Access Time
@@ -123,26 +134,20 @@ ENTITY sram IS
     tHZOE_max:  TIME := 20 NS; --  OE to High-Z Output
     tLZCE_min:  TIME := 10 NS; -- nCE/CE2 to Low-Z Output
     tHZCE_max:  TIME := 20 NS; --  CE/nCE2 to High Z Output
+ 
+
     -- WRITE-cycle timing parameters
+
     tWC_min:    TIME := 55 NS; -- Write Cycle Time
     tSCE_min:   TIME := 50 NS; -- nCE/CE2 to Write End
     tAW_min:    TIME :=  0 NS; -- tAW Address Set-up Time to Write End
     tHA_min:    TIME := 50 NS; -- tHA Address Hold from Write End
     tSA_min:    TIME :=  0 NS; -- Address Set-up Time
-    tPWE_min:   TIME := 45 NS; -- nWE Pulse SizeRAMData
+    tPWE_min:   TIME := 45 NS; -- nWE Pulse Width
     tSD_min:    TIME := 25 NS; -- Data Set-up to Write End
     tHD_min:    TIME :=  0 NS; -- Data Hold from Write End
     tHZWE_max:  TIME := 20 NS; -- nWE Low to High-Z Output
-    tLZWE_min:  TIME :=  0 NS;  -- nWE High to Low-Z Output	 
-	 -- Filenames
-	 dump_filename: IN string := "sram_dump.dat"; -- name of the dump destination file
-                                                 -- (See note at port  download_filename)
-    download_filename: IN string := "sram_load.dat"   -- name of the download source file
-                                                      --            Passing the filename via a port of type
-                                                      -- ********** string may cause a problem with some
-                                                      -- WATCH OUT! simulators. The string signal assigned
-                                                      -- ********** to the port at least should have the
-                                                      --            same length as the default value.
+    tLZWE_min:  TIME :=  0 NS  -- nWE High to Low-Z Output
   );
 
   PORT (
@@ -151,22 +156,30 @@ ENTITY sram IS
     nOE: IN std_logic := '1';  -- low-active Output-Enable of the SRAM device; defaults to '1' (inactive)
     nWE: IN std_logic := '1';  -- low-active Write-Enable of the SRAM device; defaults to '1' (inactive)
 
-    A:   IN std_logic_vector(SizeRAMAddr-1 downto 0); -- address bus of the SRAM device
-    D:   INOUT std_logic_vector(SizeRAMData-1 downto 0);  -- bidirectional data bus to/from the SRAM device
+    A:   IN std_logic_vector(adr_width-1 downto 0); -- address bus of the SRAM device
+    D:   INOUT std_logic_vector(width-1 downto 0);  -- bidirectional data bus to/from the SRAM device
 
     CE2: IN std_logic := '1';  -- high-active Chip-Enable of the SRAM device; defaults to '1'  (active) 
 
 
     download: IN boolean := FALSE;    -- A FALSE-to-TRUE transition on this signal downloads the data
                                       -- in file specified by download_filename to the RAM
-												  
+
+    download_filename: IN string := "sram_load.dat";  -- name of the download source file
+                                                      --            Passing the filename via a port of type
+                                                      -- ********** string may cause a problem with some
+                                                      -- WATCH OUT! simulators. The string signal assigned
+                                                      -- ********** to the port at least should have the
+                                                      --            same length as the default value.
+ 
     dump: IN boolean := FALSE;       -- A FALSE-to-TRUE transition on this signal dumps
                                      -- the current content of the memory to the file
                                      -- specified by dump_filename.
     dump_start: IN natural := 0;     -- Written to the dump-file are the memory words from memory address 
-    dump_end: IN natural := size-1  -- dump_start to address dump_end (default: all addresses)
+    dump_end: IN natural := size-1;  -- dump_start to address dump_end (default: all addresses)
 
-
+    dump_filename: IN string := "sram_dump.dat"  -- name of the dump destination file
+                                                 -- (See note at port  download_filename)
 
   );
 END sram;
@@ -236,12 +249,12 @@ BEGIN
     CONSTANT high_address: natural := size -1; 
 
     TYPE memory_array IS
-      ARRAY (natural RANGE low_address TO high_address) OF std_logic_vector(SizeRAMData-1  DOWNTO 0);
+      ARRAY (natural RANGE low_address TO high_address) OF std_logic_vector(width-1  DOWNTO 0);
 
     VARIABLE mem: memory_array;
     VARIABLE address : natural;
       
-    VARIABLE write_data: std_logic_vector(SizeRAMData-1 DOWNTO 0);
+    VARIABLE write_data: std_logic_vector(width-1 DOWNTO 0);
 
 
 
@@ -258,7 +271,7 @@ BEGIN
         init_value := 'X'; 
       END IF;
       FOR add IN low_address TO high_address LOOP
-        FOR j IN (SizeRAMData-1) DOWNTO 0 LOOP
+        FOR j IN (width-1) DOWNTO 0 LOOP
           mem(add)(j) := init_value;
         END LOOP;
       END LOOP; 
@@ -291,7 +304,7 @@ BEGIN
           REPORT "RAM loader aborted."
           SEVERITY FAILURE;
         END IF;
-        FOR i IN (SizeRAMData -1) DOWNTO 0 LOOP
+        FOR i IN (width -1) DOWNTO 0 LOOP
           read(inline, c);
 	  IF (c = '1') THEN
             mem(add)(i) := '1';
@@ -342,7 +355,7 @@ BEGIN
         FOR add IN dump_start TO dump_end LOOP
           write(l, add);
           write(l, ' ');
-          FOR i IN (SizeRAMData-1) downto 0 LOOP
+          FOR i IN (width-1) downto 0 LOOP
             write(l, mem(add)(i));
           END LOOP;
           writeline(dest, l);
@@ -375,7 +388,7 @@ BEGIN
           write(output, "-E- tHD violation: Data input changes within hold-time at end-of-write to SRAM.");
           write_data := undef_vec;
         ELSIF nWE'DELAYED(tHD_min)'STABLE(tPWE_min) THEN
-          write(output, "-E- tPWE violation: Pulse SizeRAMData of nWE too short at SRAM.");
+          write(output, "-E- tPWE violation: Pulse width of nWE too short at SRAM.");
           write_data := undef_vec;
         ELSE write_data := D;
         END IF;

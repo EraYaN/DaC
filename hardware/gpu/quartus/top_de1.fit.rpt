@@ -1,5 +1,5 @@
 Fitter report for top_de1
-Mon Nov 18 15:06:30 2013
+Wed Nov 20 20:25:00 2013
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -63,17 +63,17 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Mon Nov 18 15:06:30 2013           ;
+; Fitter Status                      ; Successful - Wed Nov 20 20:25:00 2013           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; top_de1                                         ;
 ; Top-level Entity Name              ; top_de1                                         ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 88 / 18,752 ( < 1 % )                           ;
-;     Total combinational functions  ; 75 / 18,752 ( < 1 % )                           ;
-;     Dedicated logic registers      ; 46 / 18,752 ( < 1 % )                           ;
-; Total registers                    ; 46                                              ;
+; Total logic elements               ; 93 / 18,752 ( < 1 % )                           ;
+;     Total combinational functions  ; 85 / 18,752 ( < 1 % )                           ;
+;     Dedicated logic registers      ; 49 / 18,752 ( < 1 % )                           ;
+; Total registers                    ; 49                                              ;
 ; Total pins                         ; 40 / 315 ( 13 % )                               ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 239,616 ( 0 % )                             ;
@@ -150,8 +150,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Type                ; Value                  ;
 +---------------------+------------------------+
 ; Placement (by node) ;                        ;
-;     -- Requested    ; 0 / 165 ( 0.00 % )     ;
-;     -- Achieved     ; 0 / 165 ( 0.00 % )     ;
+;     -- Requested    ; 0 / 178 ( 0.00 % )     ;
+;     -- Achieved     ; 0 / 178 ( 0.00 % )     ;
 ;                     ;                        ;
 ; Routing (by net)    ;                        ;
 ;     -- Requested    ; 0 / 0 ( 0.00 % )       ;
@@ -174,7 +174,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 ; Partition Name                 ; # Nodes ; # Preserved Nodes ; Preservation Level Used ; Netlist Type Used ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
-; Top                            ; 162     ; 0                 ; N/A                     ; Source File       ;
+; Top                            ; 175     ; 0                 ; N/A                     ; Source File       ;
 ; hard_block:auto_generated_inst ; 3       ; 0                 ; N/A                     ; Source File       ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 
@@ -182,7 +182,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/quartus_DE1/top_de1.pin.
+The pin-out file can be found in F:/Users/Erwin/GitHub/DaC/hardware/gpu/quartus/top_de1.pin.
 
 
 +---------------------------------------------------------------------+
@@ -190,23 +190,23 @@ The pin-out file can be found in C:/Users/Erwin/Documents/GitHub/DaC/hardware/gp
 +---------------------------------------------+-----------------------+
 ; Resource                                    ; Usage                 ;
 +---------------------------------------------+-----------------------+
-; Total logic elements                        ; 88 / 18,752 ( < 1 % ) ;
-;     -- Combinational with no register       ; 42                    ;
-;     -- Register only                        ; 13                    ;
-;     -- Combinational with a register        ; 33                    ;
+; Total logic elements                        ; 93 / 18,752 ( < 1 % ) ;
+;     -- Combinational with no register       ; 44                    ;
+;     -- Register only                        ; 8                     ;
+;     -- Combinational with a register        ; 41                    ;
 ;                                             ;                       ;
 ; Logic element usage by number of LUT inputs ;                       ;
-;     -- 4 input functions                    ; 32                    ;
-;     -- 3 input functions                    ; 27                    ;
-;     -- <=2 input functions                  ; 16                    ;
-;     -- Register only                        ; 13                    ;
+;     -- 4 input functions                    ; 34                    ;
+;     -- 3 input functions                    ; 31                    ;
+;     -- <=2 input functions                  ; 20                    ;
+;     -- Register only                        ; 8                     ;
 ;                                             ;                       ;
 ; Logic elements by mode                      ;                       ;
-;     -- normal mode                          ; 59                    ;
+;     -- normal mode                          ; 69                    ;
 ;     -- arithmetic mode                      ; 16                    ;
 ;                                             ;                       ;
-; Total registers*                            ; 46 / 19,649 ( < 1 % ) ;
-;     -- Dedicated logic registers            ; 46 / 18,752 ( < 1 % ) ;
+; Total registers*                            ; 49 / 19,649 ( < 1 % ) ;
+;     -- Dedicated logic registers            ; 49 / 18,752 ( < 1 % ) ;
 ;     -- I/O registers                        ; 0 / 897 ( 0 % )       ;
 ;                                             ;                       ;
 ; Total LABs:  partially or completely used   ; 7 / 1,172 ( < 1 % )   ;
@@ -226,10 +226,10 @@ The pin-out file can be found in C:/Users/Erwin/Documents/GitHub/DaC/hardware/gp
 ; CRC blocks                                  ; 0 / 1 ( 0 % )         ;
 ; Average interconnect usage (total/H/V)      ; 0% / 0% / 0%          ;
 ; Peak interconnect usage (total/H/V)         ; 0% / 0% / 0%          ;
-; Maximum fan-out                             ; 41                    ;
-; Highest non-global fan-out                  ; 41                    ;
-; Total fan-out                               ; 361                   ;
-; Average fan-out                             ; 2.10                  ;
+; Maximum fan-out                             ; 46                    ;
+; Highest non-global fan-out                  ; 38                    ;
+; Total fan-out                               ; 428                   ;
+; Average fan-out                             ; 2.29                  ;
 +---------------------------------------------+-----------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -242,23 +242,23 @@ The pin-out file can be found in C:/Users/Erwin/Documents/GitHub/DaC/hardware/gp
 +---------------------------------------------+----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                  ; Low                            ;
 ;                                             ;                      ;                                ;
-; Total logic elements                        ; 88 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
-;     -- Combinational with no register       ; 42                   ; 0                              ;
-;     -- Register only                        ; 13                   ; 0                              ;
-;     -- Combinational with a register        ; 33                   ; 0                              ;
+; Total logic elements                        ; 93 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
+;     -- Combinational with no register       ; 44                   ; 0                              ;
+;     -- Register only                        ; 8                    ; 0                              ;
+;     -- Combinational with a register        ; 41                   ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic element usage by number of LUT inputs ;                      ;                                ;
-;     -- 4 input functions                    ; 32                   ; 0                              ;
-;     -- 3 input functions                    ; 27                   ; 0                              ;
-;     -- <=2 input functions                  ; 16                   ; 0                              ;
-;     -- Register only                        ; 13                   ; 0                              ;
+;     -- 4 input functions                    ; 34                   ; 0                              ;
+;     -- 3 input functions                    ; 31                   ; 0                              ;
+;     -- <=2 input functions                  ; 20                   ; 0                              ;
+;     -- Register only                        ; 8                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic elements by mode                      ;                      ;                                ;
-;     -- normal mode                          ; 59                   ; 0                              ;
+;     -- normal mode                          ; 69                   ; 0                              ;
 ;     -- arithmetic mode                      ; 16                   ; 0                              ;
 ;                                             ;                      ;                                ;
-; Total registers                             ; 46                   ; 0                              ;
-;     -- Dedicated logic registers            ; 46 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
+; Total registers                             ; 49                   ; 0                              ;
+;     -- Dedicated logic registers            ; 49 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
 ;                                             ;                      ;                                ;
 ; Total LABs:  partially or completely used   ; 7 / 1172 ( < 1 % )   ; 0 / 1172 ( 0 % )               ;
 ;                                             ;                      ;                                ;
@@ -276,8 +276,8 @@ The pin-out file can be found in C:/Users/Erwin/Documents/GitHub/DaC/hardware/gp
 ;     -- Registered Output Connections        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Internal Connections                        ;                      ;                                ;
-;     -- Total Connections                    ; 361                  ; 0                              ;
-;     -- Registered Connections               ; 117                  ; 0                              ;
+;     -- Total Connections                    ; 428                  ; 0                              ;
+;     -- Registered Connections               ; 97                   ; 0                              ;
 ;                                             ;                      ;                                ;
 ; External Connections                        ;                      ;                                ;
 ;     -- Top                                  ; 0                    ; 0                              ;
@@ -309,10 +309,10 @@ The pin-out file can be found in C:/Users/Erwin/Documents/GitHub/DaC/hardware/gp
 +-------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 ; Name        ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
 +-------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
-; SPICLK      ; B18   ; 4        ; 46           ; 27           ; 2           ; 23                    ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; SPIMOSI     ; B20   ; 4        ; 48           ; 27           ; 2           ; 5                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; SPICLK      ; B18   ; 4        ; 46           ; 27           ; 2           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; SPIMOSI     ; B20   ; 4        ; 48           ; 27           ; 2           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; clock_50mhz ; L1    ; 2        ; 0            ; 13           ; 0           ; 1                     ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; reset       ; R22   ; 6        ; 50           ; 10           ; 1           ; 41                    ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; reset       ; R22   ; 6        ; 50           ; 10           ; 1           ; 34                    ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 +-------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
 
@@ -338,7 +338,7 @@ The pin-out file can be found in C:/Users/Erwin/Documents/GitHub/DaC/hardware/gp
 ; RAMADDR[8]  ; A20   ; 4        ; 48           ; 27           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; RAMADDR[9]  ; A19   ; 4        ; 46           ; 27           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; RAMWE       ; B17   ; 4        ; 37           ; 27           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; SPIMISO     ; B19   ; 4        ; 46           ; 27           ; 0           ; no              ; no                     ; no            ; no              ; no         ; yes           ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; SPIMISO     ; B19   ; 4        ; 46           ; 27           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; vga_b[0]    ; A9    ; 3        ; 15           ; 27           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; vga_b[1]    ; D11   ; 3        ; 22           ; 27           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; vga_b[2]    ; A10   ; 3        ; 20           ; 27           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
@@ -361,10 +361,10 @@ The pin-out file can be found in C:/Users/Erwin/Documents/GitHub/DaC/hardware/gp
 +------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------------+------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 ; Name       ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Output Register ; Output Enable Register ; Power Up High ; PCI I/O Enabled ; Open Drain ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination ; Location assigned by ; Load ; Output Enable Source ; Output Enable Group ;
 +------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------------+------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
-; RAMDATA[0] ; B16   ; 4        ; 33           ; 27           ; 0           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; RAMDATA[1] ; B15   ; 4        ; 33           ; 27           ; 2           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; RAMDATA[2] ; B14   ; 4        ; 29           ; 27           ; 0           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; RAMDATA[3] ; B13   ; 4        ; 26           ; 27           ; 0           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; RAMDATA[0] ; B16   ; 4        ; 33           ; 27           ; 0           ; 1                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; RAMDATA[1] ; B15   ; 4        ; 33           ; 27           ; 2           ; 1                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; RAMDATA[2] ; B14   ; 4        ; 29           ; 27           ; 0           ; 1                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; RAMDATA[3] ; B13   ; 4        ; 26           ; 27           ; 0           ; 1                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 +------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------------+------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 
 
@@ -919,11 +919,11 @@ Note: User assignments will override these defaults. The user specified values a
 +--------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------+--------------+
 ; Compilation Hierarchy Node           ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                             ; Library Name ;
 +--------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------+--------------+
-; |top_de1                             ; 88 (0)      ; 46 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 40   ; 0            ; 42 (0)       ; 13 (0)            ; 33 (0)           ; |top_de1                                        ; work         ;
+; |top_de1                             ; 93 (0)      ; 49 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 40   ; 0            ; 44 (0)       ; 8 (0)             ; 41 (0)           ; |top_de1                                        ; work         ;
 ;    |gen6mhz:inst1|                   ; 3 (3)       ; 3 (3)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 3 (3)            ; |top_de1|gen6mhz:inst1                          ; work         ;
-;    |gpu:inst2|                       ; 85 (0)      ; 43 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 42 (0)       ; 13 (0)            ; 30 (0)           ; |top_de1|gpu:inst2                              ; work         ;
-;       |spi:spi1|                     ; 29 (29)     ; 23 (23)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (6)        ; 12 (12)           ; 11 (11)          ; |top_de1|gpu:inst2|spi:spi1                     ; work         ;
-;       |vgacontroller:vgacontroller1| ; 56 (56)     ; 20 (20)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 36 (36)      ; 1 (1)             ; 19 (19)          ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1 ; work         ;
+;    |gpu:inst2|                       ; 90 (0)      ; 46 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 44 (0)       ; 8 (0)             ; 38 (0)           ; |top_de1|gpu:inst2                              ; work         ;
+;       |spi:spi1|                     ; 11 (11)     ; 11 (11)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 3 (3)            ; |top_de1|gpu:inst2|spi:spi1                     ; work         ;
+;       |vgacontroller:vgacontroller1| ; 79 (79)     ; 35 (35)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 44 (44)      ; 0 (0)             ; 35 (35)          ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1 ; work         ;
 +--------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -933,13 +933,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------+----------+---------------+---------------+-----------------------+-----+
 ; Name        ; Pin Type ; Pad to Core 0 ; Pad to Core 1 ; Pad to Input Register ; TCO ;
 +-------------+----------+---------------+---------------+-----------------------+-----+
-; SPIMISO     ; Output   ; --            ; --            ; --                    ; --  ;
-; RAMDATA[3]  ; Bidir    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
-; RAMDATA[2]  ; Bidir    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
-; RAMDATA[1]  ; Bidir    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
-; RAMDATA[0]  ; Bidir    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
+; RAMDATA[3]  ; Bidir    ; (6) 2514 ps   ; (6) 2514 ps   ; --                    ; --  ;
+; RAMDATA[2]  ; Bidir    ; (6) 2514 ps   ; (6) 2514 ps   ; --                    ; --  ;
+; RAMDATA[1]  ; Bidir    ; (6) 2514 ps   ; (6) 2514 ps   ; --                    ; --  ;
+; RAMDATA[0]  ; Bidir    ; (6) 2514 ps   ; (6) 2514 ps   ; --                    ; --  ;
 ; vga_hsync   ; Output   ; --            ; --            ; --                    ; --  ;
+; SPIMOSI     ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
 ; vga_vsync   ; Output   ; --            ; --            ; --                    ; --  ;
+; SPIMISO     ; Output   ; --            ; --            ; --                    ; --  ;
 ; RAMWE       ; Output   ; --            ; --            ; --                    ; --  ;
 ; RAMADDR[15] ; Output   ; --            ; --            ; --                    ; --  ;
 ; RAMADDR[14] ; Output   ; --            ; --            ; --                    ; --  ;
@@ -971,108 +972,77 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; vga_r[0]    ; Output   ; --            ; --            ; --                    ; --  ;
 ; reset       ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --  ;
 ; clock_50mhz ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; SPICLK      ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
-; SPIMOSI     ; Input    ; (6) 2514 ps   ; (6) 2514 ps   ; --                    ; --  ;
+; SPICLK      ; Input    ; (6) 2514 ps   ; (6) 2514 ps   ; --                    ; --  ;
 +-------------+----------+---------------+---------------+-----------------------+-----+
 
 
-+-----------------------------------------------------------------------------------------+
-; Pad To Core Delay Chain Fanout                                                          ;
-+-----------------------------------------------------------+-------------------+---------+
-; Source Pin / Fanout                                       ; Pad To Core Index ; Setting ;
-+-----------------------------------------------------------+-------------------+---------+
-; RAMDATA[3]                                                ;                   ;         ;
-; RAMDATA[2]                                                ;                   ;         ;
-; RAMDATA[1]                                                ;                   ;         ;
-; RAMDATA[0]                                                ;                   ;         ;
-; reset                                                     ;                   ;         ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add0~8      ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add0~6      ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add0~4      ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add0~0      ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add0~2      ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add0~14     ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add0~12     ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add0~10     ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~2      ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~4      ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~0      ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~6      ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~8      ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~10     ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~12     ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~14     ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~16     ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~18     ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|LessThan0~0 ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|v_count~2   ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|v_count~3   ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|miso~en                         ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|rrdy                            ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|roe                             ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[9]                      ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[8]                      ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|trdy                            ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[10]                     ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[16]                     ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[7]                      ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[6]                      ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[5]                      ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[1]                      ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[4]                      ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[3]                      ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[2]                      ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[11]                     ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[15]                     ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[14]                     ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[13]                     ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[12]                     ; 1                 ; 6       ;
-; clock_50mhz                                               ;                   ;         ;
-; SPICLK                                                    ;                   ;         ;
-;      - gpu:inst2|spi:spi1|miso~reg0                       ; 0                 ; 0       ;
-;      - gpu:inst2|spi:spi1|miso~en                         ; 0                 ; 0       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[8]                      ; 1                 ; 0       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[9]                      ; 0                 ; 0       ;
-;      - gpu:inst2|spi:spi1|trdy                            ; 0                 ; 0       ;
-;      - gpu:inst2|spi:spi1|rrdy                            ; 0                 ; 0       ;
-;      - gpu:inst2|spi:spi1|roe                             ; 0                 ; 0       ;
-;      - gpu:inst2|spi:spi1|rd_add                          ; 0                 ; 0       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[10]                     ; 0                 ; 0       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[16]                     ; 0                 ; 0       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[7]                      ; 1                 ; 0       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[6]                      ; 1                 ; 0       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[5]                      ; 1                 ; 0       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[1]                      ; 1                 ; 0       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[4]                      ; 1                 ; 0       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[3]                      ; 1                 ; 0       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[2]                      ; 1                 ; 0       ;
-;      - gpu:inst2|spi:spi1|wr_add                          ; 0                 ; 0       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[11]                     ; 0                 ; 0       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[15]                     ; 0                 ; 0       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[14]                     ; 0                 ; 0       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[13]                     ; 0                 ; 0       ;
-;      - gpu:inst2|spi:spi1|bit_cnt[12]                     ; 0                 ; 0       ;
-; SPIMOSI                                                   ;                   ;         ;
-;      - gpu:inst2|spi:spi1|rd_add~0                        ; 0                 ; 6       ;
-;      - gpu:inst2|spi:spi1|rrdy~0                          ; 0                 ; 6       ;
-;      - gpu:inst2|spi:spi1|roe~0                           ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|trdy~1                          ; 0                 ; 6       ;
-;      - gpu:inst2|spi:spi1|wr_add~0                        ; 0                 ; 6       ;
-+-----------------------------------------------------------+-------------------+---------+
++-------------------------------------------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                                                            ;
++-------------------------------------------------------------+-------------------+---------+
+; Source Pin / Fanout                                         ; Pad To Core Index ; Setting ;
++-------------------------------------------------------------+-------------------+---------+
+; RAMDATA[3]                                                  ;                   ;         ;
+;      - RAMDATA[3]                                           ; 0                 ; 6       ;
+; RAMDATA[2]                                                  ;                   ;         ;
+;      - RAMDATA[2]                                           ; 0                 ; 6       ;
+; RAMDATA[1]                                                  ;                   ;         ;
+;      - RAMDATA[1]                                           ; 0                 ; 6       ;
+; RAMDATA[0]                                                  ;                   ;         ;
+;      - RAMDATA[0]                                           ; 0                 ; 6       ;
+; SPIMOSI                                                     ;                   ;         ;
+; reset                                                       ;                   ;         ;
+;      - gpu:inst2|spi:spi1|TxData[7]                         ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add0~8        ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add0~6        ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add0~4        ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add0~0        ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add0~2        ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add0~14       ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add0~12       ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add0~10       ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~2        ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~5        ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~0        ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~7        ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~9        ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~11       ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~13       ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~15       ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~17       ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|Add1~19       ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|LessThan0~0   ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|v_count~8     ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|v_count~9     ; 1                 ; 6       ;
+;      - gpu:inst2|spi:spi1|TxData[6]                         ; 1                 ; 6       ;
+;      - gpu:inst2|spi:spi1|SCLK_old                          ; 1                 ; 6       ;
+;      - gpu:inst2|spi:spi1|SCLK_latched                      ; 1                 ; 6       ;
+;      - gpu:inst2|spi:spi1|SS_latched                        ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|ramaddr[13]~5 ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|ramaddr[1]~12 ; 1                 ; 6       ;
+;      - gpu:inst2|spi:spi1|TxData[5]                         ; 1                 ; 6       ;
+;      - gpu:inst2|spi:spi1|TxData[4]                         ; 1                 ; 6       ;
+;      - gpu:inst2|spi:spi1|TxData[3]                         ; 1                 ; 6       ;
+;      - gpu:inst2|spi:spi1|TxData[2]                         ; 1                 ; 6       ;
+;      - gpu:inst2|spi:spi1|TxData[1]                         ; 1                 ; 6       ;
+;      - gpu:inst2|spi:spi1|TxData[0]                         ; 1                 ; 6       ;
+; clock_50mhz                                                 ;                   ;         ;
+; SPICLK                                                      ;                   ;         ;
+;      - gpu:inst2|spi:spi1|SCLK_latched~feeder               ; 0                 ; 6       ;
++-------------------------------------------------------------+-------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                         ;
-+----------------------------+-------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
-; Name                       ; Location          ; Fan-Out ; Usage         ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+----------------------------+-------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
-; SPICLK                     ; PIN_B18           ; 23      ; Clock         ; no     ; --                   ; --               ; --                        ;
-; clock_50mhz                ; PIN_L1            ; 3       ; Clock         ; yes    ; Global Clock         ; GCLK2            ; --                        ;
-; gen6mhz:inst1|count[2]     ; LCFF_X27_Y1_N29   ; 20      ; Clock         ; yes    ; Global Clock         ; GCLK15           ; --                        ;
-; gpu:inst2|spi:spi1|miso~5  ; LCCOMB_X46_Y26_N8 ; 2       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; gpu:inst2|spi:spi1|miso~en ; LCFF_X46_Y26_N19  ; 1       ; Output enable ; no     ; --                   ; --               ; --                        ;
-; reset                      ; PIN_R22           ; 41      ; Async. clear  ; no     ; --                   ; --               ; --                        ;
-+----------------------------+-------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                   ;
++------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name                                                 ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; clock_50mhz                                          ; PIN_L1             ; 3       ; Clock        ; yes    ; Global Clock         ; GCLK2            ; --                        ;
+; gen6mhz:inst1|count[2]                               ; LCFF_X24_Y26_N1    ; 46      ; Clock        ; yes    ; Global Clock         ; GCLK9            ; --                        ;
+; gpu:inst2|spi:spi1|TxData[7]~0                       ; LCCOMB_X47_Y20_N20 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[13]~5 ; LCCOMB_X48_Y19_N14 ; 7       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[1]~12 ; LCCOMB_X49_Y20_N30 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; reset                                                ; PIN_R22            ; 34      ; Async. clear ; no     ; --                   ; --               ; --                        ;
++------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -1081,178 +1051,194 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                   ; Location        ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------------------------+-----------------+---------+----------------------+------------------+---------------------------+
 ; clock_50mhz            ; PIN_L1          ; 3       ; Global Clock         ; GCLK2            ; --                        ;
-; gen6mhz:inst1|count[2] ; LCFF_X27_Y1_N29 ; 20      ; Global Clock         ; GCLK15           ; --                        ;
+; gen6mhz:inst1|count[2] ; LCFF_X24_Y26_N1 ; 46      ; Global Clock         ; GCLK9            ; --                        ;
 +------------------------+-----------------+---------+----------------------+------------------+---------------------------+
 
 
-+---------------------------------------------------------------+
-; Non-Global High Fan-Out Signals                               ;
-+-----------------------------------------------------+---------+
-; Name                                                ; Fan-Out ;
-+-----------------------------------------------------+---------+
-; reset                                               ; 41      ;
-; SPICLK                                              ; 23      ;
-; gpu:inst2|vgacontroller:vgacontroller1|LessThan0~2  ; 22      ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count~2    ; 11      ;
-; gpu:inst2|spi:spi1|wr_add                           ; 6       ;
-; SPIMOSI                                             ; 5       ;
-; gpu:inst2|spi:spi1|rd_add                           ; 5       ;
-; gpu:inst2|spi:spi1|bit_cnt[16]                      ; 4       ;
-; gpu:inst2|spi:spi1|bit_cnt[8]                       ; 4       ;
-; gpu:inst2|spi:spi1|bit_cnt[9]                       ; 4       ;
-; gpu:inst2|spi:spi1|rrdy                             ; 4       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count[5]   ; 4       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count[4]   ; 4       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count[3]   ; 4       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count[2]   ; 4       ;
-; gpu:inst2|spi:spi1|bit_cnt[2]                       ; 3       ;
-; gpu:inst2|spi:spi1|bit_cnt[1]                       ; 3       ;
-; gpu:inst2|spi:spi1|bit_cnt[10]                      ; 3       ;
-; gen6mhz:inst1|count[0]                              ; 3       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count[1]   ; 3       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count[0]   ; 3       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count[9]   ; 3       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count[8]   ; 3       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count[7]   ; 3       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count[6]   ; 3       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count~0    ; 3       ;
-; gpu:inst2|spi:spi1|bit_cnt[11]                      ; 2       ;
-; gpu:inst2|spi:spi1|miso~5                           ; 2       ;
-; gpu:inst2|spi:spi1|bit_cnt[3]                       ; 2       ;
-; gpu:inst2|spi:spi1|bit_cnt[4]                       ; 2       ;
-; gpu:inst2|spi:spi1|bit_cnt[5]                       ; 2       ;
-; gpu:inst2|spi:spi1|bit_cnt[6]                       ; 2       ;
-; gpu:inst2|spi:spi1|bit_cnt[7]                       ; 2       ;
-; gpu:inst2|spi:spi1|trdy                             ; 2       ;
-; gpu:inst2|spi:spi1|roe                              ; 2       ;
-; gen6mhz:inst1|count[1]                              ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count~7    ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count~6    ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count~5    ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count~4    ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count~1    ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count~5    ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count~4    ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count~3    ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count~2    ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count~1    ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count[5]   ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count[4]   ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count[7]   ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count[6]   ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count[0]   ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count[1]   ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count[2]   ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count[3]   ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~10      ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~8       ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~6       ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~4       ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~2       ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~0       ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add0~8       ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add0~6       ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add0~2       ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add0~0       ; 2       ;
-; gpu:inst2|spi:spi1|bit_cnt[1]~feeder                ; 1       ;
-; gpu:inst2|spi:spi1|miso~enfeeder                    ; 1       ;
-; gpu:inst2|spi:spi1|bit_cnt[2]~0                     ; 1       ;
-; gen6mhz:inst1|count[0]~2                            ; 1       ;
-; gpu:inst2|spi:spi1|bit_cnt[12]                      ; 1       ;
-; gpu:inst2|spi:spi1|bit_cnt[13]                      ; 1       ;
-; gpu:inst2|spi:spi1|bit_cnt[14]                      ; 1       ;
-; gpu:inst2|spi:spi1|wr_add~0                         ; 1       ;
-; gpu:inst2|spi:spi1|bit_cnt[15]                      ; 1       ;
-; gpu:inst2|spi:spi1|trdy~1                           ; 1       ;
-; gpu:inst2|spi:spi1|trdy~0                           ; 1       ;
-; gpu:inst2|spi:spi1|roe~1                            ; 1       ;
-; gpu:inst2|spi:spi1|roe~0                            ; 1       ;
-; gpu:inst2|spi:spi1|rrdy~1                           ; 1       ;
-; gpu:inst2|spi:spi1|rrdy~0                           ; 1       ;
-; gpu:inst2|spi:spi1|rd_add~0                         ; 1       ;
-; gen6mhz:inst1|count[1]~1                            ; 1       ;
-; gpu:inst2|spi:spi1|miso~4                           ; 1       ;
-; gpu:inst2|spi:spi1|miso~3                           ; 1       ;
-; gpu:inst2|spi:spi1|miso~2                           ; 1       ;
-; gpu:inst2|spi:spi1|miso~1                           ; 1       ;
-; gpu:inst2|spi:spi1|miso~0                           ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count~13   ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count~12   ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count~11   ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count~10   ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count~9    ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count~8    ; 1       ;
-; gen6mhz:inst1|count[2]~0                            ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count~7    ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count~6    ; 1       ;
-; gpu:inst2|spi:spi1|miso~en                          ; 1       ;
-; gpu:inst2|spi:spi1|miso~reg0                        ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|process_0~11 ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|process_0~10 ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count~3    ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|process_0~9  ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|process_0~8  ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|process_0~7  ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|process_0~6  ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|process_0~5  ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|process_0~4  ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count~0    ; 1       ;
-; gen6mhz:inst1|count[2]                              ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|process_0~3  ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|process_0~2  ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|process_0~1  ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|process_0~0  ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|LessThan0~1  ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|LessThan0~0  ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|vgavsync     ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|vgahsync     ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~18      ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~17      ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~16      ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~15      ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~14      ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~13      ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~12      ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~11      ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~9       ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~7       ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~5       ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~3       ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add1~1       ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add0~14      ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add0~13      ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add0~12      ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add0~11      ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add0~10      ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add0~9       ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add0~7       ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add0~5       ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add0~4       ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add0~3       ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|Add0~1       ; 1       ;
-+-----------------------------------------------------+---------+
++----------------------------------------------------------------+
+; Non-Global High Fan-Out Signals                                ;
++------------------------------------------------------+---------+
+; Name                                                 ; Fan-Out ;
++------------------------------------------------------+---------+
+; gpu:inst2|vgacontroller:vgacontroller1|LessThan0~2   ; 38      ;
+; reset                                                ; 34      ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count~8     ; 13      ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[1]~12 ; 8       ;
+; gpu:inst2|spi:spi1|TxData[7]~0                       ; 8       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[13]~5 ; 7       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~6     ; 6       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count[2]    ; 6       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~15    ; 5       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count~10    ; 5       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count[5]    ; 5       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count[3]    ; 5       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count[6]    ; 5       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count[4]    ; 5       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add0~14       ; 5       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add0~12       ; 5       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add0~10       ; 5       ;
+; gpu:inst2|vgacontroller:vgacontroller1|process_0~7   ; 4       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count[8]    ; 4       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count[7]    ; 4       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count[0]    ; 4       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count[1]    ; 4       ;
+; gen6mhz:inst1|count[0]                               ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~22       ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count[9]    ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count~3     ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count~0     ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~13       ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~11       ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~9        ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~7        ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~5        ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~2        ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~0        ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add0~8        ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add0~6        ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add0~2        ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add0~0        ; 3       ;
+; gen6mhz:inst1|count[1]                               ; 2       ;
+; gpu:inst2|spi:spi1|SCLK_latched                      ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count~7     ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count~5     ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count~4     ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count~2     ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count~1     ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count[5]    ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count[4]    ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count[7]    ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count[6]    ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count[0]    ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count[1]    ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count[2]    ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count[3]    ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~17       ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~15       ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add0~4        ; 2       ;
+; gpu:inst2|spi:spi1|TxData[0]~feeder                  ; 1       ;
+; gpu:inst2|spi:spi1|SS_latched~feeder                 ; 1       ;
+; SPICLK                                               ; 1       ;
+; RAMDATA~3                                            ; 1       ;
+; RAMDATA~2                                            ; 1       ;
+; RAMDATA~1                                            ; 1       ;
+; RAMDATA~0                                            ; 1       ;
+; gen6mhz:inst1|count[0]~2                             ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count~21    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count~20    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count~19    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~22    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~21    ; 1       ;
+; gpu:inst2|spi:spi1|TxData[0]                         ; 1       ;
+; gpu:inst2|spi:spi1|TxData[1]                         ; 1       ;
+; gpu:inst2|spi:spi1|TxData[2]                         ; 1       ;
+; gpu:inst2|spi:spi1|TxData[3]                         ; 1       ;
+; gpu:inst2|spi:spi1|TxData[4]                         ; 1       ;
+; gen6mhz:inst1|count[1]~1                             ; 1       ;
+; gpu:inst2|spi:spi1|TxData[5]                         ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count~18    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count~17    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count~16    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count~15    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count~14    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count~13    ; 1       ;
+; gen6mhz:inst1|count[2]~0                             ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count~7     ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count~6     ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~20    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~19    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~18    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~17    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~16    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~14    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~13    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~11    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~10    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~9     ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~8     ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~7     ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr~4     ; 1       ;
+; gpu:inst2|spi:spi1|SS_latched                        ; 1       ;
+; gpu:inst2|spi:spi1|SCLK_old                          ; 1       ;
+; gpu:inst2|spi:spi1|TxData[6]                         ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|process_0~11  ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|process_0~10  ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|process_0~9   ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|process_0~8   ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~21       ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count~12    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count~11    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count~9     ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count~6     ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|process_0~6   ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|process_0~5   ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|process_0~4   ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~4        ; 1       ;
+; gen6mhz:inst1|count[2]                               ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|process_0~3   ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|process_0~2   ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|process_0~1   ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|process_0~0   ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|LessThan0~1   ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|LessThan0~0   ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[0]    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[1]    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[2]    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[3]    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[4]    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[5]    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[6]    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[7]    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[8]    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[9]    ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[10]   ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[11]   ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[12]   ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[13]   ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[14]   ; 1       ;
+; gpu:inst2|spi:spi1|TxData[7]                         ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|vgavsync      ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|vgahsync      ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~19       ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~18       ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~16       ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~14       ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~12       ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~10       ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~8        ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~6        ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~3        ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add1~1        ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add0~13       ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add0~11       ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add0~9        ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add0~7        ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add0~5        ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add0~3        ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|Add0~1        ; 1       ;
++------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Other Routing Usage Summary                         ;
-+-----------------------------+-----------------------+
-; Other Routing Resource Type ; Usage                 ;
-+-----------------------------+-----------------------+
-; Block interconnects         ; 92 / 54,004 ( < 1 % ) ;
-; C16 interconnects           ; 3 / 2,100 ( < 1 % )   ;
-; C4 interconnects            ; 18 / 36,000 ( < 1 % ) ;
-; Direct links                ; 57 / 54,004 ( < 1 % ) ;
-; Global clocks               ; 2 / 16 ( 13 % )       ;
-; Local interconnects         ; 63 / 18,752 ( < 1 % ) ;
-; R24 interconnects           ; 1 / 1,900 ( < 1 % )   ;
-; R4 interconnects            ; 27 / 46,920 ( < 1 % ) ;
-+-----------------------------+-----------------------+
++------------------------------------------------------+
+; Other Routing Usage Summary                          ;
++-----------------------------+------------------------+
+; Other Routing Resource Type ; Usage                  ;
++-----------------------------+------------------------+
+; Block interconnects         ; 129 / 54,004 ( < 1 % ) ;
+; C16 interconnects           ; 0 / 2,100 ( 0 % )      ;
+; C4 interconnects            ; 48 / 36,000 ( < 1 % )  ;
+; Direct links                ; 51 / 54,004 ( < 1 % )  ;
+; Global clocks               ; 2 / 16 ( 13 % )        ;
+; Local interconnects         ; 56 / 18,752 ( < 1 % )  ;
+; R24 interconnects           ; 0 / 1,900 ( 0 % )      ;
+; R4 interconnects            ; 70 / 46,920 ( < 1 % )  ;
++-----------------------------+------------------------+
 
 
 +---------------------------------------------------------------------------+
 ; LAB Logic Elements                                                        ;
 +---------------------------------------------+-----------------------------+
-; Number of Logic Elements  (Average = 12.57) ; Number of LABs  (Total = 7) ;
+; Number of Logic Elements  (Average = 13.29) ; Number of LABs  (Total = 7) ;
 +---------------------------------------------+-----------------------------+
 ; 1                                           ; 0                           ;
 ; 2                                           ; 0                           ;
@@ -1261,13 +1247,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 5                                           ; 0                           ;
 ; 6                                           ; 0                           ;
 ; 7                                           ; 0                           ;
-; 8                                           ; 1                           ;
+; 8                                           ; 0                           ;
 ; 9                                           ; 0                           ;
 ; 10                                          ; 0                           ;
 ; 11                                          ; 0                           ;
-; 12                                          ; 0                           ;
-; 13                                          ; 1                           ;
-; 14                                          ; 0                           ;
+; 12                                          ; 1                           ;
+; 13                                          ; 0                           ;
+; 14                                          ; 1                           ;
 ; 15                                          ; 0                           ;
 ; 16                                          ; 4                           ;
 +---------------------------------------------+-----------------------------+
@@ -1276,17 +1262,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------+
 ; LAB-wide Signals                                                 ;
 +------------------------------------+-----------------------------+
-; LAB-wide Signals  (Average = 1.14) ; Number of LABs  (Total = 7) ;
+; LAB-wide Signals  (Average = 1.43) ; Number of LABs  (Total = 7) ;
 +------------------------------------+-----------------------------+
-; 1 Async. clear                     ; 2                           ;
-; 1 Clock                            ; 6                           ;
+; 1 Async. clear                     ; 1                           ;
+; 1 Clock                            ; 7                           ;
+; 1 Clock enable                     ; 2                           ;
 +------------------------------------+-----------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                        ;
 +----------------------------------------------+-----------------------------+
-; Number of Signals Sourced  (Average = 18.14) ; Number of LABs  (Total = 7) ;
+; Number of Signals Sourced  (Average = 20.29) ; Number of LABs  (Total = 7) ;
 +----------------------------------------------+-----------------------------+
 ; 0                                            ; 0                           ;
 ; 1                                            ; 0                           ;
@@ -1296,7 +1283,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 5                                            ; 0                           ;
 ; 6                                            ; 1                           ;
 ; 7                                            ; 0                           ;
-; 8                                            ; 1                           ;
+; 8                                            ; 0                           ;
 ; 9                                            ; 0                           ;
 ; 10                                           ; 0                           ;
 ; 11                                           ; 0                           ;
@@ -1305,69 +1292,79 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 14                                           ; 0                           ;
 ; 15                                           ; 0                           ;
 ; 16                                           ; 0                           ;
+; 17                                           ; 1                           ;
+; 18                                           ; 0                           ;
+; 19                                           ; 0                           ;
+; 20                                           ; 0                           ;
+; 21                                           ; 0                           ;
+; 22                                           ; 0                           ;
+; 23                                           ; 3                           ;
+; 24                                           ; 1                           ;
+; 25                                           ; 0                           ;
+; 26                                           ; 1                           ;
++----------------------------------------------+-----------------------------+
+
+
++--------------------------------------------------------------------------------+
+; LAB Signals Sourced Out                                                        ;
++--------------------------------------------------+-----------------------------+
+; Number of Signals Sourced Out  (Average = 10.57) ; Number of LABs  (Total = 7) ;
++--------------------------------------------------+-----------------------------+
+; 0                                                ; 0                           ;
+; 1                                                ; 1                           ;
+; 2                                                ; 1                           ;
+; 3                                                ; 0                           ;
+; 4                                                ; 0                           ;
+; 5                                                ; 0                           ;
+; 6                                                ; 0                           ;
+; 7                                                ; 0                           ;
+; 8                                                ; 1                           ;
+; 9                                                ; 0                           ;
+; 10                                               ; 0                           ;
+; 11                                               ; 0                           ;
+; 12                                               ; 0                           ;
+; 13                                               ; 1                           ;
+; 14                                               ; 0                           ;
+; 15                                               ; 1                           ;
+; 16                                               ; 1                           ;
+; 17                                               ; 0                           ;
+; 18                                               ; 0                           ;
+; 19                                               ; 1                           ;
++--------------------------------------------------+-----------------------------+
+
+
++----------------------------------------------------------------------------+
+; LAB Distinct Inputs                                                        ;
++----------------------------------------------+-----------------------------+
+; Number of Distinct Inputs  (Average = 12.57) ; Number of LABs  (Total = 7) ;
++----------------------------------------------+-----------------------------+
+; 0                                            ; 0                           ;
+; 1                                            ; 1                           ;
+; 2                                            ; 0                           ;
+; 3                                            ; 0                           ;
+; 4                                            ; 0                           ;
+; 5                                            ; 1                           ;
+; 6                                            ; 0                           ;
+; 7                                            ; 0                           ;
+; 8                                            ; 0                           ;
+; 9                                            ; 0                           ;
+; 10                                           ; 1                           ;
+; 11                                           ; 0                           ;
+; 12                                           ; 1                           ;
+; 13                                           ; 1                           ;
+; 14                                           ; 0                           ;
+; 15                                           ; 0                           ;
+; 16                                           ; 0                           ;
 ; 17                                           ; 0                           ;
 ; 18                                           ; 0                           ;
 ; 19                                           ; 0                           ;
 ; 20                                           ; 0                           ;
-; 21                                           ; 2                           ;
+; 21                                           ; 0                           ;
 ; 22                                           ; 1                           ;
 ; 23                                           ; 0                           ;
-; 24                                           ; 1                           ;
+; 24                                           ; 0                           ;
 ; 25                                           ; 1                           ;
 +----------------------------------------------+-----------------------------+
-
-
-+-------------------------------------------------------------------------------+
-; LAB Signals Sourced Out                                                       ;
-+-------------------------------------------------+-----------------------------+
-; Number of Signals Sourced Out  (Average = 7.43) ; Number of LABs  (Total = 7) ;
-+-------------------------------------------------+-----------------------------+
-; 0                                               ; 0                           ;
-; 1                                               ; 1                           ;
-; 2                                               ; 0                           ;
-; 3                                               ; 0                           ;
-; 4                                               ; 0                           ;
-; 5                                               ; 2                           ;
-; 6                                               ; 0                           ;
-; 7                                               ; 1                           ;
-; 8                                               ; 1                           ;
-; 9                                               ; 0                           ;
-; 10                                              ; 1                           ;
-; 11                                              ; 0                           ;
-; 12                                              ; 0                           ;
-; 13                                              ; 0                           ;
-; 14                                              ; 0                           ;
-; 15                                              ; 0                           ;
-; 16                                              ; 1                           ;
-+-------------------------------------------------+-----------------------------+
-
-
-+---------------------------------------------------------------------------+
-; LAB Distinct Inputs                                                       ;
-+---------------------------------------------+-----------------------------+
-; Number of Distinct Inputs  (Average = 8.71) ; Number of LABs  (Total = 7) ;
-+---------------------------------------------+-----------------------------+
-; 0                                           ; 0                           ;
-; 1                                           ; 1                           ;
-; 2                                           ; 0                           ;
-; 3                                           ; 0                           ;
-; 4                                           ; 0                           ;
-; 5                                           ; 0                           ;
-; 6                                           ; 1                           ;
-; 7                                           ; 1                           ;
-; 8                                           ; 0                           ;
-; 9                                           ; 2                           ;
-; 10                                          ; 1                           ;
-; 11                                          ; 0                           ;
-; 12                                          ; 0                           ;
-; 13                                          ; 0                           ;
-; 14                                          ; 0                           ;
-; 15                                          ; 0                           ;
-; 16                                          ; 0                           ;
-; 17                                          ; 0                           ;
-; 18                                          ; 0                           ;
-; 19                                          ; 1                           ;
-+---------------------------------------------+-----------------------------+
 
 
 +-------------------------------------------------------------------------+
@@ -1428,28 +1425,28 @@ Info (176353): Automatically promoted node gen6mhz:inst1|count[2]
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:01
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:00
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X25_Y14 to location X37_Y27
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
+    Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X38_Y14 to location X50_Y27
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.34 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.22 seconds.
 Info (306004): Started post-fitting delay annotation
 Warning (306006): Found 36 output pins without output pin load capacitance assignment
-    Info (306007): Pin "SPIMISO" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info (306007): Pin "RAMDATA[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info (306007): Pin "RAMDATA[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info (306007): Pin "RAMDATA[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info (306007): Pin "RAMDATA[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info (306007): Pin "vga_hsync" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info (306007): Pin "vga_vsync" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info (306007): Pin "SPIMISO" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info (306007): Pin "RAMWE" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info (306007): Pin "RAMADDR[15]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info (306007): Pin "RAMADDR[14]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
@@ -1482,24 +1479,24 @@ Warning (306006): Found 36 output pins without output pin load capacitance assig
 Info (306005): Delay annotation completed successfully
 Info (306004): Started post-fitting delay annotation
 Info (306005): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Warning (169064): Following 4 pins have no output enable or a GND or VCC output enable - later changes to this connectivity may change fitting results
     Info (169065): Pin RAMDATA[3] has a permanently disabled output enable
     Info (169065): Pin RAMDATA[2] has a permanently disabled output enable
     Info (169065): Pin RAMDATA[1] has a permanently disabled output enable
     Info (169065): Pin RAMDATA[0] has a permanently disabled output enable
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
-Info (144001): Generated suppressed messages file C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/quartus_DE1/top_de1.fit.smsg
+Info (144001): Generated suppressed messages file F:/Users/Erwin/GitHub/DaC/hardware/gpu/quartus/top_de1.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 629 megabytes
-    Info: Processing ended: Mon Nov 18 15:06:30 2013
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Peak virtual memory: 630 megabytes
+    Info: Processing ended: Wed Nov 20 20:25:00 2013
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/quartus_DE1/top_de1.fit.smsg.
+The suppressed messages can be found in F:/Users/Erwin/GitHub/DaC/hardware/gpu/quartus/top_de1.fit.smsg.
 
 

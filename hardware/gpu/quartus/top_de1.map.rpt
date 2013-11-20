@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_de1
-Mon Nov 18 15:06:25 2013
+Wed Nov 20 20:24:56 2013
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -16,12 +16,12 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   8. Registers Removed During Synthesis
   9. Removed Registers Triggering Further Register Optimizations
  10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: gpu:inst2|vgacontroller:vgacontroller1
- 14. Parameter Settings for User Entity Instance: gpu:inst2|spi:spi1
- 15. Port Connectivity Checks: "gpu:inst2|spi:spi1"
- 16. Port Connectivity Checks: "gpu:inst2|vgacontroller:vgacontroller1"
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: gpu:inst2|vgacontroller:vgacontroller1
+ 13. Parameter Settings for User Entity Instance: gpu:inst2|spi:spi1
+ 14. Port Connectivity Checks: "gpu:inst2|spi:spi1"
+ 15. Port Connectivity Checks: "gpu:inst2|vgacontroller:vgacontroller1"
+ 16. Port Connectivity Checks: "gpu:inst2|ramcontroller:ramcontroller1"
  17. Elapsed Time Per Partition
  18. Analysis & Synthesis Messages
 
@@ -49,15 +49,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 18 15:06:25 2013           ;
+; Analysis & Synthesis Status        ; Successful - Wed Nov 20 20:24:56 2013           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; top_de1                                         ;
 ; Top-level Entity Name              ; top_de1                                         ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 89                                              ;
-;     Total combinational functions  ; 73                                              ;
-;     Dedicated logic registers      ; 46                                              ;
-; Total registers                    ; 46                                              ;
+; Total logic elements               ; 94                                              ;
+;     Total combinational functions  ; 83                                              ;
+;     Dedicated logic registers      ; 49                                              ;
+; Total registers                    ; 49                                              ;
 ; Total pins                         ; 40                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -162,52 +162,54 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                             ;
-+--------------------------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                 ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                   ; Library ;
-+--------------------------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------------------+---------+
-; ../VHDL/gpu-structural.vhd                       ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/VHDL/gpu-structural.vhd                       ;         ;
-; ../spi/vhdl/spi-logic.vhd                        ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/spi/vhdl/spi-logic.vhd                        ;         ;
-; ../spi/vhdl/spi.vhd                              ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/spi/vhdl/spi.vhd                              ;         ;
-; ../vgacontroller/VHDL/vgacontroller-behavior.vhd ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/vgacontroller/VHDL/vgacontroller-behavior.vhd ;         ;
-; ../VHDL/gen6mhz.vhd                              ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/VHDL/gen6mhz.vhd                              ;         ;
-; ../vgacontroller/VHDL/vgacontroller.vhd          ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/vgacontroller/VHDL/vgacontroller.vhd          ;         ;
-; ../parameter_def_pkg.vhd                         ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/parameter_def_pkg.vhd                         ;         ;
-; ../VHDL/gpu.vhd                                  ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/VHDL/gpu.vhd                                  ;         ;
-; top_de1.bdf                                      ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/quartus_DE1/top_de1.bdf                       ;         ;
-; pre_vga_dac_4.vhd                                ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/quartus_DE1/pre_vga_dac_4.vhd                 ;         ;
-+--------------------------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                           ;
++----------------------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path             ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                     ; Library ;
++----------------------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------+---------+
+; ../spi/spi-behaviour.vhd                     ; yes             ; User VHDL File                     ; F:/Users/Erwin/GitHub/DaC/hardware/gpu/spi/spi-behaviour.vhd                     ;         ;
+; ../spi/spi.vhd                               ; yes             ; User VHDL File                     ; F:/Users/Erwin/GitHub/DaC/hardware/gpu/spi/spi.vhd                               ;         ;
+; ../gpu-structural.vhd                        ; yes             ; User VHDL File                     ; F:/Users/Erwin/GitHub/DaC/hardware/gpu/gpu-structural.vhd                        ;         ;
+; ../gpu.vhd                                   ; yes             ; User VHDL File                     ; F:/Users/Erwin/GitHub/DaC/hardware/gpu/gpu.vhd                                   ;         ;
+; ../gen6mhz.vhd                               ; yes             ; User VHDL File                     ; F:/Users/Erwin/GitHub/DaC/hardware/gpu/gen6mhz.vhd                               ;         ;
+; ../vgacontroller/vgacontroller-behaviour.vhd ; yes             ; User VHDL File                     ; F:/Users/Erwin/GitHub/DaC/hardware/gpu/vgacontroller/vgacontroller-behaviour.vhd ;         ;
+; ../vgacontroller/vgacontroller.vhd           ; yes             ; User VHDL File                     ; F:/Users/Erwin/GitHub/DaC/hardware/gpu/vgacontroller/vgacontroller.vhd           ;         ;
+; ../ramcontroller/ramcontroller-behaviour.vhd ; yes             ; User VHDL File                     ; F:/Users/Erwin/GitHub/DaC/hardware/gpu/ramcontroller/ramcontroller-behaviour.vhd ;         ;
+; ../ramcontroller/ramcontroller.vhd           ; yes             ; User VHDL File                     ; F:/Users/Erwin/GitHub/DaC/hardware/gpu/ramcontroller/ramcontroller.vhd           ;         ;
+; ../parameter_def_pkg.vhd                     ; yes             ; User VHDL File                     ; F:/Users/Erwin/GitHub/DaC/hardware/gpu/parameter_def_pkg.vhd                     ;         ;
+; top_de1.bdf                                  ; yes             ; User Block Diagram/Schematic File  ; F:/Users/Erwin/GitHub/DaC/hardware/gpu/quartus/top_de1.bdf                       ;         ;
+; pre_vga_dac_4.vhd                            ; yes             ; User VHDL File                     ; F:/Users/Erwin/GitHub/DaC/hardware/gpu/quartus/pre_vga_dac_4.vhd                 ;         ;
++----------------------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Estimated Total logic elements              ; 89    ;
-;                                             ;       ;
-; Total combinational functions               ; 73    ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 32    ;
-;     -- 3 input functions                    ; 27    ;
-;     -- <=2 input functions                  ; 14    ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 57    ;
-;     -- arithmetic mode                      ; 16    ;
-;                                             ;       ;
-; Total registers                             ; 46    ;
-;     -- Dedicated logic registers            ; 46    ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 40    ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-; Maximum fan-out node                        ; reset ;
-; Maximum fan-out                             ; 41    ;
-; Total fan-out                               ; 351   ;
-; Average fan-out                             ; 2.21  ;
-+---------------------------------------------+-------+
++----------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                          ;
++---------------------------------------------+------------------------+
+; Resource                                    ; Usage                  ;
++---------------------------------------------+------------------------+
+; Estimated Total logic elements              ; 94                     ;
+;                                             ;                        ;
+; Total combinational functions               ; 83                     ;
+; Logic element usage by number of LUT inputs ;                        ;
+;     -- 4 input functions                    ; 34                     ;
+;     -- 3 input functions                    ; 31                     ;
+;     -- <=2 input functions                  ; 18                     ;
+;                                             ;                        ;
+; Logic elements by mode                      ;                        ;
+;     -- normal mode                          ; 67                     ;
+;     -- arithmetic mode                      ; 16                     ;
+;                                             ;                        ;
+; Total registers                             ; 49                     ;
+;     -- Dedicated logic registers            ; 49                     ;
+;     -- I/O registers                        ; 0                      ;
+;                                             ;                        ;
+; I/O pins                                    ; 40                     ;
+; Embedded Multiplier 9-bit elements          ; 0                      ;
+; Maximum fan-out node                        ; gen6mhz:inst1|count[2] ;
+; Maximum fan-out                             ; 47                     ;
+; Total fan-out                               ; 416                    ;
+; Average fan-out                             ; 2.42                   ;
++---------------------------------------------+------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -215,35 +217,34 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
 ; Compilation Hierarchy Node           ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                             ; Library Name ;
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
-; |top_de1                             ; 73 (0)            ; 46 (0)       ; 0           ; 0            ; 0       ; 0         ; 40   ; 0            ; |top_de1                                        ; work         ;
+; |top_de1                             ; 83 (0)            ; 49 (0)       ; 0           ; 0            ; 0       ; 0         ; 40   ; 0            ; |top_de1                                        ; work         ;
 ;    |gen6mhz:inst1|                   ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gen6mhz:inst1                          ; work         ;
-;    |gpu:inst2|                       ; 70 (0)            ; 43 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2                              ; work         ;
-;       |spi:spi1|                     ; 15 (15)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|spi:spi1                     ; work         ;
-;       |vgacontroller:vgacontroller1| ; 55 (55)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1 ; work         ;
+;    |gpu:inst2|                       ; 80 (0)            ; 46 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2                              ; work         ;
+;       |spi:spi1|                     ; 1 (1)             ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|spi:spi1                     ; work         ;
+;       |vgacontroller:vgacontroller1| ; 79 (79)           ; 35 (35)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1 ; work         ;
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                               ;
-+---------------------------------------+------------------------------------------+
-; Register name                         ; Reason for Removal                       ;
-+---------------------------------------+------------------------------------------+
-; gpu:inst2|spi:spi1|bit_cnt[0]         ; Stuck at GND due to stuck port data_in   ;
-; gpu:inst2|spi:spi1|tx_buf[1..7]       ; Merged with gpu:inst2|spi:spi1|tx_buf[0] ;
-; gpu:inst2|spi:spi1|tx_buf[0]          ; Stuck at GND due to stuck port data_in   ;
-; Total Number of Removed Registers = 9 ;                                          ;
-+---------------------------------------+------------------------------------------+
++---------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                          ;
++----------------------------------------------------+----------------------------------------+
+; Register name                                      ; Reason for Removal                     ;
++----------------------------------------------------+----------------------------------------+
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15] ; Stuck at VCC due to stuck port data_in ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramread     ; Lost fanout                            ;
+; Total Number of Removed Registers = 2              ;                                        ;
++----------------------------------------------------+----------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                        ;
-+-------------------------------+---------------------------+----------------------------------------+
-; Register name                 ; Reason for Removal        ; Registers Removed due to This Register ;
-+-------------------------------+---------------------------+----------------------------------------+
-; gpu:inst2|spi:spi1|bit_cnt[0] ; Stuck at GND              ; gpu:inst2|spi:spi1|tx_buf[0]           ;
-;                               ; due to stuck port data_in ;                                        ;
-+-------------------------------+---------------------------+----------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                     ;
++----------------------------------------------------+---------------------------+------------------------------------------------+
+; Register name                                      ; Reason for Removal        ; Registers Removed due to This Register         ;
++----------------------------------------------------+---------------------------+------------------------------------------------+
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15] ; Stuck at VCC              ; gpu:inst2|vgacontroller:vgacontroller1|ramread ;
+;                                                    ; due to stuck port data_in ;                                                ;
++----------------------------------------------------+---------------------------+------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -251,33 +252,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 46    ;
+; Total registers                              ; 49    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 20    ;
+; Number of registers using Asynchronous Clear ; 11    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 2     ;
+; Number of registers using Clock Enable       ; 23    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; gpu:inst2|spi:spi1|bit_cnt[1]          ; 3       ;
-; Total number of inverted registers = 1 ;         ;
-+----------------------------------------+---------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|v_count ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|ramaddr[1]  ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|ramaddr[13] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|v_count     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------+
@@ -304,8 +297,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+----------------------------------------+
 ; Parameter Name ; Value ; Type                                   ;
 +----------------+-------+----------------------------------------+
-; cpol           ; '0'   ; Enumerated                             ;
-; cpha           ; '0'   ; Enumerated                             ;
+; c              ; 3     ; Signed Integer                         ;
 +----------------+-------+----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -315,18 +307,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port         ; Type   ; Severity ; Details                                                                             ;
 +--------------+--------+----------+-------------------------------------------------------------------------------------+
-; ss_n         ; Input  ; Info     ; Stuck at GND                                                                        ;
-; rx_req       ; Input  ; Info     ; Stuck at GND                                                                        ;
-; st_load_en   ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; st_load_trdy ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; st_load_rrdy ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; st_load_roe  ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; tx_load_en   ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; trdy         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; rrdy         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; roe          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; rx_data      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; busy         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; spi_ss       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; spi_done     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; datatotx     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; datatotxload ; Input  ; Info     ; Stuck at GND                                                                        ;
+; datarxd      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +--------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -336,9 +321,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Port     ; Type   ; Severity ; Details                                                                             ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 ; ramclaim ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; ramaddr  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; ramread  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "gpu:inst2|ramcontroller:ramcontroller1"                                                 ;
++-----------+-------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                                             ;
++-----------+-------+----------+-------------------------------------------------------------------------------------+
+; data_draw ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+-------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -356,27 +348,38 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Nov 18 15:06:23 2013
+    Info: Processing started: Wed Nov 20 20:24:55 2013
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off de1 -c top_de1
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/vhdl/gpu-structural.vhd
-    Info (12022): Found design unit 1: gpu-structural
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/spi/vhdl/spi-logic.vhd
-    Info (12022): Found design unit 1: spi-logic
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/spi/vhdl/spi.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/spi/spi-behaviour.vhd
+    Info (12022): Found design unit 1: spi-behaviour
+Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/spi/spi.vhd
     Info (12023): Found entity 1: spi
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/vgacontroller/vhdl/vgacontroller-behavior.vhd
-    Info (12022): Found design unit 1: vgacontroller-behavior
-Info (12021): Found 2 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/vhdl/gen6mhz.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/decoder/decoder_behaviour.vhd
+    Info (12022): Found design unit 1: decoder-behaviour
+Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/decoder/decoder.vhd
+    Info (12023): Found entity 1: decoder
+Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/gpu-structural.vhd
+    Info (12022): Found design unit 1: gpu-structural
+Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/gpu.vhd
+    Info (12023): Found entity 1: gpu
+Info (12021): Found 2 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/gen6mhz.vhd
     Info (12022): Found design unit 1: gen6mhz-behaviour
     Info (12023): Found entity 1: gen6mhz
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/vgacontroller/vhdl/vgacontroller.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/vgacontroller/vgacontroller-behaviour.vhd
+    Info (12022): Found design unit 1: vgacontroller-behaviour
+Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/vgacontroller/vgacontroller.vhd
     Info (12023): Found entity 1: vgacontroller
-Info (12021): Found 2 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/parameter_def_pkg.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/ramcontroller/sram.vhd
+    Info (12022): Found design unit 1: sram-behavior
+    Info (12023): Found entity 1: sram
+Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/ramcontroller/ramcontroller-behaviour.vhd
+    Info (12022): Found design unit 1: ramcontroller-behaviour
+Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/ramcontroller/ramcontroller.vhd
+    Info (12023): Found entity 1: ramcontroller
+Info (12021): Found 2 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/parameter_def_pkg.vhd
     Info (12022): Found design unit 1: parameter_def
     Info (12022): Found design unit 2: parameter_def-body
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/vhdl/gpu.vhd
-    Info (12023): Found entity 1: gpu
 Info (12021): Found 1 design units, including 1 entities, in source file top_de1.bdf
     Info (12023): Found entity 1: top_de1
 Info (12021): Found 2 design units, including 1 entities, in source file pre_vga_dac_4.vhd
@@ -384,117 +387,31 @@ Info (12021): Found 2 design units, including 1 entities, in source file pre_vga
     Info (12023): Found entity 1: pre_vga_dac_4
 Info (12127): Elaborating entity "top_de1" for the top level hierarchy
 Info (12128): Elaborating entity "gpu" for hierarchy "gpu:inst2"
-Warning (10541): VHDL Signal Declaration warning at gpu.vhd(14): used implicit default value for signal "ramwe" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at gpu-structural.vhd(41): used implicit default value for signal "asb" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10036): Verilog HDL or VHDL warning at gpu-structural.vhd(45): object "ramclaim" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at gpu-structural.vhd(48): object "ramaddr_int" assigned a value but never read
-Warning (10541): VHDL Signal Declaration warning at gpu-structural.vhd(49): used implicit default value for signal "ramdata_int" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10036): Verilog HDL or VHDL warning at gpu-structural.vhd(50): object "ramread" assigned a value but never read
-Warning (10540): VHDL Signal Declaration warning at gpu-structural.vhd(54): used explicit default value for signal "rx_req" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at gpu-structural.vhd(55): used explicit default value for signal "st_load_en" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at gpu-structural.vhd(59): used explicit default value for signal "tx_load_en" because signal was never assigned a value
-Warning (10541): VHDL Signal Declaration warning at gpu-structural.vhd(60): used implicit default value for signal "tx_load_data" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10036): Verilog HDL or VHDL warning at gpu-structural.vhd(61): object "spitrdy" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at gpu-structural.vhd(62): object "spirrdy" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at gpu-structural.vhd(63): object "spiroe" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at gpu-structural.vhd(64): object "rx_data" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at gpu-structural.vhd(65): object "spibusy" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at gpu-structural.vhd(52): used implicit default value for signal "asb" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at gpu-structural.vhd(56): object "ramclaim" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at gpu-structural.vhd(57): object "settingup" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at gpu-structural.vhd(60): used implicit default value for signal "ramaddr_draw" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at gpu-structural.vhd(62): used implicit default value for signal "ramread_draw" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at gpu-structural.vhd(62): used implicit default value for signal "ramwrite_draw" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at gpu-structural.vhd(65): object "spidav" assigned a value but never read
+Warning (10540): VHDL Signal Declaration warning at gpu-structural.vhd(66): used explicit default value for signal "spidatatx" because signal was never assigned a value
+Warning (10036): Verilog HDL or VHDL warning at gpu-structural.vhd(67): object "spidatarx" assigned a value but never read
+Warning (10540): VHDL Signal Declaration warning at gpu-structural.vhd(68): used explicit default value for signal "spidatatxload" because signal was never assigned a value
+Info (12128): Elaborating entity "ramcontroller" for hierarchy "gpu:inst2|ramcontroller:ramcontroller1"
 Info (12128): Elaborating entity "vgacontroller" for hierarchy "gpu:inst2|vgacontroller:vgacontroller1"
 Warning (10541): VHDL Signal Declaration warning at vgacontroller.vhd(25): used implicit default value for signal "vgacolor" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10445): VHDL Subtype or Type Declaration warning at vgacontroller-behavior.vhd(58): subtype or type has null range
-Warning (10296): VHDL warning at vgacontroller-behavior.vhd(58): ignored assignment of value to null range
-Warning (10873): Using initial value X (don't care) for net "ramaddr[14..8]" at vgacontroller.vhd(27)
 Info (12128): Elaborating entity "spi" for hierarchy "gpu:inst2|spi:spi1"
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(26): signal "reset_n" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(39): signal "bit_cnt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(44): signal "bit_cnt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(49): signal "st_load_trdy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(49): signal "reset_n" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(51): signal "st_load_trdy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(53): signal "wr_add" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(53): signal "bit_cnt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(55): signal "rd_add" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(55): signal "bit_cnt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(60): signal "st_load_rrdy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(60): signal "reset_n" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(62): signal "st_load_rrdy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(64): signal "wr_add" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(64): signal "bit_cnt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(66): signal "wr_add" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(66): signal "bit_cnt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(71): signal "st_load_roe" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(71): signal "reset_n" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(73): signal "st_load_roe" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(75): signal "rrdy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(75): signal "wr_add" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(75): signal "bit_cnt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(77): signal "wr_add" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(77): signal "bit_cnt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(83): signal "reset_n" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(87): signal "wr_add" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(87): signal "bit_cnt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(93): signal "reset_n" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(96): signal "rx_buf" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(100): signal "reset_n" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(103): signal "tx_load_data" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(104): signal "rd_add" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(104): signal "bit_cnt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(109): signal "reset_n" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(111): signal "rd_add" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(118): signal "rd_add" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at spi-logic.vhd(118): signal "bit_cnt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10631): VHDL Process Statement warning at spi-logic.vhd(35): inferring latch(es) for signal or variable "rx_data", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "rx_data[0]" at spi-logic.vhd(35)
-Info (10041): Inferred latch for "rx_data[1]" at spi-logic.vhd(35)
-Info (10041): Inferred latch for "rx_data[2]" at spi-logic.vhd(35)
-Info (10041): Inferred latch for "rx_data[3]" at spi-logic.vhd(35)
-Info (10041): Inferred latch for "rx_data[4]" at spi-logic.vhd(35)
-Info (10041): Inferred latch for "rx_data[5]" at spi-logic.vhd(35)
-Info (10041): Inferred latch for "rx_data[6]" at spi-logic.vhd(35)
-Info (10041): Inferred latch for "rx_data[7]" at spi-logic.vhd(35)
 Info (12128): Elaborating entity "gen6mhz" for hierarchy "gen6mhz:inst1"
 Info (12128): Elaborating entity "pre_vga_dac_4" for hierarchy "pre_vga_dac_4:inst"
-Warning (12161): Node "gpu:inst2|ramaddr[9]" is stuck at GND because node is in wire loop and does not have a source
-Warning (12161): Node "gpu:inst2|ramaddr[8]" is stuck at GND because node is in wire loop and does not have a source
-Warning (12161): Node "gpu:inst2|ramaddr[7]" is stuck at GND because node is in wire loop and does not have a source
-Warning (12161): Node "gpu:inst2|ramaddr[6]" is stuck at GND because node is in wire loop and does not have a source
-Warning (12161): Node "gpu:inst2|ramaddr[5]" is stuck at GND because node is in wire loop and does not have a source
-Warning (12161): Node "gpu:inst2|ramaddr[4]" is stuck at GND because node is in wire loop and does not have a source
-Warning (12161): Node "gpu:inst2|ramaddr[3]" is stuck at GND because node is in wire loop and does not have a source
-Warning (12161): Node "gpu:inst2|ramaddr[2]" is stuck at GND because node is in wire loop and does not have a source
-Warning (12161): Node "gpu:inst2|ramaddr[1]" is stuck at GND because node is in wire loop and does not have a source
-Warning (12161): Node "gpu:inst2|ramaddr[15]" is stuck at GND because node is in wire loop and does not have a source
-Warning (12161): Node "gpu:inst2|ramaddr[14]" is stuck at GND because node is in wire loop and does not have a source
-Warning (12161): Node "gpu:inst2|ramaddr[13]" is stuck at GND because node is in wire loop and does not have a source
-Warning (12161): Node "gpu:inst2|ramaddr[12]" is stuck at GND because node is in wire loop and does not have a source
-Warning (12161): Node "gpu:inst2|ramaddr[11]" is stuck at GND because node is in wire loop and does not have a source
-Warning (12161): Node "gpu:inst2|ramaddr[10]" is stuck at GND because node is in wire loop and does not have a source
-Warning (12161): Node "gpu:inst2|ramaddr[0]" is stuck at GND because node is in wire loop and does not have a source
-Warning (13039): The following bidir pins have no drivers
-    Warning (13040): Bidir "RAMDATA" has no driver
-    Warning (13040): Bidir "RAMDATA" has no driver
-    Warning (13040): Bidir "RAMDATA" has no driver
-    Warning (13040): Bidir "RAMDATA" has no driver
-Info (13000): Registers with preset signals will power-up high
-Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13008): TRI or OPNDRN buffers permanently disabled
+    Warning (13010): Node "gpu:inst2|ramcontroller:ramcontroller1|data[3]~synth"
+    Warning (13010): Node "gpu:inst2|ramcontroller:ramcontroller1|data[2]~synth"
+    Warning (13010): Node "gpu:inst2|ramcontroller:ramcontroller1|data[1]~synth"
+    Warning (13010): Node "gpu:inst2|ramcontroller:ramcontroller1|data[0]~synth"
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "RAMWE" is stuck at GND
-    Warning (13410): Pin "RAMADDR[15]" is stuck at GND
-    Warning (13410): Pin "RAMADDR[14]" is stuck at GND
-    Warning (13410): Pin "RAMADDR[13]" is stuck at GND
-    Warning (13410): Pin "RAMADDR[12]" is stuck at GND
-    Warning (13410): Pin "RAMADDR[11]" is stuck at GND
-    Warning (13410): Pin "RAMADDR[10]" is stuck at GND
-    Warning (13410): Pin "RAMADDR[9]" is stuck at GND
-    Warning (13410): Pin "RAMADDR[8]" is stuck at GND
-    Warning (13410): Pin "RAMADDR[7]" is stuck at GND
-    Warning (13410): Pin "RAMADDR[6]" is stuck at GND
-    Warning (13410): Pin "RAMADDR[5]" is stuck at GND
-    Warning (13410): Pin "RAMADDR[4]" is stuck at GND
-    Warning (13410): Pin "RAMADDR[3]" is stuck at GND
-    Warning (13410): Pin "RAMADDR[2]" is stuck at GND
-    Warning (13410): Pin "RAMADDR[1]" is stuck at GND
-    Warning (13410): Pin "RAMADDR[0]" is stuck at GND
+    Warning (13410): Pin "RAMWE" is stuck at VCC
+    Warning (13410): Pin "RAMADDR[15]" is stuck at VCC
     Warning (13410): Pin "vga_b[3]" is stuck at GND
     Warning (13410): Pin "vga_b[2]" is stuck at GND
     Warning (13410): Pin "vga_b[1]" is stuck at GND
@@ -507,17 +424,20 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "vga_r[2]" is stuck at GND
     Warning (13410): Pin "vga_r[1]" is stuck at GND
     Warning (13410): Pin "vga_r[0]" is stuck at GND
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 139 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SPIMOSI"
+Info (21057): Implemented 141 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 32 output pins
     Info (21060): Implemented 4 bidirectional pins
-    Info (21061): Implemented 99 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 110 warnings
-    Info: Peak virtual memory: 502 megabytes
-    Info: Processing ended: Mon Nov 18 15:06:25 2013
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info (21061): Implemented 101 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 35 warnings
+    Info: Peak virtual memory: 511 megabytes
+    Info: Processing ended: Wed Nov 20 20:24:56 2013
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 

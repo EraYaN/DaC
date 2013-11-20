@@ -1,5 +1,5 @@
 Flow report for top_de1
-Mon Nov 18 15:06:34 2013
+Wed Nov 20 20:25:04 2013
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,17 +40,17 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Mon Nov 18 15:06:32 2013           ;
+; Flow Status                        ; Successful - Wed Nov 20 20:25:02 2013           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; top_de1                                         ;
 ; Top-level Entity Name              ; top_de1                                         ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 88 / 18,752 ( < 1 % )                           ;
-;     Total combinational functions  ; 75 / 18,752 ( < 1 % )                           ;
-;     Dedicated logic registers      ; 46 / 18,752 ( < 1 % )                           ;
-; Total registers                    ; 46                                              ;
+; Total logic elements               ; 93 / 18,752 ( < 1 % )                           ;
+;     Total combinational functions  ; 85 / 18,752 ( < 1 % )                           ;
+;     Dedicated logic registers      ; 49 / 18,752 ( < 1 % )                           ;
+; Total registers                    ; 49                                              ;
 ; Total pins                         ; 40 / 315 ( 13 % )                               ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 239,616 ( 0 % )                             ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/18/2013 15:06:23 ;
+; Start date & time ; 11/20/2013 20:24:55 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; top_de1             ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                           ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+---------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 105788761862672.138478358308336 ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 207120304440437.138497549508048 ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                              ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                               ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; 16764057                        ; --            ; --          ; Top        ;
@@ -89,11 +89,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 491 MB              ; 00:00:02                           ;
-; Fitter                    ; 00:00:04     ; 1.0                     ; 629 MB              ; 00:00:05                           ;
+; Analysis & Synthesis      ; 00:00:01     ; 1.0                     ; 503 MB              ; 00:00:01                           ;
+; Fitter                    ; 00:00:03     ; 1.0                     ; 630 MB              ; 00:00:03                           ;
 ; Assembler                 ; 00:00:01     ; 1.0                     ; 412 MB              ; 00:00:01                           ;
 ; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 394 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:08     ; --                      ; --                  ; 00:00:09                           ;
+; Total                     ; 00:00:06     ; --                      ; --                  ; 00:00:06                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -102,10 +102,10 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; Erwin-Laptop     ; Windows 7 ; 6.2        ; x86_64         ;
-; Fitter                    ; Erwin-Laptop     ; Windows 7 ; 6.2        ; x86_64         ;
-; Assembler                 ; Erwin-Laptop     ; Windows 7 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; Erwin-Laptop     ; Windows 7 ; 6.2        ; x86_64         ;
+; Analysis & Synthesis      ; Erwin-PC         ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; Erwin-PC         ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; Erwin-PC         ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; Erwin-PC         ; Windows 7 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 

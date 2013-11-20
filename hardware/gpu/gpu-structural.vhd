@@ -18,53 +18,71 @@ COMPONENT vgacontroller IS
 	 ); 
 END COMPONENT;
 COMPONENT spi IS
-     PORT(
-    sclk         : IN     STD_LOGIC;  --spi clk from master
-    reset_n      : IN     STD_LOGIC;  --active low reset
-    ss_n         : IN     STD_LOGIC;  --active low slave select
-    mosi         : IN     STD_LOGIC;  --master out, slave in
-    rx_req       : IN     STD_LOGIC;  --'1' while busy = '0' moves data to the rx_data output
-    st_load_en   : IN     STD_LOGIC;  --asynchronous load enable
-    st_load_trdy : IN     STD_LOGIC;  --asynchronous trdy load input
-    st_load_rrdy : IN     STD_LOGIC;  --asynchronous rrdy load input
-    st_load_roe  : IN     STD_LOGIC;  --asynchronous roe load input
-    tx_load_en   : IN     STD_LOGIC;  --asynchronous transmit buffer load enable
-    tx_load_data : IN     STD_LOGIC_VECTOR(SizeSPIData-1 DOWNTO 0);  --asynchronous tx data to load
-    trdy         : BUFFER STD_LOGIC := '0';  --transmit ready bit
-    rrdy         : BUFFER STD_LOGIC := '0';  --receive ready bit
-    roe          : BUFFER STD_LOGIC := '0';  --receive overrun error bit
-    rx_data      : OUT    STD_LOGIC_VECTOR(SizeSPIData-1 DOWNTO 0) := (OTHERS => '0');  --receive register output to logic
-    busy         : OUT    STD_LOGIC := '0';  --busy signal to logic ('1' during transaction)
-    miso         : OUT    STD_LOGIC := 'Z'); --master in, slave out
+port (
+	reset : in std_logic;
+	clk : in std_logic;
+	SPI_CLK : in std_logic;
+	SPI_SS : in std_logic;
+	SPI_MOSI : in std_logic;
+	SPI_MISO : out std_logic;
+	SPI_DONE : out std_logic;
+	DataToTx : in std_logic_vector(SizeSPIData-1 downto 0);
+	DataToTxLoad: in std_logic;
+	DataRxd : out std_logic_vector(SizeSPIData-1 downto 0)
+);
+END COMPONENT;
+COMPONENT ramcontroller IS
+port (
+--external
+write_enable : out std_logic;
+addr : out std_logic_vector(SizeRAMAddr-1 downto 0);
+data : inout std_logic_vector(SizeRAMData-1 downto 0);
+--internal
+addr_draw : in std_logic_vector(SizeRAMAddr-1 downto 0);
+addr_vga : in std_logic_vector(SizeRAMAddr-1 downto 0);
+data_draw : inout std_logic_vector(SizeRAMData-1 downto 0);
+data_vga : out std_logic_vector(SizeRAMData-1 downto 0);
+
+draw_write : in std_logic;
+draw_read : in std_logic;
+vga_read : in std_logic
+);
 END COMPONENT;
 --GLOBAL
 signal asb : std_logic;
-signal reset_n: std_logic;
+signal reset_n, ramwe: std_logic;
 
 -- VGACONTROLLER <-> DRAW
 SIGNAL ramclaim : std_logic;
+SIGNAL settingup : std_logic;
 
--- RAMCONTROLLER ->
-signal ramaddr_int :std_logic_vector(SizeRAMAddr-1 downto 0);
-signal ramdata_int :std_logic_vector(SizeRAMData-1 downto 0);
-signal ramread :std_logic;
-signal ramwrite :std_logic;
+-- RAMCONTROLLER <->
+signal ramaddr_vga,ramaddr_draw,ramaddr_decoder :std_logic_vector(SizeRAMAddr-1 downto 0);
+signal ramdata_vga,ramdata_draw,ramdata_decoder :std_logic_vector(SizeRAMData-1 downto 0);
+signal ramread_draw,ramwrite_draw,ramread_vga,ramwrite_decoder :std_logic;
 
 -- SPI <-> DECODER
-signal rx_req       : STD_LOGIC := '0';
-signal st_load_en   : STD_LOGIC := '1';
-signal st_load_trdy : STD_LOGIC := '0';
-signal st_load_rrdy : STD_LOGIC := '0';
-signal st_load_roe  : STD_LOGIC := '0';
-signal tx_load_en   : STD_LOGIC := '1';
-signal tx_load_data : STD_LOGIC_VECTOR(SizeSPIData-1 DOWNTO 0);
-signal spitrdy         : STD_LOGIC := '0';
-signal spirrdy         : STD_LOGIC := '0';
-signal spiroe          : STD_LOGIC := '0';
-signal rx_data      : STD_LOGIC_VECTOR(SizeSPIData-1 DOWNTO 0) := (OTHERS => '0');
-signal spibusy         : STD_LOGIC := '0';
+signal spidav         : STD_LOGIC := '0';
+signal spidatatx      : std_logic_vector(SizeSPIData-1 downto 0) := (OTHERS => '0');
+signal spidatarx      : STD_LOGIC_VECTOR(SizeSPIData-1 DOWNTO 0);
+signal spidatatxload  : STD_LOGIC := '0';
 BEGIN
 reset_n <= NOT reset;
+ramwe_n <= NOT ramwe;
+
+ramcontroller1: ramcontroller PORT MAP (
+	ramwe,
+	ramaddr,
+	ramdata,
+	ramaddr_draw,
+	ramaddr_vga,
+	ramdata_draw,
+	ramdata_vga,
+	ramwrite_draw,
+	ramread_draw,
+	ramread_vga
+);
+
 vgacontroller1: vgacontroller PORT MAP (
 	clk,
 	reset_n,
@@ -72,32 +90,32 @@ vgacontroller1: vgacontroller PORT MAP (
 	vgavsync,
 	vgacolor,
 	ramclaim,
-	ramaddr_int,
-	ramdata_int,
-	ramread,
+	ramaddr_vga,
+	ramdata_vga,
+	ramread_vga,
 	asb
 );
 
 spi1: spi PORT MAP (
-	sclk=>spiclk,
-	reset_n=>reset_n,
-	ss_n=>'0',
-	mosi=>spimosi,
-	rx_req=>rx_req,
-	st_load_en=>st_load_en,
-	st_load_trdy=>'1',
-	st_load_rrdy=>'1',
-	st_load_roe=>'1',
-	tx_load_en=>tx_load_en,
-	tx_load_data=>tx_load_data,
-	trdy=>spitrdy,
-	rrdy=>spirrdy,
-	roe=>spiroe,
-	rx_data=>rx_data,
-	busy=>spibusy,
-	miso=>spimiso
+	clk=>clk,
+	reset=>reset_n,
+	SPI_CLK=>spiclk,
+	SPI_SS=>'1',
+	SPI_MOSI=>spimosi,
+	SPI_MISO=>spimiso,
+	SPI_DONE=>spidav,
+	DataToTx=>spidatatx,
+	DataToTxLoad=>spidatatxload,
+	DataRxd=>spidatarx
+	
 );
 
+PROCESS (reset) 
+begin
+	if(reset='1')then
+		settingup <= '1';
+	end if;
+end process;
 END structural;
 
 

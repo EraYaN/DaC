@@ -15,10 +15,10 @@ begin
 
 --Sync process
 
-process(CLK_in, RESET_in)
+process(clk, reset)
 
 begin
-if (RESET_in = '1') then
+if (reset = '1') then
 
 RxdData <= (others => '0');
 index <= to_unsigned(SizeSPIData-1,c);
@@ -30,7 +30,7 @@ SS_latched <= '0';
 SPI_DONE <= '0';
 MOSI_latched <= '0';
 
-elsif( rising_edge(CLK_in) ) then
+elsif( rising_edge(clk) ) then
 
 SCLK_latched <= SPI_CLK;
 SCLK_old <= SCLK_latched;

@@ -10,8 +10,8 @@ generic (
  c : integer := integer(ceil(log2(real(SizeSPIData))))
 );
 port (
-RESET_in : in std_logic;
-CLK_in : in std_logic;
+reset : in std_logic;
+clk : in std_logic;
 SPI_CLK : in std_logic;
 SPI_SS : in std_logic;
 SPI_MOSI : in std_logic;

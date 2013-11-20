@@ -8,27 +8,27 @@ begin
 		if(vga_read = '1') then
 			addr <= addr_vga;
 			data_vga <= data;
-			data <= (others => 'Z');
-			data_draw <= (others => 'Z');
+			data <= (others => '-');
+			data_draw <= (others => '-');
 			write_enable <= '0';
 		else
 			if(draw_read = '1') then
 				addr <= addr_draw;
-				data_vga <= (others => 'Z');
-				data <= (others => 'Z');
-				data_draw <= data;		
+				data_vga <= (others => '-');
+				data <= (others => '-');
+				data_draw <= data;
 				write_enable <= '0';
 			elsif(draw_write = '1') then
 				addr <= addr_draw;
 				data <= transport data_draw after 45 ns; -- t_dw + t_whz
-				data_vga <= (others => 'Z');
-				data_draw <= (others => 'Z');
+				data_vga <= (others => '-');
+				data_draw <= (others => '-');
 				write_enable <= '1';
 			else
 				addr <= addr_vga;
 				data_vga <= data;
-				data_draw <= (others => 'Z');
-				data <= (others => 'Z');
+				data_draw <= (others => '-');
+				data <= (others => '-');
 				write_enable <= '0';
 			end if;
 		end if;
