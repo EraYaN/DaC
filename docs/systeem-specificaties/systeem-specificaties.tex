@@ -56,40 +56,89 @@ chip dient echter ook beperkt te zijn. Dit geeft een compromis voor de maximale 
 
 \end {itemize}
 
-\subsection { instructie decoder}
-\begin {itemize}
-\item 8 bits bus ingang staat klaar op de ingang wordt ingelezen als data ready hoog is.
-\item 1 bit uitgang als de instructie na de instructie ( 3 bytes) wordt deze hoog en wordt de volgende instructie aangevraagd.
-\item data clock ingang om te synchroniseren 
-\item data ready ingang als deze hoog is dan wordt data ingelezen van de 8bits bus
-\item read ingang (1 bit) hoog als 1 byte van de instructie is ingelezen 
-\item een 40 bit register, voor het opslaan van de instructie ( bufferen van)
-\end {itemize}
-
 \subsection { cpu-gpu interface}
 \begin {itemize}
+\end {itemize}
+
+\subsection { instructie decoder}
+
+De instructiedecoder zorgt ervoor dat de data die vanuit de arduïno komt vertaald wordt voor de rest van de gpu. 
+Dit houdt in dat de intructiedecoder het 'drawblok' van die juiste informatie voorziet zodat deze de pixels kan tekenen en dat het in het stateregister opslaat in welke screenbuffer er geschreven wordt.
+De instructiedecoder heeft een 8bits bus ingang van de SPI decoder, deze wordt ingelezen als de ingang data ready hoog is. Als de 8 bits zijn ingelezen stuurt de instructiedecoder een signaal terug dat aangeeft dat de volgende 8 bits verstuurd mogen worden.
+Wanneer dan de complete instructie, 3 keer 8 bits, verstuurd is zal er een signaal worden gegeven dat de volgende instructie gestuurd kan worden.
+Als uitgangen van de instructiedecoder zijn er de coördinaten van het te tekenen object plus de kleur die dit object moet hebben, deze signalen gaan natuurlijk naar het 'drawblok'.
+Om de juiste module van het 'drawblok' aan te sturen wordt gebruik gemaakt van een enabled signaal dat aangeeft welke module de instructie moet uitvoeren.
+Van het 'drawblok' krijgt de instructiedecoder een signaal als het klaar is met tekenen zodat deze weer een volgend object kan tekenen. 
+Verder wordt de instructiedecoder gebruikt om te bepalen welke screenbuffer er gebruikt wordt om op te schrijven en dus indirect welke om te lezen. Deze informatie wordt verstuurd naar een stateregister doormiddel van een signaal set en de data voor de juiste screenbuffer.
+En dit alles wordt gedaan synchroon met de klok.
+
+\begin {itemize}
+\item ingangen:
+\begin{itemize}
+\item data clock  
+\item 8 bits bus 
+\item data ready (1bit)
+\item readytosend (1 bit)
+\item done (1 bit)
+\end{itemize}
+
+\item uitgangen:
+\begin{itemize}
+\item instuctieready (1 bit).
+\item kleur (4 bits)
+\item x coördinaat (8 bits)
+\item y coördinaat (7 bits)
+\item enabled (1 bit)
+\item set (1 bit)
+\item data (1 bit)
+\end{itemize}
+\end{itemize}
+
+
+
 
 \subsection { draw logic}
+
+In dit blok worden de instructie omgezet naar pixels, vierkantjes, lijnen en cirkels. Dit blok krijgt de informatie binnen van de instructie decoder, deze geeft aan welke module er gebruikt moet worden met de bijbehorende coördinaten en kleur.
+De keuze voor welke module er gebruikt moet worden gebeurd doormiddel van het signaal enabled. verder neemt het draw blok het signaal activescreenbuffer mee zodat er in de juiste screenbuffer geschreven wordt. Tevens krijgt het 'drawblok' het signaal RAMclaimed binnen van de VGA controller, dit houdt in dat als de VGA controller aan het lezen is in het RAM dat het 'drawblok' er niet in kan schrijven. Als laatste ingang krijgt het 'drawblok' een signaal write binnen van de RAM controller dat 
+Als uitgangen heeft het 'drawblok' het signaal done als de module klaar is met het tekenen van een de instructie zodat er een volgende instructie kan doorgegeven worden. Verder heeft het de uitgangen naar de RAM controller, hierin worden de kleur 
+
 \begin {itemize}
-\item kleur (1 byte), adres(2 bytes), write (1bit) algemen uitgangen.
-\item kleur write_ready (1 bit) , adres_ready( 1 bit)
+\item ingangen:
+\begin {itemize}
+\item kleur (4 bits)
+\item x coördinaat (8 bits)
+\item y coördinaat (7 bits)
+\item enabled (1 bit)
+\item activescreenbuffer (1 bit)
+\item RAMclaimed (1 bit)
+\item write (1 bit)
+\end {itemize}
+
+\item uitgangen:
+\begin {itemize}
+\item kleur (4 bits)
+\item adres (16 bits)
+\item done (1 bit)
+\end {itemize}
+
 
 
 \subsubsection { pixel}
 \begin {itemize}
 \item x,y, kleur ingang (3 bytes)
-\item ready (1 bit) wordt hoog als de laatste pixel van de instructie af is
+\item done (1 bit) wordt hoog als de laatste pixel van de instructie af is
 
 
 \subsubsection { square}
 \begin {itemize}
 \item kleur, x1 en breedte,y1 en hoogte ingangen(5 bytes)
-\item ready (1 bit)  wordt hoog als de laatste pixel van de instructie af is
+\item done (1 bit)  wordt hoog als de laatste pixel van de instructie af is
 
 \subsubsection { sprite}
 \begin {itemize}
 \item sprite adres,x , y, hoogte en breedte ( 5 bytes)
-\item ready (1 bit)  wordt hoog als de laatste pixel van de instructie af is
+\item done (1 bit)  wordt hoog als de laatste pixel van de instructie af is
 
 
 \subsection { ram controller}
