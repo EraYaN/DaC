@@ -4,22 +4,24 @@ use IEEE.numeric_std.ALL;
 use work.parameter_def.ALL;
 
 architecture behaviour of decoder is
+	--SPI sync signals
+	signal dav_latched, dav_old : std_logic;
+
+	--state machine signals
 	type instruction_state is (initial, decoding);
 	signal instr_state, next_instr_state : instruction_state;
 
-	signal dav_latched, dav_old : std_logic;
-
-	--signal data : std_logic;
 	signal data_in : std_logic_vector(InstrPacketSize-1 downto 0);
 	signal packet_num, next_packet_num : unsigned(MaxNumInstrPackets-1 downto 0);
 	signal instruction, next_instruction : std_logic_vector(InstrSize-1 downto 0);
 
 	--signal sendready, reg_value, reg_id, reg_set : std_logic;
 	--signal data_out : std_logic_vector(InstrPacketSize-1 downto 0);
-	signal draw_x0, next_draw_x0, draw_x1, next_draw_x1 : std_logic_vector(SizeX-1 downto 0);
-	signal draw_y0, next_draw_y0, draw_y1, next_draw_y1 : std_logic_vector(SizeY-1 downto 0);
-	signal draw_color, next_draw_color : std_logic_vector(SizeColor-1 downto 0);
-	--signal draw_enabled : std_logic_vector(NumDrawModules-1 downto 0);
+	--output buffer signals
+	signal next_x0, next_x1 : std_logic_vector(SizeX-1 downto 0);
+	signal next_y0, next_y1 : std_logic_vector(SizeY-1 downto 0);
+	signal next_color : std_logic_vector(SizeColor-1 downto 0);
+	signal next_en : std_logic_vector(NumDrawModules-1 downto 0);
 	
 begin
 	--synchronizer + input buffer + output buffer + state change
@@ -34,11 +36,12 @@ begin
 				instr_state <= initial;
 				data_in <= (others => '0');
 				instruction <= (others => '0');
-				col <= (others => '0');
+				color <= (others => '0');
 				x0 <= (others => '0');
 				y0 <= (others => '0');
 				x1 <= (others => '0');
 				y1 <= (others => '0');
+				en <= (others => '0');
 			else
 				--synchronize data available flag
 				dav_latched <= dav;
@@ -53,11 +56,12 @@ begin
 				end if;
 
 				--update outputs
-				col <= next_draw_color;
-				x0 <= next_draw_x0;
-				y0 <= next_draw_y0;
-				x1 <= next_draw_x1;
-				y1 <= next_draw_y1;
+				color <= next_color;
+				x0 <= next_x0;
+				y0 <= next_y0;
+				x1 <= next_x1;
+				y1 <= next_y1;
+				en <= next_en;
 			end if;
 		end if;
 	end process;
@@ -72,20 +76,22 @@ begin
 			next_instr_state <= decoding;
 			next_packet_num <= (others => '0');
 			next_instruction <= (others => '0');
-			next_draw_color <= (others => '0');
-			next_draw_x0 <= (others => '0');
-			next_draw_y0 <= (others => '0');
-			next_draw_x1 <= (others => '0');
-			next_draw_y1 <= (others => '0');
+			next_color <= (others => '0');
+			next_x0 <= (others => '0');
+			next_y0 <= (others => '0');
+			next_x1 <= (others => '0');
+			next_y1 <= (others => '0');
+			next_en <= (others => '0');
 		else
 			--defaults
 			done := '0';
 			instr := instruction;
-			next_draw_color <= col;
-			next_draw_x0 <= x0;
-			next_draw_y0 <= y0;
-			next_draw_x1 <= x1;
-			next_draw_y1 <= y1;
+			next_color <= col;
+			next_x0 <= x0;
+			next_y0 <= y0;
+			next_x1 <= x1;
+			next_y1 <= y1;
+			next_en <= en;
 			--logic depending on current packet in stream
 			case to_integer(packet_num) is
 				when 0 =>
@@ -94,29 +100,32 @@ begin
 					--start loading next instruction next cycle if instruction is "fill", "switch" or unknown
 					if (instr = "0000" or instr = "0001" or instr > "0110") then
 						done := '1';
+						if instr = "0000" then
+							next_en <= to_unsigned(1, en'length);
+						end if;
 					end if;
 					--pass through color
-					next_draw_color <= data_in(SizeColor-1 downto 0);
+					next_color <= data_in(SizeColor-1 downto 0);
 				when 1 => 
 					--pass through x0 coord
-					next_draw_x0 <= data_in;
+					next_x0 <= data_in;
 				when 2 => 
 					--pass through y0 coord
-					next_draw_y0 <= data_in(SizeY-1 downto 0);
+					next_y0 <= data_in(SizeY-1 downto 0);
 					---start loading next instruction next cycle if instruction is "pixel"
 					if instr = "0010" then
 						done := '1';
 					end if;
 				when 3 =>
 					--pass through x1 coord
-					next_draw_x1 <= data_in;
+					next_x1 <= data_in;
 					--start loading next instruction next cycle if instruction is "circle" or "fcircle"
 					if (instr = "0110" or instr = "0111") then
 						done := '1';
 					end if;
 				when 4 =>
 					--pass through y1 coord
-					next_draw_y1 <= data_in(SizeY-1 downto 0);
+					next_y1 <= data_in(SizeY-1 downto 0);
 					--start loading next instruction next cycle if instruction is "square", "fsquare" or "line"
 					if (instr = "0011" or instr = "0100" or instr = "0101") then
 						done := '1';
@@ -136,11 +145,3 @@ begin
 		end if;
 	end process;
 end behaviour;
-
-
-
-
-
-
-
-

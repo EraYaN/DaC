@@ -20,7 +20,7 @@ PACKAGE BODY parameter_def IS
 	constant InstrSize : INTEGER := 4; --bits
 	constant InstrPacketSize : INTEGER := 8; --bits
 	constant MaxNumInstrPackets : INTEGER := 3; -- aantal bits voor counter, log2(7 bytes) => 3 bits
-	constant NumDrawModules : INTEGER := 4; -- 0: pixel; 1: square; 2: line; 3: circle;
+	constant NumDrawModules : INTEGER := 6; -- 0: fill; 1: pixel; 2: square; 3: fsquare; 4: line; 5: circle;
 	constant SizeX : INTEGER := 8;
 	constant SizeY : INTEGER := 7;
 	constant SizeMaxStageReg : INTEGER := 1;

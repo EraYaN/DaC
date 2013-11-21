@@ -72,11 +72,3 @@ SPI_MISO <= TxData(SizeSPIData-1);
 DataRxd <= RxdData;
 
 end behaviour;
-
-
-
-
-
-
-
-

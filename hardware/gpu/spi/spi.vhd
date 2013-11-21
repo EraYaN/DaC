@@ -22,10 +22,3 @@ entity spi is
 		DataRxd : out std_logic_vector(SizeSPIData-1 downto 0)
 	);
 end spi;
-
-
-
-
-
-
-

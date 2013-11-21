@@ -19,9 +19,9 @@ architecture behaviour of decoder_tb is
 			x1		: buffer	std_logic_vector(SizeX-1 downto 0);	--Entity x1 coord
 			y0		: buffer	std_logic_vector(SizeY-1 downto 0);	--Entity y0 coord
 			y1		: buffer	std_logic_vector(SizeY-1 downto 0);	--Entity y1 coord
-			col		: buffer	std_logic_vector(SizeColor-1 downto 0)	--Entity Color
+			color		: buffer	std_logic_vector(SizeColor-1 downto 0)	--Entity Color
 			--dwr		: in	std_logic;						--Draw Ready
-			--en		: out	std_logic_vector(NumDrawModules-1 downto 0); --Draw Module Enabled
+			en		: out	std_logic_vector(NumDrawModules-1 downto 0); --Draw Module Enabled
 			--Internal registers
 			--id		: out	std_logic;						--Register id/address
 			--val		: out	std_logic;						--Value
@@ -81,59 +81,3 @@ begin
 	--dwr		<= '0' after 0 ns;
 
 end behaviour;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
