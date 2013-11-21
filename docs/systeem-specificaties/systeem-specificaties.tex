@@ -23,11 +23,10 @@ In dit verslag zal de opzet van het project uitgelegd worden. Het uiteindelijke 
 \section{Specificaties}
 \subsection {Functionele Eisen}
 \begin {itemize}
-\item Minimale beeldresolutie ?????  in ???  kleuren.
+\item Minimale beeldresolutie 160x120  in 16  kleuren.
 \item Minimaal 2 vertexes te verbinden met een lijn.
 \item Interfacing met een AVR zodat een PC systeem gesimuleerd wordt. Met de AVR als CPU en RAM en onze chip als GPU en VRAM.
 \item VGA signaal uitsturen met extrene of interne DAC.
-\item 
 \end{itemize}
 
 
@@ -53,11 +52,26 @@ chip dient echter ook beperkt te zijn. Dit geeft een compromis voor de maximale 
 \item SRAM:			8 KB
 \item EEPROM:		4 KB
 \item Clock Speed:		16 MHz
-
 \end {itemize}
 
-\subsection { cpu-gpu interface}
+\subsection { SPI controller}
+
+Voor de communicatie tussen de arduïno en onze gpu hebben we een SPI decoder nodig. De ingang SS staat voor slave select, dit wordt normaal gebruikt voor het geval dat je meerdere slave chips hebt, aangezien dit bij ons niet het geval is zal dit signaal altijd hoog zijn. Het signaal SCLK is voor het CLK signaal voor de communicatie. Als laatste ingang is er de MOSI, dit staat voor master out en slave in, dit is de daadwerkelijke data die verzonden wordt van de arduïno naar onze gpu. Voor de uitgangen hebben we MISO, master in slave out, dit is om de volgende instructie aan te vragen van de arduïno. Dan zijn er nog de uitgangen naar de instructie decoder, de 8 bits data bus voor om alle data te sturen als de data ready hoog is.
+
 \begin {itemize}
+\item ingangen:
+\begin {itemize}
+\item MOSI 
+\item SS (1 bit altijd hoog)
+\item SCLK (clk signaal)
+\item readytosend (1 bit)
+\end {itemize}
+\item uitgangen:
+\begin {itemize}
+\item MISO
+\item 8 bits data bus
+\item data ready
+\end {itemize}
 \end {itemize}
 
 \subsection { instructie decoder}
@@ -78,12 +92,12 @@ En dit alles wordt gedaan synchroon met de klok.
 \item data clock  
 \item 8 bits bus 
 \item data ready (1bit)
-\item readytosend (1 bit)
 \item done (1 bit)
 \end{itemize}
 
 \item uitgangen:
 \begin{itemize}
+\item readytosend (1 bit)
 \item instuctieready (1 bit).
 \item kleur (4 bits)
 \item x coördinaat (8 bits)
@@ -95,12 +109,10 @@ En dit alles wordt gedaan synchroon met de klok.
 \end{itemize}
 
 
-
-
 \subsection { draw logic}
 
 In dit blok worden de instructie omgezet naar pixels, vierkantjes, lijnen en cirkels. Dit blok krijgt de informatie binnen van de instructie decoder, deze geeft aan welke module er gebruikt moet worden met de bijbehorende coördinaten en kleur.
-De keuze voor welke module er gebruikt moet worden gebeurd doormiddel van het signaal enabled. verder neemt het draw blok het signaal activescreenbuffer mee zodat er in de juiste screenbuffer geschreven wordt. Tevens krijgt het 'drawblok' het signaal RAMclaimed binnen van de VGA controller, dit houdt in dat als de VGA controller aan het lezen is in het RAM dat het 'drawblok' er niet in kan schrijven. Als laatste ingang krijgt het 'drawblok' een signaal write binnen van de RAM controller dat 
+De keuze voor welke module er gebruikt moet worden gebeurd doormiddel van het signaal enabled. verder neemt het draw blok het signaal activescreenbuffer mee zodat er in de juiste screenbuffer geschreven wordt. Tevens krijgt het 'drawblok' het signaal RAMclaimed binnen van de VGA controller, dit houdt in dat als de VGA controller aan het lezen is in het RAM dat het 'drawblok' er niet in kan schrijven. Als laatste ingang krijgt het 'drawblok' een signaal write binnen van de RAM controller dat zegt wanneer er geschreven mag worden.
 Als uitgangen heeft het 'drawblok' het signaal done als de module klaar is met het tekenen van een de instructie zodat er een volgende instructie kan doorgegeven worden. Verder heeft het de uitgangen naar de RAM controller, hierin worden de kleur 
 
 \begin {itemize}
@@ -123,37 +135,31 @@ Als uitgangen heeft het 'drawblok' het signaal done als de module klaar is met h
 \end {itemize}
 
 
-
 \subsubsection { pixel}
-\begin {itemize}
-\item x,y, kleur ingang (3 bytes)
-\item done (1 bit) wordt hoog als de laatste pixel van de instructie af is
+
+Hierin worden aparte pixels getekend, hiervoor zijn de x,y coördinaten en de kleur nodig.
 
 
 \subsubsection { square}
-\begin {itemize}
-\item kleur, x1 en breedte,y1 en hoogte ingangen(5 bytes)
-\item done (1 bit)  wordt hoog als de laatste pixel van de instructie af is
 
-\subsubsection { sprite}
-\begin {itemize}
-\item sprite adres,x , y, hoogte en breedte ( 5 bytes)
-\item done (1 bit)  wordt hoog als de laatste pixel van de instructie af is
+In deze module wordt een vierkant getekend met de x,y coördinaten van de eerste pixel links boven en de laatste pixel rechtsonder van het vierkant en natuurlijk de kleur die het vierkant moet hebben.
+
+\subsubsection { lijn}
+
+Hier wordt het algoritme van Bresenham gebruikt hiervoor hebben we de x,y coördinaten nodig van het begin en het eindpunt van de lijn.
+
+\subsubsection { cirkel}
+
+In deze laatste module gebruiken we het midpoint circle algoritme met x1 als de radius.
 
 
 \subsection { ram controller}
+
+
 \begin {itemize}
 \item kleur(1 byte) , adres (2 bytes), write (1 bit), read (1bit) ingangen van draw en vga
 \item writeready (1 bit), adres ready( 1bit  kleur (1 byte naar draw en vga), read ready ( 1 bit) uitgangen naar draw en vga
-\item 
-
-
-
-
-\subsection {screen buffers}
-\begin {itemize}
-\item 
-
+\end {itemize}
 
 
 \subsection { vga controller}
@@ -161,6 +167,6 @@ Als uitgangen heeft het 'drawblok' het signaal done als de module klaar is met h
 \item kleur (1 byte) adres ready (1 bit), read ready (1 bit )  ingangen van de ram controller
 \item read (1 bit), adres (2 bytes) uitgangen 
 
-
+\end {itemize}
 
 \end{document}
