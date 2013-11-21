@@ -1,19 +1,15 @@
-\documentclass{report}
-\input{../library/preamble}
-\input{../library/style}
-\usepackage{fullpage}
+\documentclass{scrartcl} 
+\input{../library/preamble.tex}
+\input{../library/style.tex}
 
 \begin{document}
-\newcommand{\rp}{$\rightarrow$}
-\newcommand{\Ohm}{$\Omega$}
-\newcommand{\ohm}{$\omega$}
-\newcommand{\gmu}{$\mu$}
-\newcommand{\tss}{\textsubscript}
-\newcommand{\ci}{\lstinputlisting} % code input = ci
+\begin{document}
+\pagenumbering{roman}
 
 \input{inputfiles/title_page_1.tex}
 \tableofcontents
-\sectionr{Inleiding}
+
+\section{Inleiding}
 Vertel iets over de context van deze opdracht.
 
 \section{Specificaties}
@@ -22,31 +18,13 @@ Vertel iets over de context van deze opdracht.
 \section{Ontwerp}
 \input{inputfiles/ontwerp.tex}
 
+\section{Planning}
+Zie Figuur 1.
+\begin{figure}[H]
+\centering
+        \includegraphics[width=\linewidth]{inputfiles/planner.png}
+        \caption{Planner}
+        \label{fig:planner}
+\end{figure}
 
-\section{Implementatie}
-\input{inputfiles/implementatie.tex}
-
-
-\section{Conclusies}
-
-
-\begin{thebibliography}{9}
-\bibitem{labelboek1}
-Auteur1, 
-Boek1, 
-Uitgeverij, 
-jaar.
-\bibitem{labelTitel}
-Auteur1, 
-Titel, 
-Tijdschrift, 
-Vol. 1, 
-Nr. 1, 
-jaar, 
-pp. 12-15.
-\bibitem{labelWeb}
-Webpagina titel, 
-http link, 
-geraadpleegd op 19 sep. 2013.
-\end{thebibliography}
 \end{document}
