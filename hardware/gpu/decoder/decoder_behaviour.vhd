@@ -34,12 +34,11 @@ begin
 				instr_state <= initial;
 				data_in <= (others => '0');
 				instruction <= (others => '0');
-				draw_color <= (others => '0');
-				draw_x0 <= (others => '0');
-				draw_y0 <= (others => '0');
-				draw_x1 <= (others => '0');
-				draw_y1 <= (others => '0');
-				
+				col <= (others => '0');
+				x0 <= (others => '0');
+				y0 <= (others => '0');
+				x1 <= (others => '0');
+				y1 <= (others => '0');
 			else
 				--synchronize data available flag
 				dav_latched <= dav;
@@ -53,12 +52,12 @@ begin
 					instruction <= next_instruction;
 				end if;
 
-				--update other stage registers
-				draw_color <= next_draw_color;
-				draw_x0 <= next_draw_x0;
-				draw_y0 <= next_draw_y0;
-				draw_x1 <= next_draw_x1;
-				draw_y1 <= next_draw_y1;
+				--update outputs
+				col <= next_draw_color;
+				x0 <= next_draw_x0;
+				y0 <= next_draw_y0;
+				x1 <= next_draw_x1;
+				y1 <= next_draw_y1;
 			end if;
 		end if;
 	end process;
@@ -72,12 +71,7 @@ begin
 			--reset
 			next_instr_state <= decoding;
 			next_packet_num <= (others => '0');
-			next_instruction <= (others => '0');			
-			col <= (others => '0');
-			x0 <= (others => '0');
-			y0 <= (others => '0');
-			x1 <= (others => '0');
-			y1 <= (others => '0');
+			next_instruction <= (others => '0');
 			next_draw_color <= (others => '0');
 			next_draw_x0 <= (others => '0');
 			next_draw_y0 <= (others => '0');
@@ -87,11 +81,11 @@ begin
 			--defaults
 			done := '0';
 			instr := instruction;
-			next_draw_color <= draw_color;
-			next_draw_x0 <= draw_x0;
-			next_draw_y0 <= draw_y0;
-			next_draw_x1 <= draw_x1;
-			next_draw_y1 <= draw_y1;
+			next_draw_color <= col;
+			next_draw_x0 <= x0;
+			next_draw_y0 <= y0;
+			next_draw_x1 <= x1;
+			next_draw_y1 <= y1;
 			--logic depending on current packet in stream
 			case to_integer(packet_num) is
 				when 0 =>
@@ -139,15 +133,14 @@ begin
 			end if;
 			next_instr_state <= decoding;
 			next_instruction <= instr;
-
-			--update outputs
-			col <= next_draw_color;
-			x0 <= next_draw_x0;
-			y0 <= next_draw_y0;
-			x1 <= next_draw_x1;
-			y1 <= next_draw_y1;
 		end if;
 	end process;
 end behaviour;
+
+
+
+
+
+
 
 

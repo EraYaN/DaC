@@ -43,16 +43,16 @@ begin
 	reset 	<= '1' after 0 ns,
 			'0' after 40 ns;
 	di		<= "00000000" after 0 ns,
-			"00111111" after 100 ns,
-			"01010101" after 200 ns,
-			"10101010" after 300 ns,
-			"11111111" after 400 ns,
-			"00000000" after 500 ns,
-			"00110000" after 600 ns,
-			"10101010" after 700 ns,
-			"01010101" after 800 ns,
-			"00000000" after 900 ns,
-			"11111111" after 1000 ns;
+			"00111111" after 130 ns,
+			"01010101" after 230 ns,
+			"10101010" after 330 ns,
+			"11111111" after 430 ns,
+			"00000000" after 530 ns,
+			"00110000" after 630 ns,
+			"10101010" after 730 ns,
+			"01010101" after 830 ns,
+			"00000000" after 930 ns,
+			"11111111" after 1030 ns;
 	dav		<= '0' after 0 ns,
 			'1' after 70 ns,
 			'0' after 130 ns,
@@ -73,10 +73,20 @@ begin
 			'1' after 870 ns,
 			'0' after 930 ns,
 			'1' after 970 ns,
-			'0' after 1030 ns;
+			'0' after 1030 ns,
+			'1' after 1070 ns,
+			'0' after 1130 ns,
+			'1' after 1170 ns,
+			'0' after 1230 ns;
 	--dwr		<= '0' after 0 ns;
 
 end behaviour;
+
+
+
+
+
+
 
 
 
