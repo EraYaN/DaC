@@ -3,35 +3,25 @@ USE ieee.std_logic_1164.all;
 USE work.parameter_def.ALL;
 architecture behaviour of ramcontroller is
 begin
-	process (vga_read,draw_read,draw_write,data_draw,addr_vga,data,addr_draw)
+	process (vga_claim,decoder_claim,is_init,decoder_write,draw_write,draw_read,vga_read)
 	begin
-		if(vga_read = '1') then
-			addr <= addr_vga;
-			data_vga <= data;
-			data <= (others => 'Z');
-			data_draw <= (others => 'Z');
+	if(is_init='0') then
+		draw_can_access <= NOT vga_claim AND NOT decoder_claim;	
+		vga_can_access <= '1';
+		decoder_can_access <= NOT vga_claim;
+		if vga_claim = '1' then	
 			write_enable <= '0';
+		elsif decoder_claim = '1' then
+			write_enable <= decoder_write;	
 		else
-			if(draw_read = '1') then
-				addr <= addr_draw;
-				data_vga <= (others => 'Z');
-				data <= (others => 'Z');
-				data_draw <= data;		
-				write_enable <= '0';
-			elsif(draw_write = '1') then
-				addr <= addr_draw;
-				data <= transport data_draw after 45 ns; -- t_dw + t_whz
-				data_vga <= (others => 'Z');
-				data_draw <= (others => 'Z');
-				write_enable <= '1';
-			else
-				addr <= addr_vga;
-				data_vga <= data;
-				data_draw <= (others => 'Z');
-				data <= (others => 'Z');
-				write_enable <= '0';
-			end if;
-		end if;
+			write_enable <= draw_write AND NOT draw_read;
+		end if;		
+	else
+		write_enable <= decoder_write and decoder_claim;
+		decoder_can_access <= '1';
+		draw_can_access <= '0';
+		vga_can_access <= '0';
+	end if;
 	end process;
 end behaviour;
 

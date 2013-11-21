@@ -6,16 +6,18 @@ entity ramcontroller is
 port (
 --external
 write_enable : out std_logic;
-addr : out std_logic_vector(SizeRAMAddr-1 downto 0);
-data : inout std_logic_vector(SizeRAMData-1 downto 0);
 --internal
-addr_draw : in std_logic_vector(SizeRAMAddr-1 downto 0);
-addr_vga : in std_logic_vector(SizeRAMAddr-1 downto 0);
-data_draw : inout std_logic_vector(SizeRAMData-1 downto 0);
-data_vga : out std_logic_vector(SizeRAMData-1 downto 0);
+vga_claim : in std_logic;
+decoder_claim : in std_logic;
+is_init : in std_logic;
 
+decoder_write : in std_logic;
 draw_write : in std_logic;
 draw_read : in std_logic;
-vga_read : in std_logic
+vga_read : in std_logic;
+
+draw_can_access : out std_logic;
+decoder_can_access : out std_logic;
+vga_can_access : out std_logic
 );
 end ramcontroller;

@@ -35,17 +35,19 @@ COMPONENT ramcontroller IS
 port (
 --external
 write_enable : out std_logic;
-addr : out std_logic_vector(SizeRAMAddr-1 downto 0);
-data : inout std_logic_vector(SizeRAMData-1 downto 0);
 --internal
-addr_draw : in std_logic_vector(SizeRAMAddr-1 downto 0);
-addr_vga : in std_logic_vector(SizeRAMAddr-1 downto 0);
-data_draw : inout std_logic_vector(SizeRAMData-1 downto 0);
-data_vga : out std_logic_vector(SizeRAMData-1 downto 0);
+vga_claim : in std_logic;
+decoder_claim : in std_logic;
+is_init : in std_logic;
 
+decoder_write : in std_logic;
 draw_write : in std_logic;
 draw_read : in std_logic;
-vga_read : in std_logic
+vga_read : in std_logic;
+
+draw_can_access : out std_logic;
+decoder_can_access : out std_logic;
+vga_can_access : out std_logic
 );
 END COMPONENT;
 --GLOBAL
@@ -55,11 +57,21 @@ signal reset_n, ramwe: std_logic;
 -- VGACONTROLLER <-> DRAW
 SIGNAL ramclaim : std_logic;
 SIGNAL settingup : std_logic;
+signal is_init : std_logic;
 
 -- RAMCONTROLLER <->
-signal ramaddr_vga,ramaddr_draw,ramaddr_decoder :std_logic_vector(SizeRAMAddr-1 downto 0);
-signal ramdata_vga,ramdata_draw,ramdata_decoder :std_logic_vector(SizeRAMData-1 downto 0);
-signal ramread_draw,ramwrite_draw,ramread_vga,ramwrite_decoder :std_logic;
+signal vga_claim : std_logic;
+signal decoder_claim : std_logic;
+signal draw_write : std_logic := '0';
+signal draw_read : std_logic := '0';
+signal decoder_write : std_logic := '0';
+signal vga_read : std_logic := '0';
+signal draw_can_access : std_logic;
+signal decoder_can_access : std_logic;
+signal vga_can_access : std_logic;
+signal write_enable,write_enable_n : std_logic;
+--signal addr : std_logic_vector(SizeRAMAddr-1 downto 0);
+--signal data : std_logic_vector(SizeRAMData-1 downto 0);
 
 -- SPI <-> DECODER
 signal spidav         : STD_LOGIC := '0';
@@ -72,15 +84,16 @@ ramwe_n <= NOT ramwe;
 
 ramcontroller1: ramcontroller PORT MAP (
 	ramwe,
-	ramaddr,
-	ramdata,
-	ramaddr_draw,
-	ramaddr_vga,
-	ramdata_draw,
-	ramdata_vga,
-	ramwrite_draw,
-	ramread_draw,
-	ramread_vga
+	vga_claim,
+	decoder_claim,
+	is_init,
+	decoder_write,
+	draw_write,
+	draw_read,
+	vga_read,
+	draw_can_access,
+	decoder_can_access,
+	vga_can_access
 );
 
 vgacontroller1: vgacontroller PORT MAP (
@@ -89,10 +102,10 @@ vgacontroller1: vgacontroller PORT MAP (
 	vgahsync,
 	vgavsync,
 	vgacolor,
-	ramclaim,
-	ramaddr_vga,
-	ramdata_vga,
-	ramread_vga,
+	vga_claim,
+	ramaddr,
+	ramdata,
+	vga_read,
 	asb
 );
 
@@ -106,8 +119,7 @@ spi1: spi PORT MAP (
 	SPI_DONE=>spidav,
 	DataToTx=>spidatatx,
 	DataToTxLoad=>spidatatxload,
-	DataRxd=>spidatarx
-	
+	DataRxd=>spidatarx	
 );
 
 PROCESS (reset) 
