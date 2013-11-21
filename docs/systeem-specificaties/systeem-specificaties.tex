@@ -23,18 +23,95 @@ In dit verslag zal de opzet van het project uitgelegd worden. Het uiteindelijke 
 \section{Specificaties}
 \subsection {Functionele Eisen}
 \begin {itemize}
-\item Minimale beeldresolutie van 320x240 of 160x480 in 16 kleuren.
+\item Minimale beeldresolutie ?????  in ???  kleuren.
 \item Minimaal 2 vertexes te verbinden met een lijn.
 \item Interfacing met een AVR zodat een PC systeem gesimuleerd wordt. Met de AVR als CPU en RAM en onze chip als GPU en VRAM.
 \item VGA signaal uitsturen met extrene of interne DAC.
 \item 
 \end{itemize}
 
-\subsection {Randvoorwaarden}
+
+\subsection {specificaties van de IC}
 \begin {itemize}
-\item De algemene technische randvoorwaarden zijn bepaald in hoofdstuk 11.8 "\Algemene Technologische Randvoorwaarden"  van het EPO-3 Handleiding/cite{epo3-manual}
+\item Max 2 bond bars (40000 transistorparen) per bond bar 32 aansluitingen.
+\item Voor de FSM’s (Finite State Machine) mogen alleen die van het Moore-type gebruikt worden.
+\item Als de schakeling geactiveerd wordt moeten alle FSM’s in hun begintoestand komen door middel van een reset signaal.
+\item Voor de opwekking van het kloksignaal kan gebruik gemaakt worden van een kristal van 6.144 MHz.
+\item Het streven is om zo weinig mogelijk componenten extern te gebruiken. De dissipatie van de
+chip dient echter ook beperkt te zijn. Dit geeft een compromis voor de maximale stroom die de elektronica mag dissiperen voor de aansturing van de LEDs, etc.
+\item De voedingsspanning van het IC bedraagt 5 Volt.
 
 \end{itemize}
+
+\subsection {specificaties van de arduino}
+\begin {itemize}
+\item Voedingsspanning:	 5V
+\item Input spanning: 	7-12V
+\item Digital I/O Pins: 	54 (of which 15 provide PWM output)
+\item Analog Input Pins:	16
+\item Flash Memory	:	256 KB 
+\item SRAM:			8 KB
+\item EEPROM:		4 KB
+\item Clock Speed:		16 MHz
+
+\end {itemize}
+
+\subsection { instructie decoder}
+\begin {itemize}
+\item 8 bits bus ingang staat klaar op de ingang wordt ingelezen als data ready hoog is.
+\item 1 bit uitgang als de instructie na de instructie ( 3 bytes) wordt deze hoog en wordt de volgende instructie aangevraagd.
+\item data clock ingang om te synchroniseren 
+\item data ready ingang als deze hoog is dan wordt data ingelezen van de 8bits bus
+\item read ingang (1 bit) hoog als 1 byte van de instructie is ingelezen 
+\item een 40 bit register, voor het opslaan van de instructie ( bufferen van)
+\end {itemize}
+
+\subsection { cpu-gpu interface}
+\begin {itemize}
+
+\subsection { draw logic}
+\begin {itemize}
+\item kleur (1 byte), adres(2 bytes), write (1bit) algemen uitgangen.
+\item kleur write_ready (1 bit) , adres_ready( 1 bit)
+
+
+\subsubsection { pixel}
+\begin {itemize}
+\item x,y, kleur ingang (3 bytes)
+\item ready (1 bit) wordt hoog als de laatste pixel van de instructie af is
+
+
+\subsubsection { square}
+\begin {itemize}
+\item kleur, x1 en breedte,y1 en hoogte ingangen(5 bytes)
+\item ready (1 bit)  wordt hoog als de laatste pixel van de instructie af is
+
+\subsubsection { sprite}
+\begin {itemize}
+\item sprite adres,x , y, hoogte en breedte ( 5 bytes)
+\item ready (1 bit)  wordt hoog als de laatste pixel van de instructie af is
+
+
+\subsection { ram controller}
+\begin {itemize}
+\item kleur(1 byte) , adres (2 bytes), write (1 bit), read (1bit) ingangen van draw en vga
+\item writeready (1 bit), adres ready( 1bit  kleur (1 byte naar draw en vga), read ready ( 1 bit) uitgangen naar draw en vga
+\item 
+
+
+
+
+\subsection {screen buffers}
+\begin {itemize}
+\item 
+
+
+
+\subsection { vga controller}
+\begin {itemize}
+\item kleur (1 byte) adres ready (1 bit), read ready (1 bit )  ingangen van de ram controller
+\item read (1 bit), adres (2 bytes) uitgangen 
+
 
 
 \end{document}
