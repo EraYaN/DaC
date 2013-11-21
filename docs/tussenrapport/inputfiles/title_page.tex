@@ -1,7 +1,7 @@
 
 \documentclass[12pt]{article}
 \newcommand{\tss}{\textsubscript}
-\input{../../../library/preamble}
+\input{../../library/preamble}
 
 \begin{document}
 
@@ -17,15 +17,15 @@
 %----------------------------------------------------------------------------------------
 
 \textsc{\LARGE TU Delft}\\[1.5cm] % Name of your university/college
-\textsc{\Large EE28 EPO-3 Moduleopdracht 5}\\[0.5cm] % Major heading such as course name
-\textsc{\large Klokbuffer}\\[0.5cm] % Minor heading such as course title
+\textsc{\Large EE2821 EPO-3 Tussenrapport}\\[0.5cm] % Major heading such as course name
+\textsc{\large Specificaties subsystemen en vooropzet hoofdrapport}\\[0.5cm] % Minor heading such as course title
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
 
 \HRule \\[0.4cm]
-{ \huge \bfseries Klokbuffer  beter voor kloknetwerk?}\\[0.4cm] % Title of your document
+{ \huge \bfseries Realisatie EPO-3 project}\\[0.2cm] % Title of your document
 \HRule \\[1.5cm]
  
 %----------------------------------------------------------------------------------------
@@ -34,9 +34,19 @@
 
 \begin{minipage}{0.4\textwidth}
 \begin{flushleft} \large
-\emph{Author:}\\
-Kees \textsc{Hogenhout} 4220927\\ % Your name 
-Tu \textsc{Hoang} 4203496 %other name
+\emph{Leden:}\\
+\begin{tabular}{cc}
+Efraïm\textsc{ Eland} & 4170563 \\
+Alex \textsc{Janssen} &	4231333\\
+Erwin \textsc{de Haan} & 4222814\\
+Robin \textsc{Hes}& 4236815\\
+Tu \textsc{Hoang} &4203496 \\
+Kees \textsc{Hogenhout} & 4220927\\
+Jorden \textsc{ Kerkhof} & 4232461\\
+Peter \textsc{Stijnman} & 4215788 \\
+Xenia \textsc{Wesdijk} & 4144074\\
+\end{tabular}
+
 \end{flushleft}
 \end{minipage}
 ~
@@ -45,29 +55,29 @@ Tu \textsc{Hoang} 4203496 %other name
 \emph{Supervisor:} \\
 Dr. Marjam \textsc{Bartek} % Supervisor's Name
 \end{flushright}
-\end{minipage}\\[4cm]
+\end{minipage}\\[3cm]
 
-% If you don't want a supervisor, uncomment the two lines below and remove the section above
 %\Large \emph{Author:}\\
-%John \textsc{Smith}\\[3cm] % Your name
+%John \textsc{Smith}\\[1.5cm] % Your name
 
 %----------------------------------------------------------------------------------------
 %	DATE SECTION
 %----------------------------------------------------------------------------------------
 
-{\large \today}\\[3cm] % Date, change the \today to a set date if you want to be precise
+{\large \today}\\ [1.5cm]
 
 %----------------------------------------------------------------------------------------
 %	LOGO SECTION
 %----------------------------------------------------------------------------------------
 
-%\includegraphics{Logo}\\[1cm] % Include a department/university logo - this will require the graphicx package
+%\includegraphics{Logo}\\ 
  
 %----------------------------------------------------------------------------------------
 % 
 
 \textbf{Abstract} \\
-In dit onderzoekje wordt uitgezocht in welke mate een klokbuffer nodig is voor een netwerk van 125 D-flipflops. Eerst wordt de t-90\% van een inverter bepaald met een C\tss{load} van 25pF (belastingscapaciteit van die 125 DFF's). Vervolgens worden er drie inverters (die groter zijn)  in cascade geplaatst met dezelfde belastingscapaciteit en wordt weer de t-90\% bepaald. Te zien is aan de simulatieresultaten dat de drie inverters als buffer werken. De afvlakking bij een 0-1 overgang van de uitgang is namelijk heel klein, terwijl die afvlakking bij de meting met een enkele transistor veel groter is. 
+In dit tussenrapport wordt vooral ingegaan op de specificaties van het systeem. Het resultaat is een blokschema met daarin kleinere blokken die apart
+geimplementeerd zouden kunnen worden door een extern persoon. De specificaties moeten dus van goede kwaliteit zijn. 
 
 \vfill % Fill the rest of the page with whitespace
 
