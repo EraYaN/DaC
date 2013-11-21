@@ -1,22 +1,37 @@
-\documentclass{report}
-\input{../library/preamble}
-%\input{../library/style}
-\usepackage{fullpage}
-
+%=========================================================================
+\documentclass[11pt,twoside,a4paper]{article}
+\usepackage[dutch]{babel}
+\usepackage{a4wide,times}
+\title{Titel van het Ontwerp}
+\author{
+Gemaakt door\\
+Naam Student1, 3458923\\
+Naam Student2, 3456738\\
+\\
+In opdracht van \\
+Naam Student3, 3458966\\
+Naam Student4, 3456706\\
+}
+\date{21 September 2013}
 \begin{document}
-\newcommand{\rp}{$\rightarrow$}
-\newcommand{\Ohm}{$\Omega$}
-\newcommand{\ohm}{$\omega$}
-\newcommand{\gmu}{$\mu$}
-\newcommand{\tss}{\textsubscript}
-\newcommand{\ci}{\lstinputlisting} % code input = ci
+\maketitle
+\thispagestyle{empty}
+\vspace{30 mm}
+\begin{center}
+\Large \bf 
+Samenvatting
+\end{center}
+Dit document beschrijft een indeling voor een ontwerprapport over de moduleopdracht bij het project EE2821 en kan worden gebruikt als een sjabloon bij het schrijven van een zo'n ontwerprapport.
+Hier dien je dan een samenvatting te geven van wat in het rapport beschreven wordt.
+\clearpage
 
-\input{inputfiles/title_page_1.tex}
 \tableofcontents
-\sectionr{Inleiding}
+\clearpage
+
+\section{Inleiding}
 Vertel iets over de context van deze opdracht.
 
-\section{Specificaties}
+\section{Specificatie}
 Geef hierbij o.a. de letterlijke beschrijving van de opdrachtgevers.
 
 \section{Ontwerp}
