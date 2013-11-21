@@ -1,6 +1,6 @@
 \documentclass{report}
 \input{../library/preamble}
-%\input{../library/style}
+\input{../library/style}
 \usepackage{fullpage}
 
 \begin{document}
@@ -17,37 +17,18 @@
 Vertel iets over de context van deze opdracht.
 
 \section{Specificaties}
-Geef hierbij o.a. de letterlijke beschrijving van de opdrachtgevers.
+\input{inputfiles/specificaties.tex}
 
 \section{Ontwerp}
-Beschrijf hoe de beschrijving van de opdrachtgevers verder geïnterpreteerd is en hoe het ontwerp gedaan is, tot aan de VHDL beschrijving.
-\begin{itemize}
-\item
-Blokrepresentatie met in en uitgangen
-\item
-Eventuele opdeling in deelschakelingen
-\item
-Een of meerdere toestandsdiagrammen 
-\item
-VHDL behaviour beschrijving van de schakeling.
-\item
-Simulatieresultaten van de VHDL behaviour beschrijving.
-\end{itemize}
+\input{inputfiles/ontwerp.tex}
+
 
 \section{Implementatie}
-Vertel over de implementatie van de schakeling:
-\begin{itemize}
-\item
-Hoe ging de synthese ?
-\item
-Layoutresultaat.
-\item
-Switch-level/Spice simulatieresultaten van de uit de layout ge-extraheerde schakeling.
-\end{itemize}
+\input{inputfiles/implementatie.tex}
+
 
 \section{Conclusies}
-Voldoet het ontwerp aan de specificatie ?
-Wat zou er eventueel verbeterd kunnen worden ?
+
 
 \begin{thebibliography}{9}
 \bibitem{labelboek1}
