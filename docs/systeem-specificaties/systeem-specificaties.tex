@@ -174,10 +174,24 @@ Omdat we een externe RAM gebruiken voor onze screenbuffers is het nodig om hierv
 
 
 \subsection { vga controller}
-\begin {itemize}
-\item kleur (1 byte) adres ready (1 bit), read ready (1 bit )  ingangen van de ram controller
-\item read (1 bit), adres (2 bytes) uitgangen 
 
+De VGA controller is er om de screenbuffer uit te lezen en de data die daarin staat naar het beeldscherm te sturen. Het leest van de screenbuffer waarop dat moment niet in geschreven wordt, de inverse van active screen buffer dus. als de controller het RAM geheugen claimt met het signaal RAMclaimed mag er niet worden geschreven in het RAM. De VGA controller leest dan de signalen h,v sync (de positie van de pixel) en de waardes van RGBI ( rood , groen, blauw en de intensiteit). Het uitlezen van de screenbuffer kost 55 ns en is dus snel genoeg aangezien een klokpuls 160 ns is. In de overige tijd kan dus worden geschreven in het RAM.
+
+\begin {itemize}
+\item ingangen:
+\begin {itemize}
+\item active screen buffer (1 bit)
+\item read (1 bit)
+\item kleur (4 bits)
+\item adres (16 bits)
+\end {itemize}
+\item uitgangen:
+\begin {itemize}
+\item RAMclaimed (1 bit)
+\item hsync (1 pin)
+\item vsync (1 pin)
+\item RGBI (4 pinnen)
+\end {itemize}
 \end {itemize}
 
 \end{document}
