@@ -1,0 +1,24 @@
+library IEEE;
+use IEEE.std_logic_1164.ALL;
+
+architecture behaviour of set_pixel is
+
+begin
+if(enable = '0')
+color <= 'Z';
+x0 <= 'Z';
+y0 <= 'Z';
+x1 <= 'Z';
+y1 <= 'Z';
+end if
+if(enable = '1')
+
+
+
+end process;
+
+end behaviour;
+
+
+
+
