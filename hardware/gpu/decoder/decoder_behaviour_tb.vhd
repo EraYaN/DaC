@@ -48,7 +48,7 @@ begin
 			"10101010" after 300 ns,
 			"11111111" after 400 ns,
 			"00000000" after 500 ns,
-			"00000000" after 600 ns,
+			"00110000" after 600 ns,
 			"10101010" after 700 ns,
 			"01010101" after 800 ns,
 			"00000000" after 900 ns,
@@ -77,6 +77,9 @@ begin
 	--dwr		<= '0' after 0 ns;
 
 end behaviour;
+
+
+
 
 
 

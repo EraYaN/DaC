@@ -1,0 +1,52 @@
+\documentclass{report}
+\input{../library/preamble}
+\input{../library/style}
+\usepackage{fullpage}
+
+\begin{document}
+\newcommand{\rp}{$\rightarrow$}
+\newcommand{\Ohm}{$\Omega$}
+\newcommand{\ohm}{$\omega$}
+\newcommand{\gmu}{$\mu$}
+\newcommand{\tss}{\textsubscript}
+\newcommand{\ci}{\lstinputlisting} % code input = ci
+
+\input{inputfiles/title_page_1.tex}
+\tableofcontents
+\sectionr{Inleiding}
+Vertel iets over de context van deze opdracht.
+
+\section{Specificaties}
+\input{inputfiles/specificaties.tex}
+
+\section{Ontwerp}
+\input{inputfiles/ontwerp.tex}
+
+
+\section{Implementatie}
+\input{inputfiles/implementatie.tex}
+
+
+\section{Conclusies}
+
+
+\begin{thebibliography}{9}
+\bibitem{labelboek1}
+Auteur1, 
+Boek1, 
+Uitgeverij, 
+jaar.
+\bibitem{labelTitel}
+Auteur1, 
+Titel, 
+Tijdschrift, 
+Vol. 1, 
+Nr. 1, 
+jaar, 
+pp. 12-15.
+\bibitem{labelWeb}
+Webpagina titel, 
+http link, 
+geraadpleegd op 19 sep. 2013.
+\end{thebibliography}
+\end{document}
