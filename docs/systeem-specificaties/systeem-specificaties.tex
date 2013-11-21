@@ -155,10 +155,21 @@ In deze laatste module gebruiken we het midpoint circle algoritme met x1 als de 
 
 \subsection { ram controller}
 
+Omdat we een externe RAM gebruiken voor onze screenbuffers is het nodig om hiervoor communicatie op te stellen, dit zodat er in het juiste gedeelte van de RAM geschreven en gelezen wordt en dat dit niet tegelijkertijd gebeurd omdat het RAM dat niet aankan. We hebben voor een externe RAM gekozen omdat we nooit een RAM geheugen groot genoeg konden maken met de benodigde transistoren. De RAM controller stuurt naar het 'drawblok'een signaal write als het mag gaan schrijven in het RAM geheugen, de RAM controller krijgt dan de kleur en het adress binnen van het 'drawblok'. Als de VGA controller mag gaan lezen krijgt het een signaal read binnen van de RAM controller dan zal er weer data naar de VGA controller verstuurd worden, kleur en adres.
 
 \begin {itemize}
-\item kleur(1 byte) , adres (2 bytes), write (1 bit), read (1bit) ingangen van draw en vga
-\item writeready (1 bit), adres ready( 1bit  kleur (1 byte naar draw en vga), read ready ( 1 bit) uitgangen naar draw en vga
+\item ingangen:
+\begin {itemize}
+\item kleur (4 bits)
+\item adres (16 bits)
+\end {itemize}
+\item uitgangen:
+\begin {itemize}
+\item write (1 bit)
+\item read (1 bit)
+\item kleur (4 bits)
+\item adres (16 bits)
+\end {itemize}
 \end {itemize}
 
 
