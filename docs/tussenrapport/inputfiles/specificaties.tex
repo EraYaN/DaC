@@ -1,0 +1,33 @@
+
+\subsection {Functionele Eisen}
+\begin {itemize}
+\item Vorm, coördinaten en kleur worden extern met een AVR gestuurd naar de GPU.
+\item Het uitgangsignaal van de GPU moet een VGA signaal zijn voor de monitor. 
+\item De GPU moet minimaal 160x120 individuele beeldpunten kunnen tekenen met 4-bit kleur mogelijkheden.
+\item De GPU moet minimaal een pixel en vierkant kunnen tekenen op het beeld met kleur gevuld of zonder.
+\item De GPU moet gebruik maken van screenbuffers voor het tekenen van het scherm.
+\end{itemize}
+
+
+\subsection {Specificaties van de IC}
+\begin {itemize}
+\item Max 2 bond bars (40000 transistorparen) per bond bar 32 aansluitingen.
+\item Voor de FSM’s (Finite State Machine) mogen alleen die van het Moore-type gebruikt worden.
+\item Als de schakeling geactiveerd wordt moeten alle FSM’s in hun begintoestand komen door middel van een reset signaal.
+\item Voor de opwekking van het kloksignaal kan gebruik gemaakt worden van een kristal van 6.144 MHz.
+\item Het streven is om zo weinig mogelijk componenten extern te gebruiken. De dissipatie van de
+chip dient echter ook beperkt te zijn. Dit geeft een compromis voor de maximale stroom die de elektronica mag dissiperen voor de aansturing van de LEDs, etc.
+\item De voedingsspanning van het IC bedraagt 5 Volt.
+\end{itemize}
+
+\subsection {Specificaties van de Arduino}
+\begin {itemize}
+\item Voedingsspanning:	 5V
+\item Input spanning: 	7-12V
+\item Digital I/O Pins: 	54 (of which 15 provide PWM output)
+\item Analog Input Pins:	16
+\item Flash Memory	:	256 KB 
+\item SRAM:			8 KB
+\item EEPROM:		4 KB
+\item Clock Speed:		16 MHz
+\end {itemize}

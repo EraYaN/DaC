@@ -1,8 +1,8 @@
 \documentclass{scrartcl} 
 \input{../library/preamble.tex}
 \input{../library/style.tex}
+\addbibresource{../library/bibliography.bib}
 
-\begin{document}
 \begin{document}
 \pagenumbering{roman}
 
@@ -10,7 +10,7 @@
 \tableofcontents
 
 \section{Inleiding}
-Vertel iets over de context van deze opdracht.
+\input{inputfiles/inleiding.tex}
 
 \section{Specificaties}
 \input{inputfiles/specificaties.tex}
@@ -27,4 +27,5 @@ Zie Figuur 1.
         \label{fig:planner}
 \end{figure}
 
+\printbibliography
 \end{document}
