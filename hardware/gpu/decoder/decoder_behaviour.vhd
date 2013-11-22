@@ -44,6 +44,9 @@ begin
 				en <= (others => '0');
 				rts <= '0';
 				do <= (others => '0');
+				reg_id <= '0';
+				reg_value <= '0';
+				reg_set <= '0';
 			else
 				--defaults
 				rts <= '0';
@@ -56,7 +59,7 @@ begin
 				--perform action upon data available change
 				if draw_rdy = '1' then
 					rts <= '1';
-					do <= (others => '1');
+					do <= "00000110";
 				elsif dav_latched = '1' and dav_old = '0' then
 					packet_num <= next_packet_num;
 					instr_state <= next_instr_state;
@@ -71,6 +74,9 @@ begin
 				x1 <= next_x1;
 				y1 <= next_y1;
 				en <= next_en;
+				reg_id <= next_reg_id;
+				reg_value <= next_reg_value;
+				reg_set <= next_reg_set;
 			end if;
 		end if;
 	end process;
@@ -91,9 +97,9 @@ begin
 			next_x1 <= (others => '0');
 			next_y1 <= (others => '0');
 			next_en <= (others => '0');
-			reg_value <= '0';
-			reg_id <= '0';
-			reg_set <= '0';
+			next_reg_value <= '0';
+			next_reg_id <= '0';
+			next_reg_set <= '0';
 		else
 			--defaults
 			done := '0';
@@ -104,9 +110,9 @@ begin
 			next_x1 <= x1;
 			next_y1 <= y1;
 			next_en <= (others => '0');
-			reg_value <= '0';
-			reg_id <= '0';
-			reg_set <= '0';
+			next_reg_value <= '0';
+			next_reg_id <= '0';
+			next_reg_set <= '0';
 			--logic depending on current packet in stream
 			case to_integer(packet_num) is
 				when 0 =>
@@ -120,9 +126,8 @@ begin
 							next_en <= (others => '0');
 							next_en(0) <= '1';
 						elsif instr = "0001" then
-							reg_value <= not reg_value;
-							reg_id <= '0';
-							reg_set <= '1';
+							next_reg_value <= not reg_value;
+							next_reg_set <= '1';
 						end if;
 					end if;
 					--pass through color

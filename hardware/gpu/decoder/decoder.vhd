@@ -21,8 +21,8 @@ entity decoder is
 		draw_rdy		: in	std_logic;						--Draw Ready
 		en		: buffer	std_logic_vector(NumDrawModules-1 downto 0); --Draw Module Enabled
 		--Internal registers
-		reg_id		: out	std_logic;						--Register id/address
-		reg_value		: inout	std_logic;						--Value
-		reg_set		: out	std_logic						--Set
+		reg_id		: buffer	std_logic;						--Register id/address
+		reg_value		: buffer	std_logic;						--Value
+		reg_set		: buffer	std_logic						--Set
 	);
 end entity decoder;
