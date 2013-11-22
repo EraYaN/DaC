@@ -83,14 +83,7 @@ De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-spi}.
 \end{table}
 
 \section{Instruction Decoder}
-De instructiedecoder zorgt ervoor dat de data, die vanuit de AVR komt, vertaald wordt in data (instructies), waar verschillende onderdelen van de gpu mee over weg kunnen. 
-Dit houdt in dat de intructiedecoder het draw-blok van de juiste informatie voorziet, zodat deze bijvoorbeeld pixels kan tekenen die in het stateregister opslagen worden om in de screenbuffer geschreven te worden.
-De instructiedecoder heeft (op dit moment) een 8-bits bus ingang van de SPI decoder, deze wordt ingelezen als de ingang data ready hoog is.
-Wanneer dan een complete instructie, van minimal één keer 8 bits, verstuurd is, zal er een signaal worden gegeven dat de volgende instructie kan worden gestuurd.
-Als uitgangen van de instructiedecoder zijn er de coördinaten van het te tekenen object met de kleur die dit object moet hebben, deze signalen gaan natuurlijk naar het draw-blok.
-Om de juiste module van het draw-blok aan te sturen wordt gebruik gemaakt van een enabled signaal dat aangeeft welke module de instructie moet uitvoeren.
-Van het draw-blok krijgt de instructiedecoder een signaal als het klaar is met tekenen zodat deze weer een volgend object kan tekenen. 
-Verder wordt de instructiedecoder gebruikt om te bepalen welk screenbuffer er gebruikt wordt om op te schrijven en dus indirect welke om te lezen. Deze informatie wordt verstuurd naar een stateregister doormiddel van een signaal set en de data voor de juiste screenbuffer. Dit alles wordt gedaan synchroon met de klok.
+De instructiedecoder is er om de door de AVR geleverde data te vertalen naar data (een instructie), waar de draw-module mee over weg kan. De decoder leest van SPI-interface een byte (SPIDataRxd), wanneer de SPI-interface aangeeft dat deze klaar staat (SPIDataAvailable). Deze byte wordt vervolgens afhankelijk van een interne counter vertaald naar een instructie, kleur of coördinaat. Wanneer de decoder met zijn ingebouwde counter bepaalt dat de instructiedata (één of meer bytes) geheel ontvangen is, wordt de bijbehorende actie ondernomen. Dit houdt in dat de gewenste draw-module wordt geactiveerd (met het signaal en), of het screen buffer wordt omgewisseld (reg\_id, reg\_value, reg\_set). Het actieve screen buffer wordt bijgehouden in een globaal register. Dit alles gebeurt uiteraard geheel synchroon en uitgangsdata blijft beschikbaar tot de volgende instructie door middel van flip-flops.
 De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-decoder}.
 
 \begin{table}[H]
@@ -103,8 +96,6 @@ De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-decoder}.
  	\hline
 	clk & in & std\_logic \\
 	reset & in & std\_logic \\	
-	SPIDataToTx & in & std\_logic\_vector(SizeSPIData-1 downto 0) \\
-	SPIDataToTxLoad & in & std\_logic \\
 	SPIDataRxd & out & std\_logic\_vector(SizeSPIData-1 downto 0) \\
 	SPIDataAvailable & in & std\_logic \\
 	x0 &  buffer & std\_logic\_vector(SizeX-1 downto 0) \\
@@ -112,11 +103,10 @@ De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-decoder}.
 	y0 &  buffer & std\_logic\_vector(SizeY-1 downto 0) \\
 	y1 &  buffer & std\_logic\_vector(SizeY-1 downto 0) \\
 	color &  buffer & std\_logic\_vector(SizeColor-1 downto 0) \\
-	draw\_rdy & in & std\_logic \\
 	en & buffer & std\_logic\_vector(NumDrawModules-1 downto 0)\\
-	reg\_id & buffer & std\_logic \\
-	reg\_value & buffer & std\_logic \\
-	reg\_set & buffer & std\_logic \\
+	reg\_id & out & std\_logic \\
+	reg\_value & out & std\_logic \\
+	reg\_set & out & std\_logic \\
   	\hline
 \end{tabular}
 \end{table}
