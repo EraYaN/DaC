@@ -15,7 +15,6 @@ architecture behaviour of decoder is
 	signal packet_num, next_packet_num : unsigned(MaxNumInstrPackets-1 downto 0);
 	signal instruction, next_instruction : std_logic_vector(InstrSize-1 downto 0);
 	
-	--signal data_out : std_logic_vector(InstrPacketSize-1 downto 0);
 	--output buffer signals
 	signal next_x0, next_x1 : std_logic_vector(SizeX-1 downto 0);
 	signal next_y0, next_y1 : std_logic_vector(SizeY-1 downto 0);
@@ -37,55 +36,54 @@ begin
 				data_in <= (others => '0');
 				instruction <= (others => '0');
 				color <= (others => '0');
-				x0 <= (others => '0');
-				y0 <= (others => '0');
-				x1 <= (others => '0');
-				y1 <= (others => '0');
+				x <= (others => '0');
+				y <= (others => '0');
+				w <= (others => '0');
+				h <= (others => '0');
 				en <= (others => '0');
-				rts <= '0';
-				do <= (others => '0');
-				reg_id <= '0';
-				reg_value <= '0';
-				reg_set <= '0';
 			else
-				--defaults
-				rts <= '0';
-				do <= (others => '0');
-
 				--synchronize data available flag
-				dav_latched <= dav;
+				dav_latched <= spi_data_available;
 				dav_old <= dav_latched;
 
 				--perform action upon data available change
-				if draw_rdy = '1' then
-					rts <= '1';
-					do <= "00000110";
-				elsif dav_latched = '1' and dav_old = '0' then
+				if dav_latched = '1' and dav_old = '0' then
 					packet_num <= next_packet_num;
 					instr_state <= next_instr_state;
-					data_in <= di;
+					data_in <= spi_data_rx;
 					instruction <= next_instruction;
+				end if;
+
+				if draw_ready = '1' then
+					en <= (others => '0');
+				else
+					en <= next_en;
 				end if;
 
 				--update outputs
 				color <= next_color;
-				x0 <= next_x0;
-				y0 <= next_y0;
-				x1 <= next_x1;
-				y1 <= next_y1;
-				en <= next_en;
-				reg_id <= next_reg_id;
-				reg_value <= next_reg_value;
-				reg_set <= next_reg_set;
+				x <= next_x0;
+				y <= next_y0;
+				w <= next_x1;
+				h <= next_y1;
 			end if;
 		end if;
 	end process;
 	
 	--combinatorial state logic
-	process (packet_num, instr_state, data_in)
+	process (packet_num, instr_state, data_in, instruction, color, x, y, w, h, asb)
 		variable done : std_logic;
 		variable instr : std_logic_vector(InstrSize-1 downto 0);
 	begin
+		--overall defaults
+		next_en <= (others => '0');
+		reg_id <= '0';
+		reg_value <= '0';
+		reg_set <= '0';
+		next_reg_value <= '0';
+		next_reg_id <= '0';
+		next_reg_set <= '0';
+
 		if instr_state = initial then
 			--reset
 			next_instr_state <= decoding;
@@ -96,23 +94,15 @@ begin
 			next_y0 <= (others => '0');
 			next_x1 <= (others => '0');
 			next_y1 <= (others => '0');
-			next_en <= (others => '0');
-			next_reg_value <= '0';
-			next_reg_id <= '0';
-			next_reg_set <= '0';
 		else
 			--defaults
 			done := '0';
 			instr := instruction;
 			next_color <= color;
-			next_x0 <= x0;
-			next_y0 <= y0;
-			next_x1 <= x1;
-			next_y1 <= y1;
-			next_en <= (others => '0');
-			next_reg_value <= '0';
-			next_reg_id <= '0';
-			next_reg_set <= '0';
+			next_x0 <= x;
+			next_y0 <= y;
+			next_x1 <= w;
+			next_y1 <= h;
 			--logic depending on current packet in stream
 			case to_integer(packet_num) is
 				when 0 =>
@@ -122,21 +112,22 @@ begin
 					if (instr = "0000" or instr = "0001" or instr > "0110") then
 						done := '1';
 						if instr = "0000" then
-						next_en(0) <= '1';
+							--activate "fill" draw-module
+							next_en(0) <= '1';
 							next_en <= (others => '0');
 							next_en(0) <= '1';
 						elsif instr = "0001" then
-							next_reg_value <= not reg_value;
-							next_reg_set <= '1';
+							reg_value <= not asb;
+							reg_set <= '1';
 						end if;
 					end if;
 					--pass through color
 					next_color <= data_in(SizeColor-1 downto 0);
 				when 1 => 
-					--pass through x0 coord
+					--pass through x coord
 					next_x0 <= data_in;
 				when 2 => 
-					--pass through y0 coord
+					--pass through y coord
 					next_y0 <= data_in(SizeY-1 downto 0);
 					---start loading next instruction next cycle if instruction is "pixel"
 					if instr = "0010" then
@@ -145,7 +136,7 @@ begin
 						next_en(1) <= '1';
 					end if;
 				when 3 =>
-					--pass through x1 coord
+					--pass through w coord
 					next_x1 <= data_in;
 					--start loading next instruction next cycle if instruction is "circle"
 					if instr = "0110" then
@@ -154,7 +145,7 @@ begin
 						next_en(5) <= '1';
 					end if;
 				when 4 =>
-					--pass through y1 coord
+					--pass through h coord
 					next_y1 <= data_in(SizeY-1 downto 0);
 					--start loading next instruction next cycle if instruction is "square", "fsquare" or "line"
 					if (instr = "0011" or instr = "0100" or instr = "0101") then
