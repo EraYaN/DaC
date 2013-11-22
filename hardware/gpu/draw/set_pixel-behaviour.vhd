@@ -1,5 +1,6 @@
 library IEEE;
 use IEEE.std_logic_1164.ALL;
+use work.parameter_def.ALL;
 
 architecture behaviour of set_pixel is
 signal w : std_logic := '0';
@@ -18,7 +19,7 @@ begin
 			if( w ='0') then
 				w <= '1';
 			elsif ( w = '1') then
-				w < = '0';
+				w <= '0';
 			end if; 
 		elsif(reset = '1') then
 			address <= (others => '0');

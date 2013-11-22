@@ -8,7 +8,7 @@ architecture behaviour of spi is
 	signal SCLK_latched, SCLK_old : std_logic;
 	signal SS_latched, SS_old : std_logic;
 	signal MOSI_latched: std_logic;
-	signal TxData : std_logic_vector(SizeSPIData-1 downto 0);
+	--signal TxData : std_logic_vector(SizeSPIData-1 downto 0);
 	signal index: unsigned (c-1 downto 0);
 	signal RxdData : std_logic_vector(SizeSPIData-1 downto 0);
 
@@ -22,7 +22,7 @@ begin
 
 		RxdData <= (others => '0');
 		index <= to_unsigned(SizeSPIData-1,c);
-		TxData <= (others => '0');
+		--TxData <= (others => '0');
 		SCLK_old <= '0';
 		SCLK_latched <= '0';
 		SS_old <= '0';
@@ -39,9 +39,9 @@ begin
 		SPI_done <= '0';
 		MOSI_latched <= SPI_MOSI;
 
-		if(DataToTxLoad = '1') then
-			TxData <= DataToTx;
-		end if;
+		--if(DataToTxLoad = '1') then
+		--	TxData <= DataToTx;
+		--end if;
 
 		if (SS_old = '1' and SS_latched = '0') then
 			index <= to_unsigned(SizeSPIData-1,c);
@@ -59,7 +59,7 @@ begin
 				if( index = SizeSPIData-1 ) then
 					SPI_DONE <= '1';
 				end if;
-				TxData <= TxData(SizeSPIData-2 downto 0) & '1';
+			--	TxData <= TxData(SizeSPIData-2 downto 0) & '1';
 			end if;
 		end if;
 	end if;
@@ -67,7 +67,7 @@ end process;
 
 --Combinational assignments
 
-SPI_MISO <= TxData(SizeSPIData-1);
+--SPI_MISO <= TxData(SizeSPIData-1);
 DataRxd <= RxdData;
 
 end behaviour;

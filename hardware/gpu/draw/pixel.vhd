@@ -1,5 +1,6 @@
 library IEEE;
 use IEEE.std_logic_1164.ALL;
+use work.parameter_def.ALL;
 
 entity pixel is
    port(clk   :in    std_logic;

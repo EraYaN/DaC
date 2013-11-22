@@ -22,34 +22,34 @@ In Tabel \ref{tab:spec-params} staat een overzicht van de gebruikte parameters e
 \centering
 \caption{De gebruikte parameters en generics}
 \label{tab:spec-params}
-\begin{tabular}{c c c c c}
+\begin{tabular}{l l l l l}
 	\hline\hline
- 	Module & Naam & Modus & Type & Omschrijving\\
+ 	 & Naam & Type & Waarde & Omschrijving\\
  	\hline
 	%GLOBAL
-	global & InstrSize & integer & 4 & De grootte van een instuctie\\ 
-	global & MaxNumInstrPackets & integer & 3 & Maximaal aantal pakketjes in één instuctie\\ 
-	global & NumDrawModules & integer & 6 & Aantal Draw modules\\ 
-	global & SizeX & integer & 8 & Het aantal bits voor de X coordinaat\\
-	global & SizeY & integer & 7 & Het aantal bits voor de Y coordinaat\\
-	global & NumStateReg & integer & 1 & Aantal globale state registers\\
-	global & SizeRAMData & integer & 4 & Aantal bits per woord in het RAM\\
-	global & SizeRAMAddr & integer & 16 & Aantal adresbits voor het RAM\\
-	global & SizeColor & integer & 4 & Aantal bits kleur\\
-	global & SizeSPIData & integer & 8 & Aantal bits van de SPI pakketjes\\
+	pkg & InstrSize & integer & 4 & De grootte van een instuctie\\ 
+	pkg & MaxNumPackets & integer & 3 & Maximaal aantal pakketjes in één instuctie\\ 
+	pkg & NumDrawModules & integer & 6 & Aantal Draw modules\\ 
+	pkg & SizeX & integer & 8 & Het aantal bits voor de X coordinaat\\
+	pkg & SizeY & integer & 7 & Het aantal bits voor de Y coordinaat\\
+	pkg & NumStateReg & integer & 1 & Aantal globale state registers\\
+	pkg & SizeRAMData & integer & 4 & Aantal bits per woord in het RAM\\
+	pkg & SizeRAMAddr & integer & 16 & Aantal adresbits voor het RAM\\
+	pkg & SizeColor & integer & 4 & Aantal bits kleur\\
+	pkg & SizeSPIData & integer & 8 & Aantal bits van de SPI pakketjes\\
 	%VGA
-	vgacontroller & h\_pulse & integer & 24 & Aantal klokpulsen voor de horizontale syncpuls\\ 
-	vgacontroller & h\_bp & integer & 12 & Aantal klokpulsen voor de horizontale “backporch” \\ 
-	vgacontroller & h\_pixels & integer & 160 & Aantal klokpulsen voor de horizontale pixels \\ 
-	vgacontroller & h\_fp & integer & 4 & Aantal klokpulsen voor de horizontale “fontporch” \\ 
-	vgacontroller & h\_pol & std\_logic & ‘0’ & De polariteit van de horizontale syncpuls\\ 
-	vgacontroller & v\_pulse & integer & 2 & Aantal rijen voor de verticale syncpuls\\ 
-	vgacontroller & v\_bp & integer & 33 & Aantal rijen voor de verticale “backporch” \\ 
-	vgacontroller & v\_pixels & integer & 480 & Aantal rijen voor de verticale pixels\\ 
-	vgacontroller & v\_fp & integer & 10 & Aantal rijen voor de verticale “fontporch” \\ 
-	vgacontroller & v\_pol & std\_logic & ‘0’ & De polariteit van de verticale syncpuls\\ 
+	vga & h\_pulse & integer & 24 & Aantal klokpulsen voor de horizontale syncpuls\\ 
+	vga & h\_bp & integer & 12 & Aantal klokpulsen voor de horizontale “backporch” \\ 
+	vga & h\_pixels & integer & 160 & Aantal klokpulsen voor de horizontale pixels \\ 
+	vga & h\_fp & integer & 4 & Aantal klokpulsen voor de horizontale “fontporch” \\ 
+	vga & h\_pol & std\_logic & ‘0’ & De polariteit van de horizontale syncpuls\\ 
+	vga & v\_pulse & integer & 2 & Aantal rijen voor de verticale syncpuls\\ 
+	vga & v\_bp & integer & 33 & Aantal rijen voor de verticale “backporch” \\ 
+	vga & v\_pixels & integer & 480 & Aantal rijen voor de verticale pixels\\ 
+	vga & v\_fp & integer & 10 & Aantal rijen voor de verticale “fontporch” \\ 
+	vga & v\_pol & std\_logic & ‘0’ & De polariteit van de verticale syncpuls\\ 
 	%SPI
-	spi & c & integer & integer(ceil(log2(real(SizeSPIData))))& Het aantal bits van de counter in de SPI module\\
+	spi & c & integer & 4 & Het aantal bits van de counter in de SPI module\\
   	\hline
 \end{tabular}
 \end{table}
@@ -58,7 +58,6 @@ In Tabel \ref{tab:spec-params} staat een overzicht van de gebruikte parameters e
 Voor de communicatie tussen de AVR en onze GPU hebben we een SPI decoder nodig.
 De ingang SS staat voor slave select, deze wordt normaal gebruikt voor het geval dat je meerdere slave chips hebt, aangezien dit bij ons niet het geval is zal dit signaal altijd hoog zijn.
 De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-spi}.
-%Het signaal SCLK is voor het CLK signaal voor de communicatie. Als laatste ingang is er de MOSI, dit staat voor master out en slave in, dit is de daadwerkelijke data die verzonden wordt van de arduïno naar onze gpu. Voor de uitgangen hebben we MISO, master in slave out, dit is om de volgende instructie aan te vragen van de arduïno. Dan zijn er nog de uitgangen naar de instructie decoder, de 8 bits data bus voor om alle data te sturen als de data ready hoog is.
 
 \begin{table}[H]
 \centering
@@ -83,7 +82,13 @@ De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-spi}.
 \end{table}
 
 \section{Instruction Decoder}
-De instructiedecoder is er om de door de AVR geleverde data te vertalen naar data (een instructie), waar de draw-module mee over weg kan. De decoder leest van SPI-interface een byte (SPIDataRxd), wanneer de SPI-interface aangeeft dat deze klaar staat (SPIDataAvailable). Deze byte wordt vervolgens afhankelijk van een interne counter vertaald naar een instructie, kleur of coördinaat. Wanneer de decoder met zijn ingebouwde counter bepaalt dat de instructiedata (één of meer bytes) geheel ontvangen is, wordt de bijbehorende actie ondernomen. Dit houdt in dat de gewenste draw-module wordt geactiveerd (met het signaal en), of het screen buffer wordt omgewisseld (reg\_id, reg\_value, reg\_set). Het actieve screen buffer wordt bijgehouden in een globaal register. Dit alles gebeurt uiteraard geheel synchroon en uitgangsdata blijft beschikbaar tot de volgende instructie door middel van flip-flops.
+De instructiedecoder is er om de door de AVR geleverde data te vertalen naar data (een instructie), waar de draw-module mee over weg kan.
+De decoder leest van SPI-interface een byte (SPIDataRxd), wanneer de SPI-interface aangeeft dat deze klaar staat (SPIDataAvailable).
+Deze byte wordt vervolgens afhankelijk van een interne counter vertaald naar een instructie, kleur of coördinaat.
+Wanneer de decoder met zijn ingebouwde counter bepaalt dat de instructiedata (één of meer bytes) geheel ontvangen is, wordt de bijbehorende actie ondernomen.
+Dit houdt in dat de gewenste draw-module wordt geactiveerd (met het signaal en), of het screen buffer wordt omgewisseld (reg\_id, reg\_value, reg\_set).
+Het actieve screen buffer wordt bijgehouden in een globaal register.
+Dit alles gebeurt uiteraard geheel synchroon en uitgangsdata blijft beschikbaar tot de volgende instructie door middel van flip-flops.
 De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-decoder}.
 
 \begin{table}[H]
@@ -111,32 +116,36 @@ De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-decoder}.
 \end{tabular}
 \end{table}
 
-\section{Draw Logic}
+\section{Draw Module}
 In dit blok worden de instructie omgezet naar pixels, vierkanten, lijnen, cirkels en eventueel meer. Dit blok krijgt de informatie binnen van de instructiedecoder, deze geeft aan welke module er gebruikt moet worden met de bijbehorende coördinaten en kleur.
 De keuze voor welke module er gebruikt moet worden gebeurd doormiddel van het signaal enabled. Verder neemt het draw blok het signaal ASB mee, zodat er in de juiste screenbuffer geschreven wordt.
 Tevens krijgt het draw-blok het signaal RAMclaimed binnen van de VGA controller, dit houdt in dat als de VGA controller aan het lezen is in het RAM dat het draw-blok er niet in kan schrijven.
 Als laatste ingang krijgt het draw-blok een signaal write binnen van de RAM controller dat zegt wanneer er geschreven mag worden.
 Als uitgangen heeft het draw-blok het signaal done als de module klaar is met het tekenen van een de instructie zodat er een volgende instructie kan doorgegeven worden. Verder heeft het de uitgangen naar de RAM controller, hierin worden de kleur 
+De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-draw}.
 
-\begin {itemize}
-\item ingangen:
-\begin {itemize}
-\item kleur (4 bits)
-\item x coördinaat (8 bits)
-\item y coördinaat (7 bits)
-\item enabled (1 bit)
-\item ASB (1 bit)
-\item RAMclaimed (1 bit)
-\item write (1 bit)
-\end {itemize}
-
-\item uitgangen:
-\begin {itemize}
-\item kleur (4 bits)
-\item adres (16 bits)
-\item done (1 bit)
-\end {itemize}
-\end{itemize}
+\begin{table}[H]
+\centering
+\caption{Specificaties van de Draw Module (draw)}
+\label{tab:spec-draw}
+\begin{tabular}{c c c}
+	\hline\hline
+ 	Naam & Modus & Type\\
+ 	\hline	
+	write\_enable & out & std\_logic\\
+	vga\_claim & in & std\_logic\\
+	decoder\_claim & in & std\_logic\\
+	is\_init & in & std\_logic\\
+	decoder\_write & in & std\_logic\\
+	draw\_write & in & std\_logic\\
+	draw\_read & in & std\_logic\\
+	vga\_read & in & std\_logic\\
+	draw\_can\_access & out & std\_logic\\
+	decoder\_can\_access & out & std\_logic\\
+	vga\_can\_access & out & std\_logic\\
+  	\hline
+\end{tabular}
+\end{table}
 
 \subsection { pixel}
 Hierin worden aparte pixels getekend, hiervoor zijn de x,y coördinaten en de kleur nodig.

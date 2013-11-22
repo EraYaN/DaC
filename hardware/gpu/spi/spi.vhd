@@ -15,10 +15,10 @@ entity spi is
 		SPI_CLK : in std_logic;
 		SPI_SS : in std_logic;
 		SPI_MOSI : in std_logic;
-		SPI_MISO : out std_logic;
+		--SPI_MISO : out std_logic;
 		SPI_DONE : out std_logic;
-		DataToTx : in std_logic_vector(SizeSPIData-1 downto 0);
-		DataToTxLoad: in std_logic;
+		--DataToTx : in std_logic_vector(SizeSPIData-1 downto 0);
+		--DataToTxLoad: in std_logic;
 		DataRxd : out std_logic_vector(SizeSPIData-1 downto 0)
 	);
 end spi;

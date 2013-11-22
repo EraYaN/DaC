@@ -1,5 +1,6 @@
 library IEEE;
 use IEEE.std_logic_1164.ALL;
+use work.parameter_def.ALL;
 
 architecture behaviour of set_pixel is
 
