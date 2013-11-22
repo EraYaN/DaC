@@ -4,49 +4,42 @@ use work.parameter_def.ALL;
 use work.draw_lib.ALL;
 
 architecture behaviour of pixel is
-component pixel is
-   port(clk   : in    std_logic;
-        reset : in    std_logic;
-        enable: in    std_logic;
-        x0  : in    std_logic_vector(SizeX-1 downto 0);
-		y0  : in    std_logic_vector(SizeY-1 downto 0);
-		asb : in std_logic;
-        done  : out   std_logic;
-        ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
-        ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);
-        draw_write :out std_logic;
-		draw_can_access : in std_logic);
-end component;
-signal is_busy : std_logic;
+signal busy : std_logic; -- used as a "state"
 begin
-	process (clk, reset)
+	process (clk)
+	variable next_done : std_logic;
+	variable next_ramaddr : std_logic_vector(SizeRAMAddr-1 downto 0);
+	variable next_ramdata : std_logic_vector(SizeRAMData-1 downto 0);
+	variable next_draw_write : std_logic;
+	variable next_busy : std_logic;
 	begin
 		if rising_edge(clk) then
-			if(reset = '1') then
-				ramaddr <= (others => 'Z');
-				ramdata <= (others => 'Z');
-				draw_write <= (others => 'Z');
-				draw_claim <= 'Z';
-				done <= 'Z';
-				is_busy = '0';
-			elsif(rising_egde(clk)) then
-				if enable = '1' then
-				if draw_can_access = '1' then
-					draw_claim <= '1'; -- claim het ram
-					address <= std_logic_vector(asb & y0 & x0); --combineer signalen
-					data <= color; -- zet data op de bus
-					write_enable <= '1'; -- vertel de controller dat je wil schrijven
-					is_busy <= '1';
-					
-				else 
-					ramaddr <= (others => 'Z');
-					ramdata <= (others => 'Z');
-					draw_write <= (others => 'Z');
-					draw_claim <= 'Z';
-					done <= 'Z';
-					is_busy = '0';
+			next_ramaddr := (others => 'Z');
+			next_ramdata := (others => 'Z');
+			next_draw_write := '0';
+			next_done := '0';
+			next_busy := '0';
+			if(reset = '0') then --not resetting
+				if enable = '1' then --enabled
+					if draw_can_access = '1' then -- RAM is free to access
+						if busy = '0' then --we are not busy							
+							next_ramaddr := std_logic_vector(asb & y & x); --combineer signalen
+							next_ramdata := color; -- zet data op de bus
+							next_draw_write := '1'; -- vertel de controller dat je wil schrijven
+							next_done := '0'; -- not done yet
+							next_busy := '1'; -- we are now busy
+						else --we are busy							
+							next_done := '1'; -- we are done now
+							next_busy := '0'; -- we are not busy anymore
+						end if;					
+					end if;	
 				end if;
 			end if;
+			done <= next_done;
+			ramaddr <= next_ramaddr;
+			ramdata <= next_ramdata;
+			draw_write <= next_draw_write;
+			busy <= next_busy;
 		end if;
 	end process;
 end behaviour;

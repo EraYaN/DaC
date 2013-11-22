@@ -12,6 +12,8 @@ PACKAGE parameter_def IS
 	constant SizeRAMAddr : INTEGER;
 	constant SizeColor : INTEGER;
 	constant SizeSPIData : INTEGER;
+	constant ResolutionX : INTEGER;
+	constant ResolutionY : INTEGER;
 END parameter_def;
 
 PACKAGE BODY parameter_def IS
@@ -26,4 +28,6 @@ PACKAGE BODY parameter_def IS
 	constant SizeRAMAddr : INTEGER := 16;
 	constant SizeColor : INTEGER := 4;
 	constant SizeSPIData : INTEGER := 8;
+	constant ResolutionX : INTEGER := 160;
+	constant ResolutionY : INTEGER := 120;
 END parameter_def;
