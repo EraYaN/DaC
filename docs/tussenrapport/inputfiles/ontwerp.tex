@@ -1,5 +1,5 @@
 
-Ons GPU is ingedeeld volgens het volgende  blokschema.
+Ons GPU is ingedeeld volgens het volgende blokschema.
 \begin{figure}[H]
 \centering
         \includegraphics[width=\linewidth]{inputfiles/systeemdrawing.pdf}
@@ -28,42 +28,45 @@ Voor de communicatie tussen de arduino en onze GPU hebben we een SPI decoder nod
 \end {itemize}
 
 \subsection{Instruction Decoder}
-De instructiedecoder zorgt ervoor dat de data, die vanuit de arduino komt, vertaald wordt in protocolen voor de rest van de gpu. 
-Dit houdt in dat de intructiedecoder het 'drawblok' van de juiste informatie voorziet, zodat deze bijvoorbeeld pixels kan tekenen die in het stateregister opslagen worden om in de screenbuffer geschreven te worden.
-De instructiedecoder heeft een 8bits bus ingang van de SPI decoder, deze wordt ingelezen als de ingang data ready hoog is. Als de 8 bits zijn ingelezen stuurt de instructiedecoder een signaal terug dat aangeeft dat de volgende 8 bits verstuurd mogen worden.
-Wanneer dan een complete instructie, 3 keer 8 bits, verstuurd is, zal er een signaal worden gegeven dat de volgende instructie kan worden gestuurd.
-Als uitgangen van de instructiedecoder zijn er de coördinaten van het te tekenen object met de kleur die dit object moet hebben, deze signalen gaan natuurlijk naar het 'drawblok'.
-Om de juiste module van het 'drawblok' aan te sturen wordt gebruik gemaakt van een enabled signaal dat aangeeft welke module de instructie moet uitvoeren.
-Van het 'drawblok' krijgt de instructiedecoder een signaal als het klaar is met tekenen zodat deze weer een volgend object kan tekenen. 
-Verder wordt de instructiedecoder gebruikt om te bepalen welke screenbuffer er gebruikt wordt om op te schrijven en dus indirect welke om te lezen. Deze informatie wordt verstuurd naar een stateregister doormiddel van een signaal set en de data voor de juiste screenbuffer.
-En dit alles wordt gedaan synchroon met de klok.
+De instructiedecoder zorgt ervoor dat de data, die vanuit de arduino komt, vertaald wordt in data (instructies), waar verschillende onderdelen van de gpu mee over weg kunnen. 
+Dit houdt in dat de intructiedecoder het draw-blok van de juiste informatie voorziet, zodat deze bijvoorbeeld pixels kan tekenen die in het stateregister opslagen worden om in de screenbuffer geschreven te worden.
+De instructiedecoder heeft (op dit moment) een 8-bits bus ingang van de SPI decoder, deze wordt ingelezen als de ingang data ready hoog is.
+Wanneer dan een complete instructie, van minimal één keer 8 bits, verstuurd is, zal er een signaal worden gegeven dat de volgende instructie kan worden gestuurd.
+Als uitgangen van de instructiedecoder zijn er de coördinaten van het te tekenen object met de kleur die dit object moet hebben, deze signalen gaan natuurlijk naar het draw-blok.
+Om de juiste module van het draw-blok aan te sturen wordt gebruik gemaakt van een enabled signaal dat aangeeft welke module de instructie moet uitvoeren.
+Van het draw-blok krijgt de instructiedecoder een signaal als het klaar is met tekenen zodat deze weer een volgend object kan tekenen. 
+Verder wordt de instructiedecoder gebruikt om te bepalen welk screenbuffer er gebruikt wordt om op te schrijven en dus indirect welke om te lezen. Deze informatie wordt verstuurd naar een stateregister doormiddel van een signaal set en de data voor de juiste screenbuffer. Dit alles wordt gedaan synchroon met de klok.
 
 \begin {itemize}
-\item ingangen:
+\item Ingangen:
 \begin{itemize}
-\item data clock  
-\item 8 bits bus 
-\item data ready (1bit)
-\item done (1 bit)
+\item clk (clock, std_logic)
+\item reset (std_logic)
+\item di (data in, std_logic_vector)
+\item dav (data available, std_logic)
+\item draw_rdy (instruction processed, std_logic)
 \end{itemize}
 
-\item uitgangen:
+\item Uitgangen:
 \begin{itemize}
-\item readytosend (1 bit)
-\item instuctieready (1 bit).
-\item kleur (4 bits)
-\item x coördinaat (8 bits)
-\item y coördinaat (7 bits)
-\item enabled (1 bit)
-\item set (1 bit)
-\item data (1 bit)
+\item rts (ready to send, read do, std_logic)
+\item do (data out, 00000110 when instruction processed, std_logic_vector).
+\item color (std_logic_vector)
+\item x0 (std_logic_vector)
+\item y0 (std_logic_vector)
+\item x1 (std_logic_vector)
+\item y1 (std_logic_vector)
+\item en (draw-block selector, std_logic_vector)
+\item reg_id (register selector, std_logic (wellicht uitgebreid naar vector wanneer meer dan twee registers benodigd zijn))
+\item reg_set (register set, std_logic)
+\item reg_value (register value (current screen buffer), std_logic)
 \end{itemize}
 \end{itemize}
 
 \subsection{Draw Logic}
-In dit blok worden de instructie omgezet naar pixels, vierkantjes, lijnen,cirkels en eventueel meer. Dit blok krijgt de informatie binnen van de instructie decoder, deze geeft aan welke module er gebruikt moet worden met de bijbehorende coördinaten en kleur.
-De keuze voor welke module er gebruikt moet worden gebeurd doormiddel van het signaal enabled. Verder neemt het draw blok het signaal ASB mee, zodat er in de juiste screenbuffer geschreven wordt. Tevens krijgt het 'drawblok' het signaal RAMclaimed binnen van de VGA controller, dit houdt in dat als de VGA controller aan het lezen is in het RAM dat het 'drawblok' er niet in kan schrijven. Als laatste ingang krijgt het 'drawblok' een signaal write binnen van de RAM controller dat zegt wanneer er geschreven mag worden.
-Als uitgangen heeft het 'drawblok' het signaal done als de module klaar is met het tekenen van een de instructie zodat er een volgende instructie kan doorgegeven worden. Verder heeft het de uitgangen naar de RAM controller, hierin worden de kleur 
+In dit blok worden de instructie omgezet naar pixels, vierkanten, lijnen, cirkels en eventueel meer. Dit blok krijgt de informatie binnen van de instructiedecoder, deze geeft aan welke module er gebruikt moet worden met de bijbehorende coördinaten en kleur.
+De keuze voor welke module er gebruikt moet worden gebeurd doormiddel van het signaal enabled. Verder neemt het draw blok het signaal ASB mee, zodat er in de juiste screenbuffer geschreven wordt. Tevens krijgt het draw-blok het signaal RAMclaimed binnen van de VGA controller, dit houdt in dat als de VGA controller aan het lezen is in het RAM dat het draw-blok er niet in kan schrijven. Als laatste ingang krijgt het draw-blok een signaal write binnen van de RAM controller dat zegt wanneer er geschreven mag worden.
+Als uitgangen heeft het draw-blok het signaal done als de module klaar is met het tekenen van een de instructie zodat er een volgende instructie kan doorgegeven worden. Verder heeft het de uitgangen naar de RAM controller, hierin worden de kleur 
 
 \begin {itemize}
 \item ingangen:
@@ -98,7 +101,7 @@ Hier wordt het algoritme van Bresenham gebruikt hiervoor hebben we de x,y coörd
 In deze laatste module gebruiken we het midpoint circle algoritme met x1 als de radius.
 
 \subsection{RAM Controller}
-Omdat we een externe RAM gebruiken voor onze screenbuffers is het nodig om hiervoor communicatie op te stellen, zodat er in het juiste gedeelte van de RAM geschreven en gelezen wordt en dat dit niet tegelijkertijd gebeurd, omdat het RAM dat niet aankan. We hebben voor een externe RAM gekozen omdat er geen RAM geheugen groot genoeg gemaakt kon worden met de benodigde transistoren om bijvoorbeeld de screenbuffers te renderen. De RAM controller stuurt naar het 'drawblok' een signaal write als het mag gaan schrijven in het RAM geheugen, de RAM controller krijgt dan de kleur en het adress binnen van het 'drawblok'. Als de VGA controller mag gaan lezen krijgt het een signaal read binnen van de RAM controller dan zal er weer data naar de VGA controller verstuurd worden, kleur en adres.
+Omdat we een externe RAM gebruiken voor onze screenbuffers is het nodig om hiervoor communicatie op te stellen, zodat er in het juiste gedeelte van de RAM geschreven en gelezen wordt en dat dit niet tegelijkertijd gebeurd, omdat het RAM dat niet aankan. We hebben voor een externe RAM gekozen omdat er geen RAM geheugen groot genoeg gemaakt kon worden met de benodigde transistoren om bijvoorbeeld de screenbuffers te renderen. De RAM controller stuurt naar het draw-blok een signaal write als het mag gaan schrijven in het RAM geheugen, de RAM controller krijgt dan de kleur en het adress binnen van het draw-blok. Als de VGA controller mag gaan lezen krijgt het een signaal read binnen van de RAM controller dan zal er weer data naar de VGA controller verstuurd worden, kleur en adres.
 
 \begin {itemize}
 \item ingangen:
