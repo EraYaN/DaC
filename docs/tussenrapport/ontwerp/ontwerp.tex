@@ -10,9 +10,9 @@
 Ons GPU is ingedeeld volgens het volgende blokschema.
 \begin{figure}[H]
 \centering
-        \includegraphics[width=\linewidth]{resources/systeemdrawing-rc.pdf}
-        \caption{Blokschema GPU}
-        \label{fig:Blokschema GPU}
+	\includegraphics[width=\linewidth]{resources/systeemdrawing-rc.pdf}
+	\caption{Blokschema GPU}
+	\label{fig:Blokschema GPU}
 \end{figure}
 
 \section{Parameters}
@@ -37,6 +37,8 @@ In Tabel \ref{tab:spec-params} staat een overzicht van de gebruikte parameters e
 	pkg & SizeRAMAddr & integer & 16 & Aantal adresbits voor het RAM\\
 	pkg & SizeColor & integer & 4 & Aantal bits kleur\\
 	pkg & SizeSPIData & integer & 8 & Aantal bits van de SPI pakketjes\\
+	pkg & ResolutionX & integer & 160 & Horizontale resolutie \\
+	pkg & ResolutionY & integer & 120 & Verticale resolutie \\
 	%VGA
 	vga & h\_pulse & integer & 24 & Aantal klokpulsen voor de horizontale syncpuls\\ 
 	vga & h\_bp & integer & 12 & Aantal klokpulsen voor de horizontale “backporch” \\ 
@@ -69,14 +71,12 @@ De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-spi}.
  	\hline
 	clk & in & std\_logic \\
 	reset & in & std\_logic \\
-	SPI\_CLK & in & std\_logic \\
-	SPI\_SS & in & std\_logic \\
-	SPI\_MOSI & in & std\_logic \\
-	SPI\_MISO & out & std\_logic \\
-	SPI\_DONE & out & std\_logic \\
-	DataToTx & in & std\_logic\_vector(SizeSPIData-1 downto 0) \\
-	DataToTxLoad & in & std\_logic \\
-	DataRxd & out & std\_logic\_vector(SizeSPIData-1 downto 0) \\
+	spi\_clk & in & std\_logic \\
+	spi\_ss & in & std\_logic \\
+	spi\_mosi & in & std\_logic \\
+	spi\_miso & out & std\_logic \\
+	spi\_data\_available & out & std\_logic \\
+	spi\_data\_rx & out & std\_logic\_vector(SizeSPIData-1 downto 0) \\
   	\hline
 \end{tabular}
 \end{table}
@@ -101,8 +101,8 @@ De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-decoder}.
  	\hline
 	clk & in & std\_logic \\
 	reset & in & std\_logic \\	
-	SPIDataRxd & out & std\_logic\_vector(SizeSPIData-1 downto 0) \\
-	SPIDataAvailable & in & std\_logic \\
+	spi_data_rx & out & std\_logic\_vector(SizeSPIData-1 downto 0) \\
+	spi_data_available & in & std\_logic \\
 	x0 &  buffer & std\_logic\_vector(SizeX-1 downto 0) \\
 	x1 &  buffer & std\_logic\_vector(SizeX-1 downto 0) \\
 	y0 &  buffer & std\_logic\_vector(SizeY-1 downto 0) \\
@@ -117,11 +117,8 @@ De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-decoder}.
 \end{table}
 
 \section{Draw Module}
-In dit blok worden de instructie omgezet naar pixels, vierkanten, lijnen, cirkels en eventueel meer. Dit blok krijgt de informatie binnen van de instructiedecoder, deze geeft aan welke module er gebruikt moet worden met de bijbehorende coördinaten en kleur.
-De keuze voor welke module er gebruikt moet worden gebeurd doormiddel van het signaal enabled. Verder neemt het draw blok het signaal ASB mee, zodat er in de juiste screenbuffer geschreven wordt.
-Tevens krijgt het draw-blok het signaal RAMclaimed binnen van de VGA controller, dit houdt in dat als de VGA controller aan het lezen is in het RAM dat het draw-blok er niet in kan schrijven.
-Als laatste ingang krijgt het draw-blok een signaal write binnen van de RAM controller dat zegt wanneer er geschreven mag worden.
-Als uitgangen heeft het draw-blok het signaal done als de module klaar is met het tekenen van een de instructie zodat er een volgende instructie kan doorgegeven worden. Verder heeft het de uitgangen naar de RAM controller, hierin worden de kleur 
+In dit blok worden de instructie omgezet naar pixels, rechthoeken en eventueel meer. Dit blok krijgt de informatie binnen van de instructiedecoder, deze geeft aan welke module er gebruikt moet worden (en) met de bijbehorende data (x, y, etc.), ook is er een input die het huidige screen buffer aanduidt (asb). Verder bevat de module de benodigde signals om naar het RAM te schrijven (ramaddr en ramdata) en om te bepalen of er naar het RAM geschreven kan worden op een bepaald moment (draw_write, draw read, draw_can_access).
+
 De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-draw}.
 
 \begin{table}[H]
@@ -132,32 +129,105 @@ De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-draw}.
 	\hline\hline
  	Naam & Modus & Type\\
  	\hline	
-	write\_enable & out & std\_logic\\
-	vga\_claim & in & std\_logic\\
-	decoder\_claim & in & std\_logic\\
-	is\_init & in & std\_logic\\
-	decoder\_write & in & std\_logic\\
-	draw\_write & in & std\_logic\\
-	draw\_read & in & std\_logic\\
-	vga\_read & in & std\_logic\\
-	draw\_can\_access & out & std\_logic\\
-	decoder\_can\_access & out & std\_logic\\
-	vga\_can\_access & out & std\_logic\\
+	 clk & in & std\_logic \\
+	 reset & in & std\_logic \\
+	 x & in & std\_logic\_vector(SizeX-1 downto 0) \\ 
+	 w & in & std\_logic\_vector(SizeX-1 downto 0) \\
+	 y & in & std\_logic\_vector(SizeY-1 downto 0) \\
+	 h & in & std\_logic\_vector(SizeY-1 downto 0) \\ 
+	 color & in & std\_logic\_vector(SizeColor-1 downto 0) \\ 
+	 en & in & std\_logic\_vector(NumDrawModules-1 downto 0) \\ 
+	 draw\_ready & out & std\_logic \\
+	 asb & in & std\_logic \\ 
+	 draw\_write & out & std\_logic \\
+	 draw\_read & out & std\_logic \\
+	 draw\_can\_access & in & std\_logic \\
+	 ramaddr & out & std\_logic\_vector(SizeRAMAddr-1 downto 0) \\
+	 ramdata & out & std\_logic\_vector(SizeRAMData-1 downto 0) \\
   	\hline
 \end{tabular}
 \end{table}
 
-\subsection { pixel}
-Hierin worden aparte pixels getekend, hiervoor zijn de x,y coördinaten en de kleur nodig.
+\subsection {Fill}
+De Fill-module verandert in één instructie het hele beeldscherm naar een gegeven kleur.
 
-\subsection { square}
-In deze module wordt een vierkant getekend met de x,y coördinaten van de eerste pixel links boven en de laatste pixel rechtsonder van het vierkant en natuurlijk de kleur die het vierkant moet hebben.
+\begin{table}[H]
+\centering
+\caption{Specificaties van de Fill Draw Module}
+\label{tab:spec-fill-draw}
+\begin{tabular}{c c c}
+	\hline\hline
+ 	Naam & Modus & Type\\
+ 	\hline	
+	clk & in & std\_logic \\
+	reset & in & std\_logic \\
+	enable& in & std\_logic \\
+	color & in & std\_logic\_vector(SizeColor-1 downto 0) \\
+	asb & in & std\_logic \\
+	done & out & std\_logic \\
+	ramaddr &out & std\_logic\_vector(SizeRAMAddr-1 downto 0) \\
+	ramdata &out & std\_logic\_vector(SizeRAMData-1 downto 0) \\
+	draw\_write &out & std\_logic \\
+	draw\_can\_access & in & std\_logic \\
+  	\hline
+\end{tabular}
+\end{table}
 
-\subsection { lijn}
-Hier wordt het algoritme van Bresenham gebruikt hiervoor hebben we de x,y coördinaten nodig van het begin en het eindpunt van de lijn.
+\subsection {Pixel}
+Door deze module worden aparte pixels getekend, hiervoor zijn de x- en y-coördinaten en de kleur van de pixel nodig.
 
-\subsection { cirkel}
-In deze laatste module gebruiken we het midpoint circle algoritme met x1 als de radius.
+\begin{table}[H]
+\centering
+\caption{Specificaties van de Pixel Draw Module}
+\label{tab:spec-pixel-draw}
+\begin{tabular}{c c c}
+	\hline\hline
+ 	Naam & Modus & Type\\
+ 	\hline	
+	clk & in & std\_logic \\
+	reset & in & std\_logic \\
+	enable& in & std\_logic \\
+	color & in & std\_logic\_vector(SizeColor-1 downto 0) \\
+	x & in & std\_logic\_vector(SizeX-1 downto 0) \\
+	y & in & std\_logic\_vector(SizeY-1 downto 0) \\
+	asb & in & std\_logic \\
+	done & out & std\_logic \\
+	ramaddr &out & std\_logic\_vector(SizeRAMAddr-1 downto 0) \\
+	ramdata &out & std\_logic\_vector(SizeRAMData-1 downto 0) \\
+	draw\_write &out & std\_logic \\
+	draw\_can\_access & in & std\_logic \\
+  	\hline
+\end{tabular}
+\end{table}
+
+\subsection {Rectangle}
+In deze module wordt een rechthoek getekend met de x- en y-coördinaten van de eerste pixel links boven en de gegeven afmetingen.
+
+\begin{table}[H]
+\centering
+\caption{Specificaties van de Rectangle Draw Module}
+\label{tab:spec-rect-draw}
+\begin{tabular}{c c c}
+	\hline\hline
+ 	Naam & Modus & Type\\
+ 	\hline	
+	clk & in & std\_logic \\
+	reset & in & std\_logic \\
+	enable& in & std\_logic \\
+	color & in & std\_logic\_vector(SizeColor-1 downto 0) \\
+	x & in & std\_logic\_vector(SizeX-1 downto 0) \\
+	y & in & std\_logic\_vector(SizeY-1 downto 0) \\
+	w & in & std\_logic\_vector(SizeX-1 downto 0) \\
+	h & in & std\_logic\_vector(SizeY-1 downto 0) \\
+	asb & in & std\_logic \\
+	done & out & std\_logic \\
+	ramaddr &out & std\_logic\_vector(SizeRAMAddr-1 downto 0) \\
+	ramdata &out & std\_logic\_vector(SizeRAMData-1 downto 0) \\
+	draw\_write &out & std\_logic \\
+	draw\_can\_access & in & std\_logic \\
+  	\hline
+\end{tabular}
+\end{table}
 
 \section{RAM Controller}
 Omdat we een externe RAM gebruiken voor onze screenbuffers is het nodig om hiervoor communicatie op te stellen, zodat er in het juiste gedeelte van de RAM geschreven en gelezen wordt en dat dit niet tegelijkertijd gebeurd, omdat het RAM dat niet aankan. We hebben voor een externe RAM gekozen omdat er geen RAM geheugen groot genoeg gemaakt kon worden met de benodigde transistoren om bijvoorbeeld de screenbuffers te renderen. De RAM controller stuurt naar het draw-blok een signaal write als het mag gaan schrijven in het RAM geheugen, de RAM controller krijgt dan de kleur en het adress binnen van het draw-blok. Als de VGA controller mag gaan lezen krijgt het een signaal read binnen van de RAM controller dan zal er weer data naar de VGA controller verstuurd worden, kleur en adres.
@@ -186,7 +256,7 @@ Omdat we een externe RAM gebruiken voor onze screenbuffers is het nodig om hierv
 \end{table}
 
 \section{VGA Controller}
-De VGA controller is er om de screenbuffer uit te lezen en de data die daarin staat naar het beeldscherm te sturen. Het leest van de screenbuffer op het moment dat er niet in geschreven wordt, de inverse van ASB dus. Als de controller het RAM geheugen claimt met het signaal RAMclaimed mag er niet worden geschreven in het RAM. De VGA controller leest dan de signalen h- en v-sync (de positie van de pixel) en de waardes van RGBI ( rood , groen, blauw en de intensiteit) af. Het uitlezen van de screenbuffer kost 55 ns en is dus snel genoeg aangezien een klokpuls 160 ns is. In de overige tijd kan er dus geschreven worden in het RAM.
+De VGA-controller leest het actieve screen buffer uit het RAM en zet de gelezen data om in beelduitvoer.
 
 \begin{table}[H]
 \centering
