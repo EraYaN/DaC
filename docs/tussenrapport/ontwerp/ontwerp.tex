@@ -101,8 +101,8 @@ De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-decoder}.
  	\hline
 	clk & in & std\_logic \\
 	reset & in & std\_logic \\	
-	spi_data_rx & out & std\_logic\_vector(SizeSPIData-1 downto 0) \\
-	spi_data_available & in & std\_logic \\
+	spi\_data\_rx & out & std\_logic\_vector(SizeSPIData-1 downto 0) \\
+	spi\_data\_available & in & std\_logic \\
 	x0 &  buffer & std\_logic\_vector(SizeX-1 downto 0) \\
 	x1 &  buffer & std\_logic\_vector(SizeX-1 downto 0) \\
 	y0 &  buffer & std\_logic\_vector(SizeY-1 downto 0) \\
@@ -117,7 +117,10 @@ De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-decoder}.
 \end{table}
 
 \section{Draw Module}
-In dit blok worden de instructie omgezet naar pixels, rechthoeken en eventueel meer. Dit blok krijgt de informatie binnen van de instructiedecoder, deze geeft aan welke module er gebruikt moet worden (en) met de bijbehorende data (x, y, etc.), ook is er een input die het huidige screen buffer aanduidt (asb). Verder bevat de module de benodigde signals om naar het RAM te schrijven (ramaddr en ramdata) en om te bepalen of er naar het RAM geschreven kan worden op een bepaald moment (draw_write, draw read, draw_can_access).
+In dit blok worden de instructie omgezet naar pixels, rechthoeken en eventueel meer.
+Dit blok krijgt de informatie binnen van de instructiedecoder, deze geeft aan welke module er gebruikt moet worden (en) met de bijbehorende data (x, y, etc.), ook is er een input die het huidige screen buffer aanduidt (asb).
+De draw module schijft naar het niet-actieve screenbuffer.
+Verder bevat de module de benodigde signals om naar het RAM te schrijven (ramaddr en ramdata) en om te bepalen of er naar het RAM geschreven kan worden op een bepaald moment (draw\_write, draw\_read, draw\_can\_access).
 
 De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-draw}.
 
@@ -271,7 +274,7 @@ De VGA-controller leest het actieve screen buffer uit het RAM en zet de gelezen 
 	vgahsync & out & std\_logic \\ 
 	vgavsync & out & std\_logic \\ 
 	vgacolor & out & std\_logic\_vector(SizeColor-1 downto 0) \\
-	ramclaim & out & std\_logic \\ 
+	vga\_claim & out & std\_logic \\ 
 	ramaddr & out & std\_logic\_vector(SizeRAMAddr-1 downto 0) \\
 	ramdata & in & std\_logic\_vector(SizeRAMData-1 downto 0) \\ 
 	ramread & out & std\_logic \\
