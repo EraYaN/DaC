@@ -2,7 +2,7 @@
 Ons GPU is ingedeeld volgens het volgende blokschema.
 \begin{figure}[H]
 \centering
-        \includegraphics[width=\linewidth]{inputfiles/systeemdrawing.pdf}
+        \includegraphics[width=\linewidth]{inputfiles/systeemdrawing-rc.pdf}
         \caption{Blokschema GPU}
         \label{fig:Blokschema GPU}
 \end{figure}
@@ -40,26 +40,26 @@ Verder wordt de instructiedecoder gebruikt om te bepalen welk screenbuffer er ge
 \begin {itemize}
 \item Ingangen:
 \begin{itemize}
-\item clk (clock, std_logic)
-\item reset (std_logic)
-\item di (data in, std_logic_vector)
-\item dav (data available, std_logic)
-\item draw_rdy (instruction processed, std_logic)
+\item clk (clock, std\_logic)
+\item reset (std\_logic)
+\item di (data in, std\_logic\_vector)
+\item dav (data available, std\_logic)
+\item draw\_rdy (instruction processed, std\_logic)
 \end{itemize}
 
 \item Uitgangen:
 \begin{itemize}
-\item rts (ready to send, read do, std_logic)
-\item do (data out, 00000110 when instruction processed, std_logic_vector).
-\item color (std_logic_vector)
-\item x0 (std_logic_vector)
-\item y0 (std_logic_vector)
-\item x1 (std_logic_vector)
-\item y1 (std_logic_vector)
-\item en (draw-block selector, std_logic_vector)
-\item reg_id (register selector, std_logic (wellicht uitgebreid naar vector wanneer meer dan twee registers benodigd zijn))
-\item reg_set (register set, std_logic)
-\item reg_value (register value (current screen buffer), std_logic)
+\item rts (ready to send, read do, std\_logic)
+\item do (data out, 00000110 when instruction processed, std\_logic\_vector).
+\item color (std\_logic\_vector)
+\item x0 (std\_logic\_vector)
+\item y0 (std\_logic\_vector)
+\item x1 (std\_logic\_vector)
+\item y1 (std\_logic\_vector)
+\item en (draw-block selector, std\_logic\_vector)
+\item reg\_id (register selector, std\_logic (wellicht uitgebreid naar vector wanneer meer dan twee registers benodigd zijn))
+\item reg\_set (register set, std\_logic)
+\item reg\_value (register value (current screen buffer), std\_logic)
 \end{itemize}
 \end{itemize}
 
