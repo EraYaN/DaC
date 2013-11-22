@@ -1,32 +1,30 @@
-\documentclass{scrartcl} 
+\documentclass[final]{scrreprt} 
 \input{../library/preamble.tex}
 \input{../library/style.tex}
 \addbibresource{../library/bibliography.bib}
 
+\date{22 november 2013}
+
 \begin{document}
 \pagenumbering{roman}
 
-\input{inputfiles/title_page.tex}
+\subimport{title_page/}{title_page.tex}
+\subimport{inleiding/}{inleiding.tex}
+\newpage
+
 \tableofcontents
-\pagebreak
-\section{Inleiding}
-\input{inputfiles/inleiding.tex}
-\autocite{GeForce}
 
-\section{Specificaties}
-\input{inputfiles/specificaties.tex}
+\newpage
+\pagenumbering{arabic}
 
-\section{Ontwerp}
-\input{inputfiles/ontwerp.tex}
+\subimport{specificaties/}{specificaties.tex}
 
-\section{Planning}
-Zie Figuur 1.
-\begin{figure}[H]
-\centering
-        \includegraphics[width=\linewidth]{inputfiles/planner.png}
-        \caption{Planner}
-        \label{fig:planner}
-\end{figure}
+\subimport{ontwerp/}{ontwerp.tex}
+
+\subimport{planning/}{planning.tex}
+
+\newpage
+\pagenumbering{Roman}
 
 \printbibliography
 \end{document}

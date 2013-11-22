@@ -1,5 +1,13 @@
+\documentclass{scrreprt} % scrartcl of scrreprt
+\input{../../library/preamble.tex}
+\input{../../library/style.tex}
+\addbibresource{../../library/bibliography.bib}
 
-\subsection {Functionele Eisen}
+\date{22 november 2013}
+
+\begin{document}
+\chapter{Specificaties}
+\section {Functionele Eisen}
 \begin {itemize}
 \item Vorm, coördinaten en kleur worden extern met een AVR gestuurd naar de GPU.
 \item Het uitgangsignaal van de GPU moet een VGA signaal zijn voor de monitor. 
@@ -9,7 +17,7 @@
 \end{itemize}
 
 
-\subsection {Specificaties van de IC}
+\section {Specificaties van de IC}
 \begin {itemize}
 \item Max 2 bond bars (40000 transistorparen) per bond bar 32 aansluitingen.
 \item Voor de FSM’s (Finite State Machine) mogen alleen die van het Moore-type gebruikt worden.
@@ -20,14 +28,22 @@ chip dient echter ook beperkt te zijn. Dit geeft een compromis voor de maximale 
 \item De voedingsspanning van het IC bedraagt 5 Volt.
 \end{itemize}
 
-\subsection {Specificaties van de Arduino}
-\begin {itemize}
-\item Voedingsspanning:	 5V
-\item Input spanning: 	7-12V
-\item Digital I/O Pins: 	54 (of which 15 provide PWM output)
-\item Analog Input Pins:	16
-\item Flash Memory	:	256 KB 
-\item SRAM:			8 KB
-\item EEPROM:		4 KB
-\item Clock Speed:		16 MHz
-\end {itemize}
+\section {Specificaties van de AVR ATmega2560}
+Dit is een 8-bit microcontroller gemaakt door de firma Atmel en wij gebruiken een ATmega2560 op een Arduino bord.
+\begin{table}[H]
+\centering
+\caption{Specificaties van de ATmega2560-16AU}
+\label{tab:spec-avr}
+\begin{tabular}{c c}
+	\hline\hline
+ 	Eigenschap & Waarde\\
+ 	\hline
+	$V_{cc}$ & 5\volt \\
+	GPIO Pins & 86 \\
+	Flash & 256KB \\
+	RAM & 8KB \\
+  	\hline
+\end{tabular}
+\end{table}
+
+\end{document}

@@ -1,0 +1,214 @@
+\documentclass{scrreprt} % scrartcl of scrreprt
+\input{../../library/preamble.tex}
+\input{../../library/style.tex}
+\addbibresource{../../library/bibliography.bib}
+
+\date{22 november 2013}
+
+\begin{document}
+\chapter{Ontwerp}
+Ons GPU is ingedeeld volgens het volgende blokschema.
+\begin{figure}[H]
+\centering
+        \includegraphics[width=\linewidth]{resources/systeemdrawing-rc.pdf}
+        \caption{Blokschema GPU}
+        \label{fig:Blokschema GPU}
+\end{figure}
+
+\section{Parameters}
+In Tabel \ref{tab:spec-params} staat een overzicht van de gebruikte parameters en generics.
+
+\begin{table}[H]
+\centering
+\caption{De gebruikte parameters en generics}
+\label{tab:spec-params}
+\begin{tabular}{c c c c c}
+	\hline\hline
+ 	Module & Naam & Modus & Type & Omschrijving\\
+ 	\hline
+	%GLOBAL
+	global & InstrSize & integer & 4 & De grootte van een instuctie\\ 
+	global & MaxNumInstrPackets & integer & 3 & Maximaal aantal pakketjes in één instuctie\\ 
+	global & NumDrawModules & integer & 6 & Aantal Draw modules\\ 
+	global & SizeX & integer & 8 & Het aantal bits voor de X coordinaat\\
+	global & SizeY & integer & 7 & Het aantal bits voor de Y coordinaat\\
+	global & NumStateReg & integer & 1 & Aantal globale state registers\\
+	global & SizeRAMData & integer & 4 & Aantal bits per woord in het RAM\\
+	global & SizeRAMAddr & integer & 16 & Aantal adresbits voor het RAM\\
+	global & SizeColor & integer & 4 & Aantal bits kleur\\
+	global & SizeSPIData & integer & 8 & Aantal bits van de SPI pakketjes\\
+	%VGA
+	vgacontroller & h\_pulse & integer & 24 & Aantal klokpulsen voor de horizontale syncpuls\\ 
+	vgacontroller & h\_bp & integer & 12 & Aantal klokpulsen voor de horizontale “backporch” \\ 
+	vgacontroller & h\_pixels & integer & 160 & Aantal klokpulsen voor de horizontale pixels \\ 
+	vgacontroller & h\_fp & integer & 4 & Aantal klokpulsen voor de horizontale “fontporch” \\ 
+	vgacontroller & h\_pol & std\_logic & ‘0’ & De polariteit van de horizontale syncpuls\\ 
+	vgacontroller & v\_pulse & integer & 2 & Aantal rijen voor de verticale syncpuls\\ 
+	vgacontroller & v\_bp & integer & 33 & Aantal rijen voor de verticale “backporch” \\ 
+	vgacontroller & v\_pixels & integer & 480 & Aantal rijen voor de verticale pixels\\ 
+	vgacontroller & v\_fp & integer & 10 & Aantal rijen voor de verticale “fontporch” \\ 
+	vgacontroller & v\_pol & std\_logic & ‘0’ & De polariteit van de verticale syncpuls\\ 
+	%SPI
+	spi & c & integer & integer(ceil(log2(real(SizeSPIData))))& Het aantal bits van de counter in de SPI module\\
+  	\hline
+\end{tabular}
+\end{table}
+
+\section{SPI Controller}
+Voor de communicatie tussen de AVR en onze GPU hebben we een SPI decoder nodig.
+De ingang SS staat voor slave select, deze wordt normaal gebruikt voor het geval dat je meerdere slave chips hebt, aangezien dit bij ons niet het geval is zal dit signaal altijd hoog zijn.
+De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-spi}.
+%Het signaal SCLK is voor het CLK signaal voor de communicatie. Als laatste ingang is er de MOSI, dit staat voor master out en slave in, dit is de daadwerkelijke data die verzonden wordt van de arduïno naar onze gpu. Voor de uitgangen hebben we MISO, master in slave out, dit is om de volgende instructie aan te vragen van de arduïno. Dan zijn er nog de uitgangen naar de instructie decoder, de 8 bits data bus voor om alle data te sturen als de data ready hoog is.
+
+\begin{table}[H]
+\centering
+\caption{Specificaties van de SPI Controller (spi)}
+\label{tab:spec-spi}
+\begin{tabular}{c c c}
+	\hline\hline
+ 	Naam & Modus & Type\\
+ 	\hline
+	clk & in & std\_logic \\
+	reset & in & std\_logic \\
+	SPI\_CLK & in & std\_logic \\
+	SPI\_SS & in & std\_logic \\
+	SPI\_MOSI & in & std\_logic \\
+	SPI\_MISO & out & std\_logic \\
+	SPI\_DONE & out & std\_logic \\
+	DataToTx & in & std\_logic\_vector(SizeSPIData-1 downto 0) \\
+	DataToTxLoad & in & std\_logic \\
+	DataRxd & out & std\_logic\_vector(SizeSPIData-1 downto 0) \\
+  	\hline
+\end{tabular}
+\end{table}
+
+\section{Instruction Decoder}
+De instructiedecoder zorgt ervoor dat de data, die vanuit de AVR komt, vertaald wordt in data (instructies), waar verschillende onderdelen van de gpu mee over weg kunnen. 
+Dit houdt in dat de intructiedecoder het draw-blok van de juiste informatie voorziet, zodat deze bijvoorbeeld pixels kan tekenen die in het stateregister opslagen worden om in de screenbuffer geschreven te worden.
+De instructiedecoder heeft (op dit moment) een 8-bits bus ingang van de SPI decoder, deze wordt ingelezen als de ingang data ready hoog is.
+Wanneer dan een complete instructie, van minimal één keer 8 bits, verstuurd is, zal er een signaal worden gegeven dat de volgende instructie kan worden gestuurd.
+Als uitgangen van de instructiedecoder zijn er de coördinaten van het te tekenen object met de kleur die dit object moet hebben, deze signalen gaan natuurlijk naar het draw-blok.
+Om de juiste module van het draw-blok aan te sturen wordt gebruik gemaakt van een enabled signaal dat aangeeft welke module de instructie moet uitvoeren.
+Van het draw-blok krijgt de instructiedecoder een signaal als het klaar is met tekenen zodat deze weer een volgend object kan tekenen. 
+Verder wordt de instructiedecoder gebruikt om te bepalen welk screenbuffer er gebruikt wordt om op te schrijven en dus indirect welke om te lezen. Deze informatie wordt verstuurd naar een stateregister doormiddel van een signaal set en de data voor de juiste screenbuffer. Dit alles wordt gedaan synchroon met de klok.
+De in- en uitgangen zijn gespecificeerd in Tabel \ref{tab:spec-decoder}.
+
+\begin{table}[H]
+\centering
+\caption{Specificaties van de Insctructie Decoder (decoder)}
+\label{tab:spec-decoder}
+\begin{tabular}{c c c}
+	\hline\hline
+ 	Naam & Modus & Type\\
+ 	\hline
+	clk & in & std\_logic \\
+	reset & in & std\_logic \\	
+	SPIDataToTx & in & std\_logic\_vector(SizeSPIData-1 downto 0) \\
+	SPIDataToTxLoad & in & std\_logic \\
+	SPIDataRxd & out & std\_logic\_vector(SizeSPIData-1 downto 0) \\
+	SPIDataAvailable & in & std\_logic \\
+	x0 &  buffer & std\_logic\_vector(SizeX-1 downto 0) \\
+	x1 &  buffer & std\_logic\_vector(SizeX-1 downto 0) \\
+	y0 &  buffer & std\_logic\_vector(SizeY-1 downto 0) \\
+	y1 &  buffer & std\_logic\_vector(SizeY-1 downto 0) \\
+	color &  buffer & std\_logic\_vector(SizeColor-1 downto 0) \\
+	draw\_rdy & in & std\_logic \\
+	en & buffer & std\_logic\_vector(NumDrawModules-1 downto 0)\\
+	reg\_id & buffer & std\_logic \\
+	reg\_value & buffer & std\_logic \\
+	reg\_set & buffer & std\_logic \\
+  	\hline
+\end{tabular}
+\end{table}
+
+\section{Draw Logic}
+In dit blok worden de instructie omgezet naar pixels, vierkanten, lijnen, cirkels en eventueel meer. Dit blok krijgt de informatie binnen van de instructiedecoder, deze geeft aan welke module er gebruikt moet worden met de bijbehorende coördinaten en kleur.
+De keuze voor welke module er gebruikt moet worden gebeurd doormiddel van het signaal enabled. Verder neemt het draw blok het signaal ASB mee, zodat er in de juiste screenbuffer geschreven wordt.
+Tevens krijgt het draw-blok het signaal RAMclaimed binnen van de VGA controller, dit houdt in dat als de VGA controller aan het lezen is in het RAM dat het draw-blok er niet in kan schrijven.
+Als laatste ingang krijgt het draw-blok een signaal write binnen van de RAM controller dat zegt wanneer er geschreven mag worden.
+Als uitgangen heeft het draw-blok het signaal done als de module klaar is met het tekenen van een de instructie zodat er een volgende instructie kan doorgegeven worden. Verder heeft het de uitgangen naar de RAM controller, hierin worden de kleur 
+
+\begin {itemize}
+\item ingangen:
+\begin {itemize}
+\item kleur (4 bits)
+\item x coördinaat (8 bits)
+\item y coördinaat (7 bits)
+\item enabled (1 bit)
+\item ASB (1 bit)
+\item RAMclaimed (1 bit)
+\item write (1 bit)
+\end {itemize}
+
+\item uitgangen:
+\begin {itemize}
+\item kleur (4 bits)
+\item adres (16 bits)
+\item done (1 bit)
+\end {itemize}
+\end{itemize}
+
+\subsection { pixel}
+Hierin worden aparte pixels getekend, hiervoor zijn de x,y coördinaten en de kleur nodig.
+
+\subsection { square}
+In deze module wordt een vierkant getekend met de x,y coördinaten van de eerste pixel links boven en de laatste pixel rechtsonder van het vierkant en natuurlijk de kleur die het vierkant moet hebben.
+
+\subsection { lijn}
+Hier wordt het algoritme van Bresenham gebruikt hiervoor hebben we de x,y coördinaten nodig van het begin en het eindpunt van de lijn.
+
+\subsection { cirkel}
+In deze laatste module gebruiken we het midpoint circle algoritme met x1 als de radius.
+
+\section{RAM Controller}
+Omdat we een externe RAM gebruiken voor onze screenbuffers is het nodig om hiervoor communicatie op te stellen, zodat er in het juiste gedeelte van de RAM geschreven en gelezen wordt en dat dit niet tegelijkertijd gebeurd, omdat het RAM dat niet aankan. We hebben voor een externe RAM gekozen omdat er geen RAM geheugen groot genoeg gemaakt kon worden met de benodigde transistoren om bijvoorbeeld de screenbuffers te renderen. De RAM controller stuurt naar het draw-blok een signaal write als het mag gaan schrijven in het RAM geheugen, de RAM controller krijgt dan de kleur en het adress binnen van het draw-blok. Als de VGA controller mag gaan lezen krijgt het een signaal read binnen van de RAM controller dan zal er weer data naar de VGA controller verstuurd worden, kleur en adres.
+
+\begin{table}[H]
+\centering
+\caption{Specificaties van de RAM Controller (ramcontroller)}
+\label{tab:spec-ramcontroller}
+\begin{tabular}{c c c}
+	\hline\hline
+ 	Naam & Modus & Type\\
+ 	\hline	
+	write\_enable & out & std\_logic\\
+	vga\_claim & in & std\_logic\\
+	decoder\_claim & in & std\_logic\\
+	is\_init & in & std\_logic\\
+	decoder\_write & in & std\_logic\\
+	draw\_write & in & std\_logic\\
+	draw\_read & in & std\_logic\\
+	vga\_read & in & std\_logic\\
+	draw\_can\_access & out & std\_logic\\
+	decoder\_can\_access & out & std\_logic\\
+	vga\_can\_access & out & std\_logic\\
+  	\hline
+\end{tabular}
+\end{table}
+
+\section{VGA Controller}
+De VGA controller is er om de screenbuffer uit te lezen en de data die daarin staat naar het beeldscherm te sturen. Het leest van de screenbuffer op het moment dat er niet in geschreven wordt, de inverse van ASB dus. Als de controller het RAM geheugen claimt met het signaal RAMclaimed mag er niet worden geschreven in het RAM. De VGA controller leest dan de signalen h- en v-sync (de positie van de pixel) en de waardes van RGBI ( rood , groen, blauw en de intensiteit) af. Het uitlezen van de screenbuffer kost 55 ns en is dus snel genoeg aangezien een klokpuls 160 ns is. In de overige tijd kan er dus geschreven worden in het RAM.
+
+\begin{table}[H]
+\centering
+\caption{Specificaties van de VGA Controller (vgacontroller)}
+\label{tab:spec-vgacontroller}
+\begin{tabular}{c c c}
+	\hline\hline
+ 	Naam & Modus & Type\\
+ 	\hline	
+	clk & in & std\_logic \\ 
+	reset\_n & in & std\_logic \\ 
+	vgahsync & out & std\_logic \\ 
+	vgavsync & out & std\_logic \\ 
+	vgacolor & out & std\_logic\_vector(SizeColor-1 downto 0) \\
+	ramclaim & out & std\_logic \\ 
+	ramaddr & out & std\_logic\_vector(SizeRAMAddr-1 downto 0) \\
+	ramdata & in & std\_logic\_vector(SizeRAMData-1 downto 0) \\ 
+	ramread & out & std\_logic \\
+	asb & in & std\_logic \\
+  	\hline
+\end{tabular}
+\end{table}
+
+\end{document}

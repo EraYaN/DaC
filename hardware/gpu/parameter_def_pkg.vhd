@@ -8,7 +8,6 @@ PACKAGE parameter_def IS
 	constant NumDrawModules : INTEGER;
 	constant SizeX : INTEGER;
 	constant SizeY : INTEGER;
-	constant SizeMaxStageReg : INTEGER;
 	constant NumStateReg : INTEGER;
 	constant SizeRAMData : INTEGER;
 	constant SizeRAMAddr : INTEGER;

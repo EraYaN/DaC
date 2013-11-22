@@ -8,8 +8,8 @@ entity decoder is
 		clk		: in	std_logic;						--Clock
 		reset		: in	std_logic;						--Reset
 		--SPI-interface interaction
-		di		: in	std_logic_vector(InstrPacketSize-1 downto 0);	--Data In
-		do		: out	std_logic_vector(InstrPacketSize-1 downto 0);	--Data Out
+		di		: in	std_logic_vector(SizeSPIData-1 downto 0);	--Data In
+		do		: out	std_logic_vector(SizeSPIData-1 downto 0);	--Data Out
 		dav		: in	std_logic;						--Data Available in SPI interface, commence data sampling
 		rts		: out	std_logic;						--Ready To Send to SPI interface
 		--Draw data
