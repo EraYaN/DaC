@@ -14,12 +14,12 @@ architecture behaviour of decoder_tb is
 			spi_data_available	: in	std_logic;									--Data Available in SPI interface, commence data sampling
 			--Draw data
 			draw_ready	: in		std_logic;
-			x			: buffer	std_logic_vector(SizeX-1 downto 0);				--Entity x coord
-			w			: buffer	std_logic_vector(SizeX-1 downto 0);				--Entity width
-			y			: buffer	std_logic_vector(SizeY-1 downto 0);				--Entity y coord
-			h			: buffer	std_logic_vector(SizeY-1 downto 0);				--Entity height
-			color		: buffer	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
-			en			: buffer	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
+			x			: out	std_logic_vector(SizeX-1 downto 0);				--Entity x coord
+			w			: out	std_logic_vector(SizeX-1 downto 0);				--Entity width
+			y			: out	std_logic_vector(SizeY-1 downto 0);				--Entity y coord
+			h			: out	std_logic_vector(SizeY-1 downto 0);				--Entity height
+			color		: out	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
+			en			: out	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
 			--Internal registers (screen buffer switching)
 			reg_id		: out		std_logic;	--Register id/address
 			reg_value	: out		std_logic;	--Value
