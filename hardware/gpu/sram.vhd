@@ -135,9 +135,9 @@ ENTITY sram IS
     tHZWE_max:  TIME := 20 NS; -- nWE Low to High-Z Output
     tLZWE_min:  TIME :=  0 NS;  -- nWE High to Low-Z Output	 
 	 -- Filenames
-	 dump_filename: IN string := "sram_dump.dat"; -- name of the dump destination file
+	 dump_filename: IN string := "sram.dat"; -- name of the dump destination file
                                                  -- (See note at port  download_filename)
-    download_filename: IN string := "sram_load.dat"   -- name of the download source file
+    download_filename: IN string := "sram.dat"   -- name of the download source file
                                                       --            Passing the filename via a port of type
                                                       -- ********** string may cause a problem with some
                                                       -- WATCH OUT! simulators. The string signal assigned

@@ -8,6 +8,8 @@ architecture structural of gpu is
 			--Clock/reset
 			clk		: in	std_logic;	--Clock
 			reset	: in	std_logic;	--Reset
+			--Arduino Interrupt
+			int_ready : out std_logic;			
 			--SPI-interface interaction
 			spi_data_rx			: in	std_logic_vector(SizeSPIData-1 downto 0);	--Data In
 			spi_data_available	: in	std_logic;									--Data Available in SPI interface, commence data sampling
@@ -19,11 +21,8 @@ architecture structural of gpu is
 			h			: out	std_logic_vector(SizeY-1 downto 0);				--Entity height
 			color		: out	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
 			en			: out	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
-			--Internal registers (screen buffer switching)
-			reg_id		: out		std_logic;	--Register id/address
-			reg_value	: out		std_logic;	--Value
-			reg_set		: out		std_logic;	--Set
-			asb			: in		std_logic	--Currently active screen buffer
+			--Internal registers (screen buffer switching)			
+			asb			: buffer		std_logic	--Currently active screen buffer
 		);
 	end component;
 
@@ -158,6 +157,7 @@ begin
 	decoder1: decoder port map (
 		clk=>clk,
 		reset=>reset,
+		int_ready=>int_ready,
 		spi_data_rx=>spi_data_rx,
 		spi_data_available=>spi_data_available,
 		draw_ready=>draw_ready,
@@ -167,9 +167,6 @@ begin
 		h=>h,
 		color=>color,
 		en=>en,
-		reg_id=>reg_id,
-		reg_value=>reg_value,
-		reg_set=>reg_set,
 		asb=>asb
 	);
 

@@ -109,7 +109,7 @@ namespace SRAMDebugTool
 		{
 			try
 			{
-				using (StreamReader sr = new StreamReader("sram.dat"))
+				using (StreamReader sr = new StreamReader(filename.Text))
 				{
 					while (!sr.EndOfStream)
 					{
@@ -119,7 +119,7 @@ namespace SRAMDebugTool
 							int i = Convert.ToInt32(tmp[0]);
 							int y = i / MemoryMap.Width;
 							int x = i % MemoryMap.Width;
-							if (tmp[1] == "XXXX")
+							if (tmp[1].Contains('X'))
 							{
 								MemoryMap.SetPixel(x, y, Color.FromKnownColor(KnownColor.Blue));
 							}
@@ -146,7 +146,7 @@ namespace SRAMDebugTool
 		{
 			try
 			{
-				using (StreamWriter sw = new StreamWriter("sram.dat"))
+				using (StreamWriter sw = new StreamWriter(filename.Text))
 				{
 					int i = 0;
 					for (int y = 0; y < MemoryMap.Height; y++)

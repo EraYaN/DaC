@@ -8,6 +8,7 @@ entity gpu is
 		reset : in std_logic;
 		spi_clk : in std_logic;
 		spi_mosi : in std_logic;
+		int_ready : out std_logic;
 		ramdata : inout std_logic_vector(SizeRAMData-1 downto 0);
 		ramaddr : inout std_logic_vector(SizeRAMAddr-1 downto 0);
 		ramwe_n : out std_logic;

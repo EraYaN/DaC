@@ -3,7 +3,7 @@ use IEEE.std_logic_1164.ALL;
 use IEEE.numeric_std.All;
 use work.parameter_def.ALL;
 
-architecture behaviour of rect is
+architecture behaviour of draw_rect is
 signal filling : std_logic; -- used as a "state"
 signal curr_x : unsigned(SizeX-1 downto 0);
 signal curr_y : unsigned(SizeY-1 downto 0);
@@ -26,9 +26,23 @@ begin
 			next_done := '0';
 			next_filling := '0';
 			if reset = '0' then --not resetting
-				if enable = '1' then --enabled
+				if enablef = '1' then --enabled (fill)
 					if draw_can_access = '1' then -- RAM is free to access
 						next_curr_x := curr_x-1;						
+						if curr_x = unsigned(x) then
+							next_curr_y := curr_y-1;	
+							next_curr_x := unsigned(x);
+						end if;
+						next_ramaddr := std_logic_vector(NOT asb & curr_y & curr_x); --combineer signalen
+						next_ramdata := color; -- zet data op de bus
+						next_draw_write := '1'; -- vertel de controller dat je wil schrijven						
+						if curr_x = unsigned(x) and curr_y = unsigned(y) then
+							next_done := '1';
+						end if;
+					end if;	
+				elsif enable = '1' then --enabled
+					if draw_can_access = '1' then -- RAM is free to access
+						next_curr_x := curr_x-(unsigned(w)-2);						
 						if curr_x = unsigned(x) then
 							next_curr_y := curr_y-1;	
 							next_curr_x := unsigned(x);

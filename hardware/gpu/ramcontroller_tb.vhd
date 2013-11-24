@@ -38,11 +38,9 @@ component sram IS
     D:   INOUT std_logic_vector(SizeRAMData-1 downto 0);  -- bidirectional data bus to/from the SRAM device
     CE2: IN std_logic;  -- high-active Chip-Enable of the SRAM device; defaults to '1'  (active) 
     download: IN boolean; 
-    download_filename: IN string;
     dump: IN boolean;
     dump_start: IN natural; 
-    dump_end: IN natural;
-    dump_filename: IN string
+    dump_end: IN natural    
   );
 END component;
 
@@ -83,11 +81,9 @@ sr: sram port map (
 	D=>data,
 	CE2=>'1',
 	download => download,
-	download_filename=>"sram.dat",
 	dump=>dump,
 	dump_start=>0,
-	dump_end=>2 ** SizeRAMAddr,
-	dump_filename=>"sram.dat"
+	dump_end=>2 ** SizeRAMAddr
 );
 	-- clock period: 1/6250000 = 160 ns
 	--clk		<= '1' after 0 ns,

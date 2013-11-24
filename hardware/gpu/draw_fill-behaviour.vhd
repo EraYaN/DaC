@@ -3,7 +3,7 @@ use IEEE.std_logic_1164.ALL;
 use IEEE.numeric_std.All;
 use work.parameter_def.ALL;
 
-architecture behaviour of fill is
+architecture behaviour of draw_fill is
 signal filling : std_logic; -- used as a "state"
 signal x : unsigned(SizeX-1 downto 0);
 signal y : unsigned(SizeY-1 downto 0);

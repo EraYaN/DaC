@@ -8,9 +8,10 @@
 			<Image x:Name="MemoryMapImage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased" MouseMove="MemoryMapImage_MouseMove"/>
 		</Border>
 		<StackPanel x:Name="ColorStack" Margin="0,10,10,35" HorizontalAlignment="Right" Width="75">
-			
+
 		</StackPanel>
 		<Button x:Name="readButton" Content="Read" HorizontalAlignment="Left" Margin="90,0,0,10" Width="75" Height="20" VerticalAlignment="Bottom" Click="readButton_Click"/>
 		<Button x:Name="writeButton" Content="Write" HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Height="20" VerticalAlignment="Bottom" Click="writeButton_Click"/>
+		<TextBox x:Name="filename" Margin="170,0,10,10" TextWrapping="Wrap" Text="sram.dat" Height="20" VerticalAlignment="Bottom"/>
 	</Grid>
 </Window>

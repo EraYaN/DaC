@@ -1,9 +1,8 @@
 library IEEE;
 use IEEE.std_logic_1164.ALL;
 use work.parameter_def.ALL;
-use work.draw_lib.ALL;
 
-architecture behaviour of pixel is
+architecture behaviour of draw_pixel is
 signal busy : std_logic; -- used as a "state"
 begin
 	process (clk)
