@@ -347,6 +347,10 @@ vga_can_access <= is_init.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |top_de1|gpu:inst2|vgacontroller:vgacontroller1
+clk => vgacolor[0]~reg0.CLK
+clk => vgacolor[1]~reg0.CLK
+clk => vgacolor[2]~reg0.CLK
+clk => vgacolor[3]~reg0.CLK
 clk => ramread~reg0.CLK
 clk => ramaddr[0]~reg0.CLK
 clk => ramaddr[1]~reg0.CLK
@@ -420,10 +424,10 @@ reset_n => ramaddr.OUTPUTSELECT
 reset_n => ramaddr.OUTPUTSELECT
 vgahsync <= vgahsync~reg0.DB_MAX_OUTPUT_PORT_TYPE
 vgavsync <= vgavsync~reg0.DB_MAX_OUTPUT_PORT_TYPE
-vgacolor[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
-vgacolor[1] <= vgacolor[1].DB_MAX_OUTPUT_PORT_TYPE
-vgacolor[2] <= vgacolor[2].DB_MAX_OUTPUT_PORT_TYPE
-vgacolor[3] <= vgacolor[3].DB_MAX_OUTPUT_PORT_TYPE
+vgacolor[0] <= vgacolor[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+vgacolor[1] <= vgacolor[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+vgacolor[2] <= vgacolor[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+vgacolor[3] <= vgacolor[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 ramclaim <= ramclaim~reg0.DB_MAX_OUTPUT_PORT_TYPE
 ramaddr[0] <= ramaddr[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 ramaddr[1] <= ramaddr[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -441,10 +445,10 @@ ramaddr[12] <= ramaddr[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 ramaddr[13] <= ramaddr[13]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 ramaddr[14] <= ramaddr[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 ramaddr[15] <= ramaddr[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-ramdata[0] => ~NO_FANOUT~
-ramdata[1] => ~NO_FANOUT~
-ramdata[2] => ~NO_FANOUT~
-ramdata[3] => ~NO_FANOUT~
+ramdata[0] => vgacolor.DATAB
+ramdata[1] => vgacolor.DATAB
+ramdata[2] => vgacolor.DATAB
+ramdata[3] => vgacolor.DATAB
 ramread <= ramread~reg0.DB_MAX_OUTPUT_PORT_TYPE
 asb => ramaddr[15]~reg0.DATAIN
 

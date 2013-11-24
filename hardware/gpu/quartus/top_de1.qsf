@@ -92,9 +92,9 @@ set_location_assignment PIN_B17 -to RAMWE
 set_location_assignment PIN_B18 -to SPICLK
 set_location_assignment PIN_B19 -to SPIMISO
 set_location_assignment PIN_B20 -to SPIMOSI
+set_global_assignment -name VHDL_FILE "../decoder/decoder-behaviour.vhd"
 set_global_assignment -name VHDL_FILE "../spi/spi-behaviour.vhd"
 set_global_assignment -name VHDL_FILE ../spi/spi.vhd
-set_global_assignment -name VHDL_FILE ../decoder/decoder_behaviour.vhd
 set_global_assignment -name VHDL_FILE ../decoder/decoder.vhd
 set_global_assignment -name VHDL_FILE "../gpu-structural.vhd"
 set_global_assignment -name VHDL_FILE ../gpu.vhd
@@ -108,4 +108,6 @@ set_global_assignment -name VHDL_FILE ../parameter_def_pkg.vhd
 set_global_assignment -name BDF_FILE top_de1.bdf
 set_global_assignment -name CDF_FILE "F:/Altera/13.0sp1/quartus/bin64/output_files/Chain3.cdf"
 set_global_assignment -name VHDL_FILE pre_vga_dac_4.vhd
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

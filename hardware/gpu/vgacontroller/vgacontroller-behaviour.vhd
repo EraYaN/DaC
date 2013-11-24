@@ -63,9 +63,11 @@ BEGIN
       IF(h_count < h_pixels AND v_count < v_pixels) THEN  --display time
         ramclaim <= '1';
 		  ramread <= '1';
+		  vgacolor <= ramdata;
       ELSE                                                --blanking time
         ramclaim <= '0'; 
-			ramread <= '0';		  
+			ramread <= '0';	
+			vgacolor <= (others => '0');			
       END IF;
 
     END IF;

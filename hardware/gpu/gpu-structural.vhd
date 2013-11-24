@@ -82,8 +82,6 @@ architecture structural of gpu is
 	signal reset_n, ramwe: std_logic;
 
 	-- VGACONTROLLER <-> DRAW
-	signal ramclaim : std_logic;
-	signal settingup : std_logic;
 	signal is_init : std_logic;
 
 	-- DECODER <-> DRAW
@@ -101,19 +99,17 @@ architecture structural of gpu is
 	-- RAMCONTROLLER <->
 	signal vga_claim : std_logic;
 	signal decoder_claim : std_logic;
-	signal draw_write : std_logic := '0';
-	signal draw_read : std_logic := '0';
-	signal decoder_write : std_logic := '0';
-	signal vga_read : std_logic := '0';
+	signal draw_write : std_logic;
+	signal draw_read : std_logic;
+	signal decoder_write : std_logic;
+	signal vga_read : std_logic;
 	signal draw_can_access : std_logic;
 	signal decoder_can_access : std_logic;
 	signal vga_can_access : std_logic;
 	signal write_enable,write_enable_n : std_logic;
-	--signal addr : std_logic_vector(SizeRAMAddr-1 downto 0);
-	--signal data : std_logic_vector(SizeRAMData-1 downto 0);
 
 	-- SPI <-> DECODER
-	signal spi_data_available : std_logic := '0';
+	signal spi_data_available : std_logic;
 	signal spi_data_rx : std_logic_vector(sizespidata-1 downto 0);
 
 begin
@@ -174,13 +170,6 @@ begin
 		spi_mosi=>spi_mosi,
 		spi_data_available=>spi_data_available,
 		spi_data_rx=>spi_data_rx	
-	);
-
-	process (reset) 
-	begin
-		if(reset='1')then
-			settingup <= '1';
-		end if;
-	end process;
+	);	
 
 end structural;
