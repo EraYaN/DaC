@@ -1,19 +1,18 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
-USE work.parameter_def.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use work.parameter_def.all;
 
-ENTITY gpu IS
-   PORT(
-    clk : IN STD_LOGIC;
-	reset : IN STD_LOGIC;
-	spiclk : IN STD_LOGIC;
-	spimiso : OUT STD_LOGIC;
-	spimosi : IN STD_LOGIC;
-	ramdata : INOUT STD_LOGIC_VECTOR(SizeRAMData-1 downto 0);
-	ramaddr : INOUT STD_LOGIC_VECTOR(SizeRAMAddr-1 downto 0);
-	ramwe_n : OUT STD_lOGIC;
-	vgahsync : OUT STD_LOGIC;
-	vgavsync : OUT STD_LOGIC;
-	vgacolor : OUT STD_LOGIC_VECTOR(SizeColor-1 downto 0)
+entity gpu is
+	port(
+		clk : in std_logic;
+		reset : in std_logic;
+		spi_clk : in std_logic;
+		spi_mosi : in std_logic;
+		ramdata : inout std_logic_vector(sizeramdata-1 downto 0);
+		ramaddr : inout std_logic_vector(sizeramaddr-1 downto 0);
+		ramwe_n : out std_logic;
+		vgahsync : out std_logic;
+		vgavsync : out std_logic;
+		vgacolor : out std_logic_vector(sizecolor-1 downto 0)
 	);
-END gpu;
+end gpu;

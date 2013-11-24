@@ -152,7 +152,7 @@ RAMDATA[1]                   : B15       : bidir  : 3.3-V LVTTL       :         
 RAMDATA[0]                   : B16       : bidir  : 3.3-V LVTTL       :         : 4         : Y              
 RAMWE                        : B17       : output : 3.3-V LVTTL       :         : 4         : Y              
 SPICLK                       : B18       : input  : 3.3-V LVTTL       :         : 4         : Y              
-SPIMISO                      : B19       : output : 3.3-V LVTTL       :         : 4         : Y              
+GND*                         : B19       :        :                   :         : 4         :                
 SPIMOSI                      : B20       : input  : 3.3-V LVTTL       :         : 4         : Y              
 GND                          : B21       : gnd    :                   :         :           :                
 VCCIO5                       : B22       : power  :                   : 3.3V    : 5         :                

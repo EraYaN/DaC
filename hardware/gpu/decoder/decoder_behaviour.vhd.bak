@@ -8,7 +8,7 @@ architecture behaviour of decoder is
 	signal dav_latched, dav_old : std_logic;
 
 	--persistent signals
-	signal packet_num : unsigned(MaxNumPackets-1 downto 0);
+	signal packet_num : unsigned(MaxNumInstrPackets-1 downto 0);
 	signal instruction : std_logic_vector(InstrSize-1 downto 0);
 	
 begin
@@ -16,7 +16,7 @@ begin
 	process (clk)
 		variable done : std_logic;
 		variable instr : std_logic_vector(InstrSize-1 downto 0);
-		variable packet : unsigned(MaxNumPackets-1 downto 0);
+		variable packet : unsigned(MaxNumInstrPackets-1 downto 0);
 	begin
 		if rising_edge(clk) then
 			--defaults
@@ -58,7 +58,7 @@ begin
 					case to_integer(packet) is
 						when 0 =>
 							--deduce instruction
-							instr := spi_data_rx(SizeSPIData-1 downto SizeColor);
+							instr := spi_data_rx(InstrPacketSize-1 downto SizeColor);
 							--start loading next instruction next cycle if instruction is "fill", "switch" or unknown
 							if (instr = "0000" or instr = "0001" or instr > "0110") then
 								done := '1';
