@@ -1,7 +1,7 @@
 library IEEE;
-use IEEE.std_logic_1164.ALL;
-use IEEE.numeric_std.ALL;
-use work.parameter_def.ALL;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+use work.parameter_def.all;
 
 architecture behaviour of decoder is
 	--SPI sync signals

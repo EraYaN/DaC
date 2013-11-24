@@ -1,6 +1,6 @@
 library IEEE;
-use IEEE.std_logic_1164.ALL;
-use work.parameter_def.ALL;
+use IEEE.std_logic_1164.all;
+use work.parameter_def.all;
 
 entity decoder is
 	port (
