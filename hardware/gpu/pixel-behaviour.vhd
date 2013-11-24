@@ -23,7 +23,7 @@ begin
 				if enable = '1' then --enabled
 					if draw_can_access = '1' then -- RAM is free to access
 						if busy = '0' then --we are not busy							
-							next_ramaddr := std_logic_vector(asb & y & x); --combineer signalen
+							next_ramaddr := std_logic_vector(NOT asb & y & x); --combineer signalen
 							next_ramdata := color; -- zet data op de bus
 							next_draw_write := '1'; -- vertel de controller dat je wil schrijven
 							next_done := '0'; -- not done yet

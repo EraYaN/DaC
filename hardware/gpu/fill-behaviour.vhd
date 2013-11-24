@@ -33,7 +33,7 @@ begin
 							next_y := y-1;	
 							next_x := to_unsigned(ResolutionX-1,SizeX);
 						end if;
-						next_ramaddr := std_logic_vector(asb & y & x); --combineer signalen
+						next_ramaddr := std_logic_vector(NOT asb & y & x); --combineer signalen
 						next_ramdata := color; -- zet data op de bus
 						next_draw_write := '1'; -- vertel de controller dat je wil schrijven						
 						if x = 0 and y = 0 then

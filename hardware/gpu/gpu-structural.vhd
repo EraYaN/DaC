@@ -76,6 +76,26 @@ architecture structural of gpu is
 			vga_can_access : out std_logic
 		);
 	end component;
+	
+	component draw is
+		port (
+			clk		: in	std_logic;	--Clock
+			reset	: in	std_logic;	--Reset
+			x			: in	std_logic_vector(SizeX-1 downto 0);				--Entity x coord
+			w			: in	std_logic_vector(SizeX-1 downto 0);				--Entity width
+			y			: in	std_logic_vector(SizeY-1 downto 0);				--Entity y coord
+			h			: in	std_logic_vector(SizeY-1 downto 0);				--Entity height
+			color		: in	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
+			en			: in	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
+			draw_ready	: out		std_logic;
+			asb			: in		std_logic;	--Currently active screen buffer
+			draw_write		: out	std_logic;
+			draw_read		: out	std_logic;
+			draw_can_access : in 	std_logic;
+			ramaddr	: out	std_logic_vector(SizeRAMAddr-1 downto 0);
+			ramdata	: out	std_logic_vector(SizeRAMData-1 downto 0)
+		);
+	end component;
 
 	--GLOBAL
 	signal asb : std_logic;
@@ -116,6 +136,24 @@ begin
 
 	reset_n <= not reset;
 	ramwe_n <= not ramwe;
+	
+	draw1: draw port map (
+		clk=>clk,
+		reset=>reset,
+		x=>x,
+		w=>w,
+		y=>y,
+		h=>h,
+		color=>color,
+		en=>en,
+		draw_ready=>draw_ready,
+		asb=>asb,
+		draw_write=>draw_write,
+		draw_read=>draw_read,
+		draw_can_access=>draw_can_access,
+		ramaddr=>ramaddr,
+		ramdata=>ramdata
+	);
 
 	decoder1: decoder port map (
 		clk=>clk,

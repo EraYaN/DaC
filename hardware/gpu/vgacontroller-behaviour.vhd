@@ -57,7 +57,7 @@ BEGIN
       IF(v_count < v_pixels) THEN  --vertical display time
         ramaddr(SizeY+SizeX-1 downto SizeX)<= std_logic_vector(to_unsigned(v_count,SizeY));            --set vertical pixel coordinate
       END IF;
-		ramaddr(SizeRAMAddr-1) <= NOT asb;
+		ramaddr(SizeRAMAddr-1) <= asb;
 
       --set display enable output
       IF(h_count < h_pixels AND v_count < v_pixels) THEN  --display time

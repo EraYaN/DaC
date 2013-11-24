@@ -33,7 +33,7 @@ begin
 							next_curr_y := curr_y-1;	
 							next_curr_x := unsigned(x);
 						end if;
-						next_ramaddr := std_logic_vector(asb & curr_y & curr_x); --combineer signalen
+						next_ramaddr := std_logic_vector(NOT asb & curr_y & curr_x); --combineer signalen
 						next_ramdata := color; -- zet data op de bus
 						next_draw_write := '1'; -- vertel de controller dat je wil schrijven						
 						if curr_x = unsigned(x) and curr_y = unsigned(y) then
