@@ -13,18 +13,17 @@ architecture behaviour of decoder_tb is
 			spi_data_rx			: in	std_logic_vector(SizeSPIData-1 downto 0);	--Data In
 			spi_data_available	: in	std_logic;									--Data Available in SPI interface, commence data sampling
 			--Draw data
-			draw_ready	: in		std_logic;
+			draw_ready	: in	std_logic;
 			x			: out	std_logic_vector(SizeX-1 downto 0);				--Entity x coord
 			w			: out	std_logic_vector(SizeX-1 downto 0);				--Entity width
 			y			: out	std_logic_vector(SizeY-1 downto 0);				--Entity y coord
 			h			: out	std_logic_vector(SizeY-1 downto 0);				--Entity height
 			color		: out	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
 			en			: out	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
-			--Internal registers (screen buffer switching)
-			reg_id		: out		std_logic;	--Register id/address
-			reg_value	: out		std_logic;	--Value
-			reg_set		: out		std_logic;	--Set
-			asb			: in		std_logic	--Currently active screen buffer
+			--Internal registers
+			asb			: buffer	std_logic;	--Currently active screen buffer
+			--Direct CPU interaction
+			int_ready	: out	std_logic	--Instruction processed signal
 		);
 	end component;
 
@@ -37,12 +36,12 @@ signal spi_data_rx : std_logic_vector(7 downto 0);
 
 begin
 
-	lbl1: decoder port map (clk=>clk, reset=>reset, spi_data_rx=>spi_data_rx, spi_data_available=>spi_data_available, draw_ready=>draw_ready, asb=>asb);
+	lbl1: decoder port map (clk=>clk, reset=>reset, spi_data_rx=>spi_data_rx, spi_data_available=>spi_data_available, draw_ready=>draw_ready);
 	clk		<= '1' after 0 ns,
 			'0' after 10 ns when clk /= '0' else '1' after 10 ns;
 	reset 	<= '1' after 0 ns,
 			'0' after 40 ns;
-	spi_data_rx		<= "00010000" after 0 ns,
+	spi_data_rx		<= "00000000" after 0 ns,
 			"00111111" after 130 ns,
 			"01010101" after 230 ns,
 			"10101010" after 330 ns,
@@ -52,7 +51,8 @@ begin
 			"10101010" after 730 ns,
 			"01010101" after 830 ns,
 			"00000000" after 930 ns,
-			"11111111" after 1030 ns;
+			"11111111" after 1030 ns,
+			"00000000" after 1270 ns;
 	spi_data_available		<= '0' after 0 ns,
 			'1' after 70 ns,
 			'0' after 130 ns,
@@ -75,9 +75,10 @@ begin
 			'1' after 970 ns,
 			'0' after 1030 ns,
 			'1' after 1070 ns,
-			'0' after 1130 ns;
+			'0' after 1130 ns,
+			'1' after 1310 ns,
+			'0' after 1370 ns;
 	draw_ready <= '0' after 0 ns,
-					'1' after 1300 ns;
-	asb <= '0' after 0 ns;
-
+					'1' after 1200 ns,
+					'0' after 1220 ns;
 end behaviour;

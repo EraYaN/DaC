@@ -20,10 +20,7 @@ begin
 	begin
 		if rising_edge(clk) then
 			--defaults
-			reg_id <= '0';
-			reg_value <= '0';
-			reg_set <= '0';
-			
+			int_ready <= '0';
 			if reset = '1' then
 				--reset all registers
 				dav_latched <= '0';
@@ -36,9 +33,7 @@ begin
 				w <= (others => '0');
 				h <= (others => '0');
 				en <= (others => '0');
-				reg_id <= '0';
-				reg_value <= '0';
-				reg_set <= '0';
+				asb <= '0';
 			else
 				--synchronize data available flag
 				dav_latched <= spi_data_available;
@@ -47,6 +42,8 @@ begin
 				if draw_ready = '1' then
 					--disable all draw modules
 					en <= (others => '0');
+					--inform CPU
+					int_ready <= '1';
 				elsif dav_latched = '1' and dav_old = '0' then
 					--perform action upon data available change
 					--init variables
@@ -59,17 +56,17 @@ begin
 						when 0 =>
 							--deduce instruction
 							instr := spi_data_rx(SizeSPIData-1 downto SizeColor);
-							--start loading next instruction next cycle if instruction is "fill", "switch" or unknown
+							--start loading next instruction next cycle if instruction is "switch", "fill" or unknown
 							if (instr = "0000" or instr = "0001" or instr > "0110") then
 								done := '1';
-								if instr = "0000" then
+								if instr = "0001" then
 									--activate "fill" draw-module
 									en(0) <= '1';
 									en <= (others => '0');
 									en(0) <= '1';
-								elsif instr = "0001" then
-									reg_value <= not asb;
-									reg_set <= '1';
+								elsif instr = "0000" then
+									--switch screen buffer
+									asb <= not asb;
 								end if;
 							end if;
 							--pass through color
