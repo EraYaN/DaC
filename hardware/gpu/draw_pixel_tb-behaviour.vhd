@@ -30,7 +30,7 @@ begin
 	'0' after 10 ns when clk /= '0' else '1' after 10 ns;
 	reset <= '1' after 0 ns,
 	'0' after 50 ns;
-	color <=
+	color <= '1010';
 	
 	
 
