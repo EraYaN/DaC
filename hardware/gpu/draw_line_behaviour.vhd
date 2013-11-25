@@ -3,7 +3,7 @@ use IEEE.std_logic_1164.ALL;
 use IEEE.numeric_std.All;
 use work.parameter_def.ALL;
 
-architecture behaviour of draw_rect is
+architecture behaviour of draw_line is
 signal curr_x : unsigned(SizeX-1 downto 0);
 signal curr_y : unsigned(SizeY-1 downto 0);
 

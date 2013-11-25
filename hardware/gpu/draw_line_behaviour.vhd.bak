@@ -66,7 +66,9 @@ begin
 					if enable = '1' then --enabled
 					   if draw_can_access = '1' then -- RAM is free to access
 						  	----start function
-						  	--begin plot
+						  	
+						  	if (first = '0') then
+						  	  --begin plot
 						  	 next_curr_x := unsigned(x);
 						  	 next_curr_y := unsigned(y);
 						   
@@ -74,6 +76,7 @@ begin
 						    next_ramdata := color; -- zet data op de bus
 						    next_draw_write := '1'; -- vertel de controller dat je wil schrijven
 						    --end plot
+						    end if;
 						    
 						    if (next_curr_x = unsigned(x1)) and (next_curr_y = unsigned(y1)) then 
 						      --exit loop:

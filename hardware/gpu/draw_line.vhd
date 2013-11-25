@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.ALL;
 use work.parameter_def.ALL;
 
-entity draw_rect is
+entity draw_line is
 	port(
 		clk   : in    std_logic;
 		reset : in    std_logic;
@@ -19,7 +19,7 @@ entity draw_rect is
 		draw_write :out std_logic;
 		draw_can_access : in std_logic
 	);
-end draw_rect;
+end draw_line;
 
 
 
