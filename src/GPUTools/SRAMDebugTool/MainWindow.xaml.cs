@@ -103,6 +103,7 @@ namespace SRAMDebugTool
 					MemoryMap.SetPixel(X, Y, backgroundColor);
 			}
 			MemoryMapImage.Source = loadBitmap(MemoryMap);
+			statusBarPosition.Content = String.Format("Position: ({0,3}, {1,3}); Mem cell: {2,6} ({2:X4}))", X, Y, X + Y * MemoryMap.Width);
 		}
 
 		private void readButton_Click(object sender, RoutedEventArgs e)
