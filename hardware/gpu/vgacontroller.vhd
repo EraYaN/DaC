@@ -17,17 +17,18 @@ ENTITY vgacontroller IS
     v_fp     :  INTEGER   := 10;     --vertical front porch width in rows (default = 10)
     v_pol    :  STD_LOGIC := '0');  --vertical sync pulse polarity (1 = positive, 0 = negative) (default = 0)
 
-  PORT(
-    clk :  IN   STD_LOGIC;  --pixel clock at frequency of VGA mode being used
-    reset_n  :  IN   STD_LOGIC;  --active low asycnchronous reset
-    vgahsync    :  OUT  STD_LOGIC;  --horiztonal sync pulse
-    vgavsync    :  OUT  STD_LOGIC;  --vertical sync pulse
-	 vgacolor : OUT STD_LOGIC_VECTOR(SizeColor-1 downto 0);
-    ramclaim  :  OUT  STD_LOGIC;  --display enable ('1' = display time, '0' = blanking time)	 
-	 ramaddr  :  OUT  STD_LOGIC_VECTOR(SizeRAMAddr-1 downto 0);
-	 ramdata  :  IN  STD_LOGIC_VECTOR(SizeRAMData-1 downto 0); 
-	 ramread : OUT STD_LOGIC;
-	 asb : IN STD_LOGIC
-	 ); 
+	PORT(
+		clk :  IN   STD_LOGIC;  --pixel clock at frequency of VGA mode being used
+		reset_n  :  IN   STD_LOGIC;  --active low asycnchronous reset
+		vgahsync    :  OUT  STD_LOGIC;  --horiztonal sync pulse
+		vgavsync    :  OUT  STD_LOGIC;  --vertical sync pulse
+		vgacolor : OUT STD_LOGIC_VECTOR(SizeColor-1 downto 0);
+		vga_claim  :  OUT  STD_LOGIC;  --display enable ('1' = display time, '0' = blanking time)	 
+		ramaddr  :  OUT  STD_LOGIC_VECTOR(SizeRAMAddr-1 downto 0);
+		ramdata  :  IN  STD_LOGIC_VECTOR(SizeRAMData-1 downto 0); 
+		vga_read : OUT STD_LOGIC;
+		vga_can_access : in std_logic;
+		asb : IN STD_LOGIC
+	); 
 	 
 END vgacontroller;

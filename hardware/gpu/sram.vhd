@@ -126,8 +126,8 @@ ENTITY sram IS
     -- WRITE-cycle timing parameters
     tWC_min:    TIME := 55 NS; -- Write Cycle Time
     tSCE_min:   TIME := 50 NS; -- nCE/CE2 to Write End
-    tAW_min:    TIME :=  0 NS; -- tAW Address Set-up Time to Write End
-    tHA_min:    TIME := 50 NS; -- tHA Address Hold from Write End
+    tAW_min:    TIME := 50 NS; -- tAW Address Set-up Time to Write End
+    tHA_min:    TIME := 0 NS; -- tHA Address Hold from Write End
     tSA_min:    TIME :=  0 NS; -- Address Set-up Time
     tPWE_min:   TIME := 45 NS; -- nWE Pulse SizeRAMData
     tSD_min:    TIME := 25 NS; -- Data Set-up to Write End
@@ -135,9 +135,9 @@ ENTITY sram IS
     tHZWE_max:  TIME := 20 NS; -- nWE Low to High-Z Output
     tLZWE_min:  TIME :=  0 NS;  -- nWE High to Low-Z Output	 
 	 -- Filenames
-	 dump_filename: IN string := "sram.dat"; -- name of the dump destination file
+	 dump_filename: IN string := "sram_dump.dat"; -- name of the dump destination file
                                                  -- (See note at port  download_filename)
-    download_filename: IN string := "sram.dat"   -- name of the download source file
+    download_filename: IN string := "sram_load.dat"   -- name of the download source file
                                                       --            Passing the filename via a port of type
                                                       -- ********** string may cause a problem with some
                                                       -- WATCH OUT! simulators. The string signal assigned
@@ -453,7 +453,7 @@ BEGIN
 -- SRAM interface. Removing them to speed up simulation will not affect the
 -- functionality of the SRAM model.      
      
-
+--TODO verify
   PROCESS (A) -- Checks that an address change is allowed
   BEGIN
     IF (Now > 0 NS) THEN  -- suppress obsolete error message at time 0
@@ -462,11 +462,11 @@ BEGIN
       SEVERITY FAILURE;
 
       ASSERT     (nCE = '1') OR (CE2 = '0') OR (nWE = '1')
-             OR  (nCE'DELAYED(tHA_min) = '1') OR (CE2'DELAYED(tHA_min) = '0')
-             OR (nWE'DELAYED(tHA_min) = '1')
+            OR  (nCE'DELAYED(tHA_min) = '1') OR (CE2'DELAYED(tHA_min) = '0')
+            OR (nWE'DELAYED(tHA_min) = '1')
       REPORT "tHA violation: Address changed within hold-time at end-of-write to SRAM."
       SEVERITY FAILURE;
-    END IF;
+   END IF;
   END PROCESS;
 
 

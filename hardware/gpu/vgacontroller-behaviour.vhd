@@ -21,55 +21,60 @@ BEGIN
 			v_count := 0;         --reset vertical counter
 			vgahsync <= NOT h_pol;  --deassert horizontal sync
 			vgavsync <= NOT v_pol;  --deassert vertical sync
-			ramclaim <= '0';      --disable display
-			ramaddr <= (others=>'0');
-		END IF;
-      --counters
-      IF(h_count < h_period - 1) THEN    --horizontal counter (pixels)
-        h_count := h_count + 1;
-      ELSE
-        h_count := 0;
-        IF(v_count < v_period - 1) THEN  --veritcal counter (rows)
-          v_count := v_count + 1;
-        ELSE
-          v_count := 0;
-        END IF;
-      END IF;
+			vgacolor <= (others => '0');
+			vga_claim <= '0';      --disable display
+			ramaddr <= (others=>'Z');
+		else 
+			--counters
+			IF(h_count < h_period - 1) THEN    --horizontal counter (pixels)
+				h_count := h_count + 1;
+			ELSE
+				h_count := 0;
+				IF(v_count < v_period - 1) THEN  --vertical counter (rows)
+				  v_count := v_count + 1;
+				ELSE
+				  v_count := 0;
+				END IF;
+			END IF;
 
-      --horizontal sync signal
-      IF(h_count < h_pixels + h_fp OR h_count > h_pixels + h_fp + h_pulse) THEN
-        vgahsync <= NOT h_pol;    --deassert horiztonal sync pulse
-      ELSE
-        vgahsync <= h_pol;        --assert horiztonal sync pulse
-      END IF;
-      
-      --vertical sync signal
-      IF(v_count < v_pixels + v_fp OR v_count > v_pixels + v_fp + v_pulse) THEN
-        vgavsync <= NOT v_pol;    --deassert vertical sync pulse
-      ELSE
-        vgavsync <= v_pol;        --assert vertical sync pulse
-      END IF;
-      
-      --set pixel coordinates
-      IF(h_count < h_pixels) THEN  --horiztonal display time
-        ramaddr(SizeX-1 downto 0) <= std_logic_vector(to_unsigned(h_count,SizeX));         --set horiztonal pixel coordinate
-      END IF;
-      IF(v_count < v_pixels) THEN  --vertical display time
-        ramaddr(SizeY+SizeX-1 downto SizeX)<= std_logic_vector(to_unsigned(v_count,SizeY));            --set vertical pixel coordinate
-      END IF;
-		ramaddr(SizeRAMAddr-1) <= asb;
+			--horizontal sync signal
+			IF(h_count < h_pixels + h_fp OR h_count > h_pixels + h_fp + h_pulse) THEN
+			vgahsync <= NOT h_pol;    --deassert horizontal sync pulse
+			ELSE
+			vgahsync <= h_pol;        --assert horizontal sync pulse
+			END IF;
 
-      --set display enable output
-      IF(h_count < h_pixels AND v_count < v_pixels) THEN  --display time
-        ramclaim <= '1';
-		  ramread <= '1';
-		  vgacolor <= ramdata;
-      ELSE                                                --blanking time
-        ramclaim <= '0'; 
-			ramread <= '0';	
-			vgacolor <= (others => '0');			
-      END IF;
+			--vertical sync signal
+			IF(v_count < v_pixels + v_fp OR v_count > v_pixels + v_fp + v_pulse) THEN
+			vgavsync <= NOT v_pol;    --deassert vertical sync pulse
+			ELSE
+			vgavsync <= v_pol;        --assert vertical sync pulse
+			END IF;
 
+			IF(((h_count < h_pixels+1 AND v_count < v_pixels+1) OR (h_count > h_period-2 OR v_count > v_period-2)) AND vga_can_access = '1') THEN  --display time (-2)
+				vga_claim <= '1';
+			ELSE                                                --blanking time (-2)
+				vga_claim <= '0'; 								
+			END IF;
+
+			--set display enable output
+			IF(h_count < h_pixels AND v_count < v_pixels AND vga_can_access = '1') THEN  --display time
+				vga_read <= '1';
+				vgacolor <= ramdata;
+				 --set pixel coordinates
+				IF(h_count < h_pixels) THEN  --horizontal display time
+				ramaddr(SizeX-1 downto 0) <= std_logic_vector(to_unsigned(h_count,SizeX));         --set horizontal pixel coordinate
+				END IF;
+				IF(v_count < v_pixels) THEN  --vertical display time
+				ramaddr(SizeY+SizeX-1 downto SizeX)<= std_logic_vector(to_unsigned(v_count/4,SizeY));            --set vertical pixel coordinate
+				END IF;
+				ramaddr(SizeRAMAddr-1) <= asb;
+			ELSE                                                --blanking time
+				vga_read <= '0';	
+				vgacolor <= (others => '0');	
+				ramaddr <= (others => 'Z');								
+			END IF;
+		end if;
     END IF;
   END PROCESS;
 

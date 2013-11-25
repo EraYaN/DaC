@@ -23,7 +23,7 @@ architecture behaviour of decoder_tb is
 			--Internal registers
 			asb			: buffer	std_logic;	--Currently active screen buffer
 			--Direct CPU interaction
-			int_ready	: out	std_logic	--Instruction processed signal
+			int_ready	: out	std_logic;	--Instruction processed signal
 			--RAM Controller interaction
 			decoder_can_access	: in std_logic;		--Can access RAM?
 			decoder_write		: out std_logic;	--Intention to write to RAM

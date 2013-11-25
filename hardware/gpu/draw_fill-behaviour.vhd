@@ -28,17 +28,29 @@ begin
 			if reset = '0' then --not resetting
 				if enable = '1' then --enabled
 					if draw_can_access = '1' then -- RAM is free to access
-						next_x := x-1;						
-						if x = 0 then
-							next_y := y-1;	
-							next_x := to_unsigned(ResolutionX-1,SizeX);
-						end if;
-						next_ramaddr := std_logic_vector(NOT asb & y & x); --combineer signalen
+						next_filling := '1';
+						if filling = '1' then
+							next_x := x-1;
+							if x = 0 then
+								next_y := y-1;	
+								next_x := to_unsigned(ResolutionX-1,SizeX);
+							else
+								next_y := y;
+							end if;		
+						else
+							next_x := x;
+							next_y := y;							
+						end if;	
+						next_ramaddr := std_logic_vector((NOT asb) & y & x); --combineer signalen
 						next_ramdata := color; -- zet data op de bus
 						next_draw_write := '1'; -- vertel de controller dat je wil schrijven						
 						if x = 0 and y = 0 then
 							next_done := '1';
 						end if;
+					else
+						next_x := x;
+						next_y := y;
+						next_filling := '0';
 					end if;	
 				end if;
 			end if;

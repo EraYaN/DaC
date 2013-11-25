@@ -22,23 +22,29 @@ architecture structural of gpu is
 			color		: out	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
 			en			: out	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
 			--Internal registers (screen buffer switching)			
-			asb			: buffer		std_logic	--Currently active screen buffer
+			asb			: buffer		std_logic;	--Currently active screen buffer
+			-- RAM
+			decoder_can_access	: in std_logic;		--Can access RAM?
+			decoder_write		: out std_logic;	--Intention to write to RAM
+			decoder_claim		: out std_logic;	--Claim RAM
+			is_init				: out std_logic		--Initializing?
 		);
 	end component;
 
 	component vgacontroller is
-		port(
-			clk : in std_logic; --pixel clock at frequency of vga mode being used
-			reset_n : in std_logic; --active low asycnchronous reset
-			vgahsync : out std_logic; --horiztonal sync pulse
-			vgavsync : out std_logic; --vertical sync pulse
-			vgacolor : out std_logic_vector(sizecolor-1 downto 0);
-			ramclaim : out std_logic; --display enable ('1' = display time, '0' = blanking time)	 
-			ramaddr : out std_logic_vector(sizeramaddr-1 downto 0);
-			ramdata : in std_logic_vector(sizeramdata-1 downto 0); 
-			ramread : out std_logic;
-			asb : in std_logic
-		); 
+		PORT(
+			clk :  IN   STD_LOGIC;  --pixel clock at frequency of VGA mode being used
+			reset_n  :  IN   STD_LOGIC;  --active low asycnchronous reset
+			vgahsync    :  OUT  STD_LOGIC;  --horiztonal sync pulse
+			vgavsync    :  OUT  STD_LOGIC;  --vertical sync pulse
+			vgacolor : OUT STD_LOGIC_VECTOR(SizeColor-1 downto 0);
+			vga_claim  :  OUT  STD_LOGIC;  --display enable ('1' = display time, '0' = blanking time)	 
+			ramaddr  :  OUT  STD_LOGIC_VECTOR(SizeRAMAddr-1 downto 0);
+			ramdata  :  IN  STD_LOGIC_VECTOR(SizeRAMData-1 downto 0); 
+			vga_read : OUT STD_LOGIC;
+			vga_can_access : in std_logic;
+			asb : IN STD_LOGIC
+		); 	 
 	end component;
 
 	component spi is
@@ -58,6 +64,7 @@ architecture structural of gpu is
 
 	component ramcontroller is
 		port (
+			clk : in std_logic;
 			--external
 			write_enable : out std_logic;
 			--internal
@@ -167,10 +174,15 @@ begin
 		h=>h,
 		color=>color,
 		en=>en,
-		asb=>asb
+		asb=>asb,
+		decoder_can_access=>decoder_can_access,
+		decoder_write=>decoder_write,
+		decoder_claim=>decoder_claim,
+		is_init=>is_init		--Initializing?
 	);
 
 	ramcontroller1: ramcontroller port map (
+		clk,
 		ramwe,
 		vga_claim,
 		decoder_claim,
@@ -194,14 +206,15 @@ begin
 		ramaddr,
 		ramdata,
 		vga_read,
+		vga_can_access,
 		asb
 	);
 
 	spi1: spi port map (
 		clk=>clk,
-		reset=>reset_n,
+		reset=>reset,
 		spi_clk=>spi_clk,
-		spi_ss=>'1',
+		spi_ss=>reset,
 		spi_mosi=>spi_mosi,
 		spi_data_available=>spi_data_available,
 		spi_data_rx=>spi_data_rx	

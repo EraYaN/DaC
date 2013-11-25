@@ -44,13 +44,14 @@ component sram IS
 end component;
 
 signal reset : std_logic;
-signal clk,spiclk,spiclk_en,write_enable_n :std_logic;
+signal clk,spiclk,spiclk_en,write_enable_n,write_enable :std_logic;
 signal spi_clk :  std_logic;
 signal spi_mosi : std_logic;
 signal ramaddr : std_logic_vector(SizeRAMAddr-1 downto 0);
 signal ramdata : std_logic_vector(SizeRAMData-1 downto 0);
 signal download, dump :boolean := FALSE;
 signal int_ready:std_logic;
+
 
 procedure sendByte( byte : in std_logic_vector(SizeSPIData-1 downto 0);
 	signal mosi : out std_logic;
@@ -67,6 +68,7 @@ procedure sendByte( byte : in std_logic_vector(SizeSPIData-1 downto 0);
 end sendByte;
 
 begin
+write_enable<= NOT write_enable_n;
 gpu1: gpu port map (
 	clk=>clk,
 	reset=>reset,
@@ -79,8 +81,8 @@ gpu1: gpu port map (
 );
 	
 sr: sram port map (
-	nCE=>'0',
-	nOE=>'1',
+	nCE=>reset,
+	nOE=>write_enable,
 	nWE=>write_enable_n,
 	A=>ramaddr,
 	D=>ramdata,
@@ -88,7 +90,7 @@ sr: sram port map (
 	download => download,
 	dump=>dump,
 	dump_start=>0,
-	dump_end=>2 ** SizeRAMAddr
+	dump_end=>2 ** SizeRAMAddr -1
 );
 	-- clock period: 1/6250000 = 160 ns
 	clk		<= '1' after 0 ns,
@@ -103,32 +105,37 @@ sr: sram port map (
 		--setup
 		reset <= '1';
 		spi_mosi <= '0';
-		--download <= TRUE;
-		--wait for CLOCKPERIOD;
-		--download <= FALSE;
+		spiclk_en <= '0';
+		
+		download <= TRUE;
+		wait until rising_edge(clk);
+		download <= FALSE;
+		wait until rising_edge(clk);
 		wait until rising_edge(clk);
 		reset <= '0';
+		wait until rising_edge(clk);	
 		wait until rising_edge(clk);		
 		sendByte("00010000",spi_mosi,spiclk_en); -- fill with 0000 (black)		
 		wait until rising_edge(int_ready);
-		sendByte("00101010",spi_mosi,spiclk_en); -- pixel with 1010 (grey/pink)
+		sendByte("01001010",spi_mosi,spiclk_en); -- rect with 1010 (grey/pink)
 		sendByte("00110010",spi_mosi,spiclk_en); -- X = 50
 		sendByte("00101000",spi_mosi,spiclk_en); -- Y = 40
+		sendByte("00110010",spi_mosi,spiclk_en); -- W = 50
+		sendByte("00101000",spi_mosi,spiclk_en); -- H = 40
 		wait until rising_edge(int_ready);
 		sendByte("00000000",spi_mosi,spiclk_en); -- switch screenbuffers
 		wait until rising_edge(int_ready);
 		sendByte("00011111",spi_mosi,spiclk_en); -- fill with 1111 (white)		
 		wait until rising_edge(int_ready);
-		sendByte("00100110",spi_mosi,spiclk_en); -- pixel with 0110 (grey/pink)
+		sendByte("00101111",spi_mosi,spiclk_en); -- pixel with 0110 (white)
 		sendByte("00101000",spi_mosi,spiclk_en); -- X = 40
 		sendByte("00110010",spi_mosi,spiclk_en); -- Y = 50
-		wait until rising_edge(int_ready);
-		wait for 1000 ns; --safety
+		wait until rising_edge(int_ready);		
 		--finish
 		dump <= TRUE;
-		wait for CLOCKPERIOD;
+		wait until rising_edge(clk);
 		dump <= FALSE;
-		wait for CLOCKPERIOD;
+		wait until rising_edge(clk);
 		wait;
 	end process;	
 	

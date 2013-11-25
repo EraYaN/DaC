@@ -12,6 +12,7 @@ end ramcontroller_tb;
 architecture testbench of ramcontroller_tb is
 component ramcontroller is
 port (
+clk : in std_logic;
 --external
 write_enable : out std_logic;
 --internal
@@ -45,6 +46,7 @@ component sram IS
 END component;
 
 signal download, dump :boolean := FALSE;
+signal clk : std_logic;
 signal vga_claim : std_logic;
 signal decoder_claim : std_logic;
 signal is_init : std_logic;
@@ -61,6 +63,7 @@ signal data : std_logic_vector(SizeRAMData-1 downto 0);
 
 begin
 rc: ramcontroller port map (
+	clk=>clk,
 	write_enable=>write_enable,
 	vga_claim=>vga_claim,
 	decoder_claim=>decoder_claim,
@@ -86,8 +89,8 @@ sr: sram port map (
 	dump_end=>2 ** SizeRAMAddr
 );
 	-- clock period: 1/6250000 = 160 ns
-	--clk		<= '1' after 0 ns,
-	--		'0' after 80 ns when clk /= '0' else '1' after 80 ns;
+	clk		<= '1' after 0 ns,
+			'0' after 80 ns when clk /= '0' else '1' after 80 ns;
 	--reset 	<= '1' after 0 ns,
 	--		'0' after 320 ns;
 	write_enable_n <=NOT write_enable;

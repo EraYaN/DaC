@@ -4,6 +4,7 @@ USE work.parameter_def.ALL;
 
 entity ramcontroller is
 port (
+clk : in std_logic;
 --external
 write_enable : out std_logic;
 --internal
