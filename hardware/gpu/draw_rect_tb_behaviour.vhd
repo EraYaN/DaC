@@ -27,10 +27,15 @@ component draw_rect is
 		  );
 	end component;
 	
-	--signalen
+	--input signalen
 	signal clk, reset, enable, enablef, asb, draw_can_acces: std_logic;
 	signal x, y, w, h		   : std_logic_vector(SizeX-1 downto 0);
 	signal color			       : std_logic_vector(SizeColor-1 downto 0);
+	
+	--output signalen
+	signal done, draw_write : std_logic;
+	signal ramaddr : std_logic_vector(SizeRAMAddr-1 downto 0);
+	signal ramdata : std_logic_vector(SizeRAMData-1 downto 0);
 	
 	
 begin
@@ -82,4 +87,22 @@ begin
 		               "0001110" after 400 ns,
 		               "1011101" after 500 ns;
 				
+lbl: draw_rect port map(	       
+           clk              => clk,                
+		       reset            => reset,             
+		       enable           => enable,     
+		       enablef          => enablef,     
+		       x                => x,     
+		       y                => y,    
+		       w                => w,     
+		       h                => h,     
+		       color            => color,     
+		       asb              => asb,     
+		       done             => done,     
+		       ramaddr          => ramaddr,     
+		       ramdata          => ramdata,     
+		       draw_write       => draw_write,     
+		       draw_can_access  => draw_can_acces
+		       );     
+
 end behaviour;

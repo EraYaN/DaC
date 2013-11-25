@@ -41,14 +41,14 @@ begin
 	reset <=          '1' after 0 ns,
 		                '0' after 10 ns,
 		                '1' after 400 ns, --testen of er geen undefined ontstaat als reset 1 is
-	                  '0' after 500 ns;
+	                  '0' after 500 ns; --enablef testen
 	
 	enable <=         '1' after 0 ns, '0' after 500 ns;
 	
 	enablef <=        '0' after 0 ns, '1' after 500 ns;
 		
-	draw_can_acces <= '1' after 0 ns,
-				            '0' after 500 ns;
+	draw_can_acces <= '1' after 0 ns;
+				            
 	
 	color <=          "1010" after 0 ns;
 	
@@ -82,4 +82,18 @@ begin
 		               "0001110" after 400 ns,
 		               "1011101" after 500 ns;
 				
+lbl: draw_rect port map(	       
+           clk              => clk,                
+		       reset            => reset,             
+		       enable           => enable,     
+		       enablef          => enablef,     
+		       x                => x,     
+		       y                => y,    
+		       w                => w,     
+		       h                => h,     
+		       color            => color,     
+		       asb              => asb,        
+		       draw_can_access  => draw_can_acces
+		       );     
+
 end behaviour;
