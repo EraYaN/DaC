@@ -1,10 +1,12 @@
 #include "GPULib.h"
+#include "SPI.h"
 
 GPULib *GPU;
 
 void setup()
 {
 	GPU = new GPULib(100);
+	SPI.transfer(B00000000);
 }
 
 void loop()

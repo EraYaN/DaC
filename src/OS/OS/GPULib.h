@@ -1,13 +1,17 @@
 #ifndef _GPULib_H
 #define _GPULib_H
 
+#define MAX_NUM_INSTR_PACKETS 5
+
 #include "Arduino.h"
+
 
 enum InstructionType { ssb, fill, pixel, rect, frect, line, circle, fcircle };
 
 struct Instruction {
 	InstructionType type;
 	byte x, y, w, h, color;
+	int numPackets;
 };
 
 class GPULib
