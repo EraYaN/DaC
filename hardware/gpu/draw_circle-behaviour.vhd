@@ -45,8 +45,8 @@ begin
 								limiet := limiet - r_x;
 								r_x := r_x - 1; 
 								limiet := limiet - r_x;
-						end if;
-						if next_r_x <= unsigned(x) and next_r_y > unsigned(y) then --tweede quadrant
+						
+						elsif next_r_x <= unsigned(x) and next_r_y > unsigned(y) then --tweede quadrant
 							limiet := limiet + r_y;
 							r_y := r_y - 1;
 							limiet := limiet + r_y;
@@ -54,8 +54,8 @@ begin
 								limiet := limiet - r_x;
 								r_x := r_x - 1; 
 								limiet := limiet - r_x;
-						end if;
-						if next_r_x < unsigned(x) and next_r_y <= unsigned(y) then --derde quadrant
+						
+						elsif next_r_x < unsigned(x) and next_r_y <= unsigned(y) then --derde quadrant
 							limiet := limiet + r_y;
 							r_y := r_y - 1;
 							limiet := limiet + r_y;
@@ -63,8 +63,8 @@ begin
 								limiet := limiet - r_x;
 								r_x := r_x + 1; 
 								limiet := limiet - r_x;
-						end if;
-						if next_r_x >= unsigned(x) and next_r_y < unsigned(y) then --vierde quadrant
+						
+						elsif next_r_x >= unsigned(x) and next_r_y < unsigned(y) then --vierde quadrant
 							limiet := limiet + r_y;
 							r_y := r_y + 1;
 							limiet := limiet + r_y;
