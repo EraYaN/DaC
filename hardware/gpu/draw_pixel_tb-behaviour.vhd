@@ -33,30 +33,23 @@ begin
 		  <= '1' after 400 ns; --testen of er geen undefined ontstaat als reset 1 is
 	'0' after 50 ns;
 	enable <= '1';
-	draw_can_acces <= '1' after 0 ns;
+	draw_can_acces <= '1' after 0 ns,
+				   <= '0' after 500 ns;
 	color <= "1010" after 0 ns;
 	asb <= '0' after 0 ns;
 	x   <= "10101010" after 0 ns,
 		<= "10001111" after 100 ns,
 		<= "00000000" after 200 ns,
-		<= "11111111" after 300 ns;
-		<= "10000001" after 400 ns; --test of het goed gaat als reset 1 word
+		<= "11111111" after 300 ns,
+		<= "10000001" after 400 ns, --test of het goed gaat als reset 1 wordt
+		<= "11111111" after 500 ns; -- test of het goed gaat als draw_can_acces 0 wordt
 	y	<= "1010111" after 0 ns,
 		<= "1111111" after 100 ns,
 		<= "1100110" after 200 ns,
-		<= "0000000" after 300 ns;
-		
-	
-	
-	
-	
-	
-
-	
-	
-
-
-
+		<= "0000000" after 300 ns,
+		<= "0001000" after 400 ns,
+		<= "1010101" after 500 ns;
+				
 end behaviour;
 
 
