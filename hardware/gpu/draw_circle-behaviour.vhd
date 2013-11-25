@@ -5,8 +5,8 @@ use work.parameter_def.ALL;
 
 architecture behaviour of draw_circle is
 --signal filling : std_logic; -- used as a "state"
-signal r_x : unsigned(SizeX-1 downto 0);
-signal r_y : unsigned(SizeY-1 downto 0);
+signal next_r_x : unsigned(SizeX-1 downto 0);
+signal next_r_y : unsigned(SizeY-1 downto 0);
 
 begin
 
@@ -16,9 +16,9 @@ begin
 	variable next_ramdata : std_logic_vector(SizeRAMData-1 downto 0);
 	variable next_draw_write : std_logic;
 	--variable next_filling : std_logic;
-	variable next_r_x : unsigned(SizeX-1 downto 0);
-	variable next_r_y : unsigned(SizeY-1 downto 0);
-	variable limiet : int;
+	variable r_x : unsigned(SizeX-1 downto 0);
+	variable r_y : unsigned(SizeY-1 downto 0);
+	variable limiet : signed(((2*SizeX)-1) downto 0);
 	begin
 		if rising_edge(clk) then
 			next_ramaddr := (others => 'Z');
@@ -27,51 +27,51 @@ begin
 			next_done := '0';
 			--next_filling := '0';
 			r_x := unsigned(w);
-			r_y := '0';
-			limiet := '0'-r_x;
+			r_y := (OTHERS => '0');
+			limiet := -signed(w);
 			if reset = '0'then --not resetting
 				if enable = '1' then --enabled
-					if draw_can_acces = '1' then -- RAM is free to access
-						next_r_x := unsigned(x) + r_x;						next_r_y := unsigned(y) + r_y;
-
+					if draw_can_access = '1' then -- RAM is free to access
+						next_r_x <= unsigned(x) + r_x;						
+						next_r_y <= unsigned(y) + r_y;
 						next_ramaddr := std_logic_vector(NOT asb & next_r_y & next_r_x); --combineer signalen
-						next_ramdata := color; -- zet data op de bus
+						next_ramdata := colour; -- zet data op de bus
 						next_draw_write := '1'; -- vertel de controller dat je wil
 						if next_r_x > unsigned(x) and next_r_y >= unsigned(y) then --eerste quadrant
-							limiet := limiet + r_y;
+							limiet := limiet + signed(r_y);
 							r_y := r_y + 1;
-							limiet := limiet + r_y;
-							if limiet >= '0'then
-								limiet := limiet - r_x;
+							limiet := limiet + signed(r_y);
+							if limiet >=  then
+								limiet := limiet - signed(r_x);
 								r_x := r_x - 1; 
-								limiet := limiet - r_x;
+								limiet := limiet - signed(r_x);
 						
 						elsif next_r_x <= unsigned(x) and next_r_y > unsigned(y) then --tweede quadrant
-							limiet := limiet + r_y;
+							limiet := limiet + signed(r_y);
 							r_y := r_y - 1;
-							limiet := limiet + r_y;
+							limiet := limiet + signed(r_y);
 							if limiet >= '0'then
-								limiet := limiet - r_x;
+								limiet := limiet - signed(r_x);
 								r_x := r_x - 1; 
-								limiet := limiet - r_x;
+								limiet := limiet - signed(r_x);
 						
 						elsif next_r_x < unsigned(x) and next_r_y <= unsigned(y) then --derde quadrant
-							limiet := limiet + r_y;
+							limiet := limiet + signed(r_y);
 							r_y := r_y - 1;
-							limiet := limiet + r_y;
+							limiet := limiet + signed(r_y);
 							if limiet >= '0'then
-								limiet := limiet - r_x;
+								limiet := limiet - signed(r_x);
 								r_x := r_x + 1; 
-								limiet := limiet - r_x;
+								limiet := limiet - signed(r_x);
 						
 						elsif next_r_x >= unsigned(x) and next_r_y < unsigned(y) then --vierde quadrant
-							limiet := limiet + r_y;
+							limiet := limiet + signed(r_y);
 							r_y := r_y + 1;
-							limiet := limiet + r_y;
+							limiet := limiet + signed(r_y);
 							if limiet >= '0'then
-								limiet := limiet - r_x;
+								limiet := limiet - signed(r_x);
 								r_x := r_x + 1; 
-								limiet := limiet - r_x;
+								limiet := limiet - signed(r_x);
 						end if;
 						if next_r_x = unsigned(x) and next_r_y = unsigned(y) then
 							next_done := '1';

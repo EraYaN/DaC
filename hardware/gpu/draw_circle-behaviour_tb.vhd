@@ -13,7 +13,7 @@ component draw_circle is
         x             :in    std_logic_vector(SizeX-1 downto 0);
         y             :in    std_logic_vector(SizeY-1 downto 0);
         w             :in    std_logic_vector(SizeX-1 downto 0);
-        colour        :in    std_logic_vector(SizeColour-1 downto 0);
+        colour        :in    std_logic_vector(SizeColor-1 downto 0);
         asb           :in    std_logic;
         done          :out   std_logic;
         ramaddr       :out   std_logic_vector(SizeRAMAddr-1 downto 0);
@@ -25,7 +25,7 @@ end component draw_circle;
 signal clk,reset,enable,asb,done,draw_write,draw_can_acces :std_logic;
 signal x,w:std_logic_vector(SizeX-1 downto 0);
 signal y:std_logic_vector(SizeY-1 downto 0);
-signal colour:std_logic_vector(SizeColour-1 downto 0);
+signal colour:std_logic_vector(SizeColor-1 downto 0);
 signal ramaddr:std_logic_vector(SizeRAMAddr-1 downto 0);
 signal ramdata:std_logic_vector(SizeRAMData-1 downto 0);
 
