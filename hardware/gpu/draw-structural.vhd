@@ -54,9 +54,17 @@ architecture structural of draw is
 		draw_can_access : in std_logic
 	);
 	end component;
-signal pixel_done,fill_done,rect_done : std_logic;
+
+	signal pixel_done,fill_done,rect_done : std_logic;
+	signal pixel_write,fill_write,rect_write : std_logic;
 begin
 	draw_ready <= pixel_done or fill_done or rect_done;
+	draw_write <= pixel_write or fill_write or rect_write;
+	draw_read <= '0';
+	-- pixel_done <= '0';
+	-- rect_done <= '0';
+	-- pixel_write <= '0';
+	-- rect_write<='0';
 	-- Module 0
 	fill1: draw_fill port map (
 		clk=>clk,
@@ -67,7 +75,7 @@ begin
 		done=>fill_done,
 		ramaddr=>ramaddr,
 		ramdata=>ramdata,
-		draw_write=>draw_write,
+		draw_write=>fill_write,
 		draw_can_access=>draw_can_access
 	);
 	-- Module 1
@@ -79,10 +87,10 @@ begin
 		y=>y,
 		color=>color,
 		asb=>asb,
-		done=>fill_done,
+		done=>pixel_done,
 		ramaddr=>ramaddr,
 		ramdata=>ramdata,
-		draw_write=>draw_write,
+		draw_write=>pixel_write,
 		draw_can_access=>draw_can_access
 	);
 	-- Module 2 and 3 (filled)
@@ -97,10 +105,10 @@ begin
 		h=>h,
 		color=>color,
 		asb=>asb,
-		done=>fill_done,
+		done=>rect_done,
 		ramaddr=>ramaddr,
 		ramdata=>ramdata,
-		draw_write=>draw_write,
+		draw_write=>rect_write,
 		draw_can_access=>draw_can_access
 	);
 end structural;

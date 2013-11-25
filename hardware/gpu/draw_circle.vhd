@@ -10,7 +10,7 @@ entity draw_circle is
         x             :in    std_logic_vector(SizeX-1 downto 0);
         y             :in    std_logic_vector(SizeY-1 downto 0);
         w             :in    std_logic_vector(SizeX-1 downto 0);
-        colour        :in    std_logic_vector(SizeColour-1 downto 0);
+        colour        :in    std_logic_vector(SizeColor-1 downto 0);
         asb           :in    std_logic;
         done          :out   std_logic;
         ramaddr       :out   std_logic_vector(SizeRAMAddr-1 downto 0);
