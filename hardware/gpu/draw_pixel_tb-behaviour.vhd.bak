@@ -1,12 +1,5 @@
 library IEEE;
 use IEEE.std_logic_1164.ALL;
-
-entity draw_pixel_tb is
-end draw_pixel_tb;
-
-
-library IEEE;
-use IEEE.std_logic_1164.ALL;
 use work.parameter_def.ALL;
 
 architecture behaviour of draw_pixel_tb is
