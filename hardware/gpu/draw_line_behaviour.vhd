@@ -16,8 +16,8 @@ begin
 	variable next_draw_write : std_logic;
 	variable next_curr_x : unsigned(SizeX-1 downto 0);
 	variable next_curr_y : unsigned(SizeY-1 downto 0);
-	variable x1 : std_logic ;
-	variable y1 : std_logic ;
+	variable x1 : std_logic;
+	variable y1 : std_logic;
 	variable dx : std_logic;
 	variable dy : std_logic;
 	variable sx : std_logic;
@@ -27,6 +27,7 @@ begin
 	variable first : std_logic;
 	begin
 		if rising_edge(clk) then
+		
 			next_ramaddr := (others => 'Z');
 			next_ramdata := (others => 'Z');
 			next_draw_write := '0';
@@ -35,9 +36,6 @@ begin
 			next_curr_x := unsigned(x);
 			next_curr_y := unsigned(y);
 			first := '1';
-			
-			else
-			first := '0';
 			end if;
 			
 			next_done := '0';
@@ -61,6 +59,11 @@ begin
 			
 			err := unsigned(dx) - unsigned(dy);
 			e2 := '0';
+			if reset = '1' then
+			
+			first := '0';
+			
+			end if;
 			
 			if reset = '0' then --not resetting
 					if enable = '1' then --enabled
@@ -133,6 +136,8 @@ begin
 		draw_write <= next_draw_write;
 		curr_x<= next_curr_x;
 		curr_y<= next_curr_y;
+		
+		
 		end if;
 	end process;
 end behaviour;
