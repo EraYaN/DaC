@@ -34,6 +34,10 @@ begin
 				h <= (others => '0');
 				en <= (others => '0');
 				asb <= '0';
+				decoder_claim <= '0';
+				decoder_write <= '0';
+				is_init <= '1';
+
 			else
 				--synchronize data available flag
 				dav_latched <= spi_data_available;
@@ -61,9 +65,9 @@ begin
 								done := '1';
 								if instr = "0001" then
 									--activate "fill" draw-module
-									en(0) <= '1';
 									en <= (others => '0');
 									en(0) <= '1';
+									is_init <= '0';
 								elsif instr = "0000" then
 									--switch screen buffer
 									asb <= not asb;

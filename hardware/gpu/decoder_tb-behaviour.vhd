@@ -24,19 +24,24 @@ architecture behaviour of decoder_tb is
 			asb			: buffer	std_logic;	--Currently active screen buffer
 			--Direct CPU interaction
 			int_ready	: out	std_logic	--Instruction processed signal
+			--RAM Controller interaction
+			decoder_can_access	: in std_logic;		--Can access RAM?
+			decoder_write		: out std_logic;	--Intention to write to RAM
+			decoder_claim		: out std_logic;	--Claim RAM
+			is_init				: out std_logic		--Initializing?
 		);
 	end component;
 
 signal clk : std_logic;
 signal reset : std_logic;
-signal asb : std_logic;
 signal spi_data_available : std_logic;
 signal draw_ready : std_logic;
 signal spi_data_rx : std_logic_vector(7 downto 0);
+signal decoder_can_access : std_logic;
 
 begin
 
-	lbl1: decoder port map (clk=>clk, reset=>reset, spi_data_rx=>spi_data_rx, spi_data_available=>spi_data_available, draw_ready=>draw_ready);
+	lbl1: decoder port map (clk=>clk, reset=>reset, spi_data_rx=>spi_data_rx, spi_data_available=>spi_data_available, draw_ready=>draw_ready, decoder_can_access=>decoder_can_access);
 	clk		<= '1' after 0 ns,
 			'0' after 10 ns when clk /= '0' else '1' after 10 ns;
 	reset 	<= '1' after 0 ns,
@@ -81,4 +86,5 @@ begin
 	draw_ready <= '0' after 0 ns,
 					'1' after 1200 ns,
 					'0' after 1220 ns;
+	decoder_can_access <= '0' after 0 ns;
 end behaviour;
