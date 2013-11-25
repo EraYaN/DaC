@@ -30,31 +30,38 @@ begin
 			next_ramaddr := (others => 'Z');
 			next_ramdata := (others => 'Z');
 			next_draw_write := '0';
+			
 			if (first = '0') then
 			next_curr_x := unsigned(x);
 			next_curr_y := unsigned(y);
 			first := '1';
+			
 			else
 			first := '0';
 			end if;
+			
 			next_done := '0';
 			almost_done := '0';
 			x1 := unsigned(x) + unsigned(w);
 			y1 := unsigned(y) + unsigned(h);
 			dx := abs(x1-x);
 			dy := abs(y1-y);
+			
 			if (x < x1) then
 			  sx := '1' ;
 			else
 			  sx := '-1';
 			end if;
+			
 			if (y < y1) then
 			  sy := '1' ;
 			else
 			  sy := '-1';
 			end if;
+			
 			err := unsigned(dx) - unsigned(dy);
 			e2 := '0';
+			
 			if reset = '0' then --not resetting
 					if enable = '1' then --enabled
 					   if draw_can_access = '1' then -- RAM is free to access
@@ -67,21 +74,28 @@ begin
 						    next_ramdata := color; -- zet data op de bus
 						    next_draw_write := '1'; -- vertel de controller dat je wil schrijven
 						    --end plot
+						    
 						    if (next_curr_x = unsigned(x1)) and (next_curr_y = unsigned(y1)) then 
 						      --exit loop:
+						      
 						      if curr_x = unsigned(x1) and curr_y = unsigned(y1) then
 							    almost_done := '1';
 						      end if;
+						      
 						      if almost_done = '1'  then
 						      next_done := '1';
 						      end if;
-						   end if;
-						   e2 := 2* unsigned(err);
-						   if (unsigned(e2) > unsigned(-dy)) then
+						      
+						    end if;
+						    
+						    e2 := 2* unsigned(err);
+						    
+						    if (unsigned(e2) > unsigned(-dy)) then
 						      err := unsigned (err) - unsigned(dy);
 						      next_curr_x := unsigned(x) + unsigned(sx);  
-					     end if;	
-					     if (next_curr_x = unsigned(x1)) and (next_curr_y = unsigned(y1)) then
+					      end if;	
+					      
+					      if (next_curr_x = unsigned(x1)) and (next_curr_y = unsigned(y1)) then
 					      --begin plot
 					      next_curr_x := unsigned(x);
 						  	 next_curr_y := unsigned(y);
@@ -91,27 +105,31 @@ begin
 						    next_draw_write := '1'; -- vertel de controller dat je wil schrijven
                 --end plot
                 --exit loop:
+                  
                   if curr_x = unsigned(x1) and curr_y = unsigned(y1) then
 							    almost_done := '1';
 						      end if;
+						      
 						      if almost_done = '1'  then
 						      next_done := '1';
 						      end if;
-				       end if;
-				       if ( unsigned(e2) < unsigned(dx)) then
+				        
+				        end if;
+				        
+				        if ( unsigned(e2) < unsigned(dx)) then
 				         err := unsigned(err) + unsigned(dx);
 				         next_curr_y := unsigned(y) + unsigned(sy);
-				       end if;
+				        end if;
+			       end if;
+			    end if;
 			end if;
-			end if;
-			end if;
-			end if;
-			done <= next_done;
-			ramaddr <= next_ramaddr;
-			ramdata <= next_ramdata;
-			draw_write <= next_draw_write;
-			curr_x<= next_curr_x;
-			curr_y<= next_curr_y;
-		  end if;
+		
+		done <= next_done;
+		ramaddr <= next_ramaddr;
+		ramdata <= next_ramdata;
+		draw_write <= next_draw_write;
+		curr_x<= next_curr_x;
+		curr_y<= next_curr_y;
+		end if;
 	end process;
 end behaviour;
