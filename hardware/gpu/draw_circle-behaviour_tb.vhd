@@ -22,7 +22,7 @@ component draw_circle is
         draw_can_access:in    std_logic);
 end component draw_circle;
 
-signal clk,reset,enable,asb,done,draw_write,draw_can_acces :std_logic;
+signal clk,reset,enable,asb,done,draw_write,draw_can_access :std_logic;
 signal x,w:std_logic_vector(SizeX-1 downto 0);
 signal y:std_logic_vector(SizeY-1 downto 0);
 signal colour:std_logic_vector(SizeColor-1 downto 0);
@@ -43,7 +43,7 @@ begin
 	y <= "0000100" after 0 ns;
 	w <= "00000010" after 10 ns;
 	colour <= "0100" after 0 ns;
-	asb <= '0' afters 0 ns;
+	asb <= '0' after 0 ns;
 	draw_can_access <= '0' after 0 ns,
 			   '1' after 10 ns;
 
