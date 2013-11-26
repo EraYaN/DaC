@@ -2,6 +2,7 @@
 #define _GPULib_H
 
 #define MAX_NUM_INSTR_PACKETS 5
+#define INT_READY_PIN 0
 
 #include "Arduino.h"
 
@@ -18,8 +19,11 @@ class GPULib
 {
 public:
 	GPULib(int queuesize); //Constructor
+	~GPULib(); //Destructor
 	void clearQueue();
 	void transferQueue();
+	void sendNextPacket();
+	static void sendNextPacketWrapper();
 	byte* makePackets(Instruction *instr);
 
 	void switchScreenBuffer();
@@ -33,7 +37,8 @@ public:
 
 protected:
 	Instruction **queue;
-	int currentIndex;
+	int currentIndex; //global iterator thingie
+	int numInstructions;
 	int queueSize;
 };
 

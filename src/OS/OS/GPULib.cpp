@@ -1,15 +1,24 @@
-// 
-// 
-// 
+// Functions for controlling a SoG-based GPU chip
+// Written by Robin Hes et al.
+// EPO3-1 - TU Delft
 
 #include "GPULib.h"
+#include "SPI.h"
 
 GPULib::GPULib(int queuesize)
 {
 	queueSize = queuesize;
 	*queue = new Instruction[queuesize];
 	currentIndex = 0;
+	SPI.begin();
 }
+
+GPULib::~GPULib()
+{
+	SPI.end();
+	clearQueue();
+}
+
 
 void GPULib::clearQueue()
 {
@@ -19,22 +28,37 @@ void GPULib::clearQueue()
 
 void GPULib::transferQueue()
 {
+	numInstructions = currentIndex;
+	currentIndex = 0;
+
+	attachInterrupt(INT_READY_PIN, sendNextPacketWrapper, RISING);
+}
+
+void GPULib::sendNextPacket()
+{
 	Instruction *currentInstruction;
 	byte *currentPackets;
 
-	for (int i=0; i<currentIndex; i++)
-	{
-		currentInstruction = queue[i];
-		currentPackets = makePackets(currentInstruction);
+	currentInstruction = GPULib::queue[currentIndex];
+	currentPackets = GPULib::makePackets(currentInstruction);
 
-		for (int j=0; j<currentInstruction->numPackets; j++)
-		{
-			SPI.
-		}
+	for (int j=0; j<currentInstruction->numPackets; j++)
+	{
+		SPI.transfer(currentPackets[j]);
 	}
+
+	if (currentIndex == numInstructions)
+		detachInterrupt(INT_READY_PIN);
 }
 
-byte* makePackets(Instruction *instr)
+void GPULib::sendNextPacketWrapper()
+{
+	void* obj;
+	GPULib *GPU = (GPULib*) obj; //no clue whatsoever if this works
+	GPU->sendNextPacket();
+}
+
+byte* GPULib::makePackets(Instruction *instr)
 {
 	byte packets[MAX_NUM_INSTR_PACKETS];
 
@@ -78,16 +102,6 @@ byte* makePackets(Instruction *instr)
 	}
 
 	return packets;
-}
-
-int GPULib::getNumPackets (Instruction *instr)
-{
-	if (instr->type == ssb || instr->type == fill)
-		return 1;
-	else if (instr->type == pixel)
-		return 3;
-	else if (instr->type == rect || instr->type == frect || instr->type == line)
-		return 5;
 }
 
 void GPULib::switchScreenBuffer()
