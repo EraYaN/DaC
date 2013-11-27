@@ -15,6 +15,10 @@ begin
 	variable next_draw_write : std_logic;
 	variable next_curr_x : unsigned(SizeX-1 downto 0);
 	variable next_curr_y : unsigned(SizeY-1 downto 0);
+	variable x1 : unsigned(SizeX-1 downto 0);
+	variable y1 : unsigned(SizeY-1 downto 0);
+	variable finished    : std_logic;
+	variable first		 : std_logic;
 	begin
 		if rising_edge(clk) then
 			next_ramaddr := (others => 'Z');
@@ -27,8 +31,38 @@ begin
 				if enable = '1' then --enabled
 					if draw_can_access = '1' then -- RAM is free to access
 						--Hier de functie
-						
-						--Hier de fucntie
+							
+
+								dx := abs(x1-next_curr_x);
+								dy := abs(y1-next_curr_y);
+							
+								if next_curr_x < x1 then
+									sx:=1;
+								else
+									sx := -1;
+								end if;
+							
+								if next_curr_y < y1 then
+									sy := 1;
+								else
+									sy := -1;
+									err := dx-dy;
+							
+							if next_curr_x = x1 and next_curr_y = y1 then
+							next_done := '1';
+							end if;
+							
+							e2 := 2*err;
+							if e2 > -dy and next_done != '1' then
+								err := err - dy;
+								next_curr_x := next_curr_x + sx;
+							end if;
+							
+							if e2 < dx and next_done != '1' then
+								err := err + dx;
+								next_curr_y := next_curr_y + sy;
+							end if;
+							
 						next_ramaddr := std_logic_vector(NOT asb & curr_y & curr_x); --combineer signalen
 						next_ramdata := color; -- zet data op de bus
 						next_draw_write := '1'; -- vertel de controller dat je wil schrijven						
@@ -38,6 +72,7 @@ begin
 					end if;	
 				end if;
 			end if;
+			err <= err;
 			done <= next_done;
 			ramaddr <= next_ramaddr;
 			ramdata <= next_ramdata;
