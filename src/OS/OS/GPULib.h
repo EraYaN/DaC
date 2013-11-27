@@ -22,8 +22,7 @@ public:
 	~GPULib(); //Destructor
 	void clearQueue();
 	void transferQueue();
-	void sendNextPacket();
-	static void sendNextPacketWrapper();
+	void sendNextInstruction();
 	byte* makePackets(Instruction *instr);
 
 	void switchScreenBuffer();
@@ -35,13 +34,11 @@ public:
 	void drawCircle(byte x, byte y, byte r, byte color);
 	void drawFilledCircle(byte x, byte y, byte r, byte color);
 
-protected:
+public:
 	Instruction **queue;
 	int currentIndex; //global iterator thingie
 	int numInstructions;
 	int queueSize;
 };
-
-
 
 #endif //_GPULib_H

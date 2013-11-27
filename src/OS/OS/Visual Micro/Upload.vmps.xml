@@ -1,33 +1,67 @@
 <VisualMicro>
   <Program Name="OS" Ext=".ino" Location="D:\Users\Robin\Documents\GitHub\DaC\src\OS\OS">
     <Platform Name="arduino10x" Package="arduino" Platform="avr" Architecture="avr">
-      <Board Name="uno" Description="Arduino Uno" CoreFolder="D:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino" VariantFullPath="D:\Program Files (x86)\Arduino\hardware\arduino\variants\standard" McuIdePath="D:\Program Files (x86)\Arduino" McuSketchBookPath="D:\Users\Robin\Dropbox\Documenten\Development\Arduino" name="Arduino Uno" upload.protocol="arduino" upload.maximum_size="32256" upload.speed="115200" bootloader.low_fuses="0xff" bootloader.high_fuses="0xde" bootloader.extended_fuses="0x05" bootloader.path="optiboot" bootloader.file="optiboot_atmega328.hex" bootloader.unlock_bits="0x3F" bootloader.lock_bits="0x0F" build.mcu="atmega328p" build.f_cpu="16000000L" build.core="arduino" build.variant="standard" runtime.ide.path="D:\Program Files (x86)\Arduino" build.system.path="D:\Program Files (x86)\Arduino\hardware\arduino\system" runtime.ide.version="105" originalid="uno" build.core.vmresolved="D:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino" build.core.parentfolder.vmresolved="D:\Program Files (x86)\Arduino\hardware\arduino\cores" build.core.coresparentfolder.vmresolved="D:\Program Files (x86)\Arduino\hardware\arduino" vm.core.include="arduino.h" vm.boardsource.path="D:\Program Files (x86)\Arduino\hardware\arduino" vm.platformname.name="avr" build.arch="AVR" ide.hint="Arduino 0023 and 1.0.x Ide" ide.location.key="Arduino" ide.location.ide.winreg="Arduino 1.0.x Application" ide.location.sketchbook.winreg="Arduino 1.0.x Sketchbook" ide.location.sketchbook.preferences="sketchbook.path" ide.location.sketchbook.default="%MYDOCUMENTS%\arduino" ide.location.preferences="%VM_APPDATA_ROAMING%\arduino\preferences.txt" ide.default.package="arduino" ide.default.platform="avr" ide.multiplatform="true" ide.includes="arduino.h" ide.platformswithoutpackage="true" ide.sketchfolder.platforms.exclude="avr" ide.includes.fallback="wprogram.h" ide.extension="ino" ide.extension.fallback="pde" ide.versionLTEQ="149" ide.exe="arduino.exe" ide.hosts="atmel" ide.url="http://arduino.cc/en/Main/Software" vm.debug="true" software="ARDUINO" ide.appid="arduino10x" location.sketchbook="D:\Users\Robin\Dropbox\Documenten\Development\Arduino" build.variant.vmresolved="D:\Program Files (x86)\Arduino\hardware\arduino\variants\standard" compiler.path="D:\Program Files (x86)\Arduino\hardware\tools\avr\bin\" includes=" -I&quot;D:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino&quot;  -I&quot;D:\Program Files (x86)\Arduino\hardware\arduino\variants\standard&quot;  -I&quot;D:\Program Files (x86)\Arduino\libraries\SPI&quot; " build.path="C:\Users\Robin\AppData\Local\VMicro\Arduino\Builds\OS\uno" build.project_name="OS" build.variant.path="D:\Program Files (x86)\Arduino\hardware\arduino\variants\standard" archive_file="core.a" object_file="C:\Users\Robin\AppData\Local\VMicro\Arduino\Builds\OS\uno\SPI\SPI.cpp.o" source_file="D:\Program Files (x86)\Arduino\libraries\SPI\SPI.cpp" build.architecture="avr" vmresolved.compiler.path="D:\Program Files (x86)\Arduino\hardware\tools\avr\bin\" vmresolved.tools.path="D:\Program Files (x86)\Arduino\hardware\tools\avr" object_files="&quot;C:\Users\Robin\AppData\Local\VMicro\Arduino\Builds\OS\uno\GPULib.cpp.o&quot; &quot;C:\Users\Robin\AppData\Local\VMicro\Arduino\Builds\OS\uno\OS.cpp.o&quot; &quot;C:\Users\Robin\AppData\Local\VMicro\Arduino\Builds\OS\uno\VM_DBG\VM_mem_check.c.o&quot; &quot;C:\Users\Robin\AppData\Local\VMicro\Arduino\Builds\OS\uno\VM_DBG\VM_DBG.cpp.o&quot; &quot;C:\Users\Robin\AppData\Local\VMicro\Arduino\Builds\OS\uno\SPI\SPI.cpp.o&quot; " />
+      <Board Name="mega2560" Description="Arduino Mega 2560 or Mega ADK" CoreFolder="D:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino" VariantFullPath="D:\Program Files (x86)\Arduino\hardware\arduino\variants\mega" McuIdePath="D:\Program Files (x86)\Arduino" McuSketchBookPath="D:\Users\Robin\Dropbox\Documenten\Development\Arduino" name="Arduino Mega 2560 or Mega ADK" upload.protocol="wiring" upload.maximum_size="258048" upload.speed="115200" bootloader.low_fuses="0xFF" bootloader.high_fuses="0xD8" bootloader.extended_fuses="0xFD" bootloader.path="stk500v2" bootloader.file="stk500boot_v2_mega2560.hex" bootloader.unlock_bits="0x3F" bootloader.lock_bits="0x0F" build.mcu="atmega2560" build.f_cpu="16000000L" build.core="arduino" build.variant="mega" runtime.ide.path="D:\Program Files (x86)\Arduino" build.system.path="D:\Program Files (x86)\Arduino\hardware\arduino\system" runtime.ide.version="105" originalid="mega2560" build.core.vmresolved="D:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino" build.core.parentfolder.vmresolved="D:\Program Files (x86)\Arduino\hardware\arduino\cores" build.core.coresparentfolder.vmresolved="D:\Program Files (x86)\Arduino\hardware\arduino" vm.core.include="arduino.h" vm.boardsource.path="D:\Program Files (x86)\Arduino\hardware\arduino" vm.platformname.name="avr" build.arch="AVR" ide.hint="Arduino 0023 and 1.0.x Ide" ide.location.key="Arduino" ide.location.ide.winreg="Arduino 1.0.x Application" ide.location.sketchbook.winreg="Arduino 1.0.x Sketchbook" ide.location.sketchbook.preferences="sketchbook.path" ide.location.sketchbook.default="%MYDOCUMENTS%\arduino" ide.location.preferences="%VM_APPDATA_ROAMING%\arduino\preferences.txt" ide.default.package="arduino" ide.default.platform="avr" ide.multiplatform="true" ide.includes="arduino.h" ide.platformswithoutpackage="true" ide.sketchfolder.platforms.exclude="avr" ide.includes.fallback="wprogram.h" ide.extension="ino" ide.extension.fallback="pde" ide.versionLTEQ="149" ide.exe="arduino.exe" ide.hosts="atmel" ide.url="http://arduino.cc/en/Main/Software" vm.debug="true" software="ARDUINO" ide.appid="arduino10x" location.sketchbook="D:\Users\Robin\Dropbox\Documenten\Development\Arduino" build.variant.vmresolved="D:\Program Files (x86)\Arduino\hardware\arduino\variants\mega" compiler.path="D:\Program Files (x86)\Arduino\hardware\tools\avr\bin\" includes=" -I&quot;D:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino&quot;  -I&quot;D:\Program Files (x86)\Arduino\hardware\arduino\variants\mega&quot;  -I&quot;D:\Program Files (x86)\Visual Micro\Visual Micro for Arduino\Micro Platforms\default\debuggers\VM_DBG&quot;  -I&quot;D:\Program Files (x86)\Arduino\libraries\SPI&quot; " build.path="C:\Users\Robin\AppData\Local\VMicro\Arduino\Builds\OS\mega2560" build.project_name="OS" build.variant.path="D:\Program Files (x86)\Arduino\hardware\arduino\variants\mega" archive_file="core.a" object_file="C:\Users\Robin\AppData\Local\VMicro\Arduino\Builds\OS\mega2560\SPI\SPI.cpp.o" source_file="D:\Program Files (x86)\Arduino\libraries\SPI\SPI.cpp" object_files="&quot;C:\Users\Robin\AppData\Local\VMicro\Arduino\Builds\OS\mega2560\GPULib.cpp.o&quot; &quot;C:\Users\Robin\AppData\Local\VMicro\Arduino\Builds\OS\mega2560\OS.cpp.o&quot; &quot;C:\Users\Robin\AppData\Local\VMicro\Arduino\Builds\OS\mega2560\VM_DBG\VM_mem_check.c.o&quot; &quot;C:\Users\Robin\AppData\Local\VMicro\Arduino\Builds\OS\mega2560\VM_DBG\VM_DBG.cpp.o&quot; &quot;C:\Users\Robin\AppData\Local\VMicro\Arduino\Builds\OS\mega2560\SPI\SPI.cpp.o&quot; " build.architecture="avr" vmresolved.compiler.path="D:\Program Files (x86)\Arduino\hardware\tools\avr\bin\" vmresolved.tools.path="D:\Program Files (x86)\Arduino\hardware\tools\avr" />
     </Platform>
-    <Compile IsDebugStart="1" CompilerErrors="0" ConfigurationName="Debug" StopOnError="False" OptimiseLibs="True" OptimiseCore="True" BuildPath="C:\Users\Robin\AppData\Local\VMicro\Arduino\Builds\OS\uno" SketchName="OS" ReportDigitalPins="0" ReportAnalogPins="0" ReportI2C="0" ReportFreeMemory="0" IncludeDebug="1" LastDebugPreProcessorDefinitions="VM_DEBUG;VM_DEBUG_ENABLE 1;VM_DEBUG_BANDWIDTH_THROTTLE_MS 80;VM_DEBUGGER_TYPE_HARDWARESERIAL 0;VM_DEBUGGER_TYPE_SOFTWARESERIAL 1;VM_DEBUGGER_TYPE_FASTSERIAL 2;VM_DEBUGGER_TYPE_USB 3;VM_DEBUGGER_TYPE_TEENSY 4;VM_DEBUGGER_TYPE_UART 5;VM_DEBUGGER_TYPE_USART 6;VM_DEBUGGER_TYPE_USBSERIAL 7;VM_DEBUGGER_TYPE VM_DEBUGGER_TYPE_HARDWARESERIAL;" IncludesDebug="1" IsCompiled="1" />
+    <Compile IsDebugStart="1" CompilerErrors="0" ConfigurationName="Debug" StopOnError="False" OptimiseLibs="True" OptimiseCore="True" BuildPath="C:\Users\Robin\AppData\Local\VMicro\Arduino\Builds\OS\mega2560" SketchName="OS" ReportDigitalPins="0" ReportAnalogPins="0" ReportI2C="0" ReportFreeMemory="0" IncludeDebug="1" LastDebugPreProcessorDefinitions="VM_DEBUG;VM_DEBUG_ENABLE 1;VM_DEBUG_BANDWIDTH_THROTTLE_MS 80;VM_DEBUGGER_TYPE_HARDWARESERIAL 0;VM_DEBUGGER_TYPE_SOFTWARESERIAL 1;VM_DEBUGGER_TYPE_FASTSERIAL 2;VM_DEBUGGER_TYPE_USB 3;VM_DEBUGGER_TYPE_TEENSY 4;VM_DEBUGGER_TYPE_UART 5;VM_DEBUGGER_TYPE_USART 6;VM_DEBUGGER_TYPE_USBSERIAL 7;VM_DEBUGGER_TYPE VM_DEBUGGER_TYPE_HARDWARESERIAL;" IncludesDebug="1" IsCompiled="1" />
     <Debug DebugEnabled="1" />
     <VCCodeModel>
       <VCCodeMacros />
     </VCCodeModel>
     <BreakPoints>
-      <BreakPoint Index="1" Name="OS.ino, line 11" Id="d9055b79-a1bc-4de6-bc4a-87dbeef97546" Enabled="1" Message="{millis()}" MessageTextType="2" PreProcessedMessage="{0}" Condition="millis()&gt;0 || millis()&gt;1" ConditionType="1" CurrentHits="0" File="d:\users\robin\documents\github\dac\src\os\os\os.ino" FileLine="11" FileColumn="1" FunctionName="" FunctionLineOffset="1" FunctionColumnOffset="1" HitCountTarget="250" HitCountType="4" Language="C++" LocationType="3" Tag="&lt;vmbp Id='2130a957-68df-4de5-9889-d625d68432a3'/&gt;" Type="1" ToString="System.__ComObject" BreakWhenHit="1">
-        <Source>4	GPULib *GPU;
-5	
-6	void setup()
-7	{
-8		GPU = new GPULib(100);
-9	}
-10	
---&gt;11	void loop()
-12	{
-13		GPU-&gt;drawFill(0);
-14		GPU-&gt;drawRect(0, 0, 80, 60, B00001111);
-15		GPU-&gt;drawRect(80, 60, 80, 60, B00001111);
-16	}
-17	
+      <BreakPoint Index="1" Name="GPULib.cpp, line 41" Id="a2e21463-553d-477a-84f1-321aac6fbd27" Enabled="1" Message="" MessageTextType="2" PreProcessedMessage="" Condition="" ConditionType="1" CurrentHits="0" File="d:\users\robin\documents\github\dac\src\os\os\gpulib.cpp" FileLine="41" FileColumn="1" FunctionName="" FunctionLineOffset="1" FunctionColumnOffset="1" HitCountTarget="1" HitCountType="1" Language="C++" LocationType="3" Tag="&lt;vmbp Id='a2e21463-553d-477a-84f1-321aac6fbd27'/&gt;" Type="1" ToString="System.__ComObject" BreakWhenHit="1">
+        <Source>34	{
+35		numInstructions = currentIndex;
+36		currentIndex = 0;
+37	
+38		sendNextInstruction();
+39	}
+40	
+--&gt;41	void GPULib::sendNextInstruction()
+42	{
+43		if (currentIndex == numInstructions)
+44			return;
+45	
+46		Instruction *currentInstruction;
+47		byte *currentPackets;
+48	
+49		currentInstruction = GPULib::queue[currentIndex];
+50		currentPackets = GPULib::makePackets(currentInstruction);
 </Source>
-        <MessageVariables>
-          <MessageVariable Name="millis()" Index="1" />
-        </MessageVariables>
+      </BreakPoint>
+      <BreakPoint Index="2" Name="GPULib.cpp, line 54" Id="0e349d85-7e1b-406e-a09f-7c46990a64cf" Enabled="1" Message="" MessageTextType="2" PreProcessedMessage="" Condition="" ConditionType="1" CurrentHits="0" File="d:\users\robin\documents\github\dac\src\os\os\gpulib.cpp" FileLine="54" FileColumn="1" FunctionName="sendNextInstruction()" FunctionLineOffset="13" FunctionColumnOffset="1" HitCountTarget="1" HitCountType="1" Language="C++" LocationType="3" Tag="&lt;vmbp Id='0e349d85-7e1b-406e-a09f-7c46990a64cf'/&gt;" Type="1" ToString="System.__ComObject" BreakWhenHit="1">
+        <Source>47		byte *currentPackets;
+48	
+49		currentInstruction = GPULib::queue[currentIndex];
+50		currentPackets = GPULib::makePackets(currentInstruction);
+51	
+52		for (int j=0; j&lt;currentInstruction-&gt;numPackets; j++)
+53		{
+--&gt;54			SPI.transfer(currentPackets[j]);
+55			Serial.println(currentPackets[j], BIN); //debug
+56			delay(1000);
+57		}	
+58	}
+59	
+60	byte* GPULib::makePackets(Instruction *instr)
+61	{
+62		byte packets[MAX_NUM_INSTR_PACKETS];
+63	
+</Source>
+      </BreakPoint>
+      <BreakPoint Index="3" Name="OS.ino, line 33" Id="81dedc55-d51e-416d-b150-df8357f800d7" Enabled="1" Message="" MessageTextType="2" PreProcessedMessage="" Condition="" ConditionType="1" CurrentHits="0" File="d:\users\robin\documents\github\dac\src\os\os\os.ino" FileLine="33" FileColumn="1" FunctionName="drawReady()" FunctionLineOffset="2" FunctionColumnOffset="1" HitCountTarget="1" HitCountType="1" Language="C++" LocationType="3" Tag="&lt;vmbp Id='81dedc55-d51e-416d-b150-df8357f800d7'/&gt;" Type="1" ToString="System.__ComObject" BreakWhenHit="1">
+        <Source>26		while(true){};
+27	}
+28	
+29	void drawReady()
+30	{
+31		if (GPU-&gt;currentIndex != GPU-&gt;numInstructions)
+32		{
+--&gt;33			GPU-&gt;sendNextInstruction();
+34			Serial.print("\n");
+35		}
+36	}
+</Source>
       </BreakPoint>
     </BreakPoints>
   </Program>

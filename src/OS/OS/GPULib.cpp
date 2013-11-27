@@ -5,12 +5,16 @@
 #include "GPULib.h"
 #include "SPI.h"
 
+void* obj;
+
 GPULib::GPULib(int queuesize)
 {
 	queueSize = queuesize;
 	*queue = new Instruction[queuesize];
 	currentIndex = 0;
 	SPI.begin();
+	//Serial.begin(9600);
+	obj = (void*)this;
 }
 
 GPULib::~GPULib()
@@ -31,11 +35,14 @@ void GPULib::transferQueue()
 	numInstructions = currentIndex;
 	currentIndex = 0;
 
-	attachInterrupt(INT_READY_PIN, sendNextPacketWrapper, RISING);
+	sendNextInstruction();
 }
 
-void GPULib::sendNextPacket()
+void GPULib::sendNextInstruction()
 {
+	if (currentIndex == numInstructions)
+		return;
+
 	Instruction *currentInstruction;
 	byte *currentPackets;
 
@@ -45,17 +52,9 @@ void GPULib::sendNextPacket()
 	for (int j=0; j<currentInstruction->numPackets; j++)
 	{
 		SPI.transfer(currentPackets[j]);
-	}
-
-	if (currentIndex == numInstructions)
-		detachInterrupt(INT_READY_PIN);
-}
-
-void GPULib::sendNextPacketWrapper()
-{
-	void* obj;
-	GPULib *GPU = (GPULib*) obj; //no clue whatsoever if this works
-	GPU->sendNextPacket();
+		Serial.println(currentPackets[j], BIN); //debug
+		delay(1000);
+	}	
 }
 
 byte* GPULib::makePackets(Instruction *instr)
