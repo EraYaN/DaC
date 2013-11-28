@@ -106,18 +106,14 @@ sr: sram port map (
 		reset <= '1';
 		spi_mosi <= '0';
 		spiclk_en <= '0';
-		
-		download <= TRUE;
-		wait until rising_edge(clk);
 		download <= FALSE;
 		wait until rising_edge(clk);
 		wait until rising_edge(clk);
 		reset <= '0';
 		wait until rising_edge(clk);	
-		wait until rising_edge(clk);		
-		sendByte("00010000",spi_mosi,spiclk_en); -- fill with 0000 (black)		
+		sendByte("00011111",spi_mosi,spiclk_en); -- fill with 1111 (white)		
 		wait until rising_edge(int_ready);
-		sendByte("01001010",spi_mosi,spiclk_en); -- rect with 1010 (grey/pink)
+		sendByte("01001010",spi_mosi,spiclk_en); -- frect with 1010 (grey/pink)
 		sendByte("00110010",spi_mosi,spiclk_en); -- X = 50
 		sendByte("00101000",spi_mosi,spiclk_en); -- Y = 40
 		sendByte("00110010",spi_mosi,spiclk_en); -- W = 50

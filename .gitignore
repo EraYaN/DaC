@@ -232,3 +232,5 @@ test
 ![Hh]ardware/*/
 ![Hh]ardware/**/VHDL/*.vhd
 GWTF
+*.vhd.bak
+*.vhd_
