@@ -35,7 +35,7 @@ begin
 	clk <='1' after 0 ns,
 	      '0' after 10 ns when clk /= '0' else '1' after 10 ns;
 	reset <= '1' after 0 ns,
-		   '0' after 10 ns,
+		   '0' after 10 ns;
 	enable <= '1' after 10 ns;
 	draw_can_acces <= '1' after 0 ns;
 	color <= "1010" after 0 ns;
@@ -43,7 +43,6 @@ begin
 	x   <= "10101010" after 0 ns;
 	y	<= "1010111" after 0 ns;
 	w	<= "00001010" after 0 ns;
-	h	<= "0001111" after 0 ns;
 	h	<= "0000111" after 0 ns;
 	
 	connect: draw_line port map(
@@ -60,7 +59,7 @@ begin
 		ramaddr          => ramaddr,
 		ramdata          => ramdata,
 		draw_write       => draw_write,
-		draw_can_access  => draw_can_acces
+		draw_can_access  => draw_can_access
 		);
 	  
 end behaviour;
