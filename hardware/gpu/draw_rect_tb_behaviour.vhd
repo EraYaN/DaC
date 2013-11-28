@@ -64,7 +64,7 @@ begin
 		               "00000000" after 200 ns,
 		               "11111111" after 300 ns,
 		               "10000001" after 400 ns, --test of het goed gaat als reset 1 wordt
-		               "11111111" after 500 ns; -- test of het goed gaat als draw_can_acces 0 wordt
+		               "11111111" after 500 ns; 
 	
 	y	<=             "1010111" after 0 ns,
 		               "1111111" after 100 ns,
