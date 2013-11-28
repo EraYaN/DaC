@@ -2,28 +2,31 @@
 #define _GPULib_H
 
 #define MAX_NUM_INSTR_PACKETS 5
+#define MAX_QUEUE_SIZE 100
 #define INT_READY_PIN 0
 
 #include "Arduino.h"
 
-
-enum InstructionType { ssb, fill, pixel, rect, frect, line, circle, fcircle };
-
 struct Instruction {
-	InstructionType type;
-	byte x, y, w, h, color;
+	//instruction data
 	int numPackets;
+	byte packets[MAX_NUM_INSTR_PACKETS];
+
+	//queue data (linked list)
+	Instruction *nextInstruction;
 };
 
 class GPULib
 {
 public:
-	GPULib(int queuesize); //Constructor
+	GPULib(); //Constructor
 	~GPULib(); //Destructor
 	void clearQueue();
+	void cleanUp();
 	void transferQueue();
 	void sendNextInstruction();
-	byte* makePackets(Instruction *instr);
+	void appendInstructionToQueue(Instruction *instruction);
+	void shiftQueue();
 
 	void switchScreenBuffer();
 	void drawFill(byte color);
@@ -34,11 +37,10 @@ public:
 	void drawCircle(byte x, byte y, byte r, byte color);
 	void drawFilledCircle(byte x, byte y, byte r, byte color);
 
-public:
-	Instruction **queue;
-	int currentIndex; //global iterator thingie
-	int numInstructions;
-	int queueSize;
+	friend void drawReady();
+
+protected:
+	Instruction *queueHead, *queueTail; //head and tail of linked list
 };
 
 #endif //_GPULib_H

@@ -5,173 +5,121 @@
 #include "GPULib.h"
 #include "SPI.h"
 
-void* obj;
-
-GPULib::GPULib(int queuesize)
+GPULib::GPULib()
 {
-	queueSize = queuesize;
-	*queue = new Instruction[queuesize];
-	currentIndex = 0;
-	SPI.begin();
-	//Serial.begin(9600);
-	obj = (void*)this;
+	queueHead = NULL;
+	queueTail = NULL;
 }
 
 GPULib::~GPULib()
 {
-	SPI.end();
-	clearQueue();
+	cleanUp();
 }
-
 
 void GPULib::clearQueue()
 {
-	for (int i=0; i<queueSize; i++)
-		delete queue[i];
+	while(queueHead != NULL)
+		shiftQueue();
+
+	queueHead = NULL;
+	queueTail = NULL;
+}
+
+void GPULib::cleanUp()
+{
+	clearQueue();
 }
 
 void GPULib::transferQueue()
 {
-	numInstructions = currentIndex;
-	currentIndex = 0;
-
-	sendNextInstruction();
+	//if (queueHead != NULL)
+	//	sendNextInstruction();
 }
 
 void GPULib::sendNextInstruction()
 {
-	if (currentIndex == numInstructions)
-		return;
-
-	Instruction *currentInstruction;
-	byte *currentPackets;
-
-	currentInstruction = GPULib::queue[currentIndex];
-	currentPackets = GPULib::makePackets(currentInstruction);
-
-	for (int j=0; j<currentInstruction->numPackets; j++)
+	for (int j=0; j<(queueHead->numPackets); j++)
 	{
-		SPI.transfer(currentPackets[j]);
-		Serial.println(currentPackets[j], BIN); //debug
-		delay(1000);
-	}	
+		SPI.transfer(queueHead->packets[j]);
+	}
+	shiftQueue();
 }
 
-byte* GPULib::makePackets(Instruction *instr)
+void GPULib::appendInstructionToQueue(Instruction *instruction)
 {
-	byte packets[MAX_NUM_INSTR_PACKETS];
+	queueTail->nextInstruction = instruction;
+	queueTail = instruction;
+	queueTail->nextInstruction = NULL;
 
-	if (instr->type == ssb)
-	{
-		packets[0] = B00000000;
-	} 
-	else if (instr->type == fill)
-	{
-		packets[0] = instr->color | B00010000;
-	} 
-	else if (instr->type == pixel)
-	{
-		packets[0] = instr->color | B00100000;
-		packets[1] = instr->x;
-		packets[2] = instr->y;
-	} 
-	else if (instr->type == rect)
-	{
-		packets[0] = instr->color | B00110000;
-		packets[1] = instr->x;
-		packets[2] = instr->y;
-		packets[3] = instr->w;
-		packets[4] = instr->h;
-	} 
-	else if (instr->type == frect)
-	{
-		packets[0] = instr->color | B01000000;
-		packets[1] = instr->x;
-		packets[2] = instr->y;
-		packets[3] = instr->w;
-		packets[4] = instr->h;
-	} 
-	else if (instr->type == line)
-	{
-		packets[0] = instr->color | B01010000;
-		packets[1] = instr->x;
-		packets[2] = instr->y;
-		packets[3] = instr->w; //x1
-		packets[4] = instr->h; //y1
-	}
+	if (queueHead == NULL)
+		queueHead = instruction;
+}
 
-	return packets;
+void GPULib::shiftQueue()
+{
+	Instruction *tmp = queueHead;
+	queueHead = queueHead->nextInstruction;
+	delete tmp;
 }
 
 void GPULib::switchScreenBuffer()
 {
-	Instruction instr = *(new Instruction);
-	instr.type = ssb;
-	instr.numPackets = 1;
-	queue[currentIndex] = &instr;
-	currentIndex++;
+	Instruction *instr = new Instruction;
+	instr->numPackets = 1;
+	instr->packets[0] = B00000000;
+	appendInstructionToQueue(instr);
 }
 
 void GPULib::drawFill(byte color)
 {
-	Instruction instr = *(new Instruction);
-	instr.type = fill;
-	instr.color = color;
-	instr.numPackets = 1;
-	queue[currentIndex] = &instr;
-	currentIndex++;
+	Instruction *instr = new Instruction;
+	instr->numPackets = 1;
+	instr->packets[0] = (color | B00010000);
+	appendInstructionToQueue(instr);
 }
 
 void GPULib::drawPixel(byte x, byte y, byte color)
 {
-	Instruction instr = *(new Instruction);
-	instr.type = pixel;
-	instr.x = x;
-	instr.y = y;
-	instr.color = color;
-	instr.numPackets = 3;
-	queue[currentIndex] = &instr;
-	currentIndex++;
+	Instruction *instr = new Instruction;
+	instr->numPackets = 3;
+	instr->packets[0] = color | B00100000;
+	instr->packets[1] = x;
+	instr->packets[2] = y;
+	appendInstructionToQueue(instr);
 }
 
 void GPULib::drawRect(byte x, byte y, byte w, byte h, byte color)
 {
-	Instruction instr = *(new Instruction);
-	instr.type = rect;
-	instr.x = x;
-	instr.y = y;
-	instr.w = w;
-	instr.h = h;
-	instr.color = color;
-	instr.numPackets = 5;
-	queue[currentIndex] = &instr;
-	currentIndex++;
+	Instruction *instr = new Instruction;
+	instr->numPackets = 5;
+	instr->packets[0] = color | B00110000;
+	instr->packets[1] = x;
+	instr->packets[2] = y;
+	instr->packets[3] = w;
+	instr->packets[4] = h;
+	appendInstructionToQueue(instr);
 }
 
 void GPULib::drawFilledRect(byte x, byte y, byte w, byte h, byte color)
 {
-	Instruction instr = *(new Instruction);
-	instr.type = frect;
-	instr.x = x;
-	instr.y = y;
-	instr.w = w;
-	instr.h = h;
-	instr.color = color;
-	instr.numPackets = 5;
-	queue[currentIndex] = &instr;
-	currentIndex++;
+	Instruction *instr = new Instruction;
+	instr->numPackets = 5;
+	instr->packets[0] = color | B01000000;
+	instr->packets[1] = x;
+	instr->packets[2] = y;
+	instr->packets[3] = w;
+	instr->packets[4] = h;
+	appendInstructionToQueue(instr);
 }
 
-void GPULib::drawLine(byte x, byte y, byte w, byte h, byte color)
+void GPULib::drawLine(byte x0, byte y0, byte x1, byte y1, byte color)
 {
-	Instruction instr = *(new Instruction);
-	instr.type = frect;
-	instr.x = x;
-	instr.y = y;
-	instr.w = w; //x1
-	instr.h = h; //y1
-	instr.color = color;
-	instr.numPackets = 5;
-	queue[currentIndex] = &instr;
-	currentIndex++;
+	Instruction *instr = new Instruction;
+	instr->numPackets = 5;
+	instr->packets[0] = color | B01010000;
+	instr->packets[1] = x0;
+	instr->packets[2] = y0;
+	instr->packets[3] = x1;
+	instr->packets[4] = y1;
+	appendInstructionToQueue(instr);
 }
