@@ -20,7 +20,7 @@ component draw_pixel is
 	);
 end component;
 	--signalen
-	signal clk, reset, enable, asb, draw_can_acces: std_logic;
+	signal clk, reset, enable, asb, draw_can_access: std_logic;
 	signal x			   : std_logic_vector(SizeX-1 downto 0);
 	signal y			   : std_logic_vector(SizeY-1 downto 0);
 	signal color		   : std_logic_vector(SizeColor-1 downto 0);
@@ -32,33 +32,32 @@ end component;
 	
 	
 begin
-	lbl1: draw_pixel port map (clk, reset, enable, x, y, color, asb, done, ramaddr, ramdata, draw_write, draw_can_acces);
+	draw_pixel_tb: draw_pixel port map (clk, reset, enable, x, y, color, asb, done, ramaddr, ramdata, draw_write, draw_can_access);
 	clk <='1' after 0 ns,
-	'0' after 10 ns when clk /= '0' else '1' after 10 ns;
-	reset <= '1' after 0 ns,
-		 '0' after 80 ns;
-		-- '1' after 800 ns; --testen of er geen undefined ontstaat als reset 1 is
+	'0' after 10 ns when clk /= '0' else '1' after 10 ns;	
+process
+begin
+	reset <= '1';
+asb <= '0';
+color <= "1011";
+	wait for 40 ns;
+	reset<= '0';
+	draw_can_access <= '1';
+	wait until rising_edge(clk);	
 	enable <= '1';
-	draw_can_acces <= '1' after 0 ns,
-			  '0' after 500 ns;
-	color <= "1010" after 0 ns;
-	asb <= '0' after 0 ns;
-	x   <= "10101010" after 0 ns,
-		 "10001111" after 100 ns,
-		 "00000000" after 200 ns,
-		 "11111111" after 300 ns,
-		 "10000001" after 400 ns, --test of het goed gaat als reset 1 wordt
-		 "11111111" after 500 ns; -- test of het goed gaat als draw_can_access 0 wordt
-	y	<= "1010111" after 0 ns,
-		 "1111111" after 100 ns,
-		 "1100110" after 200 ns,
-		 "0000000" after 300 ns,
-		 "0001000" after 400 ns,
-		 "1010101" after 500 ns;
-				
+	x <= "10101010"; 
+	y <= "1010111";
+	wait until done='1' and rising_edge(clk);
+	enable <= '0';
+	wait until rising_edge(clk);
+	enable <= '1';
+	x <= "11100111"; 
+	y <= "1111000";
+	wait until done='1' and rising_edge(clk);
+	enable <= '0';
+	wait;	
+end process;		
 end behaviour;
-
-
 
 
 
