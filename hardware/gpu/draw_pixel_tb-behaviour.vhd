@@ -1,12 +1,5 @@
 library IEEE;
 use IEEE.std_logic_1164.ALL;
-
-entity draw_pixel_tb is
-end draw_pixel_tb;
-
-
-library IEEE;
-use IEEE.std_logic_1164.ALL;
 use work.parameter_def.ALL;
 
 architecture behaviour of draw_pixel_tb is
@@ -30,15 +23,21 @@ end component;
 	signal clk, reset, enable, asb, draw_can_acces: std_logic;
 	signal x			   : std_logic_vector(SizeX-1 downto 0);
 	signal y			   : std_logic_vector(SizeY-1 downto 0);
-	signal color			   : std_logic_vector(SizeColor-1 downto 0);
+	signal color		   : std_logic_vector(SizeColor-1 downto 0);
+	signal done, draw_write: std_logic;
+	signal ramaddr 		   :std_logic_vector(SizeRAMAddr-1 downto 0);
+	signal ramdata 		   :std_logic_vector(SizeRAMData-1 downto 0);
+	
+	
 	
 	
 begin
+	lbl1: draw_pixel port map (clk, reset, enable, x, y, color, asb, done, ramaddr, ramdata, draw_write, draw_can_acces);
 	clk <='1' after 0 ns,
 	'0' after 10 ns when clk /= '0' else '1' after 10 ns;
 	reset <= '1' after 0 ns,
-		 '0' after 10 ns,
-		 '1' after 400 ns; --testen of er geen undefined ontstaat als reset 1 is
+		 '0' after 80 ns;
+		-- '1' after 800 ns; --testen of er geen undefined ontstaat als reset 1 is
 	enable <= '1';
 	draw_can_acces <= '1' after 0 ns,
 			  '0' after 500 ns;
@@ -58,6 +57,7 @@ begin
 		 "1010101" after 500 ns;
 				
 end behaviour;
+
 
 
 
