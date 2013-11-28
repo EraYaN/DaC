@@ -37,7 +37,7 @@ component draw_rect is
 	signal ramaddr : std_logic_vector(SizeRAMAddr-1 downto 0);
 	signal ramdata : std_logic_vector(SizeRAMData-1 downto 0);
 	
-	
+process	
 begin
 	
 	clk <=            '1' after 0 ns,
@@ -64,7 +64,7 @@ begin
 		               "00000000" after 200 ns,
 		               "11111111" after 300 ns,
 		               "10000001" after 400 ns, --test of het goed gaat als reset 1 wordt
-		               "11111111" after 500 ns; -- test of het goed gaat als draw_can_acces 0 wordt
+		               "11111111" after 500 ns; 
 	
 	y	<=             "1010111" after 0 ns,
 		               "1111111" after 100 ns,
@@ -104,5 +104,5 @@ lbl: draw_rect port map(
 		       draw_write       => draw_write,     
 		       draw_can_access  => draw_can_acces
 		       );     
-
+end process;
 end behaviour;
