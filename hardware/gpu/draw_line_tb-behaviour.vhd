@@ -41,7 +41,7 @@ begin
 	x   <= "10101010" after 0 ns;
 	y	<= "1010111" after 0 ns;
 	w	<= "00001010" after 0 ns;
-	h	<= "0000111" after 0 ns;
+	h	<= "0001111" after 0 ns;
 end behaviour;
 
 
