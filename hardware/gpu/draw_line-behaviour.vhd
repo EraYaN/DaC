@@ -8,7 +8,8 @@ signal curr_x : unsigned(SizeX-1 downto 0);
 signal curr_y : unsigned(SizeY-1 downto 0);
 signal err	  : unsigned(4 downto 0);
 begin
-	process (clk)
+	
+	draw_line: process (clk)
 	variable next_done : std_logic;
 	variable next_ramaddr : std_logic_vector(SizeRAMAddr-1 downto 0);
 	variable next_ramdata : std_logic_vector(SizeRAMData-1 downto 0);

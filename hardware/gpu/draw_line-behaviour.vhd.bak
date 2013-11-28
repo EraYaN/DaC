@@ -15,8 +15,6 @@ begin
 	variable next_draw_write : std_logic;
 	variable next_curr_x : unsigned(SizeX-1 downto 0);
 	variable next_curr_y : unsigned(SizeY-1 downto 0);
-	variable x1 : unsigned(SizeX-1 downto 0);
-	variable y1 : unsigned(SizeY-1 downto 0);
 	variable next_err	 : unsigned(SizeX downto 0);
 	variable sx			: integer;
 	variable sy			: integer;
