@@ -38,10 +38,10 @@ begin
 	draw_can_acces <= '1' after 0 ns;
 	color <= "1010" after 0 ns;
 	asb <= '0' after 0 ns;
-	x   <= "10101010" after 0 ns;
-	y	<= "1010111" after 0 ns;
-	w	<= "00001010" after 0 ns;
-	h	<= "0000111" after 0 ns;
+	x   <= "10101010" after 0 ns,
+	y	<= "1010111" after 0 ns,
+	w	<= "00001010" after 0 ns,
+	h	<= "0000111" after 0 ns,
 end behaviour;
 
 
