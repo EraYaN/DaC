@@ -52,13 +52,14 @@ begin
 				spi_rx_data <= spi_rx_data(SizeSPIData-2 downto 0) & mosi_latched;
 				if(index = 0) then
 					index <= to_unsigned(SizeSPIData-1,c);
+					spi_data_available <= '1';
 				else
 					index <= index-1;
 				end if;
 			elsif(sclk_old = '1' and sclk_latched = '0') then
-				if( index = SizeSPIData-1 ) then
-					spi_data_available <= '1';
-				end if;
+				--if( index = SizeSPIData-1 ) then
+				--	spi_data_available <= '1';
+				--end if;
 			--	TxData <= TxData(SizeSPIData-2 downto 0) & '1';
 			end if;
 		end if;

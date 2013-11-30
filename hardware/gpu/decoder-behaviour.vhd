@@ -5,7 +5,7 @@ use work.parameter_def.all;
 
 architecture behaviour of decoder is
 	--SPI sync signals
-	signal dav_latched, dav_old : std_logic;
+	--signal dav_latched, dav_old : std_logic;
 
 	--persistent signals
 	signal packet_num : unsigned(MaxNumPackets-1 downto 0);
@@ -13,7 +13,7 @@ architecture behaviour of decoder is
 	
 begin
 	--synchronizer + input buffer + output buffer + state change
-	process (clk)
+	decoder1: process (clk)
 		variable done : std_logic;
 		variable instr : std_logic_vector(InstrSize-1 downto 0);
 		variable packet : unsigned(MaxNumPackets-1 downto 0);
@@ -23,8 +23,8 @@ begin
 			int_ready <= '0';
 			if reset = '1' then
 				--reset all registers
-				dav_latched <= '0';
-				dav_old <= '0';
+				--dav_latched <= '0';
+				--dav_old <= '0';
 				packet_num <= (others => '0');
 				instruction <= (others => '0');
 				color <= (others => '0');
@@ -40,41 +40,47 @@ begin
 
 			else
 				--synchronize data available flag
-				dav_latched <= spi_data_available;
-				dav_old <= dav_latched;
+				--dav_latched <= spi_data_available;
+				--dav_old <= dav_latched;
 
 				if draw_ready = '1' then
 					--disable all draw modules
 					en <= (others => '0');
 					--inform CPU
 					int_ready <= '1';
-				elsif dav_latched = '1' and dav_old = '0' then
+				--elsif dav_latched = '1' and dav_old = '0' then
+			elsif spi_data_available = '1' then
 					--perform action upon data available change
 					--init variables
 					done := '0';
 					instr := instruction;
 					packet := packet_num;
-					
+
 					--logic depending on current packet in stream
 					case to_integer(packet) is
 						when 0 =>
-							--deduce instruction
-							instr := spi_data_rx(SizeSPIData-1 downto SizeColor);
-							--start loading next instruction next cycle if instruction is "switch", "fill" or unknown
-							if (instr = "0000" or instr = "0001" or instr > "0110") then
-								done := '1';
-								if instr = "0001" then
-									--activate "fill" draw-module
-									en <= (others => '0');
-									en(0) <= '1';
-									is_init <= '0';
-								elsif instr = "0000" then
-									--switch screen buffer
-									asb <= not asb;
+							if instr = "1010" then
+								--multicolor sprite loading subroutine
+								
+							else
+								--deduce instruction
+								instr := spi_data_rx(SizeSPIData-1 downto SizeColor);
+								--start loading next instruction next cycle if instruction is "switch", "fill" or unknown
+								if (instr = "0000" or instr = "0001" or instr > "0110") then
+									done := '1';
+									if instr = "0001" then
+										--activate "fill" draw-module
+										en <= (others => '0');
+										en(0) <= '1';
+										is_init <= '0';
+									elsif instr = "0000" then
+										--switch screen buffer
+										asb <= not asb;
+									end if;
 								end if;
+								--pass through color
+								color <= spi_data_rx(SizeColor-1 downto 0);
 							end if;
-							--pass through color
-							color <= spi_data_rx(SizeColor-1 downto 0);
 						when 1 => 
 							--pass through x coord
 							x <= spi_data_rx;
