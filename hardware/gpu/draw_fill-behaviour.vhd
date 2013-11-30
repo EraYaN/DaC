@@ -51,7 +51,7 @@ draw_fill_combi: process (reset, enable, draw_can_access, x, y, asb, color, almo
 							x_tmp <= x-1;
 							y_tmp <= y;
 						end if;
-						ramaddr_tmp <= std_logic_vector((NOT asb) & y_tmp & x_tmp); --combineer signalen
+						ramaddr_tmp <= std_logic_vector((NOT asb) & y & x); --combineer signalen
 						ramdata_tmp <= color; -- zet data op de bus
 						draw_write_tmp <= '1'; -- vertel de controller dat je wil schrijven						
 					end if;

@@ -76,6 +76,7 @@ begin
 									elsif instr = "0000" then
 										--switch screen buffer
 										asb <= not asb;
+										int_ready <= '1';
 									end if;
 								end if;
 								--pass through color

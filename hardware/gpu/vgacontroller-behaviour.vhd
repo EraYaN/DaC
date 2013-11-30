@@ -22,7 +22,7 @@ BEGIN
 		end if;
     END IF;
   END PROCESS;
-  vga_combi: PROCESS(reset_n,h_count,v_count,vga_can_access,ramdata)    
+  vga_combi: PROCESS(reset_n,h_count,v_count,vga_can_access,ramdata,asb)    
    BEGIN
     IF(reset_n = '0') THEN  --reset asserted		
 		vgahsync <= NOT h_pol;  --deassert horizontal sync

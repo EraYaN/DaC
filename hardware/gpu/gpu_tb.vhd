@@ -121,13 +121,21 @@ sr: sram port map (
 		sendByte("00101000",spi_mosi,spiclk_en); -- H = 40
 		wait until rising_edge(int_ready);
 		wait until rising_edge(clk);
+		sendByte("00110000",spi_mosi,spiclk_en); -- rect with 0000 (black)
+		sendByte("00110010",spi_mosi,spiclk_en); -- X = 50
+		sendByte("00101000",spi_mosi,spiclk_en); -- Y = 40
+		sendByte("00110010",spi_mosi,spiclk_en); -- W = 50
+		sendByte("00101000",spi_mosi,spiclk_en); -- H = 40
+		wait until rising_edge(int_ready);
+		wait until rising_edge(clk);
 		sendByte("00000000",spi_mosi,spiclk_en); -- switch screenbuffers
+		--wait until rising_edge(int_ready); --this one is too fast
+		wait until rising_edge(clk);
+		wait until rising_edge(clk);
+		sendByte("00010000",spi_mosi,spiclk_en); -- fill with 0000 (white)		
 		wait until rising_edge(int_ready);
 		wait until rising_edge(clk);
-		sendByte("00011111",spi_mosi,spiclk_en); -- fill with 1111 (white)		
-		wait until rising_edge(int_ready);
-		wait until rising_edge(clk);
-		sendByte("00101111",spi_mosi,spiclk_en); -- pixel with 0110 (white)
+		sendByte("00101111",spi_mosi,spiclk_en); -- pixel with 1111 (white)
 		sendByte("00101000",spi_mosi,spiclk_en); -- X = 40
 		sendByte("00110010",spi_mosi,spiclk_en); -- Y = 50
 		wait until rising_edge(int_ready);	

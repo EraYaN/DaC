@@ -164,7 +164,7 @@ namespace SRAMDebugTool
 								}
 								else
 								{
-									int grayvalue = Conv8to4((int)Math.Round(((float)c.B + (float)c.G + (float)c.R)) / 3);
+									int grayvalue = Conv8to4(ConvRGBto8(c));
 									VHDLString.Append(Convert.ToString(grayvalue, 2).PadLeft(4, '0'));
 								}
 							}
@@ -188,5 +188,9 @@ namespace SRAMDebugTool
 		{
 			return (int)Math.Min(15, Math.Round((double)a / 255.0 * 15.0));
 		}
+        int ConvRGBto8(Color c)
+        {
+            return (int)Math.Round(((float)c.B + (float)c.G + (float)c.R) / 3);
+        }
 	}
 }

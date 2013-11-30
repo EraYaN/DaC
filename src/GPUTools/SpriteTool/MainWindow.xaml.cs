@@ -93,7 +93,7 @@ namespace SpriteTool
             {
                 sw.WriteLine("byte w = {0};", w);
                 sw.WriteLine("byte h = {0};", h);
-                sw.WriteLine("SpriteType stype = SpriteType.{0};", stype);
+                sw.WriteLine("SpriteType stype = {0};", stype);
                 sw.WriteLine("byte[] data = {");
                 int data = 0;
                 if (stype == SpriteType.Mono)
