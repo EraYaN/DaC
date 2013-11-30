@@ -67,7 +67,11 @@ procedure sendByte( byte : in std_logic_vector(SizeSPIData-1 downto 0);
 		end loop; -- works for any size byte
 		wait until falling_edge(spiclk);
 		spiclk_en <= '0';
+<<<<<<< HEAD
 		mosi <= '1';
+=======
+		spi_mosi <= '1';
+>>>>>>> 452293b8b33b83635b22968fe10b363d02f12c62
 end sendByte;
 
 begin
