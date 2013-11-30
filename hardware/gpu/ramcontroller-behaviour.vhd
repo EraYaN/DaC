@@ -9,15 +9,16 @@ begin
 		draw_can_access <= NOT vga_claim AND NOT decoder_claim;	
 		vga_can_access <= '1';
 		decoder_can_access <= NOT vga_claim;
-		if vga_claim = '1' then	
-			write_enable <= transport '0' after 2 ns;
-		elsif decoder_claim = '1' then
-			write_enable <= transport (decoder_write and clk) after 2 ns;	
-		else
-			write_enable <= transport (draw_write AND NOT draw_read AND clk) after 2 ns;
-		end if;		
+		-- if vga_claim = '1' then	
+			-- write_enable <= transport '0' after 2 ns;
+		-- elsif decoder_claim = '1' then
+			-- write_enable <= transport (decoder_write and clk) after 2 ns;	
+		-- else
+			-- write_enable <= transport (draw_write AND NOT draw_read AND clk) after 2 ns;
+		-- end if;	
+		write_enable <= transport ((decoder_write OR draw_write) AND clk) after 2 ns;		
 	else
-		write_enable <= decoder_write and decoder_claim;
+		write_enable <= decoder_write;
 		decoder_can_access <= '1';
 		draw_can_access <= '0';
 		vga_can_access <= '0';

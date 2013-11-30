@@ -63,7 +63,7 @@ procedure sendByte( byte : in std_logic_vector(SizeSPIData-1 downto 0);
 			mosi <= byte(J);
 			
 		end loop; -- works for any size byte
-		wait until rising_edge(spiclk);
+		wait until falling_edge(spiclk);
 		spiclk_en <= '0';
 end sendByte;
 
@@ -113,20 +113,25 @@ sr: sram port map (
 		wait until rising_edge(clk);	
 		sendByte("00011111",spi_mosi,spiclk_en); -- fill with 1111 (white)		
 		wait until rising_edge(int_ready);
+		wait until rising_edge(clk);
 		sendByte("01001010",spi_mosi,spiclk_en); -- frect with 1010 (grey/pink)
 		sendByte("00110010",spi_mosi,spiclk_en); -- X = 50
 		sendByte("00101000",spi_mosi,spiclk_en); -- Y = 40
 		sendByte("00110010",spi_mosi,spiclk_en); -- W = 50
 		sendByte("00101000",spi_mosi,spiclk_en); -- H = 40
 		wait until rising_edge(int_ready);
+		wait until rising_edge(clk);
 		sendByte("00000000",spi_mosi,spiclk_en); -- switch screenbuffers
 		wait until rising_edge(int_ready);
+		wait until rising_edge(clk);
 		sendByte("00011111",spi_mosi,spiclk_en); -- fill with 1111 (white)		
 		wait until rising_edge(int_ready);
+		wait until rising_edge(clk);
 		sendByte("00101111",spi_mosi,spiclk_en); -- pixel with 0110 (white)
 		sendByte("00101000",spi_mosi,spiclk_en); -- X = 40
 		sendByte("00110010",spi_mosi,spiclk_en); -- Y = 50
-		wait until rising_edge(int_ready);		
+		wait until rising_edge(int_ready);	
+		wait until rising_edge(clk);		
 		--finish
 		dump <= TRUE;
 		wait until rising_edge(clk);
