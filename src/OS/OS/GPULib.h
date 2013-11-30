@@ -6,6 +6,7 @@
 #define INT_READY_PIN 0
 
 #include "Arduino.h"
+#include "SPI.h"
 
 struct Instruction {
 	//instruction data
@@ -19,8 +20,11 @@ struct Instruction {
 class GPULib
 {
 public:
+	//general
 	GPULib(); //Constructor
 	~GPULib(); //Destructor
+
+	//instructions and queue
 	void clearQueue();
 	void cleanUp();
 	void transferQueue();
@@ -28,6 +32,7 @@ public:
 	void appendInstructionToQueue(Instruction *instruction);
 	void shiftQueue();
 
+	//draw
 	void switchScreenBuffer();
 	void drawFill(byte color);
 	void drawPixel(byte x, byte y, byte color);
@@ -37,6 +42,7 @@ public:
 	void drawCircle(byte x, byte y, byte r, byte color);
 	void drawFilledCircle(byte x, byte y, byte r, byte color);
 
+	//other
 	friend void drawReady();
 
 protected:
