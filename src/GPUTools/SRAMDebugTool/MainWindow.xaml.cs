@@ -164,7 +164,7 @@ namespace SRAMDebugTool
 								}
 								else
 								{
-									int grayvalue = Conv8to4((int)Math.Round(((float)c.B + (float)c.G + (float)c.R)) / 3 / 255 * 15);
+									int grayvalue = Conv8to4((int)Math.Round(((float)c.B + (float)c.G + (float)c.R)) / 3);
 									VHDLString.Append(Convert.ToString(grayvalue, 2).PadLeft(4, '0'));
 								}
 							}
