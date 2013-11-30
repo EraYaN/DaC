@@ -51,12 +51,14 @@ signal ramaddr : std_logic_vector(SizeRAMAddr-1 downto 0);
 signal ramdata : std_logic_vector(SizeRAMData-1 downto 0);
 signal download, dump :boolean := FALSE;
 signal int_ready:std_logic;
-
+signal spibyte : integer :=0;
 
 procedure sendByte( byte : in std_logic_vector(SizeSPIData-1 downto 0);
 	signal mosi : out std_logic;
-	signal spiclk_en : out std_logic) is
-	begin		
+	signal spiclk_en : out std_logic;
+	signal spibyte : inout integer) is
+	begin	
+		spibyte<=spibyte+1;
 		spiclk_en <= '1';
 		for J in byte'range loop
 			wait until rising_edge(spiclk);
@@ -65,6 +67,7 @@ procedure sendByte( byte : in std_logic_vector(SizeSPIData-1 downto 0);
 		end loop; -- works for any size byte
 		wait until falling_edge(spiclk);
 		spiclk_en <= '0';
+		spi_mosi <= '1';
 end sendByte;
 
 begin
@@ -104,40 +107,40 @@ sr: sram port map (
 	begin
 		--setup
 		reset <= '1';
-		spi_mosi <= '0';
+		spi_mosi <= '1';
 		spiclk_en <= '0';
 		download <= FALSE;
 		wait until rising_edge(clk);
 		wait until rising_edge(clk);
 		reset <= '0';
 		wait until rising_edge(clk);	
-		sendByte("00011111",spi_mosi,spiclk_en); -- fill with 1111 (white)		
+		sendByte("00011111",spi_mosi,spiclk_en, spibyte); -- fill with 1111 (white)	--byte 1
 		wait until rising_edge(int_ready);
 		wait until rising_edge(clk);
-		sendByte("01001010",spi_mosi,spiclk_en); -- frect with 1010 (grey/pink)
-		sendByte("00110010",spi_mosi,spiclk_en); -- X = 50
-		sendByte("00101000",spi_mosi,spiclk_en); -- Y = 40
-		sendByte("00110010",spi_mosi,spiclk_en); -- W = 50
-		sendByte("00101000",spi_mosi,spiclk_en); -- H = 40
+		sendByte("01001010",spi_mosi,spiclk_en, spibyte); -- frect with 1010 (grey/pink) --byte 2
+		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- X = 50 --byte 3
+		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- Y = 40 --byte 4
+		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- W = 50 --byte 5
+		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- H = 40 --byte 6
 		wait until rising_edge(int_ready);
 		wait until rising_edge(clk);
-		sendByte("00110000",spi_mosi,spiclk_en); -- rect with 0000 (black)
-		sendByte("00110010",spi_mosi,spiclk_en); -- X = 50
-		sendByte("00101000",spi_mosi,spiclk_en); -- Y = 40
-		sendByte("00110010",spi_mosi,spiclk_en); -- W = 50
-		sendByte("00101000",spi_mosi,spiclk_en); -- H = 40
+		sendByte("00110000",spi_mosi,spiclk_en, spibyte); -- rect with 0000 (black) --byte 7
+		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- X = 50 --byte 8
+		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- Y = 40 --byte 9
+		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- W = 50 --byte 10
+		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- H = 40 --byte 11
 		wait until rising_edge(int_ready);
 		wait until rising_edge(clk);
-		sendByte("00000000",spi_mosi,spiclk_en); -- switch screenbuffers
+		sendByte("00000000",spi_mosi,spiclk_en, spibyte); -- switch screenbuffers --byte 12
 		--wait until rising_edge(int_ready); --this one is too fast
 		wait until rising_edge(clk);
 		wait until rising_edge(clk);
-		sendByte("00010000",spi_mosi,spiclk_en); -- fill with 0000 (white)		
+		sendByte("00010000",spi_mosi,spiclk_en, spibyte); -- fill with 0000 (white)	--byte 13
 		wait until rising_edge(int_ready);
 		wait until rising_edge(clk);
-		sendByte("00101111",spi_mosi,spiclk_en); -- pixel with 1111 (white)
-		sendByte("00101000",spi_mosi,spiclk_en); -- X = 40
-		sendByte("00110010",spi_mosi,spiclk_en); -- Y = 50
+		sendByte("00101111",spi_mosi,spiclk_en, spibyte); -- pixel with 1111 (white) --byte 14
+		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- X = 40 --byte 15
+		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- Y = 50 --byte 16
 		wait until rising_edge(int_ready);	
 		wait until rising_edge(clk);		
 		--finish
