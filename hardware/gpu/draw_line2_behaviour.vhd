@@ -12,6 +12,10 @@ architecture behaviour of draw_line2 is
 	signal next_done, next_draw_write : std_logic;
 	signal next_ramaddr : std_logic_vector(SizeRAMAddr-1 downto 0);
 	signal next_ramdata : std_logic_vector(SizeRAMData-1 downto 0);
+
+	signal dx_debug : signed(SizeX downto 0);
+	signal dy_debug : signed(SizeY downto 0);
+	
 begin
 	draw_line_seq: process (clk)
 		
@@ -41,32 +45,35 @@ begin
 
 	draw_line_comb: process (reset, enable, draw_can_access, asb, x0, x1, y0, y1, color, cx, cy, err, setup)
 		variable e2 : signed(SizeX+2 downto 0);
-		variable dx : signed(SizeX-1 downto 0);
-		variable dy : signed(SizeY-1 downto 0);
+		variable dx : signed(SizeX downto 0);
+		variable dy : signed(SizeY downto 0);
 		variable sx, sy : signed(1 downto 0);
 		variable next_err_var : signed(SizeX+2 downto 0);
 	begin
-		if enable = '1' and draw_can_access = '1' then
-			--defaults
-			next_done <= '0';
-			next_draw_write <= '0';
-			next_ramaddr <= (others => 'Z');
-			next_ramdata <= (others => 'Z');
-			next_setup <= '1';
-			next_err_var := err;
-			next_cx <= cx;
-			next_cy <= cy;
+		--defaults
+		next_done <= '0';
+		next_draw_write <= '0';
+		next_ramaddr <= (others => 'Z');
+		next_ramdata <= (others => 'Z');
+		next_setup <= '1';
+		next_err_var := err;
+		next_cx <= cx;
+		next_cy <= cy;
 
+		if enable = '1' and draw_can_access = '1' then
 			--init
-			dx := abs(signed(x1) - signed(x0));
-			dy := abs(signed(y1) - signed(y0));
+			dx := abs(signed(resize(unsigned(x1), dx'length) - resize(unsigned(x0), dx'length)));
+			dy := abs(signed(resize(unsigned(y1), dy'length) - resize(unsigned(y0), dy'length)));
 			if x0 < x1 then sx := to_signed(1, sx'length); else sx := to_signed(-1, sx'length); end if;
-			if y0 < x1 then sy := to_signed(1, sy'length); else sy := to_signed(-1, sy'length); end if;
+			if y0 < y1 then sy := to_signed(1, sy'length); else sy := to_signed(-1, sy'length); end if;
+
+			dx_debug <= dx;
+			dy_debug <= dy;
 
 			if setup = '1' then
 				next_cx <= signed(x0);
 				next_cy <= signed(y0);					
-				next_err_var(SizeX-1 downto 0) := dx - dy;
+				next_err_var := resize(dx - dy, next_err'length);
 				next_setup <= '0';
 			else
 				--draw next pixel
@@ -79,21 +86,23 @@ begin
 					next_done <= '1';
 					next_setup <= '1';
 				else
-					e2 := next_err_var sll 1; --multiply by 2
+					e2 := err sll 1; --multiply by 2
 
 					if e2 > -dy then
 						next_err_var := next_err_var - dy;
 						next_cx <= cx + sx;
 					end if;
 
-					if (cx + sx) /= signed(x1) and (cy + sy) /= signed(y1) and e2 < dx then
+					if not ((cx + sx) = signed(x1) and (cy + sy) = signed(y1)) and e2 < dx then
 						next_err_var := next_err_var + dx;
 						next_cy <= cy + sy;
 					end if;
 				end if;
 
-				next_err <= next_err_var;
+				next_setup <= '0';
 			end if;
+
+			next_err <= next_err_var;
 		end if;
 	end process;
 end behaviour;
