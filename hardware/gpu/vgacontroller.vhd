@@ -15,7 +15,8 @@ ENTITY vgacontroller IS
     v_bp     :  INTEGER   := 33;    --vertical back porch width in rows (default = 33)
     v_pixels :  INTEGER   := 480;  --vertical display width in rows (default = 480)
     v_fp     :  INTEGER   := 10;     --vertical front porch width in rows (default = 10)
-    v_pol    :  STD_LOGIC := '0');  --vertical sync pulse polarity (1 = positive, 0 = negative) (default = 0)
+    v_pol    :  STD_LOGIC := '0'
+	);
 
 	PORT(
 		clk :  IN   STD_LOGIC;  --pixel clock at frequency of VGA mode being used
