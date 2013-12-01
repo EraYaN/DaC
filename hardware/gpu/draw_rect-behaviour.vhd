@@ -57,7 +57,11 @@ draw_rect_combi: process (reset, enable, enablef, draw_can_access, x, y, w, h, a
 									cx_tmp <= cx-1;
 								else
 									--not filled
-									cx_tmp <= unsigned(x);
+									if cy = unsigned(y) or cy = unsigned(y)+unsigned(h) then
+										cx_tmp <= cx-1;
+									else
+										cx_tmp <= unsigned(x);
+									end if;
 								end if;
 								cy_tmp <= cy;
 							end if;

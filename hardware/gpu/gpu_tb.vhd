@@ -57,17 +57,24 @@ procedure sendByte( byte : in std_logic_vector(SizeSPIData-1 downto 0);
 	signal mosi : out std_logic;
 	signal spiclk_en : out std_logic;
 	signal spibyte : inout integer) is
+	variable first : boolean := TRUE;
 	begin	
+		wait until rising_edge(spiclk);
 		spibyte<=spibyte+1;
 		spiclk_en <= '1';
-		for J in byte'range loop
-			wait until rising_edge(spiclk);
+		for J in byte'range loop	
+			if NOT first then
+				wait until rising_edge(spiclk);
+			else
+				first := FALSE;
+			end if;
 			mosi <= byte(J);
 			
 		end loop; -- works for any size byte
 		wait until falling_edge(spiclk);
 		spiclk_en <= '0';
 		mosi <= '1';
+		wait for 600 ns;
 end sendByte;
 
 begin
