@@ -4,10 +4,10 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C20F484) Path("C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/vgacontroller/quartus_DE1/") File("top_de1.sof") MfrSpec(OpMask(1));
+		Device PartName(EPCS4) Path("C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/quartus/") File("output_file.pof") MfrSpec(OpMask(1) Child_OpMask(1 1));
 
 ChainEnd;
 
 AlteraBegin;
-	ChainType(JTAG);
+	ChainType(asc);
 AlteraEnd;

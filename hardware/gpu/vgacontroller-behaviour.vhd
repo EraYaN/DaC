@@ -22,7 +22,7 @@ ARCHITECTURE behaviour OF vgacontroller IS
 BEGIN
   v_row_tmp <= v_count/4;
   v_row <= v_row_tmp(SizeY-1 downto 0);
-  h_col <= h_count(SizeX-1 downto 0);
+  h_col <= h_count(SizeX-1 downto 0)-h_fp;
   vga_counter: PROCESS(clk)    
    BEGIN
     IF(rising_edge(clk)) THEN		
@@ -69,18 +69,23 @@ BEGIN
 			vgavsync <= v_pol;        --assert vertical sync pulse
 		END IF;
 
-		IF(((h_count < h_pixels+1 AND v_count < v_pixels+1) OR h_count > h_period-2 OR v_count > v_period-2) AND vga_can_access = '1') THEN  --display time (-2)
+		IF(((h_count < h_pixels+1+h_fp AND v_count < v_pixels+1) OR h_count > h_period-2 OR v_count > v_period-2) AND vga_can_access = '1') THEN  --display time (-2)
 			vga_claim <= '1';
 		ELSE                                                --blanking time (-2)
 			vga_claim <= '0'; 								
 		END IF;
 
 		--set display enable output
-		IF(h_count < h_pixels AND v_count < v_pixels AND vga_can_access = '1') THEN  --display time
-			vga_read <= '1';
-			vgacolor <= ramdata;
-			 --set pixel coordinates			
-			ramaddr <= asb & std_logic_vector(v_row) & std_logic_vector(h_col);         --set RAM Addr
+		IF(h_count < h_pixels+h_fp AND v_count < v_pixels) THEN  --display time
+			if vga_can_access = '1' THEN		
+				vga_read <= '1';
+				vgacolor <= ramdata;
+				ramaddr <= asb & std_logic_vector(v_row) & std_logic_vector(h_col);         --set RAM Addr
+			else
+				vga_read <= '0';	
+				vgacolor <= (others => std_logic(h_col(0)) XOR std_logic(v_row(0)));	
+				ramaddr <= (others => 'Z');	
+			end if;
 		ELSE                                                --blanking time
 			vga_read <= '0';	
 			vgacolor <= (others => '0');	
@@ -90,12 +95,3 @@ BEGIN
   END PROCESS;
 
 END behaviour;
-
-
-
-
-
-
-
-
-

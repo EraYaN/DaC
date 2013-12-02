@@ -4,6 +4,9 @@
 #define MAX_NUM_INSTR_PACKETS 5
 #define MAX_QUEUE_SIZE 100
 #define INT_READY_PIN 0
+#define XMAX 159
+#define YMAX 119
+#define clamp(v,vmin,vmax) max(vmin,min(vmax,v));
 
 #include "Arduino.h"
 #include "SPI.h"
@@ -42,13 +45,13 @@ public:
 	void drawCircle(byte x, byte y, byte r, byte color);
 	void drawFilledCircle(byte x, byte y, byte r, byte color);
 
+	//fake draw	
+	void drawTriangle(byte x0, byte y0, byte x1, byte y1, byte x2, byte y2, byte color);
+	void drawPoly(byte* x, byte* y, byte size, byte color);
+
 	//state variable;
 	bool sending;
 
-	//other
-	friend void drawReady();
-
-protected:
 	Instruction *queueHead, *queueTail; //head and tail of linked list
 };
 

@@ -11,9 +11,6 @@ architecture behaviour of draw_line is
 
 	signal next_ramaddr : std_logic_vector(SizeRAMAddr-1 downto 0);
 	signal next_ramdata : std_logic_vector(SizeRAMData-1 downto 0);
-
-	signal dx_debug : signed(SizeX downto 0);
-	signal dy_debug : signed(SizeY downto 0);
 	
 begin
 	draw_line_seq: process (clk)
@@ -31,7 +28,7 @@ begin
 	ramdata <= color WHEN draw_write = '1' ELSE (others => 'Z');
 	next_ramaddr <= std_logic_vector((NOT asb) & cy & cx);	
 
-	draw_line_comb: process (reset, enable, draw_can_access, asb, x0, x1, y0, y1, color, cx, cy, err, setup)
+	draw_line_comb: process (reset, enable, draw_can_access, x0, x1, y0, y1, cx, cy, err, setup)
 		variable e2 : signed(next_err'length downto 0);
 		variable dx : signed(SizeX downto 0);
 		variable dy : signed(SizeY downto 0);
@@ -64,8 +61,8 @@ begin
 			if x0 < x1 then sx := to_signed(1, sx'length); else sx := to_signed(-1, sx'length); end if;
 			if y0 < y1 then sy := to_signed(1, sy'length); else sy := to_signed(-1, sy'length); end if;
 
-			dx_debug <= dx;
-			dy_debug <= dy;
+			--dx_debug <= dx;
+			--dy_debug <= dy;
 
 			if setup = '1' then
 				next_cx <= signed(x0);

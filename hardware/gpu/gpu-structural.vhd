@@ -58,7 +58,7 @@ architecture structural of gpu is
 			spi_data_available : out std_logic;
 			--DataToTx : in std_logic_vector(SizeSPIData-1 downto 0);
 			--DataToTxLoad: in std_logic;
-			spi_data_rx : out std_logic_vector(sizespidata-1 downto 0)
+			spi_data_rx : out std_logic_vector(SizeSPIData-1 downto 0)
 		);
 	end component;
 
@@ -142,7 +142,8 @@ begin
 
 	reset_n <= not reset;
 	ramwe_n <= not ramwe;
-	
+	asb_debug <= asb;
+	spi_debug<=spi_data_rx;
 	draw1: draw port map (
 		clk=>clk,
 		reset=>reset,

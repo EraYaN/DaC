@@ -90,10 +90,19 @@ set_location_assignment PIN_B15 -to RAMDATA[1]
 set_location_assignment PIN_B16 -to RAMDATA[0]
 set_location_assignment PIN_B17 -to RAMWE
 set_location_assignment PIN_B18 -to SPICLK
-set_location_assignment PIN_B19 -to SPIMISO
-set_location_assignment PIN_B20 -to SPIMOSI
+set_location_assignment PIN_B19 -to SPIMOSI
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_location_assignment PIN_B20 -to int_ready
+set_location_assignment PIN_U21 -to debug1
+set_location_assignment PIN_V22 -to debug2
+set_location_assignment PIN_V21 -to debug3
+set_location_assignment PIN_W22 -to debug4
+set_location_assignment PIN_W21 -to debug5
+set_location_assignment PIN_Y22 -to debug6
+set_location_assignment PIN_Y21 -to debug7
+set_global_assignment -name VHDL_FILE "../draw_line-behaviour.vhd"
+set_global_assignment -name VHDL_FILE ../draw_line.vhd
 set_global_assignment -name VHDL_FILE "../vgacontroller-behaviour.vhd"
 set_global_assignment -name VHDL_FILE ../vgacontroller.vhd
 set_global_assignment -name VHDL_FILE ../sram.vhd
@@ -109,8 +118,6 @@ set_global_assignment -name VHDL_FILE "../draw_rect-behaviour.vhd"
 set_global_assignment -name VHDL_FILE ../draw_rect.vhd
 set_global_assignment -name VHDL_FILE "../draw_pixel-behaviour.vhd"
 set_global_assignment -name VHDL_FILE ../draw_pixel.vhd
-set_global_assignment -name VHDL_FILE ../draw_line2_behaviour.vhd
-set_global_assignment -name VHDL_FILE ../draw_line2.vhd
 set_global_assignment -name VHDL_FILE "../draw_fill-behaviour.vhd"
 set_global_assignment -name VHDL_FILE ../draw_fill.vhd
 set_global_assignment -name VHDL_FILE "../draw_circle-behaviour.vhd"
@@ -122,4 +129,15 @@ set_global_assignment -name VHDL_FILE pre_vga_dac_4.vhd
 set_global_assignment -name VHDL_FILE gen6mhz.vhd
 set_global_assignment -name BDF_FILE top_de1.bdf
 set_global_assignment -name CDF_FILE "F:/Altera/13.0sp1/quartus/bin64/output_files/Chain3.cdf"
+set_location_assignment PIN_U22 -to debug0
+set_location_assignment PIN_R21 -to debug_in
+set_location_assignment PIN_U18 -to debug8[7]
+set_location_assignment PIN_Y18 -to debug8[6]
+set_location_assignment PIN_V19 -to debug8[5]
+set_location_assignment PIN_T18 -to debug8[4]
+set_location_assignment PIN_Y19 -to debug8[3]
+set_location_assignment PIN_U19 -to debug8[2]
+set_location_assignment PIN_R19 -to debug8[1]
+set_location_assignment PIN_R20 -to debug8[0]
+set_location_assignment PIN_L22 -to color_mode
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -4,13 +4,9 @@ use IEEE.numeric_std.all;
 use work.parameter_def.all;
 
 architecture behaviour of decoder is
-	--SPI sync signals
-	--signal dav_latched, dav_old : std_logic;
-
 	--persistent signals
 	signal packet_num : unsigned(MaxNumPackets-1 downto 0);
 	signal instruction : std_logic_vector(InstrSize-1 downto 0);
-	
 begin
 	--synchronizer + input buffer + output buffer + state change
 	decoder1: process (clk)
@@ -39,17 +35,13 @@ begin
 				is_init <= '1';
 
 			else
-				--synchronize data available flag
-				--dav_latched <= spi_data_available;
-				--dav_old <= dav_latched;
-
 				if draw_ready = '1' then
 					--disable all draw modules
 					en <= (others => '0');
 					--inform CPU
-					int_ready <= '1';
-				--elsif dav_latched = '1' and dav_old = '0' then
-			elsif spi_data_available = '1' then
+					int_ready <= '1';					
+				end if;
+				if spi_data_available = '1' then
 					--perform action upon data available change
 					--init variables
 					done := '0';
