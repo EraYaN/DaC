@@ -17,8 +17,8 @@ draw_pixel_seq:	process (clk)
 	end process;
 	ramaddr <= ramaddr_tmp WHEN oe = '1' ELSE (others => 'Z');
 	ramdata <= color WHEN oe = '1' ELSE (others => 'Z');
-	ramaddr_tmp <= std_logic_vector((NOT asb) & cy & cx);	
-draw_pixel_combi:	process(reset, enable, draw_can_access, busy, y, x)
+	ramaddr_tmp <= std_logic_vector((NOT asb) & y & x);	
+draw_pixel_combi:	process(reset, enable, draw_can_access, busy)
 	begin
 		if reset = '0' and enable = '1' and draw_can_access = '1' then -- RAM is free to access			
 			if busy = '0' then --we are not busy							
