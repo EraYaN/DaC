@@ -29,7 +29,8 @@ component draw_rect is
 	
 	--input signalen
 	signal clk, reset, enable, enablef, asb, draw_can_acces: std_logic;
-	signal x, y, w, h		   : std_logic_vector(SizeX-1 downto 0);
+	signal x, w 		   : std_logic_vector(SizeX-1 downto 0);
+	signal y, h      : std_logic_vector(SizeY-1 downto 0);
 	signal color			       : std_logic_vector(SizeColor-1 downto 0);
 	
 	--output signalen
@@ -37,7 +38,7 @@ component draw_rect is
 	signal ramaddr : std_logic_vector(SizeRAMAddr-1 downto 0);
 	signal ramdata : std_logic_vector(SizeRAMData-1 downto 0);
 	
-begin process	
+
 begin
 	
 	clk <=            '1' after 0 ns,
@@ -104,5 +105,5 @@ lbl: draw_rect port map(
 		       draw_write       => draw_write,     
 		       draw_can_access  => draw_can_acces
 		       );     
-end process;
+
 end behaviour;
