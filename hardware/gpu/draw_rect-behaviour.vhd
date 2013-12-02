@@ -88,7 +88,7 @@ draw_rect_combi: process (reset, enable, enablef, draw_can_access, x0, y0, x1, y
 					cx_tmp <= cx;
 					cy_tmp <= cy;
 					oe <= '0';
-					draw_write_tmp <= '0';
+					draw_write <= '0';
 					done <= '0';
 					almost_done_tmp <= '0';
 					started_tmp <= started;
@@ -97,7 +97,7 @@ draw_rect_combi: process (reset, enable, enablef, draw_can_access, x0, y0, x1, y
 				cx_tmp <= (others => '0');--unsigned(x)+unsigned(w);
 				cy_tmp <= (others => '0');--unsigned(y)+unsigned(h);
 				oe <= '0';
-				draw_write_tmp <= '0';
+				draw_write <= '0';
 				done <= '0';
 				almost_done_tmp <= '0';
 				started_tmp <= '0';
