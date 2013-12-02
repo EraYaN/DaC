@@ -17,7 +17,7 @@ component draw_line is
 		done  : out   std_logic;
 		ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
 		ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);
-		draw_write :out std_logic;
+		draw_write :buffer std_logic;
 		draw_can_access : in std_logic
 	);
 end component;
@@ -44,7 +44,7 @@ begin
 	x1	<= "10101010" after 0 ns;
 	y1	<= "0001111" after 0 ns;
 	
-	connect: draw_line2 port map(
+	connect: draw_line port map(
 	  	clk              => clk,   
 		reset            => reset, 
 		enable           => enable,

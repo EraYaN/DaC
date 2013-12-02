@@ -42,6 +42,9 @@ public:
 	void drawCircle(byte x, byte y, byte r, byte color);
 	void drawFilledCircle(byte x, byte y, byte r, byte color);
 
+	//state variable;
+	bool sending;
+
 	//other
 	friend void drawReady();
 

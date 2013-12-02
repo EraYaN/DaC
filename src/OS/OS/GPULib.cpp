@@ -8,6 +8,7 @@ GPULib::GPULib()
 {
 	queueHead = NULL;
 	queueTail = NULL;
+	sending = false;
 }
 
 GPULib::~GPULib()
@@ -37,11 +38,13 @@ void GPULib::transferQueue()
 
 void GPULib::sendNextInstruction()
 {
+	sending = true;
 	for (int j=0; j<(queueHead->numPackets); j++)
 	{
 		SPI.transfer(queueHead->packets[j]);
 	}
 	shiftQueue();
+	sending = false;
 }
 
 void GPULib::appendInstructionToQueue(Instruction *instruction)
@@ -87,27 +90,27 @@ void GPULib::drawPixel(byte x, byte y, byte color)
 	appendInstructionToQueue(instr);
 }
 
-void GPULib::drawRect(byte x, byte y, byte w, byte h, byte color)
+void GPULib::drawRect(byte x0, byte y0, byte x1, byte y1, byte color)
 {
 	Instruction *instr = new Instruction;
 	instr->numPackets = 5;
 	instr->packets[0] = color | B00110000;
-	instr->packets[1] = x;
-	instr->packets[2] = y;
-	instr->packets[3] = w;
-	instr->packets[4] = h;
+	instr->packets[1] = x0;
+	instr->packets[2] = y0;
+	instr->packets[3] = x1;
+	instr->packets[4] = y1;
 	appendInstructionToQueue(instr);
 }
 
-void GPULib::drawFilledRect(byte x, byte y, byte w, byte h, byte color)
+void GPULib::drawFilledRect(byte x0, byte y0, byte x1, byte y1, byte color)
 {
 	Instruction *instr = new Instruction;
 	instr->numPackets = 5;
 	instr->packets[0] = color | B01000000;
-	instr->packets[1] = x;
-	instr->packets[2] = y;
-	instr->packets[3] = w;
-	instr->packets[4] = h;
+	instr->packets[1] = x0;
+	instr->packets[2] = y0;
+	instr->packets[3] = x1;
+	instr->packets[4] = y1;
 	appendInstructionToQueue(instr);
 }
 

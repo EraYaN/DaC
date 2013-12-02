@@ -2,6 +2,8 @@
 #include "SPI.h"
 
 GPULib *GPU;
+unsigned long lastDrawReady;
+bool running;
 
 void setup()
 {
@@ -12,21 +14,45 @@ void setup()
 	SPI.setClockDivider(SPI_CLOCK_DIV8);
 	SPI.setDataMode(SPI_MODE0);
 	SPI.begin();
+
+	running = true;
+	pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop()
 {
-	GPU->drawFill(0);
-	GPU->drawRect(0,0,80,60,8);
-	GPU->drawLine(57,6,67,10,15);
-	GPU->transferQueue();
-	GPU->cleanUp();
+	if (running)
+	{
+		if (lastDrawReady > 0 && millis() - lastDrawReady > 10)
+		{
+			digitalWrite(LED_BUILTIN, LOW);
+			lastDrawReady = 0;
+		}
+
+		GPU->drawFill(B1111);
+		GPU->drawFilledRect(50, 40, 120, 80, B1010);
+		GPU->drawRect(50, 40, 120, 80, B0);
+		GPU->switchScreenBuffer();
+		GPU->drawPixel(50, 40, B1111);
+		GPU->transferQueue();
+		GPU->cleanUp();
+	}
 }
 
 void drawReady()
 {
-	if (GPU->queueHead != NULL)
+	if (running)
 	{
-		GPU->sendNextInstruction();
+		if (GPU->queueHead != NULL && !GPU->sending)
+		{
+			lastDrawReady = millis();
+			digitalWrite(LED_BUILTIN, HIGH);
+			GPU->sendNextInstruction();
+		}
+		else
+		{
+			//shit broke
+			running = false;
+		}
 	}
 }
