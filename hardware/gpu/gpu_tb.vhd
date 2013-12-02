@@ -125,17 +125,17 @@ sr: sram port map (
 		wait until rising_edge(int_ready);
 		wait until rising_edge(clk);
 		sendByte("01001010",spi_mosi,spiclk_en, spibyte); -- frect with 1010 (grey/pink) --byte 2
-		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- X = 50 --byte 3
-		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- Y = 40 --byte 4
-		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- W = 50 --byte 5
-		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- H = 40 --byte 6
+		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- X0 = 40 --byte 3
+		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- Y0 = 50 --byte 4
+		sendByte("01111000",spi_mosi,spiclk_en, spibyte); -- X1 = 120 --byte 5
+		sendByte("01010000",spi_mosi,spiclk_en, spibyte); -- Y1 = 80 --byte 6
 		wait until rising_edge(int_ready);
 		wait until rising_edge(clk);
 		sendByte("00110000",spi_mosi,spiclk_en, spibyte); -- rect with 0000 (black) --byte 7
-		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- X = 50 --byte 8
-		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- Y = 40 --byte 9
-		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- W = 50 --byte 10
-		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- H = 40 --byte 11
+		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- X0 = 40 --byte 8
+		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- Y0 = 50 --byte 9
+		sendByte("01111000",spi_mosi,spiclk_en, spibyte); -- X1 = 120 --byte 10
+		sendByte("01010000",spi_mosi,spiclk_en, spibyte); -- Y1 = 80 --byte 11
 		wait until rising_edge(int_ready);
 		wait until rising_edge(clk);
 		sendByte("00000000",spi_mosi,spiclk_en, spibyte); -- switch screenbuffers --byte 12
