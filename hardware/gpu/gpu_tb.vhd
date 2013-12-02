@@ -145,9 +145,11 @@ sr: sram port map (
 		sendByte("00010000",spi_mosi,spiclk_en, spibyte); -- fill with 0000 (white)	--byte 13
 		wait until rising_edge(int_ready);
 		wait until rising_edge(clk);
-		sendByte("00101111",spi_mosi,spiclk_en, spibyte); -- pixel with 1111 (white) --byte 14
-		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- X = 40 --byte 15
-		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- Y = 50 --byte 16
+		sendByte("01011111",spi_mosi,spiclk_en, spibyte); -- pixel with 1111 (white) --byte 14
+		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- X0 = 40 --byte 15
+		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- Y0 = 50 --byte 16
+		sendByte("01111000",spi_mosi,spiclk_en, spibyte); -- X1 = 120 --byte 17
+		sendByte("01010000",spi_mosi,spiclk_en, spibyte); -- Y1 = 80 --byte 18
 		wait until rising_edge(int_ready);	
 		wait until rising_edge(clk);		
 		--finish

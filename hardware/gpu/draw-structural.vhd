@@ -41,10 +41,10 @@ architecture structural of draw is
 		reset : in    std_logic;
 		enable: in    std_logic;
 		enablef: in    std_logic;
-		x  : in    std_logic_vector(SizeX-1 downto 0);
-		y  : in    std_logic_vector(SizeY-1 downto 0);
-		w  : in    std_logic_vector(SizeX-1 downto 0);
-		h  : in    std_logic_vector(SizeY-1 downto 0);
+		x0  : in    std_logic_vector(SizeX-1 downto 0);
+		y0  : in    std_logic_vector(SizeY-1 downto 0);
+		x1 : in    std_logic_vector(SizeX-1 downto 0);
+		y1  : in    std_logic_vector(SizeY-1 downto 0);
 		color : in std_logic_vector(SizeColor-1 downto 0);
 		asb : in std_logic;
 		done  : out   std_logic;
@@ -55,7 +55,7 @@ architecture structural of draw is
 	);
 	end component;
 	
-	component draw_line2
+	component draw_line
 	port(
 		clk   : in    std_logic;
 		reset : in    std_logic;
@@ -84,8 +84,8 @@ begin
 	-- rect_done <= '0';
 	-- pixel_write <= '0';
 	-- rect_write<='0';
-	line_done <= '0';
-	line_write <= '0';
+	-- line_done <= '0';
+	-- line_write <= '0';
 	-- Module 0
 	fill1: draw_fill port map (
 		clk=>clk,
@@ -99,7 +99,7 @@ begin
 		draw_write=>fill_write,
 		draw_can_access=>draw_can_access
 	);
-	-- Module 1
+	--Module 1
 	pixel1: draw_pixel port map (
 		clk=>clk,
 		reset=>reset,
@@ -114,16 +114,16 @@ begin
 		draw_write=>pixel_write,
 		draw_can_access=>draw_can_access
 	);
-	-- Module 2 and 3 (filled)
+	--Module 2 and 3 (filled)
 	rect1: draw_rect port map (
 		clk=>clk,
 		reset=>reset,
 		enable=>en(2),
 		enablef=>en(3),
-		x=>x,
-		y=>y,
-		w=>w,
-		h=>h,
+		x0=>x,
+		y0=>y,
+		x1=>w,
+		y1=>h,
 		color=>color,
 		asb=>asb,
 		done=>rect_done,
@@ -132,21 +132,21 @@ begin
 		draw_write=>rect_write,
 		draw_can_access=>draw_can_access
 	);
-	-- Module 4
-	-- line1: draw_line port map (
-		-- clk=>clk,
-		-- reset=>reset,
-		-- enable=>en(4),
-		-- x=>x,
-		-- y=>y,
-		-- w=>w,
-		-- h=>h,
-		-- color=>color,
-		-- asb=>asb,
-		-- done=>line_done,
-		-- ramaddr=>ramaddr,
-		-- ramdata=>ramdata,
-		-- draw_write=>line_write,
-		-- draw_can_access=>draw_can_access
-	-- );
+	--Module 4
+	line1: draw_line port map (
+		clk=>clk,
+		reset=>reset,
+		enable=>en(4),
+		x0=>x,
+		y0=>y,
+		x1=>w,
+		y1=>h,
+		color=>color,
+		asb=>asb,
+		done=>line_done,
+		ramaddr=>ramaddr,
+		ramdata=>ramdata,
+		draw_write=>line_write,
+		draw_can_access=>draw_can_access
+	);
 end structural;

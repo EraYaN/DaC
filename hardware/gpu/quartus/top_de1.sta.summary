@@ -3,12 +3,12 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'gen6mhz:inst1|count[2]'
-Slack : -4.462
-TNS   : -135.952
+Slack : -4.189
+TNS   : -195.972
 
 Type  : Slow Model Setup 'clock_50mhz'
-Slack : -0.220
-TNS   : -0.220
+Slack : -0.211
+TNS   : -0.211
 
 Type  : Slow Model Hold 'clock_50mhz'
 Slack : -2.695
@@ -24,14 +24,14 @@ TNS   : -5.297
 
 Type  : Slow Model Minimum Pulse Width 'gen6mhz:inst1|count[2]'
 Slack : -0.611
-TNS   : -47.658
+TNS   : -78.208
 
 Type  : Fast Model Setup 'gen6mhz:inst1|count[2]'
-Slack : -1.157
-TNS   : -28.269
+Slack : -1.008
+TNS   : -39.695
 
 Type  : Fast Model Setup 'clock_50mhz'
-Slack : 0.517
+Slack : 0.523
 TNS   : 0.000
 
 Type  : Fast Model Hold 'clock_50mhz'
@@ -48,6 +48,6 @@ TNS   : -4.380
 
 Type  : Fast Model Minimum Pulse Width 'gen6mhz:inst1|count[2]'
 Slack : -0.500
-TNS   : -39.000
+TNS   : -64.000
 
 ------------------------------------------------------------

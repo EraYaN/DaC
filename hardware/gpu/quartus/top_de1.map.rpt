@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_de1
-Sun Nov 24 21:55:48 2013
+Mon Dec 02 10:32:34 2013
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -10,7 +10,18 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: gpu:inst2|vgacontroller:vgacontroller1
+ 14. Parameter Settings for User Entity Instance: gpu:inst2|spi:spi1
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
 
 
 
@@ -36,20 +47,20 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Sun Nov 24 21:55:48 2013               ;
+; Analysis & Synthesis Status        ; Successful - Mon Dec 02 10:32:34 2013           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; top_de1                                         ;
 ; Top-level Entity Name              ; top_de1                                         ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; N/A until Partition Merge                       ;
-;     Total combinational functions  ; N/A until Partition Merge                       ;
-;     Dedicated logic registers      ; N/A until Partition Merge                       ;
-; Total registers                    ; N/A until Partition Merge                       ;
-; Total pins                         ; N/A until Partition Merge                       ;
-; Total virtual pins                 ; N/A until Partition Merge                       ;
-; Total memory bits                  ; N/A until Partition Merge                       ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                       ;
-; Total PLLs                         ; N/A until Partition Merge                       ;
+; Total logic elements               ; 178                                             ;
+;     Total combinational functions  ; 167                                             ;
+;     Dedicated logic registers      ; 67                                              ;
+; Total registers                    ; 67                                              ;
+; Total pins                         ; 39                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
 +------------------------------------+-------------------------------------------------+
 
 
@@ -149,84 +160,276 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                           ;
++----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------+---------+
+; ../vgacontroller-behaviour.vhd   ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/vgacontroller-behaviour.vhd ;         ;
+; ../vgacontroller.vhd             ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/vgacontroller.vhd           ;         ;
+; ../spi-behaviour.vhd             ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/spi-behaviour.vhd           ;         ;
+; ../spi.vhd                       ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/spi.vhd                     ;         ;
+; ../ramcontroller-behaviour.vhd   ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/ramcontroller-behaviour.vhd ;         ;
+; ../ramcontroller.vhd             ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/ramcontroller.vhd           ;         ;
+; ../parameter_def_pkg.vhd         ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/parameter_def_pkg.vhd       ;         ;
+; ../gpu-structural.vhd            ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/gpu-structural.vhd          ;         ;
+; ../gpu.vhd                       ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/gpu.vhd                     ;         ;
+; ../draw-structural.vhd           ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/draw-structural.vhd         ;         ;
+; ../draw_fill-behaviour.vhd       ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/draw_fill-behaviour.vhd     ;         ;
+; ../draw_fill.vhd                 ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/draw_fill.vhd               ;         ;
+; ../draw.vhd                      ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/draw.vhd                    ;         ;
+; ../decoder-behaviour.vhd         ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/decoder-behaviour.vhd       ;         ;
+; ../decoder.vhd                   ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/decoder.vhd                 ;         ;
+; pre_vga_dac_4.vhd                ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/quartus/pre_vga_dac_4.vhd   ;         ;
+; gen6mhz.vhd                      ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/quartus/gen6mhz.vhd         ;         ;
+; top_de1.bdf                      ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/quartus/top_de1.bdf         ;         ;
++----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                          ;
++---------------------------------------------+------------------------+
+; Resource                                    ; Usage                  ;
++---------------------------------------------+------------------------+
+; Estimated Total logic elements              ; 178                    ;
+;                                             ;                        ;
+; Total combinational functions               ; 167                    ;
+; Logic element usage by number of LUT inputs ;                        ;
+;     -- 4 input functions                    ; 87                     ;
+;     -- 3 input functions                    ; 18                     ;
+;     -- <=2 input functions                  ; 62                     ;
+;                                             ;                        ;
+; Logic elements by mode                      ;                        ;
+;     -- normal mode                          ; 138                    ;
+;     -- arithmetic mode                      ; 29                     ;
+;                                             ;                        ;
+; Total registers                             ; 67                     ;
+;     -- Dedicated logic registers            ; 67                     ;
+;     -- I/O registers                        ; 0                      ;
+;                                             ;                        ;
+; I/O pins                                    ; 39                     ;
+; Embedded Multiplier 9-bit elements          ; 0                      ;
+; Maximum fan-out node                        ; gen6mhz:inst1|count[2] ;
+; Maximum fan-out                             ; 66                     ;
+; Total fan-out                               ; 794                    ;
+; Average fan-out                             ; 2.91                   ;
++---------------------------------------------+------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                               ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
+; Compilation Hierarchy Node           ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                             ; Library Name ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
+; |top_de1                             ; 167 (1)           ; 67 (0)       ; 0           ; 0            ; 0       ; 0         ; 39   ; 0            ; |top_de1                                        ; work         ;
+;    |gen6mhz:inst1|                   ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gen6mhz:inst1                          ; work         ;
+;    |gpu:inst2|                       ; 163 (0)           ; 64 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2                              ; work         ;
+;       |decoder:decoder1|             ; 37 (37)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|decoder:decoder1             ; work         ;
+;       |draw:draw1|                   ; 46 (0)            ; 17 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1                   ; work         ;
+;          |draw_fill:fill1|           ; 46 (46)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_fill:fill1   ; work         ;
+;       |ramcontroller:ramcontroller1| ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|ramcontroller:ramcontroller1 ; work         ;
+;       |spi:spi1|                     ; 5 (5)             ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|spi:spi1                     ; work         ;
+;       |vgacontroller:vgacontroller1| ; 72 (72)           ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1 ; work         ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                ;
++------------------------------------------+----------------------------------------+
+; Register name                            ; Reason for Removal                     ;
++------------------------------------------+----------------------------------------+
+; gpu:inst2|decoder:decoder1|decoder_claim ; Stuck at GND due to stuck port data_in ;
+; gpu:inst2|decoder:decoder1|decoder_write ; Stuck at GND due to stuck port data_in ;
+; gpu:inst2|spi:spi1|ss_latched            ; Stuck at GND due to stuck port data_in ;
+; gpu:inst2|spi:spi1|ss_old                ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 4    ;                                        ;
++------------------------------------------+----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                        ;
++-------------------------------+---------------------------+----------------------------------------+
+; Register name                 ; Reason for Removal        ; Registers Removed due to This Register ;
++-------------------------------+---------------------------+----------------------------------------+
+; gpu:inst2|spi:spi1|ss_latched ; Stuck at GND              ; gpu:inst2|spi:spi1|ss_old              ;
+;                               ; due to stuck port data_in ;                                        ;
++-------------------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 67    ;
+; Number of registers using Synchronous Clear  ; 8     ;
+; Number of registers using Synchronous Load   ; 9     ;
+; Number of registers using Asynchronous Clear ; 15    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 46    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; gpu:inst2|spi:spi1|index[0]            ; 4       ;
+; gpu:inst2|spi:spi1|index[2]            ; 2       ;
+; gpu:inst2|spi:spi1|index[1]            ; 3       ;
+; Total number of inverted registers = 3 ;         ;
++----------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|v_count[9]  ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|packet_num[0]           ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|instruction[3]          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|h_count[5]  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|v_count[6]  ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_fill:fill1|y[5]          ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_fill:fill1|x[6]          ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_de1|gpu:inst2|spi:spi1|index[2]                        ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|color[2]                ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|vgacolor[2] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: gpu:inst2|vgacontroller:vgacontroller1 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; h_pulse        ; 24    ; Signed Integer                                             ;
+; h_bp           ; 12    ; Signed Integer                                             ;
+; h_pixels       ; 160   ; Signed Integer                                             ;
+; h_fp           ; 4     ; Signed Integer                                             ;
+; h_pol          ; '0'   ; Enumerated                                                 ;
+; v_pulse        ; 2     ; Signed Integer                                             ;
+; v_bp           ; 33    ; Signed Integer                                             ;
+; v_pixels       ; 480   ; Signed Integer                                             ;
+; v_fp           ; 10    ; Signed Integer                                             ;
+; v_pol          ; '0'   ; Enumerated                                                 ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: gpu:inst2|spi:spi1 ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; c              ; 3     ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sun Nov 24 21:55:47 2013
+    Info: Processing started: Mon Dec 02 10:32:28 2013
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off de1 -c top_de1
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/vgacontroller-behaviour.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/vgacontroller-behaviour.vhd
     Info (12022): Found design unit 1: vgacontroller-behaviour
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/vgacontroller.vhd
+Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/vgacontroller.vhd
     Info (12023): Found entity 1: vgacontroller
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/statereg-behaviour.vhd
-    Info (12022): Found design unit 1: statereg-behaviour
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/statereg.vhd
-    Info (12023): Found entity 1: statereg
-Info (12021): Found 2 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/sram.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/sram.vhd
     Info (12022): Found design unit 1: sram-behavior
     Info (12023): Found entity 1: sram
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/spi-behaviour.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/spi-behaviour.vhd
     Info (12022): Found design unit 1: spi-behaviour
-Info (12021): Found 2 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/spi_tb.vhd
-    Info (12022): Found design unit 1: spi_tb-behaviour
-    Info (12023): Found entity 1: spi_tb
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/spi.vhd
+Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/spi.vhd
     Info (12023): Found entity 1: spi
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/rect-behaviour.vhd
-    Info (12022): Found design unit 1: rect-behaviour
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/rect.vhd
-    Info (12023): Found entity 1: rect
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/ramcontroller-behaviour.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/ramcontroller-behaviour.vhd
     Info (12022): Found design unit 1: ramcontroller-behaviour
-Info (12021): Found 2 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/ramcontroller_tb.vhd
-    Info (12022): Found design unit 1: ramcontroller_tb-testbench
-    Info (12023): Found entity 1: ramcontroller_tb
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/ramcontroller.vhd
+Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/ramcontroller.vhd
     Info (12023): Found entity 1: ramcontroller
-Info (12021): Found 2 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/pre_vga_dac_4.vhd
-    Info (12022): Found design unit 1: pre_vga_dac_4-signal_flow
-    Info (12023): Found entity 1: pre_vga_dac_4
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/pixel-behaviour.vhd
-    Info (12022): Found design unit 1: pixel-behaviour
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/pixel.vhd
-    Info (12023): Found entity 1: pixel
-Info (12021): Found 2 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/parameter_def_pkg.vhd
+Info (12021): Found 2 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/parameter_def_pkg.vhd
     Info (12022): Found design unit 1: parameter_def
     Info (12022): Found design unit 2: parameter_def-body
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/gpu-structural.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/gpu-structural.vhd
     Info (12022): Found design unit 1: gpu-structural
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/gpu.vhd
+Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/gpu.vhd
     Info (12023): Found entity 1: gpu
-Info (12021): Found 2 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/gen6mhz.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw-structural.vhd
+    Info (12022): Found design unit 1: draw-structural
+Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_rect-behaviour.vhd
+    Info (12022): Found design unit 1: draw_rect-behaviour
+Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_rect.vhd
+    Info (12023): Found entity 1: draw_rect
+Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_pixel-behaviour.vhd
+    Info (12022): Found design unit 1: draw_pixel-behaviour
+Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_pixel.vhd
+    Info (12023): Found entity 1: draw_pixel
+Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_line2_behaviour.vhd
+    Info (12022): Found design unit 1: draw_line2-behaviour
+Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_line2.vhd
+    Info (12023): Found entity 1: draw_line2
+Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_fill-behaviour.vhd
+    Info (12022): Found design unit 1: draw_fill-behaviour
+Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_fill.vhd
+    Info (12023): Found entity 1: draw_fill
+Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_circle-behaviour.vhd
+    Info (12022): Found design unit 1: draw_circle-behaviour
+Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_circle.vhd
+    Info (12023): Found entity 1: draw_circle
+Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw.vhd
+    Info (12023): Found entity 1: draw
+Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/decoder-behaviour.vhd
+    Info (12022): Found design unit 1: decoder-behaviour
+Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/decoder.vhd
+    Info (12023): Found entity 1: decoder
+Info (12021): Found 2 design units, including 1 entities, in source file pre_vga_dac_4.vhd
+    Info (12022): Found design unit 1: pre_vga_dac_4-signal_flow
+    Info (12023): Found entity 1: pre_vga_dac_4
+Info (12021): Found 2 design units, including 1 entities, in source file gen6mhz.vhd
     Info (12022): Found design unit 1: gen6mhz-behaviour
     Info (12023): Found entity 1: gen6mhz
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/fill-behaviour.vhd
-    Info (12022): Found design unit 1: fill-behaviour
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/fill.vhd
-    Info (12023): Found entity 1: fill
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/draw-structural.vhd
-    Info (12022): Found design unit 1: draw-structural
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/draw.vhd
-    Info (12023): Found entity 1: draw
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/decoder-behaviour.vhd
-    Info (12022): Found design unit 1: decoder-behaviour
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/github/dac/hardware/gpu/decoder_tb-behaviour.vhd
-    Info (12022): Found design unit 1: decoder_tb-behaviour
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/decoder_tb.vhd
-    Info (12023): Found entity 1: decoder_tb
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/github/dac/hardware/gpu/decoder.vhd
-    Info (12023): Found entity 1: decoder
 Info (12021): Found 1 design units, including 1 entities, in source file top_de1.bdf
     Info (12023): Found entity 1: top_de1
-Error (10482): VHDL error at statereg-behaviour.vhd(10): object "q" is used but not declared File: F:/Users/Erwin/GitHub/DaC/hardware/gpu/statereg-behaviour.vhd Line: 10
-Error: Quartus II 64-Bit Analysis & Synthesis was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 487 megabytes
-    Error: Processing ended: Sun Nov 24 21:55:48 2013
-    Error: Elapsed time: 00:00:01
-    Error: Total CPU time (on all processors): 00:00:01
+Info (12127): Elaborating entity "top_de1" for the top level hierarchy
+Info (12128): Elaborating entity "gpu" for hierarchy "gpu:inst2"
+Info (12128): Elaborating entity "draw" for hierarchy "gpu:inst2|draw:draw1"
+Info (12128): Elaborating entity "draw_fill" for hierarchy "gpu:inst2|draw:draw1|draw_fill:fill1"
+Info (12128): Elaborating entity "decoder" for hierarchy "gpu:inst2|decoder:decoder1"
+Info (12128): Elaborating entity "ramcontroller" for hierarchy "gpu:inst2|ramcontroller:ramcontroller1"
+Info (12128): Elaborating entity "vgacontroller" for hierarchy "gpu:inst2|vgacontroller:vgacontroller1"
+Info (12128): Elaborating entity "spi" for hierarchy "gpu:inst2|spi:spi1"
+Info (12128): Elaborating entity "gen6mhz" for hierarchy "gen6mhz:inst1"
+Info (12128): Elaborating entity "pre_vga_dac_4" for hierarchy "pre_vga_dac_4:inst"
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 218 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 31 output pins
+    Info (21060): Implemented 4 bidirectional pins
+    Info (21061): Implemented 179 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 506 megabytes
+    Info: Processing ended: Mon Dec 02 10:32:34 2013
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:02
 
 
