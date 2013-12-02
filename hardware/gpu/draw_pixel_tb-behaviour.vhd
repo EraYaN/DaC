@@ -37,9 +37,17 @@ begin
 	'0' after 10 ns when clk /= '0' else '1' after 10 ns;	
 process
 begin
+	 --initalize everything
+	enable <= '0';
+	asb <= '0';
+	draw_can_access <= '0';
 	reset <= '1';
-asb <= '0';
-color <= "1011";
+	color <= "1011";
+	done <= '0';
+	draw_write <= '0';
+	x <= "00110011";
+	y <= "1110111";
+
 	wait for 40 ns;
 	reset<= '0';
 	draw_can_access <= '1';
@@ -58,6 +66,15 @@ color <= "1011";
 	wait;	
 end process;		
 end behaviour;
+
+
+
+
+
+
+
+
+
 
 
 
