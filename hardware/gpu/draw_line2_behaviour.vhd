@@ -45,7 +45,6 @@ begin
 		next_draw_write <= '0';
 		next_ramaddr <= (others => 'Z');
 		next_ramdata <= (others => 'Z');
-		next_setup <= '1';
 		next_err <= err;
 		next_err_var := err;
 		next_cx <= cx;
