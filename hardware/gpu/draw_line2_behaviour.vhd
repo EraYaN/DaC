@@ -21,25 +21,14 @@ begin
 		
 	begin
 		if rising_edge(clk) then
-			if reset = '1' then
-				setup <= '1';
-				cx <= (others => '0');
-				cy <= (others => '0');
-				err <= (others => '0');
-				done <= '0';
-				draw_write <= '0';
-				ramaddr <= (others => 'Z');
-				ramdata <= (others => 'Z');
-			else
-				setup <= next_setup;
-				cx <= next_cx;
-				cy <= next_cy;
-				err <= next_err;
-				done <= next_done;
-				draw_write <= next_draw_write;
-				ramaddr <= next_ramaddr;
-				ramdata <= next_ramdata;
-			end if;
+			setup <= next_setup;
+			cx <= next_cx;
+			cy <= next_cy;
+			err <= next_err;
+			done <= next_done;
+			draw_write <= next_draw_write;
+			ramaddr <= next_ramaddr;
+			ramdata <= next_ramdata;
 		end if;
 	end process;
 
@@ -50,17 +39,29 @@ begin
 		variable sx, sy : signed(1 downto 0);
 		variable next_err_var : signed(SizeX+2 downto 0);
 	begin
+
 		--defaults
 		next_done <= '0';
 		next_draw_write <= '0';
 		next_ramaddr <= (others => 'Z');
 		next_ramdata <= (others => 'Z');
 		next_setup <= '1';
+		next_err <= err;
 		next_err_var := err;
 		next_cx <= cx;
 		next_cy <= cy;
 
-		if enable = '1' and draw_can_access = '1' then
+		if reset = '1' then
+			--reset
+			next_setup <= '1';
+			next_cx <= (others => '0');
+			next_cy <= (others => '0');
+			next_err <= (others => '0');
+			next_done <= '0';
+			next_draw_write <= '0';
+			next_ramaddr <= (others => 'Z');
+			next_ramdata <= (others => 'Z');
+		elsif enable = '1' and draw_can_access = '1' then
 			--init
 			dx := abs(signed(resize(unsigned(x1), dx'length) - resize(unsigned(x0), dx'length)));
 			dy := abs(signed(resize(unsigned(y1), dy'length) - resize(unsigned(y0), dy'length)));
@@ -73,7 +74,7 @@ begin
 			if setup = '1' then
 				next_cx <= signed(x0);
 				next_cy <= signed(y0);					
-				next_err_var := resize(dx - dy, next_err'length);
+				next_err <= resize(dx - dy, next_err'length);
 				next_setup <= '0';
 			else
 				--draw next pixel
@@ -97,12 +98,11 @@ begin
 						next_err_var := next_err_var + dx;
 						next_cy <= cy + sy;
 					end if;
-				end if;
+					next_setup <= '0';
+				end if;		
 
-				next_setup <= '0';
+				next_err <= next_err_var;	
 			end if;
-
-			next_err <= next_err_var;
 		end if;
 	end process;
 end behaviour;
