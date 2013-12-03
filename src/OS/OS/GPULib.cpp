@@ -2,6 +2,7 @@
 // EPO3-1 - TU Delft
 
 #include "GPULib.h"
+#include "Util.h"
 
 GPULib::GPULib()
 {

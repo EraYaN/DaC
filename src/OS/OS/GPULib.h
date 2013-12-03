@@ -4,15 +4,7 @@
 #ifndef _GPULib_H
 #define _GPULib_H
 
-#define MAX_NUM_INSTR_PACKETS 5
-#define MAX_QUEUE_SIZE 100
-#define INT_READY_PIN 0
-#define XMAX 159
-#define YMAX 119
-#define clamp(v,vmin,vmax) max(vmin,min(vmax,v));
-
-#include "Arduino.h"
-#include "SPI.h"
+#include "Util.h"
 
 struct Instruction {
 	//instruction data
