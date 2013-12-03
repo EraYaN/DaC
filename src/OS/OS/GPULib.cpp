@@ -1,5 +1,4 @@
-// Functions for controlling a SoG-based GPU chip
-// Written by Robin Hes et al.
+// Class for controlling a SoG-based GPU chip
 // EPO3-1 - TU Delft
 
 #include "GPULib.h"
