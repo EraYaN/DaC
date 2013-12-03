@@ -1,19 +1,20 @@
 #pragma once
-
-#include "Util.h"
-
+#ifndef _PROGRAM_
+#define _PROGRAM_
 class Program {
 protected:
-	char* name;
+	GPULib *GPU;
+	const char* name;
 	byte id;
 	ProgramState state;
 
 public: 
-	Program(char* programName,byte instanceID) : name(programName),id(instanceID) {};
-	Program():name(""),id(0) {};
+	Program(GPULib *GPU, const char* programName) : GPU(GPU),name(programName) {};
+	Program(GPULib *GPU):GPU(GPU),name() {};
 	virtual void start();
-	virtual void loop();
+	virtual void tick(unsigned long ctime);
 	virtual bool isRunning();
 	virtual void stop();
 	virtual void reset();
 };
+#endif

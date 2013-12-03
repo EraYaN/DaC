@@ -22,7 +22,7 @@ ARCHITECTURE behaviour OF vgacontroller IS
 BEGIN
   v_row_tmp <= v_count/4;
   v_row <= v_row_tmp(SizeY-1 downto 0);
-  h_col <= h_count(SizeX-1 downto 0)-h_fp;
+  h_col <= h_count(SizeX-1 downto 0);
   vga_counter: PROCESS(clk)    
    BEGIN
     IF(rising_edge(clk)) THEN		
@@ -69,14 +69,14 @@ BEGIN
 			vgavsync <= v_pol;        --assert vertical sync pulse
 		END IF;
 
-		IF(((h_count < h_pixels+1+h_fp AND v_count < v_pixels+1) OR h_count > h_period-2 OR v_count > v_period-2) AND vga_can_access = '1') THEN  --display time (-2)
+		IF(((h_count < h_pixels+1 AND v_count < v_pixels+1) OR h_count > h_period-2 OR v_count > v_period-2) AND vga_can_access = '1') THEN  --display time (-2)
 			vga_claim <= '1';
 		ELSE                                                --blanking time (-2)
 			vga_claim <= '0'; 								
 		END IF;
 
 		--set display enable output
-		IF(h_count < h_pixels+h_fp AND v_count < v_pixels) THEN  --display time
+		IF(h_count < h_pixels AND v_count < v_pixels) THEN  --display time
 			if vga_can_access = '1' THEN		
 				vga_read <= '1';
 				vgacolor <= ramdata;

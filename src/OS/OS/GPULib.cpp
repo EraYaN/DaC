@@ -1,7 +1,6 @@
 // Class for controlling a SoG-based GPU chip
 // EPO3-1 - TU Delft
 
-#include "GPULib.h"
 #include "Util.h"
 
 GPULib::GPULib()
@@ -42,13 +41,7 @@ void GPULib::sendNextInstruction()
 	sending = true;
 	for (int j=0; j<(queueHead->numPackets); j++)
 	{
-		//delay(500);
-		//SPI.begin();
-		SPI.transfer(queueHead->packets[j]);
-		//SPI.end();
-		//Serial.print("Packet Sent: ");
-		//Serial.println(queueHead->packets[j],BIN);
-		//delay(500);
+		SPI.transfer(queueHead->packets[j]);		
 	}
 	shiftQueue();
 	sending = false;
@@ -169,4 +162,36 @@ void GPULib::drawPoly(byte* x, byte* y, byte size, byte color){
 		drawLine(x[i],y[i],x[i+1],y[i+1], color);
 	}
 	drawLine(x[size-1],y[size-1],x[0],y[0], color); //close it
+}
+
+void GPULib::drawChar(char c, byte x, byte y, byte color){
+	const char* data = font8x8_basic[(int)c];
+	for (int cy=0; cy < 8; cy++) {
+		for (int cx=0; cx < 8; cx++) {
+			if(data[cy] & 1 << cx){
+				drawPixel(x+cx,y+cy,color);				
+			}
+		}
+	}
+}
+void GPULib::drawString(const char* string, byte x, byte y, byte color){
+	int i = 0;
+	int dx = 0;
+	while(string[i]!='\0'){ // string[i]!='\0'
+		if(string[i]!=' ')		
+			drawChar(string[i],x+dx,y,color);
+		i++;
+		if(string[i]==' '){
+			dx+=3;
+		/*} else if(string[i]=='.' || string[i]==':' || string[i]==',' || string[i]==';'){
+			dx+=8;
+		}
+		else if(string[i]=='!'){
+			dx+=8;*/
+		} else {
+			dx+=8;
+		}
+
+	}
+
 }

@@ -1,5 +1,5 @@
-#include "GPULib.h"
 #include "SPI.h"
+#include "Util.h"
 
 GPULib *GPU;
 unsigned long lastDrawReady;
@@ -8,13 +8,11 @@ bool b_helper = true;
 bool done = false;
 bool first = true;
 bool readyfornext = false;
-int x = 30;
-int y = 30;
-int dy = -2;
-int dx = 3;
-int count;
-byte xs[4] = {80,40,80,120};
-byte ys[4] = {20,60,80,60};
+Program *currentProgram;
+unsigned long lastFrame;
+unsigned long currentFrame;
+unsigned long frameTime;
+unsigned long lastBlinkTime = 0;
 void setup()
 {
 	GPU = new GPULib();
@@ -28,6 +26,9 @@ void setup()
 	running = true;
 	pinMode(LED_BUILTIN, OUTPUT);
 	//Serial.println("Setup Complete!");
+
+	currentProgram = new Demo(GPU,"Demo");
+	randomSeed(analogRead(0));
 }
 
 void loop()
@@ -49,63 +50,29 @@ void loop()
 		}
 		
 		if(done || GPU->queueHead == NULL){
-			delay(10);
-			GPU->cleanUp();	
-			GPU->drawFill((count/30)%16);
-			count++;
-			GPU->drawRect(0, 0, XMAX, YMAX, B1100);	
-			x+=dx;
-			if(x>=XMAX-1){
-				dx=-dx;
-				x=XMAX-1;
-			} else if (x<=1){
-				dx=-dx;
-				x=1;
-			}
-			y+=dy;
-			if(y>=YMAX-1){
-				dy=-dy;
-				y=YMAX-1;
-			} else if (y<=1){
-				dy=-dy;
-				y=1;
-			}
-			GPU->drawPixel(x,y,B1110);
-			GPU->drawTriangle(2,4,30,70,50,80,B1010);
-			
-			GPU->drawPoly(xs,ys,4,B0110);
-			GPU->switchScreenBuffer();			
+			currentFrame = micros();
+			frameTime = currentFrame-lastFrame;			
+			lastFrame = currentFrame;
+			delayMicroseconds(10);
+			currentProgram->tick(frameTime);
 			done = false;
-			digitalWrite(LED_BUILTIN, HIGH);
-			delay(20);
-			digitalWrite(LED_BUILTIN, LOW);
+			
+		}
+		if(lastBlinkTime+250<millis()){
+			b_helper = !b_helper;
+			digitalWrite(LED_BUILTIN, b_helper);
+			//delay(100);	
+			lastBlinkTime = millis();
 		}
 		
 	} else {
 		b_helper = !b_helper;
 		digitalWrite(LED_BUILTIN, b_helper);
-		delay(1000);
-		//Serial.println("Not running!");
+		delay(1000);	
 	}
 }
 
 void drawReady()
 {
-	/*if (running)
-	{
-		if (GPU->queueHead != NULL && !GPU->sending)
-		{
-			lastDrawReady = millis();
-			//digitalWrite(LED_BUILTIN, HIGH);
-			delayMicroseconds(10000000);
-			GPU->sendNextInstruction();
-		}
-		else
-		{
-			//shit broke
-			running = !GPU->sending;
-			done = true;
-		}
-	}*/
 	readyfornext = true;	
 }

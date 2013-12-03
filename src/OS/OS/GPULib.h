@@ -1,11 +1,6 @@
-// Class for controlling a SoG-based GPU chip
-// EPO3-1 - TU Delft
-
-#ifndef _GPULib_H
-#define _GPULib_H
-
-#include "Util.h"
-
+#pragma once
+#ifndef _GPULIB_
+#define _GPULIB_
 struct Instruction {
 	//instruction data
 	int numPackets;
@@ -43,11 +38,12 @@ public:
 	//fake (software) draw	
 	void drawTriangle(byte x0, byte y0, byte x1, byte y1, byte x2, byte y2, byte color);
 	void drawPoly(byte* x, byte* y, byte size, byte color);
+	void drawChar(char c, byte x, byte y, byte color);
+	void drawString(const char* string, byte x, byte y, byte color);
 
 	//state variable
 	bool sending;
 
 	Instruction *queueHead, *queueTail; //head and tail of linked list
 };
-
-#endif //_GPULib_H
+#endif

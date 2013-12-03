@@ -33,7 +33,6 @@ begin
 				decoder_claim <= '0';
 				decoder_write <= '0';
 				is_init <= '1';
-
 			else
 				if draw_ready = '1' then
 					--disable all draw modules
