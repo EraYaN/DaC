@@ -41,7 +41,7 @@ begin
 		  '1' after 10 ns;
 	x <= "00000100" after 0 ns;
 	y <= "0000100" after 0 ns;
-	w <= "00001000" after 10 ns;
+	w <= "00000100" after 10 ns;--4
 	colour <= "0100" after 0 ns;
 	asb <= '0' after 0 ns;
 	draw_can_access <= '0' after 0 ns,
