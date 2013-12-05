@@ -43,7 +43,11 @@ namespace SpriteTool
 				string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
 				if (files.Count() > 0)
 				{
-					string setname = System.IO.Path.GetFileNameWithoutExtension(files[0]);
+					string setname;
+					if (setName_TextBox.Text != "")
+						setname = setName_TextBox.Text;
+					else
+						setname = System.IO.Path.GetFileNameWithoutExtension(files[0]);
 					bool firstfile = true;
 					using (StreamWriter sw = new StreamWriter(setname + "_set.h"))
 					{
