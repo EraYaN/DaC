@@ -12,11 +12,11 @@ entity decoder is
 		spi_data_available	: in	std_logic;									--Data Available in SPI interface, commence data sampling
 		--Draw data
 		draw_ready	: in	std_logic;
-		x			: out	std_logic_vector(SizeX-1 downto 0);				--Entity x coord
-		w			: out	std_logic_vector(SizeX-1 downto 0);				--Entity width
-		y			: out	std_logic_vector(SizeY-1 downto 0);				--Entity y coord
-		h			: out	std_logic_vector(SizeY-1 downto 0);				--Entity height
-		color		: out	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
+		x			: buffer	std_logic_vector(SizeX-1 downto 0);				--Entity x coord
+		w			: buffer	std_logic_vector(SizeX-1 downto 0);				--Entity width
+		y			: buffer	std_logic_vector(SizeY-1 downto 0);				--Entity y coord
+		h			: buffer	std_logic_vector(SizeY-1 downto 0);				--Entity height
+		color		: buffer	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
 		en			: out	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
 		--Internal registers
 		asb			: buffer	std_logic;	--Currently active screen buffer
@@ -24,13 +24,10 @@ entity decoder is
 		int_ready	: out	std_logic;	--Instruction processed signal
 		--RAM Controller interaction
 		decoder_can_access	: in std_logic;		--Can access RAM?
-		decoder_write		: out std_logic;	--Intention to write to RAM
-		decoder_claim		: out std_logic;	--Claim RAM
-		is_init				: out std_logic		--Initializing?
+		decoder_write		: buffer std_logic;	--Intention to write to RAM
+		is_init				: out std_logic;		--Initializing?
 		--RAM interaction
-		ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
-		ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);
-		draw_write  :buffer std_logic;
-		draw_can_access : in std_logic
+		ramaddr     :buffer   std_logic_vector(SizeRAMAddr-1 downto 0);
+		ramdata     :buffer   std_logic_vector(SizeRAMData-1 downto 0)
 	);
 end entity decoder;

@@ -26,7 +26,6 @@ PACKAGE BODY parameter_def IS
 	constant NumDrawModules : INTEGER := 6; -- 0: fill; 1: pixel; 2: square; 3: fsquare; 4: line; 5: circle;
 	constant SizeX : INTEGER := 8;
 	constant SizeY : INTEGER := 7;
-	constant SizeMaxStageReg : INTEGER := 1;
 	constant NumStateReg : INTEGER := 1;
 	constant SizeRAMData : INTEGER := 4;
 	constant SizeRAMAddr : INTEGER := 16;
