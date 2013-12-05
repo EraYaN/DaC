@@ -1,0 +1,77 @@
+# Tabular Link File created on Thu 05 Dec 2013 10:52:29
+# By Program: design_flow
+# From Source: /home/ajcjanssen/draw_pixel/draw_pixel.lst
+# Clock_column: 0
+INP clk;
+INP reset;
+INP enable;
+INP x_7_0_7;
+INP x_7_0_6;
+INP x_7_0_5;
+INP x_7_0_4;
+INP x_7_0_3;
+INP x_7_0_2;
+INP x_7_0_1;
+INP x_7_0_0;
+INP y_6_0_6;
+INP y_6_0_5;
+INP y_6_0_4;
+INP y_6_0_3;
+INP y_6_0_2;
+INP y_6_0_1;
+INP y_6_0_0;
+INP color_3_0_3;
+INP color_3_0_2;
+INP color_3_0_1;
+INP color_3_0_0;
+INP asb;
+OUT done;
+OUT ramaddr_15_0_15;
+OUT ramaddr_15_0_14;
+OUT ramaddr_15_0_13;
+OUT ramaddr_15_0_12;
+OUT ramaddr_15_0_11;
+OUT ramaddr_15_0_10;
+OUT ramaddr_15_0_9;
+OUT ramaddr_15_0_8;
+OUT ramaddr_15_0_7;
+OUT ramaddr_15_0_6;
+OUT ramaddr_15_0_5;
+OUT ramaddr_15_0_4;
+OUT ramaddr_15_0_3;
+OUT ramaddr_15_0_2;
+OUT ramaddr_15_0_1;
+OUT ramaddr_15_0_0;
+OUT ramdata_3_0_3;
+OUT ramdata_3_0_2;
+OUT ramdata_3_0_1;
+OUT ramdata_3_0_0;
+OUT draw_write;
+INP draw_can_access;
+PERIOD 20ns;
+TIME_UNIT 1.0e-10s;
+TABLE_FORMAT D<46c;
+DATA_SECTION
+             00<HHLLLLLLLLLLLLLLLLHLHHLlxxxxxxxxxxxxxxxxxxxxlL
+            100<LHLLLLLLLLLLLLLLLLHLHHLlxxxxxxxxxxxxxxxxxxxxlL
+            200<HHLLLLLLLLLLLLLLLLHLHHLlxxxxxxxxxxxxxxxxxxxxlL
+            300<LHLLLLLLLLLLLLLLLLHLHHLlxxxxxxxxxxxxxxxxxxxxlL
+            400<HLLLLLLLLLLLLLLLLLHLHHLlxxxxxxxxxxxxxxxxxxxxlH
+            500<LLLLLLLLLLLLLLLLLLHLHHLlxxxxxxxxxxxxxxxxxxxxlH
+            600<HLHHLHLHLHLHLHLHHHHLHHLlhhlhlhhhhlhlhlhlhlhhhH
+            700<LLHHLHLHLHLHLHLHHHHLHHLlhhlhlhhhhlhlhlhlhlhhhH
+            800<HLHHLHLHLHLHLHLHHHHLHHLhxxxxxxxxxxxxxxxxxxxxlH
+            900<LLHHLHLHLHLHLHLHHHHLHHLhxxxxxxxxxxxxxxxxxxxxlH
+           1000<HLLHLHLHLHLHLHLHHHHLHHLlxxxxxxxxxxxxxxxxxxxxlH
+           1100<LLLHLHLHLHLHLHLHHHHLHHLlxxxxxxxxxxxxxxxxxxxxlH
+           1200<HLHHHHLLHHHHHHHLLLHLHHLlhhhhhlllhhhllhhhhlhhhH
+           1300<LLHHHHLLHHHHHHHLLLHLHHLlhhhhhlllhhhllhhhhlhhhH
+           1400<HLHHHHLLHHHHHHHLLLHLHHLhxxxxxxxxxxxxxxxxxxxxlH
+           1500<LLHHHHLLHHHHHHHLLLHLHHLhxxxxxxxxxxxxxxxxxxxxlH
+           1600<HLLHHHLLHHHHHHHLLLHLHHLlxxxxxxxxxxxxxxxxxxxxlH
+           1700<LLLHHHLLHHHHHHHLLLHLHHLlxxxxxxxxxxxxxxxxxxxxlH
+           1800<HLLHHHLLHHHHHHHLLLHLHHLlxxxxxxxxxxxxxxxxxxxxlH
+           1900<LLLHHHLLHHHHHHHLLLHLHHLlxxxxxxxxxxxxxxxxxxxxlH
+           2000<HLLHHHLLHHHHHHHLLLHLHHLlxxxxxxxxxxxxxxxxxxxxlH
+
+

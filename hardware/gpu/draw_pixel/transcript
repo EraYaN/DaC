@@ -1,0 +1,29 @@
+# //  ModelSim SE 10.1b Apr 26 2012 Linux 3.0.80-0.5-default
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# vsim -do /data/public/common/software/opprog/do_files/init_simulator.do -lib work draw_pixel_tb_behaviour_syn_cfg 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-13) Recompile work.draw_pixel_synthesised_cfg because work.draw_pixel(synthesised) has changed.
+# ** Warning: (vopt-12) Recompile work.draw_pixel_tb_behaviour_syn_cfg after work.draw_pixel_synthesised_cfg is recompiled.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.parameter_def(body)
+# Loading cellslib.cellslib_decl_pack
+# Loading work.draw_pixel_tb_behaviour_syn_cfg#1
+# Loading work.draw_pixel_tb(behaviour)#1
+# Loading work.draw_pixel_synthesised_cfg#1
+# Loading work.draw_pixel(synthesised)#1
+# Loading cellslib.dfn10(dataflow)#1
+# Loading cellslib.tinv10(dataflow)#1
+# Loading cellslib.iv110(dataflow)#1
+# Loading cellslib.no210(dataflow)#1
+# Loading cellslib.na310(dataflow)#1
+# do /data/public/common/software/opprog/do_files/init_simulator.do 
+run 200 ns
