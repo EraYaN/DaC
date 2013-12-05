@@ -9,6 +9,7 @@
 #include "floatToString.h"
 #include "font8x8_basic.h"
 #include "Enums.h"
+#include "Sprites.h"
 #include "GPULib.h"
 #include "Program.h"
 #include "Game.h"

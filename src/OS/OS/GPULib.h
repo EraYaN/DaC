@@ -13,6 +13,8 @@ struct Instruction {
 class GPULib
 {
 public:
+	//Sprite Addresses
+	int lastSpriteID;
 	//general
 	GPULib(); //Constructor
 	~GPULib(); //Destructor
@@ -32,8 +34,8 @@ public:
 	void drawRect(byte x, byte y, byte w, byte h, byte color);
 	void drawFilledRect(byte x, byte y, byte w, byte h, byte color);
 	void drawLine(byte x0, byte y0, byte x1, byte y1, byte color);
-	void drawCircle(byte x, byte y, byte r, byte color);
-	void drawFilledCircle(byte x, byte y, byte r, byte color);
+	void drawSprite(Sprite* sprite, byte x, byte y, byte color);
+	void drawSprite(int address, byte x, byte y, byte w, byte l, byte color);
 
 	//fake (software) draw	
 	void drawTriangle(byte x0, byte y0, byte x1, byte y1, byte x2, byte y2, byte color);
@@ -41,6 +43,9 @@ public:
 	void drawChar(char c, byte x, byte y, byte color);
 	void drawString(const char* string, byte x, byte y, byte color);
 
+	//loading sprites
+	bool loadSprites(Sprite *set[], int size, bool *rfn);
+	void sendSprite(Sprite* set, int address);
 	//state variable
 	bool sending;
 

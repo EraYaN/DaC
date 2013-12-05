@@ -1,15 +1,8 @@
 ﻿<Window x:Class="SpriteTool.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="167" Width="481">
-    <Grid >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Label x:Name="dropLabelMono" AllowDrop="True" Drop="dropLabelMono_Drop" Content="Mono here!" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" BorderBrush="Black" BorderThickness="1"/>
-        <Label x:Name="dropLabelGray" AllowDrop="True" Drop="dropLabelGray_Drop" Content="Gray here!" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
-        <Label x:Name="dropLabelRBGI" AllowDrop="True" Drop="dropLabelRGBI_Drop" Content="RGBI here!" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
+        Title="SpriteTool by Erwin de Haan" Height="167" Width="481">
+    <Grid >       
+        <Label x:Name="dropLabelMono" AllowDrop="True" Drop="dropLabelMono_Drop" Content="Drop set of monochrome sprites here." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" BorderBrush="Black" BorderThickness="1"/>       
     </Grid>
 </Window>

@@ -8,7 +8,7 @@ public:
 	int dx;
 	int dy;
 	byte color;
-	Point(int x, int y, int dx, int dy, byte color) : x(x), y(x), dx(dx), dy(dy), color(color) {};
+	Point(int x, int y, int dx, int dy, byte color) : x(x), y(y), dx(dx), dy(dy), color(color) {};
 };
 class Demo : public Program{
 	Point **points;
