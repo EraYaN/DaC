@@ -88,7 +88,7 @@ architecture structural of draw is
 		asb : in std_logic;
 		done  : out   std_logic;
 		ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
-		ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);
+		ramdata     :inout   std_logic_vector(SizeRAMData-1 downto 0);
 		draw_write :out std_logic;
 		draw_read :out std_logic;
 		draw_can_access : in std_logic

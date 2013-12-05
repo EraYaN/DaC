@@ -2,10 +2,6 @@ library IEEE;
 use IEEE.std_logic_1164.ALL;
 use work.parameter_def.ALL;
 
-
-
-
-
 architecture behaviour of draw_rect_tb is
 component draw_rect is
 	port(
