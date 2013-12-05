@@ -3,19 +3,35 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'gen6mhz:inst1|count[2]'
-Slack : -10.618
-TNS   : -727.568
+Slack : -10.762
+TNS   : -759.748
+
+Type  : Slow Model Setup 'gpu:inst2|draw:draw1|draw_sprite:sprite1|scounter[2]'
+Slack : -2.857
+TNS   : -14.688
 
 Type  : Slow Model Setup 'clock_50mhz'
-Slack : -0.220
-TNS   : -0.220
+Slack : -0.258
+TNS   : -0.258
 
 Type  : Slow Model Hold 'clock_50mhz'
-Slack : -2.695
-TNS   : -2.695
+Slack : -2.690
+TNS   : -2.690
 
 Type  : Slow Model Hold 'gen6mhz:inst1|count[2]'
-Slack : 0.445
+Slack : -2.217
+TNS   : -9.271
+
+Type  : Slow Model Hold 'gpu:inst2|draw:draw1|draw_sprite:sprite1|scounter[2]'
+Slack : 0.216
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'gpu:inst2|draw:draw1|draw_sprite:sprite1|scounter[2]'
+Slack : -4.464
+TNS   : -25.610
+
+Type  : Slow Model Removal 'gpu:inst2|draw:draw1|draw_sprite:sprite1|scounter[2]'
+Slack : 1.792
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'clock_50mhz'
@@ -24,22 +40,42 @@ TNS   : -5.297
 
 Type  : Slow Model Minimum Pulse Width 'gen6mhz:inst1|count[2]'
 Slack : -0.611
-TNS   : -173.524
+TNS   : -191.854
+
+Type  : Slow Model Minimum Pulse Width 'gpu:inst2|draw:draw1|draw_sprite:sprite1|scounter[2]'
+Slack : 0.500
+TNS   : 0.000
 
 Type  : Fast Model Setup 'gen6mhz:inst1|count[2]'
-Slack : -3.247
-TNS   : -195.771
+Slack : -3.226
+TNS   : -197.454
+
+Type  : Fast Model Setup 'gpu:inst2|draw:draw1|draw_sprite:sprite1|scounter[2]'
+Slack : -0.533
+TNS   : -2.402
 
 Type  : Fast Model Setup 'clock_50mhz'
-Slack : 0.517
+Slack : 0.511
 TNS   : 0.000
 
 Type  : Fast Model Hold 'clock_50mhz'
-Slack : -1.725
-TNS   : -1.725
+Slack : -1.719
+TNS   : -1.719
 
 Type  : Fast Model Hold 'gen6mhz:inst1|count[2]'
-Slack : 0.215
+Slack : -1.552
+TNS   : -7.246
+
+Type  : Fast Model Hold 'gpu:inst2|draw:draw1|draw_sprite:sprite1|scounter[2]'
+Slack : 0.228
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'gpu:inst2|draw:draw1|draw_sprite:sprite1|scounter[2]'
+Slack : -1.048
+TNS   : -5.875
+
+Type  : Fast Model Removal 'gpu:inst2|draw:draw1|draw_sprite:sprite1|scounter[2]'
+Slack : 0.789
 TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'clock_50mhz'
@@ -48,6 +84,10 @@ TNS   : -4.380
 
 Type  : Fast Model Minimum Pulse Width 'gen6mhz:inst1|count[2]'
 Slack : -0.500
-TNS   : -142.000
+TNS   : -157.000
+
+Type  : Fast Model Minimum Pulse Width 'gpu:inst2|draw:draw1|draw_sprite:sprite1|scounter[2]'
+Slack : 0.500
+TNS   : 0.000
 
 ------------------------------------------------------------

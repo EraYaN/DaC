@@ -73,13 +73,35 @@ architecture structural of draw is
 		draw_can_access : in std_logic
 	);
 	end component;
+	
+	component draw_sprite is	
+	port(
+		clk   : in    std_logic;
+		reset : in    std_logic;
+		enable: in    std_logic;
+		id : in std_logic_vector(SizeSpriteID-1 downto 0);
+		x  : in    std_logic_vector(SizeX-1 downto 0);
+		y  : in    std_logic_vector(SizeY-1 downto 0);
+		w : in    std_logic_vector(SizeX-1 downto 0);
+		l  : in    std_logic_vector(SizeSpriteCounter-1 downto 0);
+		color : in std_logic_vector(SizeColor-1 downto 0);
+		asb : in std_logic;
+		done  : out   std_logic;
+		ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
+		ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);
+		draw_write :out std_logic;
+		draw_read :out std_logic;
+		draw_can_access : in std_logic
+	);
+	end component;
 
-	signal pixel_done,fill_done,rect_done,line_done : std_logic;
-	signal pixel_write,fill_write,rect_write,line_write : std_logic;
+	signal pixel_done,fill_done,rect_done,line_done,sprite_done : std_logic;
+	signal pixel_write,fill_write,rect_write,line_write,sprite_write : std_logic;
+	signal sprite_read : std_logic;
 begin
-	draw_ready <= pixel_done or fill_done or rect_done or line_done;
-	draw_write <= pixel_write or fill_write or rect_write or line_write;
-	draw_read <= '0';
+	draw_ready <= pixel_done or fill_done or rect_done or line_done or sprite_done;
+	draw_write <= pixel_write or fill_write or rect_write or line_write or sprite_write;
+	draw_read <= sprite_read;
 	-- pixel_done <= '0';
 	-- rect_done <= '0';
 	-- pixel_write <= '0';
@@ -147,6 +169,25 @@ begin
 		ramaddr=>ramaddr,
 		ramdata=>ramdata,
 		draw_write=>line_write,
+		draw_can_access=>draw_can_access
+	);
+	--Module 5
+	sprite1: draw_sprite port map (
+		clk=>clk,
+		reset=>reset,
+		enable=>en(4),
+		id=>id,
+		x=>x,
+		y=>y,
+		w=>w,
+		l=>h(SizeSpriteCounter-1 downto 0),
+		color=>color,
+		asb=>asb,
+		done=>sprite_done,
+		ramaddr=>ramaddr,
+		ramdata=>ramdata,
+		draw_write=>sprite_write,
+		draw_read=>sprite_read,
 		draw_can_access=>draw_can_access
 	);
 end structural;

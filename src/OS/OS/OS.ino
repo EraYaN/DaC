@@ -19,7 +19,7 @@ void setup()
 	attachInterrupt(INT_READY_PIN, drawReady, RISING);
 	//Serial.begin(9600);
 	SPI.setBitOrder(MSBFIRST);
-	SPI.setClockDivider(SPI_CLOCK_DIV8);
+	SPI.setClockDivider(SPI_CLOCK_DIV16);
 	SPI.setDataMode(SPI_MODE0);
 	SPI.begin();
 	//Serial.begin(115200);

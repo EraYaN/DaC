@@ -8,6 +8,7 @@ entity draw is
 		clk		: in	std_logic;	--Clock
 		reset	: in	std_logic;	--Reset
 		--Draw data
+		id : in std_logic_vector(SizeSpriteID-1 downto 0); -- Sprite ID
 		x			: in	std_logic_vector(SizeX-1 downto 0);				--Entity x coord
 		w			: in	std_logic_vector(SizeX-1 downto 0);				--Entity width
 		y			: in	std_logic_vector(SizeY-1 downto 0);				--Entity y coord
