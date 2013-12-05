@@ -23,3 +23,6 @@ entity draw_rect is
 end draw_rect;
 
 
+
+
+

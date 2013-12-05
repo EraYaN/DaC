@@ -29,8 +29,10 @@ draw_rect_seq: process (clk)
 	end process;
 	ramaddr <= ramaddr_tmp WHEN oe = '1' ELSE (others => 'Z');
 	ramdata <= color WHEN oe = '1' ELSE (others => 'Z');
+	--ramaddr <= ramaddr_tmp WHEN oe = '1' ELSE (others => '0');
+	--ramdata <= color WHEN oe = '1' ELSE (others => '0');
 	ramaddr_tmp <= std_logic_vector((NOT asb) & cy & cx);	
-draw_rect_combi: process (reset, enable, enablef, draw_can_access, x0, y0, x1, y1, almost_done,cx,cy,started)	
+draw_rect_combi: process (reset, enable, enablef, draw_can_access, x0, y0, x1, y1, almost_done,cx,cy,started,color, asb, ramaddr_tmp, cx_tmp, cy_tmp, draw_write_tmp, almost_done_tmp, started_tmp, oe)	
 	begin
 			if reset = '0' and (enable = '1' or enablef = '1') then 
 				if draw_can_access = '1' then -- RAM is free to access
@@ -104,3 +106,9 @@ draw_rect_combi: process (reset, enable, enablef, draw_can_access, x0, y0, x1, y
 			end if;
 	end process;
 end behaviour;
+
+
+
+
+
+
