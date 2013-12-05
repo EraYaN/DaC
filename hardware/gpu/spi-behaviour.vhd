@@ -18,8 +18,8 @@ begin
 process(clk, reset)
 
 begin
+	if( rising_edge(clk) ) then
 	if (reset = '1') then
-
 		spi_rx_data <= (others => '0');
 		index <= to_unsigned(SizeSPIData-1,c);
 		--TxData <= (others => '0');
@@ -30,7 +30,7 @@ begin
 		spi_data_available <= '0';
 		mosi_latched <= '0';
 
-	elsif( rising_edge(clk) ) then
+	else
 
 		sclk_latched <= spi_clk;
 		sclk_old <= sclk_latched;
@@ -64,6 +64,7 @@ begin
 			end if;
 		end if;
 	end if;
+end if;
 end process;
 
 --Combinational assignments
@@ -72,3 +73,6 @@ end process;
 spi_data_rx <= spi_rx_data;
 
 end behaviour;
+
+
+
