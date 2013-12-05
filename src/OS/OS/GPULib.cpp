@@ -192,7 +192,7 @@ void GPULib::drawString(const char* string, byte x, byte y, byte color){
 	}
 
 }
-bool GPULib::loadSprites(Sprite *set[], int size){
+bool GPULib::loadSprites(Sprite *set[], int size, bool *rfn){
 	int address = 0;
 	int spriteID = 0;
 	for(int i = 0; i<size; i++){
@@ -209,7 +209,7 @@ bool GPULib::loadSprites(Sprite *set[], int size){
 			return false;
 		}
 		set[i]->address = address;
-		while(!readyfornext){
+		while(!*rfn){
 			//wait
 		}
 		sendSprite(set[i], address);
