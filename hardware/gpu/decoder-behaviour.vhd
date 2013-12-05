@@ -11,7 +11,7 @@ architecture behaviour of decoder is
 	signal next_ramdata : std_logic_vector(SizeRAMData-1 downto 0);
 begin
 	--"asynchronous" RAM interaction
-	ramaddr <= x & w when decoder_write = '1' else (others => 'Z');
+	ramaddr <= id & h(SizeSpriteCounter-1 downto 0) when decoder_write = '1' else (others => 'Z');
 	ramdata <= next_ramdata when decoder_write = '1' else (others => 'Z');
 
 	--synchronizer + input buffer + output buffer + state change
@@ -30,6 +30,7 @@ begin
 				w <= (others => '0');
 				h <= (others => '0');
 				en <= (others => '0');
+				id <= (others => '0');
 				asb <= '0';
 				int_ready <= '0';
 				decoder_write <= '0';
@@ -80,17 +81,15 @@ begin
 							if instr = "0111" then
 								--sprite loading - save data length and push first two address bits
 								y <= '0' & spi_data_rx(SizeSPIData-1 downto SizeSPIData-SizeSpriteCounter);
-								--misuse currently unused registers to buffer data
-								x(SizeX-1 downto SizeX-(SizeSPIData-SizeSpriteCounter)) <= spi_data_rx(SizeSPIData-SizeSpriteCounter-1 downto 0);
+								id(SizeSpriteID-1 downto SizeSpriteID-(SizeSPIData-SizeSpriteCounter)) <= spi_data_rx(SizeSPIData-SizeSpriteCounter-1 downto 0);
 							else
 								--pass through x coord
 								x <= spi_data_rx;
 							end if;
 						when 2 => 
 							if instr = "0111" then
-								--sprite loading - push other eight address bits, again in other unused registers
-								x(SizeX-(SizeSPIData-SizeSpriteCounter)-1 downto 0) <= spi_data_rx(SizeSPIData-1 downto SizeSPIData-SizeSpriteCounter);
-								w(SizeX-1 downto SizeX-(SizeSPIData-SizeSpriteCounter)) <= spi_data_rx(SizeSPIData-SizeSpriteCounter-1 downto 0);
+								--sprite loading - push other eight address bits
+								id(SizeSpriteID-(SizeSPIData-SizeSpriteCounter)-1 downto 0) <= spi_data_rx;
 							else
 								--pass through y coord
 								y <= spi_data_rx(SizeY-1 downto 0);
@@ -126,18 +125,18 @@ begin
 									end if;
 								end if;
 							else
-								--pass through w coord
+								--pass through width
 								w <= spi_data_rx;
-								--start loading next instruction next cycle if instruction is "circle"
-								if instr = "0110" then
-									done := '1';
-									en <= (others => '0');
-									en(5) <= '1';
-								end if;
 							end if;
 						when 4 =>
-							--pass through h coord
-							h <= spi_data_rx(SizeY-1 downto 0);
+							if instr /= "0110" then
+								--pass through height
+								h <= spi_data_rx(SizeY-1 downto 0);
+							else
+								--pass through sprite packet stream length and 2 msb of sprite id 
+								h <= spi_data_rx(SizeSPIData-1 downto SizeSPIData-SizeSpriteCounter) & '0';
+								id(SizeSpriteID-1 downto SizeSpriteID-(SizeSPIData-SizeSpriteCounter)) <= spi_data_rx(SizeSPIData-SizeSpriteCounter-1 downto 0);
+							end if;
 							--start loading next instruction next cycle if instruction is "square", "fsquare" or "line"
 							if (instr = "0011" or instr = "0100" or instr = "0101") then
 								if instr = "0011" then
@@ -152,6 +151,12 @@ begin
 								end if;
 								done := '1';
 							end if;
+						when 5 =>
+							--pass through 8 lsb of sprite id and enable sprite drawing
+							id(SizeSpriteID-(SizeSPIData-SizeSpriteCounter)-1 downto 0) <= spi_data_rx;
+							done := '1';
+							en <= (others => '0');
+							en(5) <= '1';
 						when others =>
 
 					end case;

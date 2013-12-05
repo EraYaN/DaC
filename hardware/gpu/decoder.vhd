@@ -17,6 +17,7 @@ entity decoder is
 		y			: buffer	std_logic_vector(SizeY-1 downto 0);				--Entity y coord
 		h			: buffer	std_logic_vector(SizeY-1 downto 0);				--Entity height
 		color		: buffer	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
+		id			: buffer	std_logic_vector(SizeSpriteID-1 downto 0);		--Sprite ID
 		en			: out	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
 		--Internal registers
 		asb			: buffer	std_logic;	--Currently active screen buffer

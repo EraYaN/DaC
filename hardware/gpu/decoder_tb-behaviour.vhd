@@ -49,26 +49,26 @@ begin
 	reset 	<= '1' after 0 ns,
 			'0' after 40 ns;
 	--for testing draw-like instructions
-	-- spi_data_rx		<= "00000000" after 0 ns, 
-	-- 		"00111111" after 130 ns,
-	-- 		"01010101" after 230 ns,
-	-- 		"10101010" after 330 ns,
-	-- 		"11111111" after 430 ns,
-	-- 		"00000000" after 530 ns,
-	-- 		"00110000" after 630 ns,
-	-- 		"10101010" after 730 ns,
-	-- 		"01010101" after 830 ns,
-	-- 		"00000000" after 930 ns,
-	-- 		"11111111" after 1030 ns,
-	-- 		"00000000" after 1270 ns;
+	spi_data_rx		<= "00000000" after 0 ns, 
+			"01101111" after 80 ns,
+			"01010101" after 180 ns,
+			"10101010" after 280 ns,
+			"11111111" after 380 ns,
+			"00000000" after 480 ns,
+			"10011001" after 580 ns;
+			-- "10101010" after 730 ns,
+			-- "01010101" after 830 ns,
+			-- "00000000" after 930 ns,
+			-- "11111111" after 1030 ns,
+			-- "00000000" after 1270 ns;
 	--for testing sprite loading
-		spi_data_rx		<= "01110000" after 0 ns, --load sprite
-			"00100001" after 130 ns, --data length of 8, address(16 downto 14) = 01
-			"01010101" after 230 ns, --address(13 downto 6) = 01010101
-			"10100101" after 330 ns, --data 0
-			"11110000" after 430 ns, --data 1
-			"00001111" after 530 ns, --data 2
-			"00110000" after 630 ns; --data 3
+	-- spi_data_rx		<= "01110000" after 0 ns, --load sprite
+		-- 	"00100001" after 130 ns, --data length of 8, address(16 downto 14) = 01
+		-- 	"01010101" after 230 ns, --address(13 downto 6) = 01010101
+		-- 	"10100101" after 330 ns, --data 0
+		-- 	"11110000" after 430 ns, --data 1
+		-- 	"00001111" after 530 ns, --data 2
+		-- 	"00110000" after 630 ns; --data 3
 	spi_data_available		<= '0' after 0 ns,
 			'1' after 80 ns,
 			'0' after 100 ns,
