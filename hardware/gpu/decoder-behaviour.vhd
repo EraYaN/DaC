@@ -5,8 +5,14 @@ use work.parameter_def.all;
 
 architecture behaviour of decoder is
 	--persistent signals
-	signal packet_num : unsigned(MaxNumPackets-1 downto 0);
+	signal packet_num : unsigned(MaxNumPackets-1 downto 0); --current packet number
+	signal sprite_packet_num : unsigned(SizeSpriteCounter-1 downto 0); --current sprite data packet number
 	signal instruction : std_logic_vector(InstrSize-1 downto 0);
+	signal sprite_data_length : unsigned(SizeSpriteCounter-1 downto 0);
+	signal sprite_data_cache : unsigned(SizeSPIData/2-1 downto 0);
+
+	signal next_ramdata : std_logic_vector(SizeRAMData-1 downto 0);
+	signal next_ramaddr : std_logic_vector(SizeRAMData-1 downto 0);
 begin
 	--synchronizer + input buffer + output buffer + state change
 	decoder1: process (clk)
@@ -19,8 +25,6 @@ begin
 			int_ready <= '0';
 			if reset = '1' then
 				--reset all registers
-				--dav_latched <= '0';
-				--dav_old <= '0';
 				packet_num <= (others => '0');
 				instruction <= (others => '0');
 				color <= (others => '0');
@@ -33,6 +37,7 @@ begin
 				decoder_claim <= '0';
 				decoder_write <= '0';
 				is_init <= '1';
+				next_ramaddr <= (others => '0');
 			else
 				if draw_ready = '1' then
 					--disable all draw modules
@@ -50,49 +55,63 @@ begin
 					--logic depending on current packet in stream
 					case to_integer(packet) is
 						when 0 =>
-							if instr = "1010" then
-								--multicolor sprite loading subroutine
-								
-							else
-								--deduce instruction
-								instr := spi_data_rx(SizeSPIData-1 downto SizeColor);
-								--start loading next instruction next cycle if instruction is "switch", "fill" or unknown
-								if (instr = "0000" or instr = "0001" or instr > "0110") then
-									done := '1';
-									if instr = "0001" then
-										--activate "fill" draw-module
-										en <= (others => '0');
-										en(0) <= '1';
-										is_init <= '0';
-									elsif instr = "0000" then
-										--switch screen buffer
-										asb <= not asb;
-										int_ready <= '1';
-									end if;
-								end if;
-								--pass through color
-								color <= spi_data_rx(SizeColor-1 downto 0);
-							end if;
-						when 1 => 
-							--pass through x coord
-							x <= spi_data_rx;
-						when 2 => 
-							--pass through y coord
-							y <= spi_data_rx(SizeY-1 downto 0);
-							---start loading next instruction next cycle if instruction is "pixel"
-							if instr = "0010" then
+							--deduce instruction
+							instr := spi_data_rx(SizeSPIData-1 downto SizeColor);
+							--start loading next instruction next cycle if instruction is "switch", "fill" or unknown
+							if (instr = "0000" or instr = "0001" or instr > "0111") then
 								done := '1';
-								en <= (others => '0');
-								en(1) <= '1';
+								if instr = "0001" then
+									--activate "fill" draw-module
+									en <= (others => '0');
+									en(0) <= '1';
+									is_init <= '0';
+								elsif instr = "0000" then
+									--switch screen buffer
+									asb <= not asb;
+									int_ready <= '1';
+								end if;
+							end if;
+							--pass through color
+							color <= spi_data_rx(SizeColor-1 downto 0);
+						when 1 =>
+							if instr = "0111" then
+								--sprite loading - reset counter and push first two address bits
+								sprite_packet_num <= (others => '0');
+								sprite_data_length <= spi_data_rx(SizeSPIData-1 downto SizeSPIData-SizeSpriteCounter);
+								next_ramaddr(SizeRAMAddr-1 downto SizeRAMAddr-(SizeSPIData-SizeSpriteCounter)) <= spi_data_rx(SizeSPIData-SizeSpriteCounter-1 downto 0);
+							else
+								--pass through x coord
+								x <= spi_data_rx;
+							end if;
+						when 2 => 
+							if instr = "0111" then
+								--sprite loading - push other eight address bits
+								next_ramaddr(SizeRAMAddr-(SizeSPIData-SizeSpriteCounter)-1 downto SizeSpriteCounter) <= spi_data_rx(SizeSPIData-1 downto 0);
+							else
+								--pass through y coord
+								y <= spi_data_rx(SizeY-1 downto 0);
+								---start loading next instruction next cycle if instruction is "pixel"
+								if instr = "0010" then
+									done := '1';
+									en <= (others => '0');
+									en(1) <= '1';
+								end if;
 							end if;
 						when 3 =>
-							--pass through w coord
-							w <= spi_data_rx;
-							--start loading next instruction next cycle if instruction is "circle"
-							if instr = "0110" then
-								done := '1';
-								en <= (others => '0');
-								en(5) <= '1';
+							if instr = "0111" then
+								--sprite loading - load dat shit
+								next_ramaddr(SizeSpriteCounter-1 downto 0) <= sprite_packet_num;
+								next_ramdata <= spi_data_rx(SizeSPIData-1 downto SizeRAMData);
+								sprite_data_cache <= spi_data_rx(SizeRAMData-1 downto 0);
+							else
+								--pass through w coord
+								w <= spi_data_rx;
+								--start loading next instruction next cycle if instruction is "circle"
+								if instr = "0110" then
+									done := '1';
+									en <= (others => '0');
+									en(5) <= '1';
+								end if;
 							end if;
 						when 4 =>
 							--pass through h coord

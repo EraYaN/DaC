@@ -27,5 +27,10 @@ entity decoder is
 		decoder_write		: out std_logic;	--Intention to write to RAM
 		decoder_claim		: out std_logic;	--Claim RAM
 		is_init				: out std_logic		--Initializing?
+		--RAM interaction
+		ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
+		ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);
+		draw_write  :buffer std_logic;
+		draw_can_access : in std_logic
 	);
 end entity decoder;
