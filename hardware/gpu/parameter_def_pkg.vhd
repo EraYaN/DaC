@@ -4,6 +4,7 @@ use IEEE.std_logic_1164.ALL;
 PACKAGE parameter_def IS
 	constant InstrSize : INTEGER;
 	constant MaxNumPackets : INTEGER;
+	constant SizeSpriteID : INTEGER;
 	constant NumDrawModules : INTEGER;
 	constant SizeX : INTEGER;
 	constant SizeY : INTEGER;
@@ -19,6 +20,7 @@ END parameter_def;
 PACKAGE BODY parameter_def IS
 	constant InstrSize : INTEGER := 4; --bits
 	constant MaxNumPackets : INTEGER := 3; -- aantal bits voor counter, log2(7 bytes) => 3 bits
+	constant SizeSpriteID : INTEGER;
 	constant NumDrawModules : INTEGER := 6; -- 0: fill; 1: pixel; 2: square; 3: fsquare; 4: line; 5: circle;
 	constant SizeX : INTEGER := 8;
 	constant SizeY : INTEGER := 7;
