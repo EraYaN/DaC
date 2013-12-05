@@ -1,5 +1,0 @@
-rm -rf /home/ajcjanssen/draw_pixel/syn_work_bak
-mv -f /home/ajcjanssen/draw_pixel/syn_work /home/ajcjanssen/draw_pixel/syn_work_bak
-cp -r /tmp/ajcjanssen/draw_pixel/syn_work /home/ajcjanssen/draw_pixel
-cp /tmp/ajcjanssen/draw_pixel/ADB/draw_pixel.ddc /home/ajcjanssen/draw_pixel/ADB/draw_pixel.ddc
-cp /tmp/ajcjanssen/draw_pixel/VHDL/draw_pixel_SYNTH.vhd /home/ajcjanssen/draw_pixel/VHDL/draw_pixel_SYNTH.vhd
