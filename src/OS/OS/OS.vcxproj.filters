@@ -54,6 +54,24 @@
     <ClInclude Include="Sprites.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="font4x4_set.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="font4x4_set_data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="font6x8_set.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="font6x8_set_data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="font8x8_set.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="font8x8_set_data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GPULib.cpp">

@@ -77,7 +77,25 @@
     <ClInclude Include="Demo.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="floatToString.h" />
+    <ClInclude Include="font4x4_set.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="font4x4_set_data.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="font6x8_set.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="font6x8_set_data.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
     <ClInclude Include="font8x8_basic.h" />
+    <ClInclude Include="font8x8_set.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="font8x8_set_data.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
     <ClInclude Include="Game.h" />
     <ClInclude Include="GPULib.h" />
     <ClInclude Include="InputLib.h">

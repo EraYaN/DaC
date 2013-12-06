@@ -230,7 +230,7 @@ void GPULib::sendSprite(Sprite *sprite, int address){
 	delete instr;
 	//send data
 	for(int i = 0; i<sprite->size; i++){
-		SPI.transfer((byte)sprite->data[i]);
+		SPI.transfer(pgm_read_byte_near((sprite->data[i])));
 	}
 	sending = false;
 	
