@@ -2,6 +2,7 @@
 #include "Util.h"
 
 GPULib *GPU;
+InputLib *Input;
 unsigned long lastDrawReady;
 bool running;
 bool b_helper = true;
@@ -13,9 +14,11 @@ unsigned long lastFrame;
 unsigned long currentFrame;
 unsigned long frameTime;
 unsigned long lastBlinkTime = 0;
+
 void setup()
 {
 	GPU = new GPULib();
+	Input = new InputLib();
 	attachInterrupt(INT_READY_PIN, drawReady, RISING);
 	//Serial.begin(9600);
 	SPI.setBitOrder(MSBFIRST);
@@ -29,6 +32,8 @@ void setup()
 
 	currentProgram = new Demo(GPU,"Demo");
 	randomSeed(analogRead(0));
+
+	Input->keyboard.begin(KEYBOARDDATAPIN, KEYBOARDCLOCKPIN);
 }
 
 void loop()

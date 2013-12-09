@@ -1,6 +1,12 @@
 #pragma once
 #ifndef _GAME_
 #define _GAME_
+
+struct Control {
+	String name;
+	byte key;
+};
+
 class Game : public Program {
 protected:
 	byte minPlayers;

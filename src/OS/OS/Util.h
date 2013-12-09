@@ -14,4 +14,6 @@
 #include "Program.h"
 #include "Game.h"
 #include "Demo.h"
+#include "InputLib.h"
+#include "PS2Keyboard.h"
 #endif
