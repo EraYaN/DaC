@@ -66,7 +66,7 @@ begin
 					case to_integer(packet_num) is
 						when 0 =>
 							--deduce instruction
-							instr := spi_data_rx(SizeSPIData-2 downto SizeColor);
+							instr := spi_data_rx(SizeSPIData-2 downto SizeSPIData/2);
 							--start loading next instruction next cycle if instruction is "switch", "fill" or unknown
 							if (instr = "000" or instr = "001" or instr > "111") then
 								done := '1';
