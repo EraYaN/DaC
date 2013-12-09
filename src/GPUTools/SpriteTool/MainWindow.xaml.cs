@@ -56,6 +56,7 @@ namespace SpriteTool
 							sw.WriteLine("#pragma once");
 							sw.WriteLine("#ifndef _SPRITES_SET_{0}_", setname.ToUpper());
 							sw.WriteLine("#define _SPRITES_SET_{0}_", setname.ToUpper());
+                            sw.WriteLine("#include \"{0}\"", setname + "_set_data.h");
 							sw.Write("Sprite sprites_{0}_set[] = ", setname.ToLower());
 							sw.WriteLine("{");
 							sw_data.WriteLine("#pragma once");
@@ -96,7 +97,7 @@ namespace SpriteTool
 				sw.WriteLine(",");
 			}
 			sw.Write("Sprite(0,{0},{1},{2},set_{3}_sprite_{4})", w, h, (int)Math.Ceiling((w * h) / 8.0), setname, varname);
-			sw_data.Write("PROGMEM prog_uchar[] set_{0}_sprite_{1} = ", setname, varname);
+			sw_data.Write("PROGMEM prog_uchar set_{0}_sprite_{1}[] = ", setname, varname);
 			sw_data.WriteLine("{");
 			int data = 0;
 			i = 7;
