@@ -29,9 +29,9 @@ PACKAGE BODY parameter_def IS
 	constant SizeX : INTEGER := 8;
 	constant SizeY : INTEGER := 7;
 	constant NumStateReg : INTEGER := 1;
-	constant SizeRAMData : INTEGER := 4;
+	constant SizeRAMData : INTEGER := 3;
 	constant SizeRAMAddr : INTEGER := 16;
-	constant SizeColor : INTEGER := 4;
+	constant SizeColor : INTEGER := 3;
 	constant SizeSPIData : INTEGER := 8;
 	constant ResolutionX : INTEGER := 160;
 	constant ResolutionY : INTEGER := 120;
