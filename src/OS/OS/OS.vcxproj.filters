@@ -102,6 +102,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PS2Keyboard.cpp">
+    <ClCompile Include="font6x8_set_data.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="font6x8_set.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -40,8 +40,10 @@ void loop()
 {
 	if (running)
 	{
-		if(first){
+		if(first && readyfornext){	
 			GPU->cleanUp();
+			GPU->loadSprites(sprites_font6x8_set,95,&readyfornext);
+			//GPU->cleanUp();
 			GPU->drawFill(B0000);
 			//GPU->transferQueue();
 			first = false;
@@ -79,5 +81,6 @@ void loop()
 
 void drawReady()
 {
-	readyfornext = true;	
+	readyfornext = true;
+	//Serial.println("Ready for next!");
 }

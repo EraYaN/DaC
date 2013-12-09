@@ -74,8 +74,11 @@ reset => vgacontroller:vgacontroller1.reset_n
 spi_clk => spi:spi1.spi_clk
 spi_mosi => spi:spi1.spi_mosi
 int_ready <= decoder:decoder1.int_ready
+ramdata[0] <> draw:draw1.ramdata[0]
 ramdata[0] <> ramdata[0]
+ramdata[1] <> draw:draw1.ramdata[1]
 ramdata[1] <> ramdata[1]
+ramdata[2] <> draw:draw1.ramdata[2]
 ramdata[2] <> ramdata[2]
 ramaddr[0] <= ramaddr[0].DB_MAX_OUTPUT_PORT_TYPE
 ramaddr[1] <= ramaddr[1].DB_MAX_OUTPUT_PORT_TYPE
@@ -873,6 +876,9 @@ clk => instruction[2].CLK
 clk => packet_num[0].CLK
 clk => packet_num[1].CLK
 clk => packet_num[2].CLK
+clk => \decode:instr[0].CLK
+clk => \decode:instr[1].CLK
+clk => \decode:instr[2].CLK
 reset => packet_num.OUTPUTSELECT
 reset => packet_num.OUTPUTSELECT
 reset => packet_num.OUTPUTSELECT
@@ -936,6 +942,9 @@ reset => next_ramdata.OUTPUTSELECT
 reset => next_ramdata.OUTPUTSELECT
 reset => decoder_claim.OUTPUTSELECT
 reset => is_init~reg0.DATAIN
+reset => \decode:instr[0].ENA
+reset => \decode:instr[1].ENA
+reset => \decode:instr[2].ENA
 spi_data_rx[0] => id.DATAB
 spi_data_rx[0] => x.DATAA
 spi_data_rx[0] => id.DATAB
@@ -985,8 +994,8 @@ spi_data_rx[4] => h.DATAB
 spi_data_rx[4] => h.DATAA
 spi_data_rx[4] => Mux2.IN0
 spi_data_rx[4] => Mux27.IN1
-spi_data_rx[4] => Equal0.IN2
 spi_data_rx[4] => Equal1.IN2
+spi_data_rx[4] => Equal2.IN2
 spi_data_rx[5] => LessThan0.IN5
 spi_data_rx[5] => y.DATAB
 spi_data_rx[5] => x.DATAA
@@ -998,8 +1007,8 @@ spi_data_rx[5] => h.DATAB
 spi_data_rx[5] => h.DATAA
 spi_data_rx[5] => Mux1.IN0
 spi_data_rx[5] => Mux26.IN1
-spi_data_rx[5] => Equal0.IN1
 spi_data_rx[5] => Equal1.IN1
+spi_data_rx[5] => Equal2.IN1
 spi_data_rx[6] => LessThan0.IN4
 spi_data_rx[6] => y.DATAB
 spi_data_rx[6] => x.DATAA
@@ -1011,8 +1020,8 @@ spi_data_rx[6] => h.DATAB
 spi_data_rx[6] => h.DATAA
 spi_data_rx[6] => Mux0.IN0
 spi_data_rx[6] => Mux25.IN1
-spi_data_rx[6] => Equal0.IN0
 spi_data_rx[6] => Equal1.IN0
+spi_data_rx[6] => Equal2.IN0
 spi_data_rx[7] => y.DATAB
 spi_data_rx[7] => x.DATAA
 spi_data_rx[7] => id.DATAB

@@ -49,33 +49,43 @@ namespace SpriteTool
 					else
 						setname = System.IO.Path.GetFileNameWithoutExtension(files[0]);
 					bool firstfile = true;
-					using (StreamWriter sw = new StreamWriter(setname + "_set.h"))
+					using (StreamWriter sw = new StreamWriter(setname + "_set.cpp"))
 					{
-						using (StreamWriter sw_data = new StreamWriter(setname + "_set_data.h"))
-						{
-							sw.WriteLine("#pragma once");
-							sw.WriteLine("#ifndef _SPRITES_SET_{0}_", setname.ToUpper());
-							sw.WriteLine("#define _SPRITES_SET_{0}_", setname.ToUpper());
-                            sw.WriteLine("#include \"{0}\"", setname + "_set_data.h");
-							sw.Write("Sprite sprites_{0}_set[] = ", setname.ToLower());
-							sw.WriteLine("{");
-							sw_data.WriteLine("#pragma once");
-							sw_data.WriteLine("#ifndef _SPRITES_SET_{0}_DATA_", setname.ToUpper());
-							sw_data.WriteLine("#define _SPRITES_SET_{0}_DATA_", setname.ToUpper());
-							foreach (string f in files)
-							{
-								processFile(f, setname,sw, sw_data,firstfile);
-								firstfile = false;
-							}
-							sw.WriteLine("\r\n};");
-							sw.WriteLine("#endif");
-							sw_data.WriteLine("#endif");
-						}
+                        using (StreamWriter sw_h = new StreamWriter(setname + "_set.h"))
+                        {
+                            using (StreamWriter sw_data = new StreamWriter(setname + "_set_data.cpp"))
+                            {
+                                using (StreamWriter sw_data_h = new StreamWriter(setname + "_set_data.h"))
+                                {
+                                    sw_h.WriteLine("#pragma once");
+                                    sw_h.WriteLine("#ifndef _SPRITES_SET_{0}_", setname.ToUpper());
+                                    sw_h.WriteLine("#define _SPRITES_SET_{0}_", setname.ToUpper());
+                                    sw_h.WriteLine("#include \"{0}\"", setname + "_set_data.h");
+                                    sw_h.WriteLine("extern Sprite *sprites_{0}_set[];", setname.ToLower());
+                                    sw.WriteLine("#include \"Util.h\"");
+                                    sw.WriteLine("//Number of sprites in set: {0}", files.Count());
+                                    sw.Write("Sprite *sprites_{0}_set[] = ", setname.ToLower());
+                                    sw.WriteLine("{");
+                                    sw_data.WriteLine("#include \"Util.h\"");
+                                    sw_data_h.WriteLine("#pragma once");
+                                    sw_data_h.WriteLine("#ifndef _SPRITES_SET_{0}_DATA_", setname.ToUpper());
+                                    sw_data_h.WriteLine("#define _SPRITES_SET_{0}_DATA_", setname.ToUpper());
+                                    foreach (string f in files)
+                                    {
+                                        processFile(f, setname, sw, sw_h, sw_data, sw_data_h, firstfile);
+                                        firstfile = false;
+                                    }
+                                    sw.WriteLine("\r\n};");
+                                    sw_h.WriteLine("#endif");
+                                    sw_data_h.WriteLine("#endif");
+                                }
+                            }
+                        }
 					}
 				}
             }
         }
-		void processFile(string filename, string setname, StreamWriter sw, StreamWriter sw_data, bool firstfile = false)
+        void processFile(string filename, string setname, StreamWriter sw, StreamWriter sw_h, StreamWriter sw_data, StreamWriter sw_data_h, bool firstfile = false)
 		{
 			wimg = (Bitmap)Bitmap.FromFile(filename, true);
 			int h = wimg.Height;
@@ -96,8 +106,9 @@ namespace SpriteTool
 			if(!firstfile){
 				sw.WriteLine(",");
 			}
-			sw.Write("Sprite(0,{0},{1},{2},set_{3}_sprite_{4})", w, h, (int)Math.Ceiling((w * h) / 8.0), setname, varname);
-			sw_data.Write("PROGMEM prog_uchar set_{0}_sprite_{1}[] = ", setname, varname);
+			sw.Write("new Sprite(0,{0},{1},{2},set_{3}_sprite_{4})", w, h, (int)Math.Ceiling((w * h) / 8.0), setname, varname);
+			sw_data.Write("extern const prog_uchar set_{0}_sprite_{1}[] = ", setname, varname);
+            sw_data_h.WriteLine("PROGMEM extern const prog_uchar set_{0}_sprite_{1}[];", setname, varname);
 			sw_data.WriteLine("{");
 			int data = 0;
 			i = 7;
@@ -115,11 +126,15 @@ namespace SpriteTool
 						sw_data.Write(",");
 					if (count % 8 == 0)
 					{
-						sw_data.WriteLine("\t");
+                        if (!first)
+                        {
+                            sw_data.WriteLine();
+                        }
+						sw_data.Write("\t");
 					}
 					count++;
 					first = false;
-					sw_data.Write("{0:000}", data);
+					sw_data.Write("{0,3}", data);
 					data = 0;
 				}
 			}

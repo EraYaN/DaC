@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_de1
-Mon Dec 09 12:18:22 2013
+Mon Dec 09 22:39:35 2013
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -20,10 +20,8 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  12. Parameter Settings for User Entity Instance: gpu:inst2|draw:draw1|draw_sprite:sprite1
  13. Parameter Settings for User Entity Instance: gpu:inst2|vgacontroller:vgacontroller1
  14. Parameter Settings for User Entity Instance: gpu:inst2|spi:spi1
- 15. Port Connectivity Checks: "gpu:inst2|decoder:decoder1"
- 16. Port Connectivity Checks: "gpu:inst2|draw:draw1"
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
 
 
 
@@ -49,15 +47,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Dec 09 12:18:22 2013           ;
+; Analysis & Synthesis Status        ; Successful - Mon Dec 09 22:39:35 2013           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; top_de1                                         ;
 ; Top-level Entity Name              ; top_de1                                         ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 641                                             ;
-;     Total combinational functions  ; 629                                             ;
-;     Dedicated logic registers      ; 160                                             ;
-; Total registers                    ; 160                                             ;
+; Total logic elements               ; 682                                             ;
+;     Total combinational functions  ; 660                                             ;
+;     Dedicated logic registers      ; 176                                             ;
+; Total registers                    ; 176                                             ;
 ; Total pins                         ; 57                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -201,28 +199,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Estimated Total logic elements              ; 641                    ;
+; Estimated Total logic elements              ; 682                    ;
 ;                                             ;                        ;
-; Total combinational functions               ; 629                    ;
+; Total combinational functions               ; 660                    ;
 ; Logic element usage by number of LUT inputs ;                        ;
-;     -- 4 input functions                    ; 292                    ;
-;     -- 3 input functions                    ; 199                    ;
-;     -- <=2 input functions                  ; 138                    ;
+;     -- 4 input functions                    ; 333                    ;
+;     -- 3 input functions                    ; 191                    ;
+;     -- <=2 input functions                  ; 136                    ;
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 479                    ;
+;     -- normal mode                          ; 510                    ;
 ;     -- arithmetic mode                      ; 150                    ;
 ;                                             ;                        ;
-; Total registers                             ; 160                    ;
-;     -- Dedicated logic registers            ; 160                    ;
+; Total registers                             ; 176                    ;
+;     -- Dedicated logic registers            ; 176                    ;
 ;     -- I/O registers                        ; 0                      ;
 ;                                             ;                        ;
 ; I/O pins                                    ; 57                     ;
 ; Embedded Multiplier 9-bit elements          ; 0                      ;
 ; Maximum fan-out node                        ; gen6mhz:inst1|count[2] ;
-; Maximum fan-out                             ; 159                    ;
-; Total fan-out                               ; 2587                   ;
-; Average fan-out                             ; 3.06                   ;
+; Maximum fan-out                             ; 175                    ;
+; Total fan-out                               ; 2753                   ;
+; Average fan-out                             ; 3.08                   ;
 +---------------------------------------------+------------------------+
 
 
@@ -231,19 +229,19 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------+
 ; Compilation Hierarchy Node           ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                               ; Library Name ;
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------+
-; |top_de1                             ; 629 (3)           ; 160 (0)      ; 0           ; 0            ; 0       ; 0         ; 57   ; 0            ; |top_de1                                          ; work         ;
+; |top_de1                             ; 660 (3)           ; 176 (0)      ; 0           ; 0            ; 0       ; 0         ; 57   ; 0            ; |top_de1                                          ; work         ;
 ;    |gen6mhz:inst1|                   ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gen6mhz:inst1                            ; work         ;
-;    |gpu:inst2|                       ; 610 (0)           ; 157 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2                                ; work         ;
-;       |decoder:decoder1|             ; 103 (103)         ; 50 (50)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|decoder:decoder1               ; work         ;
-;       |draw:draw1|                   ; 369 (6)           ; 74 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1                     ; work         ;
-;          |draw_fill:fill1|           ; 42 (42)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_fill:fill1     ; work         ;
+;    |gpu:inst2|                       ; 641 (0)           ; 173 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2                                ; work         ;
+;       |decoder:decoder1|             ; 188 (188)         ; 66 (66)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|decoder:decoder1               ; work         ;
+;       |draw:draw1|                   ; 378 (6)           ; 74 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1                     ; work         ;
+;          |draw_fill:fill1|           ; 41 (41)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_fill:fill1     ; work         ;
 ;          |draw_line:line1|           ; 201 (201)         ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1     ; work         ;
 ;          |draw_pixel:pixel1|         ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_pixel:pixel1   ; work         ;
 ;          |draw_rect:rect1|           ; 80 (80)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1     ; work         ;
-;          |draw_sprite:sprite1|       ; 38 (38)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1 ; work         ;
+;          |draw_sprite:sprite1|       ; 48 (48)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1 ; work         ;
 ;       |ramcontroller:ramcontroller1| ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|ramcontroller:ramcontroller1   ; work         ;
 ;       |spi:spi1|                     ; 17 (17)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|spi:spi1                       ; work         ;
-;       |vgacontroller:vgacontroller1| ; 118 (118)         ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1   ; work         ;
+;       |vgacontroller:vgacontroller1| ; 55 (55)           ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1   ; work         ;
 ;    |pre_vga_dac_4:inst|              ; 13 (13)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|pre_vga_dac_4:inst                       ; work         ;
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -275,12 +273,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 160   ;
-; Number of registers using Synchronous Clear  ; 41    ;
-; Number of registers using Synchronous Load   ; 15    ;
+; Total registers                              ; 176   ;
+; Number of registers using Synchronous Clear  ; 42    ;
+; Number of registers using Synchronous Load   ; 9     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 108   ;
+; Number of registers using Clock Enable       ; 117   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -290,32 +288,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|instruction[0]            ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_de1|gpu:inst2|spi:spi1|spi_rx_data[5]                    ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_de1|gpu:inst2|spi:spi1|index[2]                          ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|v_count[9]    ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|w[7]                      ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|w[0]                      ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|packet_num[2]             ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|instruction[2]            ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_de1|gpu:inst2|spi:spi1|spi_rx_data[6]                    ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_de1|gpu:inst2|spi:spi1|index[0]                          ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|v_count[0]    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|w[6]                      ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|w[2]                      ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|packet_num[0]             ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|dcounter[2] ;
-; 7:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|counter[1]  ;
-; 8:1                ; 10 bits   ; 50 LEs        ; 30 LEs               ; 20 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|err[7]          ;
-; 14:1               ; 3 bits    ; 27 LEs        ; 12 LEs               ; 15 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|en[0]                     ;
-; 15:1               ; 6 bits    ; 60 LEs        ; 12 LEs               ; 48 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|h[6]                      ;
-; 9:1                ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|en[3]                     ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|h_count[1]    ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|v_count[8]    ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|x[7]                      ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_fill:fill1|y[6]            ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_fill:fill1|x[0]            ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1|cy[1]           ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|cx[6]           ;
-; 12:1               ; 6 bits    ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|y[3]                      ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1|cx[6]           ;
+; 7:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|data_reg[0] ;
+; 8:1                ; 10 bits   ; 50 LEs        ; 30 LEs               ; 20 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|err[0]          ;
+; 14:1               ; 3 bits    ; 27 LEs        ; 12 LEs               ; 15 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|en[5]                     ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|en[4]                     ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|h_count[7]    ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|v_count[3]    ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|x[3]                      ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_fill:fill1|y[0]            ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_fill:fill1|x[7]            ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1|cy[0]           ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|next_ramdata[0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 10 LEs               ; 25 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|id[5]                     ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|cx[0]           ;
+; 12:1               ; 6 bits    ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|y[4]                      ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|id[1]                     ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|id[8]                     ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1|cx[4]           ;
 ; 8:1                ; 7 bits    ; 35 LEs        ; 14 LEs               ; 21 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|cy[0]           ;
-; 12:1               ; 3 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|color[1]                  ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|done        ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|vgacolor[0]   ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|color[2]                  ;
+; 14:1               ; 5 bits    ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|h[2]                      ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|oe          ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|vgacolor[2]   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
 
 
@@ -360,33 +362,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "gpu:inst2|decoder:decoder1"                                                                                 ;
-+---------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                                                  ;
-+---------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; id      ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
-; ramaddr ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
-; ramdata ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
-+---------+--------+----------+----------------------------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "gpu:inst2|draw:draw1"                                                                                                                                  ;
-+---------+-------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port    ; Type  ; Severity         ; Details                                                                                                                                      ;
-+---------+-------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; ramdata ; Bidir ; Critical Warning ; Port on prototype, e.g. VHDL component, declared as "Output" but port on entity declared as "Bidir"                                          ;
-; id      ; Input ; Warning          ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+---------+-------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -396,7 +377,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Dec 09 12:18:18 2013
+    Info: Processing started: Mon Dec 09 22:39:31 2013
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off de1 -c top_de1
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_sprite-behaviour.vhd
@@ -472,22 +453,17 @@ Info (12128): Elaborating entity "vgacontroller" for hierarchy "gpu:inst2|vgacon
 Info (12128): Elaborating entity "spi" for hierarchy "gpu:inst2|spi:spi1"
 Info (12128): Elaborating entity "gen6mhz" for hierarchy "gen6mhz:inst1"
 Info (12128): Elaborating entity "pre_vga_dac_4" for hierarchy "pre_vga_dac_4:inst"
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13047): Converted the fan-out from the tri-state buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramdata[1]" to the node "gpu:inst2|draw:draw1|draw_sprite:sprite1|data_reg_tmp[1]" into an OR gate
-    Warning (13047): Converted the fan-out from the tri-state buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramdata[2]" to the node "gpu:inst2|draw:draw1|draw_sprite:sprite1|data_reg_tmp[0]" into an OR gate
-    Warning (13047): Converted the fan-out from the tri-state buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramdata[0]" to the node "gpu:inst2|draw:draw1|draw_sprite:sprite1|data_reg_tmp[2]" into an OR gate
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 707 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 751 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 48 output pins
     Info (21060): Implemented 3 bidirectional pins
-    Info (21061): Implemented 650 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 503 megabytes
-    Info: Processing ended: Mon Dec 09 12:18:22 2013
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+    Info (21061): Implemented 694 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 495 megabytes
+    Info: Processing ended: Mon Dec 09 22:39:36 2013
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:03
 
 

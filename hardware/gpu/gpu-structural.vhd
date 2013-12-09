@@ -8,26 +8,30 @@ architecture structural of gpu is
 			--Clock/reset
 			clk		: in	std_logic;	--Clock
 			reset	: in	std_logic;	--Reset
-			--Arduino Interrupt
-			int_ready : out std_logic;			
 			--SPI-interface interaction
 			spi_data_rx			: in	std_logic_vector(SizeSPIData-1 downto 0);	--Data In
 			spi_data_available	: in	std_logic;									--Data Available in SPI interface, commence data sampling
 			--Draw data
-			draw_ready	: in		std_logic;
-			x			: out	std_logic_vector(SizeX-1 downto 0);				--Entity x coord
-			w			: out	std_logic_vector(SizeX-1 downto 0);				--Entity width
-			y			: out	std_logic_vector(SizeY-1 downto 0);				--Entity y coord
-			h			: out	std_logic_vector(SizeY-1 downto 0);				--Entity height
-			color		: out	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
+			draw_ready	: in	std_logic;
+			x			: buffer	std_logic_vector(SizeX-1 downto 0);				--Entity x coord
+			w			: buffer	std_logic_vector(SizeX-1 downto 0);				--Entity width
+			y			: buffer	std_logic_vector(SizeY-1 downto 0);				--Entity y coord
+			h			: buffer	std_logic_vector(SizeY-1 downto 0);				--Entity height
+			color		: buffer	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
+			id			: buffer	std_logic_vector(SizeSpriteID-1 downto 0);		--Sprite ID
 			en			: out	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
-			--Internal registers (screen buffer switching)			
-			asb			: buffer		std_logic;	--Currently active screen buffer
-			-- RAM
+			--Internal registers
+			asb			: buffer	std_logic;	--Currently active screen buffer
+			--Direct CPU interaction
+			int_ready	: out	std_logic;	--Instruction processed signal
+			--RAM Controller interaction
 			decoder_can_access	: in std_logic;		--Can access RAM?
-			decoder_write		: out std_logic;	--Intention to write to RAM
-			decoder_claim		: out std_logic;	--Claim RAM
-			is_init				: out std_logic		--Initializing?
+			decoder_write		: buffer std_logic;	--Intention to write to RAM
+			decoder_claim		: out std_logic;	
+			is_init				: out std_logic;		--Initializing?
+			--RAM interaction
+			ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
+			ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0)
 		);
 	end component;
 
@@ -85,8 +89,11 @@ architecture structural of gpu is
 	
 	component draw is
 		port (
+			--Clock/reset
 			clk		: in	std_logic;	--Clock
 			reset	: in	std_logic;	--Reset
+			--Draw data
+			id : in std_logic_vector(SizeSpriteID-1 downto 0); -- Sprite ID
 			x			: in	std_logic_vector(SizeX-1 downto 0);				--Entity x coord
 			w			: in	std_logic_vector(SizeX-1 downto 0);				--Entity width
 			y			: in	std_logic_vector(SizeY-1 downto 0);				--Entity y coord
@@ -94,12 +101,15 @@ architecture structural of gpu is
 			color		: in	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
 			en			: in	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
 			draw_ready	: out		std_logic;
+			--Internal registers
 			asb			: in		std_logic;	--Currently active screen buffer
+			--RAM-controller interaction
 			draw_write		: out	std_logic;
 			draw_read		: out	std_logic;
 			draw_can_access : in 	std_logic;
+			--RAM interaction
 			ramaddr	: out	std_logic_vector(SizeRAMAddr-1 downto 0);
-			ramdata	: out	std_logic_vector(SizeRAMData-1 downto 0)
+			ramdata	: inout	std_logic_vector(SizeRAMData-1 downto 0)
 		);
 	end component;
 
@@ -116,11 +126,7 @@ architecture structural of gpu is
 	signal y, h : std_logic_vector(SizeY-1 downto 0);
 	signal color : std_logic_vector(SizeColor-1 downto 0);
 	signal en : std_logic_vector(NumDrawModules-1 downto 0);
-
-	--DECODER <-> STATEREG
-	signal reg_id : std_logic;
-	signal reg_value : std_logic;
-	signal reg_set : std_logic;
+	signal id : std_logic_vector(SizeSpriteID-1 downto 0);
 
 	-- RAMCONTROLLER <->
 	signal vga_claim : std_logic;
@@ -147,6 +153,7 @@ begin
 	draw1: draw port map (
 		clk=>clk,
 		reset=>reset,
+		id=>id,
 		x=>x,
 		w=>w,
 		y=>y,
@@ -169,6 +176,7 @@ begin
 		spi_data_rx=>spi_data_rx,
 		spi_data_available=>spi_data_available,
 		draw_ready=>draw_ready,
+		id=>id,
 		x=>x,
 		w=>w,
 		y=>y,
@@ -179,7 +187,9 @@ begin
 		decoder_can_access=>decoder_can_access,
 		decoder_write=>decoder_write,
 		decoder_claim=>decoder_claim,
-		is_init=>is_init		--Initializing?
+		is_init=>is_init,		--Initializing?
+		ramdata=>ramdata,
+		ramaddr=>ramaddr
 	);
 
 	ramcontroller1: ramcontroller port map (

@@ -1,7 +1,9 @@
 #pragma once
 #ifndef _SPRITES_SET_FONT4X4_
 #define _SPRITES_SET_FONT4X4_
+#include "font4x4_set_data.h"
 Sprite sprites_font4x4_set[] = {
+Sprite(0,4,4,2,set_font4x4_sprite_126),
 Sprite(0,4,4,2,set_font4x4_sprite_32),
 Sprite(0,4,4,2,set_font4x4_sprite_33),
 Sprite(0,4,4,2,set_font4x4_sprite_34),
@@ -95,7 +97,6 @@ Sprite(0,4,4,2,set_font4x4_sprite_121),
 Sprite(0,4,4,2,set_font4x4_sprite_122),
 Sprite(0,4,4,2,set_font4x4_sprite_123),
 Sprite(0,4,4,2,set_font4x4_sprite_124),
-Sprite(0,4,4,2,set_font4x4_sprite_125),
-Sprite(0,4,4,2,set_font4x4_sprite_126)
+Sprite(0,4,4,2,set_font4x4_sprite_125)
 };
 #endif

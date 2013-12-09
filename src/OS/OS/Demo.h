@@ -26,7 +26,7 @@ public:
 		ys[1] = 60;
 		ys[2] = 100;
 		ys[3] = 60;	
-		numPoints = 7;
+		numPoints = 64;
 		points = (Point**)malloc(sizeof(Point*)*numPoints);
 		for(int p = 0; p<numPoints;  p++){
 			int dx = 0;
@@ -37,7 +37,9 @@ public:
 			while(dy==0){
 				dy = random(-3,3);
 			}
-			points[p] = new Point(random(1,XMAX-1),random(1,YMAX-1),dx,dy,random(1,15));
+			int x = random(1,XMAX-1);
+			int y = random(1,YMAX-1);
+			points[p] = new Point(x,y,dx,dy,random(1,15));
 		}
 	};
 	void start();

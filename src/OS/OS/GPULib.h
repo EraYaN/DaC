@@ -45,7 +45,7 @@ public:
 
 	//loading sprites
 	bool loadSprites(Sprite *set[], int size, bool *rfn);
-	void sendSprite(Sprite* set, uint16_t address);
+	void sendSprite(Sprite* set);
 	//state variable
 	bool sending;
 

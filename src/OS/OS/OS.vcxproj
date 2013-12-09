@@ -111,6 +111,8 @@
   <ItemGroup>
     <ClCompile Include="Demo.cpp" />
     <ClCompile Include="floatToString.cpp" />
+    <ClCompile Include="font6x8_set.cpp" />
+    <ClCompile Include="font6x8_set_data.cpp" />
     <ClCompile Include="font8x8_basic.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GPULib.cpp" />

@@ -24,7 +24,7 @@ PACKAGE BODY parameter_def IS
 	constant MaxNumPackets : INTEGER := 3; -- aantal bits voor counter, log2(7 bytes) => 3 bits
 	constant SizeSpriteID : INTEGER := 10;
 	constant SizeSpriteCounter : INTEGER := 6;
-	constant SizeTimeoutCounter : INTEGER := 8; --aantal bits voor timeout counter
+	constant SizeTimeoutCounter : INTEGER := 7; --aantal bits voor timeout counter
 	constant NumDrawModules : INTEGER := 6; -- 0: fill; 1: pixel; 2: square; 3: fsquare; 4: line; 5: circle;
 	constant SizeX : INTEGER := 8;
 	constant SizeY : INTEGER := 7;

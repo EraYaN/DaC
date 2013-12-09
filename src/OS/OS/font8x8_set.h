@@ -1,7 +1,14 @@
 #pragma once
 #ifndef _SPRITES_SET_FONT8X8_
 #define _SPRITES_SET_FONT8X8_
+#include "font8x8_set_data.h"
 Sprite sprites_font8x8_set[] = {
+Sprite(0,8,8,8,set_font8x8_sprite_121),
+Sprite(0,8,8,8,set_font8x8_sprite_122),
+Sprite(0,8,8,8,set_font8x8_sprite_123),
+Sprite(0,8,8,8,set_font8x8_sprite_124),
+Sprite(0,8,8,8,set_font8x8_sprite_125),
+Sprite(0,8,8,8,set_font8x8_sprite_126),
 Sprite(0,8,8,8,set_font8x8_sprite_32),
 Sprite(0,8,8,8,set_font8x8_sprite_33),
 Sprite(0,8,8,8,set_font8x8_sprite_34),
@@ -90,12 +97,6 @@ Sprite(0,8,8,8,set_font8x8_sprite_116),
 Sprite(0,8,8,8,set_font8x8_sprite_117),
 Sprite(0,8,8,8,set_font8x8_sprite_118),
 Sprite(0,8,8,8,set_font8x8_sprite_119),
-Sprite(0,8,8,8,set_font8x8_sprite_120),
-Sprite(0,8,8,8,set_font8x8_sprite_121),
-Sprite(0,8,8,8,set_font8x8_sprite_122),
-Sprite(0,8,8,8,set_font8x8_sprite_123),
-Sprite(0,8,8,8,set_font8x8_sprite_124),
-Sprite(0,8,8,8,set_font8x8_sprite_125),
-Sprite(0,8,8,8,set_font8x8_sprite_126)
+Sprite(0,8,8,8,set_font8x8_sprite_120)
 };
 #endif
