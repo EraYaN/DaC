@@ -9,7 +9,11 @@
 \chapter{Implementatie draw-logic}
 
 \section{VHDL-beschrijving}
-De VHDL-beschrijving is ontworpen naar de specificaties, die bij Ontwerp genoemd zijn. De entity beschrijft de in- en outputs zoals in de tabel en de behavioural  voer genereert met de inputs de outputs: het ramadres en ramdata, die respectievelijk de asb, y en x (ramaddr) en color (ramdata) inhouden. Aan de hand van bepaalde voorwaarden (enable en draw_can_acces) wordt de berekende waarde op de output gezet. Vervolgens worden de uitgangsignalen weer Z, waarop een done signaal gedurende één klokslag hoog wordt. De entity en de bijbehorende behavioural staan in de bijlage. 
+\subsection{Entity}
+Er is bij ontwerp al besproken hoe de signalen bij draw-pixel aankomen. Er moet alleen bij enable \& draw\_can\_access = hoog geschreven worden, waarbij draw\_write gedurende het schrijven hoog is. (voor de controller)  Nadat er geschreven is, moet done gedurende een klokslag hoog worden. De klok en de reset spreken voor zich. De x, y en color zijn waarden uit de Arduino waar in de behavioural adressen van gemaakt worden, die bij bovengenoemde voorwaarden in het RAM geschreven worden. Echter er moet alleen geschreven worden in het niet actieve RAM, dus als asb = 0.  Hiermee zijn alle in- en uitgangen in de entity beschreven en ook de voorwaarden waar de simulatie in Modelsim minimaal aan moet voldoen. 
+
+\subsection{Behaviour}
+De behaviour is opgedeeld in een sequentieel gedeelte waar de state busy wordt opgeslagen en een combinatorisch gedeelte waar de signalen oe, draw\_write, done en de state worden bepaald. Oe is een tussensignaal op basis waarvan bepaald wordt of ramaddr en ramdata geschreven worden. Het is belangrijk dat de uitgangen Z worden indien oe = 1 niet klopt, omdat de draad waarop de uitgang gezet wordt een bidirectional bus is. Het sequentiele process wordt getriggered op de clk, het combinatorische process op een verandering in reset, enable, draw\_can\_access of busy. De belangijkste functie
 
 \section{Testplan en resultaten}
 
