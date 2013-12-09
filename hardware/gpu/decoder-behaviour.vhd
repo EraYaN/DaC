@@ -53,7 +53,7 @@ begin
 					int_ready <= '0';		
 				end if;
 
-				if spi_data_available = '1' or h(0) = '1' then
+				if spi_data_available = '1' or (instr = "111" and h(0) = '1') then
 					--perform action upon data available change
 					--init variables
 					done := '0';
@@ -170,7 +170,6 @@ begin
 					--reset packet count when instruction is processed, or retain current packet count to keep loading sprites
 					if done = '1' then
 						packet_num <= (others => '0');
-						h <= (others => '0');
 						if instr = "111" or instr = "000" then
 							int_ready <= '1'; --notify CPU
 						end if;

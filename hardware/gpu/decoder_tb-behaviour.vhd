@@ -98,7 +98,7 @@ begin
 			"01010101" after 180 ns,
 			"10101010" after 280 ns,
 			"11111111" after 380 ns,
-			"00000000" after 480 ns,
+			"11001100" after 480 ns,
 			"00111001" after 580 ns;
 			-- "10101010" after 730 ns,
 			-- "01010101" after 830 ns,
