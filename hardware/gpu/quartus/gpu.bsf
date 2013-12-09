@@ -89,8 +89,8 @@ applicable agreement for further details.
 	(port
 		(pt 200 128)
 		(output)
-		(text "vgacolor[3..0]" (rect 0 0 54 12)(font "Arial" ))
-		(text "vgacolor[3..0]" (rect 125 123 179 135)(font "Arial" ))
+		(text "vgacolor[2..0]" (rect 0 0 54 12)(font "Arial" ))
+		(text "vgacolor[2..0]" (rect 125 123 179 135)(font "Arial" ))
 		(line (pt 200 128)(pt 184 128)(line_width 3))
 	)
 	(port
@@ -110,8 +110,8 @@ applicable agreement for further details.
 	(port
 		(pt 200 48)
 		(bidir)
-		(text "ramdata[3..0]" (rect 0 0 53 12)(font "Arial" ))
-		(text "ramdata[3..0]" (rect 126 43 179 55)(font "Arial" ))
+		(text "ramdata[2..0]" (rect 0 0 53 12)(font "Arial" ))
+		(text "ramdata[2..0]" (rect 126 43 179 55)(font "Arial" ))
 		(line (pt 200 48)(pt 184 48)(line_width 3))
 	)
 	(drawing

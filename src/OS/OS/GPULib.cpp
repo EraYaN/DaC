@@ -193,7 +193,7 @@ void GPULib::drawString(const char* string, byte x, byte y, byte color){
 
 }
 bool GPULib::loadSprites(Sprite *set[], int size, bool *rfn){
-	int address = 0;
+	uint16_t address = 0;
 	int spriteID = 0;
 	for(int i = 0; i<size; i++){
 		spriteID=lastSpriteID+1;
@@ -202,9 +202,9 @@ bool GPULib::loadSprites(Sprite *set[], int size, bool *rfn){
 		} else if(spriteID<SPRITESPART2) { // underneath screenbuffer #0
 			address = 120*256+64*(spriteID-SPRITESPART1);
 		} else if(spriteID<SPRITESPART3) { // to the right of screenbuffer #1
-			address = 128*256+160+160*(spriteID-SPRITESPART2);
+			address = 128u*256+160+160*(spriteID-SPRITESPART2);
 		} else if(spriteID<SPRITESPART4){// underneath screenbuffer #1
-			address = 248*256+64*(spriteID-SPRITESPART3);
+			address = 248u*256+64*(spriteID-SPRITESPART3);
 		} else {
 			return false;
 		}
@@ -216,7 +216,7 @@ bool GPULib::loadSprites(Sprite *set[], int size, bool *rfn){
 	}
 	return true;
 }
-void GPULib::sendSprite(Sprite *sprite, int address){
+void GPULib::sendSprite(Sprite *sprite, uint16_t address){
 	Instruction *instr = new Instruction;
 	instr->numPackets = 3;
 	instr->packets[0] = B01110000;
