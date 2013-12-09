@@ -37,6 +37,7 @@ begin
 				is_init <= '1';
 				next_ramdata <= (others => '0');
 				timeout_count <= (others => '1');
+				decoder_claim <= '1';
 			else
 				--defaults
 				next_ramdata <= (others => '0');
@@ -73,6 +74,7 @@ begin
 									--activate "fill" draw-module
 									en <= (others => '0');
 									en(0) <= '1';
+									decoder_claim <= '0';
 									is_init <= '0'; --finished all other activity like sprite loading, gpu is ready
 								elsif instr = "000" then
 									--switch screen buffer

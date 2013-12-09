@@ -19,6 +19,7 @@ architecture behaviour of decoder_tb is
 			y			: buffer	std_logic_vector(SizeY-1 downto 0);				--Entity y coord
 			h			: buffer	std_logic_vector(SizeY-1 downto 0);				--Entity height
 			color		: buffer	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
+			id			: buffer	std_logic_vector(SizeSpriteID-1 downto 0);		--Sprite ID
 			en			: out	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
 			--Internal registers
 			asb			: buffer	std_logic;	--Currently active screen buffer
@@ -27,10 +28,11 @@ architecture behaviour of decoder_tb is
 			--RAM Controller interaction
 			decoder_can_access	: in std_logic;		--Can access RAM?
 			decoder_write		: buffer std_logic;	--Intention to write to RAM
+			decoder_claim		: out std_logic;	
 			is_init				: out std_logic;		--Initializing?
 			--RAM interaction
-			ramaddr     :buffer   std_logic_vector(SizeRAMAddr-1 downto 0);
-			ramdata     :buffer   std_logic_vector(SizeRAMData-1 downto 0)
+			ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
+			ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0)
 		);
 	end component;
 
