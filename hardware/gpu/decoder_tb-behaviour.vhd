@@ -50,12 +50,12 @@ begin
 			'0' after 40 ns;
 	--for testing draw-like instructions
 	spi_data_rx		<= "00000000" after 0 ns, 
-			"01101111" after 80 ns,
+			"00111111" after 80 ns,
 			"01010101" after 180 ns,
 			"10101010" after 280 ns,
 			"11111111" after 380 ns,
 			"00000000" after 480 ns,
-			"10011001" after 580 ns;
+			"00111001" after 580 ns;
 			-- "10101010" after 730 ns,
 			-- "01010101" after 830 ns,
 			-- "00000000" after 930 ns,
@@ -93,7 +93,9 @@ begin
 			'1' after 1080 ns,
 			'0' after 1100 ns,
 			'1' after 1180 ns,
-			'0' after 1200 ns;
+			'0' after 1200 ns,
+			'1' after 1480 ns,
+			'0' after 1500 ns;
 	draw_ready <= '0' after 0 ns,
 					'1' after 1200 ns,
 					'0' after 1220 ns;

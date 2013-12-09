@@ -6,8 +6,8 @@ use work.parameter_def.all;
 architecture behaviour of decoder is
 	--persistent signals
 	signal packet_num : unsigned(MaxNumPackets-1 downto 0); --current packet number
-	signal instruction : std_logic_vector(InstrSize-1 downto 0);
-
+	signal instruction : std_logic_vector(InstrSize-1 downto 0); --current instruction
+	signal timeout_count : unsigned(SizeTimeoutCounter-1 downto 0);
 	signal next_ramdata : std_logic_vector(SizeRAMData-1 downto 0);
 begin
 	--"asynchronous" RAM interaction
@@ -36,6 +36,7 @@ begin
 				decoder_write <= '0';
 				is_init <= '1';
 				next_ramdata <= (others => '0');
+				timeout_count <= (others => '1');
 			else
 				--defaults
 				next_ramdata <= (others => '0');
@@ -57,20 +58,23 @@ begin
 					done := '0';
 					instr := instruction;
 
+					--reset timeout
+					timeout_count <= (others => '1');
+
 					--logic depending on current packet in stream
 					case to_integer(packet_num) is
 						when 0 =>
 							--deduce instruction
-							instr := spi_data_rx(SizeSPIData-1 downto SizeColor);
+							instr := spi_data_rx(SizeSPIData-2 downto SizeColor);
 							--start loading next instruction next cycle if instruction is "switch", "fill" or unknown
-							if (instr = "0000" or instr = "0001" or instr > "0111") then
+							if (instr = "000" or instr = "001" or instr > "111") then
 								done := '1';
-								if instr = "0001" then
+								if instr = "001" then
 									--activate "fill" draw-module
 									en <= (others => '0');
 									en(0) <= '1';
 									is_init <= '0'; --finished all other activity like sprite loading, gpu is ready
-								elsif instr = "0000" then
+								elsif instr = "000" then
 									--switch screen buffer
 									asb <= not asb;
 								end if;
@@ -78,7 +82,7 @@ begin
 							--pass through color
 							color <= spi_data_rx(SizeColor-1 downto 0);
 						when 1 =>
-							if instr = "0111" then
+							if instr = "111" then
 								--sprite loading - save data length and push first two address bits
 								y <= '0' & spi_data_rx(SizeSPIData-1 downto SizeSPIData-SizeSpriteCounter);
 								id(SizeSpriteID-1 downto SizeSpriteID-(SizeSPIData-SizeSpriteCounter)) <= spi_data_rx(SizeSPIData-SizeSpriteCounter-1 downto 0);
@@ -87,21 +91,21 @@ begin
 								x <= spi_data_rx;
 							end if;
 						when 2 => 
-							if instr = "0111" then
+							if instr = "111" then
 								--sprite loading - push other eight address bits
 								id(SizeSpriteID-(SizeSPIData-SizeSpriteCounter)-1 downto 0) <= spi_data_rx;
 							else
 								--pass through y coord
 								y <= spi_data_rx(SizeY-1 downto 0);
 								---start loading next instruction next cycle if instruction is "pixel"
-								if instr = "0010" then
+								if instr = "010" then
 									done := '1';
 									en <= (others => '0');
 									en(1) <= '1';
 								end if;
 							end if;
 						when 3 =>
-							if instr = "0111" then
+							if instr = "111" then
 								--sprite loading - load it!
 								--assemble last piece of address in existing reg
 								w(SizeSpriteCounter-1 downto 0) <= h(SizeSpriteCounter-1 downto 0);
@@ -129,7 +133,7 @@ begin
 								w <= spi_data_rx;
 							end if;
 						when 4 =>
-							if instr /= "0110" then
+							if instr /= "110" then
 								--pass through height
 								h <= spi_data_rx(SizeY-1 downto 0);
 							else
@@ -138,14 +142,14 @@ begin
 								id(SizeSpriteID-1 downto SizeSpriteID-(SizeSPIData-SizeSpriteCounter)) <= spi_data_rx(SizeSPIData-SizeSpriteCounter-1 downto 0);
 							end if;
 							--start loading next instruction next cycle if instruction is "square", "fsquare" or "line"
-							if (instr = "0011" or instr = "0100" or instr = "0101") then
-								if instr = "0011" then
+							if instr = "011" or instr = "100" or instr = "101" then
+								if instr = "011" then
 									en <= (others => '0');
 									en(2) <= '1';
-								elsif instr = "0100" then
+								elsif instr = "100" then
 									en <= (others => '0');
 									en(3) <= '1';
-								elsif instr = "0101" then
+								elsif instr = "101" then
 									en <= (others => '0');
 									en(4) <= '1';
 								end if;
@@ -165,10 +169,10 @@ begin
 					if done = '1' then
 						packet_num <= (others => '0');
 						h <= (others => '0');
-						if instr = "0111" or instr = "0000" then
+						if instr = "111" or instr = "000" then
 							int_ready <= '1'; --notify CPU
 						end if;
-					elsif to_integer(packet_num) = 3 and instr = "0111" then
+					elsif to_integer(packet_num) = 3 and instr = "111" then
 						packet_num <= packet_num;
 					else
 						packet_num <= packet_num + 1;
@@ -176,6 +180,15 @@ begin
 
 					--update instruction and packet count signals
 					instruction <= instr;
+
+				else
+					if timeout_count = 0 then
+						timeout_count <= (others => '1');
+						packet_num <= (others => '0');
+						int_ready <= '1';
+					elsif packet_num /= 0 then
+						timeout_count <= timeout_count - 1;
+					end if;
 				end if;
 			end if;
 		end if;
