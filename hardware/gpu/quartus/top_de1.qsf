@@ -81,10 +81,10 @@ set_location_assignment PIN_B13 -to RAMDATA[3]
 set_location_assignment PIN_B14 -to RAMDATA[2]
 set_location_assignment PIN_B15 -to RAMDATA[1]
 set_location_assignment PIN_B16 -to RAMDATA[0]
-set_location_assignment PIN_B17 -to RAMWE
-set_location_assignment PIN_B18 -to SPICLK
-set_location_assignment PIN_B19 -to SPIMOSI
-set_location_assignment PIN_B20 -to int_ready
+set_location_assignment PIN_B18 -to RAMWE
+set_location_assignment PIN_B19 -to SPICLK
+set_location_assignment PIN_B20 -to SPIMOSI
+set_location_assignment PIN_C22 -to int_ready
 set_location_assignment PIN_U21 -to debug1
 set_location_assignment PIN_V22 -to debug2
 set_location_assignment PIN_V21 -to debug3
@@ -181,8 +181,6 @@ set_global_assignment -name VHDL_FILE "../draw_pixel-behaviour.vhd"
 set_global_assignment -name VHDL_FILE ../draw_pixel.vhd
 set_global_assignment -name VHDL_FILE "../draw_fill-behaviour.vhd"
 set_global_assignment -name VHDL_FILE ../draw_fill.vhd
-set_global_assignment -name VHDL_FILE "../draw_circle-behaviour.vhd"
-set_global_assignment -name VHDL_FILE ../draw_circle.vhd
 set_global_assignment -name VHDL_FILE ../draw.vhd
 set_global_assignment -name VHDL_FILE "../decoder-behaviour.vhd"
 set_global_assignment -name VHDL_FILE ../decoder.vhd

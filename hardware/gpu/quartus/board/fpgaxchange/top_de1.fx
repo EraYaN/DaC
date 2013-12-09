@@ -54,8 +54,8 @@ RAMDATA[1],B15,bidir,3.3-V LVTTL,,Off,--,swap_1,--
 RAMDATA[0],B16,bidir,3.3-V LVTTL,,Off,--,swap_1,--
 vga_hsync,A11,output,3.3-V LVTTL,24,Off,--,swap_0,--
 vga_vsync,B11,output,3.3-V LVTTL,24,Off,--,swap_0,--
-RAMWE,B17,output,3.3-V LVTTL,24,Off,--,swap_0,--
-int_ready,B20,output,3.3-V LVTTL,24,Off,--,swap_0,--
+RAMWE,B18,output,3.3-V LVTTL,24,Off,--,swap_0,--
+int_ready,C22,output,3.3-V LVTTL,24,Off,--,swap_0,--
 debug0,U22,output,3.3-V LVTTL,24,Off,--,swap_0,--
 debug1,U21,output,3.3-V LVTTL,24,Off,--,swap_0,--
 debug2,V22,output,3.3-V LVTTL,24,Off,--,swap_0,--
@@ -86,8 +86,8 @@ vga_r[1],C9,output,3.3-V LVTTL,24,Off,--,swap_0,--
 vga_r[0],D9,output,3.3-V LVTTL,24,Off,--,swap_0,--
 reset,R22,input,3.3-V LVTTL,,Off,--,swap_2,--
 debug_in,R21,input,3.3-V LVTTL,,Off,--,swap_2,--
-SPICLK,B18,input,3.3-V LVTTL,,Off,--,swap_2,--
-SPIMOSI,B19,input,3.3-V LVTTL,,Off,--,swap_2,--
+SPICLK,B19,input,3.3-V LVTTL,,Off,--,swap_2,--
+SPIMOSI,B20,input,3.3-V LVTTL,,Off,--,swap_2,--
 color_mode,L22,input,3.3-V LVTTL,,Off,--,swap_2,--
 clock_50mhz,L1,input,3.3-V LVTTL,,Off,--,swap_2,--
 ~ASDO~,C4,input,3.3-V LVTTL,,Off,--,NOSWAP,--

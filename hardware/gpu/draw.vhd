@@ -24,6 +24,6 @@ entity draw is
 		draw_can_access : in 	std_logic;
 		--RAM interaction
 		ramaddr	: out	std_logic_vector(SizeRAMAddr-1 downto 0);
-		ramdata	: out	std_logic_vector(SizeRAMData-1 downto 0)
+		ramdata	: inout	std_logic_vector(SizeRAMData-1 downto 0)
 	);
 end entity draw;
