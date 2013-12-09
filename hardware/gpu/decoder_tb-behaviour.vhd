@@ -36,16 +36,58 @@ architecture behaviour of decoder_tb is
 		);
 	end component;
 
-signal clk : std_logic;
-signal reset : std_logic;
-signal spi_data_available : std_logic;
-signal draw_ready : std_logic;
-signal spi_data_rx : std_logic_vector(7 downto 0);
-signal decoder_can_access : std_logic;
+signal clk		: std_logic;	--Clock
+signal reset	: std_logic;	--Reset
+--SPI-interface interaction
+signal spi_data_rx			: std_logic_vector(SizeSPIData-1 downto 0);	--Data In
+signal spi_data_available	: std_logic;									--Data Available in SPI interface, commence data sampling
+--Draw data
+signal draw_ready	: std_logic;
+signal x			: std_logic_vector(SizeX-1 downto 0);				--Entity x coord
+signal w			: std_logic_vector(SizeX-1 downto 0);				--Entity width
+signal y			: std_logic_vector(SizeY-1 downto 0);				--Entity y coord
+signal h			: std_logic_vector(SizeY-1 downto 0);				--Entity height
+signal color		: std_logic_vector(SizeColor-1 downto 0);			--Entity Color
+signal id			: std_logic_vector(SizeSpriteID-1 downto 0);		--Sprite ID
+signal en			: std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
+--Internal registers
+signal asb			: std_logic;	--Currently active screen buffer
+--Direct CPU interaction
+signal int_ready	: std_logic;	--Instruction processed signal
+--RAM Controller interaction
+signal decoder_can_access	: std_logic;		--Can access RAM?
+signal decoder_write		: std_logic;	--Intention to write to RAM
+signal decoder_claim		: std_logic;	
+signal is_init				: std_logic;		--Initializing?
+--RAM interaction
+signal ramaddr     : std_logic_vector(SizeRAMAddr-1 downto 0);
+signal ramdata     : std_logic_vector(SizeRAMData-1 downto 0);
 
 begin
 
-	decoder1: decoder port map (clk=>clk, reset=>reset, spi_data_rx=>spi_data_rx, spi_data_available=>spi_data_available, draw_ready=>draw_ready, decoder_can_access=>decoder_can_access);
+	decoder1: decoder 
+		port map (
+			clk=>clk,
+			reset=>reset,
+			spi_data_rx=>spi_data_rx, 
+			spi_data_available=>spi_data_available, 
+			draw_ready=>draw_ready,
+			x=>x,
+			w=>w,
+			y=>y,
+			h=>h,
+			color=>color,
+			id=>id,
+			en=>en,
+			asb=>asb,
+			int_ready=>int_ready,
+			decoder_can_access=>decoder_can_access,
+			decoder_write=>decoder_write,
+			decoder_claim=>decoder_claim,
+			is_init=>is_init,
+			ramaddr=>ramaddr,
+			ramdata=>ramdata
+		);
 	clk		<= '1' after 0 ns,
 			'0' after 10 ns when clk /= '0' else '1' after 10 ns;
 	reset 	<= '1' after 0 ns,
