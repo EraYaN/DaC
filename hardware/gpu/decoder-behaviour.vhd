@@ -113,7 +113,7 @@ begin
 								w(SizeSpriteCounter-1 downto 0) <= h(SizeSpriteCounter-1 downto 0);
 								if h(0) = '0' then
 									--new SPI data is available, put half of it on RAM, cache the other half in color reg
-									next_ramdata <= spi_data_rx(SizeSPIData-1 downto SizeRAMData);
+									next_ramdata <= spi_data_rx(SizeSPIData-1 downto SizeSPIData/2);
 									color <= spi_data_rx(SizeRAMData-1 downto 0);
 								else
 									--put the last half of SPI data on RAM
