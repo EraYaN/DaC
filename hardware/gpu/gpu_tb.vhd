@@ -24,7 +24,6 @@ component gpu is
 		ramwe_n : out std_logic;
 		vgahsync : out std_logic;
 		vgavsync : out std_logic;
-		vgacolor : out std_logic_vector(SizeColor-1 downto 0)
 	);
 end component;
 

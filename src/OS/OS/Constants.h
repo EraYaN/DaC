@@ -11,7 +11,8 @@
 #define SPRITESPART2 152
 #define SPRITESPART3 272
 #define SPRITESPART4 304
-#define MAXSPRITELENGHT 32 //8-bit bytes so 64 addresses in the GPU
+#define MAXSPRITELENGTH 54 //6-bit bytes so 54 addresses in the GPU
+#define MAXSPRITEWIDTH XMAX //8-bit width
 #define KEYBOARDDATAPIN 4
 #define KEYBOARDCLOCKPIN 3
 #endif

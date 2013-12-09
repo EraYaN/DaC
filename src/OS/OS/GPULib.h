@@ -3,11 +3,16 @@
 #define _GPULIB_
 struct Instruction {
 	//instruction data
-	int numPackets;
-	byte packets[MAX_NUM_INSTR_PACKETS];
-
+	const int numPackets;
+	byte *packets;
 	//queue data (linked list)
 	Instruction *nextInstruction;
+	Instruction(const int numPackets) : numPackets(numPackets) {
+		packets = new byte[numPackets];
+	};
+	~Instruction(){
+		delete[] packets;
+	}
 };
 
 class GPULib

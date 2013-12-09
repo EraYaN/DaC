@@ -20,9 +20,9 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 216 224)
+	(rect 16 16 216 192)
 	(text "gpu" (rect 5 0 19 12)(font "Arial" ))
-	(text "inst" (rect 8 192 20 204)(font "Arial" ))
+	(text "inst" (rect 8 160 20 172)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -89,32 +89,25 @@ applicable agreement for further details.
 	(port
 		(pt 200 128)
 		(output)
-		(text "vgacolor[2..0]" (rect 0 0 54 12)(font "Arial" ))
-		(text "vgacolor[2..0]" (rect 125 123 179 135)(font "Arial" ))
-		(line (pt 200 128)(pt 184 128)(line_width 3))
+		(text "asb_debug" (rect 0 0 43 12)(font "Arial" ))
+		(text "asb_debug" (rect 136 123 179 135)(font "Arial" ))
+		(line (pt 200 128)(pt 184 128)(line_width 1))
 	)
 	(port
 		(pt 200 144)
 		(output)
-		(text "asb_debug" (rect 0 0 43 12)(font "Arial" ))
-		(text "asb_debug" (rect 136 139 179 151)(font "Arial" ))
-		(line (pt 200 144)(pt 184 144)(line_width 1))
-	)
-	(port
-		(pt 200 160)
-		(output)
 		(text "spi_debug[7..0]" (rect 0 0 60 12)(font "Arial" ))
-		(text "spi_debug[7..0]" (rect 119 155 179 167)(font "Arial" ))
-		(line (pt 200 160)(pt 184 160)(line_width 3))
+		(text "spi_debug[7..0]" (rect 119 139 179 151)(font "Arial" ))
+		(line (pt 200 144)(pt 184 144)(line_width 3))
 	)
 	(port
 		(pt 200 48)
 		(bidir)
-		(text "ramdata[2..0]" (rect 0 0 53 12)(font "Arial" ))
-		(text "ramdata[2..0]" (rect 126 43 179 55)(font "Arial" ))
+		(text "ramdata[5..0]" (rect 0 0 53 12)(font "Arial" ))
+		(text "ramdata[5..0]" (rect 126 43 179 55)(font "Arial" ))
 		(line (pt 200 48)(pt 184 48)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 184 192)(line_width 1))
+		(rectangle (rect 16 16 184 160)(line_width 1))
 	)
 )

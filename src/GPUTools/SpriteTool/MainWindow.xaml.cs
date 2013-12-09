@@ -21,7 +21,7 @@ namespace SpriteTool
     // 16x16: (128+120)*256 + 64 * ID_MONO16 + offset   
     enum SpriteType
     {
-        Mono, //16x16        
+        Mono //16x16        
     }
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -106,12 +106,12 @@ namespace SpriteTool
 			if(!firstfile){
 				sw.WriteLine(",");
 			}
-			sw.Write("new Sprite(0,{0},{1},{2},set_{3}_sprite_{4})", w, h, (int)Math.Ceiling((w * h) / 8.0), setname, varname);
+			sw.Write("new Sprite(0,{0},{1},{2},set_{3}_sprite_{4})", w, h, (int)Math.Ceiling((w * h) / 6.0), setname, varname);
 			sw_data.Write("extern const prog_uchar set_{0}_sprite_{1}[] = ", setname, varname);
             sw_data_h.WriteLine("PROGMEM extern const prog_uchar set_{0}_sprite_{1}[];", setname, varname);
 			sw_data.WriteLine("{");
 			int data = 0;
-			i = 7;
+			i = 5;
 			int count = 0 ;
 			bool first = true;
 			foreach (Color c in sprite)
@@ -121,7 +121,7 @@ namespace SpriteTool
 				i--;
 				if (i < 0)
 				{
-					i = 7;
+					i = 5;
 					if (!first)
 						sw_data.Write(",");
 					if (count % 8 == 0)

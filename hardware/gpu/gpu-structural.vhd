@@ -41,10 +41,8 @@ architecture structural of gpu is
 			reset_n  :  IN   STD_LOGIC;  --active low asycnchronous reset
 			vgahsync    :  OUT  STD_LOGIC;  --horiztonal sync pulse
 			vgavsync    :  OUT  STD_LOGIC;  --vertical sync pulse
-			vgacolor : OUT STD_LOGIC_VECTOR(SizeColor-1 downto 0);
 			vga_claim  :  OUT  STD_LOGIC;  --display enable ('1' = display time, '0' = blanking time)	 
 			ramaddr  :  OUT  STD_LOGIC_VECTOR(SizeRAMAddr-1 downto 0);
-			ramdata  :  IN  STD_LOGIC_VECTOR(SizeRAMData-1 downto 0); 
 			vga_read : OUT STD_LOGIC;
 			vga_can_access : in std_logic;
 			asb : IN STD_LOGIC
@@ -212,10 +210,8 @@ begin
 		reset_n,
 		vgahsync,
 		vgavsync,
-		vgacolor,
 		vga_claim,
 		ramaddr,
-		ramdata,
 		vga_read,
 		vga_can_access,
 		asb

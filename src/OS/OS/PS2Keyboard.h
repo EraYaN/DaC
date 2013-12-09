@@ -172,9 +172,7 @@ typedef struct {
 } PS2Keymap_t;
 
 
-extern const PROGMEM PS2Keymap_t PS2Keymap_US;
-extern const PROGMEM PS2Keymap_t PS2Keymap_German;
-extern const PROGMEM PS2Keymap_t PS2Keymap_French;
+PROGMEM extern const PS2Keymap_t PS2Keymap_US;
 
 
 /**
