@@ -87,19 +87,48 @@ begin
 
 	clk		<= '1' after 0 ns,
 			'0' after 80 ns when clk /= '0' else '1' after 80 ns;
-	spi_data_available	<= '0' after 0 ns,
-							'1' after 320 ns when (spi_data_available /= '1' and enable_spi = '1') else '0' after 160 ns;
+	spi_data_available	<= '1' after 0 ns,
+							'0' after 160 ns when (spi_data_available /= '0' ) else '1' after 320 ns when enable_spi = '1' else '0';
 	process
 	begin
 		reset <= '1';
-		enable_spi <= '1';
-		spi_data_rx <= "00010000"; --perform fill
+		enable_spi <= '0';
+		spi_data_rx <= "00000000";
 		draw_ready <= '0';
 		decoder_can_access <= '1' after 0 ns;
 		wait until rising_edge(clk);
 		wait until rising_edge(clk);
 		reset <= '0';
 
+		enable_spi <= '1';
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "01110000"; --load sprite
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00100001"; --data length of 8, address(16 downto 14) = 01
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "01010101"; --address(13 downto 6) = 01010101
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "10100101"; --data 0
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "11110000"; --data 1
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00001111"; --data 2
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00110000"; --data 3
+		wait until falling_edge(spi_data_available);
+		enable_spi <= '0';
+
+		wait for 960 ns;
+
+		enable_spi <= '1';
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00010000"; --perform fill
+		wait until falling_edge(spi_data_available);
+		enable_spi <= '0';
+
+		wait for 960 ns;
+
+		enable_spi <= '1';
 		wait until rising_edge(spi_data_available);
 		spi_data_rx <= "00111111"; --draw rect (011), color white (111)
 		wait until rising_edge(spi_data_available);
@@ -110,6 +139,7 @@ begin
 		spi_data_rx <= "11111111"; --w
 		wait until rising_edge(spi_data_available);
 		spi_data_rx <= "11001100"; --h
+		wait until falling_edge(spi_data_available);
 		enable_spi <= '0';
 
 		wait for 960 ns;
@@ -124,32 +154,28 @@ begin
 		enable_spi <= '1';
 		wait until rising_edge(spi_data_available);
 		spi_data_rx <= "00000000"; --switch screen buffer
+		wait until falling_edge(spi_data_available);
 		enable_spi <= '0';
 
 		wait for 960 ns;
 
+		enable_spi <= '1';
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "01100000"; --draw sprite (110), color white (111)
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "01010101"; --x
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "10101010"; --y
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "11111111"; --w
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "11001100"; --sprite packet stream length + piece of ID
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00110011"; --last piece of ID
+		wait until falling_edge(spi_data_available);
+		enable_spi <= '0';
 
-		--for testing draw-like instructions
-		-- spi_data_rx		<= "00000000" after 0 ns, 
-		-- 		 after 80 ns,
-		-- 		"01010101" after 180 ns,
-		-- 		"10101010" after 280 ns,
-		-- 		"11111111" after 380 ns,
-		-- 		"11001100" after 480 ns,
-		-- 		"00111001" after 580 ns;
-				-- "10101010" after 730 ns,
-				-- "01010101" after 830 ns,
-				-- "00000000" after 930 ns,
-				-- "11111111" after 1030 ns,
-				-- "00000000" after 1270 ns;
-		--for testing sprite loading
-		-- spi_data_rx		<= "01110000" after 0 ns, --load sprite
-			-- 	"00100001" after 130 ns, --data length of 8, address(16 downto 14) = 01
-			-- 	"01010101" after 230 ns, --address(13 downto 6) = 01010101
-			-- 	"10100101" after 330 ns, --data 0
-			-- 	"11110000" after 430 ns, --data 1
-			-- 	"00001111" after 530 ns, --data 2
-			-- 	"00110000" after 630 ns; --data 3
+		wait for 960 ns;
 		
 	end process;
 end behaviour;

@@ -205,6 +205,7 @@ begin
 			if done = '1' then
 				next_packet_num <= (others => '0');
 				if instr = "111" or instr = "000" then
+					next_h <= (others => '0');
 					int_ready <= '1'; --notify CPU
 				end if;
 			elsif to_integer(packet_num) = 3 and instr = "111" then
@@ -215,7 +216,7 @@ begin
 
 			--reset timeout
 			next_timeout_count <= (others => '1');
-		elsif is_init = '0' then
+		else
 			if timeout_count = 0 then
 				--fire int_ready to force new instruction
 				next_timeout_count <= (others => '1');
