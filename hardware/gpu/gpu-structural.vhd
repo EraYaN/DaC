@@ -19,16 +19,16 @@ architecture structural of gpu is
 			h			: buffer	std_logic_vector(SizeY-1 downto 0);				--Entity height
 			color		: buffer	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
 			id			: buffer	std_logic_vector(SizeSpriteID-1 downto 0);		--Sprite ID
-			en			: out	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
+			en			: buffer	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
 			--Internal registers
 			asb			: buffer	std_logic;	--Currently active screen buffer
 			--Direct CPU interaction
-			int_ready	: out	std_logic;	--Instruction processed signal
+			int_ready	: buffer	std_logic;	--Instruction processed signal
 			--RAM Controller interaction
 			decoder_can_access	: in std_logic;		--Can access RAM?
 			decoder_write		: buffer std_logic;	--Intention to write to RAM
 			decoder_claim		: out std_logic;	
-			is_init				: out std_logic;		--Initializing?
+			is_init				: buffer std_logic;		--Initializing?
 			--RAM interaction
 			ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
 			ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0)
