@@ -31,6 +31,18 @@
     <ClCompile Include="Demo.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="font4x4_set.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="font4x4_set_data.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="font8x8_set.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="font8x8_set_data.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Visual Micro\.OS.vsarduino.h">

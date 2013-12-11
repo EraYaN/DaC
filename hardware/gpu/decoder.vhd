@@ -30,6 +30,9 @@ entity decoder is
 		is_init				: buffer std_logic;		--Initializing?
 		--RAM interaction
 		ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
-		ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0)
+		ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);
+		decoder_debug_pn : out std_logic_vector(3 downto 0);
+		decoder_debug_i : out std_logic_vector(3 downto 0);
+		decoder_debug_c : out std_logic_vector(7 downto 0)
 	);
 end entity decoder;

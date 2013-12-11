@@ -19,16 +19,15 @@ void setup()
 {
 	GPU = new GPULib();
 	Input = new InputLib();
-	attachInterrupt(INT_READY_PIN, drawReady, RISING);
-	//Serial.begin(9600);
+	attachInterrupt(INT_READY_PIN, drawReady, RISING);	
 	SPI.setBitOrder(MSBFIRST);
 	SPI.setClockDivider(SPI_CLOCK_DIV16);
 	SPI.setDataMode(SPI_MODE0);
 	SPI.begin();
-	//Serial.begin(115200);
+	Serial.begin(115200);
 	running = true;
 	pinMode(LED_BUILTIN, OUTPUT);
-	//Serial.println("Setup Complete!");
+	Serial.println("Setup Complete!");
 
 	currentProgram = new Demo(GPU,"Demo");
 	randomSeed(analogRead(0));
@@ -44,34 +43,35 @@ void loop()
 			GPU->cleanUp();
 			GPU->loadSprites(sprites_font6x8_set,95,&readyfornext);
 			//GPU->cleanUp();
-			GPU->drawFill(B0000);
+			GPU->drawFill(B000000);
 			//GPU->transferQueue();
 			first = false;
 			//Serial.println("First Fill.");
 		}
 
-		if(readyfornext && GPU->queueHead != NULL && !GPU->sending){
-			readyfornext = false;
-			//Serial.println("Instuction Sent.");
-			GPU->sendNextInstruction();			
-		}
+		if(!first){
+			if(readyfornext && GPU->queueHead != NULL && !GPU->sending){
+				readyfornext = false;
+				//Serial.println("Instuction Sent.");
+				GPU->sendNextInstruction();			
+			}
 		
-		if(done || GPU->queueHead == NULL){
-			currentFrame = micros();
-			frameTime = currentFrame-lastFrame;			
-			lastFrame = currentFrame;
-			delayMicroseconds(10);
-			currentProgram->tick(frameTime);
-			done = false;
+			if(done || GPU->queueHead == NULL){
+				currentFrame = micros();
+				frameTime = currentFrame-lastFrame;			
+				lastFrame = currentFrame;
+				delayMicroseconds(10);
+				currentProgram->tick(frameTime);
+				done = false;
 			
-		}
-		if(lastBlinkTime+250<millis()){
-			b_helper = !b_helper;
-			digitalWrite(LED_BUILTIN, b_helper);
-			//delay(100);	
-			lastBlinkTime = millis();
-		}
-		
+			}
+			if(lastBlinkTime+250<millis()){
+				b_helper = !b_helper;
+				digitalWrite(LED_BUILTIN, b_helper);
+				//delay(100);	
+				lastBlinkTime = millis();
+			}
+		}		
 	} else {
 		b_helper = !b_helper;
 		digitalWrite(LED_BUILTIN, b_helper);
@@ -81,6 +81,10 @@ void loop()
 
 void drawReady()
 {
-	readyfornext = true;
-	//Serial.println("Ready for next!");
+	//if(!GPU->sending){
+		readyfornext = true;
+		Serial.println("Ready for next!");
+	//} else {
+	//	Serial.println("Ready for next discarded.");
+	//}
 }

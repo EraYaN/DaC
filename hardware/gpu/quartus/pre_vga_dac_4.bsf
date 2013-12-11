@@ -26,8 +26,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 32)
 		(input)
-		(text "VGACOLOR[2..0]" (rect 0 0 79 12)(font "Arial" ))
-		(text "VGACOLOR[2..0]" (rect 21 27 100 39)(font "Arial" ))
+		(text "VGACOLOR[5..0]" (rect 0 0 79 12)(font "Arial" ))
+		(text "VGACOLOR[5..0]" (rect 21 27 100 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port

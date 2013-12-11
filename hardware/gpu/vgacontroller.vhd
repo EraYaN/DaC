@@ -25,9 +25,11 @@ ENTITY vgacontroller IS
 		vgavsync    :  OUT  STD_LOGIC;  --vertical sync pulse
 		vga_claim  :  OUT  STD_LOGIC;  --display enable ('1' = display time, '0' = blanking time)	 
 		ramaddr  :  OUT  STD_LOGIC_VECTOR(SizeRAMAddr-1 downto 0);
+		ramdata : IN std_logic_vector(SizeRAMData-1 downto 0);
 		vga_read : OUT STD_LOGIC;
 		vga_can_access : in std_logic;
-		asb : IN STD_LOGIC
+		asb : IN STD_LOGIC;
+		vgacolor : out std_logic_vector(SizeColor-1 downto 0)
 	); 
 	 
 END vgacontroller;

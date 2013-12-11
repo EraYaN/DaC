@@ -180,7 +180,7 @@ begin
 		x=>x,
 		y=>y,
 		w=>w,
-		l=>h(SizeY-1 downto SizeY-SizeSpriteCounter),
+		l=>h(SizeSpriteCounter-1 downto 0),
 		color=>color,
 		asb=>asb,
 		done=>sprite_done,

@@ -29,7 +29,7 @@ namespace SpriteTool
     public partial class MainWindow : Window
     {
         Bitmap wimg;
-
+		const byte bitsperbyte = 6;
         public MainWindow()
         {
             InitializeComponent();
@@ -111,17 +111,17 @@ namespace SpriteTool
             sw_data_h.WriteLine("PROGMEM extern const prog_uchar set_{0}_sprite_{1}[];", setname, varname);
 			sw_data.WriteLine("{");
 			int data = 0;
-			i = 5;
+			i = bitsperbyte-1;
 			int count = 0 ;
 			bool first = true;
 			foreach (Color c in sprite)
 			{
-				int grayscale1 = Conv8to1(ConvRGBto8(c));
-				data = data | (grayscale1 << (byte)i);
+				int grayscale1 = Conv8to1(ConvRGBto8(c))==1?0:1;
+				data = data | (grayscale1 << (byte)((bitsperbyte-1) - i));
 				i--;
 				if (i < 0)
 				{
-					i = 5;
+					i = bitsperbyte;
 					if (!first)
 						sw_data.Write(",");
 					if (count % 8 == 0)

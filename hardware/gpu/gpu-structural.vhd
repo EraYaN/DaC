@@ -31,7 +31,10 @@ architecture structural of gpu is
 			is_init				: buffer std_logic;		--Initializing?
 			--RAM interaction
 			ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
-			ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0)
+			ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);			
+			decoder_debug_pn : out std_logic_vector(3 downto 0);
+			decoder_debug_i : out std_logic_vector(3 downto 0);
+			decoder_debug_c : out std_logic_vector(7 downto 0)
 		);
 	end component;
 
@@ -43,9 +46,11 @@ architecture structural of gpu is
 			vgavsync    :  OUT  STD_LOGIC;  --vertical sync pulse
 			vga_claim  :  OUT  STD_LOGIC;  --display enable ('1' = display time, '0' = blanking time)	 
 			ramaddr  :  OUT  STD_LOGIC_VECTOR(SizeRAMAddr-1 downto 0);
+			ramdata : IN std_logic_vector(SizeRAMData-1 downto 0);
 			vga_read : OUT STD_LOGIC;
 			vga_can_access : in std_logic;
-			asb : IN STD_LOGIC
+			asb : IN STD_LOGIC;
+			vgacolor : out std_logic_vector(SizeColor-1 downto 0)
 		); 	 
 	end component;
 
@@ -143,7 +148,6 @@ architecture structural of gpu is
 	signal spi_data_rx : std_logic_vector(sizespidata-1 downto 0);
 
 begin
-
 	reset_n <= not reset;
 	ramwe_n <= not ramwe;
 	asb_debug <= asb;
@@ -187,7 +191,10 @@ begin
 		decoder_claim=>decoder_claim,
 		is_init=>is_init,		--Initializing?
 		ramdata=>ramdata,
-		ramaddr=>ramaddr
+		ramaddr=>ramaddr,
+		decoder_debug_pn=>bin_debug(3 downto 0),
+		decoder_debug_i=>bin_debug(7 downto 4),
+		decoder_debug_c=>bin_debug(15 downto 8)
 	);
 
 	ramcontroller1: ramcontroller port map (
@@ -212,9 +219,11 @@ begin
 		vgavsync,
 		vga_claim,
 		ramaddr,
+		ramdata,
 		vga_read,
 		vga_can_access,
-		asb
+		asb,
+		vgacolor
 	);
 
 	spi1: spi port map (

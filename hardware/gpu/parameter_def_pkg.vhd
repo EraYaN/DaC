@@ -3,7 +3,7 @@ use IEEE.std_logic_1164.ALL;
 
 PACKAGE parameter_def IS
 	constant InstrSize : INTEGER;
-	constant MaxNumPackets : INTEGER;
+	constant SizeNumPackets : INTEGER;
 	constant SizeSpriteID : INTEGER;
 	constant SizeSpriteCounter : INTEGER;
 	constant SizeTimeoutCounter : INTEGER;
@@ -21,7 +21,7 @@ END parameter_def;
 
 PACKAGE BODY parameter_def IS
 	constant InstrSize : INTEGER := 3; --bits
-	constant MaxNumPackets : INTEGER := 3; -- aantal bits voor counter, log2(7 bytes) => 3 bits
+	constant SizeNumPackets : INTEGER := 3; -- aantal bits voor counter, log2(7 bytes) => 3 bits
 	constant SizeSpriteID : INTEGER := 10;
 	constant SizeSpriteCounter : INTEGER := 6;
 	constant SizeTimeoutCounter : INTEGER := 7; --aantal bits voor timeout counter

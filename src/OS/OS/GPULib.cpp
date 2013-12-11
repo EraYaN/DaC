@@ -42,6 +42,19 @@ void GPULib::sendNextInstruction()
 	sending = true;
 	for (int j=0; j<(queueHead->numPackets); j++)
 	{
+		unsigned long time = millis();
+		while(millis()<time+20){
+			//wait
+		}
+		Serial.print("Sent byte: ");
+		Serial.print(queueHead->packets[j],BIN);
+		Serial.print("; ");
+		Serial.print(j+1);
+		Serial.print(" of ");
+		Serial.print(queueHead->numPackets);
+		Serial.print(" @ 0x");
+		Serial.println((unsigned int)queueHead, HEX);
+		Serial.flush();
 		SPI.transfer(queueHead->packets[j]);		
 	}
 	shiftQueue();
@@ -128,7 +141,7 @@ void GPULib::drawLine(byte x0, byte y0, byte x1, byte y1, byte color)
 
 void GPULib::drawSprite(Sprite* sprite, byte x, byte y, byte color)
 {
-	drawSprite(sprite->address, x, y, sprite->width, sprite->width*sprite->height/4, color);
+	drawSprite(sprite->address, x, y, sprite->width, sprite->size, color);
 }
 
 void GPULib::drawSprite(int address, byte x, byte y, byte w, byte l, byte color)
@@ -139,7 +152,7 @@ void GPULib::drawSprite(int address, byte x, byte y, byte w, byte l, byte color)
 	instr->packets[2] = clamp(x,0,XMAX);
 	instr->packets[3] = clamp(y,0,YMAX);
 	instr->packets[4] = clamp(w,0,MAXSPRITEWIDTH);
-	instr->packets[5] = (l & B11111100) | (address & 0x300);
+	instr->packets[5] = ((l << 2) & B11111100) | ((address>>8) & B11);
 	instr->packets[6] = (address & 0xFF);
 	appendInstructionToQueue(instr);
 }
@@ -188,6 +201,7 @@ void GPULib::drawString(const char* string, byte x, byte y, byte color){
 }
 bool GPULib::loadSprites(Sprite *set[], int size, bool *readyfornext){
 	uint16_t address = 0;
+	Serial.println("Started Sending!");
 	int spriteID = 0;
 	for(int i = 0; i<size; i++){
 		spriteID=lastSpriteID+1;
@@ -207,7 +221,7 @@ bool GPULib::loadSprites(Sprite *set[], int size, bool *readyfornext){
 		//wait		
 		Serial.println("Waiting!");
 		}*/
-		//Serial.println("Sending!");
+		Serial.println("Sending!");
 		sendSprite(set[i]);
 	}
 	return true;
@@ -215,17 +229,17 @@ bool GPULib::loadSprites(Sprite *set[], int size, bool *readyfornext){
 void GPULib::sendSprite(Sprite *sprite){
 	Instruction *instr = new Instruction(3);
 	instr->packets[0] = 7;
-	instr->packets[1] = ((sprite->size << 2) & B11111100) | ((sprite->address & 0x300)>>8);
+	instr->packets[1] = ((sprite->size << 2) & B11111100) | ((sprite->address>>8) & B11);
 	instr->packets[2] = (sprite->address & 0xFF);	
 	sending = true;
 	for (int j=0; j<(instr->numPackets); j++)
 	{
-		SPI.transfer(instr->packets[j]);		
+		//SPI.transfer(instr->packets[j]);		
 	}
 	delete instr;
 	//send data
 	for(int i = 0; i<sprite->size; i++){
-		SPI.transfer(sprite->data[i]);
+		//SPI.transfer(sprite->data[i]);
 	}
 	sending = false;
 

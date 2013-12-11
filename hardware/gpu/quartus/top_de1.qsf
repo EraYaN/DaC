@@ -77,14 +77,14 @@ set_location_assignment PIN_K21 -to RAMADDR[3]
 set_location_assignment PIN_J19 -to RAMADDR[2]
 set_location_assignment PIN_J18 -to RAMADDR[1]
 set_location_assignment PIN_L19 -to RAMADDR[0]
-set_location_assignment PIN_B13 -to RAMDATA[3]
-set_location_assignment PIN_B14 -to RAMDATA[2]
-set_location_assignment PIN_B15 -to RAMDATA[1]
-set_location_assignment PIN_B16 -to RAMDATA[0]
-set_location_assignment PIN_B18 -to RAMWE
-set_location_assignment PIN_B19 -to SPICLK
-set_location_assignment PIN_B20 -to SPIMOSI
-set_location_assignment PIN_C22 -to int_ready
+set_location_assignment PIN_B15 -to RAMDATA[3]
+set_location_assignment PIN_B16 -to RAMDATA[2]
+set_location_assignment PIN_B19 -to RAMDATA[1]
+set_location_assignment PIN_B20 -to RAMDATA[0]
+set_location_assignment PIN_J22 -to RAMWE
+set_location_assignment PIN_J20 -to SPICLK
+set_location_assignment PIN_K20 -to SPIMOSI
+set_location_assignment PIN_L18 -to int_ready
 set_location_assignment PIN_U21 -to debug1
 set_location_assignment PIN_V22 -to debug2
 set_location_assignment PIN_V21 -to debug3
@@ -160,6 +160,11 @@ set_global_assignment -name SMART_RECOMPILE ON
 set_global_assignment -name FLOW_ENABLE_IO_ASSIGNMENT_ANALYSIS ON
 set_global_assignment -name EDA_BOARD_DESIGN_SYMBOL_TOOL "FPGA Xchange (Symbol)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "FPGA XCHANGE" -section_id eda_board_design_symbol
+set_location_assignment PIN_B13 -to RAMDATA[5]
+set_location_assignment PIN_B14 -to RAMDATA[4]
+set_global_assignment -name ALLOW_POWER_UP_DONT_CARE OFF
+set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS OFF
+set_global_assignment -name VHDL_FILE ../ssegdecoder.vhd
 set_global_assignment -name VHDL_FILE "../draw_sprite-behaviour.vhd"
 set_global_assignment -name VHDL_FILE ../draw_sprite.vhd
 set_global_assignment -name VHDL_FILE "../draw_line-behaviour.vhd"
@@ -187,4 +192,32 @@ set_global_assignment -name VHDL_FILE ../decoder.vhd
 set_global_assignment -name VHDL_FILE pre_vga_dac_4.vhd
 set_global_assignment -name VHDL_FILE gen6mhz.vhd
 set_global_assignment -name BDF_FILE top_de1.bdf
+set_location_assignment PIN_D4 -to segments[27]
+set_location_assignment PIN_F3 -to segments[26]
+set_location_assignment PIN_L8 -to segments[25]
+set_location_assignment PIN_J4 -to segments[24]
+set_location_assignment PIN_D6 -to segments[23]
+set_location_assignment PIN_D5 -to segments[22]
+set_location_assignment PIN_F4 -to segments[21]
+set_location_assignment PIN_D3 -to segments[20]
+set_location_assignment PIN_E4 -to segments[19]
+set_location_assignment PIN_E3 -to segments[18]
+set_location_assignment PIN_C1 -to segments[17]
+set_location_assignment PIN_C2 -to segments[16]
+set_location_assignment PIN_G6 -to segments[15]
+set_location_assignment PIN_G5 -to segments[14]
+set_location_assignment PIN_D1 -to segments[13]
+set_location_assignment PIN_D2 -to segments[12]
+set_location_assignment PIN_G3 -to segments[11]
+set_location_assignment PIN_H4 -to segments[10]
+set_location_assignment PIN_H5 -to segments[9]
+set_location_assignment PIN_H6 -to segments[8]
+set_location_assignment PIN_E1 -to segments[7]
+set_location_assignment PIN_E2 -to segments[6]
+set_location_assignment PIN_F1 -to segments[5]
+set_location_assignment PIN_F2 -to segments[4]
+set_location_assignment PIN_H1 -to segments[3]
+set_location_assignment PIN_H2 -to segments[2]
+set_location_assignment PIN_J1 -to segments[1]
+set_location_assignment PIN_J2 -to segments[0]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
