@@ -15,7 +15,7 @@ architecture behaviour of decoder is
 	signal next_id : std_logic_vector(SizeSpriteID-1 downto 0);
 	signal next_color : std_logic_vector(SizeColor-1 downto 0);
 	signal next_en : std_logic_vector(NumDrawModules-1 downto 0);
-	signal next_is_init, next_asb : std_logic;
+	signal next_int_ready, next_is_init, next_asb : std_logic;
 begin
 	--"asynchronous" RAM interaction
 	decoder_claim <= '1' when is_init = '1' else '0';
@@ -24,9 +24,9 @@ begin
 	decoder_debug_pn <= "0" & std_logic_vector(packet_num);
 	decoder_debug_i <= "0" & instruction;
 	decoder_debug_c <= "0" & h when instruction = "111" else (others => '0');
+
 	--synchronizer + input buffer + output buffer + state change
-	decode_seq: process (clk)
-		
+	decode_seq: process (clk)	
 	begin
 		if rising_edge(clk) then
 			if reset = '1' then
@@ -43,6 +43,7 @@ begin
 				en <= (others => '0');
 				asb <= '0';
 				is_init <= '1';
+				int_ready <= '0';
 			else
 				--update all registers
 				packet_num <= next_packet_num;
@@ -57,11 +58,12 @@ begin
 				en <= next_en;
 				asb <= next_asb;
 				is_init <= next_is_init;
+				int_ready <= next_int_ready;
 			end if;		
 		end if;
 	end process;
 
-	decode_comb: process (x, y, w, h, id, color, en, asb, is_init, draw_ready, spi_data_available, spi_data_rx, instruction, packet_num, timeout_count, decoder_can_access)
+	decode_comb: process (x, y, w, h, id, color, en, asb, is_init, int_ready, draw_ready, spi_data_available, spi_data_rx, instruction, packet_num, timeout_count, decoder_can_access)
 		variable done : std_logic;		
 	begin
 		--defaults for buffered signals
@@ -79,16 +81,12 @@ begin
 		next_timeout_count <= timeout_count;
 	
 		--defaults for non-buffered signals
-		int_ready <= '0';
 		decoder_write <= '0';
 		next_ramdata <= (others => '0');
 
 		--init variables
 		done := '0';
-		--instruction := instruction;
 		
-		
-
 		if spi_data_available = '1' then
 			--perform action upon data available change
 			--logic depending on current packet in stream
@@ -102,7 +100,7 @@ begin
 						next_asb <= not asb;
 					end if;					
 				when 1 =>
-					if instruction = "111" then
+					if instruction = "111" and is_init = '1' then
 						--sprite loading - save data length and push first two address bits
 						next_y <= '0' & spi_data_rx(SizeSPIData-1 downto SizeSPIData-SizeSpriteCounter);
 						next_id(SizeSpriteID-1 downto SizeSpriteID-(SizeSPIData-SizeSpriteCounter)) <= spi_data_rx(SizeSPIData-SizeSpriteCounter-1 downto 0);
@@ -120,7 +118,7 @@ begin
 					end if;
 
 				when 2 => 
-					if instruction = "111" then
+					if instruction = "111" and is_init = '1' then
 						--sprite loading - push other eight address bits
 						next_id(SizeSpriteID-(SizeSPIData-SizeSpriteCounter)-1 downto 0) <= spi_data_rx;
 					else
@@ -128,7 +126,7 @@ begin
 						next_x <= spi_data_rx;
 					end if;
 				when 3 =>
-					if instruction = "111" then
+					if instruction = "111" and is_init = '1' then
 						--sprite loading - load it!
 						next_ramdata <= spi_data_rx(SizeRAMData-1 downto 0);
 
@@ -219,13 +217,13 @@ begin
 			--end if;
 		end if;
 		
-		if draw_ready = '1' or (done = '1' and (instruction = "111" or spi_data_rx(InstrSize-1 downto 0) = "000")) then
+		if draw_ready = '1' or (done = '1' and (instruction = "111" or spi_data_rx(InstrSize-1 downto 0) = "000")) or (int_ready = '1' and spi_data_available = '0') then
 			--disable all draw modules
 			next_en <= (others => '0');
 			--inform CPU
-			int_ready <= '1';		
+			next_int_ready <= '1';		
 		else
-			int_ready <= '0';
+			next_int_ready <= '0';
 		end if;
 		--update instruction		
 	end process;
