@@ -225,8 +225,10 @@ begin
 			next_en <= (others => '0'); --disable all draw modules	
 			next_int_ready <= '1'; --inform CPU
 		else
-			if to_integer(packet_num) = 3 and instruction = "111" and is_init = '1' then --loading sprite
+			if (to_integer(packet_num) = 3 and instruction = "111" and is_init = '1') or spi_data_available = '0' then --loading sprite or no new data
 				next_packet_num <= packet_num; --keep loading sprite
+			elsif done = '1' then --loading instruction finished
+				next_packet_num <= (others => '0');	--reset packet_num
 			else
 				next_packet_num <= packet_num + 1; --next packet
 			end if;
