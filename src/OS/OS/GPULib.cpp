@@ -180,11 +180,6 @@ void GPULib::drawString(const char* string, byte x, byte y, byte color){
 		i++;
 		if(string[i]==' '){
 			dx+=3;
-		/*} else if(string[i]=='.' || string[i]==':' || string[i]==',' || string[i]==';'){
-			dx+=8;
-		}
-		else if(string[i]=='!'){
-			dx+=8;*/
 		} else {
 			dx+=8;
 		}
@@ -192,45 +187,55 @@ void GPULib::drawString(const char* string, byte x, byte y, byte color){
 	}
 
 }
-bool GPULib::loadSprites(Sprite *set[], int size, bool *rfn){
-	int address = 0;
+bool GPULib::loadSprites(Sprite *set[], int size, bool *readyfornext){
+	uint16_t address = 0;
 	int spriteID = 0;
 	for(int i = 0; i<size; i++){
 		spriteID=lastSpriteID+1;
 		if(spriteID<SPRITESPART1){ // to the right of screenbuffer #0
-			address = 160+160*spriteID;
+			address = 192u+192*spriteID;
 		} else if(spriteID<SPRITESPART2) { // underneath screenbuffer #0
-			address = 120*256+64*(spriteID-SPRITESPART1);
+			address = 120u*256+64*(spriteID-SPRITESPART1);
 		} else if(spriteID<SPRITESPART3) { // to the right of screenbuffer #1
-			address = 128*256+160+160*(spriteID-SPRITESPART2);
+			address = 128u*256+192+192*(spriteID-SPRITESPART2);
 		} else if(spriteID<SPRITESPART4){// underneath screenbuffer #1
-			address = 248*256+64*(spriteID-SPRITESPART3);
+			address = 248u*256+64*(spriteID-SPRITESPART3);
 		} else {
 			return false;
 		}
-		set[i]->address = address;
-		while(!*rfn){
-			//wait
-		}
-		sendSprite(set[i], address);
+		set[i]->address = address >> 6;
+		/*while(!(*readyfornext)){
+			//wait		
+			Serial.println("Waiting!");
+		}*/
+		//Serial.println("Sending!");
+		sendSprite(set[i]);
 	}
 	return true;
 }
-void GPULib::sendSprite(Sprite *sprite, int address){
+void GPULib::sendSprite(Sprite *sprite){
 	Instruction *instr = new Instruction;
 	instr->numPackets = 3;
 	instr->packets[0] = B01110000;
-	instr->packets[1] = (sprite->width*sprite->height/4 & B11111100) | (address & 0x300);
-	instr->packets[2] = (address & 0xFF);	
+	instr->packets[1] = (((sprite->width*sprite->height/4) << 2) & B11111100) | (sprite->address & 0x300);
+	instr->packets[2] = (sprite->address & 0xFF);	
 	sending = true;
 	for (int j=0; j<(instr->numPackets); j++)
 	{
+		unsigned long time = millis();
+		while(millis()<time+500){
+
+		}
 		SPI.transfer(instr->packets[j]);		
 	}
 	delete instr;
 	//send data
 	for(int i = 0; i<sprite->size; i++){
-		SPI.transfer(pgm_read_byte_near((sprite->data[i])));
+		unsigned long time = millis();
+		while(millis()<time+50){
+
+		}
+		SPI.transfer(sprite->data[i]);
 	}
 	sending = false;
 	

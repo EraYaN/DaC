@@ -3,31 +3,51 @@
 \input{../library/style.tex}
 \addbibresource{../library/bibliography.bib}
 
-\date{22 november 2013}
-
 \begin{document}
 \pagenumbering{roman}
 
-\subimport{title_page/}{title_page.tex}
-\subimport{inleiding/}{inleiding.tex}
+%----intro
+\subimport{title/}{title.tex}
+
 \newpage
 
 \tableofcontents
 
 \newpage
 \pagenumbering{arabic}
-
+\subimport{inleiding/}{inleiding.tex}
+%----projectgerelateerd
 \subimport{specificaties/}{specificaties.tex}
-
 \subimport{ontwerp/}{ontwerp.tex}
 
-\subimport{planning/}{planning.tex}
+%----implementatie
+%--algemeen
+\subimport{spi/}{spi.tex}
+\subimport{decoder/}{decoder.tex}
+%--draw
+\subimport{draw/}{draw.tex}
+\subimport{draw-pixel/}{draw-pixel.tex}
+\subimport{draw-fill/}{draw-fill.tex}
+\subimport{draw-rect/}{draw-rect.tex}
+\subimport{draw-line/}{draw-line.tex}
+\subimport{draw-sprite/}{draw-sprite.tex}
+%--RAM
+\subimport{ram/}{ram.tex}
+%--VGA
+\subimport{vga/}{vga.tex}
 
-%implementatie
+%----resultaten
+\subimport{testplan/}{testplan.tex}
+\subimport{resultaten/}{resultaten.tex}
 
+%----reflectie en afsluiting
+\subimport{procesverloop/}{procesverloop.tex}
+\subimport{conclusie/}{conclusie.tex}
+\subimport{discussie/}{discussie.tex}
 
 \newpage
 \pagenumbering{Roman}
 
 \printbibliography
+\subimport{bijlagen/}{bijlagen.tex}
 \end{document}

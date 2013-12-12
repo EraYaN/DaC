@@ -120,15 +120,27 @@ sr: sram port map (
 		wait until rising_edge(clk);
 		wait until rising_edge(clk);
 		reset <= '0';
-		wait until rising_edge(clk);	
-		sendByte("00011111",spi_mosi,spiclk_en, spibyte); -- fill with 1111 (white)	--byte 1
+		wait until rising_edge(clk);
+		wait until rising_edge(clk);		
+		sendByte("01110000",spi_mosi,spiclk_en, spibyte); -- sprite --byte 1
+		sendByte("00110000",spi_mosi,spiclk_en, spibyte); -- sprite len (12) and 2MSB addr --byte 2
+		sendByte("00000011",spi_mosi,spiclk_en, spibyte); -- sprite 8LSB addr = 3 --byte 3
+		sendByte("11111110",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 4
+		sendByte("00011111",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 5
+		sendByte("01111101",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 6
+		sendByte("11000111",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 7
+		sendByte("11011111",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 8
+		sendByte("01100001",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 9
+		wait until rising_edge(clk);
+		wait until rising_edge(clk);		
+		sendByte("00011111",spi_mosi,spiclk_en, spibyte); -- fill with 1111 (white)	--byte 10
 		wait until rising_edge(int_ready);
 		wait until rising_edge(clk);
-		sendByte("01001010",spi_mosi,spiclk_en, spibyte); -- frect with 1010 (grey/pink) --byte 2
-		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- X0 = 40 --byte 3
-		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- Y0 = 50 --byte 4
-		sendByte("01111000",spi_mosi,spiclk_en, spibyte); -- X1 = 120 --byte 5
-		sendByte("01010000",spi_mosi,spiclk_en, spibyte); -- Y1 = 80 --byte 6
+		sendByte("01001010",spi_mosi,spiclk_en, spibyte); -- frect with 1010 (grey/pink) --byte 11
+		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- X0 = 40 --byte 12
+		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- Y0 = 50 --byte 13
+		sendByte("01111000",spi_mosi,spiclk_en, spibyte); -- X1 = 120 --byte 14
+		sendByte("01010000",spi_mosi,spiclk_en, spibyte); -- Y1 = 80 --byte 15
 		wait until rising_edge(int_ready);
 		wait until rising_edge(clk);
 		sendByte("00110000",spi_mosi,spiclk_en, spibyte); -- rect with 0000 (black) --byte 7
@@ -142,14 +154,22 @@ sr: sram port map (
 		--wait until rising_edge(int_ready); --this one is too fast
 		wait until rising_edge(clk);
 		wait until rising_edge(clk);
-		sendByte("00010000",spi_mosi,spiclk_en, spibyte); -- fill with 0000 (white)	--byte 13
+		sendByte("00010000",spi_mosi,spiclk_en, spibyte); -- fill with 0000 (black)	--byte 13
 		wait until rising_edge(int_ready);
 		wait until rising_edge(clk);
-		sendByte("01011111",spi_mosi,spiclk_en, spibyte); -- pixel with 1111 (white) --byte 14
+		sendByte("01011111",spi_mosi,spiclk_en, spibyte); -- line with 1111 (white) --byte 14
 		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- X0 = 40 --byte 15
 		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- Y0 = 50 --byte 16
 		sendByte("01111000",spi_mosi,spiclk_en, spibyte); -- X1 = 120 --byte 17
 		sendByte("01010000",spi_mosi,spiclk_en, spibyte); -- Y1 = 80 --byte 18
+		wait until rising_edge(int_ready);
+		wait until rising_edge(clk);
+		sendByte("01101000",spi_mosi,spiclk_en, spibyte); -- sprite with 1000(gray) --byte 14
+		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- X = 40 --byte 15
+		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- Y = 50 --byte 16
+		sendByte("00011000",spi_mosi,spiclk_en, spibyte); -- W = 6 + 2 '0' bits --byte 16
+		sendByte("00110000",spi_mosi,spiclk_en, spibyte); -- sprite len (12) and 2MSB addr --byte 2
+		sendByte("10100000",spi_mosi,spiclk_en, spibyte); -- sprite 8LSB addr --byte 3
 		wait until rising_edge(int_ready);	
 		wait until rising_edge(clk);		
 		--finish

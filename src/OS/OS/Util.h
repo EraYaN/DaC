@@ -14,4 +14,9 @@
 #include "Program.h"
 #include "Game.h"
 #include "Demo.h"
+#include "InputLib.h"
+#include "PS2Keyboard.h"
+
+//sprite sets
+#include "font6x8_set.h"
 #endif

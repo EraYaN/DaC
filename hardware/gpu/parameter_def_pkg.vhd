@@ -33,10 +33,14 @@ PACKAGE BODY parameter_def IS
 	constant SizeSpriteID : INTEGER := 10;
 	constant SizeSpriteCounter : INTEGER := 6;
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 9d4e9ce5b0c12094472caf6a8b3cbfe52001dfbd
 =======
 	constant SizeTimeoutCounter : INTEGER := 8; --aantal bits voor timeout counter
 >>>>>>> b00ca4c7ef2b20991539b821ff224d9282675c05
+=======
+	constant SizeTimeoutCounter : INTEGER := 7; --aantal bits voor timeout counter
+>>>>>>> 10a4cc14989d24dc8d1c02f5816b087f6ec69072
 	constant NumDrawModules : INTEGER := 6; -- 0: fill; 1: pixel; 2: square; 3: fsquare; 4: line; 5: circle;
 	constant SizeX : INTEGER := 8;
 	constant SizeY : INTEGER := 7;

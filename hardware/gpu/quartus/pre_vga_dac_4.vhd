@@ -18,36 +18,36 @@ begin
 process(color_on, VGACOLOR)
 begin
    if(color_on='1') then
-		vga_r(0) <= VGACOLOR(0);
-		vga_r(1) <= VGACOLOR(0);
-		vga_r(2) <= VGACOLOR(3);
-		vga_r(3) <= VGACOLOR(3);
+		vga_r(0) <= VGACOLOR(2);
+		vga_r(1) <= VGACOLOR(2);
+		vga_r(2) <= VGACOLOR(2);
+		vga_r(3) <= VGACOLOR(2);
 		
-		vga_g(0) <= VGACOLOR(0);
-		vga_g(1) <= VGACOLOR(0);
-		vga_g(2) <= VGACOLOR(2);
-		vga_g(3) <= VGACOLOR(2);
+		vga_g(0) <= VGACOLOR(1);
+		vga_g(1) <= VGACOLOR(1);
+		vga_g(2) <= VGACOLOR(1);
+		vga_g(3) <= VGACOLOR(1);
 		
 		vga_b(0) <= VGACOLOR(0);
 		vga_b(1) <= VGACOLOR(0);
-		vga_b(2) <= VGACOLOR(1);
-		vga_b(3) <= VGACOLOR(1);
+		vga_b(2) <= VGACOLOR(0);
+		vga_b(3) <= VGACOLOR(0);
 
 	else	
 		vga_r(0) <= VGACOLOR(0);
 		vga_r(1) <= VGACOLOR(1);
 		vga_r(2) <= VGACOLOR(2);
-		vga_r(3) <= VGACOLOR(3);
+		vga_r(3) <= VGACOLOR(2);
 		
 		vga_g(0) <= VGACOLOR(0);
 		vga_g(1) <= VGACOLOR(1);
 		vga_g(2) <= VGACOLOR(2);
-		vga_g(3) <= VGACOLOR(3);
+		vga_g(3) <= VGACOLOR(2);
 		
 		vga_b(0) <= VGACOLOR(0);
 		vga_b(1) <= VGACOLOR(1);
 		vga_b(2) <= VGACOLOR(2);
-		vga_b(3) <= VGACOLOR(3);
+		vga_b(3) <= VGACOLOR(2);
    end if;
 end process;
 end; 

@@ -53,7 +53,7 @@ begin
 					int_ready <= '0';		
 				end if;
 
-				if spi_data_available = '1' or h(0) = '1' then
+				if spi_data_available = '1' or (instr = "111" and h(0) = '1') then
 					--perform action upon data available change
 					--init variables
 					done := '0';
@@ -113,7 +113,7 @@ begin
 								w(SizeSpriteCounter-1 downto 0) <= h(SizeSpriteCounter-1 downto 0);
 								if h(0) = '0' then
 									--new SPI data is available, put half of it on RAM, cache the other half in color reg
-									next_ramdata <= spi_data_rx(SizeSPIData-1 downto SizeSPIData/2);
+									next_ramdata <= spi_data_rx(SizeSPIData-2 downto SizeSPIData/2);
 									color <= spi_data_rx(SizeRAMData-1 downto 0);
 								else
 									--put the last half of SPI data on RAM
@@ -170,7 +170,6 @@ begin
 					--reset packet count when instruction is processed, or retain current packet count to keep loading sprites
 					if done = '1' then
 						packet_num <= (others => '0');
-						h <= (others => '0');
 						if instr = "111" or instr = "000" then
 							int_ready <= '1'; --notify CPU
 						end if;
@@ -184,13 +183,13 @@ begin
 					instruction <= instr;
 
 				else
-					if timeout_count = 0 then
-						timeout_count <= (others => '1');
-						packet_num <= (others => '0');
-						int_ready <= '1';
-					elsif packet_num /= 0 then
-						timeout_count <= timeout_count - 1;
-					end if;
+					-- if timeout_count = 0 then
+						-- timeout_count <= (others => '1');
+						-- packet_num <= (others => '0');
+						-- int_ready <= '1';
+					-- elsif packet_num /= 0 then
+						-- timeout_count <= timeout_count - 1;
+					-- end if;
 				end if;
 			end if;
 		end if;
