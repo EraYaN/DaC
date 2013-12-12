@@ -1,65 +1,114 @@
+% Als je labels toe wilt voegen, doe het dan consequent
+% voor een section ---> \label{sec:name_of_block}
+%voor een subsection ---> \label{ssec:name_of_subsec}
+%voor een subsubsec --> \label{sssec:name_of_subsubsec} en zo door
+
+%Template voor elk apart blok EPO3 A4
 \documentclass{scrartcl} % scrartcl of scrreprt
-\input{../../library/preamble.tex}
-\input{../../../library/style.tex}
+\input{../../library/preamble.tex} 
+\input{../../library/style.tex}
 
 
-\author{Kees Hogenhout \and Alex Janssen}
+\author{}% <------fill in your name
 \title{EPO3: Eindrapport - Draw-pixel}
 
 \begin{document}
-\section{Draw-pixel}
-\label{sec:draw-fill}
+\section{Drawpixel} %<----- fill in section name
+\label{sec:drawpixel} % <-----fill in lable name
 
-\subsection{VHDL-beschrijving}
+% describe function of block
+Drawpixel is het blok dat het tekenen van een pixel implementeerd. Drawpixel ontvangt via de instructiedecoder std\_standard\_logic vectoren x , y en color van de CPU. In de specificaties wordt ingegaan  op de lengte van deze vectoren. In het gedeelte daaronder wordt de verdere implementatie en het testen beschreven.
+
+%specificaties blok (copy paste)
+\subsection{Specificaties}
+\label{ssec:specs_dp}
+Door deze module worden aparte pixels getekend, hiervoor zijn de x- en y-coördinaten en de kleur van de pixel nodig. Drawpixel dient asb, y en x in een vector te plaatsen van lengte SizeRAMAddr, gedefinieerd in de package file. X en y zijn ook vectoren met lengten gedefinieerd in de package. Ook dient de color vector naar ramdata geschreven te worden.  Er moet alleen bij enable \& draw\_can\_access = hoog naar RAM geschreven worden, waarbij draw\_write gedurende het schrijven hoog is. (voor de controller)  Nadat er geschreven is, moet done gedurende een klokslag hoog worden. Er mag alleen in het niet actieve RAM geschreven worden, dus wanneer asb '0' is. 
+
+\begin{table}[H]
+\centering
+\caption{Specificaties van de Pixel Draw Module}
+\label{tab:spec-pixel-draw}
+\begin{tabular}{c c c}
+	\hline\hline
+ 	Naam & Modus & Type\\
+ 	\hline	
+	clk & in & std\_logic \\
+	reset & in & std\_logic \\
+	enable& in & std\_logic \\
+	color & in & std\_logic\_vector(SizeColor-1 downto 0) \\
+	x & in & std\_logic\_vector(SizeX-1 downto 0) \\
+	y & in & std\_logic\_vector(SizeY-1 downto 0) \\
+	asb & in & std\_logic \\
+	done & out & std\_logic \\
+	ramaddr &out & std\_logic\_vector(SizeRAMAddr-1 downto 0) \\
+	ramdata &out & std\_logic\_vector(SizeRAMData-1 downto 0) \\
+	draw\_write &out & std\_logic \\
+	draw\_can\_access & in & std\_logic \\
+  	\hline
+\end{tabular}
+\end{table}
+
+
+%VHDL
+\subsection{VHDL}
+\label{ssec:vhdl_dp}
 \subsubsection{Entity}
-Er is bij ontwerp al besproken hoe de signalen bij draw-pixel aankomen. Er moet alleen bij enable \& draw\_can\_access = hoog geschreven worden, waarbij draw\_write gedurende het schrijven hoog is. (voor de controller)  Nadat er geschreven is, moet done gedurende een klokslag hoog worden. De klok en de reset spreken voor zich. De x(8 bits), y(7bits) en color(3 bits) zijn std\_logic\_vectoren uit de Arduino waar in de behavioural adressen van gemaakt worden, die bij bovengenoemde voorwaarden in het RAM geschreven worden. Echter er moet alleen geschreven worden in het niet actieve RAM, dus als asb = 0.  Hiermee zijn alle in- en uitgangen in de entity beschreven en ook de voorwaarden waar de simulatie in Modelsim minimaal aan moet voldoen. 
+De entity is opgebouwd volgens de specificaties in tabel \ref{tab:spec-pixel-draw}. De in- en uitgangen zijn letterlijk overgenomen en zijn schaalbaar, zoals te zien in de tabel. 
 
 \subsubsection{Behaviour}
-De behaviour is opgedeeld in een sequentieel gedeelte waar de state busy wordt opgeslagen en een combinatorisch gedeelte waar de signalen oe, draw\_write, done en de state worden bepaald. Oe is een tussensignaal op basis waarvan bepaald wordt of ramaddr en ramdata geschreven worden. Het is belangrijk dat de uitgangen Z worden indien oe = 1 niet klopt, omdat de draad waarop de uitgang gezet wordt een bidirectional bus is. Het sequentiele process wordt getriggered op de clk, het combinatorische process op een verandering in reset, enable, draw\_can\_access of busy. De belangijkste functie
-van drawpixel is het samenvoegen van asb, y en x in een 16 bits adres voor de VGA. Bovendien wordt de kleur opgeslagen in ramdata, een 4-bits output. 
+De behaviour is opgedeeld in een sequentieel gedeelte waar de state 'busy' wordt opgeslagen en een combinatorisch gedeelte waar de signalen oe, draw\_write, done en de state worden bepaald. Oe is een tussensignaal op basis waarvan bepaald wordt of ramaddr en ramdata geschreven worden. Het is belangrijk dat de uitgangen 'Z' worden indien oe = 1 niet klopt, omdat de draad waarop de uitgang gezet wordt een bidirectional bus is. Het sequentiele process wordt getriggered op de clk, het combinatorische process op een verandering in reset, enable, draw\_can\_access of busy. 
 
-\subsection{Synthese}
-Het circuit is er als volgt uit komen te zien, met slechts 1 flipflop geïmplementeerd. Drawpixel is een eenvoudig component, wat hier te zien is. 
+%Testplan VHDL
+\subsection{Testplan}
+De eerste test betreft het simuleren van de behaviour met een testbench. Dit betreft een lege entity en een behaviour waarin een x-vector, y-vector en color-vector aangeboden worden volgens de lengte in de package file. Er is gekozen om de modelsim-simulatie eenmalig per blok op te nemen. 
 \begin{figure} [h!]
 \centering
-\includegraphics [scale = 0.8] {resource/dp_circ}
-\caption{Draw pixel circuit}
-\label{fig:dpcircuit}
-\end{figure}
-
-\newpage 
-
-In figuur \ref{fig:dpcircuit} hierboven zijn duidelijk alle tri-state buffers te zien, zonder de flipflops erachter. Uiteindelijk is het circuit netjes gerout met een efficientie van 67,83\% en slechts 516 transistors. In overleg met Erwin is besloten het circuit deze vorm te geven. Drawpixel is namelijk een klein blok en goed te passen naast de grotere vierkante blokken op de chip in deze vorm. Dit zorgt wel voor meer transistoren, eerst was een efficientie van 85\% procent mogelijk. 
-\begin{figure} [h!]
-\includegraphics [width = \textwidth] {resource/dp_trout}
-\caption{Synthesised en routed circuit}
-\label{fig:dplayout}
-\end{figure}
-
-\subsection{Testplan en resultaten}
- De simulatie op transistor niveau komt goed overeen met de resultaten van de oorspronkelijke VHDL simulatie zoals in de afbeeldingen hieronder te zien is. Wanneer draw\_write naar '0' gaat, wordt done '1'  en ramaddr en ramdata 'Z'. Dat is volgens de specificaties. 
-\begin{figure} [h!]
-\includegraphics [width = \textwidth] {resource/dp_sim}
-\caption{VHDL simulatie}
+\includegraphics [scale = 0.8] {resource/dp_sim}
+\caption{Modelsim simulatie behavioural of drawpixel}
 \label{fig:dp_sim}
 \end{figure}
+
+%Synthese
+\subsection{Synthese}
+In figuur \ref{fig:dpcircuit} hierboven zijn duidelijk alle tri-state buffers te zien, zonder de flipflops erachter. Uiteindelijk is het circuit netjes gerout met een efficientie van 67,83\% en slechts 516 transistors. In overleg met Erwin is besloten het circuit deze vorm te geven. Drawpixel is namelijk een klein blok en goed te passen naast de grotere vierkante blokken op de chip in deze vorm. Dit zorgt wel voor meer transistoren, eerst was een efficientie van 85\% procent mogelijk. 
+
+
+%Switchlevel test
+\subsection{Switchlevel}
+Op switchlevel niveau wordt de simulatie op transistor niveau vergeleken met de simulatie op vhdl niveau. Hierbij wordt er vanuit de list-file een command file gemaakt. Vervolgens wordt via layout\simulate en show\_result een simulatie geopend. Nu kan figuur \ref{fig:dp_sim} hiermee op het oog vergeleken worden. De optie compare geeft de mogelijkheid om dit exact te doen met GoWithTheFlow. De ref-file van de simulatie in figuur \ref{fig:dp_sim} wordt dan vergeleken met de res-file van de switch level simulatie. Is de implementatie goed dan horen alle waardes overeen te komen, op de eerste na. In ons ontwerp bevinden zich echter 'Z'-uitgangen, die door de compare niet goed begrepen worden. De noodzaak van 'Z's is al toegelicht. 
+
 
 \begin{figure} [h!]
 \includegraphics [width = \textwidth] {resource/dp_sw_lev}
 \caption{Simulatie op transistor niveau}
 \label{fig:dp_sw_lev}
 \end{figure}
-Uit de afbeeldingen \ref{fig:dp_sim} en \ref{fig:dp_sw_lev} valt te concluderen dat het blok werkt zoals het is ontworpen in VHDL. 1 klokslag nadat er een x, y en asb aan de ingangen wordt aangeboden, wordt er een stabiel ramadres aangeboden (klokslag 6-7). 1 klokslag daarna is done hoog. Omdat draw\_write 0 is geworden, gaat ramaddr als het goed is naar z
- Tot slot is er nog de mogelijkheid tot vergelijking van de simulaties binnen Go With The Flow, dat leidde tot de resultaten hieronder.
+
+
+
 \begin{figure} [h!]
 \includegraphics [width = \textwidth] {resource/dp_comp}
 \caption{GWTF compare}
 \label{fig:dp_comp}
 \end{figure}
-Het bovenstaande is correct, aangezien alle x niet worden begrepen omdat dat 'Z' is. Verder functioneert het ook helemaal zoals verwacht.
 
-\subsection{Discussie}
+
+
+
+
+
+%Extracted test
+\subsection{Extracted}
+Om 
+
+
+%Conclusie
+\subsection{Conclusie}
 Nadat de VHDL code als werkend kon worden beschouwd, moest de code worden gesynthetiseerd. In eerste instantie leverde dat 3000 transistoren op. Er is toen besloten de VHDL code op te delen in een sequentieel en een combinatorisch deel. Daarna is de code opnieuw gesynthetiseerd.  Echter na deze synthetisatie en ook wanneer er zelf blokken werden versleept kwamen we uit op 1500 transistors. Het grotere probleem was het feit dat hij hem moeilijk kon routen, maar na het circuit nader te bekijken zagen we dat er onnodig flipflops na da tri-state buffer kwamen, die vervolgens ook geen ‘Z’ konden opslaan. Dit zorgde voor de nodige errors, en een onnodig gebruik van extra flipflops. In de VHDL code hebben we vervolgens alle onnodige flipflops eruit gewerkt, waardoor alles in een keer werkte, en we dus ons uiteindelijke resultaat hebben behaald met slechts 516 transistors in plaats van 3000. 
+
+
+
+
 
 
 \end{document}
