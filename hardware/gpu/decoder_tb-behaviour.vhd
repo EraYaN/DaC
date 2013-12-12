@@ -25,7 +25,7 @@ architecture behaviour of decoder_tb is
 			asb			: buffer	std_logic;	--Currently active screen buffer
 			--Direct CPU interaction
 			int_ready	: buffer	std_logic;	--Instruction processed signal
-			spi_reset	: out		std_logic;
+			soft_reset	: out		std_logic;
 			--RAM Controller interaction
 			decoder_can_access	: in std_logic;		--Can access RAM?
 			decoder_write		: out std_logic;	--Intention to write to RAM
@@ -51,7 +51,7 @@ signal id					: std_logic_vector(SizeSpriteID-1 downto 0);
 signal en					: std_logic_vector(NumDrawModules-1 downto 0);
 signal asb					: std_logic;
 signal int_ready			: std_logic;
-signal spi_reset			: std_logic;
+signal soft_reset			: std_logic;
 signal decoder_can_access	: std_logic;
 signal decoder_write		: std_logic;
 signal decoder_claim		: std_logic;	
@@ -79,7 +79,7 @@ begin
 			en=>en,
 			asb=>asb,
 			int_ready=>int_ready,
-			spi_reset=>spi_reset,
+			soft_reset=>soft_reset,
 			decoder_can_access=>decoder_can_access,
 			decoder_write=>decoder_write,
 			decoder_claim=>decoder_claim,
@@ -103,35 +103,35 @@ begin
 		wait until rising_edge(clk);
 		reset <= '0';
 
-		enable_spi <= '1';
-		wait until rising_edge(spi_data_available);
-		spi_data_rx <= "00000111"; --load sprite
-		wait until rising_edge(spi_data_available);
-		spi_data_rx <= "00010001"; --data length of 4, address(16 downto 14) = 01
-		wait until rising_edge(spi_data_available);
-		spi_data_rx <= "01010101"; --address(13 downto 6) = 01010101
-		wait until rising_edge(spi_data_available);
-		spi_data_rx <= "10100101"; --data 0
-		wait until rising_edge(spi_data_available);
-		spi_data_rx <= "11110000"; --data 1
-		wait until rising_edge(spi_data_available);
-		spi_data_rx <= "00001111"; --data 2
-		wait until rising_edge(spi_data_available);
-		spi_data_rx <= "00110000"; --data 3
-		wait until falling_edge(spi_data_available);
-		enable_spi <= '0';
+		-- enable_spi <= '1';
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "00000111"; --load sprite
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "00010001"; --data length of 4, address(16 downto 14) = 01
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "01010101"; --address(13 downto 6) = 01010101
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "10100101"; --data 0
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "11110000"; --data 1
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "00001111"; --data 2
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "00110000"; --data 3
+		-- wait until falling_edge(spi_data_available);
+		-- enable_spi <= '0';
 
-		wait for 960 ns;
+		-- wait for 960 ns;
 
-		enable_spi <= '1';
-		wait until rising_edge(spi_data_available);
-		spi_data_rx <= "00000001"; --perform fill
-		wait until rising_edge(spi_data_available);
-		spi_data_rx <= "00111111"; --color 111111
-		wait until falling_edge(spi_data_available);
-		enable_spi <= '0';
+		-- enable_spi <= '1';
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "00000001"; --perform fill
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "00111111"; --color 111111
+		-- wait until falling_edge(spi_data_available);
+		-- enable_spi <= '0';
 
-		wait for 960 ns;
+		-- wait for 960 ns;
 
 		enable_spi <= '1';
 		wait until rising_edge(spi_data_available);
@@ -168,19 +168,17 @@ begin
 
 		enable_spi <= '1';
 		wait until rising_edge(spi_data_available);
-		spi_data_rx <= "00000110"; --draw sprite (110)
+		spi_data_rx <= "00000101"; --draw line (101)
 		wait until rising_edge(spi_data_available);
 		spi_data_rx <= "00111111"; --color 111111
 		wait until rising_edge(spi_data_available);
-		spi_data_rx <= "01010101"; --x
+		spi_data_rx <= "01010101"; --x0
 		wait until rising_edge(spi_data_available);
-		spi_data_rx <= "10101010"; --y
+		spi_data_rx <= "10101010"; --y0
 		wait until rising_edge(spi_data_available);
-		spi_data_rx <= "11111111"; --w
+		spi_data_rx <= "11111111"; --x1
 		wait until rising_edge(spi_data_available);
-		spi_data_rx <= "11001100"; --sprite packet stream length + piece of ID
-		wait until rising_edge(spi_data_available);
-		spi_data_rx <= "00110011"; --last piece of ID
+		spi_data_rx <= "11001100"; --y1
 		wait until falling_edge(spi_data_available);
 		enable_spi <= '0';
 		

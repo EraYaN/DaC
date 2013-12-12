@@ -19,7 +19,7 @@ process(clk, reset)
 
 begin
 	if( rising_edge(clk) ) then
-	if (reset = '1') or counter_reset = '1' then
+	if (reset = '1') then
 		spi_rx_data <= (others => '0');
 		index <= to_unsigned(SizeSPIData-1,c);
 		--TxData <= (others => '0');

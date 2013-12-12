@@ -8,7 +8,7 @@ architecture structural of gpu is
 			--Clock/reset
 			clk		: in	std_logic;	--Clock
 			reset	: in	std_logic;	--Reset
-			spi_reset : out std_logic;
+			soft_reset : out std_logic;
 			--SPI-interface interaction
 			spi_data_rx			: in	std_logic_vector(SizeSPIData-1 downto 0);	--Data In
 			spi_data_available	: in	std_logic;									--Data Available in SPI interface, commence data sampling
@@ -58,7 +58,7 @@ architecture structural of gpu is
 	component spi is
 		port (
 			reset : in std_logic;
-			counter_reset : in std_logic;
+			--counter_reset : in std_logic;
 			clk : in std_logic;
 			spi_clk : in std_logic;
 			spi_ss : in std_logic;
@@ -120,7 +120,7 @@ architecture structural of gpu is
 
 	--GLOBAL
 	signal asb : std_logic;
-	signal reset_n, ramwe: std_logic;
+	signal reset_n, sreset, ramwe: std_logic;
 
 	-- VGACONTROLLER <-> DRAW
 	signal is_init : std_logic;
@@ -132,6 +132,7 @@ architecture structural of gpu is
 	signal color : std_logic_vector(SizeColor-1 downto 0);
 	signal en : std_logic_vector(NumDrawModules-1 downto 0);
 	signal id : std_logic_vector(SizeSpriteID-1 downto 0);
+	signal soft_reset : std_logic;
 
 	-- RAMCONTROLLER <->
 	signal vga_claim : std_logic;
@@ -146,12 +147,12 @@ architecture structural of gpu is
 	signal write_enable,write_enable_n : std_logic;
 
 	-- SPI <-> DECODER
-	signal spi_reset : std_logic;
 	signal spi_data_available : std_logic;
 	signal spi_data_rx : std_logic_vector(sizespidata-1 downto 0);
 
 begin
 	reset_n <= not reset;
+	sreset <= (reset or soft_reset);
 	ramwe_n <= not ramwe;
 	asb_debug <= asb;
 	spi_debug<=spi_data_rx;
@@ -178,7 +179,7 @@ begin
 	decoder1: decoder port map (
 		clk=>clk,
 		reset=>reset,
-		spi_reset=>spi_reset,
+		soft_reset=>soft_reset,
 		int_ready=>int_ready,
 		spi_data_rx=>spi_data_rx,
 		spi_data_available=>spi_data_available,
@@ -233,8 +234,7 @@ begin
 
 	spi1: spi port map (
 		clk=>clk,
-		reset=>reset,
-		counter_reset=>spi_reset,
+		reset=>sreset,
 		spi_clk=>spi_clk,
 		spi_ss=>reset,
 		spi_mosi=>spi_mosi,

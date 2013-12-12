@@ -4,10 +4,12 @@ use IEEE.numeric_std.all;
 use work.parameter_def.all;
 
 architecture behaviour of decoder is
+	type instruction is (none, switch, sreset, pixel, rect, frect, line, sprite, lsprite);
+
 	--persistent signals
 	signal packet_num, next_packet_num : unsigned(SizeNumPackets-1 downto 0); --current packet number
-	signal instruction, next_instruction : std_logic_vector(InstrSize-1 downto 0); --current instruction
-	signal timeout_count, next_timeout_count : unsigned(SizeTimeoutCounter-1 downto 0);
+	signal current_instruction, next_instruction : instruction; --current instruction
+	--signal timeout_count, next_timeout_count : unsigned(SizeTimeoutCounter-1 downto 0);
 	signal next_ramdata : std_logic_vector(SizeRAMData-1 downto 0);
 
 	signal next_x, next_w : std_logic_vector(SizeX-1 downto 0);
@@ -16,14 +18,12 @@ architecture behaviour of decoder is
 	signal next_color : std_logic_vector(SizeColor-1 downto 0);
 	signal next_en : std_logic_vector(NumDrawModules-1 downto 0);
 	signal next_int_ready, next_is_init, next_asb : std_logic;
+
 begin
 	--"asynchronous" RAM interaction
-	decoder_claim <= is_init = '1';
+	decoder_claim <='1';
 	ramaddr <= id & h(SizeSpriteCounter-1 downto 0) when decoder_write = '1' else (others => 'Z');
 	ramdata <= next_ramdata when decoder_write = '1' else (others => 'Z');
-	decoder_debug_pn <= "0" & std_logic_vector(packet_num);
-	decoder_debug_i <= "0" & instruction;
-	decoder_debug_c <= "0" & h when instruction = "111" else (others => '0');
 
 	--synchronizer + input buffer + output buffer + state change
 	decode_seq: process (clk)	
@@ -32,8 +32,8 @@ begin
 			if reset = '1' then
 				--reset all registers
 				packet_num <= (others => '0');
-				timeout_count <= (others => '1');
-				instruction <= (others => '0');
+				--timeout_count <= (others => '1');
+				current_instruction <= none;
 				x <= (others => '0');
 				y <= (others => '0');
 				w <= (others => '0');
@@ -43,12 +43,12 @@ begin
 				en <= (others => '0');
 				asb <= '0';
 				is_init <= '1';
-				int_ready <= '0';
+				int_ready <= '1';
 			else
 				--update all registers
 				packet_num <= next_packet_num;
-				timeout_count <= next_timeout_count;
-				instruction <= next_instruction;
+				--timeout_count <= next_timeout_count;
+				current_instruction <= next_instruction;
 				x <= next_x;
 				y <= next_y;
 				w <= next_w;
@@ -63,7 +63,7 @@ begin
 		end if;
 	end process;
 
-	decode_comb: process (x, y, w, h, id, color, en, asb, is_init, int_ready, draw_ready, spi_data_available, spi_data_rx, instruction, packet_num, timeout_count, decoder_can_access)
+	decode_comb: process (x, y, w, h, id, color, en, asb, is_init, int_ready, draw_ready, spi_data_available, spi_data_rx, current_instruction, packet_num, decoder_can_access)
 		variable done : std_logic;		
 	begin
 		--defaults for buffered signals
@@ -76,9 +76,9 @@ begin
 		next_en <= en;
 		next_asb <= asb;
 		next_is_init <= is_init;
-		next_instruction <= instruction;
+		next_instruction <= current_instruction;
 		next_packet_num <= packet_num;
-		next_timeout_count <= timeout_count;
+		--next_timeout_count <= timeout_count;
 	
 		--defaults for non-buffered signals
 		decoder_write <= '0';
@@ -86,162 +86,115 @@ begin
 
 		--init variables
 		done := '0';
-		
+
+		--action depending on state
 		if spi_data_available = '1' then
-			--perform action upon data available change
-			--logic depending on current packet in stream
-			case to_integer(packet_num) is
-				when 0 =>
-					--deduce instruction
-					next_instruction <= spi_data_rx(InstrSize-1 downto 0);
-					--start loading next instruction next cycle if instruction is "switch", "fill" or unknown
-					if spi_data_rx(InstrSize-1 downto 0) = "000" then
-						done := '1';			
-						next_asb <= not asb;
-					end if;			
-					if spi_data_rx(InstrSize-1 downto 0) /= "111" then		
-						next_is_init <= '0'; --finished all other activity like sprite loading, gpu is ready
-					end if;
-					
-				when 1 =>
-					if instruction = "111" and is_init = '1' then
-						--sprite loading - save data length and push first two address bits
-						next_y <= '0' & spi_data_rx(SizeSPIData-1 downto SizeSPIData-SizeSpriteCounter);
-						next_id(SizeSpriteID-1 downto SizeSpriteID-(SizeSPIData-SizeSpriteCounter)) <= spi_data_rx(SizeSPIData-SizeSpriteCounter-1 downto 0);
-					else
-						--pass through color
-						next_color <= spi_data_rx(SizeColor-1 downto 0);
-					end if;
-
-					if instruction = "001" then
-						--activate "fill" draw-module
-						done := '1';
-						next_en <= (others => '0');
-						next_en(0) <= '1';
-						
-					end if;
-
-				when 2 => 
-					if instruction = "111" and is_init = '1' then
-						--sprite loading - push other eight address bits
-						next_id(SizeSpriteID-(SizeSPIData-SizeSpriteCounter)-1 downto 0) <= spi_data_rx;
-					else
-						--pass through x coord
-						next_x <= spi_data_rx;
-					end if;
-				when 3 =>
-					if instruction = "111" and is_init = '1' then
-						--sprite loading - load it!
-						next_ramdata <= spi_data_rx(SizeRAMData-1 downto 0);
-
-						if decoder_can_access = '1' then
-							--if RAM can be accessed at this time, enable data writing, if not, try again next tick (although things are probably broken if this happens)
-							decoder_write <= '1';
-
-							if (unsigned(h) + 1) = unsigned(y) then
-								done := '1';
-							else
-								next_h <= std_logic_vector(unsigned(h) + 1);
-							end if;
-						end if;
-					else
-						--pass through y coord
-						next_y <= spi_data_rx(SizeY-1 downto 0);
-					end if;
-
-					--start loading next instruction next cycle if instruction is "pixel"
-					if instruction = "010" then
-						done := '1';
-						next_en <= (others => '0');
-						next_en(1) <= '1';
-					end if;
-				when 4 =>
-					--pass through width
-					next_w <= spi_data_rx;			
-				when 5 =>
-					if instruction = "110" then
-						--pass through sprite packet stream length and 2 msb of sprite id 
-						next_h <= '0' & spi_data_rx(SizeSPIData-1 downto SizeSPIData-SizeSpriteCounter);
-						next_id(SizeSpriteID-1 downto SizeSpriteID-(SizeSPIData-SizeSpriteCounter)) <= spi_data_rx(SizeSPIData-SizeSpriteCounter-1 downto 0);
-					else
-						--pass through height
-						next_h <= spi_data_rx(SizeY-1 downto 0);
-					end if;
-					
-					--start loading next instruction next cycle if instruction is "square", "fsquare" or "line"
-					if instruction = "011" or instruction = "100" or instruction = "101" then
-						if instruction = "011" then
-							next_en <= (others => '0');
-							next_en(2) <= '1';
-						elsif instruction = "100" then
-							next_en <= (others => '0');
-							next_en(3) <= '1';
-						elsif instruction = "101" then
-							next_en <= (others => '0');
-							next_en(4) <= '1';
-						end if;
-						done := '1';
-					end if;
-				when 6 =>
-					if instruction = "110" then
-						--pass through 8 lsb of sprite id and enable sprite drawing
-						next_id(SizeSpriteID-(SizeSPIData-SizeSpriteCounter)-1 downto 0) <= spi_data_rx;
-						done := '1';
-						next_en <= (others => '0');
-						next_en(5) <= '1';
-					end if;
-				when others =>
-
-			end case;
-
-			--reset timeout
-			next_timeout_count <= (others => '1');
-		else
-			--if timeout_count = 0 then
-				--fire int_ready to force new instruction
-			--	next_timeout_count <= (others => '1');
-			--	next_packet_num <= (others => '0');
-			--	int_ready <= '1';
-			--elsif packet_num /= 0 then
-				--update timeout
-			--	next_timeout_count <= timeout_count - 1;
-			--	next_packet_num <= packet_num;
-			--else
-			--	next_timeout_count <= timeout_count;
-			--	next_packet_num <= packet_num;
-			--end if;
-		end if;
-		
-		if draw_ready = '1'--draw module done
-			or
-			(done = '1' and  --sprite loaded or screen buffer changed
-				((instruction = "111" and is_init = '1') or (spi_data_rx(InstrSize-1 downto 0) = "000" and packet_num = 0))
-			)
-			or
-			(int_ready = '1' and spi_data_available = '0') --waiting for input
-			then
-
-			next_packet_num <= (others => '0');	--reset packet_num
-			next_en <= (others => '0'); --disable all draw modules	
-			next_int_ready <= '1'; --inform CPU
-
-			if spi_data_available = '1' then
-				spi_reset <= '1';
-			else
-				spi_reset <= '0';
-			end if;
-		else
-			if (to_integer(packet_num) = 3 and instruction = "111" and is_init = '1') or spi_data_available = '0' then --loading sprite or no new data
-				next_packet_num <= packet_num; --keep loading sprite
-			elsif done = '1' then --loading instruction finished
-				next_packet_num <= (others => '0');	--reset packet_num
-			else
-				next_packet_num <= packet_num + 1; --next packet
-			end if;
 			next_int_ready <= '0';
-			spi_reset <= '0';
+			--next_timeout_count <= (others => '1');
+			if current_instruction = none then
+				if packet_num = 0 then
+					--determine next instruction
+					if spi_data_rx(InstrSize-1 downto 0) = "000" then
+						next_asb <= not asb;
+						done := '1';
+						next_int_ready <= '1'; --inform CPU we're ready
+						next_instruction <= none; 
+					elsif spi_data_rx(InstrSize-1 downto 0) = "001" then
+						soft_reset <= '1';
+						done := '1';
+						next_int_ready <= '1';
+						next_instruction <= none;
+					elsif spi_data_rx(InstrSize-1 downto 0) = "010" then 
+						next_instruction <= pixel;
+					elsif spi_data_rx(InstrSize-1 downto 0) = "011" then 
+						next_instruction <= rect;
+					elsif spi_data_rx(InstrSize-1 downto 0) = "100" then 
+						next_instruction <= frect;
+					elsif spi_data_rx(InstrSize-1 downto 0) = "101" then 
+						next_instruction <= line;
+					elsif spi_data_rx(InstrSize-1 downto 0) = "110" then 
+						next_instruction <= sprite;
+					elsif spi_data_rx(InstrSize-1 downto 0) = "111" then 
+						next_instruction <= lsprite;
+					else
+						next_instruction <= none;
+					end if;
+				else
+					done := '1';
+					next_instruction <= none;
+					next_int_ready <= '1';
+				end if; 
+			elsif current_instruction = pixel then
+				if packet_num = 1 then
+					next_color <= spi_data_rx(SizeColor-1 downto 0);
+				elsif packet_num = 2 then
+					next_x <= spi_data_rx(SizeX-1 downto 0);
+				elsif packet_num = 3 then
+					next_y <= spi_data_rx(SizeY-1 downto 0);
+					--done
+					done := '1';
+					next_instruction <= none;
+					next_en(0) <= '1';
+				else
+					--shit broke
+					done := '1';
+					next_instruction <= none;
+					next_int_ready <= '1';
+				end if;
+
+			elsif current_instruction = rect or current_instruction = frect or current_instruction = line then
+				if packet_num = 1 then
+					next_color <= spi_data_rx(SizeColor-1 downto 0);
+				elsif packet_num = 2 then
+					next_x <= spi_data_rx(SizeX-1 downto 0);
+				elsif packet_num = 3 then
+					next_y <= spi_data_rx(SizeY-1 downto 0);
+				elsif packet_num = 4 then
+					next_w <= spi_data_rx(SizeX-1 downto 0);
+				elsif packet_num = 5 then
+					next_h <= spi_data_rx(SizeY-1 downto 0);
+					--done
+					done := '1';
+					next_instruction <= none;
+					if current_instruction = rect then
+						next_en(1) <= '1';
+					elsif current_instruction = frect then
+						next_en(2) <= '1';
+					elsif current_instruction = line then
+						next_en(3) <= '1';
+					end if;
+				else
+					--shit broke
+					done := '1';
+					next_instruction <= none;
+					next_int_ready <= '1';
+				end if;
+			elsif current_instruction = none then
+				--shit broke
+				done := '1';
+				next_int_ready <= '1';
+			end if;
+
+			if done = '0' then
+				next_packet_num <= packet_num + 1;
+			else
+				next_packet_num <= (others => '0');
+			end if;
+
+		elsif draw_ready = '1' then
+			next_en <= (others => '0');
+			next_int_ready <= '1';
+		elsif int_ready = '1' then
+			-- if timeout_count /= 0 then
+			-- 	next_timeout_count <= timeout_count - 1;
+			-- else
+			-- 	next_timeout_count <= (others => '1');
+			-- 	shit broke
+			-- 	next_packet_num <= (others => '0');
+			-- 	next_instruction <= none;
+			-- 	next_int_ready <= '1';
+			-- end if;
 		end if;
-		--update instruction		
 	end process;
 
 end behaviour;

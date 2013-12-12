@@ -11,7 +11,7 @@ entity spi is
 	);
 	port (
 		reset : in std_logic;
-		counter_reset : in std_logic;
+		--counter_reset : in std_logic;
 		clk : in std_logic;
 		spi_clk : in std_logic;
 		spi_ss : in std_logic;
