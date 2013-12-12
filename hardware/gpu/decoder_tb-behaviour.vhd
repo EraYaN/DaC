@@ -14,11 +14,12 @@ architecture behaviour of decoder_tb is
 			spi_data_available	: in	std_logic;									--Data Available in SPI interface, commence data sampling
 			--Draw data
 			draw_ready	: in	std_logic;
-			x			: out	std_logic_vector(SizeX-1 downto 0);				--Entity x coord
-			w			: out	std_logic_vector(SizeX-1 downto 0);				--Entity width
-			y			: out	std_logic_vector(SizeY-1 downto 0);				--Entity y coord
-			h			: out	std_logic_vector(SizeY-1 downto 0);				--Entity height
-			color		: out	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
+			x			: buffer	std_logic_vector(SizeX-1 downto 0);				--Entity x coord
+			w			: buffer	std_logic_vector(SizeX-1 downto 0);				--Entity width
+			y			: buffer	std_logic_vector(SizeY-1 downto 0);				--Entity y coord
+			h			: buffer	std_logic_vector(SizeY-1 downto 0);				--Entity height
+			color		: buffer	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
+			id			: buffer	std_logic_vector(SizeSpriteID-1 downto 0);		--Sprite ID
 			en			: out	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
 			--Internal registers
 			asb			: buffer	std_logic;	--Currently active screen buffer
@@ -26,65 +27,121 @@ architecture behaviour of decoder_tb is
 			int_ready	: out	std_logic;	--Instruction processed signal
 			--RAM Controller interaction
 			decoder_can_access	: in std_logic;		--Can access RAM?
-			decoder_write		: out std_logic;	--Intention to write to RAM
-			decoder_claim		: out std_logic;	--Claim RAM
-			is_init				: out std_logic		--Initializing?
+			decoder_write		: buffer std_logic;	--Intention to write to RAM
+			decoder_claim		: out std_logic;	
+			is_init				: out std_logic;		--Initializing?
+			--RAM interaction
+			ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
+			ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0)
 		);
 	end component;
 
-signal clk : std_logic;
-signal reset : std_logic;
-signal spi_data_available : std_logic;
-signal draw_ready : std_logic;
-signal spi_data_rx : std_logic_vector(7 downto 0);
-signal decoder_can_access : std_logic;
+signal clk		: std_logic;	--Clock
+signal reset	: std_logic;	--Reset
+--SPI-interface interaction
+signal spi_data_rx			: std_logic_vector(SizeSPIData-1 downto 0);	--Data In
+signal spi_data_available	: std_logic;									--Data Available in SPI interface, commence data sampling
+--Draw data
+signal draw_ready	: std_logic;
+signal x			: std_logic_vector(SizeX-1 downto 0);				--Entity x coord
+signal w			: std_logic_vector(SizeX-1 downto 0);				--Entity width
+signal y			: std_logic_vector(SizeY-1 downto 0);				--Entity y coord
+signal h			: std_logic_vector(SizeY-1 downto 0);				--Entity height
+signal color		: std_logic_vector(SizeColor-1 downto 0);			--Entity Color
+signal id			: std_logic_vector(SizeSpriteID-1 downto 0);		--Sprite ID
+signal en			: std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
+--Internal registers
+signal asb			: std_logic;	--Currently active screen buffer
+--Direct CPU interaction
+signal int_ready	: std_logic;	--Instruction processed signal
+--RAM Controller interaction
+signal decoder_can_access	: std_logic;		--Can access RAM?
+signal decoder_write		: std_logic;	--Intention to write to RAM
+signal decoder_claim		: std_logic;	
+signal is_init				: std_logic;		--Initializing?
+--RAM interaction
+signal ramaddr     : std_logic_vector(SizeRAMAddr-1 downto 0);
+signal ramdata     : std_logic_vector(SizeRAMData-1 downto 0);
 
 begin
 
-	lbl1: decoder port map (clk=>clk, reset=>reset, spi_data_rx=>spi_data_rx, spi_data_available=>spi_data_available, draw_ready=>draw_ready, decoder_can_access=>decoder_can_access);
+	decoder1: decoder 
+		port map (
+			clk=>clk,
+			reset=>reset,
+			spi_data_rx=>spi_data_rx, 
+			spi_data_available=>spi_data_available, 
+			draw_ready=>draw_ready,
+			x=>x,
+			w=>w,
+			y=>y,
+			h=>h,
+			color=>color,
+			id=>id,
+			en=>en,
+			asb=>asb,
+			int_ready=>int_ready,
+			decoder_can_access=>decoder_can_access,
+			decoder_write=>decoder_write,
+			decoder_claim=>decoder_claim,
+			is_init=>is_init,
+			ramaddr=>ramaddr,
+			ramdata=>ramdata
+		);
 	clk		<= '1' after 0 ns,
 			'0' after 10 ns when clk /= '0' else '1' after 10 ns;
 	reset 	<= '1' after 0 ns,
 			'0' after 40 ns;
-	spi_data_rx		<= "00000000" after 0 ns,
-			"00111111" after 130 ns,
-			"01010101" after 230 ns,
-			"10101010" after 330 ns,
-			"11111111" after 430 ns,
-			"00000000" after 530 ns,
-			"00110000" after 630 ns,
-			"10101010" after 730 ns,
-			"01010101" after 830 ns,
-			"00000000" after 930 ns,
-			"11111111" after 1030 ns,
-			"00000000" after 1270 ns;
+	--for testing draw-like instructions
+	spi_data_rx		<= "00000000" after 0 ns, 
+			"00111111" after 80 ns,
+			"01010101" after 180 ns,
+			"10101010" after 280 ns,
+			"11111111" after 380 ns,
+			"00000000" after 480 ns,
+			"00111001" after 580 ns;
+			-- "10101010" after 730 ns,
+			-- "01010101" after 830 ns,
+			-- "00000000" after 930 ns,
+			-- "11111111" after 1030 ns,
+			-- "00000000" after 1270 ns;
+	--for testing sprite loading
+	-- spi_data_rx		<= "01110000" after 0 ns, --load sprite
+		-- 	"00100001" after 130 ns, --data length of 8, address(16 downto 14) = 01
+		-- 	"01010101" after 230 ns, --address(13 downto 6) = 01010101
+		-- 	"10100101" after 330 ns, --data 0
+		-- 	"11110000" after 430 ns, --data 1
+		-- 	"00001111" after 530 ns, --data 2
+		-- 	"00110000" after 630 ns; --data 3
 	spi_data_available		<= '0' after 0 ns,
-			'1' after 70 ns,
-			'0' after 130 ns,
-			'1' after 170 ns,
-			'0' after 230 ns,
-			'1' after 270 ns,
-			'0' after 330 ns,
-			'1' after 370 ns,
-			'0' after 430 ns,
-			'1' after 470 ns,
-			'0' after 530 ns,
-			'1' after 570 ns,
-			'0' after 630 ns,
-			'1' after 670 ns,
-			'0' after 730 ns,
-			'1' after 770 ns,
-			'0' after 830 ns,
-			'1' after 870 ns,
-			'0' after 930 ns,
-			'1' after 970 ns,
-			'0' after 1030 ns,
-			'1' after 1070 ns,
-			'0' after 1130 ns,
-			'1' after 1310 ns,
-			'0' after 1370 ns;
+			'1' after 80 ns,
+			'0' after 100 ns,
+			'1' after 180 ns,
+			'0' after 200 ns,
+			'1' after 280 ns,
+			'0' after 300 ns,
+			'1' after 380 ns,
+			'0' after 400 ns,
+			'1' after 480 ns,
+			'0' after 500 ns,
+			'1' after 580 ns,
+			'0' after 600 ns,
+			'1' after 680 ns,
+			'0' after 700 ns,
+			'1' after 780 ns,
+			'0' after 800 ns,
+			'1' after 880 ns,
+			'0' after 900 ns,
+			'1' after 980 ns,
+			'0' after 1000 ns,
+			'1' after 1080 ns,
+			'0' after 1100 ns,
+			'1' after 1180 ns,
+			'0' after 1200 ns,
+			'1' after 1480 ns,
+			'0' after 1500 ns;
 	draw_ready <= '0' after 0 ns,
 					'1' after 1200 ns,
 					'0' after 1220 ns;
-	decoder_can_access <= '0' after 0 ns;
+	decoder_can_access <= '1' after 0 ns;
 end behaviour;

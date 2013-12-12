@@ -8,7 +8,7 @@ public:
 	int dx;
 	int dy;
 	byte color;
-	Point(int x, int y, int dx, int dy, byte color) : x(x), y(x), dx(dx), dy(dy), color(color) {};
+	Point(int x, int y, int dx, int dy, byte color) : x(x), y(y), dx(dx), dy(dy), color(color) {};
 };
 class Demo : public Program{
 	Point **points;
@@ -26,7 +26,7 @@ public:
 		ys[1] = 60;
 		ys[2] = 100;
 		ys[3] = 60;	
-		numPoints = 128;
+		numPoints = 7;
 		points = (Point**)malloc(sizeof(Point*)*numPoints);
 		for(int p = 0; p<numPoints;  p++){
 			int dx = 0;

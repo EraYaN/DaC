@@ -9,9 +9,55 @@
 \chapter{Implementatie draw-logic}
 
 \section{VHDL-beschrijving}
+\subsection{Entity}
+Er is bij ontwerp al besproken hoe de signalen bij draw-pixel aankomen. Er moet alleen bij enable \& draw\_can\_access = hoog geschreven worden, waarbij draw\_write gedurende het schrijven hoog is. (voor de controller)  Nadat er geschreven is, moet done gedurende een klokslag hoog worden. De klok en de reset spreken voor zich. De x, y en color zijn waarden uit de Arduino waar in de behavioural adressen van gemaakt worden, die bij bovengenoemde voorwaarden in het RAM geschreven worden. Echter er moet alleen geschreven worden in het niet actieve RAM, dus als asb = 0.  Hiermee zijn alle in- en uitgangen in de entity beschreven en ook de voorwaarden waar de simulatie in Modelsim minimaal aan moet voldoen. 
 
+\subsection{Behaviour}
+De behaviour is opgedeeld in een sequentieel gedeelte waar de state busy wordt opgeslagen en een combinatorisch gedeelte waar de signalen oe, draw\_write, done en de state worden bepaald. Oe is een tussensignaal op basis waarvan bepaald wordt of ramaddr en ramdata geschreven worden. Het is belangrijk dat de uitgangen Z worden indien oe = 1 niet klopt, omdat de draad waarop de uitgang gezet wordt een bidirectional bus is. Het sequentiele process wordt getriggered op de clk, het combinatorische process op een verandering in reset, enable, draw\_can\_access of busy. De belangijkste functie
+van drawpixel is het samenvoegen van asb, y en x in een 16 bits adres voor de VGA. Bovendien wordt de kleur opgeslagen in ramdata, een 4-bits output. 
+
+\section{Synthese}
+Het circuit is er als volgt uit komen te zien, met slechts 1 flipflop geïmplementeerd. Drawpixel is een eenvoudig component, wat hier te zien is. 
+\begin{figure} [h!]
+\centering
+\includegraphics [scale = 0.8] {inputfiles/dp_circ}
+\caption{Draw pixel circuit}
+\label{fig:dpcircuit}
+\end{figure}
+
+\newpage 
+
+
+In figuur \ref{fig:dpcircuit} hierboven zijn duidelijk alle tri-state buffers te zien, zonder de flipflops erachter. Uiteindelijk is het circuit netjes gerout met een efficientie van 67,83\% en slechts 516 transistors. In overleg met Erwin is besloten het circuit deze vorm te geven. Drawpixel is namelijk een klein blok en goed te passen naast de grotere vierkante blokken op de chip in deze vorm. Dit zorgt wel voor meer transistoren, eerst was een efficientie van 85\% procent mogelijk. 
+\begin{figure} [h!]
+\includegraphics [width = \textwidth] {inputfiles/dp_trout}
+\caption{Synthesised en routed circuit}
+\label{fig:dplayout}
+\end{figure}
 
 \section{Testplan en resultaten}
+ De simulatie op transistor niveau komt goed overeen met de resultaten van de oorspronkelijke VHDL simulatie zoals in de afbeeldingen hieronder te zien is.
+\begin{figure} [h!]
+\includegraphics [width = \textwidth] {inputfiles/dp_sim}
+\caption{VHDL simulatie}
+\label{fig:dpsim}
+\end{figure}
+
+\begin{figure} [h!]
+\includegraphics [width = \textwidth] {inputfiles/dp_sw_lev}
+\caption{Simulatie op transistor niveau}
+\label{fig:dpswitchl}
+\end{figure}
+Uit de afbeeldingen \ref{fig:dpsim} en \ref{fig:dpswitchl} valt te concluderen dat het blok werkt zoals het is ontworpen in VHDL. Tot slot is er nog de mogelijkheid tot vergelijking van de simulaties binnen Go With The Flow, dat leidde tot de resultaten hieronder.
+\begin{figure} [h!]
+\includegraphics [width = \textwidth] {inputfiles/dp_comp}
+\caption{GWTF compare}
+\label{fig:dpcomp}
+\end{figure}
+Het bovenstaande is correct, aangezien alle x niet worden begrepen omdat dat 'Z' is. Verder functioneert het ook helemaal zoals verwacht.
+
+\section{Discussie}
+Nadat de VHDL code als werkend kon worden beschouwd, moest de code worden gesynthetiseerd. In eerste instantie leverde dat 3000 transistoren op. Er is toen besloten de VHDL code op te delen in een sequentieel en een combinatorisch deel. Daarna is de code opnieuw gesynthetiseerd.  Echter na deze synthetisatie en ook wanneer er zelf blokken werden versleept kwamen we uit op 1500 transistors. Het grotere probleem was het feit dat hij hem moeilijk kon routen, maar na het circuit nader te bekijken zagen we dat er onnodig flipflops na da tri-state buffer kwamen, die vervolgens ook geen ‘Z’ konden opslaan. Dit zorgde voor de nodige errors, en een onnodig gebruik van extra flipflops. In de VHDL code hebben we vervolgens alle onnodige flipflops eruit gewerkt, waardoor alles in een keer werkte, en we dus ons uiteindelijke resultaat hebben behaald met slechts 516 transistors in plaats van 3000. 
 
 
 \end{document}

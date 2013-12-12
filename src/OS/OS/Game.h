@@ -11,5 +11,9 @@ public:
 	Game(GPULib *GPU,const char* programName, byte _minPlayers,byte _maxPlayers,byte _controlsPerPlayer)
 		: Program(GPU,programName), minPlayers(_minPlayers), maxPlayers(_maxPlayers), controlsPerPlayer(_controlsPerPlayer) {};
 	Game(GPULib *GPU): Program(GPU) {};
+	void start();
+	void tick(unsigned long ctime);
+	void stop();
+	void reset();
 };
 #endif

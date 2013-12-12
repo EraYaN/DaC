@@ -42,9 +42,7 @@ begin
 	asb <= '0';
 	draw_can_access <= '0';
 	reset <= '1';
-	color <= "1011";
-	done <= '0';
-	draw_write <= '0';
+	color <= "1011";	
 	x <= "00000000";
 	y <= "0000000";
 
@@ -66,6 +64,12 @@ begin
 	wait;	
 end process;		
 end behaviour;
+
+
+
+
+
+
 
 
 

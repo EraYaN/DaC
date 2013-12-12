@@ -51,6 +51,27 @@
     <ClInclude Include="Visual Micro\.OS.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Sprites.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="font4x4_set.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="font4x4_set_data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="font6x8_set.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="font6x8_set_data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="font8x8_set.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="font8x8_set_data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GPULib.cpp">
@@ -68,10 +89,10 @@
     <ClCompile Include="Demo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="floatToString.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="font8x8_basic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="floatToString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

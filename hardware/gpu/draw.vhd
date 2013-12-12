@@ -8,6 +8,7 @@ entity draw is
 		clk		: in	std_logic;	--Clock
 		reset	: in	std_logic;	--Reset
 		--Draw data
+		id : in std_logic_vector(SizeSpriteID-1 downto 0); -- Sprite ID
 		x			: in	std_logic_vector(SizeX-1 downto 0);				--Entity x coord
 		w			: in	std_logic_vector(SizeX-1 downto 0);				--Entity width
 		y			: in	std_logic_vector(SizeY-1 downto 0);				--Entity y coord
@@ -23,6 +24,6 @@ entity draw is
 		draw_can_access : in 	std_logic;
 		--RAM interaction
 		ramaddr	: out	std_logic_vector(SizeRAMAddr-1 downto 0);
-		ramdata	: out	std_logic_vector(SizeRAMData-1 downto 0)
+		ramdata	: inout	std_logic_vector(SizeRAMData-1 downto 0)
 	);
 end entity draw;

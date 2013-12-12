@@ -150,10 +150,10 @@ RAMDATA[3]                   : B13       : bidir  : 3.3-V LVTTL       :         
 RAMDATA[2]                   : B14       : bidir  : 3.3-V LVTTL       :         : 4         : Y              
 RAMDATA[1]                   : B15       : bidir  : 3.3-V LVTTL       :         : 4         : Y              
 RAMDATA[0]                   : B16       : bidir  : 3.3-V LVTTL       :         : 4         : Y              
-RAMWE                        : B17       : output : 3.3-V LVTTL       :         : 4         : Y              
-SPICLK                       : B18       : input  : 3.3-V LVTTL       :         : 4         : Y              
-SPIMOSI                      : B19       : input  : 3.3-V LVTTL       :         : 4         : Y              
-int_ready                    : B20       : output : 3.3-V LVTTL       :         : 4         : Y              
+GND*                         : B17       :        :                   :         : 4         :                
+RAMWE                        : B18       : output : 3.3-V LVTTL       :         : 4         : Y              
+SPICLK                       : B19       : input  : 3.3-V LVTTL       :         : 4         : Y              
+SPIMOSI                      : B20       : input  : 3.3-V LVTTL       :         : 4         : Y              
 GND                          : B21       : gnd    :                   :         :           :                
 VCCIO5                       : B22       : power  :                   : 3.3V    : 5         :                
 GND*                         : C1        :        :                   :         : 2         :                
@@ -177,7 +177,7 @@ GND*                         : C18       :        :                   :         
 GND*                         : C19       :        :                   :         : 5         :                
 GND*                         : C20       :        :                   :         : 5         :                
 RAMADDR[7]                   : C21       : output : 3.3-V LVTTL       :         : 5         : Y              
-GND*                         : C22       :        :                   :         : 5         :                
+int_ready                    : C22       : output : 3.3-V LVTTL       :         : 5         : Y              
 GND*                         : D1        :        :                   :         : 2         :                
 GND*                         : D2        :        :                   :         : 2         :                
 GND*                         : D3        :        :                   :         : 2         :                
