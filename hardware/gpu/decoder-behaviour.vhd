@@ -98,7 +98,11 @@ begin
 					if spi_data_rx(InstrSize-1 downto 0) = "000" then
 						done := '1';			
 						next_asb <= not asb;
-					end if;					
+					end if;			
+					if spi_data_rx(InstrSize-1 downto 0) /= "111" then		
+						next_is_init <= '0'; --finished all other activity like sprite loading, gpu is ready
+					end if;
+					
 				when 1 =>
 					if instruction = "111" and is_init = '1' then
 						--sprite loading - save data length and push first two address bits
@@ -114,7 +118,7 @@ begin
 						done := '1';
 						next_en <= (others => '0');
 						next_en(0) <= '1';
-						next_is_init <= '0'; --finished all other activity like sprite loading, gpu is ready
+						
 					end if;
 
 				when 2 => 
@@ -217,7 +221,11 @@ begin
 			--end if;
 		end if;
 		
-		if draw_ready = '1' or (done = '1' and (instruction = "111" or spi_data_rx(InstrSize-1 downto 0) = "000")) or (int_ready = '1' and spi_data_available = '0') then
+		if draw_ready = '1' or
+			(done = '1' and
+				((instruction = "111") or (spi_data_rx(InstrSize-1 downto 0) = "000" and packet_num = 0))
+			) or
+			(int_ready = '1' and spi_data_available = '0') then
 			--disable all draw modules
 			next_en <= (others => '0');
 			--inform CPU
