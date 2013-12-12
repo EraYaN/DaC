@@ -18,7 +18,7 @@ architecture behaviour of decoder is
 	signal next_int_ready, next_is_init, next_asb : std_logic;
 begin
 	--"asynchronous" RAM interaction
-	decoder_claim <= '1' when is_init = '1' else '0';
+	decoder_claim <= is_init = '1';
 	ramaddr <= id & h(SizeSpriteCounter-1 downto 0) when decoder_write = '1' else (others => 'Z');
 	ramdata <= next_ramdata when decoder_write = '1' else (others => 'Z');
 	decoder_debug_pn <= "0" & std_logic_vector(packet_num);

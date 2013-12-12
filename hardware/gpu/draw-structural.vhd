@@ -3,20 +3,20 @@ use IEEE.std_logic_1164.ALL;
 use work.parameter_def.ALL;
 
 architecture structural of draw is
-	component draw_fill
-	port(
-		clk   : in    std_logic;
-		reset : in    std_logic;
-		enable: in    std_logic;
-		color : in std_logic_vector(SizeColor-1 downto 0);		
-		asb : in std_logic;
-		done  : out   std_logic;
-		ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
-		ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);
-		draw_write :out std_logic;
-		draw_can_access : in std_logic
-	);
-	end component;
+	-- component draw_fill
+	-- port(
+		-- clk   : in    std_logic;
+		-- reset : in    std_logic;
+		-- enable: in    std_logic;
+		-- color : in std_logic_vector(SizeColor-1 downto 0);		
+		-- asb : in std_logic;
+		-- done  : out   std_logic;
+		-- ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
+		-- ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);
+		-- draw_write :out std_logic;
+		-- draw_can_access : in std_logic
+	-- );
+	-- end component;
 
 	component draw_pixel
 	port(
@@ -99,8 +99,8 @@ architecture structural of draw is
 	signal pixel_write,fill_write,rect_write,line_write,sprite_write : std_logic;
 	signal sprite_read : std_logic;
 begin
-	draw_ready <= pixel_done or fill_done or rect_done or line_done or sprite_done;
-	draw_write <= pixel_write or fill_write or rect_write or line_write or sprite_write;
+	draw_ready <= pixel_done or rect_done or line_done or sprite_done;
+	draw_write <= pixel_write or rect_write or line_write or sprite_write;
 	draw_read <= sprite_read;
 	-- pixel_done <= '0';
 	-- rect_done <= '0';
@@ -109,18 +109,18 @@ begin
 	-- line_done <= '0';
 	-- line_write <= '0';
 	-- Module 0
-	fill1: draw_fill port map (
-		clk=>clk,
-		reset=>reset,
-		enable=>en(0),
-		color=>color,
-		asb=>asb,
-		done=>fill_done,
-		ramaddr=>ramaddr,
-		ramdata=>ramdata,
-		draw_write=>fill_write,
-		draw_can_access=>draw_can_access
-	);
+	-- fill1: draw_fill port map (
+		-- clk=>clk,
+		-- reset=>reset,
+		-- enable=>en(0),
+		-- color=>color,
+		-- asb=>asb,
+		-- done=>fill_done,
+		-- ramaddr=>ramaddr,
+		-- ramdata=>ramdata,
+		-- draw_write=>fill_write,
+		-- draw_can_access=>draw_can_access
+	-- );
 	--Module 1
 	pixel1: draw_pixel port map (
 		clk=>clk,

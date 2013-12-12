@@ -39,7 +39,7 @@ draw_fill_combi: process (reset, enable, draw_can_access, x, y, almost_done)
 					else 
 						if x = 0 and y = 0 then		
 							almost_done_tmp <= '1';
-							else
+						else
 							almost_done_tmp <= '0';
 						end if;
 						done <= '0';

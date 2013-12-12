@@ -80,7 +80,12 @@ vga_b[0] <= pre_vga_dac_4:inst.vga_b[0]
 vga_b[1] <= pre_vga_dac_4:inst.vga_b[1]
 vga_b[2] <= pre_vga_dac_4:inst.vga_b[2]
 vga_b[3] <= pre_vga_dac_4:inst.vga_b[3]
-color_mode => pre_vga_dac_4:inst.color_on
+VGACOLOR[0] => pre_vga_dac_4:inst.VGACOLOR[0]
+VGACOLOR[1] => pre_vga_dac_4:inst.VGACOLOR[1]
+VGACOLOR[2] => pre_vga_dac_4:inst.VGACOLOR[2]
+VGACOLOR[3] => pre_vga_dac_4:inst.VGACOLOR[3]
+VGACOLOR[4] => pre_vga_dac_4:inst.VGACOLOR[4]
+VGACOLOR[5] => pre_vga_dac_4:inst.VGACOLOR[5]
 vga_g[0] <= pre_vga_dac_4:inst.vga_g[0]
 vga_g[1] <= pre_vga_dac_4:inst.vga_g[1]
 vga_g[2] <= pre_vga_dac_4:inst.vga_g[2]
@@ -167,15 +172,14 @@ bin_debug[12] <= decoder:decoder1.decoder_debug_c[4]
 bin_debug[13] <= decoder:decoder1.decoder_debug_c[5]
 bin_debug[14] <= decoder:decoder1.decoder_debug_c[6]
 bin_debug[15] <= decoder:decoder1.decoder_debug_c[7]
+vga_enabled <= vgacontroller:vgacontroller1.vga_claim
 
 
 |top_de1|gpu:inst2|draw:draw1
-clk => draw_fill:fill1.clk
 clk => draw_pixel:pixel1.clk
 clk => draw_rect:rect1.clk
 clk => draw_line:line1.clk
 clk => draw_sprite:sprite1.clk
-reset => draw_fill:fill1.reset
 reset => draw_pixel:pixel1.reset
 reset => draw_rect:rect1.reset
 reset => draw_line:line1.reset
@@ -294,51 +298,43 @@ h[5] => draw_line:line1.y1[5]
 h[5] => draw_sprite:sprite1.l[5]
 h[6] => draw_rect:rect1.y1[6]
 h[6] => draw_line:line1.y1[6]
-color[0] => draw_fill:fill1.color[0]
 color[0] => draw_pixel:pixel1.color[0]
 color[0] => draw_rect:rect1.color[0]
 color[0] => draw_line:line1.color[0]
 color[0] => draw_sprite:sprite1.color[0]
-color[1] => draw_fill:fill1.color[1]
 color[1] => draw_pixel:pixel1.color[1]
 color[1] => draw_rect:rect1.color[1]
 color[1] => draw_line:line1.color[1]
 color[1] => draw_sprite:sprite1.color[1]
-color[2] => draw_fill:fill1.color[2]
 color[2] => draw_pixel:pixel1.color[2]
 color[2] => draw_rect:rect1.color[2]
 color[2] => draw_line:line1.color[2]
 color[2] => draw_sprite:sprite1.color[2]
-color[3] => draw_fill:fill1.color[3]
 color[3] => draw_pixel:pixel1.color[3]
 color[3] => draw_rect:rect1.color[3]
 color[3] => draw_line:line1.color[3]
 color[3] => draw_sprite:sprite1.color[3]
-color[4] => draw_fill:fill1.color[4]
 color[4] => draw_pixel:pixel1.color[4]
 color[4] => draw_rect:rect1.color[4]
 color[4] => draw_line:line1.color[4]
 color[4] => draw_sprite:sprite1.color[4]
-color[5] => draw_fill:fill1.color[5]
 color[5] => draw_pixel:pixel1.color[5]
 color[5] => draw_rect:rect1.color[5]
 color[5] => draw_line:line1.color[5]
 color[5] => draw_sprite:sprite1.color[5]
-en[0] => draw_fill:fill1.enable
+en[0] => ~NO_FANOUT~
 en[1] => draw_pixel:pixel1.enable
 en[2] => draw_rect:rect1.enable
 en[3] => draw_rect:rect1.enablef
 en[4] => draw_line:line1.enable
 en[5] => draw_sprite:sprite1.enable
 draw_ready <= draw_ready.DB_MAX_OUTPUT_PORT_TYPE
-asb => draw_fill:fill1.asb
 asb => draw_pixel:pixel1.asb
 asb => draw_rect:rect1.asb
 asb => draw_line:line1.asb
 asb => draw_sprite:sprite1.asb
 draw_write <= draw_write.DB_MAX_OUTPUT_PORT_TYPE
 draw_read <= draw_sprite:sprite1.draw_read
-draw_can_access => draw_fill:fill1.draw_can_access
 draw_can_access => draw_pixel:pixel1.draw_can_access
 draw_can_access => draw_rect:rect1.draw_can_access
 draw_can_access => draw_line:line1.draw_can_access
@@ -363,9 +359,7 @@ ramdata[0] <> draw_sprite:sprite1.ramdata[0]
 ramdata[0] <> ramdata[0]
 ramdata[0] <> ramdata[0]
 ramdata[0] <> ramdata[0]
-ramdata[0] <> ramdata[0]
 ramdata[1] <> draw_sprite:sprite1.ramdata[1]
-ramdata[1] <> ramdata[1]
 ramdata[1] <> ramdata[1]
 ramdata[1] <> ramdata[1]
 ramdata[1] <> ramdata[1]
@@ -373,9 +367,7 @@ ramdata[2] <> draw_sprite:sprite1.ramdata[2]
 ramdata[2] <> ramdata[2]
 ramdata[2] <> ramdata[2]
 ramdata[2] <> ramdata[2]
-ramdata[2] <> ramdata[2]
 ramdata[3] <> draw_sprite:sprite1.ramdata[3]
-ramdata[3] <> ramdata[3]
 ramdata[3] <> ramdata[3]
 ramdata[3] <> ramdata[3]
 ramdata[3] <> ramdata[3]
@@ -383,82 +375,10 @@ ramdata[4] <> draw_sprite:sprite1.ramdata[4]
 ramdata[4] <> ramdata[4]
 ramdata[4] <> ramdata[4]
 ramdata[4] <> ramdata[4]
-ramdata[4] <> ramdata[4]
 ramdata[5] <> draw_sprite:sprite1.ramdata[5]
 ramdata[5] <> ramdata[5]
 ramdata[5] <> ramdata[5]
 ramdata[5] <> ramdata[5]
-ramdata[5] <> ramdata[5]
-
-
-|top_de1|gpu:inst2|draw:draw1|draw_fill:fill1
-clk => almost_done.CLK
-clk => y[0].CLK
-clk => y[1].CLK
-clk => y[2].CLK
-clk => y[3].CLK
-clk => y[4].CLK
-clk => y[5].CLK
-clk => y[6].CLK
-clk => x[0].CLK
-clk => x[1].CLK
-clk => x[2].CLK
-clk => x[3].CLK
-clk => x[4].CLK
-clk => x[5].CLK
-clk => x[6].CLK
-clk => x[7].CLK
-reset => draw_fill_combi.IN0
-enable => draw_fill_combi.IN1
-color[0] => ramdata[0].DATAIN
-color[1] => ramdata[1].DATAIN
-color[2] => ramdata[2].DATAIN
-color[3] => ramdata[3].DATAIN
-color[4] => ramdata[4].DATAIN
-color[5] => ramdata[5].DATAIN
-asb => ramaddr[15].DATAIN
-done <= done.DB_MAX_OUTPUT_PORT_TYPE
-ramaddr[0] <= ramaddr[0].DB_MAX_OUTPUT_PORT_TYPE
-ramaddr[1] <= ramaddr[1].DB_MAX_OUTPUT_PORT_TYPE
-ramaddr[2] <= ramaddr[2].DB_MAX_OUTPUT_PORT_TYPE
-ramaddr[3] <= ramaddr[3].DB_MAX_OUTPUT_PORT_TYPE
-ramaddr[4] <= ramaddr[4].DB_MAX_OUTPUT_PORT_TYPE
-ramaddr[5] <= ramaddr[5].DB_MAX_OUTPUT_PORT_TYPE
-ramaddr[6] <= ramaddr[6].DB_MAX_OUTPUT_PORT_TYPE
-ramaddr[7] <= ramaddr[7].DB_MAX_OUTPUT_PORT_TYPE
-ramaddr[8] <= ramaddr[8].DB_MAX_OUTPUT_PORT_TYPE
-ramaddr[9] <= ramaddr[9].DB_MAX_OUTPUT_PORT_TYPE
-ramaddr[10] <= ramaddr[10].DB_MAX_OUTPUT_PORT_TYPE
-ramaddr[11] <= ramaddr[11].DB_MAX_OUTPUT_PORT_TYPE
-ramaddr[12] <= ramaddr[12].DB_MAX_OUTPUT_PORT_TYPE
-ramaddr[13] <= ramaddr[13].DB_MAX_OUTPUT_PORT_TYPE
-ramaddr[14] <= ramaddr[14].DB_MAX_OUTPUT_PORT_TYPE
-ramaddr[15] <= ramaddr[15].DB_MAX_OUTPUT_PORT_TYPE
-ramdata[0] <= ramdata[0].DB_MAX_OUTPUT_PORT_TYPE
-ramdata[1] <= ramdata[1].DB_MAX_OUTPUT_PORT_TYPE
-ramdata[2] <= ramdata[2].DB_MAX_OUTPUT_PORT_TYPE
-ramdata[3] <= ramdata[3].DB_MAX_OUTPUT_PORT_TYPE
-ramdata[4] <= ramdata[4].DB_MAX_OUTPUT_PORT_TYPE
-ramdata[5] <= ramdata[5].DB_MAX_OUTPUT_PORT_TYPE
-draw_write <= draw_write.DB_MAX_OUTPUT_PORT_TYPE
-draw_can_access => done.OUTPUTSELECT
-draw_can_access => x_tmp.OUTPUTSELECT
-draw_can_access => x_tmp.OUTPUTSELECT
-draw_can_access => x_tmp.OUTPUTSELECT
-draw_can_access => x_tmp.OUTPUTSELECT
-draw_can_access => x_tmp.OUTPUTSELECT
-draw_can_access => x_tmp.OUTPUTSELECT
-draw_can_access => x_tmp.OUTPUTSELECT
-draw_can_access => x_tmp.OUTPUTSELECT
-draw_can_access => y_tmp.OUTPUTSELECT
-draw_can_access => y_tmp.OUTPUTSELECT
-draw_can_access => y_tmp.OUTPUTSELECT
-draw_can_access => y_tmp.OUTPUTSELECT
-draw_can_access => y_tmp.OUTPUTSELECT
-draw_can_access => y_tmp.OUTPUTSELECT
-draw_can_access => y_tmp.OUTPUTSELECT
-draw_can_access => oe.OUTPUTSELECT
-draw_can_access => almost_done_tmp.OUTPUTSELECT
 
 
 |top_de1|gpu:inst2|draw:draw1|draw_pixel:pixel1
@@ -1035,6 +955,7 @@ draw_can_access => data_reg_tmp.OUTPUTSELECT
 
 
 |top_de1|gpu:inst2|decoder:decoder1
+clk => int_ready~reg0.CLK
 clk => is_init~reg0.CLK
 clk => asb~reg0.CLK
 clk => en[0]~reg0.CLK
@@ -1155,6 +1076,7 @@ reset => en.OUTPUTSELECT
 reset => en.OUTPUTSELECT
 reset => asb.OUTPUTSELECT
 reset => is_init.OUTPUTSELECT
+reset => int_ready.OUTPUTSELECT
 spi_data_rx[0] => next_id.DATAB
 spi_data_rx[0] => next_color.DATAA
 spi_data_rx[0] => next_id.DATAB
@@ -1167,6 +1089,7 @@ spi_data_rx[0] => next_id.DATAB
 spi_data_rx[0] => Mux2.IN0
 spi_data_rx[0] => Mux64.IN0
 spi_data_rx[0] => Equal0.IN2
+spi_data_rx[0] => Equal1.IN2
 spi_data_rx[1] => next_id.DATAB
 spi_data_rx[1] => next_color.DATAA
 spi_data_rx[1] => next_id.DATAB
@@ -1179,6 +1102,7 @@ spi_data_rx[1] => next_id.DATAB
 spi_data_rx[1] => Mux1.IN0
 spi_data_rx[1] => Mux63.IN0
 spi_data_rx[1] => Equal0.IN1
+spi_data_rx[1] => Equal1.IN1
 spi_data_rx[2] => next_y.DATAB
 spi_data_rx[2] => next_color.DATAA
 spi_data_rx[2] => next_id.DATAB
@@ -1191,6 +1115,7 @@ spi_data_rx[2] => next_id.DATAB
 spi_data_rx[2] => Mux0.IN0
 spi_data_rx[2] => Mux62.IN0
 spi_data_rx[2] => Equal0.IN0
+spi_data_rx[2] => Equal1.IN0
 spi_data_rx[3] => next_y.DATAB
 spi_data_rx[3] => next_color.DATAA
 spi_data_rx[3] => next_id.DATAB
@@ -1240,6 +1165,7 @@ spi_data_available => next_instruction[1].OUTPUTSELECT
 spi_data_available => next_instruction[0].OUTPUTSELECT
 spi_data_available => \decode_comb:done.OUTPUTSELECT
 spi_data_available => next_asb.OUTPUTSELECT
+spi_data_available => next_is_init.OUTPUTSELECT
 spi_data_available => next_y[6].OUTPUTSELECT
 spi_data_available => next_y[5].OUTPUTSELECT
 spi_data_available => next_y[4].OUTPUTSELECT
@@ -1269,7 +1195,6 @@ spi_data_available => next_en.OUTPUTSELECT
 spi_data_available => next_en.OUTPUTSELECT
 spi_data_available => next_en.OUTPUTSELECT
 spi_data_available => next_en.OUTPUTSELECT
-spi_data_available => next_is_init.OUTPUTSELECT
 spi_data_available => next_x[7].OUTPUTSELECT
 spi_data_available => next_x[6].OUTPUTSELECT
 spi_data_available => next_x[5].OUTPUTSELECT
@@ -1300,9 +1225,9 @@ spi_data_available => next_w[3].OUTPUTSELECT
 spi_data_available => next_w[2].OUTPUTSELECT
 spi_data_available => next_w[1].OUTPUTSELECT
 spi_data_available => next_w[0].OUTPUTSELECT
-spi_data_available => next_packet_num[2].OUTPUTSELECT
-spi_data_available => next_packet_num[1].OUTPUTSELECT
-spi_data_available => next_packet_num[0].OUTPUTSELECT
+spi_data_available => spi_reset.DATAB
+spi_data_available => decode_comb.IN1
+spi_data_available => decode_comb.IN1
 draw_ready => decode_comb.IN1
 x[0] <= x[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 x[1] <= x[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -1357,7 +1282,8 @@ en[3] <= en[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 en[4] <= en[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 en[5] <= en[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 asb <= asb~reg0.DB_MAX_OUTPUT_PORT_TYPE
-int_ready <= decode_comb.DB_MAX_OUTPUT_PORT_TYPE
+int_ready <= int_ready~reg0.DB_MAX_OUTPUT_PORT_TYPE
+spi_reset <= spi_reset.DB_MAX_OUTPUT_PORT_TYPE
 decoder_can_access => done.OUTPUTSELECT
 decoder_can_access => next_h.OUTPUTSELECT
 decoder_can_access => next_h.OUTPUTSELECT
@@ -1524,23 +1450,8 @@ vgacolor[5] <= vgacolor.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |top_de1|gpu:inst2|spi:spi1
-reset => spi_rx_data.OUTPUTSELECT
-reset => spi_rx_data.OUTPUTSELECT
-reset => spi_rx_data.OUTPUTSELECT
-reset => spi_rx_data.OUTPUTSELECT
-reset => spi_rx_data.OUTPUTSELECT
-reset => spi_rx_data.OUTPUTSELECT
-reset => spi_rx_data.OUTPUTSELECT
-reset => spi_rx_data.OUTPUTSELECT
-reset => index.OUTPUTSELECT
-reset => index.OUTPUTSELECT
-reset => index.OUTPUTSELECT
-reset => sclk_old.OUTPUTSELECT
-reset => sclk_latched.OUTPUTSELECT
-reset => ss_old.OUTPUTSELECT
-reset => ss_latched.OUTPUTSELECT
-reset => spi_data_available.OUTPUTSELECT
-reset => mosi_latched.OUTPUTSELECT
+reset => process_0.IN0
+counter_reset => process_0.IN1
 clk => mosi_latched.CLK
 clk => spi_data_available~reg0.CLK
 clk => ss_latched.CLK
@@ -1867,26 +1778,16 @@ segments[27] <= hex3[6].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |top_de1|pre_vga_dac_4:inst
-VGACOLOR[0] => vga_r.IN0
 VGACOLOR[0] => vga_b.DATAB
 VGACOLOR[0] => vga_b.DATAB
-VGACOLOR[1] => vga_r.IN1
 VGACOLOR[1] => vga_b.DATAB
 VGACOLOR[1] => vga_b.DATAB
-VGACOLOR[2] => vga_r.DATAA
 VGACOLOR[2] => vga_g.DATAB
 VGACOLOR[2] => vga_g.DATAB
-VGACOLOR[2] => vga_g.DATAA
-VGACOLOR[2] => vga_b.DATAA
-VGACOLOR[3] => vga_r.DATAA
-VGACOLOR[3] => vga_g.DATAA
 VGACOLOR[3] => vga_g.DATAB
 VGACOLOR[3] => vga_g.DATAB
-VGACOLOR[3] => vga_b.DATAA
-VGACOLOR[4] => vga_r.IN0
 VGACOLOR[4] => vga_r.DATAB
 VGACOLOR[4] => vga_r.DATAB
-VGACOLOR[5] => vga_r.IN1
 VGACOLOR[5] => vga_r.DATAB
 VGACOLOR[5] => vga_r.DATAB
 vga_r[0] <= vga_r.DB_MAX_OUTPUT_PORT_TYPE
@@ -1901,17 +1802,17 @@ vga_b[0] <= vga_b.DB_MAX_OUTPUT_PORT_TYPE
 vga_b[1] <= vga_b.DB_MAX_OUTPUT_PORT_TYPE
 vga_b[2] <= vga_b.DB_MAX_OUTPUT_PORT_TYPE
 vga_b[3] <= vga_b.DB_MAX_OUTPUT_PORT_TYPE
-color_on => vga_r.OUTPUTSELECT
-color_on => vga_r.OUTPUTSELECT
-color_on => vga_r.OUTPUTSELECT
-color_on => vga_r.OUTPUTSELECT
-color_on => vga_g.OUTPUTSELECT
-color_on => vga_g.OUTPUTSELECT
-color_on => vga_g.OUTPUTSELECT
-color_on => vga_g.OUTPUTSELECT
-color_on => vga_b.OUTPUTSELECT
-color_on => vga_b.OUTPUTSELECT
-color_on => vga_b.OUTPUTSELECT
-color_on => vga_b.OUTPUTSELECT
+vga_enabled => vga_r.OUTPUTSELECT
+vga_enabled => vga_r.OUTPUTSELECT
+vga_enabled => vga_r.OUTPUTSELECT
+vga_enabled => vga_r.OUTPUTSELECT
+vga_enabled => vga_g.OUTPUTSELECT
+vga_enabled => vga_g.OUTPUTSELECT
+vga_enabled => vga_g.OUTPUTSELECT
+vga_enabled => vga_g.OUTPUTSELECT
+vga_enabled => vga_b.OUTPUTSELECT
+vga_enabled => vga_b.OUTPUTSELECT
+vga_enabled => vga_b.OUTPUTSELECT
+vga_enabled => vga_b.OUTPUTSELECT
 
 

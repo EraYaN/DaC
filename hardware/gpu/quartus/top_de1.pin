@@ -151,9 +151,9 @@ RAMDATA[4]                   : B14       : bidir  : 3.3-V LVTTL       :         
 RAMDATA[3]                   : B15       : bidir  : 3.3-V LVTTL       :         : 4         : Y              
 RAMDATA[2]                   : B16       : bidir  : 3.3-V LVTTL       :         : 4         : Y              
 GND*                         : B17       :        :                   :         : 4         :                
-GND*                         : B18       :        :                   :         : 4         :                
-RAMDATA[1]                   : B19       : bidir  : 3.3-V LVTTL       :         : 4         : Y              
-RAMDATA[0]                   : B20       : bidir  : 3.3-V LVTTL       :         : 4         : Y              
+RAMDATA[1]                   : B18       : bidir  : 3.3-V LVTTL       :         : 4         : Y              
+RAMDATA[0]                   : B19       : bidir  : 3.3-V LVTTL       :         : 4         : Y              
+VGACOLOR[0]                  : B20       : input  : 3.3-V LVTTL       :         : 4         : Y              
 GND                          : B21       : gnd    :                   :         :           :                
 VCCIO5                       : B22       : power  :                   : 3.3V    : 5         :                
 segments[17]                 : C1        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -177,7 +177,7 @@ GND*                         : C18       :        :                   :         
 GND*                         : C19       :        :                   :         : 5         :                
 GND*                         : C20       :        :                   :         : 5         :                
 RAMADDR[9]                   : C21       : output : 3.3-V LVTTL       :         : 5         : Y              
-GND*                         : C22       :        :                   :         : 5         :                
+VGACOLOR[1]                  : C22       : input  : 3.3-V LVTTL       :         : 5         : Y              
 segments[13]                 : D1        : output : 3.3-V LVTTL       :         : 2         : Y              
 segments[12]                 : D2        : output : 3.3-V LVTTL       :         : 2         : Y              
 segments[20]                 : D3        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -199,7 +199,7 @@ GND                          : D18       : gnd    :                   :         
 GND*                         : D19       :        :                   :         : 5         :                
 GND*                         : D20       :        :                   :         : 5         :                
 RAMADDR[8]                   : D21       : output : 3.3-V LVTTL       :         : 5         : Y              
-GND*                         : D22       :        :                   :         : 5         :                
+VGACOLOR[2]                  : D22       : input  : 3.3-V LVTTL       :         : 5         : Y              
 segments[7]                  : E1        : output : 3.3-V LVTTL       :         : 2         : Y              
 segments[6]                  : E2        : output : 3.3-V LVTTL       :         : 2         : Y              
 segments[18]                 : E3        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -221,7 +221,7 @@ GND*                         : E18       :        :                   :         
 GND*                         : E19       :        :                   :         : 5         :                
 GND*                         : E20       :        :                   :         : 5         :                
 RAMADDR[7]                   : E21       : output : 3.3-V LVTTL       :         : 5         : Y              
-GND*                         : E22       :        :                   :         : 5         :                
+VGACOLOR[3]                  : E22       : input  : 3.3-V LVTTL       :         : 5         : Y              
 segments[5]                  : F1        : output : 3.3-V LVTTL       :         : 2         : Y              
 segments[4]                  : F2        : output : 3.3-V LVTTL       :         : 2         : Y              
 segments[26]                 : F3        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -243,7 +243,7 @@ GND_PLL2                     : F18       : gnd    :                   :         
 GND                          : F19       : gnd    :                   :         :           :                
 GND*                         : F20       :        :                   :         : 5         :                
 RAMADDR[6]                   : F21       : output : 3.3-V LVTTL       :         : 5         : Y              
-GND*                         : F22       :        :                   :         : 5         :                
+VGACOLOR[4]                  : F22       : input  : 3.3-V LVTTL       :         : 5         : Y              
 NC                           : G1        :        :                   :         :           :                
 NC                           : G2        :        :                   :         :           :                
 segments[11]                 : G3        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -265,7 +265,7 @@ GND*                         : G18       :        :                   :         
 VCCIO5                       : G19       : power  :                   : 3.3V    : 5         :                
 GND*                         : G20       :        :                   :         : 5         :                
 RAMADDR[5]                   : G21       : output : 3.3-V LVTTL       :         : 5         : Y              
-GND*                         : G22       :        :                   :         : 5         :                
+VGACOLOR[5]                  : G22       : input  : 3.3-V LVTTL       :         : 5         : Y              
 segments[3]                  : H1        : output : 3.3-V LVTTL       :         : 2         : Y              
 segments[2]                  : H2        : output : 3.3-V LVTTL       :         : 2         : Y              
 GND*                         : H3        :        :                   :         : 2         :                
@@ -353,7 +353,7 @@ int_ready                    : L18       : output : 3.3-V LVTTL       :         
 RAMADDR[0]                   : L19       : output : 3.3-V LVTTL       :         : 5         : Y              
 VCCIO5                       : L20       : power  :                   : 3.3V    : 5         :                
 GND+                         : L21       :        :                   :         : 5         :                
-color_mode                   : L22       : input  : 3.3-V LVTTL       :         : 5         : Y              
+GND+                         : L22       :        :                   :         : 5         :                
 GND+                         : M1        :        :                   :         : 1         :                
 GND+                         : M2        :        :                   :         : 1         :                
 VCCIO1                       : M3        : power  :                   : 3.3V    : 1         :                

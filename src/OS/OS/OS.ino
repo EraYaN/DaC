@@ -19,7 +19,7 @@ void setup()
 {
 	GPU = new GPULib();
 	Input = new InputLib();
-	attachInterrupt(INT_READY_PIN, drawReady, RISING);	
+	//attachInterrupt(INT_READY_PIN, drawReady, RISING);	
 	SPI.setBitOrder(MSBFIRST);
 	SPI.setClockDivider(SPI_CLOCK_DIV16);
 	SPI.setDataMode(SPI_MODE0);
@@ -28,7 +28,7 @@ void setup()
 	running = true;
 	pinMode(LED_BUILTIN, OUTPUT);
 	Serial.println("Setup Complete!");
-
+	pinMode(INT_READY_PIN,INPUT);
 	currentProgram = new Demo(GPU,"Demo");
 	randomSeed(analogRead(0));
 
@@ -39,9 +39,12 @@ void loop()
 {
 	if (running)
 	{
+		readyfornext = digitalRead(INT_READY_PIN)==HIGH;
+		//Serial.print("RFN: ");
+		//Serial.println(readyfornext);
 		if(first && readyfornext){	
 			GPU->cleanUp();
-			GPU->loadSprites(sprites_font6x8_set,95,&readyfornext);
+			//GPU->loadSprites(sprites_font6x8_set,95,&readyfornext);
 			//GPU->cleanUp();
 			GPU->drawFill(B000000);
 			//GPU->transferQueue();
