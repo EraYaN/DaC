@@ -194,15 +194,6 @@ begin
 
 			end case;
 
-			--reset packet count when instruction is processed, or retain current packet count to keep loading sprites
-			if done = '1' then
-				next_packet_num <= (others => '0');				
-			elsif to_integer(packet_num) = 3 and instruction = "111" then
-				next_packet_num <= packet_num;
-			else
-				next_packet_num <= packet_num + 1;
-			end if;
-
 			--reset timeout
 			next_timeout_count <= (others => '1');
 		else
@@ -221,16 +212,24 @@ begin
 			--end if;
 		end if;
 		
-		if draw_ready = '1' or
-			(done = '1' and
-				((instruction = "111") or (spi_data_rx(InstrSize-1 downto 0) = "000" and packet_num = 0))
-			) or
-			(int_ready = '1' and spi_data_available = '0') then
-			--disable all draw modules
-			next_en <= (others => '0');
-			--inform CPU
-			next_int_ready <= '1';		
+		if draw_ready = '1'--draw module done
+			or
+			(done = '1' and  --sprite loaded or screen buffer changed
+				((instruction = "111" and is_init = '1') or (spi_data_rx(InstrSize-1 downto 0) = "000" and packet_num = 0))
+			)
+			or
+			(int_ready = '1' and spi_data_available = '0') --waiting for input
+			then
+
+			next_packet_num <= (others => '0');	--reset packet_num
+			next_en <= (others => '0'); --disable all draw modules	
+			next_int_ready <= '1'; --inform CPU
 		else
+			if to_integer(packet_num) = 3 and instruction = "111" and is_init = '1' then --loading sprite
+				next_packet_num <= packet_num; --keep loading sprite
+			else
+				next_packet_num <= packet_num + 1; --next packet
+			end if;
 			next_int_ready <= '0';
 		end if;
 		--update instruction		
