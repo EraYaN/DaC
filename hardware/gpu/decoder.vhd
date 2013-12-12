@@ -23,6 +23,7 @@ entity decoder is
 		asb			: buffer	std_logic;	--Currently active screen buffer
 		--Direct CPU interaction
 		int_ready	: buffer	std_logic;	--Instruction processed signal
+		spi_reset	: out		std_logic; 
 		--RAM Controller interaction
 		decoder_can_access	: in std_logic;		--Can access RAM?
 		decoder_write		: buffer std_logic;	--Intention to write to RAM

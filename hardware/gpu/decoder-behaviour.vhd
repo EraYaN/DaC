@@ -224,6 +224,12 @@ begin
 			next_packet_num <= (others => '0');	--reset packet_num
 			next_en <= (others => '0'); --disable all draw modules	
 			next_int_ready <= '1'; --inform CPU
+
+			if spi_data_available = '1' then
+				spi_reset <= '1';
+			else
+				spi_reset <= '0';
+			end if;
 		else
 			if (to_integer(packet_num) = 3 and instruction = "111" and is_init = '1') or spi_data_available = '0' then --loading sprite or no new data
 				next_packet_num <= packet_num; --keep loading sprite
@@ -233,6 +239,7 @@ begin
 				next_packet_num <= packet_num + 1; --next packet
 			end if;
 			next_int_ready <= '0';
+			spi_reset <= '0';
 		end if;
 		--update instruction		
 	end process;
