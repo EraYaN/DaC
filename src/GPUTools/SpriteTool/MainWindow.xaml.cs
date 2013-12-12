@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
 using System.IO;
+using System.Collections;
 
 namespace SpriteTool
 {
@@ -39,9 +40,33 @@ namespace SpriteTool
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
-                
-				string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-				if (files.Count() > 0)
+
+				string[] files_tmp = (string[])e.Data.GetData(DataFormats.FileDrop);
+				List<string> files = new List<string>();
+				List<string> Extensions = new List<string> { ".JPG", ".JPEG", ".JPE", ".BMP", ".GIF", ".PNG" ,".TIFF", ".TIF"};
+				foreach (string s in files_tmp)
+				{
+					if (File.Exists(s))
+					{
+						if (Extensions.Contains(System.IO.Path.GetExtension(s).ToUpperInvariant()))
+						{
+							files.Add(s);
+						}
+					}
+					if (Directory.Exists(s))
+					{
+						DirectoryInfo di = new DirectoryInfo(s);
+						FileInfo[] fis = di.GetFiles("*.*", SearchOption.AllDirectories);
+						foreach (FileInfo fi in fis)
+						{
+							if (Extensions.Contains(fi.Extension.ToUpperInvariant()))
+							{
+								files.Add(fi.FullName);
+							}
+						}
+					}
+				}
+				if (files.Count > 0)
 				{
 					string setname;
 					if (setName_TextBox.Text != "")
@@ -49,6 +74,7 @@ namespace SpriteTool
 					else
 						setname = System.IO.Path.GetFileNameWithoutExtension(files[0]);
 					bool firstfile = true;
+					files.Sort();
 					using (StreamWriter sw = new StreamWriter(setname + "_set.cpp"))
 					{
                         using (StreamWriter sw_h = new StreamWriter(setname + "_set.h"))
@@ -110,18 +136,18 @@ namespace SpriteTool
 			sw_data.Write("extern const prog_uchar set_{0}_sprite_{1}[] = ", setname, varname);
             sw_data_h.WriteLine("PROGMEM extern const prog_uchar set_{0}_sprite_{1}[];", setname, varname);
 			sw_data.WriteLine("{");
-			int data = 0;
+			uint data = 0;
 			i = bitsperbyte-1;
 			int count = 0 ;
 			bool first = true;
 			foreach (Color c in sprite)
 			{
-				int grayscale1 = Conv8to1(ConvRGBto8(c))==1?0:1;
+				uint grayscale1 = Conv8to1(ConvRGBto8(c))==1?0u:1u;
 				data = data | (grayscale1 << (byte)((bitsperbyte-1) - i));
 				i--;
 				if (i < 0)
 				{
-					i = bitsperbyte;
+					i = bitsperbyte-1;
 					if (!first)
 						sw_data.Write(",");
 					if (count % 8 == 0)
@@ -141,21 +167,21 @@ namespace SpriteTool
 			sw_data.WriteLine("\r\n};\r\n");
 		}
         
-        int Conv4to8(int a)
+        uint Conv4to8(uint a)
         {
-            return (int)Math.Round((double)a * 255.0 / 15.0);
+            return (uint)Math.Round((double)a * 255.0 / 15.0);
         }
-        int Conv8to4(int a)
+        uint Conv8to4(uint a)
         {
-            return (int)Math.Min(15, Math.Round((double)a / 256.0 * 16.0));
+            return (uint)Math.Min(15, Math.Round((double)a / 256.0 * 16.0));
         }
-        int Conv8to1(int a)
+        uint Conv8to1(uint a)
         {
-            return (int)Math.Min(1, Math.Round((double)a / 256.0));
+            return (uint)Math.Min(1, Math.Round((double)a / 256.0));
         }
-        int ConvRGBto8(Color c)
+        uint ConvRGBto8(Color c)
         {
-            return (int)Math.Round(((float)c.B + (float)c.G + (float)c.R)/3);
+            return (uint)Math.Round(((float)c.B + (float)c.G + (float)c.R)/3);
         }
     }
 }
