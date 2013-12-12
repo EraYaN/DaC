@@ -21,9 +21,13 @@ architecture behaviour of decoder is
 
 begin
 	--"asynchronous" RAM interaction
-	decoder_claim <='1';
+	decoder_claim <= '0';
 	ramaddr <= id & h(SizeSpriteCounter-1 downto 0) when decoder_write = '1' else (others => 'Z');
 	ramdata <= next_ramdata when decoder_write = '1' else (others => 'Z');
+	--debug shit
+	decoder_debug_pn <= (others => '0');
+	decoder_debug_i <= (others => '0');
+	decoder_debug_c <= (others => '0');
 
 	--synchronizer + input buffer + output buffer + state change
 	decode_seq: process (clk)	
@@ -76,6 +80,7 @@ begin
 		next_en <= en;
 		next_asb <= asb;
 		next_is_init <= is_init;
+		next_int_ready <= int_ready;
 		next_instruction <= current_instruction;
 		next_packet_num <= packet_num;
 		--next_timeout_count <= timeout_count;
@@ -83,6 +88,7 @@ begin
 		--defaults for non-buffered signals
 		decoder_write <= '0';
 		next_ramdata <= (others => '0');
+		soft_reset <= '0';
 
 		--init variables
 		done := '0';
@@ -112,10 +118,10 @@ begin
 						next_instruction <= frect;
 					elsif spi_data_rx(InstrSize-1 downto 0) = "101" then 
 						next_instruction <= line;
-					elsif spi_data_rx(InstrSize-1 downto 0) = "110" then 
-						next_instruction <= sprite;
-					elsif spi_data_rx(InstrSize-1 downto 0) = "111" then 
-						next_instruction <= lsprite;
+					--elsif spi_data_rx(InstrSize-1 downto 0) = "110" then 
+					--	next_instruction <= sprite;
+					--elsif spi_data_rx(InstrSize-1 downto 0) = "111" then 
+					--	next_instruction <= lsprite;
 					else
 						next_instruction <= none;
 					end if;
@@ -123,7 +129,11 @@ begin
 					done := '1';
 					next_instruction <= none;
 					next_int_ready <= '1';
-				end if; 
+				end if;
+
+				if spi_data_rx(InstrSize-1 downto 0) /= "111" then
+					next_is_init <= '0';
+				end if;
 			elsif current_instruction = pixel then
 				if packet_num = 1 then
 					next_color <= spi_data_rx(SizeColor-1 downto 0);

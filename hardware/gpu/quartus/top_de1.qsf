@@ -183,8 +183,6 @@ set_global_assignment -name VHDL_FILE "../draw_rect-behaviour.vhd"
 set_global_assignment -name VHDL_FILE ../draw_rect.vhd
 set_global_assignment -name VHDL_FILE "../draw_pixel-behaviour.vhd"
 set_global_assignment -name VHDL_FILE ../draw_pixel.vhd
-set_global_assignment -name VHDL_FILE "../draw_fill-behaviour.vhd"
-set_global_assignment -name VHDL_FILE ../draw_fill.vhd
 set_global_assignment -name VHDL_FILE ../draw.vhd
 set_global_assignment -name VHDL_FILE "../decoder-behaviour.vhd"
 set_global_assignment -name VHDL_FILE ../decoder.vhd

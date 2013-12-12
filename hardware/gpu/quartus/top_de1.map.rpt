@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_de1
-Thu Dec 12 11:44:00 2013
+Thu Dec 12 20:20:26 2013
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -13,15 +13,16 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: gpu:inst2|draw:draw1|draw_sprite:sprite1
- 13. Parameter Settings for User Entity Instance: gpu:inst2|vgacontroller:vgacontroller1
- 14. Parameter Settings for User Entity Instance: gpu:inst2|spi:spi1
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+  8. State Machine - |top_de1|gpu:inst2|decoder:decoder1|current_instruction
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: gpu:inst2|draw:draw1|draw_sprite:sprite1
+ 14. Parameter Settings for User Entity Instance: gpu:inst2|vgacontroller:vgacontroller1
+ 15. Parameter Settings for User Entity Instance: gpu:inst2|spi:spi1
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -47,15 +48,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Dec 12 11:44:00 2013           ;
+; Analysis & Synthesis Status        ; Successful - Thu Dec 12 20:20:26 2013           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; top_de1                                         ;
 ; Top-level Entity Name              ; top_de1                                         ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 706                                             ;
-;     Total combinational functions  ; 679                                             ;
-;     Dedicated logic registers      ; 172                                             ;
-; Total registers                    ; 172                                             ;
+; Total logic elements               ; 517                                             ;
+;     Total combinational functions  ; 489                                             ;
+;     Dedicated logic registers      ; 131                                             ;
+; Total registers                    ; 131                                             ;
 ; Total pins                         ; 93                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -155,7 +156,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 8      ;
+; Number detected on machine ; 4      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
@@ -165,31 +166,31 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                 ; Library ;
 +----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------+---------+
-; ../ssegdecoder.vhd               ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/ssegdecoder.vhd             ;         ;
-; ../draw_sprite-behaviour.vhd     ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/draw_sprite-behaviour.vhd   ;         ;
-; ../draw_sprite.vhd               ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/draw_sprite.vhd             ;         ;
-; ../draw_line-behaviour.vhd       ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/draw_line-behaviour.vhd     ;         ;
-; ../draw_line.vhd                 ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/draw_line.vhd               ;         ;
-; ../vgacontroller-behaviour.vhd   ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/vgacontroller-behaviour.vhd ;         ;
-; ../vgacontroller.vhd             ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/vgacontroller.vhd           ;         ;
-; ../spi-behaviour.vhd             ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/spi-behaviour.vhd           ;         ;
-; ../spi.vhd                       ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/spi.vhd                     ;         ;
-; ../ramcontroller-behaviour.vhd   ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/ramcontroller-behaviour.vhd ;         ;
-; ../ramcontroller.vhd             ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/ramcontroller.vhd           ;         ;
-; ../parameter_def_pkg.vhd         ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/parameter_def_pkg.vhd       ;         ;
-; ../gpu-structural.vhd            ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/gpu-structural.vhd          ;         ;
-; ../gpu.vhd                       ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/gpu.vhd                     ;         ;
-; ../draw-structural.vhd           ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/draw-structural.vhd         ;         ;
-; ../draw_rect-behaviour.vhd       ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/draw_rect-behaviour.vhd     ;         ;
-; ../draw_rect.vhd                 ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/draw_rect.vhd               ;         ;
-; ../draw_pixel-behaviour.vhd      ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/draw_pixel-behaviour.vhd    ;         ;
-; ../draw_pixel.vhd                ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/draw_pixel.vhd              ;         ;
-; ../draw.vhd                      ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/draw.vhd                    ;         ;
-; ../decoder-behaviour.vhd         ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/decoder-behaviour.vhd       ;         ;
-; ../decoder.vhd                   ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/decoder.vhd                 ;         ;
-; pre_vga_dac_4.vhd                ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/quartus/pre_vga_dac_4.vhd   ;         ;
-; gen6mhz.vhd                      ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/quartus/gen6mhz.vhd         ;         ;
-; top_de1.bdf                      ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/quartus/top_de1.bdf         ;         ;
+; ../ssegdecoder.vhd               ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/ssegdecoder.vhd             ;         ;
+; ../draw_sprite-behaviour.vhd     ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/draw_sprite-behaviour.vhd   ;         ;
+; ../draw_sprite.vhd               ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/draw_sprite.vhd             ;         ;
+; ../draw_line-behaviour.vhd       ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/draw_line-behaviour.vhd     ;         ;
+; ../draw_line.vhd                 ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/draw_line.vhd               ;         ;
+; ../vgacontroller-behaviour.vhd   ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/vgacontroller-behaviour.vhd ;         ;
+; ../vgacontroller.vhd             ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/vgacontroller.vhd           ;         ;
+; ../spi-behaviour.vhd             ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/spi-behaviour.vhd           ;         ;
+; ../spi.vhd                       ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/spi.vhd                     ;         ;
+; ../ramcontroller-behaviour.vhd   ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/ramcontroller-behaviour.vhd ;         ;
+; ../ramcontroller.vhd             ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/ramcontroller.vhd           ;         ;
+; ../parameter_def_pkg.vhd         ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/parameter_def_pkg.vhd       ;         ;
+; ../gpu-structural.vhd            ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/gpu-structural.vhd          ;         ;
+; ../gpu.vhd                       ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/gpu.vhd                     ;         ;
+; ../draw-structural.vhd           ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/draw-structural.vhd         ;         ;
+; ../draw_rect-behaviour.vhd       ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/draw_rect-behaviour.vhd     ;         ;
+; ../draw_rect.vhd                 ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/draw_rect.vhd               ;         ;
+; ../draw_pixel-behaviour.vhd      ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/draw_pixel-behaviour.vhd    ;         ;
+; ../draw_pixel.vhd                ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/draw_pixel.vhd              ;         ;
+; ../draw.vhd                      ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/draw.vhd                    ;         ;
+; ../decoder-behaviour.vhd         ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/decoder-behaviour.vhd       ;         ;
+; ../decoder.vhd                   ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/decoder.vhd                 ;         ;
+; pre_vga_dac_4.vhd                ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/quartus/pre_vga_dac_4.vhd   ;         ;
+; gen6mhz.vhd                      ; yes             ; User VHDL File                     ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/quartus/gen6mhz.vhd         ;         ;
+; top_de1.bdf                      ; yes             ; User Block Diagram/Schematic File  ; D:/Users/Robin/Documents/GitHub/DaC/hardware/gpu/quartus/top_de1.bdf         ;         ;
 +----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------+---------+
 
 
@@ -198,73 +199,121 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Estimated Total logic elements              ; 706                    ;
+; Estimated Total logic elements              ; 517                    ;
 ;                                             ;                        ;
-; Total combinational functions               ; 679                    ;
+; Total combinational functions               ; 489                    ;
 ; Logic element usage by number of LUT inputs ;                        ;
-;     -- 4 input functions                    ; 315                    ;
-;     -- 3 input functions                    ; 214                    ;
-;     -- <=2 input functions                  ; 150                    ;
+;     -- 4 input functions                    ; 213                    ;
+;     -- 3 input functions                    ; 171                    ;
+;     -- <=2 input functions                  ; 105                    ;
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 515                    ;
-;     -- arithmetic mode                      ; 164                    ;
+;     -- normal mode                          ; 363                    ;
+;     -- arithmetic mode                      ; 126                    ;
 ;                                             ;                        ;
-; Total registers                             ; 172                    ;
-;     -- Dedicated logic registers            ; 172                    ;
+; Total registers                             ; 131                    ;
+;     -- Dedicated logic registers            ; 131                    ;
 ;     -- I/O registers                        ; 0                      ;
 ;                                             ;                        ;
 ; I/O pins                                    ; 93                     ;
 ; Embedded Multiplier 9-bit elements          ; 0                      ;
 ; Maximum fan-out node                        ; gen6mhz:inst1|count[2] ;
-; Maximum fan-out                             ; 171                    ;
-; Total fan-out                               ; 2839                   ;
-; Average fan-out                             ; 3.01                   ;
+; Maximum fan-out                             ; 130                    ;
+; Total fan-out                               ; 2015                   ;
+; Average fan-out                             ; 2.83                   ;
 +---------------------------------------------+------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                 ;
-+--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------+
-; Compilation Hierarchy Node           ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                               ; Library Name ;
-+--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------+
-; |top_de1                             ; 679 (3)           ; 172 (0)      ; 0           ; 0            ; 0       ; 0         ; 93   ; 0            ; |top_de1                                          ; work         ;
-;    |gen6mhz:inst1|                   ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gen6mhz:inst1                            ; work         ;
-;    |gpu:inst2|                       ; 629 (0)           ; 169 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2                                ; work         ;
-;       |decoder:decoder1|             ; 166 (166)         ; 60 (60)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|decoder:decoder1               ; work         ;
-;       |draw:draw1|                   ; 387 (0)           ; 76 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1                     ; work         ;
-;          |draw_line:line1|           ; 202 (202)         ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1     ; work         ;
-;          |draw_pixel:pixel1|         ; 3 (3)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_pixel:pixel1   ; work         ;
-;          |draw_rect:rect1|           ; 79 (79)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1     ; work         ;
-;          |draw_sprite:sprite1|       ; 103 (103)         ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1 ; work         ;
-;       |ramcontroller:ramcontroller1| ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|ramcontroller:ramcontroller1   ; work         ;
-;       |spi:spi1|                     ; 19 (19)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|spi:spi1                       ; work         ;
-;       |vgacontroller:vgacontroller1| ; 51 (51)           ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1   ; work         ;
-;    |pre_vga_dac_4:inst|              ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|pre_vga_dac_4:inst                       ; work         ;
-;    |ssegdecoder:inst4|               ; 38 (38)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|ssegdecoder:inst4                        ; work         ;
-+--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                               ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
+; Compilation Hierarchy Node           ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                             ; Library Name ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
+; |top_de1                             ; 489 (3)           ; 131 (0)      ; 0           ; 0            ; 0       ; 0         ; 93   ; 0            ; |top_de1                                        ; work         ;
+;    |gen6mhz:inst1|                   ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gen6mhz:inst1                          ; work         ;
+;    |gpu:inst2|                       ; 477 (1)           ; 128 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2                              ; work         ;
+;       |decoder:decoder1|             ; 60 (60)           ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|decoder:decoder1             ; work         ;
+;       |draw:draw1|                   ; 310 (1)           ; 44 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1                   ; work         ;
+;          |draw_line:line1|           ; 210 (210)         ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1   ; work         ;
+;          |draw_pixel:pixel1|         ; 18 (18)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_pixel:pixel1 ; work         ;
+;          |draw_rect:rect1|           ; 81 (81)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1   ; work         ;
+;       |ramcontroller:ramcontroller1| ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|ramcontroller:ramcontroller1 ; work         ;
+;       |spi:spi1|                     ; 17 (17)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|spi:spi1                     ; work         ;
+;       |vgacontroller:vgacontroller1| ; 86 (86)           ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1 ; work         ;
+;    |pre_vga_dac_4:inst|              ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|pre_vga_dac_4:inst                     ; work         ;
++--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; gpu:inst2|spi:spi1|ss_latched         ; Stuck at GND due to stuck port data_in ;
-; gpu:inst2|spi:spi1|ss_old             ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 2 ;                                        ;
-+---------------------------------------+----------------------------------------+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |top_de1|gpu:inst2|decoder:decoder1|current_instruction                                                                                                                                                                                                                   ;
++-----------------------------+-----------------------------+----------------------------+--------------------------+---------------------------+--------------------------+---------------------------+----------------------------+----------------------------+--------------------------+
+; Name                        ; current_instruction.lsprite ; current_instruction.sprite ; current_instruction.line ; current_instruction.frect ; current_instruction.rect ; current_instruction.pixel ; current_instruction.sreset ; current_instruction.switch ; current_instruction.none ;
++-----------------------------+-----------------------------+----------------------------+--------------------------+---------------------------+--------------------------+---------------------------+----------------------------+----------------------------+--------------------------+
+; current_instruction.none    ; 0                           ; 0                          ; 0                        ; 0                         ; 0                        ; 0                         ; 0                          ; 0                          ; 0                        ;
+; current_instruction.switch  ; 0                           ; 0                          ; 0                        ; 0                         ; 0                        ; 0                         ; 0                          ; 1                          ; 1                        ;
+; current_instruction.sreset  ; 0                           ; 0                          ; 0                        ; 0                         ; 0                        ; 0                         ; 1                          ; 0                          ; 1                        ;
+; current_instruction.pixel   ; 0                           ; 0                          ; 0                        ; 0                         ; 0                        ; 1                         ; 0                          ; 0                          ; 1                        ;
+; current_instruction.rect    ; 0                           ; 0                          ; 0                        ; 0                         ; 1                        ; 0                         ; 0                          ; 0                          ; 1                        ;
+; current_instruction.frect   ; 0                           ; 0                          ; 0                        ; 1                         ; 0                        ; 0                         ; 0                          ; 0                          ; 1                        ;
+; current_instruction.line    ; 0                           ; 0                          ; 1                        ; 0                         ; 0                        ; 0                         ; 0                          ; 0                          ; 1                        ;
+; current_instruction.sprite  ; 0                           ; 1                          ; 0                        ; 0                         ; 0                        ; 0                         ; 0                          ; 0                          ; 1                        ;
+; current_instruction.lsprite ; 1                           ; 0                          ; 0                        ; 0                         ; 0                        ; 0                         ; 0                          ; 0                          ; 1                        ;
++-----------------------------+-----------------------------+----------------------------+--------------------------+---------------------------+--------------------------+---------------------------+----------------------------+----------------------------+--------------------------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                        ;
-+-------------------------------+---------------------------+----------------------------------------+
-; Register name                 ; Reason for Removal        ; Registers Removed due to This Register ;
-+-------------------------------+---------------------------+----------------------------------------+
-; gpu:inst2|spi:spi1|ss_latched ; Stuck at GND              ; gpu:inst2|spi:spi1|ss_old              ;
-;                               ; due to stuck port data_in ;                                        ;
-+-------------------------------+---------------------------+----------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                         ;
++---------------------------------------------------------+------------------------------------------------------------------+
+; Register name                                           ; Reason for Removal                                               ;
++---------------------------------------------------------+------------------------------------------------------------------+
+; gpu:inst2|decoder:decoder1|id[0..9]                     ; Stuck at GND due to stuck port data_in                           ;
+; gpu:inst2|decoder:decoder1|en[4]                        ; Stuck at GND due to stuck port data_in                           ;
+; gpu:inst2|draw:draw1|draw_sprite:sprite1|almost_done    ; Stuck at GND due to stuck port data_in                           ;
+; gpu:inst2|draw:draw1|draw_sprite:sprite1|cy[0..6]       ; Stuck at GND due to stuck port data_in                           ;
+; gpu:inst2|draw:draw1|draw_sprite:sprite1|cx[0..7]       ; Stuck at GND due to stuck port data_in                           ;
+; gpu:inst2|draw:draw1|draw_sprite:sprite1|counter[0..5]  ; Stuck at GND due to stuck port data_in                           ;
+; gpu:inst2|draw:draw1|draw_sprite:sprite1|dcounter[0]    ; Stuck at GND due to stuck port data_in                           ;
+; gpu:inst2|draw:draw1|draw_sprite:sprite1|data_reg[0..5] ; Stuck at GND due to stuck port data_in                           ;
+; gpu:inst2|draw:draw1|draw_sprite:sprite1|started        ; Stuck at GND due to stuck port data_in                           ;
+; gpu:inst2|draw:draw1|draw_sprite:sprite1|dcounter[2]    ; Merged with gpu:inst2|draw:draw1|draw_sprite:sprite1|dcounter[1] ;
+; gpu:inst2|spi:spi1|ss_latched                           ; Stuck at GND due to stuck port data_in                           ;
+; gpu:inst2|spi:spi1|ss_old                               ; Stuck at GND due to stuck port data_in                           ;
+; gpu:inst2|decoder:decoder1|current_instruction.switch   ; Lost fanout                                                      ;
+; gpu:inst2|decoder:decoder1|current_instruction.sreset   ; Lost fanout                                                      ;
+; gpu:inst2|decoder:decoder1|current_instruction.sprite   ; Lost fanout                                                      ;
+; gpu:inst2|decoder:decoder1|current_instruction.lsprite  ; Lost fanout                                                      ;
+; gpu:inst2|draw:draw1|draw_sprite:sprite1|dcounter[1]    ; Lost fanout                                                      ;
+; Total Number of Removed Registers = 49                  ;                                                                  ;
++---------------------------------------------------------+------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                          ;
++----------------------------------+---------------------------+-------------------------------------------------------+
+; Register name                    ; Reason for Removal        ; Registers Removed due to This Register                ;
++----------------------------------+---------------------------+-------------------------------------------------------+
+; gpu:inst2|decoder:decoder1|en[4] ; Stuck at GND              ; gpu:inst2|draw:draw1|draw_sprite:sprite1|cy[0],       ;
+;                                  ; due to stuck port data_in ; gpu:inst2|draw:draw1|draw_sprite:sprite1|cy[1],       ;
+;                                  ;                           ; gpu:inst2|draw:draw1|draw_sprite:sprite1|cy[2],       ;
+;                                  ;                           ; gpu:inst2|draw:draw1|draw_sprite:sprite1|cy[3],       ;
+;                                  ;                           ; gpu:inst2|draw:draw1|draw_sprite:sprite1|cy[4],       ;
+;                                  ;                           ; gpu:inst2|draw:draw1|draw_sprite:sprite1|cy[5],       ;
+;                                  ;                           ; gpu:inst2|draw:draw1|draw_sprite:sprite1|cy[6],       ;
+;                                  ;                           ; gpu:inst2|draw:draw1|draw_sprite:sprite1|cx[0],       ;
+;                                  ;                           ; gpu:inst2|draw:draw1|draw_sprite:sprite1|cx[1],       ;
+;                                  ;                           ; gpu:inst2|draw:draw1|draw_sprite:sprite1|cx[2],       ;
+;                                  ;                           ; gpu:inst2|draw:draw1|draw_sprite:sprite1|cx[3],       ;
+;                                  ;                           ; gpu:inst2|draw:draw1|draw_sprite:sprite1|cx[4],       ;
+;                                  ;                           ; gpu:inst2|draw:draw1|draw_sprite:sprite1|cx[5],       ;
+;                                  ;                           ; gpu:inst2|draw:draw1|draw_sprite:sprite1|cx[6],       ;
+;                                  ;                           ; gpu:inst2|draw:draw1|draw_sprite:sprite1|cx[7],       ;
+;                                  ;                           ; gpu:inst2|draw:draw1|draw_sprite:sprite1|dcounter[0], ;
+;                                  ;                           ; gpu:inst2|draw:draw1|draw_sprite:sprite1|dcounter[1]  ;
+; gpu:inst2|spi:spi1|ss_latched    ; Stuck at GND              ; gpu:inst2|spi:spi1|ss_old                             ;
+;                                  ; due to stuck port data_in ;                                                       ;
++----------------------------------+---------------------------+-------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -272,50 +321,41 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 172   ;
-; Number of registers using Synchronous Clear  ; 46    ;
-; Number of registers using Synchronous Load   ; 24    ;
+; Total registers                              ; 131   ;
+; Number of registers using Synchronous Clear  ; 17    ;
+; Number of registers using Synchronous Load   ; 10    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 118   ;
+; Number of registers using Clock Enable       ; 84    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_de1|gpu:inst2|spi:spi1|spi_rx_data[0]                    ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|instruction[2]            ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|w[0]                      ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|v_count[1]    ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|packet_num[0]             ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |top_de1|gpu:inst2|spi:spi1|index[2]                          ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|dcounter[0] ;
-; 7:1                ; 12 bits   ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|data_reg[2] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|cy[6]       ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|cx[3]       ;
-; 9:1                ; 10 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|err[7]          ;
-; 14:1               ; 2 bits    ; 18 LEs        ; 8 LEs                ; 10 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|en[5]                     ;
-; 21:1               ; 3 bits    ; 42 LEs        ; 12 LEs               ; 30 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|en[2]                     ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|h_count[6]    ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|v_count[2]    ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|x[4]                      ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|color[3]                  ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1|cy[0]           ;
-; 12:1               ; 2 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|id[9]                     ;
-; 12:1               ; 8 bits    ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|id[3]                     ;
-; 12:1               ; 6 bits    ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|y[5]                      ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1|cx[0]           ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|cx[5]           ;
-; 9:1                ; 7 bits    ; 42 LEs        ; 14 LEs               ; 28 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|cy[3]           ;
-; 14:1               ; 6 bits    ; 54 LEs        ; 18 LEs               ; 36 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|h[4]                      ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|done            ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |top_de1|gpu:inst2|decoder:decoder1|next_ramdata[5]           ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|oe          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_de1|gpu:inst2|spi:spi1|spi_rx_data[4]                 ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|v_count[1] ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|packet_num[2]          ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |top_de1|gpu:inst2|spi:spi1|index[2]                       ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|w[2]                   ;
+; 9:1                ; 10 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|err[9]       ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|h_count[7] ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|v_count[6] ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1|cy[0]        ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|color[5]               ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|h[3]                   ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|y[3]                   ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|x[0]                   ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1|cx[4]        ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|cx[6]        ;
+; 9:1                ; 7 bits    ; 42 LEs        ; 14 LEs               ; 28 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|cy[4]        ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|done         ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; No         ; |top_de1|gpu:inst2|decoder:decoder1|current_instruction    ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |top_de1|gpu:inst2|decoder:decoder1|current_instruction    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------+
@@ -364,7 +404,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -374,61 +414,57 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Dec 12 11:43:54 2013
+    Info: Processing started: Thu Dec 12 20:20:24 2013
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off de1 -c top_de1
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 2 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/ssegdecoder.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file /users/robin/documents/github/dac/hardware/gpu/ssegdecoder.vhd
     Info (12022): Found design unit 1: ssegdecoder-Behavioral
     Info (12023): Found entity 1: ssegdecoder
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_sprite-behaviour.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/robin/documents/github/dac/hardware/gpu/draw_sprite-behaviour.vhd
     Info (12022): Found design unit 1: draw_sprite-behaviour
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_sprite.vhd
+Info (12021): Found 1 design units, including 1 entities, in source file /users/robin/documents/github/dac/hardware/gpu/draw_sprite.vhd
     Info (12023): Found entity 1: draw_sprite
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_line-behaviour.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/robin/documents/github/dac/hardware/gpu/draw_line-behaviour.vhd
     Info (12022): Found design unit 1: draw_line-behaviour
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_line.vhd
+Info (12021): Found 1 design units, including 1 entities, in source file /users/robin/documents/github/dac/hardware/gpu/draw_line.vhd
     Info (12023): Found entity 1: draw_line
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/vgacontroller-behaviour.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/robin/documents/github/dac/hardware/gpu/vgacontroller-behaviour.vhd
     Info (12022): Found design unit 1: vgacontroller-behaviour
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/vgacontroller.vhd
+Info (12021): Found 1 design units, including 1 entities, in source file /users/robin/documents/github/dac/hardware/gpu/vgacontroller.vhd
     Info (12023): Found entity 1: vgacontroller
-Info (12021): Found 2 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/sram.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file /users/robin/documents/github/dac/hardware/gpu/sram.vhd
     Info (12022): Found design unit 1: sram-behavior
     Info (12023): Found entity 1: sram
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/spi-behaviour.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/robin/documents/github/dac/hardware/gpu/spi-behaviour.vhd
     Info (12022): Found design unit 1: spi-behaviour
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/spi.vhd
+Info (12021): Found 1 design units, including 1 entities, in source file /users/robin/documents/github/dac/hardware/gpu/spi.vhd
     Info (12023): Found entity 1: spi
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/ramcontroller-behaviour.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/robin/documents/github/dac/hardware/gpu/ramcontroller-behaviour.vhd
     Info (12022): Found design unit 1: ramcontroller-behaviour
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/ramcontroller.vhd
+Info (12021): Found 1 design units, including 1 entities, in source file /users/robin/documents/github/dac/hardware/gpu/ramcontroller.vhd
     Info (12023): Found entity 1: ramcontroller
-Info (12021): Found 2 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/parameter_def_pkg.vhd
+Info (12021): Found 2 design units, including 0 entities, in source file /users/robin/documents/github/dac/hardware/gpu/parameter_def_pkg.vhd
     Info (12022): Found design unit 1: parameter_def
     Info (12022): Found design unit 2: parameter_def-body
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/gpu-structural.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/robin/documents/github/dac/hardware/gpu/gpu-structural.vhd
     Info (12022): Found design unit 1: gpu-structural
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/gpu.vhd
+Info (12021): Found 1 design units, including 1 entities, in source file /users/robin/documents/github/dac/hardware/gpu/gpu.vhd
     Info (12023): Found entity 1: gpu
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw-structural.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/robin/documents/github/dac/hardware/gpu/draw-structural.vhd
     Info (12022): Found design unit 1: draw-structural
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_rect-behaviour.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/robin/documents/github/dac/hardware/gpu/draw_rect-behaviour.vhd
     Info (12022): Found design unit 1: draw_rect-behaviour
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_rect.vhd
+Info (12021): Found 1 design units, including 1 entities, in source file /users/robin/documents/github/dac/hardware/gpu/draw_rect.vhd
     Info (12023): Found entity 1: draw_rect
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_pixel-behaviour.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/robin/documents/github/dac/hardware/gpu/draw_pixel-behaviour.vhd
     Info (12022): Found design unit 1: draw_pixel-behaviour
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_pixel.vhd
+Info (12021): Found 1 design units, including 1 entities, in source file /users/robin/documents/github/dac/hardware/gpu/draw_pixel.vhd
     Info (12023): Found entity 1: draw_pixel
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_fill-behaviour.vhd
-    Info (12022): Found design unit 1: draw_fill-behaviour
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw_fill.vhd
-    Info (12023): Found entity 1: draw_fill
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/draw.vhd
+Info (12021): Found 1 design units, including 1 entities, in source file /users/robin/documents/github/dac/hardware/gpu/draw.vhd
     Info (12023): Found entity 1: draw
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/decoder-behaviour.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /users/robin/documents/github/dac/hardware/gpu/decoder-behaviour.vhd
     Info (12022): Found design unit 1: decoder-behaviour
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/decoder.vhd
+Info (12021): Found 1 design units, including 1 entities, in source file /users/robin/documents/github/dac/hardware/gpu/decoder.vhd
     Info (12023): Found entity 1: decoder
 Info (12021): Found 2 design units, including 1 entities, in source file pre_vga_dac_4.vhd
     Info (12022): Found design unit 1: pre_vga_dac_4-signal_flow
@@ -452,17 +488,92 @@ Info (12128): Elaborating entity "spi" for hierarchy "gpu:inst2|spi:spi1"
 Info (12128): Elaborating entity "gen6mhz" for hierarchy "gen6mhz:inst1"
 Info (12128): Elaborating entity "ssegdecoder" for hierarchy "ssegdecoder:inst4"
 Info (12128): Elaborating entity "pre_vga_dac_4" for hierarchy "pre_vga_dac_4:inst"
+Warning (13027): Removed fan-outs from the following always-disabled I/O buffers
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramaddr[15]" to the node "RAMADDR[15]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramaddr[5]" to the node "RAMADDR[5]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramaddr[4]" to the node "RAMADDR[4]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramaddr[3]" to the node "RAMADDR[3]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramaddr[2]" to the node "RAMADDR[2]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramaddr[1]" to the node "RAMADDR[1]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramaddr[0]" to the node "RAMADDR[0]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramdata[5]" to the node "RAMDATA[5]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramdata[4]" to the node "RAMDATA[4]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramdata[3]" to the node "RAMDATA[3]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramdata[2]" to the node "RAMDATA[2]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramdata[1]" to the node "RAMDATA[1]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramdata[0]" to the node "RAMDATA[0]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramaddr[15]" to the node "RAMADDR[15]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramaddr[14]" to the node "RAMADDR[14]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramaddr[14]" to the node "RAMADDR[14]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramaddr[13]" to the node "RAMADDR[13]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramaddr[13]" to the node "RAMADDR[13]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramaddr[12]" to the node "RAMADDR[12]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramaddr[12]" to the node "RAMADDR[12]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramaddr[11]" to the node "RAMADDR[11]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramaddr[11]" to the node "RAMADDR[11]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramaddr[10]" to the node "RAMADDR[10]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramaddr[10]" to the node "RAMADDR[10]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramaddr[9]" to the node "RAMADDR[9]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramaddr[9]" to the node "RAMADDR[9]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramaddr[8]" to the node "RAMADDR[8]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramaddr[8]" to the node "RAMADDR[8]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramaddr[7]" to the node "RAMADDR[7]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramaddr[7]" to the node "RAMADDR[7]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramaddr[6]" to the node "RAMADDR[6]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramaddr[6]" to the node "RAMADDR[6]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramaddr[5]" to the node "RAMADDR[5]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramaddr[4]" to the node "RAMADDR[4]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramaddr[3]" to the node "RAMADDR[3]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramaddr[2]" to the node "RAMADDR[2]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramaddr[1]" to the node "RAMADDR[1]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|draw:draw1|draw_sprite:sprite1|ramaddr[0]" to the node "RAMADDR[0]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramdata[5]" to the node "RAMDATA[5]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramdata[4]" to the node "RAMDATA[4]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramdata[3]" to the node "RAMDATA[3]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramdata[2]" to the node "RAMDATA[2]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramdata[1]" to the node "RAMDATA[1]"
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "gpu:inst2|decoder:decoder1|ramdata[0]" to the node "RAMDATA[0]"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "segments[27]" is stuck at VCC
+    Warning (13410): Pin "segments[26]" is stuck at GND
+    Warning (13410): Pin "segments[25]" is stuck at GND
+    Warning (13410): Pin "segments[24]" is stuck at GND
+    Warning (13410): Pin "segments[23]" is stuck at GND
+    Warning (13410): Pin "segments[22]" is stuck at GND
+    Warning (13410): Pin "segments[21]" is stuck at GND
+    Warning (13410): Pin "segments[20]" is stuck at VCC
+    Warning (13410): Pin "segments[19]" is stuck at GND
+    Warning (13410): Pin "segments[18]" is stuck at GND
+    Warning (13410): Pin "segments[17]" is stuck at GND
+    Warning (13410): Pin "segments[16]" is stuck at GND
+    Warning (13410): Pin "segments[15]" is stuck at GND
+    Warning (13410): Pin "segments[14]" is stuck at GND
+    Warning (13410): Pin "segments[13]" is stuck at VCC
+    Warning (13410): Pin "segments[12]" is stuck at GND
+    Warning (13410): Pin "segments[11]" is stuck at GND
+    Warning (13410): Pin "segments[10]" is stuck at GND
+    Warning (13410): Pin "segments[9]" is stuck at GND
+    Warning (13410): Pin "segments[8]" is stuck at GND
+    Warning (13410): Pin "segments[7]" is stuck at GND
+    Warning (13410): Pin "segments[6]" is stuck at VCC
+    Warning (13410): Pin "segments[5]" is stuck at GND
+    Warning (13410): Pin "segments[4]" is stuck at GND
+    Warning (13410): Pin "segments[3]" is stuck at GND
+    Warning (13410): Pin "segments[2]" is stuck at GND
+    Warning (13410): Pin "segments[1]" is stuck at GND
+    Warning (13410): Pin "segments[0]" is stuck at GND
+Info (17049): 5 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 808 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 618 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
     Info (21059): Implemented 76 output pins
     Info (21060): Implemented 6 bidirectional pins
-    Info (21061): Implemented 715 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 500 megabytes
-    Info: Processing ended: Thu Dec 12 11:44:00 2013
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:04
+    Info (21061): Implemented 525 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 75 warnings
+    Info: Peak virtual memory: 510 megabytes
+    Info: Processing ended: Thu Dec 12 20:20:26 2013
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 
