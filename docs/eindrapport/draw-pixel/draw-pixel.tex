@@ -1,7 +1,7 @@
 \documentclass{scrartcl} % scrartcl of scrreprt
 \input{../../library/preamble.tex}
-\input{../../library/style.tex}
-\addbibresource{../../library/bibliography.bib}
+\input{../../../library/style.tex}
+
 
 \author{Kees Hogenhout \and Alex Janssen}
 \title{EPO3: Eindrapport - Draw-pixel}
@@ -12,7 +12,7 @@
 
 \subsection{VHDL-beschrijving}
 \subsubsection{Entity}
-Er is bij ontwerp al besproken hoe de signalen bij draw-pixel aankomen. Er moet alleen bij enable \& draw\_can\_access = hoog geschreven worden, waarbij draw\_write gedurende het schrijven hoog is. (voor de controller)  Nadat er geschreven is, moet done gedurende een klokslag hoog worden. De klok en de reset spreken voor zich. De x, y en color zijn waarden uit de Arduino waar in de behavioural adressen van gemaakt worden, die bij bovengenoemde voorwaarden in het RAM geschreven worden. Echter er moet alleen geschreven worden in het niet actieve RAM, dus als asb = 0.  Hiermee zijn alle in- en uitgangen in de entity beschreven en ook de voorwaarden waar de simulatie in Modelsim minimaal aan moet voldoen. 
+Er is bij ontwerp al besproken hoe de signalen bij draw-pixel aankomen. Er moet alleen bij enable \& draw\_can\_access = hoog geschreven worden, waarbij draw\_write gedurende het schrijven hoog is. (voor de controller)  Nadat er geschreven is, moet done gedurende een klokslag hoog worden. De klok en de reset spreken voor zich. De x(8 bits), y(7bits) en color(3 bits) zijn std\_logic\_vectoren uit de Arduino waar in de behavioural adressen van gemaakt worden, die bij bovengenoemde voorwaarden in het RAM geschreven worden. Echter er moet alleen geschreven worden in het niet actieve RAM, dus als asb = 0.  Hiermee zijn alle in- en uitgangen in de entity beschreven en ook de voorwaarden waar de simulatie in Modelsim minimaal aan moet voldoen. 
 
 \subsubsection{Behaviour}
 De behaviour is opgedeeld in een sequentieel gedeelte waar de state busy wordt opgeslagen en een combinatorisch gedeelte waar de signalen oe, draw\_write, done en de state worden bepaald. Oe is een tussensignaal op basis waarvan bepaald wordt of ramaddr en ramdata geschreven worden. Het is belangrijk dat de uitgangen Z worden indien oe = 1 niet klopt, omdat de draad waarop de uitgang gezet wordt een bidirectional bus is. Het sequentiele process wordt getriggered op de clk, het combinatorische process op een verandering in reset, enable, draw\_can\_access of busy. De belangijkste functie
@@ -37,23 +37,24 @@ In figuur \ref{fig:dpcircuit} hierboven zijn duidelijk alle tri-state buffers te
 \end{figure}
 
 \subsection{Testplan en resultaten}
- De simulatie op transistor niveau komt goed overeen met de resultaten van de oorspronkelijke VHDL simulatie zoals in de afbeeldingen hieronder te zien is.
+ De simulatie op transistor niveau komt goed overeen met de resultaten van de oorspronkelijke VHDL simulatie zoals in de afbeeldingen hieronder te zien is. Wanneer draw\_write naar '0' gaat, wordt done '1'  en ramaddr en ramdata 'Z'. Dat is volgens de specificaties. 
 \begin{figure} [h!]
 \includegraphics [width = \textwidth] {resource/dp_sim}
 \caption{VHDL simulatie}
-\label{fig:dpsim}
+\label{fig:dp_sim}
 \end{figure}
 
 \begin{figure} [h!]
 \includegraphics [width = \textwidth] {resource/dp_sw_lev}
 \caption{Simulatie op transistor niveau}
-\label{fig:dpswitchl}
+\label{fig:dp_sw_lev}
 \end{figure}
-Uit de afbeeldingen \ref{fig:dpsim} en \ref{fig:dpswitchl} valt te concluderen dat het blok werkt zoals het is ontworpen in VHDL. Tot slot is er nog de mogelijkheid tot vergelijking van de simulaties binnen Go With The Flow, dat leidde tot de resultaten hieronder.
+Uit de afbeeldingen \ref{fig:dp_sim} en \ref{fig:dp_sw_lev} valt te concluderen dat het blok werkt zoals het is ontworpen in VHDL. 1 klokslag nadat er een x, y en asb aan de ingangen wordt aangeboden, wordt er een stabiel ramadres aangeboden (klokslag 6-7). 1 klokslag daarna is done hoog. Omdat draw\_write 0 is geworden, gaat ramaddr als het goed is naar z
+ Tot slot is er nog de mogelijkheid tot vergelijking van de simulaties binnen Go With The Flow, dat leidde tot de resultaten hieronder.
 \begin{figure} [h!]
 \includegraphics [width = \textwidth] {resource/dp_comp}
 \caption{GWTF compare}
-\label{fig:dpcomp}
+\label{fig:dp_comp}
 \end{figure}
 Het bovenstaande is correct, aangezien alle x niet worden begrepen omdat dat 'Z' is. Verder functioneert het ook helemaal zoals verwacht.
 
