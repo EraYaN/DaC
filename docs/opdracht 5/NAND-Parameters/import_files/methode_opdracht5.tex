@@ -39,19 +39,19 @@ v(t) = v(\infty) + [v(0+) - v(\infty)]e\tsss{-t/$\tau$}
 Als we deze formule invullen krijgen we:
 
 \begin{equation}
-v(t) = V\tss{DD}(1 - e\tsss{-t/$\tau$\tss{n}})
+v(t) = 5V \cdot e\tsss{-t/$\tau$}
 \end{equation}
 
 Als we deze formules omschrijven krijgen we:
 
 \begin{equation}
-\tau = R\tss{eq}C\tss{eq} = \frac{-t}{ln(\frac{v(t)}{V\tss{DD}(0)})}
+\tau = R\tss{eq}C\tss{eq} = \frac{-t}{ln(\frac{v(t)}{5V})}
 \end{equation}
 
 Hierbij kan de waarde \emph{t} en de waarde \emph{v(t)} uit de spannings karakteristiek worden afgelezen, die is opgesteld tijdens de SPICE simulatie.
 
 %%%STAP 3%%%
-\item \textbf{\emph{C\tss{out}} en berekenen aan de hand van $\tau$}\\
+\item \textbf{\emph{C\tss{out}} berekenen aan de hand van $\tau$}\\
 Als laatst kan de \emph{C\tss{out}} en berekend worden d.m.v. de RC tijd:
 
 \begin{equation}
@@ -61,7 +61,7 @@ Als laatst kan de \emph{C\tss{out}} en berekend worden d.m.v. de RC tijd:
 Als we deze formule omschrijven krijgen we een functie die de \emph{C\tss{out}} kan bepalen:
 
 \begin{equation}
-C\tss{out} = \frac{-t}{R\tss{eq}ln(\frac{v(t)}{V\tss{DD}(0)})} - C\tss{load}
+C\tss{out} = \frac{-t}{R\tss{eq} ln(\frac{v(t)}{5V})} - C\tss{load}
 \end{equation}
 
 \end{enumerate}
