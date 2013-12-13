@@ -16,7 +16,7 @@ De instructiedecoder, of kortweg decoder is de drijvende kracht achter de GPU. D
 	\centering
 	\caption{Door de decoder ondersteunde instructies}
 	\label{tab:decoder-instruction}
-	\begin{tabular}{c c c l}
+	\begin{tabular}{c c c p{0.5\textwidth}}
 		\hline\hline
 		Code & Naam & Interne naam & Beschrijving \\
 		\hline
@@ -30,14 +30,16 @@ De instructiedecoder, of kortweg decoder is de drijvende kracht achter de GPU. D
 		111 & Load sprite & lsprite & Laadt de gegeven sprite in het VRAM rechthoek te tekenen met de gegeven kleur, breedte en hoogte \\
 		\end{tabular}
 \end{table}
+\small
+Een specificatie per instructie (het protocol) is gegeven in bijlage \ref{app:instructies}.
 
 %specs
 \subsection{Specificaties}
 
 \begin{table}[H]
 	\centering
-	\caption{Specificaties van de Insctructie Decoder (decoder)}
-	\label{tab:spec-decoder}
+	\caption{Specificaties van de instructiedecoder}
+	\label{tab:decoder-specs}
 	\begin{tabular}{c c c}
 		\hline\hline
 	 	Naam & Modus & Type\\
@@ -56,9 +58,11 @@ De instructiedecoder, of kortweg decoder is de drijvende kracht achter de GPU. D
 		en & buffer & std\_logic\_vector(NumDrawModules-1 downto 0)\\
 		asb & buffer & std\_logic \\ 
 		int\_ready & out & std\_logic \\
+		soft\_reset & out & std\_logic \\
 		decoder\_can\_access & in & std\_logic \\
+		decoder\_write & buffer & std\_logic \\
 		decoder\_claim & out & std\_logic \\
-		is\_init & out & std\_logic \\
+		is\_init & buffer & std\_logic \\
 		ramaddr & out & std\_logic\_vector(SizeRAMAddr-1 downto 0) \\
 		ramdata & out & std\_logic\_vector(SizeRAMData-1 downto 0) \\
 	  	\hline
@@ -67,11 +71,19 @@ De instructiedecoder, of kortweg decoder is de drijvende kracht achter de GPU. D
 
 %VHDL
 \subsection{VHDL}
-
+De decoder is geïmplementeerd als een FSM, al zijn sommige uitgangssignalen niet gebufferd, om registers te besparen. Het sequentiële deel van de FSM vernieuwt uiteraard alleen de (state) registers, waar het combinatorische gedeelte van de schakeling de daadwerkelijke instructieverwerking op zich neemt. In dit combinatorische gedeelte wordt afhankelijk van de huidige instructie, welke uit het eerste byte wat binnen komt over de SPI wordt afgeleid, en het huidige SPI-packet number bepaald wat voor informatie er ontvangen is. Voor pakketnummer 0 is dit bijvoorbeeld de instructie, voor nummer 1 de kleur, voor 2 het (eerste) x-coördinaat, enzovoort. Het type informatie per pakket verschilt uiteraard per instructie.
+\\\\
+Het combinatorische stuk van de decoder is grofweg op te delen is in drie stukken: het laden van sprites, het aansturen van de verschillende draw-modules en een stuk algemene controle.
+\\
+Bij het laden van sprites ontvangt de decoder enige relevante gegevens over die sprite, zoals de grootte en een aanwijzing over de locatie in het geheugen waar de sprite in kwestie moet worden opgeslagen. Als deze informatie binnen is worden de afzoderlijke pixels van de sprite (wel een pixel = `1', geen pixel = `0') ontvangen, waarna de decoder deze wegschrijft naar de juiste locatie in het VRAM.
+\\
+Wanneer er een draw-instructie binnenkomt verzamelt de decoder eerst alle informatie betreffende deze instructie, door deze gebufferd aan zijn uitgang te zetten. Daarna schakelt hij de module in kwestie in door het juiste bit in het enable-signaal hoog te maken.
+\\
+Het stuk algemene controle houdt in dat de decoder de CPU inlicht wanneer een draw-module zijn werk gedaan heeft en er dus een nieuwe instructie door mag komen. Ook houdt de decoder bij welk screen buffer actief is en kan hij een interne reset doorvoeren.
 
 %Testplan VHDL
 \subsection{Testplan}
-
+De decoder is getest met een testbench waarin SPI-data op de ingang van de decoder wordt gezet, voor iedere mogelijke instructie. Aan de waveform in ModelSim is dan vrij eenvoudig te zien of de module deze data dan ook vertaalt naar zinvolle instructies en hier naar handelt, of niet. Als dit zo is, kan de decoder samen met de overige modules in een grote GPU-testbench gesimuleerd worden en als ook dit lijkt te werken is het tijd voor een test op de FPGA. De decoder wordt niet afzonderlijk getest op de FPGA, omdat het veel werk zou zijn om hiervoor een implementatie en testprogramma te ontwerpen.
 
 %Synthese
 \subsection{Synthese}
