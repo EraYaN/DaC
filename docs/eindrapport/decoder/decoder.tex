@@ -3,12 +3,88 @@
 \input{../../library/style.tex}
 \addbibresource{../../library/bibliography.bib}
 
-\title{EPO3: Eindrapport - Decoder}
+\title{EPO3: Eindrapport - Instructiedecoder}
 \author{Robin Hes}
 
 \begin{document}
-\chapter{Decoder}
+\chapter{Instructiedecoder}
 \label{ch:decoder}
 
+De instructiedecoder, of kortweg decoder is de drijvende kracht achter de GPU. Deze module verwerkt alle input die binnenkomt over de SPI-interface en zet deze om naar instructies voor de draw-modules in de GPU of onderneemt zelf de vereiste actie, natuurlijk afhankelijk van de inkomende data. De decoder accepteert een vaste set instructies, deze is uitgezet in tabel \ref{tab:decoder-instruction}
+
+\begin{table}[H]
+	\centering
+	\caption{Door de decoder ondersteunde instructies}
+	\label{tab:decoder-instruction}
+	\begin{tabular}{c c c l}
+		\hline\hline
+		Code & Naam & Interne naam & Beschrijving \\
+		\hline
+		000 & Switch & switch & Schakelt over naar het andere screen buffer, het actieve screen buffer wordt intern bijgehouden, met een enkel register \\
+		001 & Soft reset & sreset & Reset de gehele GPU, de implementatie van deze reset kan, afhankelijk per module, verschillen van de standaard reset \\
+		010 & Draw pixel & pixel & Schakelt de draw-pixel module in om op de gegeven coördinaten een pixel te tekenen, met de gegeven kleur \\
+		011 & Draw rectangle & rect & Schakelt de draw-rect module in om op de gegeven coördinaten een rechthoek te tekenen met de gegeven kleur, breedte en hoogte \\
+		100 & Draw filled rectangle & frect & Schakelt de draw-filled-rect module in om op de gegeven coördinaten een gevulde rechthoek te tekenen, met de gegeven kleur, breedte en hoogte \\
+		101 & Draw line & line & Schakelt de draw-line module in om een lijn te tekenen van de eerste gegeven coördinaten naar de tweede gegeven coördinaten, met de gegeven kleur \\
+		110 & Draw sprite & sprite & Schakelt de draw-sprite module in om een sprite te tekenen op de gegeven coördinaten, met de gegeven kleur \\
+		111 & Load sprite & lsprite & Laadt de gegeven sprite in het VRAM rechthoek te tekenen met de gegeven kleur, breedte en hoogte \\
+		\end{tabular}
+\end{table}
+
+%specs
+\subsection{Specificaties}
+
+\begin{table}[H]
+	\centering
+	\caption{Specificaties van de Insctructie Decoder (decoder)}
+	\label{tab:spec-decoder}
+	\begin{tabular}{c c c}
+		\hline\hline
+	 	Naam & Modus & Type\\
+	 	\hline
+		clk & in & std\_logic \\
+		reset & in & std\_logic \\	
+		spi\_data\_rx & out & std\_logic\_vector(SizeSPIData-1 downto 0) \\
+		spi\_data\_available & in & std\_logic \\
+		draw\_ready & in & std\_logic\\ 	
+		x &  buffer & std\_logic\_vector(SizeX-1 downto 0) \\
+		w &  buffer & std\_logic\_vector(SizeX-1 downto 0) \\
+		y &  buffer & std\_logic\_vector(SizeY-1 downto 0) \\
+		h &  buffer & std\_logic\_vector(SizeY-1 downto 0) \\
+		color &  buffer & std\_logic\_vector(SizeColor-1 downto 0) \\
+		id &  buffer & std\_logic\_vector(SizeSpriteID-1 downto 0) \\
+		en & buffer & std\_logic\_vector(NumDrawModules-1 downto 0)\\
+		asb & buffer & std\_logic \\ 
+		int\_ready & out & std\_logic \\
+		decoder\_can\_access & in & std\_logic \\
+		decoder\_claim & out & std\_logic \\
+		is\_init & out & std\_logic \\
+		ramaddr & out & std\_logic\_vector(SizeRAMAddr-1 downto 0) \\
+		ramdata & out & std\_logic\_vector(SizeRAMData-1 downto 0) \\
+	  	\hline
+	\end{tabular}
+\end{table}
+
+%VHDL
+\subsection{VHDL}
+
+
+%Testplan VHDL
+\subsection{Testplan}
+
+
+%Synthese
+\subsection{Synthese}
+
+
+%Switchlevel test
+\subsection{Switchlevel}
+
+
+%Extracted test
+\subsection{Extracted}
+
+%Conclusie
+\subsection{Conclusie}
 
 \end{document}
