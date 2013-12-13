@@ -17,7 +17,7 @@
 \label{sec:drawpixel} % <-----fill in lable name
 
 % describe function of block
-Drawpixel is het blok dat het tekenen van een pixel implementeerd. Drawpixel ontvangt via de instructiedecoder std\_standard\_logic vectoren x , y en color van de CPU. In de specificaties wordt ingegaan  op de lengte van deze vectoren. In het gedeelte daaronder wordt de verdere implementatie en het testen beschreven.
+Drawpixel is het blok dat het tekenen van een pixel implementeert. Drawpixel ontvangt via de instructiedecoder std\_standard\_logic vectoren x , y en color van de CPU. In de specificaties wordt ingegaan  op de lengte van deze vectoren. In het gedeelte daaronder wordt de verdere implementatie en het testen beschreven.
 
 %specificaties blok (copy paste)
 \subsection{Specificaties}
@@ -63,34 +63,34 @@ De behaviour is opgedeeld in een sequentieel gedeelte waar de state 'busy' wordt
 De eerste test betreft het simuleren van de behaviour met een testbench. Dit betreft een lege entity en een behaviour waarin een x-vector, y-vector en color-vector aangeboden worden volgens de lengte in de package file. Er is gekozen om de modelsim-simulatie eenmalig per blok op te nemen. 
 \begin{figure} [h!]
 \centering
-\includegraphics [scale = 0.8] {resource/dp_sim}
+\includegraphics [scale = 0.7] {resource/dp_sim}
 \caption{Modelsim simulatie behavioural of drawpixel}
 \label{fig:dp_sim}
 \end{figure}
 
 %Synthese
 \subsection{Synthese}
-In figuur \ref{fig:dpcircuit} hierboven zijn duidelijk alle tri-state buffers te zien, zonder de flipflops erachter. Uiteindelijk is het circuit netjes gerout met een efficientie van 67,83\% en slechts 516 transistors. In overleg met Erwin is besloten het circuit deze vorm te geven. Drawpixel is namelijk een klein blok en goed te passen naast de grotere vierkante blokken op de chip in deze vorm. Dit zorgt wel voor meer transistoren, eerst was een efficientie van 85\% procent mogelijk. 
-
+De synthese is nog niet mogelijk vanwege een onbekende fout, waardoor parameters later nog kunnen veranderen. 
 
 %Switchlevel test
 \subsection{Switchlevel}
-Op switchlevel niveau wordt de simulatie op transistor niveau vergeleken met de simulatie op vhdl niveau. Hierbij wordt er vanuit de list-file een command file gemaakt. Vervolgens wordt via layout\simulate en show\_result een simulatie geopend. Nu kan figuur \ref{fig:dp_sim} hiermee op het oog vergeleken worden. De optie compare geeft de mogelijkheid om dit exact te doen met GoWithTheFlow. De ref-file van de simulatie in figuur \ref{fig:dp_sim} wordt dan vergeleken met de res-file van de switch level simulatie. Is de implementatie goed dan horen alle waardes overeen te komen, op de eerste na. In ons ontwerp bevinden zich echter 'Z'-uitgangen, die door de compare niet goed begrepen worden. De noodzaak van 'Z's is al toegelicht. 
+Op switchlevel niveau wordt de simulatie op transistor niveau vergeleken met de simulatie op vhdl niveau. Hierbij wordt er vanuit de list-file een command file gemaakt. Vervolgens wordt via layout\ simulate en show\_result een simulatie geopend. Nu kan figuur \ref{fig:dp_sim} hiermee op het oog vergeleken worden. De optie compare geeft de mogelijkheid om dit exact te doen met GoWithTheFlow. De ref-file van de simulatie in figuur \ref{fig:dp_sim} wordt dan vergeleken met de res-file van de switch level simulatie. Is de implementatie goed dan horen alle waardes overeen te komen, op de eerste na. In ons ontwerp bevinden zich echter 'Z'-uitgangen, die door de compare niet goed begrepen worden. De noodzaak van 'Z's is al toegelicht. 
+\\ \newline
+Er waren al figuren gemaakt, maar die kloppen dus niet
+
+%\begin{figure} [h!]
+%\includegraphics [width = \textwidth] {resource/dp_sw_lev}
+%\caption{Simulatie op transistor niveau}
+%\label{fig:dp_sw_lev}
+%\end{figure}
 
 
-\begin{figure} [h!]
-\includegraphics [width = \textwidth] {resource/dp_sw_lev}
-\caption{Simulatie op transistor niveau}
-\label{fig:dp_sw_lev}
-\end{figure}
 
-
-
-\begin{figure} [h!]
-\includegraphics [width = \textwidth] {resource/dp_comp}
-\caption{GWTF compare}
-\label{fig:dp_comp}
-\end{figure}
+%\begin{figure} [h!]
+%\includegraphics [width = \textwidth] {resource/dp_comp}
+%\caption{GWTF compare}
+%\label{fig:dp_comp}
+%\end{figure}
 
 
 
@@ -99,12 +99,12 @@ Op switchlevel niveau wordt de simulatie op transistor niveau vergeleken met de 
 
 %Extracted test
 \subsection{Extracted}
-Om 
+Om nog een extra test uit te voeren kan er uit de layout VHDL geëxtraheerd worden. Wanneer die vervolgens gesimuleerd wordt met modelsim, is te controleren of de schakeling op layoutniveau net zo werkt als op VHDL-niveau. 
 
 
 %Conclusie
 \subsection{Conclusie}
-Nadat de VHDL code als werkend kon worden beschouwd, moest de code worden gesynthetiseerd. In eerste instantie leverde dat 3000 transistoren op. Er is toen besloten de VHDL code op te delen in een sequentieel en een combinatorisch deel. Daarna is de code opnieuw gesynthetiseerd.  Echter na deze synthetisatie en ook wanneer er zelf blokken werden versleept kwamen we uit op 1500 transistors. Het grotere probleem was het feit dat hij hem moeilijk kon routen, maar na het circuit nader te bekijken zagen we dat er onnodig flipflops na da tri-state buffer kwamen, die vervolgens ook geen ‘Z’ konden opslaan. Dit zorgde voor de nodige errors, en een onnodig gebruik van extra flipflops. In de VHDL code hebben we vervolgens alle onnodige flipflops eruit gewerkt, waardoor alles in een keer werkte, en we dus ons uiteindelijke resultaat hebben behaald met slechts 516 transistors in plaats van 3000. 
+Alles was al gesimuleerd, gesynthetiseerd en getest toen bleek dat er meerdere pinnen voor de klok nodig zijn. Daardoor moest de kleur naar 3 bits. Nadat dat ook weer gesimuleerd, gesynthetiseerd en getest was bleek er ergens een fout te zitten, waardoor sprites niet werken. Pas als deze eruitgehaald is, en de nieuwe lengte van de color-vector bekend is, kan er weer gesynthetiseerd worden. Tot zover is dit verslag ook geschreven. 
 
 
 
