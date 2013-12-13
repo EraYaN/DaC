@@ -5,6 +5,8 @@ use work.parameter_def.all;
 
 architecture behaviour of decoder is
 	type instruction is (i_none, i_switch, i_reset, i_pixel, i_rect, i_frect, i_line, i_sprite, i_lsprite);
+	attribute enum_encoding : string;
+	attribute enum_encoding of instruction : type is "sequential";
 
 	--persistent signals
 	signal packet_num, next_packet_num : unsigned(SizeNumPackets-1 downto 0); --current packet number
@@ -117,7 +119,9 @@ begin
 					--elsif spi_data_rx(InstrSize-1 downto 0) = "111" then 
 					--	next_instruction <= lsprite;
 					else
+						done := '1';
 						next_instruction <= i_none;
+						next_int_ready <= '1';
 					end if;
 				else
 					done := '1';
