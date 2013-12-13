@@ -1,51 +1,31 @@
 \documentclass{article}  
-\input{../../../library/preamble}  
-\input{../../../library/style}  
+\input{../library/preamble}  
+\input{../library/style}  
 \begin{document}
 
 
 
-De volgende grafieken komen allemaal uit PSpice en geven de stroom door de belastings condensator weer uitgezet tegenover de tijd. Als eerste hebben we gesimuleerd voor het opladen van de condensator.
+De volgende grafieken komen allemaal uit PSpice en geven het voltage over de condensatoren weer uitgezet tegenover de tijd. De grafieken hieronder zijn voor het ontladen van een condensator die opgeladen was tot 5 Volt
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{figures/opladen1p}
-	\caption{Opladen van een 1pF condensator}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.4]{figures/opladen5p}
-	\caption{Opladen van een 5pF condensator}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.4]{figures/opladen10p}
-	\caption{Opladen van een 10pF condensator}
-\end{figure}
-
-Na het opladen van de condensator hebben we het ontladen van de condensator gesimuleerd.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.4]{figures/ontladen1p}
+	\includegraphics[scale=0.2]{../figures/c1pontladen}
 	\caption{Ontladen van een 1pF condensator}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{figures/ontladen5p}
+	\includegraphics[scale=0.2]{../figures/c5pontladen}
 	\caption{Ontladen van een 5pF condensator}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{figures/ontladen10p}
+	\includegraphics[scale=0.2]{../figures/c10pontladen}
 	\caption{Ontladen van een 10pF condensator}
 \end{figure}
 
-Uit deze grafieken hebben we de waarde van de stroom op tijdstip 0 bepaald en op een willekeurig andere tijdstip, met deze gegevens kan de equivalente weerstand van het PDN en de $C_{out}$ van de NAND-gate worden bepaald zoals beschreven in de theorie van dit verslag.
+Uit deze grafieken hebben we de waarde van de RC-tijd bepaald en met de simulatie hebben we ook de waarde van de begin stroom gevonden, hiermee kunnen we alle benodigde waardes uitrekenen.
 
 
 
