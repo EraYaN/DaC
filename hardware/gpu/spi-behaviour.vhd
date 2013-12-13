@@ -22,7 +22,7 @@ end process;
 
 spi_combi: process(reset,spi_mosi,spi_rx_data,spi_clk,sclk_old,index)
 begin
-	if (reset = '1') then
+	if reset = '1' then
 		next_spi_rx_data <= (others => '0');
 		next_index <= to_unsigned(SizeSPIData-1,c);
 		spi_data_available <= '0';

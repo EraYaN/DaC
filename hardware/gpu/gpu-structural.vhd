@@ -229,7 +229,7 @@ begin
 
 	spi1: spi port map (
 		clk=>clk,
-		reset=>reset,
+		reset=>sreset,
 		spi_clk=>spi_clk,
 		spi_mosi=>spi_mosi,
 		spi_data_available=>spi_data_available,
