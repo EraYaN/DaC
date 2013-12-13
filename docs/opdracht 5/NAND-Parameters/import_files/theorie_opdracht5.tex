@@ -21,10 +21,10 @@ Y = (AB)'
 
 Een van de keerzijden van deze manier van schakelen, is het feit dat de NAND poort een bepaalde vertraging kent om het nieuwe signaal op de uitgang te zetten. Deze vertraging kan opgesplitst worden in twee gevallen. Enerzijds, wanneer het uitgangssignaal van hoog naar laag moet (T\tss{HL}) en anderzijds, wanneer het uitgangssignaal van laag naar hoog moet (T\tss{LH}). Deze vertraging kan worden beschreven aan de hand van een interne capaciteit van de NAND poort en een equivalente weer stand van de NAND poort.\\
 
-Om de interne capaciteit te bepalen van de NAND poort zullen wij de capaciteit van het pull down netwerk bepalen,deze capaciteit is ten gevolge van T\tss{HL} . Om de capaciteit te bepalen van T\tss{HL} kan er gebruik worden gemaakt van het  circuit in figuur \ref{res:PDN_schakeling}, waarbij de beide ingangen gelijk zijn aan \emph{5V}. Het pull-up network (PUN) is dan dicht en het pull-down network (PDN) in geleiding. Deze capaciteit van het PDN wordt \emph{C\tss{out,n}} genoemd, waarbij de \emph{n} op de NMOS transistoren duidt. Ook staat er een capaciteit parallel aan de NAND poort die de capaciteit van een eventuele load simuleert (\emph{C\tss{load} = 1pF}) die in de schakeling als C2 staat geschreven.
+Om de interne capaciteit te bepalen van de NAND poort zullen wij de capaciteit van het pull down netwerk bepalen,deze capaciteit is ten gevolge van T\tss{HL} . Om de capaciteit te bepalen van T\tss{HL} kan er gebruik worden gemaakt van het  circuit in figuur \ref{res:PDN_schakeling}, waarbij de beide ingangen gelijk zijn aan \emph{5V}. Het pull-up network (PUN) is dan dicht en het pull-down network (PDN) in geleiding. Deze capaciteit van het PDN wordt \emph{C\tss{out}}. Ook staat er een capaciteit parallel aan de NAND poort die de capaciteit van een eventuele load simuleert (\emph{C\tss{load} = 1pF}) die in de schakeling als C2 staat geschreven.
 
 
-Verder wordt de vertragingstijd bepaal door de interne weerstand \emph{R\tss{eq,n}}  die op de interne weerstand van het PDN duidt.\\
+Verder wordt de vertragingstijd bepaal door de interne weerstand \emph{R\tss{eq}}  die op de interne weerstand van het PDN duidt.\\
 
 Hoe deze capaciteit en weerstand kunnen worden gesimuleerd en berekend, wordt uitgelegd in hoofdstuk 4 Methode.
 
