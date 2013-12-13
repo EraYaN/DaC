@@ -41,12 +41,11 @@ void GPULib::sendNextInstruction()
 	if (queueHead == NULL) return;
 	sending = true;
 	/*unsigned long time = millis();
-	while(millis()<time+5){
+	while(millis()<time+50){
 		//wait
 	}*/
 	for (int j=0; j<(queueHead->numPackets); j++)
-	{
-		
+	{		
 		/*Serial.print("Sent byte: ");
 		Serial.print(queueHead->packets[j],BIN);
 		Serial.print("; ");

@@ -46,7 +46,7 @@ void loop()
 			GPU->cleanUp();
 			//GPU->loadSprites(sprites_font6x8_set,95,&readyfornext);
 			//GPU->cleanUp();
-			GPU->drawFill(B000000);
+			//GPU->drawFill(B000000);
 			//GPU->transferQueue();
 			first = false;
 			//Serial.println("First Fill.");

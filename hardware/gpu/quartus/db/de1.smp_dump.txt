@@ -1,12 +1,12 @@
 
 State Machine - |top_de1|gpu:inst2|decoder:decoder1|current_instruction
-Name current_instruction.lsprite current_instruction.sprite current_instruction.line current_instruction.frect current_instruction.rect current_instruction.pixel current_instruction.sreset current_instruction.switch current_instruction.none 
-current_instruction.none 0 0 0 0 0 0 0 0 0 
-current_instruction.switch 0 0 0 0 0 0 0 1 1 
-current_instruction.sreset 0 0 0 0 0 0 1 0 1 
-current_instruction.pixel 0 0 0 0 0 1 0 0 1 
-current_instruction.rect 0 0 0 0 1 0 0 0 1 
-current_instruction.frect 0 0 0 1 0 0 0 0 1 
-current_instruction.line 0 0 1 0 0 0 0 0 1 
-current_instruction.sprite 0 1 0 0 0 0 0 0 1 
-current_instruction.lsprite 1 0 0 0 0 0 0 0 1 
+Name current_instruction.i_lsprite current_instruction.i_sprite current_instruction.i_line current_instruction.i_frect current_instruction.i_rect current_instruction.i_pixel current_instruction.i_reset current_instruction.i_switch current_instruction.i_none 
+current_instruction.i_none 0 0 0 0 0 0 0 0 0 
+current_instruction.i_switch 0 0 0 0 0 0 0 1 1 
+current_instruction.i_reset 0 0 0 0 0 0 1 0 1 
+current_instruction.i_pixel 0 0 0 0 0 1 0 0 1 
+current_instruction.i_rect 0 0 0 0 1 0 0 0 1 
+current_instruction.i_frect 0 0 0 1 0 0 0 0 1 
+current_instruction.i_line 0 0 1 0 0 0 0 0 1 
+current_instruction.i_sprite 0 1 0 0 0 0 0 0 1 
+current_instruction.i_lsprite 1 0 0 0 0 0 0 0 1 

@@ -4,7 +4,7 @@ use IEEE.numeric_std.all;
 use work.parameter_def.all;
 
 architecture behaviour of decoder is
-	type instruction is (none, switch, sreset, pixel, rect, frect, line, sprite, lsprite);
+	type instruction is (i_none, i_switch, i_reset, i_pixel, i_rect, i_frect, i_line, i_sprite, i_lsprite);
 
 	--persistent signals
 	signal packet_num, next_packet_num : unsigned(SizeNumPackets-1 downto 0); --current packet number
@@ -25,9 +25,9 @@ begin
 	ramaddr <= id & h(SizeSpriteCounter-1 downto 0) when decoder_write = '1' else (others => 'Z');
 	ramdata <= next_ramdata when decoder_write = '1' else (others => 'Z');
 	--debug shit
-	decoder_debug_pn <= (others => '0');
-	decoder_debug_i <= (others => '0');
-	decoder_debug_c <= (others => '0');
+	decoder_debug_pn <= '0' & std_logic_vector(packet_num);
+	decoder_debug_i <= std_logic_vector(to_unsigned(instruction'pos(current_instruction )-1, decoder_debug_i'length));
+	decoder_debug_c <= std_logic_vector(timeout_count)(23 downto 16);
 
 	--synchronizer + input buffer + output buffer + state change
 	decode_seq: process (clk)	
@@ -37,7 +37,7 @@ begin
 				--reset all registers
 				packet_num <= (others => '0');
 				timeout_count <= (others => '0');
-				current_instruction <= none;
+				current_instruction <= i_none;
 				x <= (others => '0');
 				y <= (others => '0');
 				w <= (others => '0');
@@ -47,7 +47,7 @@ begin
 				en <= (others => '0');
 				asb <= '0';
 				is_init <= '1';
-				int_ready <= '1';
+				int_ready <= '0';
 			else
 				--update all registers
 				packet_num <= next_packet_num;
@@ -94,34 +94,34 @@ begin
 		done := '0';
 
 		--action depending on state
-		if spi_data_available = '1' or current_instruction = switch or current_instruction = sreset then
+		if spi_data_available = '1' or current_instruction = i_switch or current_instruction = i_reset then
 			next_int_ready <= '0';
 			next_timeout_count <= (others => '0');
-			if current_instruction = none then
+			if current_instruction = i_none then
 				if packet_num = 0 then
 					--determine next instruction
 					if spi_data_rx(InstrSize-1 downto 0) = "000" then
-						 next_instruction <= switch;
+						 next_instruction <= i_switch;
 					elsif spi_data_rx(InstrSize-1 downto 0) = "001" then
-						next_instruction <= sreset;
+						next_instruction <= i_reset;
 					elsif spi_data_rx(InstrSize-1 downto 0) = "010" then 
-						next_instruction <= pixel;
+						next_instruction <= i_pixel;
 					elsif spi_data_rx(InstrSize-1 downto 0) = "011" then 
-						next_instruction <= rect;
+						next_instruction <= i_rect;
 					elsif spi_data_rx(InstrSize-1 downto 0) = "100" then 
-						next_instruction <= frect;
+						next_instruction <= i_frect;
 					elsif spi_data_rx(InstrSize-1 downto 0) = "101" then 
-						next_instruction <= line;
+						next_instruction <= i_line;
 					--elsif spi_data_rx(InstrSize-1 downto 0) = "110" then 
 					--	next_instruction <= sprite;
 					--elsif spi_data_rx(InstrSize-1 downto 0) = "111" then 
 					--	next_instruction <= lsprite;
 					else
-						next_instruction <= none;
+						next_instruction <= i_none;
 					end if;
 				else
 					done := '1';
-					next_instruction <= none;
+					next_instruction <= i_none;
 					next_int_ready <= '1';
 				end if;
 
@@ -129,17 +129,17 @@ begin
 					next_is_init <= '0';
 				end if;
 
-			elsif current_instruction = switch then
+			elsif current_instruction = i_switch then
 				next_asb <= not asb;
 				done := '1';
 				next_int_ready <= '1'; --inform CPU we're ready
-				next_instruction <= none;
-			elsif current_instruction = sreset then
+				next_instruction <= i_none;
+			elsif current_instruction = i_reset then
 				soft_reset <= '1';
 				done := '1';
 				next_int_ready <= '1';
-				next_instruction <= none;
-			elsif current_instruction = pixel then
+				next_instruction <= i_none;
+			elsif current_instruction = i_pixel then
 				if packet_num = 1 then
 					next_color <= spi_data_rx(SizeColor-1 downto 0);
 				elsif packet_num = 2 then
@@ -148,16 +148,16 @@ begin
 					next_y <= spi_data_rx(SizeY-1 downto 0);
 					--done
 					done := '1';
-					next_instruction <= none;
+					next_instruction <= i_none;
 					next_en(0) <= '1';
 				else
 					--shit broke
 					done := '1';
-					next_instruction <= none;
+					next_instruction <= i_none;
 					next_int_ready <= '1';
 				end if;
 
-			elsif current_instruction = rect or current_instruction = frect or current_instruction = line then
+			elsif current_instruction = i_rect or current_instruction = i_frect or current_instruction = i_line then
 				if packet_num = 1 then
 					next_color <= spi_data_rx(SizeColor-1 downto 0);
 				elsif packet_num = 2 then
@@ -170,21 +170,22 @@ begin
 					next_h <= spi_data_rx(SizeY-1 downto 0);
 					--done
 					done := '1';
-					next_instruction <= none;
-					if current_instruction = rect then
+					next_instruction <= i_none;
+					--next_packet_num <= to_unsigned(0,SizeNumPackets);
+					if current_instruction = i_rect then
 						next_en(1) <= '1';
-					elsif current_instruction = frect then
+					elsif current_instruction = i_frect then
 						next_en(2) <= '1';
-					elsif current_instruction = line then
+					elsif current_instruction = i_line then
 						next_en(3) <= '1';
 					end if;
 				else
 					--shit broke
 					done := '1';
-					next_instruction <= none;
+					next_instruction <= i_none;
 					next_int_ready <= '1';
 				end if;
-			elsif current_instruction = none then
+			elsif current_instruction = i_none then
 				--shit broke
 				done := '1';
 				next_int_ready <= '1';
@@ -193,20 +194,20 @@ begin
 			if done = '0' then
 				next_packet_num <= packet_num + 1;
 			else
-				next_packet_num <= (others => '0');
+				next_packet_num <= to_unsigned(0,SizeNumPackets);
 			end if;
 
 		elsif draw_ready = '1' then
 			next_en <= (others => '0');
 			next_int_ready <= '1';
 		elsif packet_num /= 0 then
-			if timeout_count /= TimeoutCount then
+			if timeout_count < TimeoutCount then
 				next_timeout_count <= timeout_count + 1;
 			else
 				next_timeout_count <= (others => '0');
-				--shit broke
+				-- shit broke
 				next_packet_num <= (others => '0');
-				next_instruction <= none;
+				next_instruction <= i_none;
 				next_int_ready <= '1';
 			end if;
 		end if;
