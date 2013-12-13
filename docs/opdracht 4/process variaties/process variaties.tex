@@ -13,9 +13,10 @@ Tu Hoang(4203496) \and Peter Stijnman (4215788) \and Alex Janssen (4231333) \\
 \begin{document}
 \maketitle
 
-\section{Samenvatting}
+\section{Abstract}
 
-Dit verslag gaat over process variaties tijdens de fabricage van transistoren die ervoor zorgen dat er een andere stroom gaat lopen door de transistor. Met een aantal parameters die kunnen variëren, Vdd, de drempelspanning, de dikte van de oxidelaag, de lengte en de breedte van de transistor, wordt er gesimuleerd en gekeken wat deze variaties tot gevolg hebben op de stroom door de transistor. Dit wordt gedaan met het programma PSpice. 
+Dit verslag gaat over process variaties tijdens de fabricage van transistoren die ervoor zorgen dat er een andere stroom gaat lopen door de transistor. Met een aantal parameters die kunnen variëren, Vdd, de drempelspanning, de dikte van de oxidelaag, de lengte en de breedte van de transistor, wordt er gesimuleerd en gekeken wat deze variaties tot gevolg hebben op de stroom door de transistor. Als uitkomst hebben we gekregen dat de lengte de grootste rol speelt in het vergroten van de stroom, bij een kleinere lengte komt een een grotere stroom.
+Bij de NMOS was de stroom $I_d$ =  0,005997 A variërend van -16% tot + 20%. voor PMOS conden wij een stroom voor $I_d$ = -0,00128  A  variërend van +13% tot -21%. Met negatieve percentages wordt bedoeld dat de stroom verder naar de nul gaat of verder de min in.
 
 \tableofcontents
 \clearpage
@@ -83,7 +84,7 @@ Voor de maximale waarde van de stroom moet dit natuurlijk precies andersom.
 
 \section{Aanpak}
 
-Om te kijken wat al deze variaties voor een invloed hebben gaan we eerst voor alle parameters apart kijken hoe de stroom door de transistor gaat veranderen. We willen dit zo duidelijk mogelijk in beeld brengen dus hebben voor elke parameter de maximale afwijking genomen om mee te simuleren. En als laatste kijken we wat de grootste en de kleinste stroom door de transistor kan zijn door deze afwijkingen.\\
+Om te kijken wat al deze variaties voor een invloed hebben gaan we eerst voor alle parameters apart kijken hoe de stroom door de transistor gaat veranderen. We willen dit zo duidelijk mogelijk in beeld brengen dus hebben voor elke parameter de maximale afwijking genomen om mee te simuleren. En als laatste kijken we wat de grootste en de kleinste stroom door de transistor kan zijn door deze afwijkingen.Als referentie transistor nemen we een perfect gemaakte transistor, dit betekent een transistor zonder afwijkingen.\\
 Het simuleren gaat met het programma PSpice en vanuit daar exporteren we de data naar een Excel sheet. Hier kunnen we duidelijk mooie leesbare grafieken maken en blijft alle data in de sheet zelf ook overzichtelijk.
 
 \clearpage
@@ -98,7 +99,7 @@ In PSpice hebben we een simpel circuit gesimuleerd met alleen maar de transistor
 	\caption {Transistor circuit}
 \end{figure}
 
-Verder hebben we bij het simuleren een DC-sweep gedaan zodat we voor een groter bereik van Vdd konden zien wat er met de stroom gebeurde.
+Verder hebben we bij het simuleren een transient analysis gedaan zodat we voor een groter bereik van Vdd konden zien wat er met de stroom gebeurde.
 Tijdens het simuleren moesten we de parameters van de transistor veranderen in de library file zodat PSpice met de juiste variaties werkte en zo hebben we het effect van alle parameters apart onderzocht en hebben we gekeken wat de maximale en de minimale stroom zou opleveren.Bij het veranderen van de parameters apart hielden we de rest van de waardes op de standaard ingestelde waardes van de library.
 
 \clearpage
@@ -180,9 +181,24 @@ als laatste hebben we gesimullerd voor de minimale en maximale stroom die door d
 	\caption{De minimale en maximale stroom door de PMOS}
 \end{figure}
 
+Hieronder zijn alle resultaten weergegeven in tabellen met de percentages van de afwijking van de normale stroom. Eerst voor de NMOS en daarna voor de PMOS transistor.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{nenhtabel}
+	\caption{Tabel met resultaten voor de NMOS}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{penhtabel}
+	\caption{Tabel met resultaten voor de PMOS}
+\end{figure}
+
 \section{Discussie}
 
 Zoals in de theorie is besproken gaven alle veranderingen in de parameters de juiste uitkomst, als je dus de lengte minimaliseerd wordt de stroom door de de transistor groter zoals ook in formule (1) verwacht zou worden. Dit gold dus voor alle parameters die we getest hebben. Wat wel opviel is dat het veranderen van de lengte met 0.1\textmu m veel meer effect op de stroom heeft dan de het veranderen dan de breedte met 0.1\textmu m dit verschil is goed te zien in figuren: 6, 7, 8, 9.\\
+In de tabellen zijn de exacte waardes te vinden die de grafieken ondersteunen.\\
 Ook valt het op dat alle verandering in de NMOS meer effect hebben op de stroom die er gaat lopen dan de verandereingen in de PMOS, dit komt omdat beide transistoren allebei evengroot zijn genomen en er door een PMOS dan altijd al minder stroom loopt dan door een NMOS en dus in verhouding ook een kleinere verandering zal optreden als een parameter afwijkt van de standaarwaarde.
 Met deze resultaten kan er bepaald worden wat de foutmarges mogen zijn bij het produceren van transistoren. En ook waar je rekening mee moet houden tijdens het ontwerpen van een transistor schakeling, dit wil zeggen dat het heel goed kan zijn dat de stroom die er gaat lopen door de transistor niet overeenkomt met wat er misschien verwacht wordt. Dus ook als men een transistor schakeling gaat ontwerpen in een simulatie omgeving zoals PSpice dat er met deze process variaties reken moet worden gehouden voor een betere kans dat de schakeling het ook daadwerkelijk doet als deze eenmaal gefabriceerd is.
 
