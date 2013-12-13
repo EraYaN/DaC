@@ -1,13 +1,78 @@
-\documentclass{scrartcl} % scrartcl of scrreprt
-\input{../../library/preamble.tex}
-\input{../../library/style.tex}
-\addbibresource{../../library/bibliography.bib}
+% Als je labels toe wilt voegen, doe het dan consequent
+% voor een section ---> \label{sec:name_of_block}
+%voor een subsection ---> \label{ssec:name_of_subsec}
+%voor een subsubsec --> \label{sssec:name_of_subsubsec} en zo door
 
-\author{}
-\title{EPO3: Eindrapport - Draw-rect}
+%Template voor elk apart blok EPO3 A4
+\documentclass{scrartcl} % scrartcl of scrreprt
+\input{../../library/preamble.tex} 
+\input{../../library/style.tex}
+
+
+\author{Efraïm Eland}% <------fill in your name
+\title{EPO3: Eindrapport - Draw-pixel}
 
 \begin{document}
-\section{Draw-rect}
-\label{sec:draw-rect}
+\section{Draw-rect} %<----- fill in section name
+\label{sec:draw-rect}  %<-----fill in lable name
+
+% describe function of block
+
+%specificaties blok (copy paste)
+\subsection{Specificaties}
+In deze module wordt een rechthoek getekend. De module tekent de rechthoek door middel van de x- en y- coördinaat van de linker- en rechterbovenhoek. Ook is het mogelijk om de rechthoek in een aangegeven kleur te tekenen.
+
+\begin{table}[H]
+\centering
+\caption{Specificaties van de Rectangle Draw Module}
+\label{tab:spec-rect-draw}
+\begin{tabular}{c c c}
+	\hline\hline
+ 	Naam & Modus & Type\\
+ 	\hline	
+	clk & in & std\_logic \\
+	reset & in & std\_logic \\
+	enable& in & std\_logic \\
+	enablef& in & std\_logic\\
+	x0 & in & std\_logic\_vector(SizeX-1 downto 0) \\
+	y0 & in & std\_logic\_vector(SizeY-1 downto 0) \\
+	x1 & in & std\_logic\_vector(SizeX-1 downto 0) \\
+	y1 & in & std\_logic\_vector(SizeY-1 downto 0) \\
+	color & in & std\_logic\_vector(SizeColor-1 downto 0) \\
+	asb & in & std\_logic \\
+	done & out & std\_logic \\
+	ramaddr &out & std\_logic\_vector(SizeRAMAddr-1 downto 0) \\
+	ramdata &out & std\_logic\_vector(SizeRAMData-1 downto 0) \\
+	draw\_write &out & std\_logic \\
+	draw\_can\_access & in & std\_logic \\
+  	\hline
+\end{tabular}
+\end{table}
+
+%VHDL
+\subsection{VHDL}
+In Appendix ? is de VHDL entity te vinden en in Appendix ? is de VHDL behaviour te zien. Zodra het ingangssignaal draw\_can\_access hoog is, is de RAM vrij om geschreven te worden en begint de module rechtsonderin met tekenen op coördinaat (x1,y1). De module zet op de actieve klokflank de huidige coördinaat op het uitgangssignaal ramaddr en zet de kleur op het uitgangssignaal ramdata. Ook wordt er aan de RAM controller doorgegeven dat de module de data van ramaddr en ramdata door wilt geven aan de RAM door middel van het signaal draw\_write. \\
+\\
+Vervolgens gaat de module een stap naar links maken en bevindt zich dan op het punt (x1 -1, y1). Deze stapjes worden net zolang herhaald, totdat de x-coördinaat het punt x0 heeft bereikt. Daarna wordt er een sprong terug gemaakt, één positie boven het punt waar de module is begonnen met tekenen, namelijk (x1, y1 -1). Vervolgens herhaalt het proces zich tot het punt (x0, y0) is bereikt. Afhankelijk van het ingangssignalen enable en enablef kan de rechthoek al dan niet worden ingekleurd.\\
+\\
+Nadat de module klaar is met het tekenen van de rechthoek, wordt het uitgangssignaal done hoog.
+
+%Testplan VHDL
+\subsection{Testplan}
+
+
+%Synthese
+\subsection{Synthese}
+
+
+%Switchlevel test
+\subsection{Switchlevel}
+
+
+%Extracted test
+\subsection{Extracted}
+
+%Conclusie
+\subsection{Conclusie}
 
 \end{document}
