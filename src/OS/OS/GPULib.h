@@ -34,6 +34,7 @@ public:
 
 	//draw
 	void switchScreenBuffer();
+	void gpuReset();
 	void drawFill(byte color);
 	void drawPixel(byte x, byte y, byte color);
 	void drawRect(byte x, byte y, byte w, byte h, byte color);

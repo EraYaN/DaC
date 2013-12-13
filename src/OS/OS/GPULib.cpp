@@ -40,13 +40,17 @@ void GPULib::sendNextInstruction()
 {
 	if (queueHead == NULL) return;
 	sending = true;
-	/*unsigned long time = millis();
-	while(millis()<time+50){
+	unsigned long time = micros();
+	while(micros()<time+500000){
 		//wait
-	}*/
+	}
 	for (int j=0; j<(queueHead->numPackets); j++)
-	{		
-		/*Serial.print("Sent byte: ");
+	{	
+		unsigned long time = micros();
+		while(micros()<time+250000){
+			//wait
+		}
+		Serial.print("Sent byte: ");
 		Serial.print(queueHead->packets[j],BIN);
 		Serial.print("; ");
 		Serial.print(j+1);
@@ -54,7 +58,7 @@ void GPULib::sendNextInstruction()
 		Serial.print(queueHead->numPackets);
 		Serial.print(" @ 0x");
 		Serial.println((unsigned int)queueHead, HEX);
-		Serial.flush();*/
+		Serial.flush();
 		SPI.transfer(queueHead->packets[j]);		
 	}
 	shiftQueue();
@@ -85,13 +89,16 @@ void GPULib::switchScreenBuffer()
 	appendInstructionToQueue(instr);
 }
 
+void GPULib::gpuReset()
+{
+	Instruction *instr = new Instruction(1);
+	instr->packets[0] = 1;
+	appendInstructionToQueue(instr);
+}
+
 void GPULib::drawFill(byte color)
 {
-	drawFilledRect(0, 0, XMAX, YMAX, color);
-	/*Instruction *instr = new Instruction(2);
-	instr->packets[0] = 1;
-	instr->packets[1] = color;
-	appendInstructionToQueue(instr);*/
+	drawFilledRect(0, 0, XMAX, YMAX, color);	
 }
 
 void GPULib::drawPixel(byte x, byte y, byte color)

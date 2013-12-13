@@ -39,7 +39,7 @@ public:
 			}
 			int x = random(1,XMAX-1);
 			int y = random(1,YMAX-1);
-			points[p] = new Point(x,y,dx,dy,random(1,64));
+			points[p] = new Point(x,y,dx,dy,random(8,64));
 		}
 	};
 	void start();
