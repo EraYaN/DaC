@@ -9,7 +9,7 @@ architecture behaviour of decoder is
 	--persistent signals
 	signal packet_num, next_packet_num : unsigned(SizeNumPackets-1 downto 0); --current packet number
 	signal current_instruction, next_instruction : instruction; --current instruction
-	--signal timeout_count, next_timeout_count : unsigned(SizeTimeoutCounter-1 downto 0);
+	signal timeout_count, next_timeout_count : unsigned(SizeTimeoutCounter-1 downto 0);
 	signal next_ramdata : std_logic_vector(SizeRAMData-1 downto 0);
 
 	signal next_x, next_w : std_logic_vector(SizeX-1 downto 0);
@@ -21,7 +21,7 @@ architecture behaviour of decoder is
 
 begin
 	--"asynchronous" RAM interaction
-	decoder_claim <= '0';
+	decoder_claim <= is_init;
 	ramaddr <= id & h(SizeSpriteCounter-1 downto 0) when decoder_write = '1' else (others => 'Z');
 	ramdata <= next_ramdata when decoder_write = '1' else (others => 'Z');
 	--debug shit
@@ -36,7 +36,7 @@ begin
 			if reset = '1' then
 				--reset all registers
 				packet_num <= (others => '0');
-				--timeout_count <= (others => '1');
+				timeout_count <= (others => '0');
 				current_instruction <= none;
 				x <= (others => '0');
 				y <= (others => '0');
@@ -51,7 +51,7 @@ begin
 			else
 				--update all registers
 				packet_num <= next_packet_num;
-				--timeout_count <= next_timeout_count;
+				timeout_count <= next_timeout_count;
 				current_instruction <= next_instruction;
 				x <= next_x;
 				y <= next_y;
@@ -67,7 +67,7 @@ begin
 		end if;
 	end process;
 
-	decode_comb: process (x, y, w, h, id, color, en, asb, is_init, int_ready, draw_ready, spi_data_available, spi_data_rx, current_instruction, packet_num, decoder_can_access)
+	decode_comb: process (x, y, w, h, id, color, en, asb, is_init, int_ready, draw_ready, spi_data_available, spi_data_rx, current_instruction, packet_num, decoder_can_access, timeout_count)
 		variable done : std_logic;		
 	begin
 		--defaults for buffered signals
@@ -83,7 +83,7 @@ begin
 		next_int_ready <= int_ready;
 		next_instruction <= current_instruction;
 		next_packet_num <= packet_num;
-		--next_timeout_count <= timeout_count;
+		next_timeout_count <= timeout_count;
 	
 		--defaults for non-buffered signals
 		decoder_write <= '0';
@@ -94,22 +94,16 @@ begin
 		done := '0';
 
 		--action depending on state
-		if spi_data_available = '1' then
+		if spi_data_available = '1' or current_instruction = switch or current_instruction = sreset then
 			next_int_ready <= '0';
-			--next_timeout_count <= (others => '1');
+			next_timeout_count <= (others => '0');
 			if current_instruction = none then
 				if packet_num = 0 then
 					--determine next instruction
 					if spi_data_rx(InstrSize-1 downto 0) = "000" then
-						next_asb <= not asb;
-						done := '1';
-						next_int_ready <= '1'; --inform CPU we're ready
-						next_instruction <= none; 
+						 next_instruction <= switch;
 					elsif spi_data_rx(InstrSize-1 downto 0) = "001" then
-						soft_reset <= '1';
-						done := '1';
-						next_int_ready <= '1';
-						next_instruction <= none;
+						next_instruction <= sreset;
 					elsif spi_data_rx(InstrSize-1 downto 0) = "010" then 
 						next_instruction <= pixel;
 					elsif spi_data_rx(InstrSize-1 downto 0) = "011" then 
@@ -134,6 +128,17 @@ begin
 				if spi_data_rx(InstrSize-1 downto 0) /= "111" then
 					next_is_init <= '0';
 				end if;
+
+			elsif current_instruction = switch then
+				next_asb <= not asb;
+				done := '1';
+				next_int_ready <= '1'; --inform CPU we're ready
+				next_instruction <= none;
+			elsif current_instruction = sreset then
+				soft_reset <= '1';
+				done := '1';
+				next_int_ready <= '1';
+				next_instruction <= none;
 			elsif current_instruction = pixel then
 				if packet_num = 1 then
 					next_color <= spi_data_rx(SizeColor-1 downto 0);
@@ -194,16 +199,16 @@ begin
 		elsif draw_ready = '1' then
 			next_en <= (others => '0');
 			next_int_ready <= '1';
-		elsif int_ready = '1' then
-			-- if timeout_count /= 0 then
-			-- 	next_timeout_count <= timeout_count - 1;
-			-- else
-			-- 	next_timeout_count <= (others => '1');
-			-- 	shit broke
-			-- 	next_packet_num <= (others => '0');
-			-- 	next_instruction <= none;
-			-- 	next_int_ready <= '1';
-			-- end if;
+		elsif packet_num /= 0 then
+			if timeout_count /= TimeoutCount then
+				next_timeout_count <= timeout_count + 1;
+			else
+				next_timeout_count <= (others => '0');
+				--shit broke
+				next_packet_num <= (others => '0');
+				next_instruction <= none;
+				next_int_ready <= '1';
+			end if;
 		end if;
 	end process;
 

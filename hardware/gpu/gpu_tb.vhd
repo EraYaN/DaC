@@ -159,29 +159,29 @@ sr: sram port map (
 		wait until rising_edge(clk);
 		sendByte("00000000",spi_mosi,spiclk_en, spibyte); -- switch screenbuffers --byte 26
 		--wait until rising_edge(int_ready); --this one is too fast
-		wait until rising_edge(clk);
-		wait until rising_edge(clk);
-		sendByte("00000001",spi_mosi,spiclk_en, spibyte); -- fill with 0000 (black)	--byte 27		
-		sendByte("00000000",spi_mosi,spiclk_en, spibyte); -- black  --byte 28
-		wait until rising_edge(int_ready);
-		wait until rising_edge(clk);
+		--wait until rising_edge(clk);
+		--wait until rising_edge(clk);
+		-- sendByte("00000001",spi_mosi,spiclk_en, spibyte); -- fill with 0000 (black)	--byte 27		
+		-- sendByte("00000000",spi_mosi,spiclk_en, spibyte); -- black  --byte 28
+		--wait until rising_edge(int_ready);
+		--wait until rising_edge(clk);
 		sendByte("00000101",spi_mosi,spiclk_en, spibyte); -- line --byte 29
 		sendByte("00111111",spi_mosi,spiclk_en, spibyte); -- white --byte 30
 		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- X0 = 40 --byte 31
 		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- Y0 = 50 --byte 32
 		sendByte("01111000",spi_mosi,spiclk_en, spibyte); -- X1 = 120 --byte 33
 		sendByte("01010000",spi_mosi,spiclk_en, spibyte); -- Y1 = 80 --byte 34
-		wait until rising_edge(int_ready);
-		wait until rising_edge(clk);
-		sendByte("00000110",spi_mosi,spiclk_en, spibyte); -- sprite --byte 35
-		sendByte("00010101",spi_mosi,spiclk_en, spibyte); -- greyish --byte 36
-		sendByte("00001000",spi_mosi,spiclk_en, spibyte); -- X = 16 --byte 37
-		sendByte("00001000",spi_mosi,spiclk_en, spibyte); -- Y = 16 --byte 38
-		sendByte("00000110",spi_mosi,spiclk_en, spibyte); -- W = 6 --byte 39
-		sendByte("00100000",spi_mosi,spiclk_en, spibyte); -- sprite len (8) and 2MSB addr --byte 40
-		sendByte("00000011",spi_mosi,spiclk_en, spibyte); -- sprite 8LSB addr --byte 41
-		wait until rising_edge(int_ready);	
-		wait until rising_edge(clk);		
+		-- wait until int_ready = '1';
+		-- wait until rising_edge(clk);
+		-- sendByte("00000110",spi_mosi,spiclk_en, spibyte); -- sprite --byte 35
+		-- sendByte("00010101",spi_mosi,spiclk_en, spibyte); -- greyish --byte 36
+		-- sendByte("00001000",spi_mosi,spiclk_en, spibyte); -- X = 16 --byte 37
+		-- sendByte("00001000",spi_mosi,spiclk_en, spibyte); -- Y = 16 --byte 38
+		-- sendByte("00000110",spi_mosi,spiclk_en, spibyte); -- W = 6 --byte 39
+		-- sendByte("00100000",spi_mosi,spiclk_en, spibyte); -- sprite len (8) and 2MSB addr --byte 40
+		-- sendByte("00000011",spi_mosi,spiclk_en, spibyte); -- sprite 8LSB addr --byte 41
+		-- wait until int_ready = '1';
+		-- wait until rising_edge(clk);		
 		--finish
 		dump <= TRUE;
 		wait until rising_edge(clk);
