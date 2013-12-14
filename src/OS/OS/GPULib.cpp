@@ -40,17 +40,13 @@ void GPULib::sendNextInstruction()
 {
 	if (queueHead == NULL) return;
 	sending = true;
-	unsigned long time = micros();
-	while(micros()<time+500000){
+	/*unsigned long time = micros();
+	while(micros()<time+500){
 		//wait
-	}
+	}*/
 	for (int j=0; j<(queueHead->numPackets); j++)
 	{	
-		unsigned long time = micros();
-		while(micros()<time+250000){
-			//wait
-		}
-		Serial.print("Sent byte: ");
+		/*Serial.print("Sent byte: ");
 		Serial.print(queueHead->packets[j],BIN);
 		Serial.print("; ");
 		Serial.print(j+1);
@@ -58,7 +54,7 @@ void GPULib::sendNextInstruction()
 		Serial.print(queueHead->numPackets);
 		Serial.print(" @ 0x");
 		Serial.println((unsigned int)queueHead, HEX);
-		Serial.flush();
+		Serial.flush();*/
 		SPI.transfer(queueHead->packets[j]);		
 	}
 	shiftQueue();

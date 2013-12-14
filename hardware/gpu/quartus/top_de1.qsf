@@ -143,7 +143,7 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 
 		# Incremental Compilation Assignments
 		# ===================================
-		set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 		set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 		set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 
@@ -223,4 +223,12 @@ set_location_assignment PIN_D22 -to VGACOLOR[2]
 set_location_assignment PIN_E22 -to VGACOLOR[3]
 set_location_assignment PIN_F22 -to VGACOLOR[4]
 set_location_assignment PIN_G22 -to VGACOLOR[5]
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim (VHDL)"
+set_global_assignment -name EDA_USER_COMPILED_SIMULATION_LIBRARY_DIRECTORY "C:\\Users\\Erwin\\Documents\\GitHub\\DaC\\hardware\\gpu" -section_id eda_simulation
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name USE_SIGNALTAP_FILE stp_de1.stp
+set_global_assignment -name SIGNALTAP_FILE stp1.stp
+set_global_assignment -name SIGNALTAP_FILE stp_de1.stp
+set_global_assignment -name SLD_FILE "C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/quartus/stp_de1_auto_stripped.stp"
+set_global_assignment -name CYCLONEII_OPTIMIZATION_TECHNIQUE AREA
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -1,5 +1,5 @@
 Assembler report for top_de1
-Fri Dec 13 20:47:05 2013
+Sat Dec 14 18:52:04 2013
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Dec 13 20:47:05 2013 ;
+; Assembler Status      ; Successful - Sat Dec 14 18:52:04 2013 ;
 ; Revision Name         ; top_de1                               ;
 ; Top-level Entity Name ; top_de1                               ;
 ; Family                ; Cyclone II                            ;
@@ -94,8 +94,8 @@ applicable agreement for further details.
 ; Option         ; Setting                                                                       ;
 +----------------+-------------------------------------------------------------------------------+
 ; Device         ; EP2C20F484C7                                                                  ;
-; JTAG usercode  ; 0x0021CA76                                                                    ;
-; Checksum       ; 0x0021CA76                                                                    ;
+; JTAG usercode  ; 0x002180F9                                                                    ;
+; Checksum       ; 0x002180F9                                                                    ;
 +----------------+-------------------------------------------------------------------------------+
 
 
@@ -106,7 +106,7 @@ applicable agreement for further details.
 +--------------------+---------------------------------------------------------------------------+
 ; Device             ; EPCS4                                                                     ;
 ; JTAG usercode      ; 0x00000000                                                                ;
-; Checksum           ; 0x05E834CA                                                                ;
+; Checksum           ; 0x05E676E5                                                                ;
 ; Compression Ratio  ; 3                                                                         ;
 +--------------------+---------------------------------------------------------------------------+
 
@@ -117,14 +117,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Dec 13 20:47:02 2013
+    Info: Processing started: Sat Dec 14 18:52:02 2013
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off de1 -c top_de1
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 422 megabytes
-    Info: Processing ended: Fri Dec 13 20:47:05 2013
-    Info: Elapsed time: 00:00:03
+    Info: Peak virtual memory: 442 megabytes
+    Info: Processing ended: Sat Dec 14 18:52:04 2013
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 

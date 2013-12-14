@@ -28,8 +28,7 @@ ENTITY vgacontroller IS
 		ramdata : IN std_logic_vector(SizeRAMData-1 downto 0);
 		vga_read : OUT STD_LOGIC;
 		vga_can_access : in std_logic;
-		asb : IN STD_LOGIC;
-		vgacolor : out std_logic_vector(SizeColor-1 downto 0)
+		asb : IN STD_LOGIC
 	); 
 	 
 END vgacontroller;

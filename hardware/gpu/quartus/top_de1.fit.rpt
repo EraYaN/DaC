@@ -1,5 +1,5 @@
 Fitter report for top_de1
-Fri Dec 13 20:47:01 2013
+Sat Dec 14 18:52:01 2013
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -63,17 +63,17 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Fri Dec 13 20:47:01 2013           ;
+; Fitter Status                      ; Successful - Sat Dec 14 18:52:01 2013           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; top_de1                                         ;
 ; Top-level Entity Name              ; top_de1                                         ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 584 / 18,752 ( 3 % )                            ;
-;     Total combinational functions  ; 581 / 18,752 ( 3 % )                            ;
-;     Dedicated logic registers      ; 158 / 18,752 ( < 1 % )                          ;
-; Total registers                    ; 158                                             ;
+; Total logic elements               ; 553 / 18,752 ( 3 % )                            ;
+;     Total combinational functions  ; 544 / 18,752 ( 3 % )                            ;
+;     Dedicated logic registers      ; 145 / 18,752 ( < 1 % )                          ;
+; Total registers                    ; 145                                             ;
 ; Total pins                         ; 93 / 315 ( 30 % )                               ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 239,616 ( 0 % )                             ;
@@ -133,15 +133,22 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------------------+--------------------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 8      ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ; < 0.1%      ;
+;     Processors 5-8         ;   0.0%      ;
++----------------------------+-------------+
 
 
 +----------------------------------------------+
@@ -150,8 +157,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Type                ; Value                  ;
 +---------------------+------------------------+
 ; Placement (by node) ;                        ;
-;     -- Requested    ; 0 / 837 ( 0.00 % )     ;
-;     -- Achieved     ; 0 / 837 ( 0.00 % )     ;
+;     -- Requested    ; 0 / 787 ( 0.00 % )     ;
+;     -- Achieved     ; 0 / 787 ( 0.00 % )     ;
 ;                     ;                        ;
 ; Routing (by net)    ;                        ;
 ;     -- Requested    ; 0 / 0 ( 0.00 % )       ;
@@ -174,7 +181,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 ; Partition Name                 ; # Nodes ; # Preserved Nodes ; Preservation Level Used ; Netlist Type Used ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
-; Top                            ; 834     ; 0                 ; N/A                     ; Source File       ;
+; Top                            ; 784     ; 0                 ; N/A                     ; Source File       ;
 ; hard_block:auto_generated_inst ; 3       ; 0                 ; N/A                     ; Source File       ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 
@@ -190,26 +197,26 @@ The pin-out file can be found in C:/Users/Erwin/Documents/GitHub/DaC/hardware/gp
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Total logic elements                        ; 584 / 18,752 ( 3 % )   ;
-;     -- Combinational with no register       ; 426                    ;
-;     -- Register only                        ; 3                      ;
-;     -- Combinational with a register        ; 155                    ;
+; Total logic elements                        ; 553 / 18,752 ( 3 % )   ;
+;     -- Combinational with no register       ; 408                    ;
+;     -- Register only                        ; 9                      ;
+;     -- Combinational with a register        ; 136                    ;
 ;                                             ;                        ;
 ; Logic element usage by number of LUT inputs ;                        ;
-;     -- 4 input functions                    ; 250                    ;
-;     -- 3 input functions                    ; 205                    ;
-;     -- <=2 input functions                  ; 126                    ;
-;     -- Register only                        ; 3                      ;
+;     -- 4 input functions                    ; 266                    ;
+;     -- 3 input functions                    ; 153                    ;
+;     -- <=2 input functions                  ; 125                    ;
+;     -- Register only                        ; 9                      ;
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 424                    ;
-;     -- arithmetic mode                      ; 157                    ;
+;     -- normal mode                          ; 405                    ;
+;     -- arithmetic mode                      ; 139                    ;
 ;                                             ;                        ;
-; Total registers*                            ; 158 / 19,649 ( < 1 % ) ;
-;     -- Dedicated logic registers            ; 158 / 18,752 ( < 1 % ) ;
+; Total registers*                            ; 145 / 19,649 ( < 1 % ) ;
+;     -- Dedicated logic registers            ; 145 / 18,752 ( < 1 % ) ;
 ;     -- I/O registers                        ; 0 / 897 ( 0 % )        ;
 ;                                             ;                        ;
-; Total LABs:  partially or completely used   ; 44 / 1,172 ( 4 % )     ;
+; Total LABs:  partially or completely used   ; 41 / 1,172 ( 3 % )     ;
 ; Virtual pins                                ; 0                      ;
 ; I/O pins                                    ; 93 / 315 ( 30 % )      ;
 ;     -- Clock pins                           ; 1 / 8 ( 13 % )         ;
@@ -225,11 +232,11 @@ The pin-out file can be found in C:/Users/Erwin/Documents/GitHub/DaC/hardware/gp
 ; ASMI blocks                                 ; 0 / 1 ( 0 % )          ;
 ; CRC blocks                                  ; 0 / 1 ( 0 % )          ;
 ; Average interconnect usage (total/H/V)      ; 1% / 1% / 1%           ;
-; Peak interconnect usage (total/H/V)         ; 6% / 5% / 6%           ;
-; Maximum fan-out                             ; 155                    ;
-; Highest non-global fan-out                  ; 108                    ;
-; Total fan-out                               ; 2486                   ;
-; Average fan-out                             ; 2.96                   ;
+; Peak interconnect usage (total/H/V)         ; 4% / 3% / 5%           ;
+; Maximum fan-out                             ; 142                    ;
+; Highest non-global fan-out                  ; 84                     ;
+; Total fan-out                               ; 2352                   ;
+; Average fan-out                             ; 2.98                   ;
 +---------------------------------------------+------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -242,25 +249,25 @@ The pin-out file can be found in C:/Users/Erwin/Documents/GitHub/DaC/hardware/gp
 +---------------------------------------------+-----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                   ; Low                            ;
 ;                                             ;                       ;                                ;
-; Total logic elements                        ; 584 / 18752 ( 3 % )   ; 0 / 18752 ( 0 % )              ;
-;     -- Combinational with no register       ; 426                   ; 0                              ;
-;     -- Register only                        ; 3                     ; 0                              ;
-;     -- Combinational with a register        ; 155                   ; 0                              ;
+; Total logic elements                        ; 553 / 18752 ( 3 % )   ; 0 / 18752 ( 0 % )              ;
+;     -- Combinational with no register       ; 408                   ; 0                              ;
+;     -- Register only                        ; 9                     ; 0                              ;
+;     -- Combinational with a register        ; 136                   ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic element usage by number of LUT inputs ;                       ;                                ;
-;     -- 4 input functions                    ; 250                   ; 0                              ;
-;     -- 3 input functions                    ; 205                   ; 0                              ;
-;     -- <=2 input functions                  ; 126                   ; 0                              ;
-;     -- Register only                        ; 3                     ; 0                              ;
+;     -- 4 input functions                    ; 266                   ; 0                              ;
+;     -- 3 input functions                    ; 153                   ; 0                              ;
+;     -- <=2 input functions                  ; 125                   ; 0                              ;
+;     -- Register only                        ; 9                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic elements by mode                      ;                       ;                                ;
-;     -- normal mode                          ; 424                   ; 0                              ;
-;     -- arithmetic mode                      ; 157                   ; 0                              ;
+;     -- normal mode                          ; 405                   ; 0                              ;
+;     -- arithmetic mode                      ; 139                   ; 0                              ;
 ;                                             ;                       ;                                ;
-; Total registers                             ; 158                   ; 0                              ;
-;     -- Dedicated logic registers            ; 158 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
+; Total registers                             ; 145                   ; 0                              ;
+;     -- Dedicated logic registers            ; 145 / 18752 ( < 1 % ) ; 0 / 18752 ( 0 % )              ;
 ;                                             ;                       ;                                ;
-; Total LABs:  partially or completely used   ; 44 / 1172 ( 4 % )     ; 0 / 1172 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 41 / 1172 ( 3 % )     ; 0 / 1172 ( 0 % )               ;
 ;                                             ;                       ;                                ;
 ; Virtual pins                                ; 0                     ; 0                              ;
 ; I/O pins                                    ; 93                    ; 0                              ;
@@ -276,8 +283,8 @@ The pin-out file can be found in C:/Users/Erwin/Documents/GitHub/DaC/hardware/gp
 ;     -- Registered Output Connections        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Internal Connections                        ;                       ;                                ;
-;     -- Total Connections                    ; 2486                  ; 0                              ;
-;     -- Registered Connections               ; 881                   ; 0                              ;
+;     -- Total Connections                    ; 2352                  ; 0                              ;
+;     -- Registered Connections               ; 853                   ; 0                              ;
 ;                                             ;                       ;                                ;
 ; External Connections                        ;                       ;                                ;
 ;     -- Top                                  ; 0                     ; 0                              ;
@@ -309,7 +316,7 @@ The pin-out file can be found in C:/Users/Erwin/Documents/GitHub/DaC/hardware/gp
 +-------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 ; Name        ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
 +-------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
-; SPICLK      ; J20   ; 5        ; 50           ; 16           ; 1           ; 4                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; SPICLK      ; J20   ; 5        ; 50           ; 16           ; 1           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; SPIMOSI     ; K20   ; 5        ; 50           ; 17           ; 2           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; VGACOLOR[0] ; B20   ; 4        ; 48           ; 27           ; 2           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; VGACOLOR[1] ; C22   ; 5        ; 50           ; 24           ; 1           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
@@ -319,7 +326,7 @@ The pin-out file can be found in C:/Users/Erwin/Documents/GitHub/DaC/hardware/gp
 ; VGACOLOR[5] ; G22   ; 5        ; 50           ; 19           ; 0           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; clock_50mhz ; L1    ; 2        ; 0            ; 13           ; 0           ; 1                     ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; debug_in    ; R21   ; 6        ; 50           ; 10           ; 2           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; reset       ; R22   ; 6        ; 50           ; 10           ; 1           ; 108                   ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; reset       ; R22   ; 6        ; 50           ; 10           ; 1           ; 84                    ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 +-------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
 
@@ -412,12 +419,12 @@ The pin-out file can be found in C:/Users/Erwin/Documents/GitHub/DaC/hardware/gp
 +------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------------+------------+----------+--------------+--------------+------------------+-------------+----------------------+------+------------------------------------------------------+---------------------+
 ; Name       ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Output Register ; Output Enable Register ; Power Up High ; PCI I/O Enabled ; Open Drain ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination ; Location assigned by ; Load ; Output Enable Source                                 ; Output Enable Group ;
 +------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------------+------------+----------+--------------+--------------+------------------+-------------+----------------------+------+------------------------------------------------------+---------------------+
-; RAMDATA[0] ; B19   ; 4        ; 46           ; 27           ; 0           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~0 ; -                   ;
-; RAMDATA[1] ; B18   ; 4        ; 46           ; 27           ; 2           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~0 ; -                   ;
-; RAMDATA[2] ; B16   ; 4        ; 33           ; 27           ; 0           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~0 ; -                   ;
-; RAMDATA[3] ; B15   ; 4        ; 33           ; 27           ; 2           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~0 ; -                   ;
-; RAMDATA[4] ; B14   ; 4        ; 29           ; 27           ; 0           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~0 ; -                   ;
-; RAMDATA[5] ; B13   ; 4        ; 26           ; 27           ; 0           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~0 ; -                   ;
+; RAMDATA[0] ; B19   ; 4        ; 46           ; 27           ; 0           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~2 ; -                   ;
+; RAMDATA[1] ; B18   ; 4        ; 46           ; 27           ; 2           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~2 ; -                   ;
+; RAMDATA[2] ; B16   ; 4        ; 33           ; 27           ; 0           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~2 ; -                   ;
+; RAMDATA[3] ; B15   ; 4        ; 33           ; 27           ; 2           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~2 ; -                   ;
+; RAMDATA[4] ; B14   ; 4        ; 29           ; 27           ; 0           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~2 ; -                   ;
+; RAMDATA[5] ; B13   ; 4        ; 26           ; 27           ; 0           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~2 ; -                   ;
 +------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------------+------------+----------+--------------+--------------+------------------+-------------+----------------------+------+------------------------------------------------------+---------------------+
 
 
@@ -972,19 +979,19 @@ Note: User assignments will override these defaults. The user specified values a
 +--------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------+--------------+
 ; Compilation Hierarchy Node           ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                             ; Library Name ;
 +--------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------+--------------+
-; |top_de1                             ; 584 (3)     ; 158 (0)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 93   ; 0            ; 426 (3)      ; 3 (0)             ; 155 (0)          ; |top_de1                                        ; work         ;
+; |top_de1                             ; 553 (3)     ; 145 (0)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 93   ; 0            ; 408 (3)      ; 9 (0)             ; 136 (0)          ; |top_de1                                        ; work         ;
 ;    |gen6mhz:inst1|                   ; 3 (3)       ; 3 (3)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 3 (3)            ; |top_de1|gen6mhz:inst1                          ; work         ;
-;    |gpu:inst2|                       ; 540 (0)     ; 155 (0)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 385 (0)      ; 3 (0)             ; 152 (0)          ; |top_de1|gpu:inst2                              ; work         ;
-;       |decoder:decoder1|             ; 149 (149)   ; 81 (81)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 67 (67)      ; 3 (3)             ; 79 (79)          ; |top_de1|gpu:inst2|decoder:decoder1             ; work         ;
-;       |draw:draw1|                   ; 310 (2)     ; 44 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 245 (2)      ; 0 (0)             ; 65 (0)           ; |top_de1|gpu:inst2|draw:draw1                   ; work         ;
-;          |draw_line:line1|           ; 212 (212)   ; 26 (26)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 165 (165)    ; 0 (0)             ; 47 (47)          ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1   ; work         ;
-;          |draw_pixel:pixel1|         ; 17 (17)     ; 1 (1)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 16 (16)      ; 0 (0)             ; 1 (1)            ; |top_de1|gpu:inst2|draw:draw1|draw_pixel:pixel1 ; work         ;
-;          |draw_rect:rect1|           ; 79 (79)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 62 (62)      ; 0 (0)             ; 17 (17)          ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1   ; work         ;
-;       |ramcontroller:ramcontroller1| ; 4 (4)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 0 (0)            ; |top_de1|gpu:inst2|ramcontroller:ramcontroller1 ; work         ;
-;       |spi:spi1|                     ; 15 (15)     ; 12 (12)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 12 (12)          ; |top_de1|gpu:inst2|spi:spi1                     ; work         ;
-;       |vgacontroller:vgacontroller1| ; 84 (84)     ; 18 (18)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 66 (66)      ; 0 (0)             ; 18 (18)          ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1 ; work         ;
+;    |gpu:inst2|                       ; 506 (2)     ; 142 (0)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 364 (2)      ; 9 (0)             ; 133 (0)          ; |top_de1|gpu:inst2                              ; work         ;
+;       |decoder:decoder1|             ; 123 (123)   ; 64 (64)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 58 (58)      ; 3 (3)             ; 62 (62)          ; |top_de1|gpu:inst2|decoder:decoder1             ; work         ;
+;       |draw:draw1|                   ; 301 (2)     ; 44 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 232 (1)      ; 1 (0)             ; 68 (1)           ; |top_de1|gpu:inst2|draw:draw1                   ; work         ;
+;          |draw_line:line1|           ; 202 (202)   ; 26 (26)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 153 (153)    ; 0 (0)             ; 49 (49)          ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1   ; work         ;
+;          |draw_pixel:pixel1|         ; 3 (3)       ; 1 (1)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 1 (1)             ; 0 (0)            ; |top_de1|gpu:inst2|draw:draw1|draw_pixel:pixel1 ; work         ;
+;          |draw_rect:rect1|           ; 95 (95)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 76 (76)      ; 0 (0)             ; 19 (19)          ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1   ; work         ;
+;       |ramcontroller:ramcontroller1| ; 3 (3)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; |top_de1|gpu:inst2|ramcontroller:ramcontroller1 ; work         ;
+;       |spi:spi1|                     ; 18 (18)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 5 (5)             ; 11 (11)          ; |top_de1|gpu:inst2|spi:spi1                     ; work         ;
+;       |vgacontroller:vgacontroller1| ; 85 (85)     ; 18 (18)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 67 (67)      ; 0 (0)             ; 18 (18)          ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1 ; work         ;
 ;    |pre_vga_dac_4:inst|              ; 6 (6)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (6)        ; 0 (0)             ; 0 (0)            ; |top_de1|pre_vga_dac_4:inst                     ; work         ;
-;    |ssegdecoder:inst4|               ; 32 (32)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 32 (32)      ; 0 (0)             ; 0 (0)            ; |top_de1|ssegdecoder:inst4                      ; work         ;
+;    |ssegdecoder:inst4|               ; 35 (35)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 35 (35)      ; 0 (0)             ; 0 (0)            ; |top_de1|ssegdecoder:inst4                      ; work         ;
 +--------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1115,9 +1122,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - gpu:inst2|draw:draw1|draw_line:line1|setup               ; 1                 ; 6       ;
 ;      - gpu:inst2|decoder:decoder1|en[3]                         ; 1                 ; 6       ;
 ;      - gpu:inst2|decoder:decoder1|int_ready                     ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|current_instruction[2]        ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|current_instruction[1]        ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|current_instruction[0]        ; 1                 ; 6       ;
 ;      - gpu:inst2|decoder:decoder1|x[7]                          ; 1                 ; 6       ;
 ;      - gpu:inst2|decoder:decoder1|x[6]                          ; 1                 ; 6       ;
 ;      - gpu:inst2|decoder:decoder1|x[5]                          ; 1                 ; 6       ;
@@ -1149,76 +1153,53 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - gpu:inst2|decoder:decoder1|h[6]                          ; 1                 ; 6       ;
 ;      - gpu:inst2|vgacontroller:vgacontroller1|vgahsync~0        ; 1                 ; 6       ;
 ;      - gpu:inst2|vgacontroller:vgacontroller1|vgavsync~0        ; 1                 ; 6       ;
-;      - gpu:inst2|ramcontroller:ramcontroller1|write_enable~0    ; 1                 ; 6       ;
 ;      - gpu:inst2|ramcontroller:ramcontroller1|draw_can_access~0 ; 1                 ; 6       ;
-;      - gpu:inst2|draw:draw1|draw_pixel:pixel1|done~0            ; 1                 ; 6       ;
-;      - gpu:inst2|draw:draw1|draw_rect:rect1|draw_write~0        ; 1                 ; 6       ;
+;      - gpu:inst2|draw:draw1|draw_pixel:pixel1|draw_write~0      ; 1                 ; 6       ;
+;      - gpu:inst2|draw:draw1|draw_rect:rect1|draw_write~1        ; 1                 ; 6       ;
+;      - gpu:inst2|ramcontroller:ramcontroller1|write_enable~1    ; 1                 ; 6       ;
 ;      - pre_vga_dac_4:inst|vga_b[3]~0                            ; 1                 ; 6       ;
 ;      - pre_vga_dac_4:inst|vga_b[1]~1                            ; 1                 ; 6       ;
 ;      - pre_vga_dac_4:inst|vga_g[3]~0                            ; 1                 ; 6       ;
 ;      - pre_vga_dac_4:inst|vga_g[1]~1                            ; 1                 ; 6       ;
 ;      - pre_vga_dac_4:inst|vga_r[3]~0                            ; 1                 ; 6       ;
 ;      - pre_vga_dac_4:inst|vga_r[1]~1                            ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|h_count[6]~18     ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|h_count[2]~18     ; 1                 ; 6       ;
 ;      - gpu:inst2|vgacontroller:vgacontroller1|new_v_count[0]~1  ; 1                 ; 6       ;
 ;      - gpu:inst2|vgacontroller:vgacontroller1|new_v_count[1]~2  ; 1                 ; 6       ;
 ;      - gpu:inst2|vgacontroller:vgacontroller1|new_v_count[9]~3  ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|v_count[3]~0      ; 1                 ; 6       ;
 ;      - gpu:inst2|vgacontroller:vgacontroller1|v_count[3]~1      ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|spi_data_available~0                  ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|en~6                          ; 1                 ; 6       ;
+;      - gpu:inst2|draw:draw1|draw_pixel:pixel1|done~0            ; 1                 ; 6       ;
+;      - gpu:inst2|decoder:decoder1|en~4                          ; 1                 ; 6       ;
 ;      - gpu:inst2|draw:draw1|draw_rect:rect1|cy_tmp[0]~0         ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|int_ready~3                   ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|next_spi_rx_data[7]~0                 ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|spi_rx_data[2]~0                      ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|next_spi_rx_data[6]~1                 ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|next_spi_rx_data[5]~2                 ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|next_spi_rx_data[4]~3                 ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|next_spi_rx_data[3]~4                 ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|next_spi_rx_data[2]~5                 ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|next_spi_rx_data[1]~6                 ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|next_spi_rx_data[0]~7                 ; 1                 ; 6       ;
-;      - gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~17    ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|timeout_count[1]~84           ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|timeout_count[1]~86           ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|packet_num[0]~5               ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|packet_num[0]~6               ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|next_index[2]~1                       ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|next_index[1]~2                       ; 1                 ; 6       ;
-;      - gpu:inst2|draw:draw1|draw_line:line1|cx[3]~3             ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|w~0                           ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|w[3]~2                        ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|w~3                           ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|w~4                           ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|w~5                           ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|w~6                           ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|w~7                           ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|w~8                           ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|w~9                           ; 1                 ; 6       ;
+;      - gpu:inst2|sreset~0                                       ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~19    ; 1                 ; 6       ;
+;      - gpu:inst2|decoder:decoder1|timeout_count[13]~0           ; 1                 ; 6       ;
+;      - gpu:inst2|decoder:decoder1|timeout_count[13]~2           ; 1                 ; 6       ;
+;      - gpu:inst2|decoder:decoder1|current_instruction~2         ; 1                 ; 6       ;
+;      - gpu:inst2|decoder:decoder1|current_instruction[2]~5      ; 1                 ; 6       ;
+;      - gpu:inst2|decoder:decoder1|current_instruction~6         ; 1                 ; 6       ;
+;      - gpu:inst2|decoder:decoder1|current_instruction~7         ; 1                 ; 6       ;
+;      - gpu:inst2|decoder:decoder1|packet_num[0]~2               ; 1                 ; 6       ;
+;      - gpu:inst2|decoder:decoder1|prev_spi_data_available~0     ; 1                 ; 6       ;
+;      - gpu:inst2|draw:draw1|draw_line:line1|cx[3]~0             ; 1                 ; 6       ;
+;      - gpu:inst2|decoder:decoder1|w[7]~12                       ; 1                 ; 6       ;
 ;      - gpu:inst2|decoder:decoder1|h~2                           ; 1                 ; 6       ;
-;      - gpu:inst2|draw:draw1|draw_rect:rect1|cx[4]~7             ; 1                 ; 6       ;
-;      - gpu:inst2|decoder:decoder1|x~3                           ; 1                 ; 6       ;
+;      - gpu:inst2|draw:draw1|draw_rect:rect1|cx[6]~1             ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|vga_claim~0       ; 1                 ; 6       ;
+;      - gpu:inst2|decoder:decoder1|x~2                           ; 1                 ; 6       ;
 ;      - gpu:inst2|decoder:decoder1|y~1                           ; 1                 ; 6       ;
 ;      - gpu:inst2|decoder:decoder1|color~0                       ; 1                 ; 6       ;
-;      - gpu:inst2|draw:draw1|draw_line:line1|Add10~23            ; 1                 ; 6       ;
-;      - gpu:inst2|draw:draw1|draw_rect:rect1|Add0~35             ; 1                 ; 6       ;
-;      - gpu:inst2|draw:draw1|draw_rect:rect1|Add0~36             ; 1                 ; 6       ;
-;      - gpu:inst2|draw:draw1|draw_rect:rect1|Add0~37             ; 1                 ; 6       ;
-;      - gpu:inst2|draw:draw1|draw_rect:rect1|Add0~38             ; 1                 ; 6       ;
-;      - gpu:inst2|draw:draw1|draw_rect:rect1|Add0~39             ; 1                 ; 6       ;
-;      - gpu:inst2|draw:draw1|draw_rect:rect1|Add0~40             ; 1                 ; 6       ;
-;      - gpu:inst2|draw:draw1|draw_rect:rect1|Add0~41             ; 1                 ; 6       ;
+;      - gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~51    ; 1                 ; 6       ;
+;      - gpu:inst2|decoder:decoder1|packet_num[0]~5               ; 1                 ; 6       ;
 ;      - reset~_wirecell                                          ; 1                 ; 6       ;
 ;      - debug4                                                   ; 1                 ; 6       ;
 ; debug_in                                                        ;                   ;         ;
 ;      - inst6                                                    ; 0                 ; 6       ;
 ; SPICLK                                                          ;                   ;         ;
-;      - gpu:inst2|spi:spi1|sclk_old                              ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|spi_data_available~1                  ; 1                 ; 6       ;
-;      - gpu:inst2|spi:spi1|spi_rx_data[2]~0                      ; 1                 ; 6       ;
+;      - gpu:inst2|spi:spi1|sclk_latched~0                        ; 1                 ; 6       ;
 ;      - debug5                                                   ; 1                 ; 6       ;
 ; SPIMOSI                                                         ;                   ;         ;
-;      - gpu:inst2|spi:spi1|next_spi_rx_data[0]~7                 ; 0                 ; 6       ;
+;      - gpu:inst2|spi:spi1|mosi_latched~0                        ; 0                 ; 6       ;
 ;      - debug6                                                   ; 0                 ; 6       ;
 ; VGACOLOR[0]                                                     ;                   ;         ;
 ;      - pre_vga_dac_4:inst|vga_b[3]~0                            ; 1                 ; 6       ;
@@ -1227,9 +1208,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; VGACOLOR[2]                                                     ;                   ;         ;
 ;      - pre_vga_dac_4:inst|vga_g[3]~0                            ; 0                 ; 6       ;
 ; VGACOLOR[3]                                                     ;                   ;         ;
-;      - pre_vga_dac_4:inst|vga_g[1]~1                            ; 1                 ; 6       ;
+;      - pre_vga_dac_4:inst|vga_g[1]~1                            ; 0                 ; 6       ;
 ; VGACOLOR[4]                                                     ;                   ;         ;
-;      - pre_vga_dac_4:inst|vga_r[3]~0                            ; 0                 ; 6       ;
+;      - pre_vga_dac_4:inst|vga_r[3]~0                            ; 1                 ; 6       ;
 ; VGACOLOR[5]                                                     ;                   ;         ;
 ;      - pre_vga_dac_4:inst|vga_r[1]~1                            ; 0                 ; 6       ;
 ; clock_50mhz                                                     ;                   ;         ;
@@ -1242,24 +1223,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                                                  ; Location           ; Fan-Out ; Usage                    ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +-------------------------------------------------------+--------------------+---------+--------------------------+--------+----------------------+------------------+---------------------------+
 ; clock_50mhz                                           ; PIN_L1             ; 3       ; Clock                    ; yes    ; Global Clock         ; GCLK2            ; --                        ;
-; gen6mhz:inst1|count[2]                                ; LCFF_X45_Y14_N15   ; 155     ; Clock                    ; yes    ; Global Clock         ; GCLK6            ; --                        ;
-; gpu:inst2|decoder:decoder1|color~0                    ; LCCOMB_X30_Y14_N28 ; 6       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
-; gpu:inst2|decoder:decoder1|en~6                       ; LCCOMB_X30_Y17_N16 ; 4       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
-; gpu:inst2|decoder:decoder1|h~2                        ; LCCOMB_X29_Y16_N14 ; 6       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
-; gpu:inst2|decoder:decoder1|int_ready~3                ; LCCOMB_X30_Y17_N20 ; 4       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
-; gpu:inst2|decoder:decoder1|timeout_count[1]~85        ; LCCOMB_X27_Y19_N0  ; 32      ; Sync. clear              ; no     ; --                   ; --               ; --                        ;
-; gpu:inst2|decoder:decoder1|timeout_count[1]~86        ; LCCOMB_X27_Y19_N22 ; 32      ; Clock enable             ; no     ; --                   ; --               ; --                        ;
-; gpu:inst2|decoder:decoder1|w[3]~2                     ; LCCOMB_X30_Y14_N24 ; 8       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
-; gpu:inst2|decoder:decoder1|x~3                        ; LCCOMB_X30_Y14_N20 ; 8       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
-; gpu:inst2|decoder:decoder1|y~1                        ; LCCOMB_X30_Y14_N2  ; 7       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~23         ; LCCOMB_X34_Y16_N2  ; 7       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
-; gpu:inst2|draw:draw1|draw_line:line1|err[5]~6         ; LCCOMB_X32_Y16_N16 ; 10      ; Clock enable             ; no     ; --                   ; --               ; --                        ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|cy_tmp[0]~2      ; LCCOMB_X33_Y18_N0  ; 7       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
-; gpu:inst2|spi:spi1|spi_rx_data[2]~0                   ; LCCOMB_X29_Y15_N18 ; 11      ; Clock enable             ; no     ; --                   ; --               ; --                        ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count[6]~18  ; LCCOMB_X35_Y17_N28 ; 17      ; Clock enable, Sync. load ; no     ; --                   ; --               ; --                        ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~0  ; LCCOMB_X35_Y18_N16 ; 15      ; Output enable            ; no     ; --                   ; --               ; --                        ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~19 ; LCCOMB_X35_Y18_N18 ; 16      ; Output enable            ; no     ; --                   ; --               ; --                        ;
-; reset                                                 ; PIN_R22            ; 108     ; Sync. clear, Sync. load  ; no     ; --                   ; --               ; --                        ;
+; gen6mhz:inst1|count[2]                                ; LCFF_X24_Y23_N31   ; 142     ; Clock                    ; yes    ; Global Clock         ; GCLK10           ; --                        ;
+; gpu:inst2|decoder:decoder1|color~0                    ; LCCOMB_X23_Y20_N30 ; 6       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|decoder:decoder1|current_instruction[2]~5   ; LCCOMB_X19_Y20_N18 ; 3       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|decoder:decoder1|en~4                       ; LCCOMB_X19_Y20_N12 ; 4       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|decoder:decoder1|h~2                        ; LCCOMB_X20_Y20_N2  ; 6       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|decoder:decoder1|timeout_count[13]~1        ; LCCOMB_X10_Y20_N6  ; 14      ; Sync. clear              ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|decoder:decoder1|timeout_count[13]~2        ; LCCOMB_X19_Y20_N30 ; 14      ; Clock enable             ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|decoder:decoder1|w[7]~12                    ; LCCOMB_X22_Y19_N26 ; 8       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|decoder:decoder1|x~2                        ; LCCOMB_X23_Y20_N22 ; 8       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|decoder:decoder1|y~1                        ; LCCOMB_X23_Y20_N14 ; 7       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~3          ; LCCOMB_X21_Y17_N6  ; 7       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|draw:draw1|draw_line:line1|cx[3]~0          ; LCCOMB_X20_Y17_N18 ; 27      ; Sync. clear              ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|draw:draw1|draw_line:line1|err[0]~5         ; LCCOMB_X25_Y17_N2  ; 10      ; Clock enable             ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|cy_tmp[0]~2      ; LCCOMB_X21_Y16_N16 ; 7       ; Clock enable             ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|spi:spi1|spi_rx_data[4]~0                   ; LCCOMB_X24_Y20_N20 ; 12      ; Clock enable             ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|sreset                                      ; LCCOMB_X24_Y20_N2  ; 16      ; Sync. clear              ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|sreset~0                                    ; LCCOMB_X23_Y20_N6  ; 9       ; Sync. clear              ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count[2]~18  ; LCCOMB_X21_Y18_N4  ; 17      ; Clock enable, Sync. load ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~2  ; LCCOMB_X23_Y16_N10 ; 15      ; Output enable            ; no     ; --                   ; --               ; --                        ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~51 ; LCCOMB_X24_Y23_N6  ; 16      ; Output enable            ; no     ; --                   ; --               ; --                        ;
+; reset                                                 ; PIN_R22            ; 84      ; Sync. clear, Sync. load  ; no     ; --                   ; --               ; --                        ;
 +-------------------------------------------------------+--------------------+---------+--------------------------+--------+----------------------+------------------+---------------------------+
 
 
@@ -1269,7 +1253,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                   ; Location         ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------------------------+------------------+---------+----------------------+------------------+---------------------------+
 ; clock_50mhz            ; PIN_L1           ; 3       ; Global Clock         ; GCLK2            ; --                        ;
-; gen6mhz:inst1|count[2] ; LCFF_X45_Y14_N15 ; 155     ; Global Clock         ; GCLK6            ; --                        ;
+; gen6mhz:inst1|count[2] ; LCFF_X24_Y23_N31 ; 142     ; Global Clock         ; GCLK10           ; --                        ;
 +------------------------+------------------+---------+----------------------+------------------+---------------------------+
 
 
@@ -1278,74 +1262,69 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------+---------+
 ; Name                                                     ; Fan-Out ;
 +----------------------------------------------------------+---------+
-; reset                                                    ; 108     ;
-; gpu:inst2|decoder:decoder1|current_instruction[2]        ; 44      ;
-; gpu:inst2|decoder:decoder1|timeout_count[1]~86           ; 32      ;
-; gpu:inst2|decoder:decoder1|timeout_count[1]~85           ; 32      ;
+; reset                                                    ; 84      ;
+; gpu:inst2|decoder:decoder1|current_instruction[2]        ; 41      ;
 ; gpu:inst2|decoder:decoder1|current_instruction[1]        ; 32      ;
-; gpu:inst2|decoder:decoder1|current_instruction[0]        ; 30      ;
-; gpu:inst2|draw:draw1|draw_line:line1|cx[3]~3             ; 26      ;
+; gpu:inst2|decoder:decoder1|current_instruction[0]        ; 31      ;
+; gpu:inst2|draw:draw1|draw_line:line1|cx[3]~0             ; 27      ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|almost_done         ; 26      ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|started             ; 26      ;
 ; gpu:inst2|draw:draw1|draw_line:line1|setup               ; 23      ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|cx[4]~0             ; 20      ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|cx[6]~1             ; 20      ;
 ; gpu:inst2|decoder:decoder1|packet_num[0]                 ; 20      ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|almost_done         ; 20      ;
-; gpu:inst2|decoder:decoder1|packet_num[1]                 ; 19      ;
+; gpu:inst2|decoder:decoder1|packet_num[1]                 ; 20      ;
 ; gpu:inst2|decoder:decoder1|packet_num[2]                 ; 19      ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|done~0            ; 18      ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|busy              ; 18      ;
-; gpu:inst2|decoder:decoder1|decoder_claim                 ; 18      ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~17    ; 17      ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count[6]~18     ; 17      ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|draw_write~1        ; 17      ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|draw_write~1        ; 18      ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|cy_tmp[0]~0         ; 17      ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count[2]~18     ; 17      ;
+; gpu:inst2|draw:draw1|draw_pixel:pixel1|draw_write~0      ; 17      ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~51    ; 16      ;
 ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~19    ; 16      ;
+; gpu:inst2|sreset                                         ; 16      ;
 ; gpu:inst2|draw:draw1|draw_line:line1|draw_write~0        ; 16      ;
-; gpu:inst2|draw:draw1|draw_line:line1|err[5]~1            ; 15      ;
-; gpu:inst2|draw:draw1|draw_line:line1|err[5]~0            ; 15      ;
-; ssegdecoder:inst4|hex1[2]~3                              ; 15      ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~0     ; 15      ;
-; gpu:inst2|decoder:decoder1|decode_comb~0                 ; 13      ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|started             ; 13      ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|cx[4]~7             ; 12      ;
-; gpu:inst2|spi:spi1|spi_rx_data[2]~0                      ; 11      ;
+; gpu:inst2|decoder:decoder1|decoder_claim                 ; 16      ;
+; gpu:inst2|draw:draw1|draw_line:line1|err[0]~1            ; 15      ;
+; gpu:inst2|draw:draw1|draw_line:line1|err[0]~0            ; 15      ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~2     ; 15      ;
+; gpu:inst2|decoder:decoder1|timeout_count[13]~2           ; 14      ;
+; gpu:inst2|decoder:decoder1|timeout_count[13]~1           ; 14      ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|cx[6]~7             ; 12      ;
+; gpu:inst2|spi:spi1|spi_rx_data[4]~0                      ; 12      ;
+; gpu:inst2|decoder:decoder1|decode_comb~0                 ; 12      ;
 ; gpu:inst2|vgacontroller:vgacontroller1|vga_combi~5       ; 11      ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count[9]        ; 11      ;
-; gpu:inst2|decoder:decoder1|en[1]                         ; 11      ;
-; gpu:inst2|decoder:decoder1|en[2]                         ; 11      ;
-; gpu:inst2|draw:draw1|draw_line:line1|err[5]~6            ; 10      ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|cy_tmp[0]~0         ; 10      ;
+; gpu:inst2|vgacontroller:vgacontroller1|LessThan9~2       ; 11      ;
+; gpu:inst2|draw:draw1|draw_line:line1|err[0]~5            ; 10      ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|draw_write~0        ; 10      ;
+; gpu:inst2|sreset~0                                       ; 9       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add0~16             ; 9       ;
+; gpu:inst2|decoder:decoder1|timeout_count[8]              ; 9       ;
+; gpu:inst2|decoder:decoder1|timeout_count[6]              ; 9       ;
+; gpu:inst2|decoder:decoder1|timeout_count[7]              ; 9       ;
+; gpu:inst2|decoder:decoder1|timeout_count[9]              ; 9       ;
+; gpu:inst2|decoder:decoder1|timeout_count[12]             ; 9       ;
+; gpu:inst2|decoder:decoder1|timeout_count[10]             ; 9       ;
+; gpu:inst2|decoder:decoder1|timeout_count[11]             ; 9       ;
+; gpu:inst2|decoder:decoder1|timeout_count[13]             ; 9       ;
 ; gpu:inst2|spi:spi1|spi_rx_data[0]                        ; 9       ;
 ; gpu:inst2|spi:spi1|spi_rx_data[1]                        ; 9       ;
-; gpu:inst2|spi:spi1|spi_rx_data[2]                        ; 9       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add0~16             ; 9       ;
-; gpu:inst2|decoder:decoder1|timeout_count[19]             ; 9       ;
-; gpu:inst2|decoder:decoder1|timeout_count[17]             ; 9       ;
-; gpu:inst2|decoder:decoder1|timeout_count[18]             ; 9       ;
-; gpu:inst2|decoder:decoder1|timeout_count[20]             ; 9       ;
-; gpu:inst2|decoder:decoder1|timeout_count[23]             ; 9       ;
-; gpu:inst2|decoder:decoder1|timeout_count[21]             ; 9       ;
-; gpu:inst2|decoder:decoder1|timeout_count[22]             ; 9       ;
-; gpu:inst2|decoder:decoder1|timeout_count[24]             ; 9       ;
-; gpu:inst2|draw:draw1|draw_line:line1|cx[3]~4             ; 8       ;
-; gpu:inst2|decoder:decoder1|x~3                           ; 8       ;
-; gpu:inst2|decoder:decoder1|w[3]~2                        ; 8       ;
+; gpu:inst2|decoder:decoder1|x~2                           ; 8       ;
+; gpu:inst2|decoder:decoder1|w[7]~12                       ; 8       ;
+; gpu:inst2|draw:draw1|draw_line:line1|cx[3]~1             ; 8       ;
+; ssegdecoder:inst4|hex1[2]~4                              ; 8       ;
+; gpu:inst2|ramcontroller:ramcontroller1|draw_can_access~0 ; 8       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add2~14             ; 8       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~23            ; 7       ;
+; gpu:inst2|spi:spi1|spi_rx_data[2]                        ; 8       ;
 ; gpu:inst2|decoder:decoder1|y~1                           ; 7       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cy_tmp[0]~2         ; 7       ;
-; gpu:inst2|vgacontroller:vgacontroller1|LessThan9~1       ; 7       ;
-; gpu:inst2|vgacontroller:vgacontroller1|LessThan9~0       ; 7       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~3             ; 7       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add1~16             ; 7       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|LessThan0~14        ; 7       ;
 ; gpu:inst2|decoder:decoder1|color~0                       ; 6       ;
 ; gpu:inst2|decoder:decoder1|h~2                           ; 6       ;
-; ssegdecoder:inst4|hex0[0]~6                              ; 6       ;
-; gpu:inst2|spi:spi1|spi_rx_data[3]                        ; 6       ;
-; gpu:inst2|spi:spi1|spi_rx_data[4]                        ; 6       ;
-; gpu:inst2|spi:spi1|spi_rx_data[5]                        ; 6       ;
-; gpu:inst2|spi:spi1|spi_rx_data[6]                        ; 6       ;
-; gpu:inst2|vgacontroller:vgacontroller1|LessThan9~2       ; 6       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|v_count[3]        ; 6       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|LessThan1~12        ; 6       ;
+; gpu:inst2|draw:draw1|draw_line:line1|err[5]              ; 6       ;
+; gpu:inst2|draw:draw1|draw_line:line1|err[4]              ; 6       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add3~14             ; 6       ;
 ; gpu:inst2|decoder:decoder1|x[6]                          ; 6       ;
 ; gpu:inst2|decoder:decoder1|x[7]                          ; 6       ;
@@ -1356,29 +1335,30 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|decoder:decoder1|x[0]                          ; 6       ;
 ; gpu:inst2|decoder:decoder1|x[1]                          ; 6       ;
 ; gpu:inst2|decoder:decoder1|h[6]                          ; 6       ;
-; gpu:inst2|decoder:decoder1|en[3]                         ; 6       ;
+; gpu:inst2|spi:spi1|spi_rx_data[3]                        ; 6       ;
+; gpu:inst2|spi:spi1|spi_rx_data[4]                        ; 6       ;
+; gpu:inst2|spi:spi1|spi_rx_data[5]                        ; 6       ;
+; gpu:inst2|spi:spi1|spi_rx_data[6]                        ; 6       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|h_count[2]        ; 6       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|h_count[7]        ; 6       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|h_count[5]        ; 6       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|h_count[6]        ; 6       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err[1]              ; 5       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err[2]              ; 5       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err[3]              ; 5       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err[4]              ; 5       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err[5]              ; 5       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err[6]              ; 5       ;
-; gpu:inst2|decoder:decoder1|Equal0~2                      ; 5       ;
+; gpu:inst2|spi:spi1|index[0]                              ; 5       ;
+; ssegdecoder:inst4|hex0[0]~7                              ; 5       ;
 ; gpu:inst2|draw:draw1|draw_ready~1                        ; 5       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|draw_line_comb~9    ; 5       ;
-; gpu:inst2|spi:spi1|spi_data_available~1                  ; 5       ;
-; gpu:inst2|ramcontroller:ramcontroller1|draw_can_access~0 ; 5       ;
-; gpu:inst2|vgacontroller:vgacontroller1|LessThan8~2       ; 5       ;
+; gpu:inst2|vgacontroller:vgacontroller1|vgavsync~2        ; 5       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count[9]        ; 5       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add1~14             ; 5       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add1~12             ; 5       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add1~10             ; 5       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add1~8              ; 5       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add1~6              ; 5       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add1~4              ; 5       ;
+; gpu:inst2|draw:draw1|draw_line:line1|err[1]              ; 5       ;
+; gpu:inst2|draw:draw1|draw_line:line1|err[2]              ; 5       ;
+; gpu:inst2|draw:draw1|draw_line:line1|err[3]              ; 5       ;
+; gpu:inst2|draw:draw1|draw_line:line1|err[6]              ; 5       ;
 ; gpu:inst2|decoder:decoder1|y[6]                          ; 5       ;
 ; gpu:inst2|decoder:decoder1|y[4]                          ; 5       ;
 ; gpu:inst2|decoder:decoder1|y[5]                          ; 5       ;
@@ -1392,24 +1372,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|decoder:decoder1|h[3]                          ; 5       ;
 ; gpu:inst2|decoder:decoder1|h[0]                          ; 5       ;
 ; gpu:inst2|decoder:decoder1|h[1]                          ; 5       ;
+; gpu:inst2|decoder:decoder1|en[3]                         ; 5       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|v_count[4]        ; 5       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|v_count[2]        ; 5       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|h_count[1]        ; 5       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|h_count[0]        ; 5       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count[3]        ; 5       ;
-; gpu:inst2|vgacontroller:vgacontroller1|h_count[4]        ; 5       ;
-; SPICLK                                                   ; 4       ;
 ; reset~_wirecell                                          ; 4       ;
 ; ~GND                                                     ; 4       ;
-; gpu:inst2|draw:draw1|draw_line:line1|LessThan2~11        ; 4       ;
-; gpu:inst2|draw:draw1|draw_line:line1|LessThan3~7         ; 4       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err[9]              ; 4       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err[8]              ; 4       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err[0]              ; 4       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err[7]              ; 4       ;
-; gpu:inst2|decoder:decoder1|packet_num[0]~5               ; 4       ;
-; gpu:inst2|decoder:decoder1|int_ready~3                   ; 4       ;
-; gpu:inst2|decoder:decoder1|next_int_ready~0              ; 4       ;
+; gpu:inst2|draw:draw1|draw_line:line1|LessThan2~10        ; 4       ;
+; gpu:inst2|draw:draw1|draw_line:line1|LessThan3~5         ; 4       ;
+; gpu:inst2|spi:spi1|index[3]                              ; 4       ;
+; gpu:inst2|spi:spi1|index[1]                              ; 4       ;
+; gpu:inst2|decoder:decoder1|current_instruction~1         ; 4       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cy[6]               ; 4       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cy[5]               ; 4       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cy[4]               ; 4       ;
@@ -1417,7 +1391,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cy[2]               ; 4       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cy[1]               ; 4       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cy[0]               ; 4       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Equal0~4            ; 4       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cx[7]               ; 4       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cx[6]               ; 4       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cx[5]               ; 4       ;
@@ -1426,48 +1399,59 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cx[2]               ; 4       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cx[1]               ; 4       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cx[0]               ; 4       ;
-; gpu:inst2|decoder:decoder1|en~6                          ; 4       ;
-; gpu:inst2|decoder:decoder1|en~0                          ; 4       ;
-; gpu:inst2|ramcontroller:ramcontroller1|draw_can_access~1 ; 4       ;
-; gpu:inst2|decoder:decoder1|w[6]                          ; 4       ;
-; gpu:inst2|decoder:decoder1|w[7]                          ; 4       ;
+; gpu:inst2|decoder:decoder1|en~4                          ; 4       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|cx[7]               ; 4       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|cx[6]               ; 4       ;
-; gpu:inst2|decoder:decoder1|w[4]                          ; 4       ;
-; gpu:inst2|decoder:decoder1|w[5]                          ; 4       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|cx[5]               ; 4       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|cx[4]               ; 4       ;
-; gpu:inst2|decoder:decoder1|w[2]                          ; 4       ;
-; gpu:inst2|decoder:decoder1|w[3]                          ; 4       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|cx[3]               ; 4       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|cx[2]               ; 4       ;
-; gpu:inst2|decoder:decoder1|w[0]                          ; 4       ;
-; gpu:inst2|decoder:decoder1|w[1]                          ; 4       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|cx[1]               ; 4       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|cx[0]               ; 4       ;
-; gpu:inst2|spi:spi1|spi_rx_data[7]                        ; 4       ;
-; gpu:inst2|vgacontroller:vgacontroller1|LessThan11~0      ; 4       ;
+; gpu:inst2|decoder:decoder1|decode_comb~1                 ; 4       ;
+; ssegdecoder:inst4|hex1[3]~7                              ; 4       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add1~2              ; 4       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add1~0              ; 4       ;
+; gpu:inst2|draw:draw1|draw_line:line1|err[9]              ; 4       ;
+; gpu:inst2|draw:draw1|draw_line:line1|err[8]              ; 4       ;
+; gpu:inst2|draw:draw1|draw_line:line1|err[0]              ; 4       ;
+; gpu:inst2|draw:draw1|draw_line:line1|err[7]              ; 4       ;
+; gpu:inst2|decoder:decoder1|w[6]                          ; 4       ;
+; gpu:inst2|decoder:decoder1|w[7]                          ; 4       ;
+; gpu:inst2|decoder:decoder1|w[4]                          ; 4       ;
+; gpu:inst2|decoder:decoder1|w[5]                          ; 4       ;
+; gpu:inst2|decoder:decoder1|w[2]                          ; 4       ;
+; gpu:inst2|decoder:decoder1|w[3]                          ; 4       ;
+; gpu:inst2|decoder:decoder1|w[0]                          ; 4       ;
+; gpu:inst2|decoder:decoder1|w[1]                          ; 4       ;
+; gpu:inst2|spi:spi1|spi_rx_data[7]                        ; 4       ;
+; gpu:inst2|decoder:decoder1|en[1]                         ; 4       ;
+; gpu:inst2|decoder:decoder1|en[2]                         ; 4       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|v_count[5]        ; 4       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|v_count[6]        ; 4       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|v_count[7]        ; 4       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|v_count[8]        ; 4       ;
-; gpu:inst2|decoder:decoder1|x~8                           ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count[3]        ; 4       ;
+; gpu:inst2|vgacontroller:vgacontroller1|h_count[4]        ; 4       ;
+; gpu:inst2|spi:spi1|index[3]~0                            ; 3       ;
 ; gpu:inst2|decoder:decoder1|x~7                           ; 3       ;
 ; gpu:inst2|decoder:decoder1|x~6                           ; 3       ;
 ; gpu:inst2|decoder:decoder1|x~5                           ; 3       ;
 ; gpu:inst2|decoder:decoder1|x~4                           ; 3       ;
-; gpu:inst2|decoder:decoder1|x[2]~2                        ; 3       ;
+; gpu:inst2|decoder:decoder1|x~3                           ; 3       ;
+; gpu:inst2|decoder:decoder1|x[5]~1                        ; 3       ;
 ; gpu:inst2|decoder:decoder1|y~0                           ; 3       ;
-; gpu:inst2|decoder:decoder1|x~1                           ; 3       ;
-; gpu:inst2|decoder:decoder1|packet_num[0]~6               ; 3       ;
-; gpu:inst2|decoder:decoder1|next_int_ready~1              ; 3       ;
+; gpu:inst2|decoder:decoder1|x~0                           ; 3       ;
+; gpu:inst2|spi:spi1|index[2]                              ; 3       ;
+; gpu:inst2|decoder:decoder1|packet_num[0]~2               ; 3       ;
+; gpu:inst2|decoder:decoder1|current_instruction[2]~5      ; 3       ;
 ; gpu:inst2|decoder:decoder1|current_instruction~2         ; 3       ;
-; gpu:inst2|decoder:decoder1|x[2]~0                        ; 3       ;
+; gpu:inst2|spi:spi1|sclk_latched                          ; 3       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Equal0~4            ; 3       ;
 ; gpu:inst2|decoder:decoder1|en~5                          ; 3       ;
 ; gpu:inst2|decoder:decoder1|en~3                          ; 3       ;
-; ssegdecoder:inst4|hex0[0]~7                              ; 3       ;
+; gpu:inst2|decoder:decoder1|spi_reset~0                   ; 3       ;
+; ssegdecoder:inst4|hex0[0]~6                              ; 3       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|cy[6]               ; 3       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|cy[5]               ; 3       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|cy[4]               ; 3       ;
@@ -1475,9 +1459,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_line:line1|cy[2]               ; 3       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|cy[1]               ; 3       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|cy[0]               ; 3       ;
-; gpu:inst2|spi:spi1|index[1]                              ; 3       ;
-; gpu:inst2|spi:spi1|index[0]                              ; 3       ;
+; gpu:inst2|decoder:decoder1|Equal0~1                      ; 3       ;
+; gpu:inst2|spi:spi1|spi_data_available                    ; 3       ;
+; gpu:inst2|decoder:decoder1|Equal0~0                      ; 3       ;
 ; gen6mhz:inst1|count[0]                                   ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|LessThan8~2       ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|vga_combi~1       ; 3       ;
+; gpu:inst2|vgacontroller:vgacontroller1|LessThan11~0      ; 3       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|v_count[1]        ; 3       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|v_count[0]        ; 3       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add3~12             ; 3       ;
@@ -1488,19 +1476,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_line:line1|Add3~2              ; 3       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add3~0              ; 3       ;
 ; gpu:inst2|decoder:decoder1|asb                           ; 3       ;
+; gpu:inst2|decoder:decoder1|en[0]                         ; 3       ;
 ; SPIMOSI                                                  ; 2       ;
-; gpu:inst2|decoder:decoder1|x~10                          ; 2       ;
+; SPICLK                                                   ; 2       ;
+; gpu:inst2|decoder:decoder1|done~7                        ; 2       ;
+; gpu:inst2|spi:spi1|index[3]~2                            ; 2       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|cy_tmp[0]~1         ; 2       ;
+; gpu:inst2|decoder:decoder1|x~9                           ; 2       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|cx[6]~0             ; 2       ;
+; gpu:inst2|decoder:decoder1|next_h[6]~0                   ; 2       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|LessThan2~0         ; 2       ;
-; gpu:inst2|decoder:decoder1|current_instruction~3         ; 2       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|almost_done_tmp~3   ; 2       ;
-; ssegdecoder:inst4|Equal63~1                              ; 2       ;
-; gpu:inst2|decoder:decoder1|packet_num[0]~1               ; 2       ;
-; gpu:inst2|decoder:decoder1|timeout_count[1]~33           ; 2       ;
-; gpu:inst2|decoder:decoder1|LessThan0~3                   ; 2       ;
-; gpu:inst2|decoder:decoder1|LessThan0~2                   ; 2       ;
+; gpu:inst2|decoder:decoder1|done~6                        ; 2       ;
+; gpu:inst2|decoder:decoder1|current_instruction[2]~0      ; 2       ;
+; gpu:inst2|decoder:decoder1|done~5                        ; 2       ;
 ; gpu:inst2|spi:spi1|sclk_old                              ; 2       ;
-; gpu:inst2|spi:spi1|index[2]                              ; 2       ;
-; gpu:inst2|spi:spi1|spi_data_available~0                  ; 2       ;
+; gpu:inst2|decoder:decoder1|next_int_ready~5              ; 2       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|almost_done_tmp~3   ; 2       ;
+; gpu:inst2|decoder:decoder1|LessThan0~3                   ; 2       ;
+; gpu:inst2|decoder:decoder1|LessThan0~1                   ; 2       ;
+; gpu:inst2|decoder:decoder1|LessThan0~0                   ; 2       ;
+; ssegdecoder:inst4|Equal63~1                              ; 2       ;
+; gpu:inst2|decoder:decoder1|prev_spi_data_available       ; 2       ;
 ; gen6mhz:inst1|count[1]                                   ; 2       ;
 ; pre_vga_dac_4:inst|vga_r[1]~1                            ; 2       ;
 ; pre_vga_dac_4:inst|vga_r[3]~0                            ; 2       ;
@@ -1509,18 +1505,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; pre_vga_dac_4:inst|vga_b[1]~1                            ; 2       ;
 ; pre_vga_dac_4:inst|vga_b[3]~0                            ; 2       ;
 ; ssegdecoder:inst4|Equal63~0                              ; 2       ;
-; gpu:inst2|decoder:decoder1|packet_num[0]~0               ; 2       ;
 ; inst6                                                    ; 2       ;
 ; gpu:inst2|ramcontroller:ramcontroller1|write_enable~1    ; 2       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|draw_write~0        ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|vga_combi~4       ; 2       ;
+; gpu:inst2|vgacontroller:vgacontroller1|LessThan8~1       ; 2       ;
+; gpu:inst2|draw:draw1|draw_pixel:pixel1|busy              ; 2       ;
 ; gen6mhz:inst1|count[2]                                   ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|vga_combi~0       ; 2       ;
-; gpu:inst2|vgacontroller:vgacontroller1|vgavsync~2        ; 2       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|vgahsync~2        ; 2       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add7~18             ; 2       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add4~16             ; 2       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add7~16             ; 2       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add4~16             ; 2       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add7~14             ; 2       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add7~12             ; 2       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add7~10             ; 2       ;
@@ -1530,20 +1523,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_line:line1|Add7~2              ; 2       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add7~0              ; 2       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add6~12             ; 2       ;
-; gpu:inst2|decoder:decoder1|timeout_count[31]             ; 2       ;
-; gpu:inst2|decoder:decoder1|timeout_count[30]             ; 2       ;
-; gpu:inst2|decoder:decoder1|timeout_count[29]             ; 2       ;
-; gpu:inst2|decoder:decoder1|timeout_count[28]             ; 2       ;
-; gpu:inst2|decoder:decoder1|timeout_count[27]             ; 2       ;
-; gpu:inst2|decoder:decoder1|timeout_count[26]             ; 2       ;
-; gpu:inst2|decoder:decoder1|timeout_count[25]             ; 2       ;
-; gpu:inst2|decoder:decoder1|timeout_count[16]             ; 2       ;
-; gpu:inst2|decoder:decoder1|timeout_count[15]             ; 2       ;
-; gpu:inst2|decoder:decoder1|timeout_count[14]             ; 2       ;
-; gpu:inst2|decoder:decoder1|timeout_count[13]             ; 2       ;
-; gpu:inst2|decoder:decoder1|timeout_count[12]             ; 2       ;
-; gpu:inst2|decoder:decoder1|timeout_count[11]             ; 2       ;
-; gpu:inst2|decoder:decoder1|en[0]                         ; 2       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add6~10             ; 2       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add6~8              ; 2       ;
+; gpu:inst2|decoder:decoder1|timeout_count[0]              ; 2       ;
+; gpu:inst2|decoder:decoder1|timeout_count[1]              ; 2       ;
+; gpu:inst2|decoder:decoder1|timeout_count[2]              ; 2       ;
+; gpu:inst2|decoder:decoder1|timeout_count[3]              ; 2       ;
+; gpu:inst2|decoder:decoder1|timeout_count[4]              ; 2       ;
+; gpu:inst2|decoder:decoder1|timeout_count[5]              ; 2       ;
+; gpu:inst2|decoder:decoder1|int_ready                     ; 2       ;
 ; VGACOLOR[5]                                              ; 1       ;
 ; VGACOLOR[4]                                              ; 1       ;
 ; VGACOLOR[3]                                              ; 1       ;
@@ -1552,27 +1540,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; VGACOLOR[0]                                              ; 1       ;
 ; debug_in                                                 ; 1       ;
 ; gen6mhz:inst1|count[0]~2                                 ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|LessThan2~10        ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~41             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~40             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~39             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~38             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~37             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~36             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~35             ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|LessThan3~8         ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|next_setup~2        ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|LessThan3~7         ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|LessThan3~6         ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|LessThan2~9         ; 1       ;
+; gpu:inst2|decoder:decoder1|w[7]~3                        ; 1       ;
+; gpu:inst2|decoder:decoder1|w[7]~13                       ; 1       ;
+; gpu:inst2|decoder:decoder1|packet_num[0]~5               ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|ramaddr[0]~44       ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|ramaddr[1]~43       ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|ramaddr[2]~42       ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|ramaddr[3]~41       ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|ramaddr[4]~40       ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|ramaddr[5]~39       ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|ramaddr[6]~38       ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|ramaddr[7]~37       ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|ramaddr[8]~36       ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|ramaddr[9]~35       ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|ramaddr[10]~34      ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|ramaddr[11]~33      ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|ramaddr[12]~32      ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|ramaddr[13]~31      ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|ramaddr[14]~30      ; 1       ;
 ; ssegdecoder:inst4|Equal63~3                              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err~33              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err~32              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err~31              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err~30              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err~29              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err~28              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err~27              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err~26              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err~25              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err~24              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|err~23              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|err~22              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|err~21              ; 1       ;
@@ -1590,25 +1579,39 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_line:line1|err~9               ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|err~8               ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|err~7               ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err[5]~5            ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|err~4               ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|err~6               ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|err[0]~4            ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|err~3               ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|err~2               ; 1       ;
+; gpu:inst2|spi:spi1|index~5                               ; 1       ;
+; gpu:inst2|spi:spi1|index~4                               ; 1       ;
+; gpu:inst2|spi:spi1|index~3                               ; 1       ;
+; gpu:inst2|spi:spi1|index~1                               ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|ramdata[0]~11       ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|ramdata[1]~10       ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|ramdata[2]~9        ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|ramdata[3]~8        ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|ramdata[4]~7        ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|ramdata[5]~6        ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~34             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~31             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~28             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~25             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~22             ; 1       ;
+; gpu:inst2|spi:spi1|mosi_latched~0                        ; 1       ;
+; gpu:inst2|spi:spi1|sclk_latched~0                        ; 1       ;
+; gpu:inst2|spi:spi1|sclk_old~0                            ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~27             ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~24             ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~23             ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~20             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~19             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|cy_tmp[0]~1         ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~16             ; 1       ;
-; gpu:inst2|decoder:decoder1|x~9                           ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~15             ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~12             ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~11             ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~8              ; 1       ;
+; ssegdecoder:inst4|Equal63~2                              ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~7              ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~4              ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~3              ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~0              ; 1       ;
+; gpu:inst2|decoder:decoder1|x~8                           ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cx_tmp[7]~23        ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cx_tmp[7]~22        ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cx_tmp[7]~21        ; 1       ;
@@ -1633,32 +1636,30 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cx_tmp[0]~2         ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cx_tmp[0]~1         ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|cx_tmp[0]~0         ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|cx[4]~6             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|cx[4]~5             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|cx[4]~4             ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|cx[6]~6             ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|cx[6]~5             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Equal2~0            ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|cx[4]~3             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|cx[4]~2             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|cx[4]~1             ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|cx[6]~4             ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|cx[6]~3             ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|cx[6]~2             ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|vga_claim~0       ; 1       ;
 ; gpu:inst2|decoder:decoder1|next_h[6]~3                   ; 1       ;
 ; gpu:inst2|decoder:decoder1|next_h[6]~2                   ; 1       ;
 ; gpu:inst2|decoder:decoder1|next_h[6]~1                   ; 1       ;
-; gpu:inst2|decoder:decoder1|next_h[6]~0                   ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~22            ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~21            ; 1       ;
 ; gpu:inst2|decoder:decoder1|h~7                           ; 1       ;
 ; gpu:inst2|decoder:decoder1|h~6                           ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~19            ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~16            ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~18            ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~15            ; 1       ;
 ; gpu:inst2|decoder:decoder1|h~5                           ; 1       ;
 ; gpu:inst2|decoder:decoder1|h~4                           ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~13            ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~10            ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~12            ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~9             ; 1       ;
 ; gpu:inst2|decoder:decoder1|h~3                           ; 1       ;
 ; gpu:inst2|decoder:decoder1|h~1                           ; 1       ;
 ; gpu:inst2|decoder:decoder1|h~0                           ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~7             ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|cy[5]~0             ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|LessThan2~9         ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~6             ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|cy[4]~0             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|LessThan2~8         ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|LessThan2~7         ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|LessThan2~6         ; 1       ;
@@ -1668,117 +1669,86 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_line:line1|LessThan2~2         ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|LessThan2~1         ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|dx~0                ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~4             ; 1       ;
-; gpu:inst2|decoder:decoder1|w~9                           ; 1       ;
-; gpu:inst2|decoder:decoder1|w~8                           ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~2             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~31             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~30             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~27             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~26             ; 1       ;
-; gpu:inst2|decoder:decoder1|w~7                           ; 1       ;
-; gpu:inst2|decoder:decoder1|w~6                           ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~23             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~22             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~19             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~18             ; 1       ;
-; gpu:inst2|decoder:decoder1|w~5                           ; 1       ;
-; gpu:inst2|decoder:decoder1|w~4                           ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~15             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~14             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~11             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~10             ; 1       ;
-; gpu:inst2|decoder:decoder1|w~3                           ; 1       ;
-; gpu:inst2|decoder:decoder1|w[3]~1                        ; 1       ;
-; ssegdecoder:inst4|Equal63~2                              ; 1       ;
-; gpu:inst2|decoder:decoder1|w~0                           ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~7              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~6              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~3              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|LessThan3~6         ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|LessThan3~5         ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|LessThan3~4         ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|LessThan3~3         ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|LessThan3~2         ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|LessThan3~1         ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|LessThan3~0         ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|dy~0                ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~2              ; 1       ;
-; gpu:inst2|spi:spi1|next_index[1]~2                       ; 1       ;
-; gpu:inst2|spi:spi1|next_index[2]~1                       ; 1       ;
+; gpu:inst2|decoder:decoder1|prev_spi_data_available~0     ; 1       ;
+; gpu:inst2|spi:spi1|spi_data_available~1                  ; 1       ;
+; gpu:inst2|spi:spi1|spi_data_available~0                  ; 1       ;
 ; gen6mhz:inst1|count[1]~1                                 ; 1       ;
-; gpu:inst2|decoder:decoder1|packet_num[0]~9               ; 1       ;
-; gpu:inst2|decoder:decoder1|packet_num[1]~8               ; 1       ;
-; gpu:inst2|decoder:decoder1|packet_num[2]~7               ; 1       ;
-; gpu:inst2|decoder:decoder1|packet_num[0]~4               ; 1       ;
-; gpu:inst2|decoder:decoder1|packet_num[0]~3               ; 1       ;
-; gpu:inst2|decoder:decoder1|packet_num[0]~2               ; 1       ;
+; gpu:inst2|decoder:decoder1|packet_num[1]~4               ; 1       ;
+; gpu:inst2|decoder:decoder1|packet_num[2]~3               ; 1       ;
 ; gpu:inst2|decoder:decoder1|Add0~0                        ; 1       ;
-; gpu:inst2|decoder:decoder1|current_instruction~10        ; 1       ;
-; gpu:inst2|decoder:decoder1|current_instruction~9         ; 1       ;
-; gpu:inst2|decoder:decoder1|current_instruction~8         ; 1       ;
 ; gpu:inst2|decoder:decoder1|current_instruction~7         ; 1       ;
 ; gpu:inst2|decoder:decoder1|current_instruction~6         ; 1       ;
-; gpu:inst2|decoder:decoder1|current_instruction~5         ; 1       ;
-; gpu:inst2|decoder:decoder1|current_instruction~4         ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[1]~84           ; 1       ;
+; gpu:inst2|decoder:decoder1|current_instruction[2]~4      ; 1       ;
+; gpu:inst2|decoder:decoder1|current_instruction~3         ; 1       ;
+; gpu:inst2|decoder:decoder1|done~4                        ; 1       ;
+; gpu:inst2|decoder:decoder1|timeout_count[13]~0           ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[0]~50     ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[0]~49     ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[0]~48     ; 1       ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|ramaddr[0]~14     ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[1]~48     ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[1]~47     ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[1]~46     ; 1       ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|ramaddr[1]~13     ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[2]~46     ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[2]~45     ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[2]~44     ; 1       ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|ramaddr[2]~12     ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[3]~44     ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[3]~43     ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[3]~42     ; 1       ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|ramaddr[3]~11     ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[4]~42     ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[4]~41     ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[4]~40     ; 1       ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|ramaddr[4]~10     ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[5]~40     ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[5]~39     ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[5]~38     ; 1       ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|ramaddr[5]~9      ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[6]~38     ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[6]~37     ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[6]~36     ; 1       ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|ramaddr[6]~8      ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[7]~36     ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[7]~35     ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[7]~34     ; 1       ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|ramaddr[7]~7      ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[8]~34     ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[8]~33     ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[8]~32     ; 1       ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|ramaddr[8]~6      ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[9]~32     ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[9]~31     ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[9]~30     ; 1       ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|ramaddr[9]~5      ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[10]~30    ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[10]~29    ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[10]~28    ; 1       ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|ramaddr[10]~4     ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[11]~28    ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[11]~27    ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[11]~26    ; 1       ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|ramaddr[11]~3     ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[12]~26    ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[12]~25    ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[12]~24    ; 1       ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|ramaddr[12]~2     ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[13]~24    ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[13]~23    ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[13]~22    ; 1       ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|ramaddr[13]~1     ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[14]~22    ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[14]~21    ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[14]~20    ; 1       ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|ramaddr[14]~0     ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~18    ; 1       ;
-; gpu:inst2|spi:spi1|next_spi_rx_data[0]~7                 ; 1       ;
-; gpu:inst2|spi:spi1|next_spi_rx_data[1]~6                 ; 1       ;
-; gpu:inst2|spi:spi1|next_spi_rx_data[2]~5                 ; 1       ;
-; gpu:inst2|spi:spi1|next_spi_rx_data[3]~4                 ; 1       ;
-; gpu:inst2|spi:spi1|next_spi_rx_data[4]~3                 ; 1       ;
-; gpu:inst2|spi:spi1|next_spi_rx_data[5]~2                 ; 1       ;
-; gpu:inst2|spi:spi1|next_spi_rx_data[6]~1                 ; 1       ;
-; gpu:inst2|spi:spi1|next_spi_rx_data[7]~0                 ; 1       ;
-; gpu:inst2|decoder:decoder1|asb~0                         ; 1       ;
-; gpu:inst2|decoder:decoder1|int_ready~2                   ; 1       ;
-; gpu:inst2|decoder:decoder1|int_ready~1                   ; 1       ;
-; gpu:inst2|decoder:decoder1|int_ready~0                   ; 1       ;
-; gpu:inst2|decoder:decoder1|current_instruction~1         ; 1       ;
-; gpu:inst2|decoder:decoder1|current_instruction~0         ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|ramaddr[15]~20    ; 1       ;
+; gpu:inst2|spi:spi1|mosi_latched                          ; 1       ;
+; gpu:inst2|decoder:decoder1|next_asb~0                    ; 1       ;
+; gpu:inst2|decoder:decoder1|next_int_ready~7              ; 1       ;
+; gpu:inst2|decoder:decoder1|next_int_ready~6              ; 1       ;
+; gpu:inst2|decoder:decoder1|next_int_ready~4              ; 1       ;
+; gpu:inst2|decoder:decoder1|next_int_ready~3              ; 1       ;
+; gpu:inst2|decoder:decoder1|next_int_ready~2              ; 1       ;
+; gpu:inst2|decoder:decoder1|next_int_ready~1              ; 1       ;
+; gpu:inst2|decoder:decoder1|next_int_ready~0              ; 1       ;
+; gpu:inst2|decoder:decoder1|en~11                         ; 1       ;
+; gpu:inst2|decoder:decoder1|en~10                         ; 1       ;
+; gpu:inst2|decoder:decoder1|en~9                          ; 1       ;
+; gpu:inst2|decoder:decoder1|en~8                          ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|almost_done_tmp~4   ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Equal1~0            ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|almost_done_tmp~2   ; 1       ;
@@ -1788,24 +1758,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Equal0~2            ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Equal0~1            ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Equal0~0            ; 1       ;
-; gpu:inst2|decoder:decoder1|en~12                         ; 1       ;
-; gpu:inst2|decoder:decoder1|en~11                         ; 1       ;
-; gpu:inst2|decoder:decoder1|en~10                         ; 1       ;
-; gpu:inst2|decoder:decoder1|en~9                          ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|started_tmp~0       ; 1       ;
-; gpu:inst2|decoder:decoder1|en~8                          ; 1       ;
 ; gpu:inst2|decoder:decoder1|en~7                          ; 1       ;
-; gpu:inst2|draw:draw1|draw_pixel:pixel1|draw_write~0      ; 1       ;
-; gpu:inst2|decoder:decoder1|en~4                          ; 1       ;
+; gpu:inst2|decoder:decoder1|en~6                          ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|next_setup~0        ; 1       ;
+; ssegdecoder:inst4|hex1[3]~8                              ; 1       ;
+; gpu:inst2|decoder:decoder1|LessThan0~2                   ; 1       ;
+; gpu:inst2|draw:draw1|draw_pixel:pixel1|done~0            ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|done~0              ; 1       ;
-; gpu:inst2|draw:draw1|draw_ready~0                        ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[1]~32           ; 1       ;
-; gpu:inst2|decoder:decoder1|LessThan0~1                   ; 1       ;
-; gpu:inst2|decoder:decoder1|LessThan0~0                   ; 1       ;
-; gpu:inst2|decoder:decoder1|Equal0~1                      ; 1       ;
-; gpu:inst2|decoder:decoder1|en~2                          ; 1       ;
-; gpu:inst2|decoder:decoder1|en~1                          ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|cx[3]~2             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|draw_line_comb~8    ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|draw_line_comb~7    ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|draw_line_comb~6    ; 1       ;
@@ -1815,17 +1775,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_line:line1|draw_line_comb~2    ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|draw_line_comb~1    ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|draw_line_comb~0    ; 1       ;
+; gpu:inst2|draw:draw1|draw_ready~0                        ; 1       ;
+; gpu:inst2|decoder:decoder1|en~2                          ; 1       ;
+; gpu:inst2|decoder:decoder1|en~1                          ; 1       ;
+; gpu:inst2|decoder:decoder1|en~0                          ; 1       ;
 ; gpu:inst2|decoder:decoder1|next_is_init~1                ; 1       ;
-; gpu:inst2|spi:spi1|next_index[2]~0                       ; 1       ;
-; gpu:inst2|decoder:decoder1|Equal0~0                      ; 1       ;
 ; gpu:inst2|decoder:decoder1|next_is_init~0                ; 1       ;
 ; gen6mhz:inst1|count[2]~0                                 ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count[3]~1      ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|v_count[3]~0      ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|new_v_count[5]~8  ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|new_v_count[6]~7  ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|new_v_count[7]~6  ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|new_v_count[8]~5  ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count[3]~1      ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|v_count[3]~0      ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|new_v_count[4]~4  ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|new_v_count[9]~3  ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|new_v_count[1]~2  ; 1       ;
@@ -1837,11 +1799,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ssegdecoder:inst4|hex0[4]~2                              ; 1       ;
 ; ssegdecoder:inst4|hex0[5]~1                              ; 1       ;
 ; ssegdecoder:inst4|hex0[5]~0                              ; 1       ;
-; ssegdecoder:inst4|hex1[0]~5                              ; 1       ;
-; ssegdecoder:inst4|hex1[1]~4                              ; 1       ;
-; ssegdecoder:inst4|hex1[3]~2                              ; 1       ;
-; ssegdecoder:inst4|hex1[4]~1                              ; 1       ;
-; ssegdecoder:inst4|hex1[5]~0                              ; 1       ;
+; ssegdecoder:inst4|hex1[0]~6                              ; 1       ;
+; ssegdecoder:inst4|hex1[1]~5                              ; 1       ;
+; ssegdecoder:inst4|hex1[3]~3                              ; 1       ;
+; ssegdecoder:inst4|hex1[4]~2                              ; 1       ;
+; ssegdecoder:inst4|hex1[5]~1                              ; 1       ;
+; ssegdecoder:inst4|hex1[6]~0                              ; 1       ;
 ; ssegdecoder:inst4|hex2[0]~6                              ; 1       ;
 ; ssegdecoder:inst4|hex2[1]~5                              ; 1       ;
 ; ssegdecoder:inst4|hex2[2]~4                              ; 1       ;
@@ -1856,12 +1819,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ssegdecoder:inst4|hex3[4]~2                              ; 1       ;
 ; ssegdecoder:inst4|hex3[5]~1                              ; 1       ;
 ; ssegdecoder:inst4|hex3[6]~0                              ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|draw_rect_combi~0   ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|vga_combi~4       ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|LessThan7~0       ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|vga_combi~3       ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|vga_combi~2       ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|vga_combi~1       ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|LessThan7~0       ; 1       ;
-; gpu:inst2|vgacontroller:vgacontroller1|LessThan8~1       ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|LessThan9~1       ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|LessThan9~0       ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|LessThan8~0       ; 1       ;
+; gpu:inst2|vgacontroller:vgacontroller1|vga_combi~0       ; 1       ;
 ; gpu:inst2|ramcontroller:ramcontroller1|write_enable~0    ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|vgavsync~1        ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|vgavsync~0        ; 1       ;
@@ -1876,9 +1842,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_line:line1|Add9~16             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add5~15             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add5~14             ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add7~15             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add9~15             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add9~14             ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add7~15             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add4~15             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add4~14             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add5~13             ; 1       ;
@@ -1895,6 +1861,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_line:line1|Add5~2              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add5~1              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add5~0              ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add7~13             ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add7~11             ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add7~9              ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add7~7              ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add7~5              ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add7~3              ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add7~1              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add4~13             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add4~12             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add4~11             ; 1       ;
@@ -1909,13 +1882,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_line:line1|Add4~2              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add4~1              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add4~0              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add7~13             ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add7~11             ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add7~9              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add7~7              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add7~5              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add7~3              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add7~1              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add9~13             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add9~12             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add9~11             ; 1       ;
@@ -1936,19 +1902,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|decoder:decoder1|color[3]                      ; 1       ;
 ; gpu:inst2|decoder:decoder1|color[4]                      ; 1       ;
 ; gpu:inst2|decoder:decoder1|color[5]                      ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~32             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~30             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~29             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~27             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~26             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~24             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~23             ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~25             ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~22             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~21             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~20             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~18             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~17             ; 1       ;
-; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~15             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~14             ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~13             ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~10             ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~9              ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~6              ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~5              ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~2              ; 1       ;
+; gpu:inst2|draw:draw1|draw_rect:rect1|Add0~1              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Add1~14             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Add1~13             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Add1~12             ; 1       ;
@@ -1964,30 +1930,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Add1~2              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Add1~1              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_rect:rect1|Add1~0              ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[31]~99          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[30]~98          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[30]~97          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[29]~96          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[29]~95          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[28]~94          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[28]~93          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[27]~92          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[27]~91          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[26]~90          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[26]~89          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[25]~88          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[25]~87          ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~20            ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~18            ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~19            ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add10~17            ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~15            ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~16            ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add10~14            ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~12            ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~13            ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add10~11            ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~9             ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~10            ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add10~8             ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~6             ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~7             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add10~5             ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~4             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|LessThan1~11        ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|LessThan1~9         ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|LessThan1~7         ; 1       ;
@@ -2018,8 +1971,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_line:line1|Add0~2              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add0~1              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add0~0              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~3             ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add10~2             ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~1             ; 1       ;
+; gpu:inst2|draw:draw1|draw_line:line1|Add10~0             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~28             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~25             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~24             ; 1       ;
@@ -2041,9 +1994,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_line:line1|LessThan0~3         ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|LessThan0~1         ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add6~11             ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add6~10             ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add6~9              ; 1       ;
-; gpu:inst2|draw:draw1|draw_line:line1|Add6~8              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add6~7              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add6~6              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add6~5              ; 1       ;
@@ -2075,67 +2026,33 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_line:line1|Add2~0              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~1              ; 1       ;
 ; gpu:inst2|draw:draw1|draw_line:line1|Add8~0              ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[24]~83          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[24]~82          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[23]~81          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[23]~80          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[22]~79          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[22]~78          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[21]~77          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[21]~76          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[20]~75          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[20]~74          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[19]~73          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[19]~72          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[18]~71          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[18]~70          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[17]~69          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[17]~68          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[16]~67          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[16]~66          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[15]~65          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[15]~64          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[14]~63          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[14]~62          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[13]~61          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[13]~60          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[12]~59          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[12]~58          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[11]~57          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[11]~56          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[10]~55          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[10]~54          ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[9]~53           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[9]~52           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[8]~51           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[8]~50           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[7]~49           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[7]~48           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[6]~47           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[6]~46           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[5]~45           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[5]~44           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[4]~43           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[4]~42           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[3]~41           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[3]~40           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[2]~39           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[2]~38           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[1]~37           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[1]~36           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[0]~35           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[0]~34           ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[0]              ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[1]              ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[2]              ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[3]              ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[4]              ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[5]              ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[6]              ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[7]              ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[8]              ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[9]              ; 1       ;
-; gpu:inst2|decoder:decoder1|timeout_count[10]             ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~26                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~25                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~24                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~23                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~22                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~21                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~20                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~19                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~18                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~17                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~16                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~15                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~14                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~13                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~12                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~11                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~10                       ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~9                        ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~8                        ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~7                        ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~6                        ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~5                        ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~4                        ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~3                        ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~2                        ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~1                        ; 1       ;
+; gpu:inst2|decoder:decoder1|Add1~0                        ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|Add1~18           ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|Add1~17           ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|Add1~16           ; 1       ;
@@ -2170,7 +2087,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|vgacontroller:vgacontroller1|h_count[1]~10     ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|h_count[0]~9      ; 1       ;
 ; gpu:inst2|vgacontroller:vgacontroller1|h_count[0]~8      ; 1       ;
-; gpu:inst2|decoder:decoder1|int_ready                     ; 1       ;
 +----------------------------------------------------------+---------+
 
 
@@ -2179,163 +2095,164 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------+------------------------+
 ; Other Routing Resource Type ; Usage                  ;
 +-----------------------------+------------------------+
-; Block interconnects         ; 825 / 54,004 ( 2 % )   ;
-; C16 interconnects           ; 10 / 2,100 ( < 1 % )   ;
-; C4 interconnects            ; 463 / 36,000 ( 1 % )   ;
-; Direct links                ; 212 / 54,004 ( < 1 % ) ;
+; Block interconnects         ; 815 / 54,004 ( 2 % )   ;
+; C16 interconnects           ; 9 / 2,100 ( < 1 % )    ;
+; C4 interconnects            ; 446 / 36,000 ( 1 % )   ;
+; Direct links                ; 197 / 54,004 ( < 1 % ) ;
 ; Global clocks               ; 2 / 16 ( 13 % )        ;
-; Local interconnects         ; 311 / 18,752 ( 2 % )   ;
+; Local interconnects         ; 281 / 18,752 ( 1 % )   ;
 ; R24 interconnects           ; 39 / 1,900 ( 2 % )     ;
-; R4 interconnects            ; 548 / 46,920 ( 1 % )   ;
+; R4 interconnects            ; 541 / 46,920 ( 1 % )   ;
 +-----------------------------+------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +---------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 13.27) ; Number of LABs  (Total = 44) ;
+; Number of Logic Elements  (Average = 13.49) ; Number of LABs  (Total = 41) ;
 +---------------------------------------------+------------------------------+
-; 1                                           ; 1                            ;
-; 2                                           ; 0                            ;
-; 3                                           ; 2                            ;
-; 4                                           ; 1                            ;
-; 5                                           ; 0                            ;
+; 1                                           ; 2                            ;
+; 2                                           ; 1                            ;
+; 3                                           ; 0                            ;
+; 4                                           ; 0                            ;
+; 5                                           ; 1                            ;
 ; 6                                           ; 2                            ;
-; 7                                           ; 1                            ;
-; 8                                           ; 1                            ;
+; 7                                           ; 0                            ;
+; 8                                           ; 0                            ;
 ; 9                                           ; 1                            ;
-; 10                                          ; 1                            ;
+; 10                                          ; 0                            ;
 ; 11                                          ; 1                            ;
-; 12                                          ; 0                            ;
-; 13                                          ; 2                            ;
-; 14                                          ; 2                            ;
-; 15                                          ; 2                            ;
-; 16                                          ; 27                           ;
+; 12                                          ; 1                            ;
+; 13                                          ; 1                            ;
+; 14                                          ; 3                            ;
+; 15                                          ; 3                            ;
+; 16                                          ; 25                           ;
 +---------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 1.16) ; Number of LABs  (Total = 44) ;
+; LAB-wide Signals  (Average = 1.44) ; Number of LABs  (Total = 41) ;
 +------------------------------------+------------------------------+
 ; 1 Clock                            ; 30                           ;
-; 1 Clock enable                     ; 11                           ;
-; 1 Sync. clear                      ; 8                            ;
+; 1 Clock enable                     ; 12                           ;
+; 1 Sync. clear                      ; 13                           ;
+; 1 Sync. load                       ; 1                            ;
 ; 2 Clock enables                    ; 2                            ;
+; 2 Clocks                           ; 1                            ;
 +------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 16.57) ; Number of LABs  (Total = 44) ;
+; Number of Signals Sourced  (Average = 16.54) ; Number of LABs  (Total = 41) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
-; 1                                            ; 1                            ;
-; 2                                            ; 0                            ;
-; 3                                            ; 1                            ;
-; 4                                            ; 1                            ;
-; 5                                            ; 0                            ;
-; 6                                            ; 3                            ;
-; 7                                            ; 1                            ;
+; 1                                            ; 2                            ;
+; 2                                            ; 2                            ;
+; 3                                            ; 0                            ;
+; 4                                            ; 0                            ;
+; 5                                            ; 1                            ;
+; 6                                            ; 1                            ;
+; 7                                            ; 0                            ;
 ; 8                                            ; 1                            ;
-; 9                                            ; 1                            ;
-; 10                                           ; 1                            ;
-; 11                                           ; 2                            ;
+; 9                                            ; 0                            ;
+; 10                                           ; 0                            ;
+; 11                                           ; 1                            ;
 ; 12                                           ; 0                            ;
 ; 13                                           ; 0                            ;
 ; 14                                           ; 2                            ;
-; 15                                           ; 1                            ;
-; 16                                           ; 3                            ;
+; 15                                           ; 3                            ;
+; 16                                           ; 1                            ;
 ; 17                                           ; 4                            ;
-; 18                                           ; 4                            ;
-; 19                                           ; 5                            ;
-; 20                                           ; 3                            ;
-; 21                                           ; 0                            ;
-; 22                                           ; 2                            ;
+; 18                                           ; 3                            ;
+; 19                                           ; 7                            ;
+; 20                                           ; 2                            ;
+; 21                                           ; 2                            ;
+; 22                                           ; 3                            ;
 ; 23                                           ; 2                            ;
-; 24                                           ; 2                            ;
-; 25                                           ; 0                            ;
+; 24                                           ; 1                            ;
+; 25                                           ; 2                            ;
 ; 26                                           ; 0                            ;
 ; 27                                           ; 0                            ;
-; 28                                           ; 1                            ;
+; 28                                           ; 0                            ;
 ; 29                                           ; 0                            ;
-; 30                                           ; 0                            ;
-; 31                                           ; 1                            ;
-; 32                                           ; 2                            ;
+; 30                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
 
 
-+--------------------------------------------------------------------------------+
-; LAB Signals Sourced Out                                                        ;
-+-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 9.82) ; Number of LABs  (Total = 44) ;
-+-------------------------------------------------+------------------------------+
-; 0                                               ; 0                            ;
-; 1                                               ; 2                            ;
-; 2                                               ; 1                            ;
-; 3                                               ; 1                            ;
-; 4                                               ; 1                            ;
-; 5                                               ; 2                            ;
-; 6                                               ; 2                            ;
-; 7                                               ; 3                            ;
-; 8                                               ; 4                            ;
-; 9                                               ; 5                            ;
-; 10                                              ; 5                            ;
-; 11                                              ; 3                            ;
-; 12                                              ; 4                            ;
-; 13                                              ; 4                            ;
-; 14                                              ; 4                            ;
-; 15                                              ; 0                            ;
-; 16                                              ; 1                            ;
-; 17                                              ; 0                            ;
-; 18                                              ; 0                            ;
-; 19                                              ; 0                            ;
-; 20                                              ; 0                            ;
-; 21                                              ; 0                            ;
-; 22                                              ; 1                            ;
-; 23                                              ; 0                            ;
-; 24                                              ; 1                            ;
-+-------------------------------------------------+------------------------------+
++---------------------------------------------------------------------------------+
+; LAB Signals Sourced Out                                                         ;
++--------------------------------------------------+------------------------------+
+; Number of Signals Sourced Out  (Average = 10.29) ; Number of LABs  (Total = 41) ;
++--------------------------------------------------+------------------------------+
+; 0                                                ; 0                            ;
+; 1                                                ; 2                            ;
+; 2                                                ; 2                            ;
+; 3                                                ; 0                            ;
+; 4                                                ; 0                            ;
+; 5                                                ; 2                            ;
+; 6                                                ; 2                            ;
+; 7                                                ; 1                            ;
+; 8                                                ; 0                            ;
+; 9                                                ; 8                            ;
+; 10                                               ; 6                            ;
+; 11                                               ; 6                            ;
+; 12                                               ; 1                            ;
+; 13                                               ; 2                            ;
+; 14                                               ; 3                            ;
+; 15                                               ; 2                            ;
+; 16                                               ; 1                            ;
+; 17                                               ; 1                            ;
+; 18                                               ; 0                            ;
+; 19                                               ; 0                            ;
+; 20                                               ; 0                            ;
+; 21                                               ; 0                            ;
+; 22                                               ; 1                            ;
+; 23                                               ; 0                            ;
+; 24                                               ; 1                            ;
++--------------------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 15.80) ; Number of LABs  (Total = 44) ;
+; Number of Distinct Inputs  (Average = 16.46) ; Number of LABs  (Total = 41) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
-; 1                                            ; 1                            ;
+; 1                                            ; 0                            ;
 ; 2                                            ; 1                            ;
-; 3                                            ; 2                            ;
+; 3                                            ; 3                            ;
 ; 4                                            ; 2                            ;
-; 5                                            ; 1                            ;
-; 6                                            ; 4                            ;
+; 5                                            ; 2                            ;
+; 6                                            ; 0                            ;
 ; 7                                            ; 0                            ;
-; 8                                            ; 1                            ;
-; 9                                            ; 0                            ;
-; 10                                           ; 2                            ;
-; 11                                           ; 1                            ;
-; 12                                           ; 1                            ;
-; 13                                           ; 2                            ;
-; 14                                           ; 1                            ;
+; 8                                            ; 3                            ;
+; 9                                            ; 1                            ;
+; 10                                           ; 1                            ;
+; 11                                           ; 0                            ;
+; 12                                           ; 0                            ;
+; 13                                           ; 1                            ;
+; 14                                           ; 3                            ;
 ; 15                                           ; 1                            ;
-; 16                                           ; 1                            ;
-; 17                                           ; 4                            ;
-; 18                                           ; 2                            ;
-; 19                                           ; 1                            ;
-; 20                                           ; 0                            ;
-; 21                                           ; 3                            ;
-; 22                                           ; 2                            ;
+; 16                                           ; 2                            ;
+; 17                                           ; 1                            ;
+; 18                                           ; 4                            ;
+; 19                                           ; 0                            ;
+; 20                                           ; 2                            ;
+; 21                                           ; 1                            ;
+; 22                                           ; 0                            ;
 ; 23                                           ; 1                            ;
-; 24                                           ; 0                            ;
+; 24                                           ; 2                            ;
 ; 25                                           ; 2                            ;
-; 26                                           ; 1                            ;
-; 27                                           ; 1                            ;
-; 28                                           ; 4                            ;
-; 29                                           ; 1                            ;
-; 30                                           ; 1                            ;
+; 26                                           ; 2                            ;
+; 27                                           ; 0                            ;
+; 28                                           ; 0                            ;
+; 29                                           ; 3                            ;
+; 30                                           ; 2                            ;
+; 31                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
 
 
@@ -2371,7 +2288,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------+
 ; Fitter Messages ;
 +-----------------+
-Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (119006): Selected device EP2C20F484C7 for design "top_de1"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
@@ -2393,7 +2310,7 @@ Info (176353): Automatically promoted node clock_50mhz (placed in PIN L1 (CLK0, 
 Info (176353): Automatically promoted node gen6mhz:inst1|count[2] 
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node gpu:inst2|ramcontroller:ramcontroller1|write_enable~1
+        Info (176357): Destination node gpu:inst2|ramcontroller:ramcontroller1|write_enable~0
         Info (176357): Destination node gen6mhz:inst1|count[2]~0
 Info (176233): Starting register packing
 Info (176235): Finished register packing
@@ -2403,14 +2320,14 @@ Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:02
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:01
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 1% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 4% of the available device resources in the region that extends from location X25_Y14 to location X37_Y27
+    Info (170196): Router estimated peak interconnect usage is 3% of the available device resources in the region that extends from location X12_Y14 to location X24_Y27
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.63 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.91 seconds.
 Info (306004): Started post-fitting delay annotation
 Warning (306006): Found 82 output pins without output pin load capacitance assignment
     Info (306007): Pin "RAMADDR[15]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
@@ -2498,14 +2415,14 @@ Warning (306006): Found 82 output pins without output pin load capacitance assig
 Info (306005): Delay annotation completed successfully
 Info (306004): Started post-fitting delay annotation
 Info (306005): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info (144001): Generated suppressed messages file C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/quartus/top_de1.fit.smsg
-Info: Quartus II 64-Bit Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 638 megabytes
-    Info: Processing ended: Fri Dec 13 20:47:01 2013
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:07
+Info: Quartus II 64-Bit Fitter was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 1043 megabytes
+    Info: Processing ended: Sat Dec 14 18:52:02 2013
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:09
 
 
 +----------------------------+

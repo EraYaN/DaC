@@ -9,6 +9,7 @@ architecture structural of gpu is
 			clk		: in	std_logic;	--Clock
 			reset	: in	std_logic;	--Reset
 			soft_reset : out std_logic;
+			spi_reset : out std_logic;
 			--SPI-interface interaction
 			spi_data_rx			: in	std_logic_vector(SizeSPIData-1 downto 0);	--Data In
 			spi_data_available	: in	std_logic;									--Data Available in SPI interface, commence data sampling
@@ -35,7 +36,9 @@ architecture structural of gpu is
 			ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);			
 			decoder_debug_pn : out std_logic_vector(3 downto 0);
 			decoder_debug_i : out std_logic_vector(3 downto 0);
-			decoder_debug_c : out std_logic_vector(7 downto 0)
+			decoder_debug_c : out std_logic_vector(7 downto 0);
+			--VGA signals
+			vgavsync : in std_logic
 		);
 	end component;
 
@@ -50,8 +53,7 @@ architecture structural of gpu is
 			ramdata : IN std_logic_vector(SizeRAMData-1 downto 0);
 			vga_read : OUT STD_LOGIC;
 			vga_can_access : in std_logic;
-			asb : IN STD_LOGIC;
-			vgacolor : out std_logic_vector(SizeColor-1 downto 0)
+			asb : IN STD_LOGIC
 		); 	 
 	end component;
 
@@ -116,6 +118,7 @@ architecture structural of gpu is
 	--GLOBAL
 	signal asb : std_logic;
 	signal reset_n, sreset, ramwe: std_logic;
+	signal vgavsync_int : std_logic;
 
 	-- VGACONTROLLER <-> DRAW
 	signal is_init : std_logic;
@@ -128,6 +131,7 @@ architecture structural of gpu is
 	signal en : std_logic_vector(NumDrawModules-1 downto 0);
 	signal id : std_logic_vector(SizeSpriteID-1 downto 0);
 	signal soft_reset : std_logic;
+	signal spi_reset : std_logic;
 
 	-- RAMCONTROLLER <->
 	signal vga_claim : std_logic;
@@ -147,7 +151,7 @@ architecture structural of gpu is
 
 begin
 	reset_n <= not reset;
-	sreset <= (reset or soft_reset);
+	sreset <= (reset or soft_reset or spi_reset);
 	ramwe_n <= not ramwe;
 	asb_debug <= asb;
 	spi_debug<=spi_data_rx;
@@ -175,6 +179,7 @@ begin
 		clk=>clk,
 		reset=>reset,
 		soft_reset=>soft_reset,
+		spi_reset=>spi_reset,
 		int_ready=>int_ready,
 		spi_data_rx=>spi_data_rx,
 		spi_data_available=>spi_data_available,
@@ -195,7 +200,8 @@ begin
 		ramaddr=>ramaddr,
 		decoder_debug_pn=>bin_debug(3 downto 0),
 		decoder_debug_i=>bin_debug(7 downto 4),
-		decoder_debug_c=>bin_debug(15 downto 8)
+		decoder_debug_c=>bin_debug(15 downto 8),
+		vgavsync=>vgavsync_int
 	);
 
 	ramcontroller1: ramcontroller port map (
@@ -217,14 +223,13 @@ begin
 		clk,
 		reset_n,
 		vgahsync,
-		vgavsync,
+		vgavsync_int,
 		vga_claim,
 		ramaddr,
 		ramdata,
 		vga_read,
 		vga_can_access,
-		asb,
-		vgacolor
+		asb
 	);
 
 	spi1: spi port map (
@@ -235,5 +240,5 @@ begin
 		spi_data_available=>spi_data_available,
 		spi_data_rx=>spi_data_rx	
 	);	
-
+vgavsync<=vgavsync_int;
 end structural;

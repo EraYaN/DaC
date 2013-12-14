@@ -16,7 +16,6 @@ entity gpu is
 		vgavsync : out std_logic;
 		asb_debug : out std_logic;
 		spi_debug : out std_logic_vector(SizeSPIData-1 downto 0);
-		vgacolor : out std_logic_vector(SizeColor-1 downto 0);
 		bin_debug : out std_logic_vector(15 downto 0);
 		vga_enabled : out std_logic
 	);

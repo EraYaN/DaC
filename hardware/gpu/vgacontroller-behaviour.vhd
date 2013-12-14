@@ -41,7 +41,6 @@ BEGIN
 		vga_claim <= '0';      --disable display
 		ramaddr <= (others=>'Z');
 		vga_read <= '0';
-		vgacolor <= (others => '0');
 	else 
 		--counters
 		IF(h_count < h_period - 1) THEN    --horizontal counter (pixels)
@@ -80,15 +79,12 @@ BEGIN
 			if vga_can_access = '1' THEN		
 				vga_read <= '1';
 				ramaddr <= asb & std_logic_vector(v_row) & std_logic_vector(h_col);         --set RAM Addr
-				vgacolor <= ramdata;
 			else
-				vga_read <= '0';	
-				vgacolor <= (others => std_logic(h_col(0)) XOR std_logic(v_row(0)));
+				vga_read <= '0';
 				ramaddr <= (others => 'Z');	
 			end if;
 		ELSE                                                --blanking time
-			vga_read <= '0';	
-			vgacolor <= (others => '0');	
+			vga_read <= '0';
 			ramaddr <= (others => 'Z');								
 		END IF;
 	end if;

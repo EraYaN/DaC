@@ -31,7 +31,7 @@ begin
 	--debug shit
 	decoder_debug_pn <= '0' & std_logic_vector(packet_num);
 	decoder_debug_i <= std_logic_vector(to_unsigned(instruction'pos(current_instruction), decoder_debug_i'length));
-	decoder_debug_c <= std_logic_vector(timeout_count(24 downto 17));
+	decoder_debug_c <= std_logic_vector(timeout_count(SizeTimeoutCounter-1 downto SizeTimeoutCounter-8));
 
 	--synchronizer + input buffer + output buffer + state change
 	decode_seq: process (clk)	
@@ -73,7 +73,7 @@ begin
 		end if;
 	end process;
 
-	decode_comb: process (x, y, w, h, id, color, en, asb, is_init, int_ready, draw_ready, spi_data_available, spi_data_rx, current_instruction, packet_num, decoder_can_access, timeout_count)
+	decode_comb: process (x, y, w, h, id, color, en, asb, is_init, int_ready, draw_ready, spi_data_available, prev_spi_data_available, spi_data_rx, current_instruction, packet_num, decoder_can_access, timeout_count, vgavsync)
 		variable done : std_logic;		
 	begin
 		--defaults for buffered signals
@@ -90,11 +90,12 @@ begin
 		next_instruction <= current_instruction;
 		next_packet_num <= packet_num;
 		next_timeout_count <= timeout_count;
-	
+		
 		--defaults for non-buffered signals
 		decoder_write <= '0';
 		next_ramdata <= (others => '0');
 		soft_reset <= '0';
+		spi_reset <= '0';
 
 		--init variables
 		done := '0';
@@ -143,9 +144,11 @@ begin
 				end if;
 
 			elsif current_instruction = i_switch then
-				next_asb <= not asb;
-				done := '1';
-				next_int_ready <= '1';
+				if vgavsync = '0' then
+					next_asb <= not asb;
+					done := '1';
+					next_int_ready <= '1';
+				end if;
 			elsif current_instruction = i_reset then
 				soft_reset <= '1';
 				done := '1';
@@ -228,6 +231,7 @@ begin
 				next_packet_num <= (others => '0');
 				next_instruction <= i_none;
 				next_int_ready <= '1';
+				spi_reset<='1';
 			end if;
 		end if;
 	end process;

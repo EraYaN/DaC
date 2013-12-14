@@ -21,7 +21,7 @@ void setup()
 	Input = new InputLib();
 	//attachInterrupt(INT_READY_PIN, drawReady, RISING);	
 	SPI.setBitOrder(MSBFIRST);
-	SPI.setClockDivider(SPI_CLOCK_DIV128);
+	SPI.setClockDivider(SPI_CLOCK_DIV32);
 	SPI.setDataMode(SPI_MODE0);
 	SPI.begin();
 	Serial.begin(115200);
