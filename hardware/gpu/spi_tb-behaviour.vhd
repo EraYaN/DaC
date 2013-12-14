@@ -76,16 +76,12 @@ begin
 		--DataToTxLoad <= '0';
 		wait until rising_edge(clk);
 		reset <= '0';
+		loop 
 		wait until rising_edge(clk);
 		sendByte("01001011",spi_mosi,spiclk_en);
-		wait until rising_edge(clk);
-		--DataToTX <= x"E6";
-		--DataToTxLoad <= '1';
-		--wait until rising_edge(clk);
-		--DataToTxLoad <= '0';
-		--wait until rising_edge(clk);
+		wait until rising_edge(clk);		
 		sendByte(x"DF",spi_mosi,spiclk_en);
-		wait;
+		end loop;
 	end process;	
 	
 end behaviour;
