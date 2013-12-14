@@ -91,7 +91,8 @@ begin
 	clk		<= '1' after 0 ns,
 			'0' after 80 ns when clk /= '0' else '1' after 80 ns;
 	spi_data_available	<= '1' after 0 ns,
-							'0' after 160 ns when (spi_data_available /= '0' ) else '1' after 320 ns when enable_spi = '1' else '0';
+							'0' after 250 ns when (spi_data_available /= '0' ) else '1' after 500 ns when enable_spi = '1' else '0';
+
 	process
 	begin
 		reset <= '1';

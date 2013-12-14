@@ -8,18 +8,20 @@ architecture behaviour of decoder is
 	attribute enum_encoding : string;
 	attribute enum_encoding of instruction : type is "sequential";
 
-	--persistent signals
+	--state signals and regs
 	signal packet_num, next_packet_num : unsigned(SizeNumPackets-1 downto 0); --current packet number
 	signal current_instruction, next_instruction : instruction; --current instruction
 	signal timeout_count, next_timeout_count : unsigned(SizeTimeoutCounter-1 downto 0);
-	signal next_ramdata : std_logic_vector(SizeRAMData-1 downto 0);
+	signal prev_spi_data_available, next_prev_spi_data_available : std_logic;
 
+	--output registers
 	signal next_x, next_w : std_logic_vector(SizeX-1 downto 0);
 	signal next_y, next_h : std_logic_vector(SizeY-1 downto 0);
 	signal next_id : std_logic_vector(SizeSpriteID-1 downto 0);
 	signal next_color : std_logic_vector(SizeColor-1 downto 0);
 	signal next_en : std_logic_vector(NumDrawModules-1 downto 0);
 	signal next_int_ready, next_is_init, next_asb : std_logic;
+	signal next_ramdata : std_logic_vector(SizeRAMData-1 downto 0);
 
 begin
 	--"asynchronous" RAM interaction
@@ -40,6 +42,7 @@ begin
 				packet_num <= (others => '0');
 				timeout_count <= (others => '0');
 				current_instruction <= i_none;
+				prev_spi_data_available <= '0';
 				x <= (others => '0');
 				y <= (others => '0');
 				w <= (others => '0');
@@ -55,6 +58,7 @@ begin
 				packet_num <= next_packet_num;
 				timeout_count <= next_timeout_count;
 				current_instruction <= next_instruction;
+				prev_spi_data_available <= next_prev_spi_data_available;
 				x <= next_x;
 				y <= next_y;
 				w <= next_w;
@@ -70,7 +74,7 @@ begin
 	end process;
 
 	decode_comb: process (x, y, w, h, id, color, en, asb, is_init, int_ready, draw_ready, spi_data_available, spi_data_rx, current_instruction, packet_num, decoder_can_access, timeout_count)
-		--variable done : std_logic;		
+		variable done : std_logic;		
 	begin
 		--defaults for buffered signals
 		next_x <= x;
@@ -93,10 +97,13 @@ begin
 		soft_reset <= '0';
 
 		--init variables
-		--done := '0';
+		done := '0';
+
+		--buffer spi_data_available flag
+		next_prev_spi_data_available <= spi_data_available;
 
 		--action depending on state
-		if spi_data_available = '1' or current_instruction = i_switch or current_instruction = i_reset then
+		if (spi_data_available = '1' and prev_spi_data_available = '0') or current_instruction = i_switch or current_instruction = i_reset then
 			next_int_ready <= '0';
 			next_timeout_count <= (others => '0');
 			
@@ -106,43 +113,31 @@ begin
 					if spi_data_rx(SizeSPIData-1 downto InstrSize) = (SizeSPIData-InstrSize-1 downto 0 => '0') then
 						if spi_data_rx(InstrSize-1 downto 0) = "000" then
 							 next_instruction <= i_switch;
-							 next_packet_num <= packet_num + 1;
 						elsif spi_data_rx(InstrSize-1 downto 0) = "001" then
 							next_instruction <= i_reset;
-							next_packet_num <= packet_num + 1;
 						elsif spi_data_rx(InstrSize-1 downto 0) = "010" then 
 							next_instruction <= i_pixel;
-							next_packet_num <= packet_num + 1;
 						elsif spi_data_rx(InstrSize-1 downto 0) = "011" then 
 							next_instruction <= i_rect;
-							next_packet_num <= packet_num + 1;
 						elsif spi_data_rx(InstrSize-1 downto 0) = "100" then 
 							next_instruction <= i_frect;
-							next_packet_num <= packet_num + 1;
 						elsif spi_data_rx(InstrSize-1 downto 0) = "101" then 
 							next_instruction <= i_line;
-							next_packet_num <= packet_num + 1;
 						--elsif spi_data_rx(InstrSize-1 downto 0) = "110" then 
 						--	next_instruction <= sprite;
 						--elsif spi_data_rx(InstrSize-1 downto 0) = "111" then 
 						--	next_instruction <= lsprite;
 						else
-						--	done := '1';
-							next_packet_num <= to_unsigned(0,SizeNumPackets);
-							next_instruction <= i_none;
+							done := '1';
 							next_int_ready <= '1';
 						end if;
 					else
-						--done := '1';
-						next_packet_num <= to_unsigned(0,SizeNumPackets);
-						next_instruction <= i_none;
+						done := '1';
 						next_int_ready <= '1';
 					end if;
 					
 				else
-					--done := '1';
-					next_packet_num <= to_unsigned(0,SizeNumPackets);
-					next_instruction <= i_none;
+					done := '1';
 					next_int_ready <= '1';
 				end if;
 
@@ -152,16 +147,12 @@ begin
 
 			elsif current_instruction = i_switch then
 				next_asb <= not asb;
-				--done := '1';
-				next_packet_num <= to_unsigned(0,SizeNumPackets);
-				next_int_ready <= '1'; --inform CPU we're ready
-				next_instruction <= i_none;
+				done := '1';
+				next_int_ready <= '1';
 			elsif current_instruction = i_reset then
 				soft_reset <= '1';
-				--done := '1';
-				next_packet_num <= (others => '0');
+				done := '1';
 				next_timeout_count <= (others => '0');
-				next_instruction <= i_none;
 				next_x <= (others => '0');
 				next_y <= (others => '0');
 				next_w <= (others => '0');
@@ -173,45 +164,32 @@ begin
 			elsif current_instruction = i_pixel then
 				if packet_num = 1 then
 					next_color <= spi_data_rx(SizeColor-1 downto 0);
-					next_packet_num <= packet_num + 1;
 				elsif packet_num = 2 then
 					next_x <= spi_data_rx(SizeX-1 downto 0);
-					next_packet_num <= packet_num + 1;
 				elsif packet_num = 3 then
 					next_y <= spi_data_rx(SizeY-1 downto 0);
 					--done
-					--done := '1';
-					next_packet_num <= to_unsigned(0,SizeNumPackets);
-					next_instruction <= i_none;
+					done := '1';
 					next_en(0) <= '1';
 				else
 					--shit broke
-					--done := '1';
-					next_packet_num <= to_unsigned(0,SizeNumPackets);
-					next_instruction <= i_none;
+					done := '1';
 					next_int_ready <= '1';
 				end if;
 
 			elsif current_instruction = i_rect or current_instruction = i_frect or current_instruction = i_line then
 				if packet_num = 1 then
 					next_color <= spi_data_rx(SizeColor-1 downto 0);
-					next_packet_num <= packet_num + 1;
 				elsif packet_num = 2 then
 					next_x <= spi_data_rx(SizeX-1 downto 0);
-					next_packet_num <= packet_num + 1;
 				elsif packet_num = 3 then
 					next_y <= spi_data_rx(SizeY-1 downto 0);
-					next_packet_num <= packet_num + 1;
 				elsif packet_num = 4 then
 					next_w <= spi_data_rx(SizeX-1 downto 0);
-					next_packet_num <= packet_num + 1;
 				elsif packet_num = 5 then
 					next_h <= spi_data_rx(SizeY-1 downto 0);
 					--done
-					--done := '1';
-					next_packet_num <= to_unsigned(0,SizeNumPackets);
-					next_instruction <= i_none;
-					--next_packet_num <= to_unsigned(0,SizeNumPackets);
+					done := '1';
 					if current_instruction = i_rect then
 						next_en(1) <= '1';
 					elsif current_instruction = i_frect then
@@ -221,23 +199,21 @@ begin
 					end if;
 				else
 					--shit broke
-					--done := '1';
-					next_packet_num <= to_unsigned(0,SizeNumPackets);
-					next_instruction <= i_none;
+					done := '1';
 					next_int_ready <= '1';
 				end if;
 			elsif current_instruction = i_none then
 				--shit broke
-				--done := '1';
-				next_packet_num <= to_unsigned(0,SizeNumPackets);
+				done := '1';
 				next_int_ready <= '1';
 			end if;
 
-			-- if done = '0' then
-				
-			-- else
-				-- next_packet_num <= to_unsigned(0,SizeNumPackets);
-			-- end if;
+			if done = '0' then
+				next_packet_num <= packet_num + 1;
+			else
+				next_packet_num <= to_unsigned(0,SizeNumPackets);
+				next_instruction <= i_none;
+			end if;
 
 		elsif draw_ready = '1' then
 			next_timeout_count <= (others => '0');

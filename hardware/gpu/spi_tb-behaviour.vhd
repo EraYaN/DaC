@@ -8,7 +8,6 @@ port (
 reset : in std_logic;
 clk : in std_logic;
 spi_clk : in std_logic;
-spi_ss : in std_logic;
 spi_mosi : in std_logic;
 --SPI_MISO : out std_logic;
 spi_data_available : out std_logic;
@@ -20,7 +19,6 @@ end component;
 signal reset : std_logic;
 signal clk,spiclk,spiclk_en :std_logic;
 signal spi_clk :  std_logic;
-signal spi_ss : std_logic;
 signal spi_mosi : std_logic;
 --signal SPI_MISO : std_logic;
 signal spi_data_available : std_logic;
@@ -45,7 +43,6 @@ begin
 	reset,
 	clk,
 	spi_clk,
-	spi_ss,
 	spi_mosi,
 	--SPI_MISO,
 	spi_data_available,
@@ -65,13 +62,11 @@ begin
 	begin
 		--setup
 		reset <= '1';
-		spi_ss <= '1';
 		spi_mosi <= '0';
 		--DataToTX <= (others=>'0');
 		--DataToTxLoad <= '0';
 		wait until rising_edge(clk);
 		reset <= '0';
-		spi_ss <= '0';
 		wait until rising_edge(clk);
 		sendByte(x"01",spi_mosi,spiclk_en);
 		wait until rising_edge(clk);
