@@ -28,16 +28,24 @@ signal spi_data_rx : std_logic_vector(SizeSPIData-1 downto 0);
 procedure sendByte( byte : in std_logic_vector(SizeSPIData-1 downto 0);
 	signal mosi : out std_logic;
 	signal spiclk_en : out std_logic) is
-	begin		
-		spiclk_en <= '1';
-		for J in byte'range loop
-			wait until rising_edge(spiclk);
+	variable first : boolean := TRUE;
+	begin	
+		wait until rising_edge(spiclk);
+		for J in byte'range loop	
+			wait until falling_edge(spiclk);			
 			mosi <= byte(J);
+			if first then
+				wait until rising_edge(spiclk);
+				spiclk_en <= '1';
+				first := false;
+			end if;
 			
 		end loop; -- works for any size byte
-		wait until rising_edge(spiclk);
+		wait until falling_edge(spiclk);
 		spiclk_en <= '0';
-	end sendByte;
+		mosi <= '1';
+		wait for 600 ns;
+end sendByte;
 begin
 	spi1: spi port map (
 	reset,
@@ -63,12 +71,13 @@ begin
 		--setup
 		reset <= '1';
 		spi_mosi <= '0';
+		spiclk_en <= '0';
 		--DataToTX <= (others=>'0');
 		--DataToTxLoad <= '0';
 		wait until rising_edge(clk);
 		reset <= '0';
 		wait until rising_edge(clk);
-		sendByte(x"01",spi_mosi,spiclk_en);
+		sendByte("01001011",spi_mosi,spiclk_en);
 		wait until rising_edge(clk);
 		--DataToTX <= x"E6";
 		--DataToTxLoad <= '1';
