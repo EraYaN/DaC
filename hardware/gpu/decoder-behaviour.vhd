@@ -12,7 +12,7 @@ architecture behaviour of decoder is
 	signal packet_num, next_packet_num : unsigned(SizeNumPackets-1 downto 0); --current packet number
 	signal current_instruction, next_instruction : instruction; --current instruction
 	signal timeout_count, next_timeout_count : unsigned(SizeTimeoutCounter-1 downto 0);
-	signal prev_spi_data_available, next_prev_spi_data_available : std_logic;
+	signal prev_spi_data_available : std_logic;
 
 	--output registers
 	signal next_x, next_w : std_logic_vector(SizeX-1 downto 0);
@@ -30,7 +30,7 @@ begin
 	ramdata <= next_ramdata when decoder_write = '1' else (others => 'Z');
 	--debug shit
 	decoder_debug_pn <= '0' & std_logic_vector(packet_num);
-	decoder_debug_i <= std_logic_vector(to_unsigned(instruction'pos(current_instruction ), decoder_debug_i'length));
+	decoder_debug_i <= std_logic_vector(to_unsigned(instruction'pos(current_instruction), decoder_debug_i'length));
 	decoder_debug_c <= std_logic_vector(timeout_count(24 downto 17));
 
 	--synchronizer + input buffer + output buffer + state change
@@ -58,7 +58,7 @@ begin
 				packet_num <= next_packet_num;
 				timeout_count <= next_timeout_count;
 				current_instruction <= next_instruction;
-				prev_spi_data_available <= next_prev_spi_data_available;
+				prev_spi_data_available <= spi_data_available;
 				x <= next_x;
 				y <= next_y;
 				w <= next_w;
@@ -98,9 +98,6 @@ begin
 
 		--init variables
 		done := '0';
-
-		--buffer spi_data_available flag
-		next_prev_spi_data_available <= spi_data_available;
 
 		--action depending on state
 		if (spi_data_available = '1' and prev_spi_data_available = '0') or current_instruction = i_switch or current_instruction = i_reset then
