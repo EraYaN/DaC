@@ -8,6 +8,8 @@ architecture structural of gpu is
 			--Clock/reset
 			clk		: in	std_logic;	--Clock
 			reset	: in	std_logic;	--Reset
+			soft_reset : out std_logic;
+			spi_reset : out std_logic;
 			--SPI-interface interaction
 			spi_data_rx			: in	std_logic_vector(SizeSPIData-1 downto 0);	--Data In
 			spi_data_available	: in	std_logic;									--Data Available in SPI interface, commence data sampling
@@ -19,19 +21,24 @@ architecture structural of gpu is
 			h			: buffer	std_logic_vector(SizeY-1 downto 0);				--Entity height
 			color		: buffer	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
 			id			: buffer	std_logic_vector(SizeSpriteID-1 downto 0);		--Sprite ID
-			en			: out	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
+			en			: buffer	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
 			--Internal registers
 			asb			: buffer	std_logic;	--Currently active screen buffer
 			--Direct CPU interaction
-			int_ready	: out	std_logic;	--Instruction processed signal
+			int_ready	: buffer	std_logic;	--Instruction processed signal
 			--RAM Controller interaction
 			decoder_can_access	: in std_logic;		--Can access RAM?
 			decoder_write		: buffer std_logic;	--Intention to write to RAM
 			decoder_claim		: out std_logic;	
-			is_init				: out std_logic;		--Initializing?
+			is_init				: buffer std_logic;		--Initializing?
 			--RAM interaction
 			ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
-			ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0)
+			ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);			
+			decoder_debug_pn : out std_logic_vector(3 downto 0);
+			decoder_debug_i : out std_logic_vector(3 downto 0);
+			decoder_debug_c : out std_logic_vector(7 downto 0);
+			--VGA signals
+			vgavsync : in std_logic
 		);
 	end component;
 
@@ -41,10 +48,9 @@ architecture structural of gpu is
 			reset_n  :  IN   STD_LOGIC;  --active low asycnchronous reset
 			vgahsync    :  OUT  STD_LOGIC;  --horiztonal sync pulse
 			vgavsync    :  OUT  STD_LOGIC;  --vertical sync pulse
-			vgacolor : OUT STD_LOGIC_VECTOR(SizeColor-1 downto 0);
 			vga_claim  :  OUT  STD_LOGIC;  --display enable ('1' = display time, '0' = blanking time)	 
 			ramaddr  :  OUT  STD_LOGIC_VECTOR(SizeRAMAddr-1 downto 0);
-			ramdata  :  IN  STD_LOGIC_VECTOR(SizeRAMData-1 downto 0); 
+			ramdata : IN std_logic_vector(SizeRAMData-1 downto 0);
 			vga_read : OUT STD_LOGIC;
 			vga_can_access : in std_logic;
 			asb : IN STD_LOGIC
@@ -56,12 +62,8 @@ architecture structural of gpu is
 			reset : in std_logic;
 			clk : in std_logic;
 			spi_clk : in std_logic;
-			spi_ss : in std_logic;
 			spi_mosi : in std_logic;
-			--SPI_MISO : out std_logic;
 			spi_data_available : out std_logic;
-			--DataToTx : in std_logic_vector(SizeSPIData-1 downto 0);
-			--DataToTxLoad: in std_logic;
 			spi_data_rx : out std_logic_vector(SizeSPIData-1 downto 0)
 		);
 	end component;
@@ -115,7 +117,8 @@ architecture structural of gpu is
 
 	--GLOBAL
 	signal asb : std_logic;
-	signal reset_n, ramwe: std_logic;
+	signal reset_n, sreset, ramwe: std_logic;
+	signal vgavsync_int : std_logic;
 
 	-- VGACONTROLLER <-> DRAW
 	signal is_init : std_logic;
@@ -127,6 +130,8 @@ architecture structural of gpu is
 	signal color : std_logic_vector(SizeColor-1 downto 0);
 	signal en : std_logic_vector(NumDrawModules-1 downto 0);
 	signal id : std_logic_vector(SizeSpriteID-1 downto 0);
+	signal soft_reset : std_logic;
+	signal spi_reset : std_logic;
 
 	-- RAMCONTROLLER <->
 	signal vga_claim : std_logic;
@@ -145,11 +150,12 @@ architecture structural of gpu is
 	signal spi_data_rx : std_logic_vector(sizespidata-1 downto 0);
 
 begin
-
 	reset_n <= not reset;
+	sreset <= (reset or soft_reset or spi_reset);
 	ramwe_n <= not ramwe;
 	asb_debug <= asb;
 	spi_debug<=spi_data_rx;
+	vga_enabled<=vga_claim;
 	draw1: draw port map (
 		clk=>clk,
 		reset=>reset,
@@ -172,6 +178,8 @@ begin
 	decoder1: decoder port map (
 		clk=>clk,
 		reset=>reset,
+		soft_reset=>soft_reset,
+		spi_reset=>spi_reset,
 		int_ready=>int_ready,
 		spi_data_rx=>spi_data_rx,
 		spi_data_available=>spi_data_available,
@@ -189,7 +197,11 @@ begin
 		decoder_claim=>decoder_claim,
 		is_init=>is_init,		--Initializing?
 		ramdata=>ramdata,
-		ramaddr=>ramaddr
+		ramaddr=>ramaddr,
+		decoder_debug_pn=>bin_debug(3 downto 0),
+		decoder_debug_i=>bin_debug(7 downto 4),
+		decoder_debug_c=>bin_debug(15 downto 8),
+		vgavsync=>vgavsync_int
 	);
 
 	ramcontroller1: ramcontroller port map (
@@ -211,8 +223,7 @@ begin
 		clk,
 		reset_n,
 		vgahsync,
-		vgavsync,
-		vgacolor,
+		vgavsync_int,
 		vga_claim,
 		ramaddr,
 		ramdata,
@@ -223,12 +234,11 @@ begin
 
 	spi1: spi port map (
 		clk=>clk,
-		reset=>reset,
+		reset=>sreset,
 		spi_clk=>spi_clk,
-		spi_ss=>reset,
 		spi_mosi=>spi_mosi,
 		spi_data_available=>spi_data_available,
 		spi_data_rx=>spi_data_rx	
 	);	
-
+vgavsync<=vgavsync_int;
 end structural;

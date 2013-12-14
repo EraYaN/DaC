@@ -40,8 +40,21 @@ void GPULib::sendNextInstruction()
 {
 	if (queueHead == NULL) return;
 	sending = true;
+	/*unsigned long time = micros();
+	while(micros()<time+500){
+		//wait
+	}*/
 	for (int j=0; j<(queueHead->numPackets); j++)
-	{
+	{	
+		/*Serial.print("Sent byte: ");
+		Serial.print(queueHead->packets[j],BIN);
+		Serial.print("; ");
+		Serial.print(j+1);
+		Serial.print(" of ");
+		Serial.print(queueHead->numPackets);
+		Serial.print(" @ 0x");
+		Serial.println((unsigned int)queueHead, HEX);
+		Serial.flush();*/
 		SPI.transfer(queueHead->packets[j]);		
 	}
 	shiftQueue();
@@ -67,81 +80,84 @@ void GPULib::shiftQueue()
 
 void GPULib::switchScreenBuffer()
 {
-	Instruction *instr = new Instruction;
-	instr->numPackets = 1;
-	instr->packets[0] = B00000000;
+	Instruction *instr = new Instruction(1);
+	instr->packets[0] = 0;
+	appendInstructionToQueue(instr);
+}
+
+void GPULib::gpuReset()
+{
+	Instruction *instr = new Instruction(1);
+	instr->packets[0] = 1;
 	appendInstructionToQueue(instr);
 }
 
 void GPULib::drawFill(byte color)
 {
-	Instruction *instr = new Instruction;
-	instr->numPackets = 1;
-	instr->packets[0] = (color | B00010000);
-	appendInstructionToQueue(instr);
+	drawFilledRect(0, 0, XMAX, YMAX, color);	
 }
 
 void GPULib::drawPixel(byte x, byte y, byte color)
 {
-	Instruction *instr = new Instruction;
-	instr->numPackets = 3;
-	instr->packets[0] = color | B00100000;
-	instr->packets[1] = clamp(x,0,XMAX);
-	instr->packets[2] = clamp(y,0,YMAX);
+	Instruction *instr = new Instruction(4);
+	instr->packets[0] = 2;
+	instr->packets[1] = color;
+	instr->packets[2] = clamp(x,0,XMAX);
+	instr->packets[3] = clamp(y,0,YMAX);
 	appendInstructionToQueue(instr);
 }
 
 void GPULib::drawRect(byte x0, byte y0, byte x1, byte y1, byte color)
 {
-	Instruction *instr = new Instruction;
-	instr->numPackets = 5;
-	instr->packets[0] = color | B00110000;
-	instr->packets[1] = clamp(x0,0,XMAX);
-	instr->packets[2] = clamp(y0,0,YMAX);
-	instr->packets[3] = clamp(x1,0,XMAX);
-	instr->packets[4] = clamp(y1,0,YMAX);
+	Instruction *instr = new Instruction(6);
+	instr->packets[0] = 3;
+	instr->packets[1] = color;
+	instr->packets[2] = clamp(x0,0,XMAX);
+	instr->packets[3] = clamp(y0,0,YMAX);
+	instr->packets[4] = clamp(x1,0,XMAX);
+	instr->packets[5] = clamp(y1,0,YMAX);
 	appendInstructionToQueue(instr);
 }
 
 void GPULib::drawFilledRect(byte x0, byte y0, byte x1, byte y1, byte color)
 {
-	Instruction *instr = new Instruction;
-	instr->numPackets = 5;
-	instr->packets[0] = color | B01000000;
-	instr->packets[1] = clamp(x0,0,XMAX);
-	instr->packets[2] = clamp(y0,0,YMAX);
-	instr->packets[3] = clamp(x1,0,XMAX);
-	instr->packets[4] = clamp(y1,0,YMAX);
+	Instruction *instr = new Instruction(6);
+	instr->packets[0] = 4;
+	instr->packets[1] = color;
+	instr->packets[2] = clamp(x0,0,XMAX);
+	instr->packets[3] = clamp(y0,0,YMAX);
+	instr->packets[4] = clamp(x1,0,XMAX);
+	instr->packets[5] = clamp(y1,0,YMAX);
 	appendInstructionToQueue(instr);
 }
 
 void GPULib::drawLine(byte x0, byte y0, byte x1, byte y1, byte color)
 {
-	Instruction *instr = new Instruction;
-	instr->numPackets = 5;
-	instr->packets[0] = color | B01010000;
-	instr->packets[1] = clamp(x0,0,XMAX);
-	instr->packets[2] = clamp(y0,0,YMAX);
-	instr->packets[3] = clamp(x1,0,XMAX);
-	instr->packets[4] = clamp(y1,0,YMAX);
+	Instruction *instr = new Instruction(6);
+	instr->packets[0] = 5;
+	instr->packets[1] = color;
+	instr->packets[2] = clamp(x0,0,XMAX);
+	instr->packets[3] = clamp(y0,0,YMAX);
+	instr->packets[4] = clamp(x1,0,XMAX);
+	instr->packets[5] = clamp(y1,0,YMAX);
 	appendInstructionToQueue(instr);
 }
 
 void GPULib::drawSprite(Sprite* sprite, byte x, byte y, byte color)
 {
-	drawSprite(sprite->address, x, y, sprite->width, sprite->width*sprite->height/4, color);
+	drawSprite(sprite->address, x, y, sprite->width, sprite->size, color);
 }
 
 void GPULib::drawSprite(int address, byte x, byte y, byte w, byte l, byte color)
 {
-	Instruction *instr = new Instruction;
-	instr->numPackets = 6;
-	instr->packets[0] = color | B01100000;
-	instr->packets[1] = clamp(x,0,XMAX);
-	instr->packets[2] = clamp(y,0,YMAX);
-	instr->packets[3] = clamp(w,0,XMAX);
-	instr->packets[4] = (l & B11111100) | (address & 0x300);
-	instr->packets[5] = (address & 0xFF);
+	Instruction *instr = new Instruction(7);
+	instr->packets[0] = 6;
+	instr->packets[1] = color;
+	instr->packets[2] = clamp(x,0,XMAX);
+	instr->packets[3] = clamp(y,0,YMAX);
+	instr->packets[4] = clamp(w,0,MAXSPRITEWIDTH);
+	instr->packets[5] = ((l << 2) & B11111100) | ((address>>8) & B11);
+	instr->packets[6] = (address & 0xFF);
 	appendInstructionToQueue(instr);
 }
 
@@ -189,6 +205,7 @@ void GPULib::drawString(const char* string, byte x, byte y, byte color){
 }
 bool GPULib::loadSprites(Sprite *set[], int size, bool *readyfornext){
 	uint16_t address = 0;
+	Serial.println("Started Sending!");
 	int spriteID = 0;
 	for(int i = 0; i<size; i++){
 		spriteID=lastSpriteID+1;
@@ -205,38 +222,29 @@ bool GPULib::loadSprites(Sprite *set[], int size, bool *readyfornext){
 		}
 		set[i]->address = address >> 6;
 		/*while(!(*readyfornext)){
-			//wait		
-			Serial.println("Waiting!");
+		//wait		
+		Serial.println("Waiting!");
 		}*/
-		//Serial.println("Sending!");
+		Serial.println("Sending!");
 		sendSprite(set[i]);
 	}
 	return true;
 }
 void GPULib::sendSprite(Sprite *sprite){
-	Instruction *instr = new Instruction;
-	instr->numPackets = 3;
-	instr->packets[0] = B01110000;
-	instr->packets[1] = (((sprite->width*sprite->height/4) << 2) & B11111100) | (sprite->address & 0x300);
+	Instruction *instr = new Instruction(3);
+	instr->packets[0] = 7;
+	instr->packets[1] = ((sprite->size << 2) & B11111100) | ((sprite->address>>8) & B11);
 	instr->packets[2] = (sprite->address & 0xFF);	
 	sending = true;
 	for (int j=0; j<(instr->numPackets); j++)
 	{
-		unsigned long time = millis();
-		while(millis()<time+500){
-
-		}
 		SPI.transfer(instr->packets[j]);		
 	}
 	delete instr;
 	//send data
 	for(int i = 0; i<sprite->size; i++){
-		unsigned long time = millis();
-		while(millis()<time+50){
-
-		}
 		SPI.transfer(sprite->data[i]);
 	}
 	sending = false;
-	
+
 }

@@ -1,0 +1,86 @@
+Info: Start Nativelink Simulation process
+
+========= EDA Simulation Settings =====================
+
+Sim Mode              :  Gate
+Family                :  cycloneii
+Quartus root          :  f:/altera/13.0sp1/quartus/bin64/
+Quartus sim root      :  f:/altera/13.0sp1/quartus/eda/sim_lib
+Simulation Tool       :  modelsim
+Simulation Language   :  none
+Simulation Mode       :  GUI
+Sim Output File       :  top_de1.vho
+Sim SDF File       :  top_de1_vhd.sdo
+Sim dir               :  simulation\modelsim
+
+=======================================================
+
+Info: Starting NativeLink simulation with ModelSim software
+Sourced NativeLink script f:/altera/13.0sp1/quartus/common/tcl/internal/nativelink/modelsim.tcl
+Warning: File top_de1_run_msim_gate_none.do already exists - backing up current file as top_de1_run_msim_gate_none.do.bak
+NONE
+Error: NativeLink simulation flow was NOT successful
+
+
+
+================The following additional information is provided to help identify the cause of error while running nativelink scripts=================
+Nativelink TCL script failed with errorCode:  NONE
+Nativelink TCL script failed with errorInfo:  can't read "family_gate_lib_list(cycloneii,none)": no such element in array
+    while executing
+"set my_lib_list $family_gate_lib_list($family,$language)"
+    (procedure "::quartus::sim_lib_info::get_sim_models_for_family" line 10)
+    invoked from within
+"::quartus::sim_lib_info::get_sim_models_for_family $family $language $rtl_sim $tool $hdl_version"
+    (procedure "get_sim_models" line 7)
+    invoked from within
+"get_sim_models $family $language $rtl_sim $tool"
+    (procedure "get_sim_models_for_design" line 8)
+    invoked from within
+"get_sim_models_for_design $lang $rtl_sim "modelsim""
+    invoked from within
+"if [ catch { open $msim_do_file_name w } msim_do_file ] {
+	nl_postmsg  error "Error: Can't open file $msim_do_file_name: $file_id"
+	set msim_do_file_n..."
+    (procedure "gen_msim_script" line 69)
+    invoked from within
+"gen_msim_script args_hash"
+    ("eval" body line 1)
+    invoked from within
+"eval gen_msim_script args_hash"
+    invoked from within
+"if [ catch {eval gen_msim_script args_hash} msim_do_file_name] {
+	error "$::errorCode" "$::errorInfo"
+    } elseif {$script_mode == 0} {
+	post_message..."
+    (procedure "launch_sim" line 109)
+    invoked from within
+"launch_sim launch_args_hash"
+    ("eval" body line 1)
+    invoked from within
+"eval launch_sim launch_args_hash"
+    invoked from within
+"if [ info exists ::errorCode ] {
+				set savedCode $::errorCode
+				set savedInfo $::errorInfo
+				error $result $savedInfo $savedCode
+			} else {
+			..."
+    invoked from within
+"if [catch {eval launch_sim launch_args_hash} result ] {
+			set status 1
+			if [ info exists ::errorCode ] {
+				set savedCode $::errorCode
+				set sav..."
+    (procedure "run_sim" line 78)
+    invoked from within
+"run_sim run_sim_args_hash"
+    invoked from within
+"if [ info exists ::errorCode ] {
+			set savedCode $::errorCode
+			set savedInfo $::errorInfo
+			error "$result" $savedInfo $savedCode
+		} else {
+			er..."
+    (procedure "run_eda_simulation_tool" line 330)
+    invoked from within
+"run_eda_simulation_tool eda_opts_hash"

@@ -5,8 +5,8 @@ use work.parameter_def.ALL;
 entity draw_sprite is
 	generic (
 		SizeDCounter : integer := 3;
-		DCounterMax : integer := 4;
-		DCounterStart : integer := 4
+		DCounterMax : integer := SizeColor;
+		DCounterStart : integer := SizeColor
 	);
 	port(
 		clk   : in    std_logic;

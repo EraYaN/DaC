@@ -20,48 +20,46 @@ architecture behaviour of decoder_tb is
 			h			: buffer	std_logic_vector(SizeY-1 downto 0);				--Entity height
 			color		: buffer	std_logic_vector(SizeColor-1 downto 0);			--Entity Color
 			id			: buffer	std_logic_vector(SizeSpriteID-1 downto 0);		--Sprite ID
-			en			: out	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
+			en			: buffer	std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
 			--Internal registers
 			asb			: buffer	std_logic;	--Currently active screen buffer
 			--Direct CPU interaction
-			int_ready	: out	std_logic;	--Instruction processed signal
+			int_ready	: buffer	std_logic;	--Instruction processed signal
+			soft_reset	: out		std_logic;
 			--RAM Controller interaction
 			decoder_can_access	: in std_logic;		--Can access RAM?
-			decoder_write		: buffer std_logic;	--Intention to write to RAM
+			decoder_write		: out std_logic;	--Intention to write to RAM
 			decoder_claim		: out std_logic;	
-			is_init				: out std_logic;		--Initializing?
+			is_init				: buffer std_logic;		--Initializing?
 			--RAM interaction
 			ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
 			ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0)
 		);
 	end component;
 
-signal clk		: std_logic;	--Clock
-signal reset	: std_logic;	--Reset
---SPI-interface interaction
-signal spi_data_rx			: std_logic_vector(SizeSPIData-1 downto 0);	--Data In
-signal spi_data_available	: std_logic;									--Data Available in SPI interface, commence data sampling
---Draw data
-signal draw_ready	: std_logic;
-signal x			: std_logic_vector(SizeX-1 downto 0);				--Entity x coord
-signal w			: std_logic_vector(SizeX-1 downto 0);				--Entity width
-signal y			: std_logic_vector(SizeY-1 downto 0);				--Entity y coord
-signal h			: std_logic_vector(SizeY-1 downto 0);				--Entity height
-signal color		: std_logic_vector(SizeColor-1 downto 0);			--Entity Color
-signal id			: std_logic_vector(SizeSpriteID-1 downto 0);		--Sprite ID
-signal en			: std_logic_vector(NumDrawModules-1 downto 0);	--Draw Module Enabled
---Internal registers
-signal asb			: std_logic;	--Currently active screen buffer
---Direct CPU interaction
-signal int_ready	: std_logic;	--Instruction processed signal
---RAM Controller interaction
-signal decoder_can_access	: std_logic;		--Can access RAM?
-signal decoder_write		: std_logic;	--Intention to write to RAM
+signal clk					: std_logic;
+signal reset				: std_logic;
+signal spi_data_rx			: std_logic_vector(SizeSPIData-1 downto 0);
+signal spi_data_available	: std_logic;
+signal draw_ready			: std_logic;
+signal x					: std_logic_vector(SizeX-1 downto 0);
+signal w					: std_logic_vector(SizeX-1 downto 0);
+signal y					: std_logic_vector(SizeY-1 downto 0);
+signal h					: std_logic_vector(SizeY-1 downto 0);
+signal color				: std_logic_vector(SizeColor-1 downto 0);
+signal id					: std_logic_vector(SizeSpriteID-1 downto 0);
+signal en					: std_logic_vector(NumDrawModules-1 downto 0);
+signal asb					: std_logic;
+signal int_ready			: std_logic;
+signal soft_reset			: std_logic;
+signal decoder_can_access	: std_logic;
+signal decoder_write		: std_logic;
 signal decoder_claim		: std_logic;	
-signal is_init				: std_logic;		--Initializing?
---RAM interaction
-signal ramaddr     : std_logic_vector(SizeRAMAddr-1 downto 0);
-signal ramdata     : std_logic_vector(SizeRAMData-1 downto 0);
+signal is_init				: std_logic;
+signal ramaddr				: std_logic_vector(SizeRAMAddr-1 downto 0);
+signal ramdata				: std_logic_vector(SizeRAMData-1 downto 0);
+
+signal enable_spi			: std_logic;
 
 begin
 
@@ -81,6 +79,7 @@ begin
 			en=>en,
 			asb=>asb,
 			int_ready=>int_ready,
+			soft_reset=>soft_reset,
 			decoder_can_access=>decoder_can_access,
 			decoder_write=>decoder_write,
 			decoder_claim=>decoder_claim,
@@ -88,60 +87,104 @@ begin
 			ramaddr=>ramaddr,
 			ramdata=>ramdata
 		);
+
 	clk		<= '1' after 0 ns,
-			'0' after 10 ns when clk /= '0' else '1' after 10 ns;
-	reset 	<= '1' after 0 ns,
-			'0' after 40 ns;
-	--for testing draw-like instructions
-	spi_data_rx		<= "00000000" after 0 ns, 
-			"00111111" after 80 ns,
-			"01010101" after 180 ns,
-			"10101010" after 280 ns,
-			"11111111" after 380 ns,
-			"11001100" after 480 ns,
-			"00111001" after 580 ns;
-			-- "10101010" after 730 ns,
-			-- "01010101" after 830 ns,
-			-- "00000000" after 930 ns,
-			-- "11111111" after 1030 ns,
-			-- "00000000" after 1270 ns;
-	--for testing sprite loading
-	-- spi_data_rx		<= "01110000" after 0 ns, --load sprite
-		-- 	"00100001" after 130 ns, --data length of 8, address(16 downto 14) = 01
-		-- 	"01010101" after 230 ns, --address(13 downto 6) = 01010101
-		-- 	"10100101" after 330 ns, --data 0
-		-- 	"11110000" after 430 ns, --data 1
-		-- 	"00001111" after 530 ns, --data 2
-		-- 	"00110000" after 630 ns; --data 3
-	spi_data_available		<= '0' after 0 ns,
-			'1' after 80 ns,
-			'0' after 100 ns,
-			'1' after 180 ns,
-			'0' after 200 ns,
-			'1' after 280 ns,
-			'0' after 300 ns,
-			'1' after 380 ns,
-			'0' after 400 ns,
-			'1' after 480 ns,
-			'0' after 500 ns,
-			'1' after 580 ns,
-			'0' after 600 ns,
-			'1' after 680 ns,
-			'0' after 700 ns,
-			'1' after 780 ns,
-			'0' after 800 ns,
-			'1' after 880 ns,
-			'0' after 900 ns,
-			'1' after 980 ns,
-			'0' after 1000 ns,
-			'1' after 1080 ns,
-			'0' after 1100 ns,
-			'1' after 1180 ns,
-			'0' after 1200 ns,
-			'1' after 1480 ns,
-			'0' after 1500 ns;
-	draw_ready <= '0' after 0 ns,
-					'1' after 1200 ns,
-					'0' after 1220 ns;
-	decoder_can_access <= '1' after 0 ns;
+			'0' after 80 ns when clk /= '0' else '1' after 80 ns;
+	spi_data_available	<= '1' after 0 ns,
+							'0' after 250 ns when (spi_data_available /= '0' ) else '1' after 500 ns when enable_spi = '1' else '0';
+
+	process
+	begin
+		reset <= '1';
+		enable_spi <= '0';
+		spi_data_rx <= "00000000";
+		draw_ready <= '0';
+		decoder_can_access <= '1' after 0 ns;
+		wait until rising_edge(clk);
+		wait until rising_edge(clk);
+		reset <= '0';
+
+		-- enable_spi <= '1';
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "00000111"; --load sprite
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "00010001"; --data length of 4, address(16 downto 14) = 01
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "01010101"; --address(13 downto 6) = 01010101
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "10100101"; --data 0
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "11110000"; --data 1
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "00001111"; --data 2
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "00110000"; --data 3
+		-- wait until falling_edge(spi_data_available);
+		-- enable_spi <= '0';
+
+		-- wait for 960 ns;
+
+		-- enable_spi <= '1';
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "00000001"; --perform fill
+		-- wait until rising_edge(spi_data_available);
+		-- spi_data_rx <= "00111111"; --color 111111
+		-- wait until falling_edge(spi_data_available);
+		-- enable_spi <= '0';
+
+		-- wait for 960 ns;
+
+		enable_spi <= '1';
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00000011"; --draw rect (011)
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00111111"; --color 111111
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "01010101"; --x
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "10101010"; --y
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "11111111"; --w
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "11001100"; --h
+		wait until falling_edge(spi_data_available);
+		enable_spi <= '0';
+
+		wait for 960 ns;
+
+		wait until rising_edge(clk);
+		draw_ready <= '1';
+		wait until rising_edge(clk);
+		draw_ready <= '0';
+
+		wait for 960 ns;
+
+		enable_spi <= '1';
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00000000"; --switch screen buffer
+		wait until falling_edge(spi_data_available);
+		enable_spi <= '0';
+
+		wait for 960 ns;
+
+		enable_spi <= '1';
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00000101"; --draw line (101)
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00111111"; --color 111111
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "01010101"; --x0
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "10101010"; --y0
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "11111111"; --x1
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "11001100"; --y1
+		wait until falling_edge(spi_data_available);
+		enable_spi <= '0';
+		
+
+		wait for 960 ns;
+		
+	end process;
 end behaviour;

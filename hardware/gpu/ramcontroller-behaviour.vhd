@@ -18,7 +18,7 @@ begin
 		-- end if;	
 		write_enable <= transport ((decoder_write OR draw_write) AND NOT vga_read AND NOT draw_read AND clk) after 2 ns;		
 	else
-		write_enable <= decoder_write;
+		write_enable <= transport (decoder_write AND clk) after 2 ns;
 		decoder_can_access <= '1';
 		draw_can_access <= '0';
 		vga_can_access <= '0';

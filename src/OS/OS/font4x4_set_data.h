@@ -1,479 +1,99 @@
 #pragma once
 #ifndef _SPRITES_SET_FONT4X4_DATA_
 #define _SPRITES_SET_FONT4X4_DATA_
-PROGMEM prog_uchar set_font4x4_sprite_126[] = {
-	
-255,201
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_32[] = {
-	
-255,255
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_33[] = {
-	
-223,221
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_34[] = {
-	
-255,250
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_35[] = {
-	
-248,168
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_36[] = {
-	
-248,205
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_37[] = {
-	
-250,218
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_38[] = {
-	
-248,157
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_39[] = {
-	
-255,221
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_40[] = {
-	
-251,219
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_41[] = {
-	
-253,189
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_42[] = {
-	
-253,136
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_43[] = {
-	
-253,141
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_44[] = {
-	
-221,255
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_45[] = {
-	
-255,143
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_46[] = {
-	
-253,255
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_47[] = {
-	
-254,219
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_48[] = {
-	
-249,172
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_49[] = {
-	
-248,220
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_50[] = {
-	
-249,220
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_51[] = {
-	
-248,152
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_52[] = {
-	
-251,137
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_53[] = {
-	
-252,217
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_54[] = {
-	
-248,142
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_55[] = {
-	
-253,184
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_56[] = {
-	
-248,141
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_57[] = {
-	
-251,136
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_58[] = {
-	
-253,223
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_59[] = {
-	
-237,253
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_60[] = {
-	
-251,219
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_61[] = {
-	
-248,248
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_62[] = {
-	
-253,189
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_63[] = {
-	
-223,152
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_64[] = {
-	
-252,136
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_65[] = {
-	
-250,136
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_66[] = {
-	
-248,140
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_67[] = {
-	
-248,232
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_68[] = {
-	
-252,172
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_69[] = {
-	
-248,200
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_70[] = {
-	
-254,200
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_71[] = {
-	
-248,172
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_72[] = {
-	
-250,138
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_73[] = {
-	
-248,216
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_74[] = {
-	
-248,171
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_75[] = {
-	
-250,202
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_76[] = {
-	
-248,238
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_77[] = {
-	
-250,136
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_78[] = {
-	
-250,172
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_79[] = {
-	
-248,168
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_80[] = {
-	
-254,136
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_81[] = {
-	
-252,168
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_82[] = {
-	
-250,200
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_83[] = {
-	
-252,217
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_84[] = {
-	
-253,216
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_85[] = {
-	
-248,170
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_86[] = {
-	
-253,170
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_87[] = {
-	
-248,138
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_88[] = {
-	
-250,218
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_89[] = {
-	
-253,138
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_90[] = {
-	
-249,220
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_91[] = {
-	
-249,217
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_92[] = {
-	
-251,222
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_93[] = {
-	
-252,220
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_94[] = {
-	
-255,173
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_95[] = {
-	
-015,255
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_96[] = {
-	
-248,201
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_97[] = {
-	
-248,159
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_98[] = {
-	
-248,142
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_99[] = {
-	
-253,237
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_100[] = {
-	
-248,139
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_101[] = {
-	
-252,143
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_102[] = {
-	
-253,153
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_103[] = {
-	
-201,143
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_104[] = {
-	
-250,206
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_105[] = {
-	
-253,223
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_106[] = {
-	
-218,191
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_107[] = {
-	
-250,142
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_108[] = {
-	
-249,221
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_109[] = {
-	
-248,143
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_110[] = {
-	
-250,207
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_111[] = {
-	
-253,173
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_112[] = {
-	
-236,172
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_113[] = {
-	
-185,173
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_114[] = {
-	
-254,237
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_115[] = {
-	
-252,159
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_116[] = {
-	
-249,141
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_117[] = {
-	
-249,175
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_118[] = {
-	
-253,175
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_119[] = {
-	
-248,175
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_120[] = {
-	
-250,143
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_121[] = {
-	
-201,175
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_122[] = {
-	
-249,207
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_123[] = {
-	
-249,201
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_124[] = {
-	
-253,221
-};
-
-PROGMEM prog_uchar set_font4x4_sprite_125[] = {
-	
-252,156
-};
-
+PROGMEM extern const prog_uchar set_font4x4_sprite_114[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_115[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_116[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_117[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_118[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_119[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_120[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_121[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_122[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_123[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_124[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_125[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_126[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_32[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_33[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_34[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_35[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_36[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_37[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_38[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_39[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_40[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_41[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_42[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_43[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_44[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_45[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_46[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_47[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_48[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_49[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_50[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_51[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_52[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_53[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_54[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_55[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_56[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_57[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_58[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_59[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_60[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_61[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_62[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_63[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_64[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_65[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_66[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_67[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_68[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_69[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_70[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_71[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_72[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_73[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_74[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_75[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_76[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_77[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_78[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_79[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_80[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_81[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_82[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_83[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_84[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_85[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_86[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_87[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_88[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_89[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_90[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_91[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_92[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_93[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_94[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_95[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_96[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_97[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_98[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_99[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_100[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_101[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_102[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_103[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_104[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_105[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_106[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_107[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_108[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_109[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_110[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_111[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_112[];
+PROGMEM extern const prog_uchar set_font4x4_sprite_113[];
 #endif

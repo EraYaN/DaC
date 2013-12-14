@@ -10,9 +10,9 @@ signal data_reg,data_reg_tmp : unsigned(0 to SizeRAMData-1);
 signal counter,counter_tmp : unsigned(SizeSpriteCounter-1 downto 0);
 signal dcounter,dcounter_tmp : unsigned(SizeDCounter-1 downto 0);
 signal ramaddr_tmp: std_logic_vector(SizeRAMAddr-1 downto 0);
---signal ramdata_tmp: std_logic_vector(SizeRAMData-1 downto 0);
 signal cx_tmp: unsigned(SizeX-1 downto 0);
 signal cy_tmp: unsigned(SizeY-1 downto 0);
+signal x1 : unsigned(SizeX-1 downto 0);
 signal almost_done,almost_done_tmp : std_logic;
 signal started, started_tmp : std_logic;
 signal oe : std_logic;
@@ -30,9 +30,11 @@ draw_sprite_seq: process (clk)
 		end if;
 	end process;
 	ramaddr <= ramaddr_tmp WHEN oe = '1' ELSE (others => 'Z');
-	ramaddr_tmp <= (NOT asb) & y & x WHEN dcounter < 4 ELSE id & std_logic_vector(counter);
-	ramdata <= color WHEN dcounter < 4 AND oe = '1' ELSE (others => 'Z');
-draw_rect_combi: process (reset, enable, draw_can_access, x, y, w, l, almost_done,cx,cy,started,data_reg,counter,dcounter,ramdata)	
+	ramaddr_tmp <= (NOT asb) & std_logic_vector(cy) &  std_logic_vector(cx) WHEN dcounter < DCounterMax ELSE id & std_logic_vector(counter);
+	ramdata <= color WHEN dcounter < DCounterMax AND oe = '1' ELSE (others => 'Z');
+
+	x1 <= unsigned(x)+unsigned(w)-1;
+draw_rect_combi: process (reset, enable, draw_can_access, x, y, l, almost_done,cx,cy,started,data_reg,counter,dcounter,ramdata,x1)	
 	begin
 			if reset = '0' and enable = '1' then 
 				if draw_can_access = '1' then -- RAM is free to access
@@ -52,14 +54,14 @@ draw_rect_combi: process (reset, enable, draw_can_access, x, y, w, l, almost_don
 						else 
 							oe <= '1';
 							done <= '0';
-							if std_logic_vector(counter) = l then		
+							if std_logic_vector(counter) = l and cx = x1 then		
 								almost_done_tmp <= '1';
 								else
 								almost_done_tmp <= '0';
 							end if;
 							if dcounter < DCounterMax then	
 								counter_tmp <= counter;
-								if cx = unsigned(x)+unsigned(w) then
+								if cx = x1 then
 									cy_tmp <= cy+1;	
 									cx_tmp <= unsigned(x);
 								else

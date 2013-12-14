@@ -18,5 +18,7 @@
 #include "PS2Keyboard.h"
 
 //sprite sets
+#include "font4x4_set.h"
 #include "font6x8_set.h"
+#include "font8x8_set.h"
 #endif

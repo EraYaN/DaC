@@ -14,8 +14,9 @@ entity gpu is
 		ramwe_n : out std_logic;
 		vgahsync : out std_logic;
 		vgavsync : out std_logic;
-		vgacolor : out std_logic_vector(SizeColor-1 downto 0);
 		asb_debug : out std_logic;
-		spi_debug : out std_logic_vector(SizeSPIData-1 downto 0)
+		spi_debug : out std_logic_vector(SizeSPIData-1 downto 0);
+		bin_debug : out std_logic_vector(15 downto 0);
+		vga_enabled : out std_logic
 	);
 end gpu;

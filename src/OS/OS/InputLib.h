@@ -14,9 +14,8 @@ struct Keystroke {
 	Keystroke *nextKeystroke;
 
 	//constructor
-	Keystroke(byte k)
+	Keystroke(byte k) : key(k)
 	{
-		key = k;
 		timestamp = micros();
 	}
 };

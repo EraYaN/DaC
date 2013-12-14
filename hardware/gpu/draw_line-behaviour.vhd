@@ -52,43 +52,52 @@ begin
 
 	begin
 
-		if enable = '1' and draw_can_access = '1' then
-			if setup = '1' then
-				done <= '0';
-				draw_write <= '0';
-				next_cx <= signed(x0);
-				next_cy <= signed(y0);					
-				next_err <= resize(dx - dy, next_err'length);
-				next_setup <= '0';
+		if enable = '1'then
+			if draw_can_access = '1' then
+				if setup = '1' then
+					done <= '0';
+					draw_write <= '0';
+					next_cx <= signed(x0);
+					next_cy <= signed(y0);					
+					next_err <= resize(dx - dy, next_err'length);
+					next_setup <= '0';
+				else
+					next_cx <= cx;
+					next_cy <= cy;
+					next_err <= err;
+
+					--draw next pixel
+					draw_write <= '1';
+
+					--are we done?
+					if cx = signed(x1) and cy = signed(y1) then
+						done <= '1';
+						next_setup <= '1';
+					else
+						done <= '0';
+						next_setup <= '0';
+						if (err & '0') > -dy and (err & '0') < dx then
+							next_err <= err - dy + dx;
+							next_cx <= cx + sx;
+							next_cy <= cy + sy;
+						else 
+							if (err & '0') > -dy then
+								next_err <= err - dy;
+								next_cx <= cx + sx;
+							elsif (err & '0') < dx then
+								next_err <= err + dx;
+								next_cy <= cy + sy;
+							end if;
+						end if;
+					end if;						
+				end if;
 			else
+				next_setup <= setup;
 				next_cx <= cx;
 				next_cy <= cy;
 				next_err <= err;
-
-				--draw next pixel
-				draw_write <= '1';
-
-				--are we done?
-				if cx = signed(x1) and cy = signed(y1) then
-					done <= '1';
-					next_setup <= '1';
-				else
-					done <= '0';
-					next_setup <= '0';
-					if (err & '0') > -dy and (err & '0') < dx then
-						next_err <= err - dy + dx;
-						next_cx <= cx + sx;
-						next_cy <= cy + sy;
-					else 
-						if (err & '0') > -dy then
-							next_err <= err - dy;
-							next_cx <= cx + sx;
-						elsif (err & '0') < dx then
-							next_err <= err + dx;
-							next_cy <= cy + sy;
-						end if;
-					end if;
-				end if;						
+				done <= '0';
+				draw_write <= '0';
 			end if;
 		else
 			next_setup <= '1';

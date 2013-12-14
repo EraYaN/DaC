@@ -1,112 +1,122 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="PS2Keyboard.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Program.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="InputLib.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GPULib.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="font8x8_basic.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="font6x8_set_data.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="font6x8_set.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="floatToString.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Demo.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="font4x4_set.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="font4x4_set_data.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="font8x8_set.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="font8x8_set_data.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Visual Micro\.OS.vsarduino.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Demo.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Enums.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="floatToString.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="font4x4_set.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="font4x4_set_data.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="font6x8_set.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="font6x8_set_data.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="font8x8_basic.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="font8x8_set.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="font8x8_set_data.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="GPULib.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="InputLib.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="int_pins.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Program.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="PS2Keyboard.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprites.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="OS.ino" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GPULib.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Program.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Util.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="InputLib.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="font8x8_basic.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="floatToString.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Demo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Enums.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Constants.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprites.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="font4x4_set.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="font4x4_set_data.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="font6x8_set.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="font6x8_set_data.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="font8x8_set.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="font8x8_set_data.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Visual Micro\.OS.vsarduino.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PS2Keyboard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="int_pins.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="GPULib.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Program.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="InputLib.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Demo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="font8x8_basic.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="floatToString.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PS2Keyboard.cpp">
-    <ClCompile Include="font6x8_set_data.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="font6x8_set.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{edbcd8c7-f843-4240-b7ba-483af0ef0954}</UniqueIdentifier>
+      <Extensions>.h;.hpp</Extensions>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{eb151003-0dc0-4bf7-9269-71e941ac8e80}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
   </ItemGroup>
 </Project>

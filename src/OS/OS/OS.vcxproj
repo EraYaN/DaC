@@ -44,8 +44,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino;D:\Program Files (x86)\Arduino\hardware\arduino\variants\mega;D:\Program Files (x86)\Arduino\libraries\SPI;D:\Program Files (x86)\Arduino\libraries\SPI\utility;d:\program files (x86)\arduino\hardware\tools\avr\avr\include\;d:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\;d:\program files (x86)\arduino\hardware\tools\avr\avr\;d:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>D:\Users\Robin\Documents\GitHub\DaC\src\OS\OS\Visual Micro\.OS.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>F:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino;F:\Program Files (x86)\Arduino\hardware\arduino\variants\mega;F:\Program Files (x86)\Arduino\libraries\SPI;F:\Program Files (x86)\Arduino\libraries\SPI\utility;f:\program files (x86)\arduino\hardware\tools\avr\avr\include\;f:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\;f:\program files (x86)\arduino\hardware\tools\avr\avr\;f:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>C:\Users\Erwin\Documents\GitHub\DaC\src\OS\OS\Visual Micro\.OS.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
       <PreprocessorDefinitions>__AVR_ATmega2560__;ARDUINO=105;ARDUINO_MAIN;__AVR__;F_CPU=16000000L;__cplusplus;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -111,9 +111,13 @@
   <ItemGroup>
     <ClCompile Include="Demo.cpp" />
     <ClCompile Include="floatToString.cpp" />
+    <ClCompile Include="font4x4_set.cpp" />
+    <ClCompile Include="font4x4_set_data.cpp" />
     <ClCompile Include="font6x8_set.cpp" />
     <ClCompile Include="font6x8_set_data.cpp" />
     <ClCompile Include="font8x8_basic.cpp" />
+    <ClCompile Include="font8x8_set.cpp" />
+    <ClCompile Include="font8x8_set_data.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GPULib.cpp" />
     <ClCompile Include="InputLib.cpp" />

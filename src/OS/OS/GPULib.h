@@ -3,11 +3,16 @@
 #define _GPULIB_
 struct Instruction {
 	//instruction data
-	int numPackets;
-	byte packets[MAX_NUM_INSTR_PACKETS];
-
+	const int numPackets;
+	byte *packets;
 	//queue data (linked list)
 	Instruction *nextInstruction;
+	Instruction(const int numPackets) : numPackets(numPackets) {
+		packets = new byte[numPackets];
+	};
+	~Instruction(){
+		delete[] packets;
+	}
 };
 
 class GPULib
@@ -29,6 +34,7 @@ public:
 
 	//draw
 	void switchScreenBuffer();
+	void gpuReset();
 	void drawFill(byte color);
 	void drawPixel(byte x, byte y, byte color);
 	void drawRect(byte x, byte y, byte w, byte h, byte color);

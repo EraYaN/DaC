@@ -77,14 +77,14 @@ set_location_assignment PIN_K21 -to RAMADDR[3]
 set_location_assignment PIN_J19 -to RAMADDR[2]
 set_location_assignment PIN_J18 -to RAMADDR[1]
 set_location_assignment PIN_L19 -to RAMADDR[0]
-set_location_assignment PIN_B13 -to RAMDATA[3]
-set_location_assignment PIN_B14 -to RAMDATA[2]
-set_location_assignment PIN_B15 -to RAMDATA[1]
-set_location_assignment PIN_B16 -to RAMDATA[0]
-set_location_assignment PIN_B18 -to RAMWE
-set_location_assignment PIN_B19 -to SPICLK
-set_location_assignment PIN_B20 -to SPIMOSI
-set_location_assignment PIN_C22 -to int_ready
+set_location_assignment PIN_B15 -to RAMDATA[3]
+set_location_assignment PIN_B16 -to RAMDATA[2]
+set_location_assignment PIN_B18 -to RAMDATA[1]
+set_location_assignment PIN_B19 -to RAMDATA[0]
+set_location_assignment PIN_J22 -to RAMWE
+set_location_assignment PIN_J20 -to SPICLK
+set_location_assignment PIN_K20 -to SPIMOSI
+set_location_assignment PIN_L18 -to int_ready
 set_location_assignment PIN_U21 -to debug1
 set_location_assignment PIN_V22 -to debug2
 set_location_assignment PIN_V21 -to debug3
@@ -102,7 +102,6 @@ set_location_assignment PIN_Y19 -to debug8[3]
 set_location_assignment PIN_U19 -to debug8[2]
 set_location_assignment PIN_R19 -to debug8[1]
 set_location_assignment PIN_R20 -to debug8[0]
-set_location_assignment PIN_L22 -to color_mode
 
 # Classic Timing Assignments
 # ==========================
@@ -144,7 +143,7 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 
 		# Incremental Compilation Assignments
 		# ===================================
-		set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 		set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 		set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 
@@ -160,6 +159,11 @@ set_global_assignment -name SMART_RECOMPILE ON
 set_global_assignment -name FLOW_ENABLE_IO_ASSIGNMENT_ANALYSIS ON
 set_global_assignment -name EDA_BOARD_DESIGN_SYMBOL_TOOL "FPGA Xchange (Symbol)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "FPGA XCHANGE" -section_id eda_board_design_symbol
+set_location_assignment PIN_B13 -to RAMDATA[5]
+set_location_assignment PIN_B14 -to RAMDATA[4]
+set_global_assignment -name ALLOW_POWER_UP_DONT_CARE OFF
+set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS OFF
+set_global_assignment -name VHDL_FILE ../ssegdecoder.vhd
 set_global_assignment -name VHDL_FILE "../draw_sprite-behaviour.vhd"
 set_global_assignment -name VHDL_FILE ../draw_sprite.vhd
 set_global_assignment -name VHDL_FILE "../draw_line-behaviour.vhd"
@@ -179,12 +183,52 @@ set_global_assignment -name VHDL_FILE "../draw_rect-behaviour.vhd"
 set_global_assignment -name VHDL_FILE ../draw_rect.vhd
 set_global_assignment -name VHDL_FILE "../draw_pixel-behaviour.vhd"
 set_global_assignment -name VHDL_FILE ../draw_pixel.vhd
-set_global_assignment -name VHDL_FILE "../draw_fill-behaviour.vhd"
-set_global_assignment -name VHDL_FILE ../draw_fill.vhd
 set_global_assignment -name VHDL_FILE ../draw.vhd
 set_global_assignment -name VHDL_FILE "../decoder-behaviour.vhd"
 set_global_assignment -name VHDL_FILE ../decoder.vhd
 set_global_assignment -name VHDL_FILE pre_vga_dac_4.vhd
 set_global_assignment -name VHDL_FILE gen6mhz.vhd
 set_global_assignment -name BDF_FILE top_de1.bdf
+set_location_assignment PIN_D4 -to segments[27]
+set_location_assignment PIN_F3 -to segments[26]
+set_location_assignment PIN_L8 -to segments[25]
+set_location_assignment PIN_J4 -to segments[24]
+set_location_assignment PIN_D6 -to segments[23]
+set_location_assignment PIN_D5 -to segments[22]
+set_location_assignment PIN_F4 -to segments[21]
+set_location_assignment PIN_D3 -to segments[20]
+set_location_assignment PIN_E4 -to segments[19]
+set_location_assignment PIN_E3 -to segments[18]
+set_location_assignment PIN_C1 -to segments[17]
+set_location_assignment PIN_C2 -to segments[16]
+set_location_assignment PIN_G6 -to segments[15]
+set_location_assignment PIN_G5 -to segments[14]
+set_location_assignment PIN_D1 -to segments[13]
+set_location_assignment PIN_D2 -to segments[12]
+set_location_assignment PIN_G3 -to segments[11]
+set_location_assignment PIN_H4 -to segments[10]
+set_location_assignment PIN_H5 -to segments[9]
+set_location_assignment PIN_H6 -to segments[8]
+set_location_assignment PIN_E1 -to segments[7]
+set_location_assignment PIN_E2 -to segments[6]
+set_location_assignment PIN_F1 -to segments[5]
+set_location_assignment PIN_F2 -to segments[4]
+set_location_assignment PIN_H1 -to segments[3]
+set_location_assignment PIN_H2 -to segments[2]
+set_location_assignment PIN_J1 -to segments[1]
+set_location_assignment PIN_J2 -to segments[0]
+set_location_assignment PIN_B20 -to VGACOLOR[0]
+set_location_assignment PIN_C22 -to VGACOLOR[1]
+set_location_assignment PIN_D22 -to VGACOLOR[2]
+set_location_assignment PIN_E22 -to VGACOLOR[3]
+set_location_assignment PIN_F22 -to VGACOLOR[4]
+set_location_assignment PIN_G22 -to VGACOLOR[5]
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim (VHDL)"
+set_global_assignment -name EDA_USER_COMPILED_SIMULATION_LIBRARY_DIRECTORY "C:\\Users\\Erwin\\Documents\\GitHub\\DaC\\hardware\\gpu" -section_id eda_simulation
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name USE_SIGNALTAP_FILE stp_de1.stp
+set_global_assignment -name SIGNALTAP_FILE stp1.stp
+set_global_assignment -name SIGNALTAP_FILE stp_de1.stp
+set_global_assignment -name SLD_FILE "C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/quartus/stp_de1_auto_stripped.stp"
+set_global_assignment -name CYCLONEII_OPTIMIZATION_TECHNIQUE AREA
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
