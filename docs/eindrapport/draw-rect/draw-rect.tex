@@ -16,11 +16,13 @@
 \section{Draw-rect} %<----- fill in section name
 \label{sec:draw-rect}  %<-----fill in lable name
 
+\newcommand{\tss}{\textsubscript}
+
 % describe function of block
+De module draw-rect tekent een rechthoek door middel van de x- en y-coördinaat van de linkerbovenhoek en rechteronderhoek. Ook is het mogelijk om de rechthoek in een aangegeven kleur te tekenen. Verder kan worden aangegeven of de rechthoek al dan niet opgevuld moet worden.
 
 %specificaties blok (copy paste)
 \subsection{Specificaties}
-In deze module wordt een rechthoek getekend. De module tekent de rechthoek door middel van de x- en y- coördinaat van de linker- en rechterbovenhoek. Ook is het mogelijk om de rechthoek in een aangegeven kleur te tekenen.
 
 \begin{table}[H]
 \centering
@@ -51,28 +53,32 @@ In deze module wordt een rechthoek getekend. De module tekent de rechthoek door 
 
 %VHDL
 \subsection{VHDL}
-In Appendix ? is de VHDL entity te vinden en in Appendix ? is de VHDL behaviour te zien. Zodra het ingangssignaal draw\_can\_access hoog is, is de RAM vrij om geschreven te worden en begint de module rechtsonderin met tekenen op coördinaat (x1,y1). De module zet op de actieve klokflank de huidige coördinaat op het uitgangssignaal ramaddr en zet de kleur op het uitgangssignaal ramdata. Ook wordt er aan de RAM controller doorgegeven dat de module de data van ramaddr en ramdata door wilt geven aan de RAM door middel van het signaal draw\_write. \\
+In Appendix ? is de VHDL entity van draw-rect te zien en in Appendix ? is de bijbehorende VHDL behaviour te zien. Zodra het ingangssignaal draw\_can\_access hoog is, is de RAM vrij om beschreven te worden en begint de module rechtsonderin met tekenen op coördinaat (x\tss{1},y\tss{1}). De module zet op de actieve klokflank de huidige coördinaat op het uitgangssignaal ramaddr en zet de kleur op het uitgangssignaal ramdata. Ook wordt er aan de RAM controller doorgegeven dat de module de data van ramaddr en ramdata op het RAM wilt schrijven door middel van het signaal draw\_write. \\
 \\
-Vervolgens gaat de module een stap naar links maken en bevindt zich dan op het punt (x1 -1, y1). Deze stapjes worden net zolang herhaald, totdat de x-coördinaat het punt x0 heeft bereikt. Daarna wordt er een sprong terug gemaakt, één positie boven het punt waar de module is begonnen met tekenen, namelijk (x1, y1 -1). Vervolgens herhaalt het proces zich tot het punt (x0, y0) is bereikt. Afhankelijk van het ingangssignalen enable en enablef kan de rechthoek al dan niet worden ingekleurd.\\
+Vervolgens gaat de module een stap naar links maken en bevindt zich dan op het punt (x\tss{1} -1, y\tss{1}). Deze stapjes worden net zolang herhaald, totdat de x-coördinaat het punt x0 heeft bereikt. Daarna wordt er een sprong terug gemaakt, één positie boven het punt waar de module is begonnen met tekenen, namelijk (x\tss{1}, y\tss{1} -1). Vervolgens herhaalt het proces zich tot het punt (x\tss{0}, y\tss{0}) is bereikt. Afhankelijk van het ingangssignalen enable en enablef kan de rechthoek al dan niet worden ingekleurd.\\
 \\
-Nadat de module klaar is met het tekenen van de rechthoek, wordt het uitgangssignaal done hoog.
+Nadat de module klaar is met het tekenen van de rechthoek stuurt het uitgangssignaal done een hoog signaal.
 
 %Testplan VHDL
 \subsection{Testplan}
-
+Voor het testen van deze module is een testbench geschreven. De behaviour van deze testbench is te vinden in Appendix ?. Aan de ingang worden o.a. twee coördinaten doorgegeven en een kleurcode. Enable en enablef werden gebruikt om aan te geven dat de rechthoek niet ingekleurd moet worden.\\
+\\
+De simulatie werkte goed. Op de uitgangen ramdata en ramaddr kwamen de juiste signalen te staan. Ook waren de signalen synchroon met de clock. De volgende stap is het synthetiseren van de VHDL code.
 
 %Synthese
 \subsection{Synthese}
-
+TODO
 
 %Switchlevel test
 \subsection{Switchlevel}
-
+TODO
 
 %Extracted test
 \subsection{Extracted}
+TODO
 
 %Conclusie
 \subsection{Conclusie}
+TODO
 
 \end{document}

@@ -9,6 +9,58 @@
 \begin{document}
 \section{Draw-line}
 \label{sec:draw-line}
+De naam zegt het al: de draw-line module heeft als taak het tekenen van lijnen in het screen buffer. Voor dit doeleinde wordt gebruik gemaakt van het lijnalgoritme van Bresenham. Specifiek een voor hardware geöptimaliseerde en gesimplificeerde versie van dat algoritme. \cite{line-alg} Dit algoritme tekent in een loop een rij pixels van een punt naar een ander punt, waarvan de coördinaten per iteratie in de x-richting, y-richting, of beide richtingen verschuiven. De coördinaten van de nieuwe pixel worden berekend aan de hand van de afwijking tussen het verschil tussen de begin- en eindcoördinaat (dx en dy) en de laatst getekende pixel.
 
+%Specs
+\subsection{Specificaties}
+\begin{table}[H]
+\centering
+\caption{Specificaties van de Line Draw Module}
+\label{tab:spec-line-draw}
+	\begin{tabular}{c c c}
+		\hline\hline
+	 	Naam & Modus & Type\\
+	 	\hline	
+		clk & in & std\_logic \\
+		reset & in & std\_logic \\
+		enable& in & std\_logic \\
+		color & in & std\_logic\_vector(SizeColor-1 downto 0) \\
+		x0 & in & std\_logic\_vector(SizeX-1 downto 0) \\
+		y0 & in & std\_logic\_vector(SizeY-1 downto 0) \\
+		x1 & in & std\_logic\_vector(SizeX-1 downto 0) \\
+		y1 & in & std\_logic\_vector(SizeY-1 downto 0) \\
+		asb & in & std\_logic \\
+		done & out & std\_logic \\
+		ramaddr &out & std\_logic\_vector(SizeRAMAddr-1 downto 0) \\
+		ramdata &out & std\_logic\_vector(SizeRAMData-1 downto 0) \\
+		draw\_write &out & std\_logic \\
+		draw\_can\_access & in & std\_logic \\
+	  	\hline
+	\end{tabular}
+\end{table}
+
+%VHDL
+\subsection{VHDL}
+De implementatie van de module is een letterlijke implementatie van het eerdergenoemde algoritme. De pseudocode voor dit algoritme is voor de volledigheid opgenomen in bijlage \ref{appsec:pseudocode-bresenham-line}. Het enige probleem bij het omzetten van pseudocode naar een VHDL FSM was het feit dat er geen loop gebruikt kon worden om te itereren, omdat er niet meerdere keren naar het VRAM geschreven kan worden per klokslag.
+\\
+Daarnaast had het gebruik van een combinatorische loop waarschijnlijk een exorbitant gebruik van transistors opgeleverd, wat dus ook niet aan te raden is. In plaats daarvan is gekozen om in het combinatorische process van de module één iteratie te verwerken (en dus één pixel naar het screen buffer te schrijven) en de state zo aan te passen dat de volgende executie van het process de volgende iteratie uitvoert en zo verder.
+
+%Testplan VHDL
+\subsection{Testplan}
+De draw-line module is getest met een testbench waarin één lijn wordt getekend. In de waveform in ModelSim is dan eenvoudig te zien of de coördinaten van de getekende pixels inderdaad op elkaar volgen en dus mogelijkerwijs een lijn vormen. Wanneer dit zo is kan de module in combinatie met de overige delen van de GPU gesimuleerd worden. Het resultaat hiervan kan gecontroleerd worden met de SRAMDebugTool, waarin dan daadwerkelijk een lijn waar zou zijn te nemen. Als laatst wordt de lijn op de FPGA geïmplementeerd en kan worden gecontroleerd of op het beeldscherm inderdaad een lijn verschijnt.
+
+%Synthese
+\subsection{Synthese}
+
+
+%Switchlevel test
+\subsection{Switchlevel}
+
+
+%Extracted test
+\subsection{Extracted}
+
+%Conclusie
+\subsection{Conclusie}
 
 \end{document}

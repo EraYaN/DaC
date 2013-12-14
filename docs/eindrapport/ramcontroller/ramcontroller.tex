@@ -1,0 +1,20 @@
+\documentclass{scrreprt} % scrartcl of scrreprt
+\input{../../library/preamble.tex}
+\input{../../library/style.tex}
+\addbibresource{../../library/bibliography.bib}
+
+\author{Erwin de Haan}
+\title{EPO3: Eindrapport - RAM Controller}
+
+\begin{document}
+\chapter{RAM Controller}
+\label{ch:ram-controller}
+De RAM controller regelt de *\_can\_access signalen naar de andere modules en het RAM Write-Enable signaal. Het RAM Write-Enabled signaal is active-low de andere zijn active-high.
+De RAM controller zorgt er op deze manier dus voor dat niet twee modules op de RAM adres en data bussen tegelijk een waarde op de bus drukken.
+Dit doet hij voor de interne modules en de extrene SRAM chip.
+Wij gebruiken een 4Mb SRAM chip van Alliance Memory, namelijk de AS6C4008-55PCN. 
+Deze chip wordt geleverd in een DIP-32 package.
+Iedere SRAM chip die sneller reageert dan de helft van onze klokcyclus zou voldoen.
+Maar met onze huidige setup, met de VGA signalen buiten om, is het zaak dat de SRAM chip zo snel mogelijk na adres wijziging de data op de data pinnen heeft staan.
+De chip die door ons gekozen is heeft een maximale delay van 55 ns tussen adres wijziging n stabiele data op de uitgangen, dit geldt ook voor de write cyclus.
+\end{document}

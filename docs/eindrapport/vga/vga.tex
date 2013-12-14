@@ -10,4 +10,61 @@
 \chapter{VGA}
 \label{ch:vga}
 
+De VGA-controller is een belangrijk component in ons systeem. Deze zorgt er namelijk voor dat alles wat berekend wordt in de module daadwerkelijk zichtbaar wordt gemaakt. De VGA-controller legt de verbinding tussen de rest van ons systeem en een scherm, hierdoor is fysiek te zien wat er gebeurt in het systeem. 
+
+\section{Specificaties}
+
+De specificaties van de VGA-controller zijn uitgedrukt in de in- en uitgangen van dit component. Hieronder een overzichtelijk tabel daarvan. Bij de vectoren is de grootte gegeven in parameters. Deze parameters zijn terug te vinden in de beschrijving van het package file, welke eerder is besproken in dit verslag.
+
+\begin{table}[H]
+\centering
+\caption{Specificaties van de VGA Controller }
+\label{tab:spec-vgacontroller}
+\begin{tabular}{c c c}
+	\hline\hline
+ 	Naam & Modus & Type\\
+ 	\hline	
+	clk & in & std\_logic \\ 
+	reset\_n & in & std\_logic \\ 
+	vgahsync & out & std\_logic \\ 
+	vgavsync & out & std\_logic \\ 
+	vgacolor & out & std\_logic\_vector(SizeColor-1 downto 0) \\
+	vga\_claim & out & std\_logic \\ 
+	ramaddr & out & std\_logic\_vector(SizeRAMAddr-1 downto 0) \\
+	ramdata & in & std\_logic\_vector(SizeRAMData-1 downto 0) \\ 
+	vga\_read & out & std\_logic \\
+	vga\_can\_access & in & std\_logic \\
+	asb & in & std\_logic \\
+  	\hline\hline
+\end{tabular}
+\end{table}
+
+
+\section{VHDL-Beschrijving}
+\subsection{Entity}
+Aan het begin van de entity worden eerst een aantal constanten gecreeerd. Deze zijn afgesteld op de grootte van ons resolutie en hoe snel we het scherm willen verversen. In het ontwerp is al grotendeels besproken welke signalen binnenkomen in de VGA-controller. De ingangen zijn vrij standaard. De ingangen zijn clk(clock), reset\_n (negative reset), ramdata, vga\_can\_access en asb( active screen buffer). . De uitgangen zijn vgahsync, vgavsync, vgacolor, vga\_claim, ramaddr en vga\_read. Vgahync en vgavsync zijn hier de horizontalen en verticale synchronisatie pulsen. Vgacolor is een vector die informatie bevat over de kleur. Ramaddr is het adres van de pixel waar het scherm op dit moment is. Vga\_claim is een signaal dat aangeeft dat de vga-controller op dit moment toegang heeft tot de RAM. VGA\_read geeft aan dat de VGA-controller de RAM gegevens uitleest.
+
+\subsection{Behaviour}
+Als eerste worden er een aantal belangrijke constanten en signalen gedeclareerd in de behaviour. De periode van de horizontale en de verticale synchronisatie pulsen bepalen hoe lang er doorgeteld moet worden totdat je het hele scherm bent afgegaan. We hebben deze zo ingesteld dat ze iets groter zijn dan onze resolutie daadwerkelijk is. Dit om ervoor te zorgen dat als de vga-controller aan het tekenen is buiten het scherm dat de waarden even weer goed kunnen worden ingelezen. Omdat we een negatieve reset hebben, gaat de code werken als de reset hoog is. Vervolgens begint de vga-controller te synchroniseren. Hij begint buiten het scherm en zorgt ervoor dat de juiste data aan de ingangen staat. Vervolgens begint hij van links naar recht, van boven naar beneden het scherm in te vullen. Elk moment dat hij bij een bepaalde pixel is geeft hij dit adres door aan de RAM-controller. Deze leest uit de RAM welke kleur deze pixel moet hebben en stuurt dit rechtstreeks door naar de vga-controller. Deze stuurt dat gelijk door naar de uitgang zodat de correcte kleur op het goede moment en het juiste tijdstip wordt afgebeeld. 
+
+
+\section{Testplan}
+Om te testen of de vhdl-code werkte hebben we een testbench geschreven. Hier hebben we alle mogelijke situaties gesimuleerd. De testbench is te vinden in de bijlage. Hieronder een overzicht van de resultaten van de simulatie.
+
+%%%%-----------ZO INCLUDE JE GEEN AFBEELDING + AFBEELDING BESTAAT NIET
+%\begin{figure}[H]
+% \centering
+% 		\setlength\figureheight{0.6\textwidth}
+% 		\setlength\figurewidth{0.9\textwidth}
+% 		\includegraphics{images/simmod.png}
+% 		\caption{Het resultaat van de simulatie in Modelsim.}
+% 		\label{fig:sim}
+% \end{figure}
+\section{Synthese}
+Voor de synthese hebben we het programma GoWithTheFlow gebruikt. Hier kwam een gesynthetiseerde versie uit, ook deze hebben we gesimuleerd.
+\section{Switch-level resultaten}
+\section{Extracted}
+\section{Conclusie}
+Uit meerdere simulaties blijkt dat de code werkt. De resultaten van de simulatie komen overeen met de gewenste resultaten. Dit houdt in dat de code naar behoren werkt en goed te implementeren is. De code zal waarschijnlijk geen problemen geven als deze geïmplementeerd wordt.
+\section{Discussie}
 \end{document}
