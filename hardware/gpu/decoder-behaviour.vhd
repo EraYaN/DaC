@@ -144,11 +144,11 @@ begin
 				end if;
 
 			elsif current_instruction = i_switch then
-				if vgavsync = '0' then
+				--if vgavsync = '0' then
 					next_asb <= not asb;
 					done := '1';
 					next_int_ready <= '1';
-				end if;
+				--end if;
 			elsif current_instruction = i_reset then
 				soft_reset <= '1';
 				done := '1';

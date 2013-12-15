@@ -25,9 +25,8 @@ component gpu is
 		vgahsync : out std_logic;
 		vgavsync : out std_logic;
 		asb_debug : out std_logic;
-		spi_debug : out std_logic_vector(SizeSPIData-1 downto 0);
-		vgacolor : out std_logic_vector(SizeColor-1 downto 0)
-	);
+		spi_debug : out std_logic_vector(SizeSPIData-1 downto 0)
+		);
 end component;
 
 component sram IS
