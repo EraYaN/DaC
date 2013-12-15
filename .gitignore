@@ -235,3 +235,4 @@ GWTF
 *.vhd_
 *.vstf
 */quartus/*
+quartus
