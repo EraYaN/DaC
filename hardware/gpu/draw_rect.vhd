@@ -17,7 +17,7 @@ entity draw_rect is
 		done  : out   std_logic;
 		ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
 		ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);
-		draw_write :out std_logic;
+		draw_write :buffer std_logic;
 		draw_can_access : in std_logic
 	);
 end draw_rect;
