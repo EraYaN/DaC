@@ -7,7 +7,7 @@ void Demo::tick(unsigned long ctime){
 	/*unsigned long inc = ctime/10000;
 	count+=inc;*/
 	GPU->drawRect(19, 19, 21+count%120, 61, B111111);
-	GPU->drawFilledRect(20, 20, 20+count%120, 60, B110000);
+	
 	GPU->drawLine(
 		byte(55*cos(count/50.0))+80,
 		byte(55*sin(count/50.0))+60,
@@ -15,6 +15,7 @@ void Demo::tick(unsigned long ctime){
 		byte(-55*sin(count/50.0))+60,
 		B001100
 	);
+	GPU->drawFilledRect(20, 20, 20+count%120, 60, B110000);
 	for(int p = 0; p<numPoints; p++){
 		points[p]->x+=(points[p]->dx);
 		if(points[p]->x>=XMAX-1){
@@ -34,7 +35,7 @@ void Demo::tick(unsigned long ctime){
 		}
 		GPU->drawPixel(points[p]->x,points[p]->y,points[p]->color);
 	}	
-	GPU->drawRect(count%(XMAX+1),0,count%(XMAX+1),YMAX,B001100);
+	//GPU->drawRect(count%(XMAX+1),0,count%(XMAX+1),YMAX,B001100);
 	//GPU->drawPixel(100,100,B110011);
 	count++;
 	//GPU->drawTriangle(2,4,30,100,60,90,B011010);

@@ -48,7 +48,7 @@ draw_rect_combi: process (reset, enable, enablef, draw_can_access, x0, y0, x1, y
 							almost_done_tmp <= '0';
 							started_tmp <= '0';
 						else 
-							if cx = unsigned(x0) and cy = unsigned(y0) then		
+							if cx <= unsigned(x0) and cy <= unsigned(y0) then		
 								almost_done_tmp <= '1';
 								else
 								almost_done_tmp <= '0';
