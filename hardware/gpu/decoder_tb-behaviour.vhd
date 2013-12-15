@@ -33,7 +33,9 @@ architecture behaviour of decoder_tb is
 			is_init				: buffer std_logic;		--Initializing?
 			--RAM interaction
 			ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
-			ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0)
+			ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);
+			--VGA signals
+			vgavsync : in std_logic
 		);
 	end component;
 
@@ -58,6 +60,7 @@ signal decoder_claim		: std_logic;
 signal is_init				: std_logic;
 signal ramaddr				: std_logic_vector(SizeRAMAddr-1 downto 0);
 signal ramdata				: std_logic_vector(SizeRAMData-1 downto 0);
+signal vgavsync				: std_logic;
 
 signal enable_spi			: std_logic;
 
@@ -85,13 +88,16 @@ begin
 			decoder_claim=>decoder_claim,
 			is_init=>is_init,
 			ramaddr=>ramaddr,
-			ramdata=>ramdata
+			ramdata=>ramdata,
+			vgavsync=>vgavsync
 		);
 
 	clk		<= '1' after 0 ns,
 			'0' after 80 ns when clk /= '0' else '1' after 80 ns;
 	spi_data_available	<= '1' after 0 ns,
 							'0' after 250 ns when (spi_data_available /= '0' ) else '1' after 500 ns when enable_spi = '1' else '0';
+
+	vgavsync <= '0';
 
 	process
 	begin
