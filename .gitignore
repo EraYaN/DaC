@@ -234,3 +234,4 @@ GWTF
 *.vhd.bak
 *.vhd_
 *.vstf
+*/quartus/*
