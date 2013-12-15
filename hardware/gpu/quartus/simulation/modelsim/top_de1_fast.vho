@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II 64-Bit"
 -- VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
 
--- DATE "12/14/2013 18:52:08"
+-- DATE "12/15/2013 13:47:36"
 
 -- 
 -- Device: Altera EP2C20F484C7 Package FBGA484
@@ -193,132 +193,105 @@ SIGNAL ww_vga_g : std_logic_vector(3 DOWNTO 0);
 SIGNAL ww_vga_r : std_logic_vector(3 DOWNTO 0);
 SIGNAL \inst1|count[2]~clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \clock_50mhz~clkctrl_INCLK_bus\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \inst2|vgacontroller1|h_count[3]~14_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|Add1~8_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|Add1~10_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|Add1~12_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|Add1~14_combout\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~4_combout\ : std_logic;
 SIGNAL \inst2|decoder1|Add1~10_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add8~0_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add2~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add3~4_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add3~8_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add6~9\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add6~10_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add6~11\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add6~12_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~4_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add8~8_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~13\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~16_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~17\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add8~20_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~21\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~24_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~25\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~28_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add0~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add0~6_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add0~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add0~12_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan1~1_cout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan1~3_cout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan1~5_cout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan1~7_cout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan1~9_cout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan1~11_cout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan1~12_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~10_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~14\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~16_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~17\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~19_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add1~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add1~8_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Add1~10_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Add1~12_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~13_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~17_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~22\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~25_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~1_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~5_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add9~0_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add9~2_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add9~6_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add9~10_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add9~12_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add4~0_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add4~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add4~8_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add4~6_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add4~10_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add4~12_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~8_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~4_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~8_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~12_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add9~14_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add7~14_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~14_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add9~16_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~15\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add9~17\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~17\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~16_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add5~17\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add9~18_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~18_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add5~18_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|vgavsync~0_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|LessThan8~0_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|LessThan7~0_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|vga_combi~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|draw_rect_combi~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|draw_line_comb~1_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|draw_line_comb~6_combout\ : std_logic;
-SIGNAL \inst2|draw1|pixel1|done~0_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|LessThan8~1_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|LessThan8~2_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|LessThan9~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|en~0_combout\ : std_logic;
 SIGNAL \inst2|decoder1|LessThan0~2_combout\ : std_logic;
-SIGNAL \inst2|decoder1|LessThan0~3_combout\ : std_logic;
-SIGNAL \inst2|decoder1|en~6_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|draw_line_comb~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|draw_line_comb~5_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Equal0~3_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|almost_done_tmp~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|en~8_combout\ : std_logic;
-SIGNAL \inst2|decoder1|en~10_combout\ : std_logic;
-SIGNAL \inst2|decoder1|next_int_ready~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|next_int_ready~1_combout\ : std_logic;
-SIGNAL \inst2|decoder1|next_int_ready~2_combout\ : std_logic;
-SIGNAL \inst2|decoder1|next_int_ready~3_combout\ : std_logic;
-SIGNAL \inst2|decoder1|next_int_ready~4_combout\ : std_logic;
-SIGNAL \inst2|decoder1|next_int_ready~5_combout\ : std_logic;
-SIGNAL \inst2|decoder1|next_int_ready~6_combout\ : std_logic;
-SIGNAL \inst2|decoder1|current_instruction[2]~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|almost_done_tmp~1_combout\ : std_logic;
+SIGNAL \inst2|decoder1|done~3_combout\ : std_logic;
 SIGNAL \inst2|decoder1|Add0~0_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add8~2_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|dy~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~6_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add8~10_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~18_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|Add8~22_combout\ : std_logic;
-SIGNAL \inst2|decoder1|h~7_combout\ : std_logic;
-SIGNAL \inst2|decoder1|next_h[6]~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx[6]~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~26_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~30_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~31_combout\ : std_logic;
+SIGNAL \inst2|decoder1|h~6_combout\ : std_logic;
+SIGNAL \inst2|decoder1|next_h[6]~1_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx[1]~4_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|cx_tmp[3]~9_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx_tmp[5]~15_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx_tmp[5]~16_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx_tmp[5]~17_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|cx_tmp[7]~21_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Add0~12_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~15_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Add0~20_combout\ : std_logic;
-SIGNAL \inst2|spi1|index[3]~2_combout\ : std_logic;
-SIGNAL \inst2|spi1|index~5_combout\ : std_logic;
-SIGNAL \inst4|Equal63~3_combout\ : std_logic;
-SIGNAL \inst2|decoder1|w[7]~13_combout\ : std_logic;
-SIGNAL \inst2|decoder1|w[7]~3_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~22_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~23_combout\ : std_logic;
 SIGNAL \clock_50mhz~combout\ : std_logic;
 SIGNAL \inst1|count[2]~clkctrl_outclk\ : std_logic;
 SIGNAL \clock_50mhz~clkctrl_outclk\ : std_logic;
-SIGNAL \SPIMOSI~combout\ : std_logic;
-SIGNAL \reset~combout\ : std_logic;
-SIGNAL \inst2|decoder1|prev_spi_data_available~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|prev_spi_data_available~regout\ : std_logic;
-SIGNAL \inst2|decoder1|current_instruction~6_combout\ : std_logic;
-SIGNAL \SPICLK~combout\ : std_logic;
-SIGNAL \inst2|spi1|sclk_latched~0_combout\ : std_logic;
-SIGNAL \inst2|spi1|sclk_latched~regout\ : std_logic;
-SIGNAL \inst2|spi1|spi_rx_data[4]~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|h~5_combout\ : std_logic;
-SIGNAL \inst2|decoder1|packet_num[0]~5_combout\ : std_logic;
-SIGNAL \inst2|decoder1|current_instruction~2_combout\ : std_logic;
-SIGNAL \inst2|decoder1|packet_num[1]~4_combout\ : std_logic;
-SIGNAL \inst4|hex0[0]~7_combout\ : std_logic;
-SIGNAL \inst2|decoder1|h~1_combout\ : std_logic;
-SIGNAL \inst4|hex1[2]~4_combout\ : std_logic;
-SIGNAL \inst2|decoder1|h~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~8_combout\ : std_logic;
-SIGNAL \inst2|decoder1|h~0_combout\ : std_logic;
-SIGNAL \inst2|spi1|index[3]~0_combout\ : std_logic;
-SIGNAL \inst2|spi1|index~1_combout\ : std_logic;
-SIGNAL \inst2|spi1|index~3_combout\ : std_logic;
-SIGNAL \inst2|spi1|index~4_combout\ : std_logic;
-SIGNAL \inst2|spi1|sclk_old~0_combout\ : std_logic;
-SIGNAL \inst2|spi1|sclk_old~regout\ : std_logic;
-SIGNAL \inst2|spi1|spi_data_available~0_combout\ : std_logic;
-SIGNAL \inst2|spi1|spi_data_available~1_combout\ : std_logic;
-SIGNAL \inst2|spi1|spi_data_available~regout\ : std_logic;
-SIGNAL \inst2|decoder1|decode_comb~1_combout\ : std_logic;
-SIGNAL \inst2|decoder1|en~5_combout\ : std_logic;
-SIGNAL \inst2|decoder1|en~9_combout\ : std_logic;
-SIGNAL \inst4|hex1[3]~8_combout\ : std_logic;
-SIGNAL \inst2|decoder1|en~3_combout\ : std_logic;
-SIGNAL \inst2|decoder1|en~4_combout\ : std_logic;
-SIGNAL \inst2|decoder1|en~11_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cy_tmp[0]~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|next_is_init~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|next_is_init~1_combout\ : std_logic;
-SIGNAL \inst2|decoder1|decoder_claim~regout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|new_v_count[6]~7_combout\ : std_logic;
+SIGNAL \inst2|spi1|sh_reg[3]~feeder_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|h_count[0]~8_combout\ : std_logic;
+SIGNAL \reset~combout\ : std_logic;
 SIGNAL \reset~_wirecell_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|h_count[2]~18_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|h_count[0]~9\ : std_logic;
 SIGNAL \inst2|vgacontroller1|h_count[1]~11\ : std_logic;
 SIGNAL \inst2|vgacontroller1|h_count[2]~12_combout\ : std_logic;
@@ -328,14 +301,18 @@ SIGNAL \inst2|vgacontroller1|h_count[4]~17\ : std_logic;
 SIGNAL \inst2|vgacontroller1|h_count[5]~19_combout\ : std_logic;
 SIGNAL \~GND~combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|h_count[5]~20\ : std_logic;
+SIGNAL \inst2|vgacontroller1|h_count[6]~21_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|vga_combi~0_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|h_count[6]~22\ : std_logic;
 SIGNAL \inst2|vgacontroller1|h_count[7]~23_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|h_count[6]~21_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|h_count[4]~16_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|LessThan8~1_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|LessThan8~2_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|h_count[2]~18_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|new_v_count[7]~6_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|Add1~12_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|new_v_count[6]~7_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|Add1~15\ : std_logic;
+SIGNAL \inst2|vgacontroller1|Add1~17\ : std_logic;
+SIGNAL \inst2|vgacontroller1|Add1~18_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|new_v_count[9]~3_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|LessThan9~1_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|LessThan9~2_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|Add1~0_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|new_v_count[0]~1_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|Add1~1\ : std_logic;
@@ -343,73 +320,413 @@ SIGNAL \inst2|vgacontroller1|Add1~2_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|new_v_count[1]~2_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|Add1~3\ : std_logic;
 SIGNAL \inst2|vgacontroller1|Add1~5\ : std_logic;
-SIGNAL \inst2|vgacontroller1|Add1~6_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|v_count[3]~0_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|v_count[3]~1_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|Add1~7\ : std_logic;
+SIGNAL \inst2|vgacontroller1|Add1~8_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|new_v_count[4]~4_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|Add1~9\ : std_logic;
+SIGNAL \inst2|vgacontroller1|Add1~10_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|new_v_count[5]~8_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|Add1~11\ : std_logic;
 SIGNAL \inst2|vgacontroller1|Add1~13\ : std_logic;
-SIGNAL \inst2|vgacontroller1|Add1~15\ : std_logic;
-SIGNAL \inst2|vgacontroller1|Add1~16_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|new_v_count[8]~5_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|Add1~14_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|new_v_count[7]~6_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|LessThan11~0_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|vga_combi~1_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[15]~53_combout\ : std_logic;
+SIGNAL \SPIMOSI~combout\ : std_logic;
+SIGNAL \inst2|spi1|Selector11~0_combout\ : std_logic;
+SIGNAL \inst2|spi1|Selector9~0_combout\ : std_logic;
+SIGNAL \inst2|spi1|Selector12~0_combout\ : std_logic;
+SIGNAL \inst2|spi1|Selector10~0_combout\ : std_logic;
+SIGNAL \inst2|spi1|Equal1~0_combout\ : std_logic;
+SIGNAL \inst2|spi1|WideOr0~0_combout\ : std_logic;
+SIGNAL \inst2|spi1|Selector8~0_combout\ : std_logic;
+SIGNAL \inst2|spi1|Selector7~0_combout\ : std_logic;
+SIGNAL \inst2|spi1|Selector13~0_combout\ : std_logic;
+SIGNAL \inst2|spi1|Selector13~1_combout\ : std_logic;
+SIGNAL \inst2|spi1|do_transfer_reg~regout\ : std_logic;
+SIGNAL \inst2|spi1|do_valid_A~feeder_combout\ : std_logic;
+SIGNAL \inst2|spi1|do_valid_A~regout\ : std_logic;
+SIGNAL \inst2|spi1|do_valid_B~feeder_combout\ : std_logic;
+SIGNAL \inst2|spi1|do_valid_B~regout\ : std_logic;
+SIGNAL \inst2|spi1|do_valid_C~feeder_combout\ : std_logic;
+SIGNAL \inst2|spi1|do_valid_C~regout\ : std_logic;
+SIGNAL \inst2|spi1|do_valid_D~feeder_combout\ : std_logic;
+SIGNAL \inst2|spi1|do_valid_D~regout\ : std_logic;
+SIGNAL \inst2|spi1|do_valid_next~0_combout\ : std_logic;
+SIGNAL \inst2|spi1|do_valid_o_reg~regout\ : std_logic;
+SIGNAL \inst2|decoder1|prev_spi_data_available~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|prev_spi_data_available~regout\ : std_logic;
+SIGNAL \inst2|decoder1|decode_comb~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|current_instruction~7_combout\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~0_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|LessThan7~0_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|Add1~4_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|new_v_count[2]~0_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|LessThan9~0_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|new_v_count[5]~8_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|LessThan9~1_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|LessThan9~2_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|vga_combi~4_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|h_count[1]~10_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|vga_combi~2_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|vga_combi~3_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|vga_combi~5_combout\ : std_logic;
 SIGNAL \inst2|ramcontroller1|draw_can_access~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|cx[4]~0_combout\ : std_logic;
+SIGNAL \inst2|spi1|Selector4~0_combout\ : std_logic;
+SIGNAL \inst2|spi1|Selector3~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|w[7]~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|packet_num[2]~3_combout\ : std_logic;
+SIGNAL \inst2|decoder1|packet_num[1]~4_combout\ : std_logic;
+SIGNAL \inst4|Equal63~3_combout\ : std_logic;
+SIGNAL \inst2|decoder1|w[7]~1_combout\ : std_logic;
+SIGNAL \inst2|decoder1|w[7]~2_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x~9_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x[6]~feeder_combout\ : std_logic;
+SIGNAL \inst2|decoder1|current_instruction~6_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x[7]~1_combout\ : std_logic;
+SIGNAL \inst4|Equal63~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x~2_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x~6_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x[5]~feeder_combout\ : std_logic;
+SIGNAL \inst2|spi1|Selector5~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x~7_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x[4]~feeder_combout\ : std_logic;
+SIGNAL \inst2|spi1|Selector6~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x~4_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x[3]~feeder_combout\ : std_logic;
+SIGNAL \inst2|spi1|do_buffer_reg[1]~feeder_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x[1]~feeder_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x~3_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x[0]~feeder_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add0~1\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add0~3\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add0~5\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add0~7\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add0~9\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add0~11\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add0~13\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add0~14_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add0~15\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add0~16_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add0~10_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add0~8_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add0~6_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add0~4_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|dx~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~1\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~3\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~5\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~7\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~9\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~11\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~13\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~15\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~16_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~14_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~12_combout\ : std_logic;
+SIGNAL \inst4|Equal63~1_combout\ : std_logic;
+SIGNAL \inst2|decoder1|y~1_combout\ : std_logic;
+SIGNAL \inst2|decoder1|h~5_combout\ : std_logic;
+SIGNAL \inst4|hex0[0]~7_combout\ : std_logic;
+SIGNAL \inst2|decoder1|h~1_combout\ : std_logic;
+SIGNAL \inst2|decoder1|h~2_combout\ : std_logic;
+SIGNAL \inst2|decoder1|h~3_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add2~1\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add2~3\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add2~5\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add2~7\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add2~9\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add2~10_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add2~8_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add2~6_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add2~4_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add2~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add2~11\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add2~13\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add2~14_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add3~1\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add3~3\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add3~5\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add3~7\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add3~9\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add3~10_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~8_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add3~4_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add3~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add2~12_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add3~11\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add3~12_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~11\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~12_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~7\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~8_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~6_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~4_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~1\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~3\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~5\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~7\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~9\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~11\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~13\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~14_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err[1]~1_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~6_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add3~13\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add3~14_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~10_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add3~6_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add3~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add4~1\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add4~3\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add4~5\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add4~7\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add4~9\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add4~11\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add4~13\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add4~14_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~7_combout\ : std_logic;
+SIGNAL \inst2|decoder1|next_is_init~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|next_is_init~1_combout\ : std_logic;
+SIGNAL \inst2|decoder1|decoder_claim~regout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cy_tmp[0]~1_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err[1]~4_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err[1]~5_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add4~12_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~3_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan2~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan2~6_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan2~7_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan2~8_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add1~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add9~1\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add9~3\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add9~4_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~4_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~14_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~15_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan2~3_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan2~1_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan2~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan2~4_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan2~5_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan2~9_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan2~10_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err[1]~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~18_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~19_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~1\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~3\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~5\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~6_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~6_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~12_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~13_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add9~5\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add9~7\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add9~8_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add4~8_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~8_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~9_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~9\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~10_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~10_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~10_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~11_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add9~9\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add9~11\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add9~13\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add9~15\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add9~16_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~13\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~15\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add7~16_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add4~15\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add4~16_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~20_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~21_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add6~1\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add6~3\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add6~5\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add6~7\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add6~9\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add6~11\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add6~12_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add6~10_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add6~8_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan3~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add6~6_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add6~4_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add6~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add4~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add5~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~16_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|err~17_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add6~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan3~1_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan3~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan3~3_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan3~4_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan3~6_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan3~7_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan3~5_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|cx[4]~1_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~3_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~7_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|draw_line_comb~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~27_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|draw_line_comb~3_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~11_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x~8_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan0~1_cout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan0~3_cout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan0~5_cout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan0~7_cout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan0~9_cout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan0~11_cout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan0~13_cout\ : std_logic;
+SIGNAL \inst2|draw1|line1|LessThan0~14_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~1\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~5\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~9\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~12_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~14_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~15_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|draw_line_comb~1_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|draw_line_comb~4_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~18_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|cy[0]~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~3_combout\ : std_logic;
+SIGNAL \inst2|decoder1|h~7_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~12_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~1\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~4_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~6_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~5\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~7_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~9_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~8\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~11\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~13_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~15_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|draw_line_comb~7_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~21_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|draw_line_comb~8_combout\ : std_logic;
+SIGNAL \inst2|decoder1|h~4_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|draw_line_comb~6_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|draw_line_comb~9_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|next_setup~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|setup~regout\ : std_logic;
+SIGNAL \inst2|draw1|line1|done~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|en~10_combout\ : std_logic;
+SIGNAL \inst2|decoder1|en~5_combout\ : std_logic;
+SIGNAL \inst2|decoder1|en~11_combout\ : std_logic;
+SIGNAL \inst4|hex1[3]~7_combout\ : std_logic;
+SIGNAL \inst2|decoder1|en~4_combout\ : std_logic;
+SIGNAL \inst2|decoder1|en~8_combout\ : std_logic;
+SIGNAL \inst2|decoder1|en~9_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cy_tmp[0]~0_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|started_tmp~0_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|started~regout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~4_combout\ : std_logic;
-SIGNAL \inst2|decoder1|h~3_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~1_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~3_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cy_tmp[0]~1_combout\ : std_logic;
-SIGNAL \inst2|decoder1|x~5_combout\ : std_logic;
-SIGNAL \inst4|Equal63~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|x[5]~1_combout\ : std_logic;
-SIGNAL \inst2|decoder1|x~2_combout\ : std_logic;
-SIGNAL \inst2|sreset~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|w[7]~12_combout\ : std_logic;
+SIGNAL \inst2|decoder1|Equal0~1_combout\ : std_logic;
+SIGNAL \inst2|decoder1|en~1_combout\ : std_logic;
+SIGNAL \inst2|decoder1|Equal0~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|en~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|pixel1|draw_write~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|pixel1|busy~regout\ : std_logic;
+SIGNAL \inst2|draw1|pixel1|done~0_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[15]~4_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|draw_write~1_combout\ : std_logic;
+SIGNAL \inst2|draw1|draw_ready~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|timeout_count[4]~2_combout\ : std_logic;
+SIGNAL \inst2|decoder1|timeout_count[4]~3_combout\ : std_logic;
+SIGNAL \inst2|decoder1|timeout_count[4]~4_combout\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~1\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~2_combout\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~3\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~5\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~6_combout\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~7\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~9\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~11\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~12_combout\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~13\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~15\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~16_combout\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~17\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~19\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~20_combout\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~21\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~23\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~24_combout\ : std_logic;
+SIGNAL \inst2|decoder1|LessThan0~3_combout\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~14_combout\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~8_combout\ : std_logic;
+SIGNAL \inst2|decoder1|LessThan0~1_combout\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~25\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~26_combout\ : std_logic;
+SIGNAL \inst2|decoder1|Add1~18_combout\ : std_logic;
+SIGNAL \inst2|decoder1|LessThan0~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|LessThan0~4_combout\ : std_logic;
+SIGNAL \inst2|decoder1|packet_num[2]~2_combout\ : std_logic;
+SIGNAL \inst2|decoder1|packet_num[0]~5_combout\ : std_logic;
+SIGNAL \inst4|hex0[0]~6_combout\ : std_logic;
+SIGNAL \inst2|decoder1|en~3_combout\ : std_logic;
+SIGNAL \inst4|Equal63~2_combout\ : std_logic;
+SIGNAL \inst2|decoder1|done~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|done~1_combout\ : std_logic;
+SIGNAL \inst2|decoder1|done~2_combout\ : std_logic;
+SIGNAL \inst2|decoder1|next_int_ready~3_combout\ : std_logic;
+SIGNAL \inst2|decoder1|next_int_ready~2_combout\ : std_logic;
+SIGNAL \inst2|decoder1|next_int_ready~4_combout\ : std_logic;
+SIGNAL \inst2|decoder1|current_instruction[2]~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|current_instruction[2]~4_combout\ : std_logic;
+SIGNAL \inst2|decoder1|current_instruction[2]~5_combout\ : std_logic;
+SIGNAL \inst2|decoder1|decode_comb~1_combout\ : std_logic;
+SIGNAL \inst2|decoder1|current_instruction~1_combout\ : std_logic;
+SIGNAL \inst2|decoder1|current_instruction~2_combout\ : std_logic;
+SIGNAL \inst2|decoder1|current_instruction~3_combout\ : std_logic;
+SIGNAL \inst2|decoder1|asb~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|asb~regout\ : std_logic;
 SIGNAL \inst2|decoder1|next_h[6]~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|next_h[6]~1_combout\ : std_logic;
+SIGNAL \inst2|decoder1|next_h[6]~2_combout\ : std_logic;
 SIGNAL \inst2|decoder1|next_h[6]~3_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Add0~24_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|draw_write~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~27_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Equal2~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|h~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx[6]~3_combout\ : std_logic;
-SIGNAL \inst2|decoder1|h~6_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~16_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~19_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~10\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~14\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~18\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~21_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~23_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx[6]~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx[6]~5_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx[6]~6_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|vga_claim~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx[6]~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx[6]~7_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx[6]~1_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx_tmp[1]~3_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~3_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx[1]~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx[1]~1_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Add1~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Equal2~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~13_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~15_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx[1]~3_combout\ : std_logic;
+SIGNAL \inst2|decoder1|h~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~4_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~7_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx[1]~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx[1]~5_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx[1]~6_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|vga_claim~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx[1]~7_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|cx_tmp[0]~0_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|cx_tmp[0]~1_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|cx_tmp[0]~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add1~1\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add1~2_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx_tmp[1]~3_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|cx_tmp[1]~4_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|cx_tmp[1]~5_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Equal0~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx_tmp[4]~12_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx_tmp[4]~13_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx_tmp[4]~14_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Equal0~2_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x~5_combout\ : std_logic;
+SIGNAL \inst2|decoder1|x[2]~feeder_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add1~1\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Add1~3\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Add1~4_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|cx_tmp[2]~6_combout\ : std_logic;
@@ -420,374 +737,70 @@ SIGNAL \inst2|draw1|rect1|Add1~6_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|cx_tmp[3]~10_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|cx_tmp[3]~11_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Equal0~1_combout\ : std_logic;
-SIGNAL \inst2|decoder1|x~6_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx_tmp[5]~15_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx_tmp[5]~16_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx_tmp[5]~17_combout\ : std_logic;
-SIGNAL \inst2|decoder1|x~7_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Equal0~2_combout\ : std_logic;
-SIGNAL \inst2|decoder1|x~3_combout\ : std_logic;
-SIGNAL \inst2|decoder1|x~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Equal0~0_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Equal0~4_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|cy_tmp[0]~2_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Add0~2\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~5_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add0~7_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Add0~6\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Add0~9_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~8_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Add0~11_combout\ : std_logic;
-SIGNAL \inst4|Equal63~2_combout\ : std_logic;
-SIGNAL \inst2|decoder1|y~1_combout\ : std_logic;
-SIGNAL \inst2|decoder1|x~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|almost_done_tmp~1_combout\ : std_logic;
-SIGNAL \inst2|decoder1|x~9_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~10\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~14\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~18\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~21_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~23_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~22\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~25_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~27_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Equal1~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|almost_done_tmp~0_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|almost_done_tmp~2_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|almost_done_tmp~3_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|draw_write~1_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|almost_done_tmp~4_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|almost_done~regout\ : std_logic;
-SIGNAL \inst2|draw1|draw_ready~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|draw_write~0_combout\ : std_logic;
+SIGNAL \inst2|decoder1|en~6_combout\ : std_logic;
 SIGNAL \inst2|decoder1|en~7_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|cx[3]~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|next_setup~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|setup~regout\ : std_logic;
-SIGNAL \inst2|decoder1|x~8_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add0~1\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add0~3\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add0~5\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add0~7\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add0~9\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add0~11\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add0~13\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add0~14_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add0~12_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add0~10_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add0~8_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add0~15\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add0~16_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add0~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add0~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|dx~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~1\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~3\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~5\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~7\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~9\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~11\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~13\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~14_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add2~1\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add2~3\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add2~5\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add2~7\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add2~9\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add2~11\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add2~12_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add2~10_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add2~8_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add2~6_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add2~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add2~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add2~13\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add2~14_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add3~1\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add3~3\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add3~5\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add3~7\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add3~9\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add3~11\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add3~12_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~10_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~8_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~6_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add3~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add4~1\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add4~3\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add4~5\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add4~7\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add4~9\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add4~11\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add4~13\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add4~14_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err[0]~1_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add3~10_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add4~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add3~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~1\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~1\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~16_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~17_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err[0]~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err[0]~5_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add9~1\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add9~3\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add9~5\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add9~7\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add9~8_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add3~6_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add9~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~3\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~3\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~14_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~15_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~5\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~6_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~5\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~7\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~8_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~8_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~9_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~7\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~9\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~11\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~12_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~10_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~9\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~11\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~12_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~3_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add9~9\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add9~11\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add9~13\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add9~14_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~6_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~7_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~13\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~15\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~17\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~18_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add3~13\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add3~14_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add4~15\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add4~16_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~15\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~16_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add9~15\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add9~17\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add9~18_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~22_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~23_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~10_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~10_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~11_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add6~1\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add6~3\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add6~5\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add6~7\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add6~8_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan3~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add4~6_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~6_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~12_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~13_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add6~6_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add9~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~18_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~19_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add6~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add6~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan3~1_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add6~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan3~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan3~3_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan3~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan3~6_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan3~7_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan3~5_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err[0]~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add7~16_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~13\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~15\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add5~16_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~20_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|err~21_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan2~6_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~12_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan2~7_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan2~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan2~8_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan2~3_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add1~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan2~1_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan2~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan2~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan2~5_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan2~9_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan2~10_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|cy[4]~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~3_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|draw_line_comb~5_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan1~1_cout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan1~3_cout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan1~5_cout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan1~7_cout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan1~9_cout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan1~11_cout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan1~12_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~1\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~5\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~7_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~9_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~8\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~10_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~12_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~11\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~14\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~16_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~18_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~13_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~15_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|draw_line_comb~7_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~17\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~19_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~21_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|draw_line_comb~8_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|cx[3]~1_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~3_combout\ : std_logic;
-SIGNAL \inst2|decoder1|x[6]~feeder_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan0~1_cout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan0~3_cout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan0~5_cout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan0~7_cout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan0~9_cout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan0~11_cout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan0~13_cout\ : std_logic;
-SIGNAL \inst2|draw1|line1|LessThan0~14_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~1\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~6_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~7_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|draw_line_comb~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~5\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~9\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~13\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~16_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~18_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~19_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~23_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|draw_line_comb~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~17\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~21\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~24_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~26_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~27_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|draw_line_comb~3_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|draw_line_comb~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|draw_line_comb~9_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|done~0_combout\ : std_logic;
-SIGNAL \inst2|draw1|draw_ready~1_combout\ : std_logic;
-SIGNAL \inst2|decoder1|packet_num[0]~2_combout\ : std_logic;
-SIGNAL \inst2|decoder1|packet_num[2]~3_combout\ : std_logic;
-SIGNAL \inst4|Equal63~1_combout\ : std_logic;
-SIGNAL \inst2|decoder1|done~7_combout\ : std_logic;
-SIGNAL \inst2|decoder1|done~4_combout\ : std_logic;
-SIGNAL \inst2|decoder1|done~5_combout\ : std_logic;
-SIGNAL \inst2|decoder1|current_instruction[2]~4_combout\ : std_logic;
-SIGNAL \inst2|decoder1|current_instruction[2]~5_combout\ : std_logic;
-SIGNAL \inst2|decoder1|Equal0~1_combout\ : std_logic;
-SIGNAL \inst2|decoder1|done~6_combout\ : std_logic;
-SIGNAL \inst2|decoder1|current_instruction~1_combout\ : std_logic;
-SIGNAL \inst2|decoder1|current_instruction~7_combout\ : std_logic;
-SIGNAL \inst4|hex1[3]~7_combout\ : std_logic;
-SIGNAL \inst2|decoder1|decode_comb~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~5\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~7\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~8_combout\ : std_logic;
-SIGNAL \inst4|hex0[0]~6_combout\ : std_logic;
-SIGNAL \inst2|decoder1|timeout_count[13]~2_combout\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~9\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~11\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~13\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~14_combout\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~15\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~17\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~18_combout\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~19\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~20_combout\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~12_combout\ : std_logic;
-SIGNAL \inst2|decoder1|LessThan0~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|timeout_count[13]~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|timeout_count[13]~1_combout\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~1\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~2_combout\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~3\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~4_combout\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~6_combout\ : std_logic;
-SIGNAL \inst2|decoder1|LessThan0~1_combout\ : std_logic;
-SIGNAL \inst2|decoder1|spi_reset~0_combout\ : std_logic;
-SIGNAL \inst2|sreset~combout\ : std_logic;
-SIGNAL \inst2|spi1|mosi_latched~0_combout\ : std_logic;
-SIGNAL \inst2|spi1|mosi_latched~regout\ : std_logic;
-SIGNAL \inst2|decoder1|current_instruction~3_combout\ : std_logic;
-SIGNAL \inst2|decoder1|en~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|Equal0~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|en~1_combout\ : std_logic;
-SIGNAL \inst2|decoder1|en~2_combout\ : std_logic;
-SIGNAL \inst2|draw1|pixel1|busy~feeder_combout\ : std_logic;
-SIGNAL \inst2|draw1|pixel1|busy~regout\ : std_logic;
-SIGNAL \inst2|draw1|pixel1|draw_write~0_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|draw_write~0_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[15]~2_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|Add1~17\ : std_logic;
-SIGNAL \inst2|vgacontroller1|Add1~18_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|new_v_count[9]~3_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|vgavsync~1_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|LessThan11~0_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|vgavsync~2_combout\ : std_logic;
-SIGNAL \inst2|decoder1|next_asb~0_combout\ : std_logic;
-SIGNAL \inst2|decoder1|asb~regout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|vga_combi~0_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|vga_combi~1_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[15]~19_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[15]~20_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[15]~51_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[15]~5_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[15]~22_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[15]~54_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|ramaddr[14]~30_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[14]~21_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[14]~22_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|Add1~16_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|new_v_count[8]~5_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[14]~23_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[14]~24_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|ramaddr[13]~31_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[13]~23_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[13]~24_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[12]~25_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[13]~25_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[13]~26_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[12]~27_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~16_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~17_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|Add0~19_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|ramaddr[12]~32_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[12]~26_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[12]~28_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|ramaddr[11]~33_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[11]~27_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[11]~28_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|new_v_count[4]~4_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[10]~29_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[11]~29_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[11]~30_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|ramaddr[10]~34_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[10]~30_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~4_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add10~6_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[9]~31_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[10]~31_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[10]~32_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|ramaddr[9]~35_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[9]~32_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[8]~33_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|Add1~6_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|v_count[3]~0_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|v_count[3]~1_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[9]~33_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[9]~34_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~0_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add10~2_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[8]~35_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|ramaddr[8]~36_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[8]~34_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~25\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~28_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~30_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~31_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[7]~35_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[8]~36_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[7]~37_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx_tmp[6]~18_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx_tmp[6]~19_combout\ : std_logic;
+SIGNAL \inst2|draw1|rect1|cx_tmp[6]~20_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Add1~7\ : std_logic;
-SIGNAL \inst2|draw1|rect1|Add1~8_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx_tmp[4]~12_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx_tmp[4]~13_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx_tmp[4]~14_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Add1~9\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Add1~11\ : std_logic;
 SIGNAL \inst2|draw1|rect1|Add1~13\ : std_logic;
@@ -795,36 +808,32 @@ SIGNAL \inst2|draw1|rect1|Add1~14_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|cx_tmp[7]~22_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|cx_tmp[7]~23_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|ramaddr[7]~37_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[7]~36_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx_tmp[6]~18_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx_tmp[6]~19_combout\ : std_logic;
-SIGNAL \inst2|draw1|rect1|cx_tmp[6]~20_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[7]~38_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|ramaddr[6]~38_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[6]~37_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[6]~38_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[5]~39_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[6]~39_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[6]~40_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~23_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[5]~41_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|ramaddr[5]~39_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[5]~40_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[5]~42_combout\ : std_logic;
+SIGNAL \inst2|draw1|line1|Add8~19_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|h_count[4]~16_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[4]~43_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|ramaddr[4]~40_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[4]~41_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[4]~42_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[4]~44_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|h_count[3]~14_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[3]~45_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|ramaddr[3]~41_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~12_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~14_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~15_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[3]~43_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[3]~44_combout\ : std_logic;
-SIGNAL \inst2|draw1|line1|Add8~11_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[2]~45_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[3]~46_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|ramaddr[2]~42_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[2]~46_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[2]~47_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[2]~48_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[1]~49_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|ramaddr[1]~43_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|h_count[1]~10_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[1]~47_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[1]~48_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[0]~49_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[1]~50_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[0]~51_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|ramaddr[0]~44_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|ramaddr[0]~50_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|ramaddr[0]~52_combout\ : std_logic;
 SIGNAL \inst2|decoder1|y~0_combout\ : std_logic;
 SIGNAL \inst2|decoder1|color~0_combout\ : std_logic;
 SIGNAL \inst2|draw1|line1|ramdata[5]~6_combout\ : std_logic;
@@ -836,21 +845,24 @@ SIGNAL \inst2|draw1|line1|ramdata[0]~11_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|vgahsync~1_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|vgahsync~0_combout\ : std_logic;
 SIGNAL \inst2|vgacontroller1|vgahsync~2_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|vgavsync~0_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|vgavsync~1_combout\ : std_logic;
+SIGNAL \inst2|vgacontroller1|vgavsync~2_combout\ : std_logic;
 SIGNAL \inst1|count[0]~2_combout\ : std_logic;
 SIGNAL \inst1|count[1]~1_combout\ : std_logic;
 SIGNAL \inst1|count[2]~0_combout\ : std_logic;
 SIGNAL \inst2|ramcontroller1|write_enable~0_combout\ : std_logic;
 SIGNAL \inst2|ramcontroller1|write_enable~1_combout\ : std_logic;
-SIGNAL \inst2|decoder1|next_int_ready~7_combout\ : std_logic;
+SIGNAL \inst2|decoder1|next_int_ready~0_combout\ : std_logic;
+SIGNAL \inst4|hex1[3]~8_combout\ : std_logic;
+SIGNAL \inst2|decoder1|next_int_ready~1_combout\ : std_logic;
+SIGNAL \inst2|decoder1|next_int_ready~5_combout\ : std_logic;
+SIGNAL \inst2|decoder1|next_int_ready~6_combout\ : std_logic;
 SIGNAL \inst2|decoder1|int_ready~regout\ : std_logic;
 SIGNAL \debug_in~combout\ : std_logic;
 SIGNAL \inst6~combout\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~21\ : std_logic;
+SIGNAL \SPICLK~combout\ : std_logic;
 SIGNAL \inst2|decoder1|Add1~22_combout\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~23\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~25\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~26_combout\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~24_combout\ : std_logic;
 SIGNAL \inst4|hex3[6]~0_combout\ : std_logic;
 SIGNAL \inst4|hex3[5]~1_combout\ : std_logic;
 SIGNAL \inst4|hex3[4]~2_combout\ : std_logic;
@@ -858,7 +870,6 @@ SIGNAL \inst4|hex3[3]~3_combout\ : std_logic;
 SIGNAL \inst4|hex3[2]~4_combout\ : std_logic;
 SIGNAL \inst4|hex3[1]~5_combout\ : std_logic;
 SIGNAL \inst4|hex3[0]~6_combout\ : std_logic;
-SIGNAL \inst2|decoder1|Add1~16_combout\ : std_logic;
 SIGNAL \inst4|hex2[6]~0_combout\ : std_logic;
 SIGNAL \inst4|hex2[5]~1_combout\ : std_logic;
 SIGNAL \inst4|hex2[4]~2_combout\ : std_logic;
@@ -870,6 +881,7 @@ SIGNAL \inst4|hex1[6]~0_combout\ : std_logic;
 SIGNAL \inst4|hex1[5]~1_combout\ : std_logic;
 SIGNAL \inst4|hex1[4]~2_combout\ : std_logic;
 SIGNAL \inst4|hex1[3]~3_combout\ : std_logic;
+SIGNAL \inst4|hex1[2]~4_combout\ : std_logic;
 SIGNAL \inst4|hex1[1]~5_combout\ : std_logic;
 SIGNAL \inst4|hex1[0]~6_combout\ : std_logic;
 SIGNAL \inst4|hex0[5]~0_combout\ : std_logic;
@@ -878,32 +890,33 @@ SIGNAL \inst4|hex0[4]~2_combout\ : std_logic;
 SIGNAL \inst4|hex0[3]~3_combout\ : std_logic;
 SIGNAL \inst4|hex0[1]~4_combout\ : std_logic;
 SIGNAL \inst4|hex0[0]~5_combout\ : std_logic;
-SIGNAL \inst|vga_b[3]~0_combout\ : std_logic;
-SIGNAL \inst|vga_b[1]~1_combout\ : std_logic;
-SIGNAL \inst|vga_g[3]~0_combout\ : std_logic;
-SIGNAL \inst|vga_g[1]~1_combout\ : std_logic;
-SIGNAL \inst|vga_r[3]~0_combout\ : std_logic;
-SIGNAL \inst|vga_r[1]~1_combout\ : std_logic;
-SIGNAL \inst2|vgacontroller1|v_count\ : std_logic_vector(9 DOWNTO 0);
-SIGNAL \inst1|count\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \inst|vga_b[3]~4_combout\ : std_logic;
+SIGNAL \inst|vga_b[1]~5_combout\ : std_logic;
+SIGNAL \inst|vga_g[3]~4_combout\ : std_logic;
+SIGNAL \inst|vga_g[1]~5_combout\ : std_logic;
+SIGNAL \inst|vga_r[3]~4_combout\ : std_logic;
+SIGNAL \inst|vga_r[1]~5_combout\ : std_logic;
 SIGNAL \inst2|draw1|rect1|cy\ : std_logic_vector(6 DOWNTO 0);
-SIGNAL \inst2|spi1|spi_rx_data\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \VGACOLOR~combout\ : std_logic_vector(5 DOWNTO 0);
-SIGNAL \inst2|decoder1|timeout_count\ : std_logic_vector(13 DOWNTO 0);
-SIGNAL \inst2|draw1|line1|cy\ : std_logic_vector(6 DOWNTO 0);
 SIGNAL \inst2|draw1|rect1|cx\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \inst2|vgacontroller1|h_count\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \inst2|decoder1|color\ : std_logic_vector(5 DOWNTO 0);
-SIGNAL \inst2|decoder1|current_instruction\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \inst2|decoder1|y\ : std_logic_vector(6 DOWNTO 0);
+SIGNAL \inst1|count\ : std_logic_vector(2 DOWNTO 0);
 SIGNAL \inst2|decoder1|en\ : std_logic_vector(5 DOWNTO 0);
-SIGNAL \inst2|decoder1|h\ : std_logic_vector(6 DOWNTO 0);
-SIGNAL \inst2|decoder1|packet_num\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \inst2|spi1|sh_reg\ : std_logic_vector(7 DOWNTO 0);
 SIGNAL \inst2|draw1|line1|cx\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \inst2|spi1|index\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \VGACOLOR~combout\ : std_logic_vector(5 DOWNTO 0);
+SIGNAL \inst2|decoder1|h\ : std_logic_vector(6 DOWNTO 0);
 SIGNAL \inst2|decoder1|x\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \inst2|draw1|line1|err\ : std_logic_vector(9 DOWNTO 0);
+SIGNAL \inst2|decoder1|current_instruction\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \inst2|decoder1|color\ : std_logic_vector(5 DOWNTO 0);
+SIGNAL \inst2|decoder1|packet_num\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \inst2|vgacontroller1|h_count\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \inst2|decoder1|y\ : std_logic_vector(6 DOWNTO 0);
+SIGNAL \inst2|vgacontroller1|v_count\ : std_logic_vector(9 DOWNTO 0);
+SIGNAL \inst2|decoder1|timeout_count\ : std_logic_vector(13 DOWNTO 0);
 SIGNAL \inst2|decoder1|w\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \inst2|draw1|line1|err\ : std_logic_vector(9 DOWNTO 0);
+SIGNAL \inst2|spi1|do_buffer_reg\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \inst2|spi1|state_reg\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \inst2|draw1|line1|cy\ : std_logic_vector(6 DOWNTO 0);
 SIGNAL \ALT_INV_reset~combout\ : std_logic;
 SIGNAL \inst4|ALT_INV_hex0[0]~5_combout\ : std_logic;
 SIGNAL \inst4|ALT_INV_hex0[1]~4_combout\ : std_logic;
@@ -987,40 +1000,57 @@ ww_devpor <= devpor;
 \inst4|ALT_INV_hex3[6]~0_combout\ <= NOT \inst4|hex3[6]~0_combout\;
 \inst2|ramcontroller1|ALT_INV_write_enable~1_combout\ <= NOT \inst2|ramcontroller1|write_enable~1_combout\;
 
--- Location: LCFF_X21_Y19_N11
-\inst2|vgacontroller1|h_count[3]\ : cycloneii_lcell_ff
+-- Location: LCFF_X1_Y20_N7
+\inst2|decoder1|timeout_count[2]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|h_count[3]~14_combout\,
-	sdata => \~GND~combout\,
-	sload => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	datain => \inst2|decoder1|Add1~4_combout\,
+	sclr => \inst2|decoder1|timeout_count[4]~3_combout\,
+	ena => \inst2|decoder1|timeout_count[4]~4_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|h_count\(3));
+	regout => \inst2|decoder1|timeout_count\(2));
 
--- Location: LCCOMB_X21_Y19_N10
-\inst2|vgacontroller1|h_count[3]~14\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|h_count[3]~14_combout\ = (\inst2|vgacontroller1|h_count\(3) & (!\inst2|vgacontroller1|h_count[2]~13\)) # (!\inst2|vgacontroller1|h_count\(3) & ((\inst2|vgacontroller1|h_count[2]~13\) # (GND)))
--- \inst2|vgacontroller1|h_count[3]~15\ = CARRY((!\inst2|vgacontroller1|h_count[2]~13\) # (!\inst2|vgacontroller1|h_count\(3)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101101001011111",
-	sum_lutc_input => "cin")
--- pragma translate_on
+-- Location: LCFF_X1_Y20_N13
+\inst2|decoder1|timeout_count[5]\ : cycloneii_lcell_ff
 PORT MAP (
-	dataa => \inst2|vgacontroller1|h_count\(3),
-	datad => VCC,
-	cin => \inst2|vgacontroller1|h_count[2]~13\,
-	combout => \inst2|vgacontroller1|h_count[3]~14_combout\,
-	cout => \inst2|vgacontroller1|h_count[3]~15\);
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|Add1~10_combout\,
+	sclr => \inst2|decoder1|timeout_count[4]~3_combout\,
+	ena => \inst2|decoder1|timeout_count[4]~4_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|timeout_count\(5));
 
--- Location: LCCOMB_X20_Y18_N8
-\inst2|vgacontroller1|Add1~8\ : cycloneii_lcell_comb
+-- Location: LCFF_X39_Y18_N11
+\inst2|decoder1|w[3]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|spi1|do_buffer_reg\(3),
+	sclr => \inst2|decoder1|w[7]~0_combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|w[7]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|w\(3));
+
+-- Location: LCFF_X39_Y15_N31
+\inst2|decoder1|h[5]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|decoder1|h~6_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|h~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|h\(5));
+
+-- Location: LCCOMB_X1_Y20_N6
+\inst2|decoder1|Add1~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|Add1~8_combout\ = (\inst2|vgacontroller1|v_count\(4) & (\inst2|vgacontroller1|Add1~7\ $ (GND))) # (!\inst2|vgacontroller1|v_count\(4) & (!\inst2|vgacontroller1|Add1~7\ & VCC))
--- \inst2|vgacontroller1|Add1~9\ = CARRY((\inst2|vgacontroller1|v_count\(4) & !\inst2|vgacontroller1|Add1~7\))
+-- \inst2|decoder1|Add1~4_combout\ = (\inst2|decoder1|timeout_count\(2) & (\inst2|decoder1|Add1~3\ $ (GND))) # (!\inst2|decoder1|timeout_count\(2) & (!\inst2|decoder1|Add1~3\ & VCC))
+-- \inst2|decoder1|Add1~5\ = CARRY((\inst2|decoder1|timeout_count\(2) & !\inst2|decoder1|Add1~3\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1028,90 +1058,13 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|vgacontroller1|v_count\(4),
+	dataa => \inst2|decoder1|timeout_count\(2),
 	datad => VCC,
-	cin => \inst2|vgacontroller1|Add1~7\,
-	combout => \inst2|vgacontroller1|Add1~8_combout\,
-	cout => \inst2|vgacontroller1|Add1~9\);
+	cin => \inst2|decoder1|Add1~3\,
+	combout => \inst2|decoder1|Add1~4_combout\,
+	cout => \inst2|decoder1|Add1~5\);
 
--- Location: LCCOMB_X20_Y18_N10
-\inst2|vgacontroller1|Add1~10\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|Add1~10_combout\ = (\inst2|vgacontroller1|v_count\(5) & (!\inst2|vgacontroller1|Add1~9\)) # (!\inst2|vgacontroller1|v_count\(5) & ((\inst2|vgacontroller1|Add1~9\) # (GND)))
--- \inst2|vgacontroller1|Add1~11\ = CARRY((!\inst2|vgacontroller1|Add1~9\) # (!\inst2|vgacontroller1|v_count\(5)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101101001011111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|v_count\(5),
-	datad => VCC,
-	cin => \inst2|vgacontroller1|Add1~9\,
-	combout => \inst2|vgacontroller1|Add1~10_combout\,
-	cout => \inst2|vgacontroller1|Add1~11\);
-
--- Location: LCCOMB_X20_Y18_N12
-\inst2|vgacontroller1|Add1~12\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|Add1~12_combout\ = (\inst2|vgacontroller1|v_count\(6) & (\inst2|vgacontroller1|Add1~11\ $ (GND))) # (!\inst2|vgacontroller1|v_count\(6) & (!\inst2|vgacontroller1|Add1~11\ & VCC))
--- \inst2|vgacontroller1|Add1~13\ = CARRY((\inst2|vgacontroller1|v_count\(6) & !\inst2|vgacontroller1|Add1~11\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100001100001100",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|vgacontroller1|v_count\(6),
-	datad => VCC,
-	cin => \inst2|vgacontroller1|Add1~11\,
-	combout => \inst2|vgacontroller1|Add1~12_combout\,
-	cout => \inst2|vgacontroller1|Add1~13\);
-
--- Location: LCCOMB_X20_Y18_N14
-\inst2|vgacontroller1|Add1~14\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|Add1~14_combout\ = (\inst2|vgacontroller1|v_count\(7) & (!\inst2|vgacontroller1|Add1~13\)) # (!\inst2|vgacontroller1|v_count\(7) & ((\inst2|vgacontroller1|Add1~13\) # (GND)))
--- \inst2|vgacontroller1|Add1~15\ = CARRY((!\inst2|vgacontroller1|Add1~13\) # (!\inst2|vgacontroller1|v_count\(7)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011110000111111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|vgacontroller1|v_count\(7),
-	datad => VCC,
-	cin => \inst2|vgacontroller1|Add1~13\,
-	combout => \inst2|vgacontroller1|Add1~14_combout\,
-	cout => \inst2|vgacontroller1|Add1~15\);
-
--- Location: LCFF_X23_Y17_N7
-\inst2|decoder1|h[4]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|h~7_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|h~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|h\(4));
-
--- Location: LCFF_X5_Y20_N11
-\inst2|decoder1|timeout_count[5]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|Add1~10_combout\,
-	sclr => \inst2|decoder1|timeout_count[13]~1_combout\,
-	ena => \inst2|decoder1|timeout_count[13]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|timeout_count\(5));
-
--- Location: LCCOMB_X5_Y20_N10
+-- Location: LCCOMB_X1_Y20_N12
 \inst2|decoder1|Add1~10\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|decoder1|Add1~10_combout\ = (\inst2|decoder1|timeout_count\(5) & (!\inst2|decoder1|Add1~9\)) # (!\inst2|decoder1|timeout_count\(5) & ((\inst2|decoder1|Add1~9\) # (GND)))
@@ -1129,7 +1082,7 @@ PORT MAP (
 	combout => \inst2|decoder1|Add1~10_combout\,
 	cout => \inst2|decoder1|Add1~11\);
 
--- Location: LCCOMB_X25_Y16_N2
+-- Location: LCCOMB_X39_Y17_N16
 \inst2|draw1|line1|Add8~0\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add8~0_combout\ = \inst2|draw1|line1|cx\(0) $ (VCC)
@@ -1146,45 +1099,25 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add8~0_combout\,
 	cout => \inst2|draw1|line1|Add8~1\);
 
--- Location: LCCOMB_X23_Y17_N16
+-- Location: LCCOMB_X39_Y15_N16
 \inst2|draw1|line1|Add2~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add2~0_combout\ = (\inst2|decoder1|h\(0) & ((GND) # (!\inst2|decoder1|y\(0)))) # (!\inst2|decoder1|h\(0) & (\inst2|decoder1|y\(0) $ (GND)))
+-- \inst2|draw1|line1|Add2~0_combout\ = (\inst2|decoder1|y\(0) & (\inst2|decoder1|h\(0) $ (VCC))) # (!\inst2|decoder1|y\(0) & ((\inst2|decoder1|h\(0)) # (GND)))
 -- \inst2|draw1|line1|Add2~1\ = CARRY((\inst2|decoder1|h\(0)) # (!\inst2|decoder1|y\(0)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0110011010111011",
+	lut_mask => "0110011011011101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|h\(0),
-	datab => \inst2|decoder1|y\(0),
+	dataa => \inst2|decoder1|y\(0),
+	datab => \inst2|decoder1|h\(0),
 	datad => VCC,
 	combout => \inst2|draw1|line1|Add2~0_combout\,
 	cout => \inst2|draw1|line1|Add2~1\);
 
--- Location: LCCOMB_X24_Y17_N20
-\inst2|draw1|line1|Add3~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add3~4_combout\ = (\inst2|draw1|line1|Add3~3\ & ((\inst2|draw1|line1|Add2~14_combout\ $ (!\inst2|draw1|line1|Add2~4_combout\)))) # (!\inst2|draw1|line1|Add3~3\ & (\inst2|draw1|line1|Add2~14_combout\ $ (\inst2|draw1|line1|Add2~4_combout\ 
--- $ (GND))))
--- \inst2|draw1|line1|Add3~5\ = CARRY((!\inst2|draw1|line1|Add3~3\ & (\inst2|draw1|line1|Add2~14_combout\ $ (!\inst2|draw1|line1|Add2~4_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011000001001",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add2~14_combout\,
-	datab => \inst2|draw1|line1|Add2~4_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add3~3\,
-	combout => \inst2|draw1|line1|Add3~4_combout\,
-	cout => \inst2|draw1|line1|Add3~5\);
-
--- Location: LCCOMB_X24_Y17_N24
+-- Location: LCCOMB_X40_Y15_N24
 \inst2|draw1|line1|Add3~8\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add3~8_combout\ = (\inst2|draw1|line1|Add3~7\ & ((\inst2|draw1|line1|Add2~14_combout\ $ (!\inst2|draw1|line1|Add2~8_combout\)))) # (!\inst2|draw1|line1|Add3~7\ & (\inst2|draw1|line1|Add2~14_combout\ $ (\inst2|draw1|line1|Add2~8_combout\ 
@@ -1204,58 +1137,38 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add3~8_combout\,
 	cout => \inst2|draw1|line1|Add3~9\);
 
--- Location: LCCOMB_X24_Y17_N10
-\inst2|draw1|line1|Add6~8\ : cycloneii_lcell_comb
+-- Location: LCFF_X40_Y16_N5
+\inst2|draw1|line1|err[9]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|err~23_combout\,
+	sclr => \inst2|draw1|line1|cx[4]~0_combout\,
+	ena => \inst2|draw1|line1|err[1]~5_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|err\(9));
+
+-- Location: LCCOMB_X39_Y17_N18
+\inst2|draw1|line1|Add8~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add6~8_combout\ = (\inst2|draw1|line1|Add3~10_combout\ & (!\inst2|draw1|line1|Add6~7\ & VCC)) # (!\inst2|draw1|line1|Add3~10_combout\ & (\inst2|draw1|line1|Add6~7\ $ (GND)))
--- \inst2|draw1|line1|Add6~9\ = CARRY((!\inst2|draw1|line1|Add3~10_combout\ & !\inst2|draw1|line1|Add6~7\))
+-- \inst2|draw1|line1|Add8~4_combout\ = (\inst2|draw1|line1|cx\(1) & ((\inst2|draw1|line1|LessThan0~14_combout\ & (!\inst2|draw1|line1|Add8~1\)) # (!\inst2|draw1|line1|LessThan0~14_combout\ & (\inst2|draw1|line1|Add8~1\ & VCC)))) # 
+-- (!\inst2|draw1|line1|cx\(1) & ((\inst2|draw1|line1|LessThan0~14_combout\ & ((\inst2|draw1|line1|Add8~1\) # (GND))) # (!\inst2|draw1|line1|LessThan0~14_combout\ & (!\inst2|draw1|line1|Add8~1\))))
+-- \inst2|draw1|line1|Add8~5\ = CARRY((\inst2|draw1|line1|cx\(1) & (\inst2|draw1|line1|LessThan0~14_combout\ & !\inst2|draw1|line1|Add8~1\)) # (!\inst2|draw1|line1|cx\(1) & ((\inst2|draw1|line1|LessThan0~14_combout\) # (!\inst2|draw1|line1|Add8~1\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011110000000011",
+	lut_mask => "0110100101001101",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|draw1|line1|Add3~10_combout\,
+	dataa => \inst2|draw1|line1|cx\(1),
+	datab => \inst2|draw1|line1|LessThan0~14_combout\,
 	datad => VCC,
-	cin => \inst2|draw1|line1|Add6~7\,
-	combout => \inst2|draw1|line1|Add6~8_combout\,
-	cout => \inst2|draw1|line1|Add6~9\);
+	cin => \inst2|draw1|line1|Add8~1\,
+	combout => \inst2|draw1|line1|Add8~4_combout\,
+	cout => \inst2|draw1|line1|Add8~5\);
 
--- Location: LCCOMB_X24_Y17_N12
-\inst2|draw1|line1|Add6~10\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add6~10_combout\ = (\inst2|draw1|line1|Add3~12_combout\ & ((\inst2|draw1|line1|Add6~9\) # (GND))) # (!\inst2|draw1|line1|Add3~12_combout\ & (!\inst2|draw1|line1|Add6~9\))
--- \inst2|draw1|line1|Add6~11\ = CARRY((\inst2|draw1|line1|Add3~12_combout\) # (!\inst2|draw1|line1|Add6~9\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100001111001111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|line1|Add3~12_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add6~9\,
-	combout => \inst2|draw1|line1|Add6~10_combout\,
-	cout => \inst2|draw1|line1|Add6~11\);
-
--- Location: LCCOMB_X24_Y17_N14
-\inst2|draw1|line1|Add6~12\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add6~12_combout\ = \inst2|draw1|line1|Add6~11\ $ (\inst2|draw1|line1|Add3~14_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111111110000",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datad => \inst2|draw1|line1|Add3~14_combout\,
-	cin => \inst2|draw1|line1|Add6~11\,
-	combout => \inst2|draw1|line1|Add6~12_combout\);
-
--- Location: LCCOMB_X25_Y16_N6
+-- Location: LCCOMB_X39_Y17_N20
 \inst2|draw1|line1|Add8~8\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add8~8_combout\ = ((\inst2|draw1|line1|cx\(2) $ (\inst2|draw1|line1|LessThan0~14_combout\ $ (\inst2|draw1|line1|Add8~5\)))) # (GND)
@@ -1274,7 +1187,46 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add8~8_combout\,
 	cout => \inst2|draw1|line1|Add8~9\);
 
--- Location: LCCOMB_X25_Y16_N12
+-- Location: LCCOMB_X39_Y17_N22
+\inst2|draw1|line1|Add8~12\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add8~12_combout\ = (\inst2|draw1|line1|cx\(3) & ((\inst2|draw1|line1|LessThan0~14_combout\ & (!\inst2|draw1|line1|Add8~9\)) # (!\inst2|draw1|line1|LessThan0~14_combout\ & (\inst2|draw1|line1|Add8~9\ & VCC)))) # 
+-- (!\inst2|draw1|line1|cx\(3) & ((\inst2|draw1|line1|LessThan0~14_combout\ & ((\inst2|draw1|line1|Add8~9\) # (GND))) # (!\inst2|draw1|line1|LessThan0~14_combout\ & (!\inst2|draw1|line1|Add8~9\))))
+-- \inst2|draw1|line1|Add8~13\ = CARRY((\inst2|draw1|line1|cx\(3) & (\inst2|draw1|line1|LessThan0~14_combout\ & !\inst2|draw1|line1|Add8~9\)) # (!\inst2|draw1|line1|cx\(3) & ((\inst2|draw1|line1|LessThan0~14_combout\) # (!\inst2|draw1|line1|Add8~9\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110100101001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|cx\(3),
+	datab => \inst2|draw1|line1|LessThan0~14_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add8~9\,
+	combout => \inst2|draw1|line1|Add8~12_combout\,
+	cout => \inst2|draw1|line1|Add8~13\);
+
+-- Location: LCCOMB_X39_Y17_N24
+\inst2|draw1|line1|Add8~16\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add8~16_combout\ = ((\inst2|draw1|line1|cx\(4) $ (\inst2|draw1|line1|LessThan0~14_combout\ $ (\inst2|draw1|line1|Add8~13\)))) # (GND)
+-- \inst2|draw1|line1|Add8~17\ = CARRY((\inst2|draw1|line1|cx\(4) & ((!\inst2|draw1|line1|Add8~13\) # (!\inst2|draw1|line1|LessThan0~14_combout\))) # (!\inst2|draw1|line1|cx\(4) & (!\inst2|draw1|line1|LessThan0~14_combout\ & !\inst2|draw1|line1|Add8~13\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1001011000101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|cx\(4),
+	datab => \inst2|draw1|line1|LessThan0~14_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add8~13\,
+	combout => \inst2|draw1|line1|Add8~16_combout\,
+	cout => \inst2|draw1|line1|Add8~17\);
+
+-- Location: LCCOMB_X39_Y17_N26
 \inst2|draw1|line1|Add8~20\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add8~20_combout\ = (\inst2|draw1|line1|cx\(5) & ((\inst2|draw1|line1|LessThan0~14_combout\ & (!\inst2|draw1|line1|Add8~17\)) # (!\inst2|draw1|line1|LessThan0~14_combout\ & (\inst2|draw1|line1|Add8~17\ & VCC)))) # 
@@ -1294,30 +1246,65 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add8~20_combout\,
 	cout => \inst2|draw1|line1|Add8~21\);
 
--- Location: LCCOMB_X23_Y19_N14
+-- Location: LCCOMB_X39_Y17_N28
+\inst2|draw1|line1|Add8~24\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add8~24_combout\ = ((\inst2|draw1|line1|cx\(6) $ (\inst2|draw1|line1|LessThan0~14_combout\ $ (\inst2|draw1|line1|Add8~21\)))) # (GND)
+-- \inst2|draw1|line1|Add8~25\ = CARRY((\inst2|draw1|line1|cx\(6) & ((!\inst2|draw1|line1|Add8~21\) # (!\inst2|draw1|line1|LessThan0~14_combout\))) # (!\inst2|draw1|line1|cx\(6) & (!\inst2|draw1|line1|LessThan0~14_combout\ & !\inst2|draw1|line1|Add8~21\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1001011000101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|cx\(6),
+	datab => \inst2|draw1|line1|LessThan0~14_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add8~21\,
+	combout => \inst2|draw1|line1|Add8~24_combout\,
+	cout => \inst2|draw1|line1|Add8~25\);
+
+-- Location: LCCOMB_X39_Y17_N30
+\inst2|draw1|line1|Add8~28\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add8~28_combout\ = \inst2|draw1|line1|cx\(7) $ (\inst2|draw1|line1|Add8~25\ $ (!\inst2|draw1|line1|LessThan0~14_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011110011000011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|line1|cx\(7),
+	datad => \inst2|draw1|line1|LessThan0~14_combout\,
+	cin => \inst2|draw1|line1|Add8~25\,
+	combout => \inst2|draw1|line1|Add8~28_combout\);
+
+-- Location: LCCOMB_X39_Y18_N4
 \inst2|draw1|line1|Add0~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add0~0_combout\ = (\inst2|decoder1|x\(0) & (\inst2|decoder1|w\(0) $ (VCC))) # (!\inst2|decoder1|x\(0) & ((\inst2|decoder1|w\(0)) # (GND)))
+-- \inst2|draw1|line1|Add0~0_combout\ = (\inst2|decoder1|w\(0) & ((GND) # (!\inst2|decoder1|x\(0)))) # (!\inst2|decoder1|w\(0) & (\inst2|decoder1|x\(0) $ (GND)))
 -- \inst2|draw1|line1|Add0~1\ = CARRY((\inst2|decoder1|w\(0)) # (!\inst2|decoder1|x\(0)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0110011011011101",
+	lut_mask => "0110011010111011",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|x\(0),
-	datab => \inst2|decoder1|w\(0),
+	dataa => \inst2|decoder1|w\(0),
+	datab => \inst2|decoder1|x\(0),
 	datad => VCC,
 	combout => \inst2|draw1|line1|Add0~0_combout\,
 	cout => \inst2|draw1|line1|Add0~1\);
 
--- Location: LCCOMB_X23_Y19_N20
-\inst2|draw1|line1|Add0~6\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X39_Y18_N6
+\inst2|draw1|line1|Add0~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add0~6_combout\ = (\inst2|decoder1|w\(3) & ((\inst2|decoder1|x\(3) & (!\inst2|draw1|line1|Add0~5\)) # (!\inst2|decoder1|x\(3) & (\inst2|draw1|line1|Add0~5\ & VCC)))) # (!\inst2|decoder1|w\(3) & ((\inst2|decoder1|x\(3) & 
--- ((\inst2|draw1|line1|Add0~5\) # (GND))) # (!\inst2|decoder1|x\(3) & (!\inst2|draw1|line1|Add0~5\))))
--- \inst2|draw1|line1|Add0~7\ = CARRY((\inst2|decoder1|w\(3) & (\inst2|decoder1|x\(3) & !\inst2|draw1|line1|Add0~5\)) # (!\inst2|decoder1|w\(3) & ((\inst2|decoder1|x\(3)) # (!\inst2|draw1|line1|Add0~5\))))
+-- \inst2|draw1|line1|Add0~2_combout\ = (\inst2|decoder1|w\(1) & ((\inst2|decoder1|x\(1) & (!\inst2|draw1|line1|Add0~1\)) # (!\inst2|decoder1|x\(1) & (\inst2|draw1|line1|Add0~1\ & VCC)))) # (!\inst2|decoder1|w\(1) & ((\inst2|decoder1|x\(1) & 
+-- ((\inst2|draw1|line1|Add0~1\) # (GND))) # (!\inst2|decoder1|x\(1) & (!\inst2|draw1|line1|Add0~1\))))
+-- \inst2|draw1|line1|Add0~3\ = CARRY((\inst2|decoder1|w\(1) & (\inst2|decoder1|x\(1) & !\inst2|draw1|line1|Add0~1\)) # (!\inst2|decoder1|w\(1) & ((\inst2|decoder1|x\(1)) # (!\inst2|draw1|line1|Add0~1\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1325,14 +1312,262 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|w\(3),
-	datab => \inst2|decoder1|x\(3),
+	dataa => \inst2|decoder1|w\(1),
+	datab => \inst2|decoder1|x\(1),
 	datad => VCC,
-	cin => \inst2|draw1|line1|Add0~5\,
-	combout => \inst2|draw1|line1|Add0~6_combout\,
-	cout => \inst2|draw1|line1|Add0~7\);
+	cin => \inst2|draw1|line1|Add0~1\,
+	combout => \inst2|draw1|line1|Add0~2_combout\,
+	cout => \inst2|draw1|line1|Add0~3\);
 
--- Location: LCCOMB_X24_Y18_N18
+-- Location: LCCOMB_X39_Y18_N16
+\inst2|draw1|line1|Add0~12\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add0~12_combout\ = ((\inst2|decoder1|w\(6) $ (\inst2|decoder1|x\(6) $ (\inst2|draw1|line1|Add0~11\)))) # (GND)
+-- \inst2|draw1|line1|Add0~13\ = CARRY((\inst2|decoder1|w\(6) & ((!\inst2|draw1|line1|Add0~11\) # (!\inst2|decoder1|x\(6)))) # (!\inst2|decoder1|w\(6) & (!\inst2|decoder1|x\(6) & !\inst2|draw1|line1|Add0~11\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1001011000101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|w\(6),
+	datab => \inst2|decoder1|x\(6),
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add0~11\,
+	combout => \inst2|draw1|line1|Add0~12_combout\,
+	cout => \inst2|draw1|line1|Add0~13\);
+
+-- Location: LCCOMB_X39_Y15_N2
+\inst2|draw1|line1|LessThan1~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan1~1_cout\ = CARRY((!\inst2|decoder1|y\(0) & \inst2|decoder1|h\(0)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000001000100",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|y\(0),
+	datab => \inst2|decoder1|h\(0),
+	datad => VCC,
+	cout => \inst2|draw1|line1|LessThan1~1_cout\);
+
+-- Location: LCCOMB_X39_Y15_N4
+\inst2|draw1|line1|LessThan1~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan1~3_cout\ = CARRY((\inst2|decoder1|y\(1) & ((!\inst2|draw1|line1|LessThan1~1_cout\) # (!\inst2|decoder1|h\(1)))) # (!\inst2|decoder1|y\(1) & (!\inst2|decoder1|h\(1) & !\inst2|draw1|line1|LessThan1~1_cout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|y\(1),
+	datab => \inst2|decoder1|h\(1),
+	datad => VCC,
+	cin => \inst2|draw1|line1|LessThan1~1_cout\,
+	cout => \inst2|draw1|line1|LessThan1~3_cout\);
+
+-- Location: LCCOMB_X39_Y15_N6
+\inst2|draw1|line1|LessThan1~5\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan1~5_cout\ = CARRY((\inst2|decoder1|y\(2) & (\inst2|decoder1|h\(2) & !\inst2|draw1|line1|LessThan1~3_cout\)) # (!\inst2|decoder1|y\(2) & ((\inst2|decoder1|h\(2)) # (!\inst2|draw1|line1|LessThan1~3_cout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000001001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|y\(2),
+	datab => \inst2|decoder1|h\(2),
+	datad => VCC,
+	cin => \inst2|draw1|line1|LessThan1~3_cout\,
+	cout => \inst2|draw1|line1|LessThan1~5_cout\);
+
+-- Location: LCCOMB_X39_Y15_N8
+\inst2|draw1|line1|LessThan1~7\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan1~7_cout\ = CARRY((\inst2|decoder1|h\(3) & (\inst2|decoder1|y\(3) & !\inst2|draw1|line1|LessThan1~5_cout\)) # (!\inst2|decoder1|h\(3) & ((\inst2|decoder1|y\(3)) # (!\inst2|draw1|line1|LessThan1~5_cout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000001001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|h\(3),
+	datab => \inst2|decoder1|y\(3),
+	datad => VCC,
+	cin => \inst2|draw1|line1|LessThan1~5_cout\,
+	cout => \inst2|draw1|line1|LessThan1~7_cout\);
+
+-- Location: LCCOMB_X39_Y15_N10
+\inst2|draw1|line1|LessThan1~9\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan1~9_cout\ = CARRY((\inst2|decoder1|y\(4) & (\inst2|decoder1|h\(4) & !\inst2|draw1|line1|LessThan1~7_cout\)) # (!\inst2|decoder1|y\(4) & ((\inst2|decoder1|h\(4)) # (!\inst2|draw1|line1|LessThan1~7_cout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000001001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|y\(4),
+	datab => \inst2|decoder1|h\(4),
+	datad => VCC,
+	cin => \inst2|draw1|line1|LessThan1~7_cout\,
+	cout => \inst2|draw1|line1|LessThan1~9_cout\);
+
+-- Location: LCCOMB_X39_Y15_N12
+\inst2|draw1|line1|LessThan1~11\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan1~11_cout\ = CARRY((\inst2|decoder1|h\(5) & (\inst2|decoder1|y\(5) & !\inst2|draw1|line1|LessThan1~9_cout\)) # (!\inst2|decoder1|h\(5) & ((\inst2|decoder1|y\(5)) # (!\inst2|draw1|line1|LessThan1~9_cout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000001001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|h\(5),
+	datab => \inst2|decoder1|y\(5),
+	datad => VCC,
+	cin => \inst2|draw1|line1|LessThan1~9_cout\,
+	cout => \inst2|draw1|line1|LessThan1~11_cout\);
+
+-- Location: LCCOMB_X39_Y15_N14
+\inst2|draw1|line1|LessThan1~12\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan1~12_combout\ = (\inst2|decoder1|y\(6) & (!\inst2|draw1|line1|LessThan1~11_cout\ & \inst2|decoder1|h\(6))) # (!\inst2|decoder1|y\(6) & ((\inst2|decoder1|h\(6)) # (!\inst2|draw1|line1|LessThan1~11_cout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101111100000101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|y\(6),
+	datad => \inst2|decoder1|h\(6),
+	cin => \inst2|draw1|line1|LessThan1~11_cout\,
+	combout => \inst2|draw1|line1|LessThan1~12_combout\);
+
+-- Location: LCCOMB_X39_Y19_N6
+\inst2|draw1|line1|Add10~10\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add10~10_combout\ = (\inst2|draw1|line1|LessThan1~12_combout\ & ((\inst2|draw1|line1|cy\(3) & (!\inst2|draw1|line1|Add10~8\)) # (!\inst2|draw1|line1|cy\(3) & ((\inst2|draw1|line1|Add10~8\) # (GND))))) # 
+-- (!\inst2|draw1|line1|LessThan1~12_combout\ & ((\inst2|draw1|line1|cy\(3) & (\inst2|draw1|line1|Add10~8\ & VCC)) # (!\inst2|draw1|line1|cy\(3) & (!\inst2|draw1|line1|Add10~8\))))
+-- \inst2|draw1|line1|Add10~11\ = CARRY((\inst2|draw1|line1|LessThan1~12_combout\ & ((!\inst2|draw1|line1|Add10~8\) # (!\inst2|draw1|line1|cy\(3)))) # (!\inst2|draw1|line1|LessThan1~12_combout\ & (!\inst2|draw1|line1|cy\(3) & !\inst2|draw1|line1|Add10~8\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110100100101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|LessThan1~12_combout\,
+	datab => \inst2|draw1|line1|cy\(3),
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add10~8\,
+	combout => \inst2|draw1|line1|Add10~10_combout\,
+	cout => \inst2|draw1|line1|Add10~11\);
+
+-- Location: LCCOMB_X39_Y19_N8
+\inst2|draw1|line1|Add10~13\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add10~13_combout\ = ((\inst2|draw1|line1|LessThan1~12_combout\ $ (\inst2|draw1|line1|cy\(4) $ (\inst2|draw1|line1|Add10~11\)))) # (GND)
+-- \inst2|draw1|line1|Add10~14\ = CARRY((\inst2|draw1|line1|LessThan1~12_combout\ & (\inst2|draw1|line1|cy\(4) & !\inst2|draw1|line1|Add10~11\)) # (!\inst2|draw1|line1|LessThan1~12_combout\ & ((\inst2|draw1|line1|cy\(4)) # (!\inst2|draw1|line1|Add10~11\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1001011001001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|LessThan1~12_combout\,
+	datab => \inst2|draw1|line1|cy\(4),
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add10~11\,
+	combout => \inst2|draw1|line1|Add10~13_combout\,
+	cout => \inst2|draw1|line1|Add10~14\);
+
+-- Location: LCCOMB_X39_Y19_N10
+\inst2|draw1|line1|Add10~16\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add10~16_combout\ = (\inst2|draw1|line1|LessThan1~12_combout\ & ((\inst2|draw1|line1|cy\(5) & (!\inst2|draw1|line1|Add10~14\)) # (!\inst2|draw1|line1|cy\(5) & ((\inst2|draw1|line1|Add10~14\) # (GND))))) # 
+-- (!\inst2|draw1|line1|LessThan1~12_combout\ & ((\inst2|draw1|line1|cy\(5) & (\inst2|draw1|line1|Add10~14\ & VCC)) # (!\inst2|draw1|line1|cy\(5) & (!\inst2|draw1|line1|Add10~14\))))
+-- \inst2|draw1|line1|Add10~17\ = CARRY((\inst2|draw1|line1|LessThan1~12_combout\ & ((!\inst2|draw1|line1|Add10~14\) # (!\inst2|draw1|line1|cy\(5)))) # (!\inst2|draw1|line1|LessThan1~12_combout\ & (!\inst2|draw1|line1|cy\(5) & 
+-- !\inst2|draw1|line1|Add10~14\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110100100101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|LessThan1~12_combout\,
+	datab => \inst2|draw1|line1|cy\(5),
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add10~14\,
+	combout => \inst2|draw1|line1|Add10~16_combout\,
+	cout => \inst2|draw1|line1|Add10~17\);
+
+-- Location: LCCOMB_X39_Y19_N12
+\inst2|draw1|line1|Add10~19\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add10~19_combout\ = \inst2|draw1|line1|cy\(6) $ (\inst2|draw1|line1|Add10~17\ $ (\inst2|draw1|line1|LessThan1~12_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100001100111100",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|line1|cy\(6),
+	datad => \inst2|draw1|line1|LessThan1~12_combout\,
+	cin => \inst2|draw1|line1|Add10~17\,
+	combout => \inst2|draw1|line1|Add10~19_combout\);
+
+-- Location: LCCOMB_X40_Y20_N4
+\inst2|draw1|rect1|Add1~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add1~2_combout\ = (\inst2|draw1|rect1|cx\(1) & (\inst2|draw1|rect1|Add1~1\ & VCC)) # (!\inst2|draw1|rect1|cx\(1) & (!\inst2|draw1|rect1|Add1~1\))
+-- \inst2|draw1|rect1|Add1~3\ = CARRY((!\inst2|draw1|rect1|cx\(1) & !\inst2|draw1|rect1|Add1~1\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100001100000011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|rect1|cx\(1),
+	datad => VCC,
+	cin => \inst2|draw1|rect1|Add1~1\,
+	combout => \inst2|draw1|rect1|Add1~2_combout\,
+	cout => \inst2|draw1|rect1|Add1~3\);
+
+-- Location: LCCOMB_X40_Y20_N10
+\inst2|draw1|rect1|Add1~8\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add1~8_combout\ = (\inst2|draw1|rect1|cx\(4) & ((GND) # (!\inst2|draw1|rect1|Add1~7\))) # (!\inst2|draw1|rect1|cx\(4) & (\inst2|draw1|rect1|Add1~7\ $ (GND)))
+-- \inst2|draw1|rect1|Add1~9\ = CARRY((\inst2|draw1|rect1|cx\(4)) # (!\inst2|draw1|rect1|Add1~7\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011110011001111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|rect1|cx\(4),
+	datad => VCC,
+	cin => \inst2|draw1|rect1|Add1~7\,
+	combout => \inst2|draw1|rect1|Add1~8_combout\,
+	cout => \inst2|draw1|rect1|Add1~9\);
+
+-- Location: LCCOMB_X40_Y20_N12
 \inst2|draw1|rect1|Add1~10\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|rect1|Add1~10_combout\ = (\inst2|draw1|rect1|cx\(5) & (\inst2|draw1|rect1|Add1~9\ & VCC)) # (!\inst2|draw1|rect1|cx\(5) & (!\inst2|draw1|rect1|Add1~9\))
@@ -1340,17 +1575,17 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100001100000011",
+	lut_mask => "1010010100000101",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|draw1|rect1|cx\(5),
+	dataa => \inst2|draw1|rect1|cx\(5),
 	datad => VCC,
 	cin => \inst2|draw1|rect1|Add1~9\,
 	combout => \inst2|draw1|rect1|Add1~10_combout\,
 	cout => \inst2|draw1|rect1|Add1~11\);
 
--- Location: LCCOMB_X24_Y18_N20
+-- Location: LCCOMB_X40_Y20_N14
 \inst2|draw1|rect1|Add1~12\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|rect1|Add1~12_combout\ = (\inst2|draw1|rect1|cx\(6) & ((GND) # (!\inst2|draw1|rect1|Add1~11\))) # (!\inst2|draw1|rect1|cx\(6) & (\inst2|draw1|rect1|Add1~11\ $ (GND)))
@@ -1358,21 +1593,38 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101101010101111",
+	lut_mask => "0011110011001111",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|rect1|cx\(6),
+	datab => \inst2|draw1|rect1|cx\(6),
 	datad => VCC,
 	cin => \inst2|draw1|rect1|Add1~11\,
 	combout => \inst2|draw1|rect1|Add1~12_combout\,
 	cout => \inst2|draw1|rect1|Add1~13\);
 
--- Location: LCCOMB_X22_Y16_N14
-\inst2|draw1|rect1|Add0~13\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X37_Y19_N12
+\inst2|draw1|rect1|Add0~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|Add0~13_combout\ = (\inst2|draw1|rect1|cy\(3) & (\inst2|draw1|rect1|Add0~10\ & VCC)) # (!\inst2|draw1|rect1|cy\(3) & (!\inst2|draw1|rect1|Add0~10\))
--- \inst2|draw1|rect1|Add0~14\ = CARRY((!\inst2|draw1|rect1|cy\(3) & !\inst2|draw1|rect1|Add0~10\))
+-- \inst2|draw1|rect1|Add0~1_combout\ = \inst2|draw1|rect1|cy\(0) $ (VCC)
+-- \inst2|draw1|rect1|Add0~2\ = CARRY(\inst2|draw1|rect1|cy\(0))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011001111001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|rect1|cy\(0),
+	datad => VCC,
+	combout => \inst2|draw1|rect1|Add0~1_combout\,
+	cout => \inst2|draw1|rect1|Add0~2\);
+
+-- Location: LCCOMB_X37_Y19_N14
+\inst2|draw1|rect1|Add0~5\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add0~5_combout\ = (\inst2|draw1|rect1|cy\(1) & (\inst2|draw1|rect1|Add0~2\ & VCC)) # (!\inst2|draw1|rect1|cy\(1) & (!\inst2|draw1|rect1|Add0~2\))
+-- \inst2|draw1|rect1|Add0~6\ = CARRY((!\inst2|draw1|rect1|cy\(1) & !\inst2|draw1|rect1|Add0~2\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1380,69 +1632,36 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|rect1|cy\(3),
+	dataa => \inst2|draw1|rect1|cy\(1),
 	datad => VCC,
-	cin => \inst2|draw1|rect1|Add0~10\,
-	combout => \inst2|draw1|rect1|Add0~13_combout\,
-	cout => \inst2|draw1|rect1|Add0~14\);
+	cin => \inst2|draw1|rect1|Add0~2\,
+	combout => \inst2|draw1|rect1|Add0~5_combout\,
+	cout => \inst2|draw1|rect1|Add0~6\);
 
--- Location: LCCOMB_X22_Y16_N16
-\inst2|draw1|rect1|Add0~17\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X38_Y17_N4
+\inst2|draw1|line1|Add9~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|Add0~17_combout\ = (\inst2|draw1|rect1|cy\(4) & ((GND) # (!\inst2|draw1|rect1|Add0~14\))) # (!\inst2|draw1|rect1|cy\(4) & (\inst2|draw1|rect1|Add0~14\ $ (GND)))
--- \inst2|draw1|rect1|Add0~18\ = CARRY((\inst2|draw1|rect1|cy\(4)) # (!\inst2|draw1|rect1|Add0~14\))
+-- \inst2|draw1|line1|Add9~0_combout\ = (\inst2|draw1|line1|err\(0) & (\inst2|draw1|line1|Add1~0_combout\ $ (VCC))) # (!\inst2|draw1|line1|err\(0) & (\inst2|draw1|line1|Add1~0_combout\ & VCC))
+-- \inst2|draw1|line1|Add9~1\ = CARRY((\inst2|draw1|line1|err\(0) & \inst2|draw1|line1|Add1~0_combout\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101101010101111",
-	sum_lutc_input => "cin")
+	lut_mask => "0110011010001000",
+	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|rect1|cy\(4),
+	dataa => \inst2|draw1|line1|err\(0),
+	datab => \inst2|draw1|line1|Add1~0_combout\,
 	datad => VCC,
-	cin => \inst2|draw1|rect1|Add0~14\,
-	combout => \inst2|draw1|rect1|Add0~17_combout\,
-	cout => \inst2|draw1|rect1|Add0~18\);
+	combout => \inst2|draw1|line1|Add9~0_combout\,
+	cout => \inst2|draw1|line1|Add9~1\);
 
--- Location: LCCOMB_X22_Y16_N18
-\inst2|draw1|rect1|Add0~21\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~21_combout\ = (\inst2|draw1|rect1|cy\(5) & (\inst2|draw1|rect1|Add0~18\ & VCC)) # (!\inst2|draw1|rect1|cy\(5) & (!\inst2|draw1|rect1|Add0~18\))
--- \inst2|draw1|rect1|Add0~22\ = CARRY((!\inst2|draw1|rect1|cy\(5) & !\inst2|draw1|rect1|Add0~18\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100001100000011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|rect1|cy\(5),
-	datad => VCC,
-	cin => \inst2|draw1|rect1|Add0~18\,
-	combout => \inst2|draw1|rect1|Add0~21_combout\,
-	cout => \inst2|draw1|rect1|Add0~22\);
-
--- Location: LCCOMB_X22_Y16_N20
-\inst2|draw1|rect1|Add0~25\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~25_combout\ = \inst2|draw1|rect1|cy\(6) $ (\inst2|draw1|rect1|Add0~22\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101101001011010",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cy\(6),
-	cin => \inst2|draw1|rect1|Add0~22\,
-	combout => \inst2|draw1|rect1|Add0~25_combout\);
-
--- Location: LCCOMB_X26_Y17_N10
+-- Location: LCCOMB_X38_Y17_N6
 \inst2|draw1|line1|Add9~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add9~2_combout\ = (\inst2|draw1|line1|Add1~2_combout\ & ((\inst2|draw1|line1|err\(1) & (\inst2|draw1|line1|Add9~1\ & VCC)) # (!\inst2|draw1|line1|err\(1) & (!\inst2|draw1|line1|Add9~1\)))) # (!\inst2|draw1|line1|Add1~2_combout\ & 
--- ((\inst2|draw1|line1|err\(1) & (!\inst2|draw1|line1|Add9~1\)) # (!\inst2|draw1|line1|err\(1) & ((\inst2|draw1|line1|Add9~1\) # (GND)))))
--- \inst2|draw1|line1|Add9~3\ = CARRY((\inst2|draw1|line1|Add1~2_combout\ & (!\inst2|draw1|line1|err\(1) & !\inst2|draw1|line1|Add9~1\)) # (!\inst2|draw1|line1|Add1~2_combout\ & ((!\inst2|draw1|line1|Add9~1\) # (!\inst2|draw1|line1|err\(1)))))
+-- \inst2|draw1|line1|Add9~2_combout\ = (\inst2|draw1|line1|err\(1) & ((\inst2|draw1|line1|Add1~2_combout\ & (\inst2|draw1|line1|Add9~1\ & VCC)) # (!\inst2|draw1|line1|Add1~2_combout\ & (!\inst2|draw1|line1|Add9~1\)))) # (!\inst2|draw1|line1|err\(1) & 
+-- ((\inst2|draw1|line1|Add1~2_combout\ & (!\inst2|draw1|line1|Add9~1\)) # (!\inst2|draw1|line1|Add1~2_combout\ & ((\inst2|draw1|line1|Add9~1\) # (GND)))))
+-- \inst2|draw1|line1|Add9~3\ = CARRY((\inst2|draw1|line1|err\(1) & (!\inst2|draw1|line1|Add1~2_combout\ & !\inst2|draw1|line1|Add9~1\)) # (!\inst2|draw1|line1|err\(1) & ((!\inst2|draw1|line1|Add9~1\) # (!\inst2|draw1|line1|Add1~2_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1450,19 +1669,19 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add1~2_combout\,
-	datab => \inst2|draw1|line1|err\(1),
+	dataa => \inst2|draw1|line1|err\(1),
+	datab => \inst2|draw1|line1|Add1~2_combout\,
 	datad => VCC,
 	cin => \inst2|draw1|line1|Add9~1\,
 	combout => \inst2|draw1|line1|Add9~2_combout\,
 	cout => \inst2|draw1|line1|Add9~3\);
 
--- Location: LCCOMB_X26_Y17_N14
+-- Location: LCCOMB_X38_Y17_N10
 \inst2|draw1|line1|Add9~6\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add9~6_combout\ = (\inst2|draw1|line1|err\(3) & ((\inst2|draw1|line1|Add1~6_combout\ & (\inst2|draw1|line1|Add9~5\ & VCC)) # (!\inst2|draw1|line1|Add1~6_combout\ & (!\inst2|draw1|line1|Add9~5\)))) # (!\inst2|draw1|line1|err\(3) & 
--- ((\inst2|draw1|line1|Add1~6_combout\ & (!\inst2|draw1|line1|Add9~5\)) # (!\inst2|draw1|line1|Add1~6_combout\ & ((\inst2|draw1|line1|Add9~5\) # (GND)))))
--- \inst2|draw1|line1|Add9~7\ = CARRY((\inst2|draw1|line1|err\(3) & (!\inst2|draw1|line1|Add1~6_combout\ & !\inst2|draw1|line1|Add9~5\)) # (!\inst2|draw1|line1|err\(3) & ((!\inst2|draw1|line1|Add9~5\) # (!\inst2|draw1|line1|Add1~6_combout\))))
+-- \inst2|draw1|line1|Add9~6_combout\ = (\inst2|draw1|line1|Add1~6_combout\ & ((\inst2|draw1|line1|err\(3) & (\inst2|draw1|line1|Add9~5\ & VCC)) # (!\inst2|draw1|line1|err\(3) & (!\inst2|draw1|line1|Add9~5\)))) # (!\inst2|draw1|line1|Add1~6_combout\ & 
+-- ((\inst2|draw1|line1|err\(3) & (!\inst2|draw1|line1|Add9~5\)) # (!\inst2|draw1|line1|err\(3) & ((\inst2|draw1|line1|Add9~5\) # (GND)))))
+-- \inst2|draw1|line1|Add9~7\ = CARRY((\inst2|draw1|line1|Add1~6_combout\ & (!\inst2|draw1|line1|err\(3) & !\inst2|draw1|line1|Add9~5\)) # (!\inst2|draw1|line1|Add1~6_combout\ & ((!\inst2|draw1|line1|Add9~5\) # (!\inst2|draw1|line1|err\(3)))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1470,19 +1689,19 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|err\(3),
-	datab => \inst2|draw1|line1|Add1~6_combout\,
+	dataa => \inst2|draw1|line1|Add1~6_combout\,
+	datab => \inst2|draw1|line1|err\(3),
 	datad => VCC,
 	cin => \inst2|draw1|line1|Add9~5\,
 	combout => \inst2|draw1|line1|Add9~6_combout\,
 	cout => \inst2|draw1|line1|Add9~7\);
 
--- Location: LCCOMB_X26_Y17_N18
+-- Location: LCCOMB_X38_Y17_N14
 \inst2|draw1|line1|Add9~10\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add9~10_combout\ = (\inst2|draw1|line1|err\(5) & ((\inst2|draw1|line1|Add1~10_combout\ & (\inst2|draw1|line1|Add9~9\ & VCC)) # (!\inst2|draw1|line1|Add1~10_combout\ & (!\inst2|draw1|line1|Add9~9\)))) # (!\inst2|draw1|line1|err\(5) & 
--- ((\inst2|draw1|line1|Add1~10_combout\ & (!\inst2|draw1|line1|Add9~9\)) # (!\inst2|draw1|line1|Add1~10_combout\ & ((\inst2|draw1|line1|Add9~9\) # (GND)))))
--- \inst2|draw1|line1|Add9~11\ = CARRY((\inst2|draw1|line1|err\(5) & (!\inst2|draw1|line1|Add1~10_combout\ & !\inst2|draw1|line1|Add9~9\)) # (!\inst2|draw1|line1|err\(5) & ((!\inst2|draw1|line1|Add9~9\) # (!\inst2|draw1|line1|Add1~10_combout\))))
+-- \inst2|draw1|line1|Add9~10_combout\ = (\inst2|draw1|line1|Add1~10_combout\ & ((\inst2|draw1|line1|err\(5) & (\inst2|draw1|line1|Add9~9\ & VCC)) # (!\inst2|draw1|line1|err\(5) & (!\inst2|draw1|line1|Add9~9\)))) # (!\inst2|draw1|line1|Add1~10_combout\ & 
+-- ((\inst2|draw1|line1|err\(5) & (!\inst2|draw1|line1|Add9~9\)) # (!\inst2|draw1|line1|err\(5) & ((\inst2|draw1|line1|Add9~9\) # (GND)))))
+-- \inst2|draw1|line1|Add9~11\ = CARRY((\inst2|draw1|line1|Add1~10_combout\ & (!\inst2|draw1|line1|err\(5) & !\inst2|draw1|line1|Add9~9\)) # (!\inst2|draw1|line1|Add1~10_combout\ & ((!\inst2|draw1|line1|Add9~9\) # (!\inst2|draw1|line1|err\(5)))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1490,18 +1709,18 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|err\(5),
-	datab => \inst2|draw1|line1|Add1~10_combout\,
+	dataa => \inst2|draw1|line1|Add1~10_combout\,
+	datab => \inst2|draw1|line1|err\(5),
 	datad => VCC,
 	cin => \inst2|draw1|line1|Add9~9\,
 	combout => \inst2|draw1|line1|Add9~10_combout\,
 	cout => \inst2|draw1|line1|Add9~11\);
 
--- Location: LCCOMB_X26_Y17_N20
+-- Location: LCCOMB_X38_Y17_N16
 \inst2|draw1|line1|Add9~12\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add9~12_combout\ = ((\inst2|draw1|line1|Add1~12_combout\ $ (\inst2|draw1|line1|err\(6) $ (!\inst2|draw1|line1|Add9~11\)))) # (GND)
--- \inst2|draw1|line1|Add9~13\ = CARRY((\inst2|draw1|line1|Add1~12_combout\ & ((\inst2|draw1|line1|err\(6)) # (!\inst2|draw1|line1|Add9~11\))) # (!\inst2|draw1|line1|Add1~12_combout\ & (\inst2|draw1|line1|err\(6) & !\inst2|draw1|line1|Add9~11\)))
+-- \inst2|draw1|line1|Add9~12_combout\ = ((\inst2|draw1|line1|err\(6) $ (\inst2|draw1|line1|Add1~12_combout\ $ (!\inst2|draw1|line1|Add9~11\)))) # (GND)
+-- \inst2|draw1|line1|Add9~13\ = CARRY((\inst2|draw1|line1|err\(6) & ((\inst2|draw1|line1|Add1~12_combout\) # (!\inst2|draw1|line1|Add9~11\))) # (!\inst2|draw1|line1|err\(6) & (\inst2|draw1|line1|Add1~12_combout\ & !\inst2|draw1|line1|Add9~11\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1509,32 +1728,32 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add1~12_combout\,
-	datab => \inst2|draw1|line1|err\(6),
+	dataa => \inst2|draw1|line1|err\(6),
+	datab => \inst2|draw1|line1|Add1~12_combout\,
 	datad => VCC,
 	cin => \inst2|draw1|line1|Add9~11\,
 	combout => \inst2|draw1|line1|Add9~12_combout\,
 	cout => \inst2|draw1|line1|Add9~13\);
 
--- Location: LCCOMB_X25_Y18_N0
+-- Location: LCCOMB_X36_Y16_N14
 \inst2|draw1|line1|Add4~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add4~0_combout\ = (\inst2|draw1|line1|Add3~0_combout\ & (\inst2|draw1|line1|Add1~0_combout\ $ (VCC))) # (!\inst2|draw1|line1|Add3~0_combout\ & ((\inst2|draw1|line1|Add1~0_combout\) # (GND)))
+-- \inst2|draw1|line1|Add4~0_combout\ = (\inst2|draw1|line1|Add1~0_combout\ & ((GND) # (!\inst2|draw1|line1|Add3~0_combout\))) # (!\inst2|draw1|line1|Add1~0_combout\ & (\inst2|draw1|line1|Add3~0_combout\ $ (GND)))
 -- \inst2|draw1|line1|Add4~1\ = CARRY((\inst2|draw1|line1|Add1~0_combout\) # (!\inst2|draw1|line1|Add3~0_combout\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0110011011011101",
+	lut_mask => "0110011010111011",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add3~0_combout\,
-	datab => \inst2|draw1|line1|Add1~0_combout\,
+	dataa => \inst2|draw1|line1|Add1~0_combout\,
+	datab => \inst2|draw1|line1|Add3~0_combout\,
 	datad => VCC,
 	combout => \inst2|draw1|line1|Add4~0_combout\,
 	cout => \inst2|draw1|line1|Add4~1\);
 
--- Location: LCCOMB_X25_Y18_N4
+-- Location: LCCOMB_X36_Y16_N18
 \inst2|draw1|line1|Add4~4\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add4~4_combout\ = ((\inst2|draw1|line1|Add3~4_combout\ $ (\inst2|draw1|line1|Add1~4_combout\ $ (\inst2|draw1|line1|Add4~3\)))) # (GND)
@@ -1553,26 +1772,27 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add4~4_combout\,
 	cout => \inst2|draw1|line1|Add4~5\);
 
--- Location: LCCOMB_X25_Y18_N8
-\inst2|draw1|line1|Add4~8\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X36_Y16_N20
+\inst2|draw1|line1|Add4~6\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add4~8_combout\ = ((\inst2|draw1|line1|Add3~8_combout\ $ (\inst2|draw1|line1|Add1~8_combout\ $ (\inst2|draw1|line1|Add4~7\)))) # (GND)
--- \inst2|draw1|line1|Add4~9\ = CARRY((\inst2|draw1|line1|Add3~8_combout\ & (\inst2|draw1|line1|Add1~8_combout\ & !\inst2|draw1|line1|Add4~7\)) # (!\inst2|draw1|line1|Add3~8_combout\ & ((\inst2|draw1|line1|Add1~8_combout\) # (!\inst2|draw1|line1|Add4~7\))))
+-- \inst2|draw1|line1|Add4~6_combout\ = (\inst2|draw1|line1|Add1~6_combout\ & ((\inst2|draw1|line1|Add3~6_combout\ & (!\inst2|draw1|line1|Add4~5\)) # (!\inst2|draw1|line1|Add3~6_combout\ & (\inst2|draw1|line1|Add4~5\ & VCC)))) # 
+-- (!\inst2|draw1|line1|Add1~6_combout\ & ((\inst2|draw1|line1|Add3~6_combout\ & ((\inst2|draw1|line1|Add4~5\) # (GND))) # (!\inst2|draw1|line1|Add3~6_combout\ & (!\inst2|draw1|line1|Add4~5\))))
+-- \inst2|draw1|line1|Add4~7\ = CARRY((\inst2|draw1|line1|Add1~6_combout\ & (\inst2|draw1|line1|Add3~6_combout\ & !\inst2|draw1|line1|Add4~5\)) # (!\inst2|draw1|line1|Add1~6_combout\ & ((\inst2|draw1|line1|Add3~6_combout\) # (!\inst2|draw1|line1|Add4~5\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1001011001001101",
+	lut_mask => "0110100101001101",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add3~8_combout\,
-	datab => \inst2|draw1|line1|Add1~8_combout\,
+	dataa => \inst2|draw1|line1|Add1~6_combout\,
+	datab => \inst2|draw1|line1|Add3~6_combout\,
 	datad => VCC,
-	cin => \inst2|draw1|line1|Add4~7\,
-	combout => \inst2|draw1|line1|Add4~8_combout\,
-	cout => \inst2|draw1|line1|Add4~9\);
+	cin => \inst2|draw1|line1|Add4~5\,
+	combout => \inst2|draw1|line1|Add4~6_combout\,
+	cout => \inst2|draw1|line1|Add4~7\);
 
--- Location: LCCOMB_X25_Y18_N10
+-- Location: LCCOMB_X36_Y16_N24
 \inst2|draw1|line1|Add4~10\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add4~10_combout\ = (\inst2|draw1|line1|Add3~10_combout\ & ((\inst2|draw1|line1|Add1~10_combout\ & (!\inst2|draw1|line1|Add4~9\)) # (!\inst2|draw1|line1|Add1~10_combout\ & ((\inst2|draw1|line1|Add4~9\) # (GND))))) # 
@@ -1593,12 +1813,11 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add4~10_combout\,
 	cout => \inst2|draw1|line1|Add4~11\);
 
--- Location: LCCOMB_X25_Y18_N12
-\inst2|draw1|line1|Add4~12\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y16_N12
+\inst2|draw1|line1|Add7~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add4~12_combout\ = ((\inst2|draw1|line1|Add1~12_combout\ $ (\inst2|draw1|line1|Add3~12_combout\ $ (\inst2|draw1|line1|Add4~11\)))) # (GND)
--- \inst2|draw1|line1|Add4~13\ = CARRY((\inst2|draw1|line1|Add1~12_combout\ & ((!\inst2|draw1|line1|Add4~11\) # (!\inst2|draw1|line1|Add3~12_combout\))) # (!\inst2|draw1|line1|Add1~12_combout\ & (!\inst2|draw1|line1|Add3~12_combout\ & 
--- !\inst2|draw1|line1|Add4~11\)))
+-- \inst2|draw1|line1|Add7~4_combout\ = ((\inst2|draw1|line1|err\(2) $ (\inst2|draw1|line1|Add3~4_combout\ $ (\inst2|draw1|line1|Add7~3\)))) # (GND)
+-- \inst2|draw1|line1|Add7~5\ = CARRY((\inst2|draw1|line1|err\(2) & ((!\inst2|draw1|line1|Add7~3\) # (!\inst2|draw1|line1|Add3~4_combout\))) # (!\inst2|draw1|line1|err\(2) & (!\inst2|draw1|line1|Add3~4_combout\ & !\inst2|draw1|line1|Add7~3\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1606,51 +1825,73 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add1~12_combout\,
-	datab => \inst2|draw1|line1|Add3~12_combout\,
+	dataa => \inst2|draw1|line1|err\(2),
+	datab => \inst2|draw1|line1|Add3~4_combout\,
 	datad => VCC,
-	cin => \inst2|draw1|line1|Add4~11\,
-	combout => \inst2|draw1|line1|Add4~12_combout\,
-	cout => \inst2|draw1|line1|Add4~13\);
+	cin => \inst2|draw1|line1|Add7~3\,
+	combout => \inst2|draw1|line1|Add7~4_combout\,
+	cout => \inst2|draw1|line1|Add7~5\);
 
--- Location: LCCOMB_X27_Y17_N2
-\inst2|draw1|line1|Add7~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X37_Y16_N10
+\inst2|draw1|line1|Add5~8\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add7~0_combout\ = (\inst2|draw1|line1|err\(0) & ((GND) # (!\inst2|draw1|line1|Add3~0_combout\))) # (!\inst2|draw1|line1|err\(0) & (\inst2|draw1|line1|Add3~0_combout\ $ (GND)))
--- \inst2|draw1|line1|Add7~1\ = CARRY((\inst2|draw1|line1|err\(0)) # (!\inst2|draw1|line1|Add3~0_combout\))
+-- \inst2|draw1|line1|Add5~8_combout\ = ((\inst2|draw1|line1|Add1~8_combout\ $ (\inst2|draw1|line1|Add7~8_combout\ $ (!\inst2|draw1|line1|Add5~7\)))) # (GND)
+-- \inst2|draw1|line1|Add5~9\ = CARRY((\inst2|draw1|line1|Add1~8_combout\ & ((\inst2|draw1|line1|Add7~8_combout\) # (!\inst2|draw1|line1|Add5~7\))) # (!\inst2|draw1|line1|Add1~8_combout\ & (\inst2|draw1|line1|Add7~8_combout\ & !\inst2|draw1|line1|Add5~7\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0110011010111011",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|err\(0),
-	datab => \inst2|draw1|line1|Add3~0_combout\,
-	datad => VCC,
-	combout => \inst2|draw1|line1|Add7~0_combout\,
-	cout => \inst2|draw1|line1|Add7~1\);
-
--- Location: LCCOMB_X27_Y17_N10
-\inst2|draw1|line1|Add7~8\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add7~8_combout\ = ((\inst2|draw1|line1|Add3~8_combout\ $ (\inst2|draw1|line1|err\(4) $ (\inst2|draw1|line1|Add7~7\)))) # (GND)
--- \inst2|draw1|line1|Add7~9\ = CARRY((\inst2|draw1|line1|Add3~8_combout\ & (\inst2|draw1|line1|err\(4) & !\inst2|draw1|line1|Add7~7\)) # (!\inst2|draw1|line1|Add3~8_combout\ & ((\inst2|draw1|line1|err\(4)) # (!\inst2|draw1|line1|Add7~7\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011001001101",
+	lut_mask => "0110100110001110",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add3~8_combout\,
-	datab => \inst2|draw1|line1|err\(4),
+	dataa => \inst2|draw1|line1|Add1~8_combout\,
+	datab => \inst2|draw1|line1|Add7~8_combout\,
 	datad => VCC,
-	cin => \inst2|draw1|line1|Add7~7\,
-	combout => \inst2|draw1|line1|Add7~8_combout\,
-	cout => \inst2|draw1|line1|Add7~9\);
+	cin => \inst2|draw1|line1|Add5~7\,
+	combout => \inst2|draw1|line1|Add5~8_combout\,
+	cout => \inst2|draw1|line1|Add5~9\);
 
--- Location: LCCOMB_X27_Y17_N16
+-- Location: LCCOMB_X37_Y16_N14
+\inst2|draw1|line1|Add5~12\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add5~12_combout\ = ((\inst2|draw1|line1|Add1~12_combout\ $ (\inst2|draw1|line1|Add7~12_combout\ $ (!\inst2|draw1|line1|Add5~11\)))) # (GND)
+-- \inst2|draw1|line1|Add5~13\ = CARRY((\inst2|draw1|line1|Add1~12_combout\ & ((\inst2|draw1|line1|Add7~12_combout\) # (!\inst2|draw1|line1|Add5~11\))) # (!\inst2|draw1|line1|Add1~12_combout\ & (\inst2|draw1|line1|Add7~12_combout\ & 
+-- !\inst2|draw1|line1|Add5~11\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110100110001110",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add1~12_combout\,
+	datab => \inst2|draw1|line1|Add7~12_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add5~11\,
+	combout => \inst2|draw1|line1|Add5~12_combout\,
+	cout => \inst2|draw1|line1|Add5~13\);
+
+-- Location: LCCOMB_X38_Y17_N18
+\inst2|draw1|line1|Add9~14\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add9~14_combout\ = (\inst2|draw1|line1|err\(7) & ((\inst2|draw1|line1|Add1~14_combout\ & (\inst2|draw1|line1|Add9~13\ & VCC)) # (!\inst2|draw1|line1|Add1~14_combout\ & (!\inst2|draw1|line1|Add9~13\)))) # (!\inst2|draw1|line1|err\(7) & 
+-- ((\inst2|draw1|line1|Add1~14_combout\ & (!\inst2|draw1|line1|Add9~13\)) # (!\inst2|draw1|line1|Add1~14_combout\ & ((\inst2|draw1|line1|Add9~13\) # (GND)))))
+-- \inst2|draw1|line1|Add9~15\ = CARRY((\inst2|draw1|line1|err\(7) & (!\inst2|draw1|line1|Add1~14_combout\ & !\inst2|draw1|line1|Add9~13\)) # (!\inst2|draw1|line1|err\(7) & ((!\inst2|draw1|line1|Add9~13\) # (!\inst2|draw1|line1|Add1~14_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1001011000010111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|err\(7),
+	datab => \inst2|draw1|line1|Add1~14_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add9~13\,
+	combout => \inst2|draw1|line1|Add9~14_combout\,
+	cout => \inst2|draw1|line1|Add9~15\);
+
+-- Location: LCCOMB_X40_Y16_N22
 \inst2|draw1|line1|Add7~14\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add7~14_combout\ = (\inst2|draw1|line1|Add3~14_combout\ & ((\inst2|draw1|line1|err\(7) & (!\inst2|draw1|line1|Add7~13\)) # (!\inst2|draw1|line1|err\(7) & ((\inst2|draw1|line1|Add7~13\) # (GND))))) # (!\inst2|draw1|line1|Add3~14_combout\ 
@@ -1670,7 +1911,7 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add7~14_combout\,
 	cout => \inst2|draw1|line1|Add7~15\);
 
--- Location: LCCOMB_X26_Y18_N22
+-- Location: LCCOMB_X37_Y16_N16
 \inst2|draw1|line1|Add5~14\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add5~14_combout\ = (\inst2|draw1|line1|Add7~14_combout\ & ((\inst2|draw1|line1|Add1~14_combout\ & (\inst2|draw1|line1|Add5~13\ & VCC)) # (!\inst2|draw1|line1|Add1~14_combout\ & (!\inst2|draw1|line1|Add5~13\)))) # 
@@ -1691,11 +1932,11 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add5~14_combout\,
 	cout => \inst2|draw1|line1|Add5~15\);
 
--- Location: LCCOMB_X26_Y17_N24
+-- Location: LCCOMB_X38_Y17_N20
 \inst2|draw1|line1|Add9~16\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add9~16_combout\ = ((\inst2|draw1|line1|Add1~16_combout\ $ (\inst2|draw1|line1|err\(8) $ (!\inst2|draw1|line1|Add9~15\)))) # (GND)
--- \inst2|draw1|line1|Add9~17\ = CARRY((\inst2|draw1|line1|Add1~16_combout\ & ((\inst2|draw1|line1|err\(8)) # (!\inst2|draw1|line1|Add9~15\))) # (!\inst2|draw1|line1|Add1~16_combout\ & (\inst2|draw1|line1|err\(8) & !\inst2|draw1|line1|Add9~15\)))
+-- \inst2|draw1|line1|Add9~16_combout\ = ((\inst2|draw1|line1|err\(8) $ (\inst2|draw1|line1|Add1~16_combout\ $ (!\inst2|draw1|line1|Add9~15\)))) # (GND)
+-- \inst2|draw1|line1|Add9~17\ = CARRY((\inst2|draw1|line1|err\(8) & ((\inst2|draw1|line1|Add1~16_combout\) # (!\inst2|draw1|line1|Add9~15\))) # (!\inst2|draw1|line1|err\(8) & (\inst2|draw1|line1|Add1~16_combout\ & !\inst2|draw1|line1|Add9~15\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1703,18 +1944,37 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add1~16_combout\,
-	datab => \inst2|draw1|line1|err\(8),
+	dataa => \inst2|draw1|line1|err\(8),
+	datab => \inst2|draw1|line1|Add1~16_combout\,
 	datad => VCC,
 	cin => \inst2|draw1|line1|Add9~15\,
 	combout => \inst2|draw1|line1|Add9~16_combout\,
 	cout => \inst2|draw1|line1|Add9~17\);
 
--- Location: LCCOMB_X26_Y18_N24
+-- Location: LCCOMB_X40_Y16_N24
+\inst2|draw1|line1|Add7~16\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add7~16_combout\ = ((\inst2|draw1|line1|Add3~14_combout\ $ (\inst2|draw1|line1|err\(8) $ (\inst2|draw1|line1|Add7~15\)))) # (GND)
+-- \inst2|draw1|line1|Add7~17\ = CARRY((\inst2|draw1|line1|Add3~14_combout\ & (\inst2|draw1|line1|err\(8) & !\inst2|draw1|line1|Add7~15\)) # (!\inst2|draw1|line1|Add3~14_combout\ & ((\inst2|draw1|line1|err\(8)) # (!\inst2|draw1|line1|Add7~15\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1001011001001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add3~14_combout\,
+	datab => \inst2|draw1|line1|err\(8),
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add7~15\,
+	combout => \inst2|draw1|line1|Add7~16_combout\,
+	cout => \inst2|draw1|line1|Add7~17\);
+
+-- Location: LCCOMB_X37_Y16_N18
 \inst2|draw1|line1|Add5~16\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add5~16_combout\ = ((\inst2|draw1|line1|Add1~16_combout\ $ (\inst2|draw1|line1|Add7~16_combout\ $ (!\inst2|draw1|line1|Add5~15\)))) # (GND)
--- \inst2|draw1|line1|Add5~17\ = CARRY((\inst2|draw1|line1|Add1~16_combout\ & ((\inst2|draw1|line1|Add7~16_combout\) # (!\inst2|draw1|line1|Add5~15\))) # (!\inst2|draw1|line1|Add1~16_combout\ & (\inst2|draw1|line1|Add7~16_combout\ & 
+-- \inst2|draw1|line1|Add5~16_combout\ = ((\inst2|draw1|line1|Add7~16_combout\ $ (\inst2|draw1|line1|Add1~16_combout\ $ (!\inst2|draw1|line1|Add5~15\)))) # (GND)
+-- \inst2|draw1|line1|Add5~17\ = CARRY((\inst2|draw1|line1|Add7~16_combout\ & ((\inst2|draw1|line1|Add1~16_combout\) # (!\inst2|draw1|line1|Add5~15\))) # (!\inst2|draw1|line1|Add7~16_combout\ & (\inst2|draw1|line1|Add1~16_combout\ & 
 -- !\inst2|draw1|line1|Add5~15\)))
 
 -- pragma translate_off
@@ -1723,14 +1983,46 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add1~16_combout\,
-	datab => \inst2|draw1|line1|Add7~16_combout\,
+	dataa => \inst2|draw1|line1|Add7~16_combout\,
+	datab => \inst2|draw1|line1|Add1~16_combout\,
 	datad => VCC,
 	cin => \inst2|draw1|line1|Add5~15\,
 	combout => \inst2|draw1|line1|Add5~16_combout\,
 	cout => \inst2|draw1|line1|Add5~17\);
 
--- Location: LCCOMB_X26_Y18_N26
+-- Location: LCCOMB_X38_Y17_N22
+\inst2|draw1|line1|Add9~18\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add9~18_combout\ = \inst2|draw1|line1|err\(9) $ (\inst2|draw1|line1|Add9~17\ $ (\inst2|draw1|line1|Add1~16_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100001100111100",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|line1|err\(9),
+	datad => \inst2|draw1|line1|Add1~16_combout\,
+	cin => \inst2|draw1|line1|Add9~17\,
+	combout => \inst2|draw1|line1|Add9~18_combout\);
+
+-- Location: LCCOMB_X40_Y16_N26
+\inst2|draw1|line1|Add7~18\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add7~18_combout\ = \inst2|draw1|line1|err\(9) $ (\inst2|draw1|line1|Add7~17\ $ (!\inst2|draw1|line1|Add3~14_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011110011000011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|line1|err\(9),
+	datad => \inst2|draw1|line1|Add3~14_combout\,
+	cin => \inst2|draw1|line1|Add7~17\,
+	combout => \inst2|draw1|line1|Add7~18_combout\);
+
+-- Location: LCCOMB_X37_Y16_N20
 \inst2|draw1|line1|Add5~18\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add5~18_combout\ = \inst2|draw1|line1|Add1~16_combout\ $ (\inst2|draw1|line1|Add5~17\ $ (\inst2|draw1|line1|Add7~18_combout\))
@@ -1746,28 +2038,10 @@ PORT MAP (
 	cin => \inst2|draw1|line1|Add5~17\,
 	combout => \inst2|draw1|line1|Add5~18_combout\);
 
--- Location: LCCOMB_X21_Y18_N10
-\inst2|vgacontroller1|vgavsync~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|vgavsync~0_combout\ = ((\inst2|vgacontroller1|v_count\(1) & (\inst2|vgacontroller1|v_count\(2))) # (!\inst2|vgacontroller1|v_count\(1) & ((\inst2|vgacontroller1|v_count\(0)) # (!\inst2|vgacontroller1|v_count\(2))))) # 
--- (!\reset~combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111011111010111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \reset~combout\,
-	datab => \inst2|vgacontroller1|v_count\(1),
-	datac => \inst2|vgacontroller1|v_count\(2),
-	datad => \inst2|vgacontroller1|v_count\(0),
-	combout => \inst2|vgacontroller1|vgavsync~0_combout\);
-
--- Location: LCCOMB_X21_Y19_N24
+-- Location: LCCOMB_X43_Y19_N26
 \inst2|vgacontroller1|LessThan8~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|LessThan8~0_combout\ = (\inst2|vgacontroller1|h_count\(5)) # ((\inst2|vgacontroller1|h_count\(1) & (\inst2|vgacontroller1|h_count\(2) & \inst2|vgacontroller1|h_count\(0))))
+-- \inst2|vgacontroller1|LessThan8~0_combout\ = (\inst2|vgacontroller1|h_count\(5)) # ((\inst2|vgacontroller1|h_count\(2) & (\inst2|vgacontroller1|h_count\(0) & \inst2|vgacontroller1|h_count\(1))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1775,118 +2049,81 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|vgacontroller1|h_count\(1),
-	datab => \inst2|vgacontroller1|h_count\(2),
+	dataa => \inst2|vgacontroller1|h_count\(2),
+	datab => \inst2|vgacontroller1|h_count\(0),
 	datac => \inst2|vgacontroller1|h_count\(5),
-	datad => \inst2|vgacontroller1|h_count\(0),
+	datad => \inst2|vgacontroller1|h_count\(1),
 	combout => \inst2|vgacontroller1|LessThan8~0_combout\);
 
--- Location: LCCOMB_X21_Y18_N6
-\inst2|vgacontroller1|LessThan7~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X43_Y19_N24
+\inst2|vgacontroller1|LessThan8~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|LessThan7~0_combout\ = (!\inst2|vgacontroller1|v_count\(3) & (!\inst2|vgacontroller1|v_count\(0) & (!\inst2|vgacontroller1|v_count\(4) & !\inst2|vgacontroller1|v_count\(1))))
+-- \inst2|vgacontroller1|LessThan8~1_combout\ = (!\inst2|vgacontroller1|h_count\(4) & !\inst2|vgacontroller1|h_count\(3))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000000000001",
+	lut_mask => "0000000001010101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|vgacontroller1|v_count\(3),
-	datab => \inst2|vgacontroller1|v_count\(0),
-	datac => \inst2|vgacontroller1|v_count\(4),
-	datad => \inst2|vgacontroller1|v_count\(1),
-	combout => \inst2|vgacontroller1|LessThan7~0_combout\);
+	dataa => \inst2|vgacontroller1|h_count\(4),
+	datad => \inst2|vgacontroller1|h_count\(3),
+	combout => \inst2|vgacontroller1|LessThan8~1_combout\);
 
--- Location: LCCOMB_X21_Y18_N12
-\inst2|vgacontroller1|vga_combi~4\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X43_Y19_N2
+\inst2|vgacontroller1|LessThan8~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|vga_combi~4_combout\ = (!\inst2|vgacontroller1|v_count\(9) & (((\inst2|vgacontroller1|LessThan7~0_combout\ & !\inst2|vgacontroller1|v_count\(2))) # (!\inst2|vgacontroller1|LessThan11~0_combout\)))
+-- \inst2|vgacontroller1|LessThan8~2_combout\ = (\inst2|vgacontroller1|h_count\(6) & (\inst2|vgacontroller1|h_count\(7) & ((\inst2|vgacontroller1|LessThan8~0_combout\) # (!\inst2|vgacontroller1|LessThan8~1_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000001000001111",
+	lut_mask => "1101000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|vgacontroller1|LessThan7~0_combout\,
-	datab => \inst2|vgacontroller1|v_count\(2),
-	datac => \inst2|vgacontroller1|v_count\(9),
-	datad => \inst2|vgacontroller1|LessThan11~0_combout\,
-	combout => \inst2|vgacontroller1|vga_combi~4_combout\);
+	dataa => \inst2|vgacontroller1|LessThan8~1_combout\,
+	datab => \inst2|vgacontroller1|LessThan8~0_combout\,
+	datac => \inst2|vgacontroller1|h_count\(6),
+	datad => \inst2|vgacontroller1|h_count\(7),
+	combout => \inst2|vgacontroller1|LessThan8~2_combout\);
 
--- Location: LCCOMB_X20_Y20_N26
-\inst2|draw1|rect1|draw_rect_combi~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X44_Y19_N20
+\inst2|vgacontroller1|LessThan9~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|draw_rect_combi~0_combout\ = (!\inst2|decoder1|en\(1) & !\inst2|decoder1|en\(2))
+-- \inst2|vgacontroller1|LessThan9~0_combout\ = (\inst2|vgacontroller1|v_count\(8)) # ((\inst2|vgacontroller1|v_count\(7)) # ((\inst2|vgacontroller1|v_count\(3) & \inst2|vgacontroller1|v_count\(2))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000000001111",
+	lut_mask => "1111111011111010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \inst2|decoder1|en\(1),
-	datad => \inst2|decoder1|en\(2),
-	combout => \inst2|draw1|rect1|draw_rect_combi~0_combout\);
+	dataa => \inst2|vgacontroller1|v_count\(8),
+	datab => \inst2|vgacontroller1|v_count\(3),
+	datac => \inst2|vgacontroller1|v_count\(7),
+	datad => \inst2|vgacontroller1|v_count\(2),
+	combout => \inst2|vgacontroller1|LessThan9~0_combout\);
 
--- Location: LCCOMB_X24_Y16_N10
-\inst2|draw1|line1|draw_line_comb~1\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y18_N22
+\inst2|decoder1|en~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|draw_line_comb~1_combout\ = (\inst2|draw1|line1|cx\(3) & (\inst2|decoder1|w\(3) & (\inst2|draw1|line1|cx\(2) $ (!\inst2|decoder1|w\(2))))) # (!\inst2|draw1|line1|cx\(3) & (!\inst2|decoder1|w\(3) & (\inst2|draw1|line1|cx\(2) $ 
--- (!\inst2|decoder1|w\(2)))))
+-- \inst2|decoder1|en~0_combout\ = (\inst2|decoder1|current_instruction\(2)) # (\inst2|decoder1|current_instruction\(1) $ (!\inst2|decoder1|current_instruction\(0)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1000001001000001",
+	lut_mask => "1110110111101101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|cx\(3),
-	datab => \inst2|draw1|line1|cx\(2),
-	datac => \inst2|decoder1|w\(2),
-	datad => \inst2|decoder1|w\(3),
-	combout => \inst2|draw1|line1|draw_line_comb~1_combout\);
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst2|decoder1|current_instruction\(2),
+	datac => \inst2|decoder1|current_instruction\(0),
+	combout => \inst2|decoder1|en~0_combout\);
 
--- Location: LCCOMB_X21_Y17_N4
-\inst2|draw1|line1|draw_line_comb~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|draw_line_comb~6_combout\ = (\inst2|decoder1|h\(2) & (\inst2|draw1|line1|cy\(2) & (\inst2|draw1|line1|cy\(3) $ (!\inst2|decoder1|h\(3))))) # (!\inst2|decoder1|h\(2) & (!\inst2|draw1|line1|cy\(2) & (\inst2|draw1|line1|cy\(3) $ 
--- (!\inst2|decoder1|h\(3)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000001001000001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|h\(2),
-	datab => \inst2|draw1|line1|cy\(3),
-	datac => \inst2|decoder1|h\(3),
-	datad => \inst2|draw1|line1|cy\(2),
-	combout => \inst2|draw1|line1|draw_line_comb~6_combout\);
-
--- Location: LCCOMB_X20_Y17_N10
-\inst2|draw1|pixel1|done~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|pixel1|done~0_combout\ = (\inst2|draw1|pixel1|busy~regout\ & (\inst2|decoder1|en\(0) & (\reset~combout\ & \inst2|ramcontroller1|draw_can_access~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|pixel1|busy~regout\,
-	datab => \inst2|decoder1|en\(0),
-	datac => \reset~combout\,
-	datad => \inst2|ramcontroller1|draw_can_access~0_combout\,
-	combout => \inst2|draw1|pixel1|done~0_combout\);
-
--- Location: LCCOMB_X5_Y20_N28
+-- Location: LCCOMB_X1_Y20_N30
 \inst2|decoder1|LessThan0~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|LessThan0~2_combout\ = (((!\inst2|decoder1|timeout_count\(1)) # (!\inst2|decoder1|timeout_count\(12))) # (!\inst2|decoder1|timeout_count\(0))) # (!\inst2|decoder1|timeout_count\(11))
+-- \inst2|decoder1|LessThan0~2_combout\ = (((!\inst2|decoder1|timeout_count\(8)) # (!\inst2|decoder1|timeout_count\(11))) # (!\inst2|decoder1|timeout_count\(3))) # (!\inst2|decoder1|timeout_count\(5))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1894,46 +2131,67 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|timeout_count\(11),
-	datab => \inst2|decoder1|timeout_count\(0),
-	datac => \inst2|decoder1|timeout_count\(12),
-	datad => \inst2|decoder1|timeout_count\(1),
+	dataa => \inst2|decoder1|timeout_count\(5),
+	datab => \inst2|decoder1|timeout_count\(3),
+	datac => \inst2|decoder1|timeout_count\(11),
+	datad => \inst2|decoder1|timeout_count\(8),
 	combout => \inst2|decoder1|LessThan0~2_combout\);
 
--- Location: LCCOMB_X5_Y20_N30
-\inst2|decoder1|LessThan0~3\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X39_Y20_N6
+\inst2|draw1|line1|draw_line_comb~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|LessThan0~3_combout\ = ((\inst2|decoder1|LessThan0~2_combout\) # (!\inst2|decoder1|timeout_count\(8))) # (!\inst2|decoder1|timeout_count\(7))
+-- \inst2|draw1|line1|draw_line_comb~2_combout\ = (\inst2|draw1|line1|cx\(5) & (\inst2|decoder1|w\(5) & (\inst2|decoder1|w\(4) $ (!\inst2|draw1|line1|cx\(4))))) # (!\inst2|draw1|line1|cx\(5) & (!\inst2|decoder1|w\(5) & (\inst2|decoder1|w\(4) $ 
+-- (!\inst2|draw1|line1|cx\(4)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100111111",
+	lut_mask => "1001000000001001",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|timeout_count\(7),
-	datac => \inst2|decoder1|timeout_count\(8),
-	datad => \inst2|decoder1|LessThan0~2_combout\,
-	combout => \inst2|decoder1|LessThan0~3_combout\);
+	dataa => \inst2|draw1|line1|cx\(5),
+	datab => \inst2|decoder1|w\(5),
+	datac => \inst2|decoder1|w\(4),
+	datad => \inst2|draw1|line1|cx\(4),
+	combout => \inst2|draw1|line1|draw_line_comb~2_combout\);
 
--- Location: LCCOMB_X21_Y20_N26
-\inst2|decoder1|en~6\ : cycloneii_lcell_comb
+-- Location: LCFF_X38_Y16_N25
+\inst2|draw1|line1|cx[7]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|Add8~31_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|cx\(7));
+
+-- Location: LCCOMB_X38_Y20_N10
+\inst2|draw1|line1|draw_line_comb~5\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|en~6_combout\ = (\inst2|decoder1|current_instruction\(1) & (\inst2|decoder1|current_instruction\(2) & (!\inst2|decoder1|current_instruction\(0) & \inst4|hex0[0]~7_combout\)))
+-- \inst2|draw1|line1|draw_line_comb~5_combout\ = (\inst2|draw1|line1|cy\(0) & (\inst2|decoder1|h\(0) & (\inst2|draw1|line1|cy\(1) $ (!\inst2|decoder1|h\(1))))) # (!\inst2|draw1|line1|cy\(0) & (!\inst2|decoder1|h\(0) & (\inst2|draw1|line1|cy\(1) $ 
+-- (!\inst2|decoder1|h\(1)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000100000000000",
+	lut_mask => "1000001001000001",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(1),
-	datab => \inst2|decoder1|current_instruction\(2),
-	datac => \inst2|decoder1|current_instruction\(0),
-	datad => \inst4|hex0[0]~7_combout\,
-	combout => \inst2|decoder1|en~6_combout\);
+	dataa => \inst2|draw1|line1|cy\(0),
+	datab => \inst2|draw1|line1|cy\(1),
+	datac => \inst2|decoder1|h\(1),
+	datad => \inst2|decoder1|h\(0),
+	combout => \inst2|draw1|line1|draw_line_comb~5_combout\);
 
--- Location: LCCOMB_X23_Y18_N16
+-- Location: LCFF_X39_Y18_N31
+\inst2|draw1|rect1|cx[5]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|rect1|cx_tmp[5]~17_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|rect1|cx\(5));
+
+-- Location: LCCOMB_X40_Y20_N18
 \inst2|draw1|rect1|Equal0~3\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|rect1|Equal0~3_combout\ = (\inst2|decoder1|x\(6) & (\inst2|draw1|rect1|cx\(6) & (\inst2|draw1|rect1|cx\(7) $ (!\inst2|decoder1|x\(7))))) # (!\inst2|decoder1|x\(6) & (!\inst2|draw1|rect1|cx\(6) & (\inst2|draw1|rect1|cx\(7) $ 
@@ -1941,272 +2199,168 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1000010000100001",
+	lut_mask => "1000001001000001",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|x\(6),
 	datab => \inst2|draw1|rect1|cx\(7),
-	datac => \inst2|draw1|rect1|cx\(6),
-	datad => \inst2|decoder1|x\(7),
+	datac => \inst2|decoder1|x\(7),
+	datad => \inst2|draw1|rect1|cx\(6),
 	combout => \inst2|draw1|rect1|Equal0~3_combout\);
 
--- Location: LCCOMB_X22_Y16_N2
-\inst2|draw1|rect1|almost_done_tmp~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X38_Y19_N12
+\inst2|draw1|rect1|almost_done_tmp~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|almost_done_tmp~0_combout\ = (\inst2|decoder1|y\(0) & (\inst2|draw1|rect1|cy\(0) & (\inst2|draw1|rect1|cy\(1) $ (!\inst2|decoder1|y\(1))))) # (!\inst2|decoder1|y\(0) & (!\inst2|draw1|rect1|cy\(0) & (\inst2|draw1|rect1|cy\(1) $ 
--- (!\inst2|decoder1|y\(1)))))
+-- \inst2|draw1|rect1|almost_done_tmp~1_combout\ = (\inst2|decoder1|y\(2) & (\inst2|draw1|rect1|cy\(2) & (\inst2|draw1|rect1|cy\(3) $ (!\inst2|decoder1|y\(3))))) # (!\inst2|decoder1|y\(2) & (!\inst2|draw1|rect1|cy\(2) & (\inst2|draw1|rect1|cy\(3) $ 
+-- (!\inst2|decoder1|y\(3)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1001000000001001",
+	lut_mask => "1000001001000001",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|y\(0),
-	datab => \inst2|draw1|rect1|cy\(0),
-	datac => \inst2|draw1|rect1|cy\(1),
-	datad => \inst2|decoder1|y\(1),
-	combout => \inst2|draw1|rect1|almost_done_tmp~0_combout\);
+	dataa => \inst2|decoder1|y\(2),
+	datab => \inst2|draw1|rect1|cy\(3),
+	datac => \inst2|decoder1|y\(3),
+	datad => \inst2|draw1|rect1|cy\(2),
+	combout => \inst2|draw1|rect1|almost_done_tmp~1_combout\);
 
--- Location: LCFF_X21_Y16_N13
-\inst2|draw1|rect1|cy[3]\ : cycloneii_lcell_ff
+-- Location: LCFF_X44_Y16_N21
+\inst2|spi1|sh_reg[4]\ : cycloneii_lcell_ff
 PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|rect1|Add0~15_combout\,
-	ena => \inst2|draw1|rect1|cy_tmp[0]~2_combout\,
+	clk => \SPICLK~combout\,
+	sdata => \inst2|spi1|Selector5~0_combout\,
+	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|draw1|rect1|cy\(3));
+	regout => \inst2|spi1|sh_reg\(4));
 
--- Location: LCCOMB_X20_Y20_N20
-\inst2|decoder1|en~8\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|en~8_combout\ = (!\inst2|decoder1|current_instruction\(1) & (\inst2|decoder1|current_instruction\(0) & (\inst4|hex0[0]~7_combout\ & \inst2|decoder1|current_instruction\(2))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0100000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
+-- Location: LCFF_X44_Y16_N7
+\inst2|spi1|sh_reg[3]\ : cycloneii_lcell_ff
 PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(1),
-	datab => \inst2|decoder1|current_instruction\(0),
-	datac => \inst4|hex0[0]~7_combout\,
-	datad => \inst2|decoder1|current_instruction\(2),
-	combout => \inst2|decoder1|en~8_combout\);
+	clk => \SPICLK~combout\,
+	datain => \inst2|spi1|sh_reg[3]~feeder_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|sh_reg\(3));
 
--- Location: LCCOMB_X20_Y20_N6
-\inst2|decoder1|en~10\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X42_Y16_N2
+\inst2|decoder1|done~3\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|en~10_combout\ = (!\inst2|decoder1|current_instruction\(1) & (!\inst2|decoder1|current_instruction\(0) & (\inst4|hex0[0]~7_combout\ & \inst2|decoder1|current_instruction\(2))))
+-- \inst2|decoder1|done~3_combout\ = (\inst2|decoder1|packet_num\(2)) # ((\inst2|decoder1|packet_num\(1) $ (!\inst2|decoder1|packet_num\(0))) # (!\inst2|decoder1|Equal0~1_combout\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0001000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(1),
-	datab => \inst2|decoder1|current_instruction\(0),
-	datac => \inst4|hex0[0]~7_combout\,
-	datad => \inst2|decoder1|current_instruction\(2),
-	combout => \inst2|decoder1|en~10_combout\);
-
--- Location: LCCOMB_X20_Y19_N12
-\inst2|decoder1|next_int_ready~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|next_int_ready~0_combout\ = (\inst2|decoder1|Equal0~1_combout\ & ((\inst2|decoder1|packet_num\(2)) # ((!\inst2|decoder1|packet_num\(1))))) # (!\inst2|decoder1|Equal0~1_combout\ & (\inst2|decoder1|done~7_combout\ & 
--- ((\inst2|decoder1|packet_num\(1)) # (!\inst2|decoder1|packet_num\(2)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1011100011011100",
+	lut_mask => "1110111110111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|packet_num\(2),
-	datab => \inst2|decoder1|Equal0~1_combout\,
-	datac => \inst2|decoder1|done~7_combout\,
-	datad => \inst2|decoder1|packet_num\(1),
-	combout => \inst2|decoder1|next_int_ready~0_combout\);
+	datab => \inst2|decoder1|packet_num\(1),
+	datac => \inst2|decoder1|Equal0~1_combout\,
+	datad => \inst2|decoder1|packet_num\(0),
+	combout => \inst2|decoder1|done~3_combout\);
 
--- Location: LCCOMB_X20_Y19_N10
-\inst2|decoder1|next_int_ready~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|next_int_ready~1_combout\ = (\inst2|decoder1|next_int_ready~0_combout\ & ((\inst2|decoder1|packet_num\(2)) # ((\inst2|decoder1|packet_num\(1)) # (!\inst2|decoder1|packet_num\(0)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010101010001010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|next_int_ready~0_combout\,
-	datab => \inst2|decoder1|packet_num\(2),
-	datac => \inst2|decoder1|packet_num\(0),
-	datad => \inst2|decoder1|packet_num\(1),
-	combout => \inst2|decoder1|next_int_ready~1_combout\);
-
--- Location: LCCOMB_X20_Y20_N24
-\inst2|decoder1|next_int_ready~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|next_int_ready~2_combout\ = (\inst4|hex1[3]~7_combout\ & (!\inst2|vgacontroller1|vgavsync~2_combout\)) # (!\inst4|hex1[3]~7_combout\ & (((\inst2|decoder1|next_int_ready~1_combout\) # (!\inst4|hex1[2]~4_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101110001011111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|vgavsync~2_combout\,
-	datab => \inst2|decoder1|next_int_ready~1_combout\,
-	datac => \inst4|hex1[3]~7_combout\,
-	datad => \inst4|hex1[2]~4_combout\,
-	combout => \inst2|decoder1|next_int_ready~2_combout\);
-
--- Location: LCCOMB_X24_Y20_N4
-\inst2|decoder1|next_int_ready~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|next_int_ready~3_combout\ = (!\inst2|spi1|spi_rx_data\(3) & (!\inst2|spi1|spi_rx_data\(5) & ((!\inst2|spi1|spi_rx_data\(1)) # (!\inst2|spi1|spi_rx_data\(2)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000100000011",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|spi1|spi_rx_data\(2),
-	datab => \inst2|spi1|spi_rx_data\(3),
-	datac => \inst2|spi1|spi_rx_data\(5),
-	datad => \inst2|spi1|spi_rx_data\(1),
-	combout => \inst2|decoder1|next_int_ready~3_combout\);
-
--- Location: LCCOMB_X24_Y20_N28
-\inst2|decoder1|next_int_ready~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|next_int_ready~4_combout\ = (!\inst2|spi1|spi_rx_data\(6) & !\inst2|spi1|spi_rx_data\(7))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000001111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \inst2|spi1|spi_rx_data\(6),
-	datad => \inst2|spi1|spi_rx_data\(7),
-	combout => \inst2|decoder1|next_int_ready~4_combout\);
-
--- Location: LCCOMB_X23_Y20_N8
-\inst2|decoder1|next_int_ready~5\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|next_int_ready~5_combout\ = (\inst2|decoder1|next_int_ready~3_combout\ & (\inst2|decoder1|next_int_ready~4_combout\ & (\inst4|hex0[0]~6_combout\ & !\inst2|spi1|spi_rx_data\(4))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000010000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|next_int_ready~3_combout\,
-	datab => \inst2|decoder1|next_int_ready~4_combout\,
-	datac => \inst4|hex0[0]~6_combout\,
-	datad => \inst2|spi1|spi_rx_data\(4),
-	combout => \inst2|decoder1|next_int_ready~5_combout\);
-
--- Location: LCCOMB_X19_Y20_N10
-\inst2|decoder1|next_int_ready~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|next_int_ready~6_combout\ = (\inst2|decoder1|Equal0~0_combout\ & (\inst2|decoder1|next_int_ready~2_combout\)) # (!\inst2|decoder1|Equal0~0_combout\ & ((!\inst2|decoder1|next_int_ready~5_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110000001111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|decoder1|next_int_ready~2_combout\,
-	datac => \inst2|decoder1|next_int_ready~5_combout\,
-	datad => \inst2|decoder1|Equal0~0_combout\,
-	combout => \inst2|decoder1|next_int_ready~6_combout\);
-
--- Location: LCCOMB_X19_Y20_N24
-\inst2|decoder1|current_instruction[2]~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|current_instruction[2]~0_combout\ = (\inst2|decoder1|current_instruction\(0)) # (((\inst2|decoder1|current_instruction\(1)) # (\inst2|decoder1|current_instruction\(2))) # (!\inst2|decoder1|next_int_ready~5_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111111111011",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(0),
-	datab => \inst2|decoder1|next_int_ready~5_combout\,
-	datac => \inst2|decoder1|current_instruction\(1),
-	datad => \inst2|decoder1|current_instruction\(2),
-	combout => \inst2|decoder1|current_instruction[2]~0_combout\);
-
--- Location: LCCOMB_X20_Y19_N24
+-- Location: LCCOMB_X42_Y16_N6
 \inst2|decoder1|Add0~0\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|decoder1|Add0~0_combout\ = (\inst2|decoder1|packet_num\(0) & \inst2|decoder1|packet_num\(1))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111000000000000",
+	lut_mask => "1100110000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \inst2|decoder1|packet_num\(0),
+	datab => \inst2|decoder1|packet_num\(0),
 	datad => \inst2|decoder1|packet_num\(1),
 	combout => \inst2|decoder1|Add0~0_combout\);
 
--- Location: LCFF_X24_Y20_N19
-\inst2|spi1|index[3]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|spi1|index~5_combout\,
-	ena => \inst2|spi1|spi_rx_data[4]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|spi1|index\(3));
-
--- Location: LCCOMB_X25_Y16_N30
+-- Location: LCCOMB_X39_Y17_N10
 \inst2|draw1|line1|Add8~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add8~2_combout\ = (\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|x\(0))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add8~0_combout\)))
+-- \inst2|draw1|line1|Add8~2_combout\ = (\inst2|draw1|line1|setup~regout\ & ((\inst2|decoder1|x\(0)))) # (!\inst2|draw1|line1|setup~regout\ & (\inst2|draw1|line1|Add8~0_combout\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100111111000000",
+	lut_mask => "1110111000100010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|x\(0),
-	datac => \inst2|draw1|line1|setup~regout\,
-	datad => \inst2|draw1|line1|Add8~0_combout\,
+	dataa => \inst2|draw1|line1|Add8~0_combout\,
+	datab => \inst2|draw1|line1|setup~regout\,
+	datad => \inst2|decoder1|x\(0),
 	combout => \inst2|draw1|line1|Add8~2_combout\);
 
--- Location: LCCOMB_X23_Y17_N14
+-- Location: LCCOMB_X39_Y15_N0
 \inst2|draw1|line1|dy~0\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|dy~0_combout\ = \inst2|draw1|line1|Add2~0_combout\ $ (\inst2|draw1|line1|Add2~14_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101010110101010",
+	lut_mask => "0011001111001100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add2~0_combout\,
+	datab => \inst2|draw1|line1|Add2~0_combout\,
 	datad => \inst2|draw1|line1|Add2~14_combout\,
 	combout => \inst2|draw1|line1|dy~0_combout\);
 
--- Location: LCCOMB_X25_Y16_N20
+-- Location: LCCOMB_X40_Y17_N20
+\inst2|draw1|line1|Add8~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add8~6_combout\ = (\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|x\(1))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add8~4_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111010110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|setup~regout\,
+	datac => \inst2|decoder1|x\(1),
+	datad => \inst2|draw1|line1|Add8~4_combout\,
+	combout => \inst2|draw1|line1|Add8~6_combout\);
+
+-- Location: LCCOMB_X39_Y17_N12
 \inst2|draw1|line1|Add8~10\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add8~10_combout\ = (\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|x\(2))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add8~8_combout\)))
+-- \inst2|draw1|line1|Add8~10_combout\ = (\inst2|draw1|line1|setup~regout\ & ((\inst2|decoder1|x\(2)))) # (!\inst2|draw1|line1|setup~regout\ & (\inst2|draw1|line1|Add8~8_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101000001010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add8~8_combout\,
+	datac => \inst2|draw1|line1|setup~regout\,
+	datad => \inst2|decoder1|x\(2),
+	combout => \inst2|draw1|line1|Add8~10_combout\);
+
+-- Location: LCCOMB_X40_Y17_N6
+\inst2|draw1|line1|Add8~18\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add8~18_combout\ = (\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|x\(4))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add8~16_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111010110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|setup~regout\,
+	datac => \inst2|decoder1|x\(4),
+	datad => \inst2|draw1|line1|Add8~16_combout\,
+	combout => \inst2|draw1|line1|Add8~18_combout\);
+
+-- Location: LCCOMB_X39_Y17_N4
+\inst2|draw1|line1|Add8~22\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add8~22_combout\ = (\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|x\(5))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add8~20_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2214,31 +2368,64 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|x\(2),
-	datac => \inst2|draw1|line1|setup~regout\,
-	datad => \inst2|draw1|line1|Add8~8_combout\,
-	combout => \inst2|draw1|line1|Add8~10_combout\);
-
--- Location: LCCOMB_X25_Y16_N18
-\inst2|draw1|line1|Add8~22\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~22_combout\ = (\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|x\(5))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add8~20_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|x\(5),
+	datab => \inst2|decoder1|x\(5),
 	datac => \inst2|draw1|line1|setup~regout\,
 	datad => \inst2|draw1|line1|Add8~20_combout\,
 	combout => \inst2|draw1|line1|Add8~22_combout\);
 
--- Location: LCCOMB_X24_Y20_N0
-\inst2|decoder1|h~7\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y17_N16
+\inst2|draw1|line1|Add8~26\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|h~7_combout\ = (\inst2|spi1|spi_rx_data\(4) & \inst2|decoder1|current_instruction\(2))
+-- \inst2|draw1|line1|Add8~26_combout\ = (\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|x\(6))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add8~24_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101110110001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|setup~regout\,
+	datab => \inst2|decoder1|x\(6),
+	datad => \inst2|draw1|line1|Add8~24_combout\,
+	combout => \inst2|draw1|line1|Add8~26_combout\);
+
+-- Location: LCCOMB_X39_Y17_N14
+\inst2|draw1|line1|Add8~30\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add8~30_combout\ = (\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|x\(7))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add8~28_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|decoder1|x\(7),
+	datac => \inst2|draw1|line1|setup~regout\,
+	datad => \inst2|draw1|line1|Add8~28_combout\,
+	combout => \inst2|draw1|line1|Add8~30_combout\);
+
+-- Location: LCCOMB_X38_Y16_N24
+\inst2|draw1|line1|Add8~31\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add8~31_combout\ = (!\inst2|draw1|line1|cx[4]~0_combout\ & ((\inst2|draw1|line1|cx[4]~1_combout\ & ((\inst2|draw1|line1|cx\(7)))) # (!\inst2|draw1|line1|cx[4]~1_combout\ & (\inst2|draw1|line1|Add8~30_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101000001000100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|cx[4]~0_combout\,
+	datab => \inst2|draw1|line1|Add8~30_combout\,
+	datac => \inst2|draw1|line1|cx\(7),
+	datad => \inst2|draw1|line1|cx[4]~1_combout\,
+	combout => \inst2|draw1|line1|Add8~31_combout\);
+
+-- Location: LCCOMB_X40_Y18_N16
+\inst2|decoder1|h~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|h~6_combout\ = (\inst2|decoder1|current_instruction\(2) & \inst2|spi1|do_buffer_reg\(5))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2246,32 +2433,32 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \inst2|spi1|spi_rx_data\(4),
-	datad => \inst2|decoder1|current_instruction\(2),
-	combout => \inst2|decoder1|h~7_combout\);
+	datac => \inst2|decoder1|current_instruction\(2),
+	datad => \inst2|spi1|do_buffer_reg\(5),
+	combout => \inst2|decoder1|h~6_combout\);
 
--- Location: LCCOMB_X20_Y19_N22
-\inst2|decoder1|next_h[6]~2\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X38_Y15_N20
+\inst2|decoder1|next_h[6]~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|next_h[6]~2_combout\ = (\inst2|decoder1|current_instruction\(2) & (\inst2|decoder1|packet_num\(2) & (\inst2|decoder1|packet_num\(0) & !\inst2|decoder1|packet_num\(1))))
+-- \inst2|decoder1|next_h[6]~1_combout\ = (\inst2|decoder1|h\(6) & (((\inst2|decoder1|current_instruction\(2) & !\inst4|hex0[0]~7_combout\)) # (!\inst2|decoder1|next_h[6]~0_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000010000000",
+	lut_mask => "0011101100000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|current_instruction\(2),
-	datab => \inst2|decoder1|packet_num\(2),
-	datac => \inst2|decoder1|packet_num\(0),
-	datad => \inst2|decoder1|packet_num\(1),
-	combout => \inst2|decoder1|next_h[6]~2_combout\);
+	datab => \inst2|decoder1|next_h[6]~0_combout\,
+	datac => \inst4|hex0[0]~7_combout\,
+	datad => \inst2|decoder1|h\(6),
+	combout => \inst2|decoder1|next_h[6]~1_combout\);
 
--- Location: LCCOMB_X22_Y16_N4
-\inst2|draw1|rect1|cx[6]~2\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X37_Y19_N30
+\inst2|draw1|rect1|cx[1]~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|cx[6]~2_combout\ = (\inst2|decoder1|h\(0) & (\inst2|draw1|rect1|cy\(0) & (\inst2|decoder1|h\(1) $ (!\inst2|draw1|rect1|cy\(1))))) # (!\inst2|decoder1|h\(0) & (!\inst2|draw1|rect1|cy\(0) & (\inst2|decoder1|h\(1) $ 
--- (!\inst2|draw1|rect1|cy\(1)))))
+-- \inst2|draw1|rect1|cx[1]~4_combout\ = (\inst2|draw1|rect1|cy\(4) & (\inst2|decoder1|h\(4) & (\inst2|decoder1|h\(5) $ (!\inst2|draw1|rect1|cy\(5))))) # (!\inst2|draw1|rect1|cy\(4) & (!\inst2|decoder1|h\(4) & (\inst2|decoder1|h\(5) $ 
+-- (!\inst2|draw1|rect1|cy\(5)))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2279,35 +2466,136 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|h\(0),
-	datab => \inst2|draw1|rect1|cy\(0),
-	datac => \inst2|decoder1|h\(1),
-	datad => \inst2|draw1|rect1|cy\(1),
-	combout => \inst2|draw1|rect1|cx[6]~2_combout\);
+	dataa => \inst2|draw1|rect1|cy\(4),
+	datab => \inst2|decoder1|h\(4),
+	datac => \inst2|decoder1|h\(5),
+	datad => \inst2|draw1|rect1|cy\(5),
+	combout => \inst2|draw1|rect1|cx[1]~4_combout\);
 
--- Location: LCCOMB_X23_Y18_N6
+-- Location: LCCOMB_X39_Y20_N8
 \inst2|draw1|rect1|cx_tmp[3]~9\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[3]~9_combout\ = (\inst2|draw1|rect1|cx[6]~7_combout\ & (((\inst2|draw1|rect1|cx[6]~1_combout\)))) # (!\inst2|draw1|rect1|cx[6]~7_combout\ & ((\inst2|draw1|rect1|cx[6]~1_combout\ & (\inst2|decoder1|w\(3))) # 
--- (!\inst2|draw1|rect1|cx[6]~1_combout\ & ((\inst2|decoder1|x\(3))))))
+-- \inst2|draw1|rect1|cx_tmp[3]~9_combout\ = (\inst2|draw1|rect1|cx[1]~1_combout\ & ((\inst2|decoder1|w\(3)) # ((\inst2|draw1|rect1|cx[1]~7_combout\)))) # (!\inst2|draw1|rect1|cx[1]~1_combout\ & (((!\inst2|draw1|rect1|cx[1]~7_combout\ & 
+-- \inst2|decoder1|x\(3)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1110001111100000",
+	lut_mask => "1100101111001000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|w\(3),
-	datab => \inst2|draw1|rect1|cx[6]~7_combout\,
-	datac => \inst2|draw1|rect1|cx[6]~1_combout\,
+	datab => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datac => \inst2|draw1|rect1|cx[1]~7_combout\,
 	datad => \inst2|decoder1|x\(3),
 	combout => \inst2|draw1|rect1|cx_tmp[3]~9_combout\);
 
--- Location: LCCOMB_X23_Y19_N12
+-- Location: LCCOMB_X39_Y18_N22
+\inst2|draw1|rect1|cx_tmp[5]~15\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[5]~15_combout\ = (\inst2|draw1|rect1|cx[1]~1_combout\ & (((\inst2|decoder1|w\(5)) # (\inst2|draw1|rect1|cx[1]~7_combout\)))) # (!\inst2|draw1|rect1|cx[1]~1_combout\ & (\inst2|decoder1|x\(5) & 
+-- ((!\inst2|draw1|rect1|cx[1]~7_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010101011100100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datab => \inst2|decoder1|x\(5),
+	datac => \inst2|decoder1|w\(5),
+	datad => \inst2|draw1|rect1|cx[1]~7_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[5]~15_combout\);
+
+-- Location: LCCOMB_X39_Y18_N26
+\inst2|draw1|rect1|cx_tmp[5]~16\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[5]~16_combout\ = (\inst2|draw1|rect1|cx_tmp[5]~15_combout\ & (((\inst2|draw1|rect1|cx\(5)) # (!\inst2|draw1|rect1|cx[1]~7_combout\)))) # (!\inst2|draw1|rect1|cx_tmp[5]~15_combout\ & (\inst2|draw1|rect1|Add1~10_combout\ & 
+-- ((\inst2|draw1|rect1|cx[1]~7_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110001011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|Add1~10_combout\,
+	datab => \inst2|draw1|rect1|cx_tmp[5]~15_combout\,
+	datac => \inst2|draw1|rect1|cx\(5),
+	datad => \inst2|draw1|rect1|cx[1]~7_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[5]~16_combout\);
+
+-- Location: LCCOMB_X39_Y18_N30
+\inst2|draw1|rect1|cx_tmp[5]~17\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[5]~17_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & (\inst2|draw1|rect1|cx_tmp[5]~16_combout\ & ((\inst2|draw1|rect1|cx[1]~1_combout\) # (!\inst2|draw1|rect1|almost_done~regout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010001000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	datab => \inst2|draw1|rect1|almost_done~regout\,
+	datac => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datad => \inst2|draw1|rect1|cx_tmp[5]~16_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[5]~17_combout\);
+
+-- Location: LCCOMB_X39_Y18_N2
 \inst2|draw1|rect1|cx_tmp[7]~21\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[7]~21_combout\ = (\inst2|draw1|rect1|cx[6]~7_combout\ & (((\inst2|draw1|rect1|cx[6]~1_combout\)))) # (!\inst2|draw1|rect1|cx[6]~7_combout\ & ((\inst2|draw1|rect1|cx[6]~1_combout\ & (\inst2|decoder1|w\(7))) # 
--- (!\inst2|draw1|rect1|cx[6]~1_combout\ & ((\inst2|decoder1|x\(7))))))
+-- \inst2|draw1|rect1|cx_tmp[7]~21_combout\ = (\inst2|draw1|rect1|cx[1]~1_combout\ & (((\inst2|decoder1|w\(7)) # (\inst2|draw1|rect1|cx[1]~7_combout\)))) # (!\inst2|draw1|rect1|cx[1]~1_combout\ & (\inst2|decoder1|x\(7) & 
+-- ((!\inst2|draw1|rect1|cx[1]~7_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010101011100100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datab => \inst2|decoder1|x\(7),
+	datac => \inst2|decoder1|w\(7),
+	datad => \inst2|draw1|rect1|cx[1]~7_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[7]~21_combout\);
+
+-- Location: LCCOMB_X38_Y15_N6
+\inst2|draw1|rect1|Add0~12\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add0~12_combout\ = (\inst2|decoder1|h\(3) & !\inst2|draw1|rect1|started~regout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|decoder1|h\(3),
+	datad => \inst2|draw1|rect1|started~regout\,
+	combout => \inst2|draw1|rect1|Add0~12_combout\);
+
+-- Location: LCCOMB_X37_Y19_N6
+\inst2|draw1|rect1|Add0~20\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add0~20_combout\ = (\inst2|decoder1|h\(5) & !\inst2|draw1|rect1|started~regout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|decoder1|h\(5),
+	datad => \inst2|draw1|rect1|started~regout\,
+	combout => \inst2|draw1|rect1|Add0~20_combout\);
+
+-- Location: LCCOMB_X40_Y16_N2
+\inst2|draw1|line1|err~22\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~22_combout\ = (\inst2|draw1|line1|err[1]~1_combout\ & (((\inst2|draw1|line1|err[1]~0_combout\)))) # (!\inst2|draw1|line1|err[1]~1_combout\ & ((\inst2|draw1|line1|err[1]~0_combout\ & (\inst2|draw1|line1|Add9~18_combout\)) # 
+-- (!\inst2|draw1|line1|err[1]~0_combout\ & ((\inst2|draw1|line1|Add5~18_combout\)))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2315,139 +2603,29 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|w\(7),
-	datab => \inst2|decoder1|x\(7),
-	datac => \inst2|draw1|rect1|cx[6]~7_combout\,
-	datad => \inst2|draw1|rect1|cx[6]~1_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[7]~21_combout\);
+	dataa => \inst2|draw1|line1|Add9~18_combout\,
+	datab => \inst2|draw1|line1|Add5~18_combout\,
+	datac => \inst2|draw1|line1|err[1]~1_combout\,
+	datad => \inst2|draw1|line1|err[1]~0_combout\,
+	combout => \inst2|draw1|line1|err~22_combout\);
 
--- Location: LCCOMB_X21_Y16_N26
-\inst2|draw1|rect1|Add0~12\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y16_N4
+\inst2|draw1|line1|err~23\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|Add0~12_combout\ = (!\inst2|draw1|rect1|started~regout\ & \inst2|decoder1|h\(3))
+-- \inst2|draw1|line1|err~23_combout\ = (\inst2|draw1|line1|err[1]~1_combout\ & ((\inst2|draw1|line1|err~22_combout\ & (\inst2|draw1|line1|Add7~18_combout\)) # (!\inst2|draw1|line1|err~22_combout\ & ((\inst2|draw1|line1|Add4~16_combout\))))) # 
+-- (!\inst2|draw1|line1|err[1]~1_combout\ & (((\inst2|draw1|line1|err~22_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101000001010000",
+	lut_mask => "1010111111000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|rect1|started~regout\,
-	datac => \inst2|decoder1|h\(3),
-	combout => \inst2|draw1|rect1|Add0~12_combout\);
-
--- Location: LCCOMB_X21_Y16_N12
-\inst2|draw1|rect1|Add0~15\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~15_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|Add0~12_combout\) # ((\inst2|draw1|rect1|Add0~13_combout\ & \inst2|draw1|rect1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010100010001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	datab => \inst2|draw1|rect1|Add0~12_combout\,
-	datac => \inst2|draw1|rect1|Add0~13_combout\,
-	datad => \inst2|draw1|rect1|draw_write~0_combout\,
-	combout => \inst2|draw1|rect1|Add0~15_combout\);
-
--- Location: LCCOMB_X22_Y16_N6
-\inst2|draw1|rect1|Add0~20\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~20_combout\ = (\inst2|decoder1|h\(5) & !\inst2|draw1|rect1|started~regout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|decoder1|h\(5),
-	datad => \inst2|draw1|rect1|started~regout\,
-	combout => \inst2|draw1|rect1|Add0~20_combout\);
-
--- Location: LCCOMB_X24_Y20_N24
-\inst2|spi1|index[3]~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|spi1|index[3]~2_combout\ = (!\inst2|sreset~combout\ & ((\inst2|spi1|index\(3)) # (!\inst2|spi1|index[3]~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000010111011",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|spi1|index\(3),
-	datab => \inst2|spi1|index[3]~0_combout\,
-	datad => \inst2|sreset~combout\,
-	combout => \inst2|spi1|index[3]~2_combout\);
-
--- Location: LCCOMB_X24_Y20_N18
-\inst2|spi1|index~5\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|spi1|index~5_combout\ = (!\inst2|spi1|index[3]~0_combout\ & (\inst2|spi1|index\(3) & !\inst2|sreset~combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|spi1|index[3]~0_combout\,
-	datac => \inst2|spi1|index\(3),
-	datad => \inst2|sreset~combout\,
-	combout => \inst2|spi1|index~5_combout\);
-
--- Location: LCCOMB_X23_Y20_N16
-\inst4|Equal63~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst4|Equal63~3_combout\ = (!\inst2|decoder1|packet_num\(2) & (\inst2|decoder1|packet_num\(0) & !\inst2|decoder1|packet_num\(1)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000001010000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|packet_num\(2),
-	datac => \inst2|decoder1|packet_num\(0),
-	datad => \inst2|decoder1|packet_num\(1),
-	combout => \inst4|Equal63~3_combout\);
-
--- Location: LCCOMB_X20_Y19_N6
-\inst2|decoder1|w[7]~13\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|w[7]~13_combout\ = (((\inst2|decoder1|w[7]~3_combout\) # (\inst2|decoder1|packet_num\(1))) # (!\inst2|decoder1|packet_num\(2))) # (!\inst2|decoder1|current_instruction\(2))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111111110111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(2),
-	datab => \inst2|decoder1|packet_num\(2),
-	datac => \inst2|decoder1|w[7]~3_combout\,
-	datad => \inst2|decoder1|packet_num\(1),
-	combout => \inst2|decoder1|w[7]~13_combout\);
-
--- Location: LCCOMB_X20_Y19_N20
-\inst2|decoder1|w[7]~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|w[7]~3_combout\ = (\inst2|decoder1|packet_num\(0)) # ((\inst2|decoder1|current_instruction\(1) & \inst2|decoder1|current_instruction\(0)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111110011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|decoder1|current_instruction\(1),
-	datac => \inst2|decoder1|packet_num\(0),
-	datad => \inst2|decoder1|current_instruction\(0),
-	combout => \inst2|decoder1|w[7]~3_combout\);
+	dataa => \inst2|draw1|line1|Add7~18_combout\,
+	datab => \inst2|draw1|line1|Add4~16_combout\,
+	datac => \inst2|draw1|line1|err[1]~1_combout\,
+	datad => \inst2|draw1|line1|err~22_combout\,
+	combout => \inst2|draw1|line1|err~23_combout\);
 
 -- Location: PIN_L1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \clock_50mhz~I\ : cycloneii_io
@@ -2475,7 +2653,7 @@ PORT MAP (
 	padio => ww_clock_50mhz,
 	combout => \clock_50mhz~combout\);
 
--- Location: CLKCTRL_G10
+-- Location: CLKCTRL_G13
 \inst1|count[2]~clkctrl\ : cycloneii_clkctrl
 -- pragma translate_off
 GENERIC MAP (
@@ -2501,31 +2679,36 @@ PORT MAP (
 	devpor => ww_devpor,
 	outclk => \clock_50mhz~clkctrl_outclk\);
 
--- Location: PIN_K20,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-\SPIMOSI~I\ : cycloneii_io
+-- Location: LCCOMB_X44_Y16_N6
+\inst2|spi1|sh_reg[3]~feeder\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|spi1|sh_reg[3]~feeder_combout\ = \inst2|spi1|Selector6~0_combout\
+
 -- pragma translate_off
 GENERIC MAP (
-	input_async_reset => "none",
-	input_power_up => "low",
-	input_register_mode => "none",
-	input_sync_reset => "none",
-	oe_async_reset => "none",
-	oe_power_up => "low",
-	oe_register_mode => "none",
-	oe_sync_reset => "none",
-	operation_mode => "input",
-	output_async_reset => "none",
-	output_power_up => "low",
-	output_register_mode => "none",
-	output_sync_reset => "none")
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	devoe => ww_devoe,
-	oe => GND,
-	padio => ww_SPIMOSI,
-	combout => \SPIMOSI~combout\);
+	datad => \inst2|spi1|Selector6~0_combout\,
+	combout => \inst2|spi1|sh_reg[3]~feeder_combout\);
+
+-- Location: LCCOMB_X43_Y19_N4
+\inst2|vgacontroller1|h_count[0]~8\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|h_count[0]~8_combout\ = \inst2|vgacontroller1|h_count\(0) $ (VCC)
+-- \inst2|vgacontroller1|h_count[0]~9\ = CARRY(\inst2|vgacontroller1|h_count\(0))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011001111001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|vgacontroller1|h_count\(0),
+	datad => VCC,
+	combout => \inst2|vgacontroller1|h_count[0]~8_combout\,
+	cout => \inst2|vgacontroller1|h_count[0]~9\);
 
 -- Location: PIN_R22,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \reset~I\ : cycloneii_io
@@ -2553,49 +2736,683 @@ PORT MAP (
 	padio => ww_reset,
 	combout => \reset~combout\);
 
--- Location: LCCOMB_X20_Y20_N0
-\inst2|decoder1|prev_spi_data_available~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X43_Y19_N30
+\reset~_wirecell\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|prev_spi_data_available~0_combout\ = (\inst2|spi1|spi_data_available~regout\ & \reset~combout\)
+-- \reset~_wirecell_combout\ = !\reset~combout\
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010000010100000",
+	lut_mask => "0000000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|spi1|spi_data_available~regout\,
-	datac => \reset~combout\,
-	combout => \inst2|decoder1|prev_spi_data_available~0_combout\);
+	datad => \reset~combout\,
+	combout => \reset~_wirecell_combout\);
 
--- Location: LCFF_X20_Y20_N1
-\inst2|decoder1|prev_spi_data_available\ : cycloneii_lcell_ff
+-- Location: LCCOMB_X44_Y19_N24
+\inst2|vgacontroller1|h_count[2]~18\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|h_count[2]~18_combout\ = (\inst2|vgacontroller1|LessThan8~2_combout\) # (!\reset~combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010101011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|LessThan8~2_combout\,
+	datad => \reset~combout\,
+	combout => \inst2|vgacontroller1|h_count[2]~18_combout\);
+
+-- Location: LCFF_X43_Y19_N5
+\inst2|vgacontroller1|h_count[0]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|prev_spi_data_available~0_combout\,
+	datain => \inst2|vgacontroller1|h_count[0]~8_combout\,
+	sdata => \reset~_wirecell_combout\,
+	sload => \inst2|vgacontroller1|h_count[2]~18_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|decoder1|prev_spi_data_available~regout\);
+	regout => \inst2|vgacontroller1|h_count\(0));
 
--- Location: LCCOMB_X23_Y20_N0
-\inst2|decoder1|current_instruction~6\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X43_Y19_N6
+\inst2|vgacontroller1|h_count[1]~10\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|current_instruction~6_combout\ = (\reset~combout\ & (\inst2|decoder1|current_instruction~1_combout\ & (\inst2|spi1|spi_rx_data\(0) $ (\inst2|spi1|spi_rx_data\(1)))))
+-- \inst2|vgacontroller1|h_count[1]~10_combout\ = (\inst2|vgacontroller1|h_count\(1) & (!\inst2|vgacontroller1|h_count[0]~9\)) # (!\inst2|vgacontroller1|h_count\(1) & ((\inst2|vgacontroller1|h_count[0]~9\) # (GND)))
+-- \inst2|vgacontroller1|h_count[1]~11\ = CARRY((!\inst2|vgacontroller1|h_count[0]~9\) # (!\inst2|vgacontroller1|h_count\(1)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100100000000000",
+	lut_mask => "0101101001011111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|h_count\(1),
+	datad => VCC,
+	cin => \inst2|vgacontroller1|h_count[0]~9\,
+	combout => \inst2|vgacontroller1|h_count[1]~10_combout\,
+	cout => \inst2|vgacontroller1|h_count[1]~11\);
+
+-- Location: LCCOMB_X43_Y19_N8
+\inst2|vgacontroller1|h_count[2]~12\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|h_count[2]~12_combout\ = (\inst2|vgacontroller1|h_count\(2) & (\inst2|vgacontroller1|h_count[1]~11\ $ (GND))) # (!\inst2|vgacontroller1|h_count\(2) & (!\inst2|vgacontroller1|h_count[1]~11\ & VCC))
+-- \inst2|vgacontroller1|h_count[2]~13\ = CARRY((\inst2|vgacontroller1|h_count\(2) & !\inst2|vgacontroller1|h_count[1]~11\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100001100001100",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|vgacontroller1|h_count\(2),
+	datad => VCC,
+	cin => \inst2|vgacontroller1|h_count[1]~11\,
+	combout => \inst2|vgacontroller1|h_count[2]~12_combout\,
+	cout => \inst2|vgacontroller1|h_count[2]~13\);
+
+-- Location: LCFF_X43_Y19_N9
+\inst2|vgacontroller1|h_count[2]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|vgacontroller1|h_count[2]~12_combout\,
+	sdata => \reset~_wirecell_combout\,
+	sload => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|vgacontroller1|h_count\(2));
+
+-- Location: LCCOMB_X43_Y19_N10
+\inst2|vgacontroller1|h_count[3]~14\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|h_count[3]~14_combout\ = (\inst2|vgacontroller1|h_count\(3) & (!\inst2|vgacontroller1|h_count[2]~13\)) # (!\inst2|vgacontroller1|h_count\(3) & ((\inst2|vgacontroller1|h_count[2]~13\) # (GND)))
+-- \inst2|vgacontroller1|h_count[3]~15\ = CARRY((!\inst2|vgacontroller1|h_count[2]~13\) # (!\inst2|vgacontroller1|h_count\(3)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101101001011111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|h_count\(3),
+	datad => VCC,
+	cin => \inst2|vgacontroller1|h_count[2]~13\,
+	combout => \inst2|vgacontroller1|h_count[3]~14_combout\,
+	cout => \inst2|vgacontroller1|h_count[3]~15\);
+
+-- Location: LCCOMB_X43_Y19_N12
+\inst2|vgacontroller1|h_count[4]~16\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|h_count[4]~16_combout\ = (\inst2|vgacontroller1|h_count\(4) & (\inst2|vgacontroller1|h_count[3]~15\ $ (GND))) # (!\inst2|vgacontroller1|h_count\(4) & (!\inst2|vgacontroller1|h_count[3]~15\ & VCC))
+-- \inst2|vgacontroller1|h_count[4]~17\ = CARRY((\inst2|vgacontroller1|h_count\(4) & !\inst2|vgacontroller1|h_count[3]~15\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010010100001010",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|h_count\(4),
+	datad => VCC,
+	cin => \inst2|vgacontroller1|h_count[3]~15\,
+	combout => \inst2|vgacontroller1|h_count[4]~16_combout\,
+	cout => \inst2|vgacontroller1|h_count[4]~17\);
+
+-- Location: LCCOMB_X43_Y19_N14
+\inst2|vgacontroller1|h_count[5]~19\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|h_count[5]~19_combout\ = (\inst2|vgacontroller1|h_count\(5) & (!\inst2|vgacontroller1|h_count[4]~17\)) # (!\inst2|vgacontroller1|h_count\(5) & ((\inst2|vgacontroller1|h_count[4]~17\) # (GND)))
+-- \inst2|vgacontroller1|h_count[5]~20\ = CARRY((!\inst2|vgacontroller1|h_count[4]~17\) # (!\inst2|vgacontroller1|h_count\(5)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011110000111111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|vgacontroller1|h_count\(5),
+	datad => VCC,
+	cin => \inst2|vgacontroller1|h_count[4]~17\,
+	combout => \inst2|vgacontroller1|h_count[5]~19_combout\,
+	cout => \inst2|vgacontroller1|h_count[5]~20\);
+
+-- Location: LCCOMB_X43_Y19_N20
+\~GND\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \~GND~combout\ = GND
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|spi1|spi_rx_data\(0),
-	datab => \reset~combout\,
-	datac => \inst2|spi1|spi_rx_data\(1),
-	datad => \inst2|decoder1|current_instruction~1_combout\,
-	combout => \inst2|decoder1|current_instruction~6_combout\);
+	combout => \~GND~combout\);
 
--- Location: PIN_J20,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-\SPICLK~I\ : cycloneii_io
+-- Location: LCFF_X43_Y19_N15
+\inst2|vgacontroller1|h_count[5]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|vgacontroller1|h_count[5]~19_combout\,
+	sdata => \~GND~combout\,
+	sload => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|vgacontroller1|h_count\(5));
+
+-- Location: LCCOMB_X43_Y19_N16
+\inst2|vgacontroller1|h_count[6]~21\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|h_count[6]~21_combout\ = (\inst2|vgacontroller1|h_count\(6) & (\inst2|vgacontroller1|h_count[5]~20\ $ (GND))) # (!\inst2|vgacontroller1|h_count\(6) & (!\inst2|vgacontroller1|h_count[5]~20\ & VCC))
+-- \inst2|vgacontroller1|h_count[6]~22\ = CARRY((\inst2|vgacontroller1|h_count\(6) & !\inst2|vgacontroller1|h_count[5]~20\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010010100001010",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|h_count\(6),
+	datad => VCC,
+	cin => \inst2|vgacontroller1|h_count[5]~20\,
+	combout => \inst2|vgacontroller1|h_count[6]~21_combout\,
+	cout => \inst2|vgacontroller1|h_count[6]~22\);
+
+-- Location: LCFF_X43_Y19_N17
+\inst2|vgacontroller1|h_count[6]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|vgacontroller1|h_count[6]~21_combout\,
+	sdata => \reset~_wirecell_combout\,
+	sload => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|vgacontroller1|h_count\(6));
+
+-- Location: LCCOMB_X43_Y18_N16
+\inst2|vgacontroller1|vga_combi~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|vga_combi~0_combout\ = (!\inst2|vgacontroller1|h_count\(6) & !\inst2|vgacontroller1|h_count\(5))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|vgacontroller1|h_count\(6),
+	datad => \inst2|vgacontroller1|h_count\(5),
+	combout => \inst2|vgacontroller1|vga_combi~0_combout\);
+
+-- Location: LCCOMB_X43_Y19_N18
+\inst2|vgacontroller1|h_count[7]~23\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|h_count[7]~23_combout\ = \inst2|vgacontroller1|h_count[6]~22\ $ (\inst2|vgacontroller1|h_count\(7))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111111110000",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datad => \inst2|vgacontroller1|h_count\(7),
+	cin => \inst2|vgacontroller1|h_count[6]~22\,
+	combout => \inst2|vgacontroller1|h_count[7]~23_combout\);
+
+-- Location: LCFF_X43_Y19_N19
+\inst2|vgacontroller1|h_count[7]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|vgacontroller1|h_count[7]~23_combout\,
+	sdata => \reset~_wirecell_combout\,
+	sload => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|vgacontroller1|h_count\(7));
+
+-- Location: LCCOMB_X45_Y19_N12
+\inst2|vgacontroller1|Add1~12\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|Add1~12_combout\ = (\inst2|vgacontroller1|v_count\(6) & (\inst2|vgacontroller1|Add1~11\ $ (GND))) # (!\inst2|vgacontroller1|v_count\(6) & (!\inst2|vgacontroller1|Add1~11\ & VCC))
+-- \inst2|vgacontroller1|Add1~13\ = CARRY((\inst2|vgacontroller1|v_count\(6) & !\inst2|vgacontroller1|Add1~11\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010010100001010",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|v_count\(6),
+	datad => VCC,
+	cin => \inst2|vgacontroller1|Add1~11\,
+	combout => \inst2|vgacontroller1|Add1~12_combout\,
+	cout => \inst2|vgacontroller1|Add1~13\);
+
+-- Location: LCCOMB_X45_Y19_N20
+\inst2|vgacontroller1|new_v_count[6]~7\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|new_v_count[6]~7_combout\ = (!\inst2|vgacontroller1|LessThan9~2_combout\ & \inst2|vgacontroller1|Add1~12_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011001100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|vgacontroller1|LessThan9~2_combout\,
+	datad => \inst2|vgacontroller1|Add1~12_combout\,
+	combout => \inst2|vgacontroller1|new_v_count[6]~7_combout\);
+
+-- Location: LCFF_X45_Y19_N21
+\inst2|vgacontroller1|v_count[6]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|vgacontroller1|new_v_count[6]~7_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	ena => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|vgacontroller1|v_count\(6));
+
+-- Location: LCCOMB_X45_Y19_N14
+\inst2|vgacontroller1|Add1~14\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|Add1~14_combout\ = (\inst2|vgacontroller1|v_count\(7) & (!\inst2|vgacontroller1|Add1~13\)) # (!\inst2|vgacontroller1|v_count\(7) & ((\inst2|vgacontroller1|Add1~13\) # (GND)))
+-- \inst2|vgacontroller1|Add1~15\ = CARRY((!\inst2|vgacontroller1|Add1~13\) # (!\inst2|vgacontroller1|v_count\(7)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101101001011111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|v_count\(7),
+	datad => VCC,
+	cin => \inst2|vgacontroller1|Add1~13\,
+	combout => \inst2|vgacontroller1|Add1~14_combout\,
+	cout => \inst2|vgacontroller1|Add1~15\);
+
+-- Location: LCCOMB_X45_Y19_N16
+\inst2|vgacontroller1|Add1~16\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|Add1~16_combout\ = (\inst2|vgacontroller1|v_count\(8) & (\inst2|vgacontroller1|Add1~15\ $ (GND))) # (!\inst2|vgacontroller1|v_count\(8) & (!\inst2|vgacontroller1|Add1~15\ & VCC))
+-- \inst2|vgacontroller1|Add1~17\ = CARRY((\inst2|vgacontroller1|v_count\(8) & !\inst2|vgacontroller1|Add1~15\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010010100001010",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|v_count\(8),
+	datad => VCC,
+	cin => \inst2|vgacontroller1|Add1~15\,
+	combout => \inst2|vgacontroller1|Add1~16_combout\,
+	cout => \inst2|vgacontroller1|Add1~17\);
+
+-- Location: LCCOMB_X45_Y19_N18
+\inst2|vgacontroller1|Add1~18\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|Add1~18_combout\ = \inst2|vgacontroller1|Add1~17\ $ (\inst2|vgacontroller1|v_count\(9))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111111110000",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datad => \inst2|vgacontroller1|v_count\(9),
+	cin => \inst2|vgacontroller1|Add1~17\,
+	combout => \inst2|vgacontroller1|Add1~18_combout\);
+
+-- Location: LCCOMB_X45_Y19_N22
+\inst2|vgacontroller1|new_v_count[9]~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|new_v_count[9]~3_combout\ = ((!\inst2|vgacontroller1|LessThan9~2_combout\ & \inst2|vgacontroller1|Add1~18_combout\)) # (!\reset~combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0111011101010101",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \reset~combout\,
+	datab => \inst2|vgacontroller1|LessThan9~2_combout\,
+	datad => \inst2|vgacontroller1|Add1~18_combout\,
+	combout => \inst2|vgacontroller1|new_v_count[9]~3_combout\);
+
+-- Location: LCFF_X45_Y19_N23
+\inst2|vgacontroller1|v_count[9]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|vgacontroller1|new_v_count[9]~3_combout\,
+	ena => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|vgacontroller1|v_count\(9));
+
+-- Location: LCCOMB_X44_Y19_N26
+\inst2|vgacontroller1|LessThan9~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|LessThan9~1_combout\ = (\inst2|vgacontroller1|v_count\(5)) # (\inst2|vgacontroller1|v_count\(4))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101011111010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|v_count\(5),
+	datac => \inst2|vgacontroller1|v_count\(4),
+	combout => \inst2|vgacontroller1|LessThan9~1_combout\);
+
+-- Location: LCCOMB_X44_Y19_N28
+\inst2|vgacontroller1|LessThan9~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|LessThan9~2_combout\ = (\inst2|vgacontroller1|v_count\(9) & ((\inst2|vgacontroller1|LessThan9~0_combout\) # ((\inst2|vgacontroller1|v_count\(6)) # (\inst2|vgacontroller1|LessThan9~1_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|LessThan9~0_combout\,
+	datab => \inst2|vgacontroller1|v_count\(6),
+	datac => \inst2|vgacontroller1|v_count\(9),
+	datad => \inst2|vgacontroller1|LessThan9~1_combout\,
+	combout => \inst2|vgacontroller1|LessThan9~2_combout\);
+
+-- Location: LCCOMB_X45_Y19_N0
+\inst2|vgacontroller1|Add1~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|Add1~0_combout\ = \inst2|vgacontroller1|v_count\(0) $ (VCC)
+-- \inst2|vgacontroller1|Add1~1\ = CARRY(\inst2|vgacontroller1|v_count\(0))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011001111001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|vgacontroller1|v_count\(0),
+	datad => VCC,
+	combout => \inst2|vgacontroller1|Add1~0_combout\,
+	cout => \inst2|vgacontroller1|Add1~1\);
+
+-- Location: LCCOMB_X45_Y19_N30
+\inst2|vgacontroller1|new_v_count[0]~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|new_v_count[0]~1_combout\ = (\reset~combout\ & (!\inst2|vgacontroller1|LessThan9~2_combout\ & \inst2|vgacontroller1|Add1~0_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0010001000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \reset~combout\,
+	datab => \inst2|vgacontroller1|LessThan9~2_combout\,
+	datad => \inst2|vgacontroller1|Add1~0_combout\,
+	combout => \inst2|vgacontroller1|new_v_count[0]~1_combout\);
+
+-- Location: LCFF_X45_Y19_N31
+\inst2|vgacontroller1|v_count[0]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|vgacontroller1|new_v_count[0]~1_combout\,
+	ena => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|vgacontroller1|v_count\(0));
+
+-- Location: LCCOMB_X45_Y19_N2
+\inst2|vgacontroller1|Add1~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|Add1~2_combout\ = (\inst2|vgacontroller1|v_count\(1) & (!\inst2|vgacontroller1|Add1~1\)) # (!\inst2|vgacontroller1|v_count\(1) & ((\inst2|vgacontroller1|Add1~1\) # (GND)))
+-- \inst2|vgacontroller1|Add1~3\ = CARRY((!\inst2|vgacontroller1|Add1~1\) # (!\inst2|vgacontroller1|v_count\(1)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011110000111111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|vgacontroller1|v_count\(1),
+	datad => VCC,
+	cin => \inst2|vgacontroller1|Add1~1\,
+	combout => \inst2|vgacontroller1|Add1~2_combout\,
+	cout => \inst2|vgacontroller1|Add1~3\);
+
+-- Location: LCCOMB_X45_Y19_N28
+\inst2|vgacontroller1|new_v_count[1]~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|new_v_count[1]~2_combout\ = ((!\inst2|vgacontroller1|LessThan9~2_combout\ & \inst2|vgacontroller1|Add1~2_combout\)) # (!\reset~combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0111011101010101",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \reset~combout\,
+	datab => \inst2|vgacontroller1|LessThan9~2_combout\,
+	datad => \inst2|vgacontroller1|Add1~2_combout\,
+	combout => \inst2|vgacontroller1|new_v_count[1]~2_combout\);
+
+-- Location: LCFF_X45_Y19_N29
+\inst2|vgacontroller1|v_count[1]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|vgacontroller1|new_v_count[1]~2_combout\,
+	ena => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|vgacontroller1|v_count\(1));
+
+-- Location: LCCOMB_X45_Y19_N4
+\inst2|vgacontroller1|Add1~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|Add1~4_combout\ = (\inst2|vgacontroller1|v_count\(2) & (\inst2|vgacontroller1|Add1~3\ $ (GND))) # (!\inst2|vgacontroller1|v_count\(2) & (!\inst2|vgacontroller1|Add1~3\ & VCC))
+-- \inst2|vgacontroller1|Add1~5\ = CARRY((\inst2|vgacontroller1|v_count\(2) & !\inst2|vgacontroller1|Add1~3\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010010100001010",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|v_count\(2),
+	datad => VCC,
+	cin => \inst2|vgacontroller1|Add1~3\,
+	combout => \inst2|vgacontroller1|Add1~4_combout\,
+	cout => \inst2|vgacontroller1|Add1~5\);
+
+-- Location: LCCOMB_X45_Y19_N6
+\inst2|vgacontroller1|Add1~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|Add1~6_combout\ = (\inst2|vgacontroller1|v_count\(3) & (!\inst2|vgacontroller1|Add1~5\)) # (!\inst2|vgacontroller1|v_count\(3) & ((\inst2|vgacontroller1|Add1~5\) # (GND)))
+-- \inst2|vgacontroller1|Add1~7\ = CARRY((!\inst2|vgacontroller1|Add1~5\) # (!\inst2|vgacontroller1|v_count\(3)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101101001011111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|v_count\(3),
+	datad => VCC,
+	cin => \inst2|vgacontroller1|Add1~5\,
+	combout => \inst2|vgacontroller1|Add1~6_combout\,
+	cout => \inst2|vgacontroller1|Add1~7\);
+
+-- Location: LCCOMB_X45_Y19_N8
+\inst2|vgacontroller1|Add1~8\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|Add1~8_combout\ = (\inst2|vgacontroller1|v_count\(4) & (\inst2|vgacontroller1|Add1~7\ $ (GND))) # (!\inst2|vgacontroller1|v_count\(4) & (!\inst2|vgacontroller1|Add1~7\ & VCC))
+-- \inst2|vgacontroller1|Add1~9\ = CARRY((\inst2|vgacontroller1|v_count\(4) & !\inst2|vgacontroller1|Add1~7\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100001100001100",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|vgacontroller1|v_count\(4),
+	datad => VCC,
+	cin => \inst2|vgacontroller1|Add1~7\,
+	combout => \inst2|vgacontroller1|Add1~8_combout\,
+	cout => \inst2|vgacontroller1|Add1~9\);
+
+-- Location: LCCOMB_X45_Y19_N26
+\inst2|vgacontroller1|new_v_count[4]~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|new_v_count[4]~4_combout\ = (\inst2|vgacontroller1|Add1~8_combout\ & !\inst2|vgacontroller1|LessThan9~2_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|vgacontroller1|Add1~8_combout\,
+	datad => \inst2|vgacontroller1|LessThan9~2_combout\,
+	combout => \inst2|vgacontroller1|new_v_count[4]~4_combout\);
+
+-- Location: LCFF_X45_Y19_N27
+\inst2|vgacontroller1|v_count[4]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|vgacontroller1|new_v_count[4]~4_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	ena => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|vgacontroller1|v_count\(4));
+
+-- Location: LCCOMB_X45_Y19_N10
+\inst2|vgacontroller1|Add1~10\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|Add1~10_combout\ = (\inst2|vgacontroller1|v_count\(5) & (!\inst2|vgacontroller1|Add1~9\)) # (!\inst2|vgacontroller1|v_count\(5) & ((\inst2|vgacontroller1|Add1~9\) # (GND)))
+-- \inst2|vgacontroller1|Add1~11\ = CARRY((!\inst2|vgacontroller1|Add1~9\) # (!\inst2|vgacontroller1|v_count\(5)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011110000111111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|vgacontroller1|v_count\(5),
+	datad => VCC,
+	cin => \inst2|vgacontroller1|Add1~9\,
+	combout => \inst2|vgacontroller1|Add1~10_combout\,
+	cout => \inst2|vgacontroller1|Add1~11\);
+
+-- Location: LCCOMB_X44_Y19_N16
+\inst2|vgacontroller1|new_v_count[5]~8\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|new_v_count[5]~8_combout\ = (\inst2|vgacontroller1|Add1~10_combout\ & !\inst2|vgacontroller1|LessThan9~2_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|vgacontroller1|Add1~10_combout\,
+	datad => \inst2|vgacontroller1|LessThan9~2_combout\,
+	combout => \inst2|vgacontroller1|new_v_count[5]~8_combout\);
+
+-- Location: LCFF_X44_Y19_N17
+\inst2|vgacontroller1|v_count[5]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|vgacontroller1|new_v_count[5]~8_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	ena => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|vgacontroller1|v_count\(5));
+
+-- Location: LCCOMB_X44_Y19_N14
+\inst2|vgacontroller1|new_v_count[7]~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|new_v_count[7]~6_combout\ = (\inst2|vgacontroller1|Add1~14_combout\ & !\inst2|vgacontroller1|LessThan9~2_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|vgacontroller1|Add1~14_combout\,
+	datad => \inst2|vgacontroller1|LessThan9~2_combout\,
+	combout => \inst2|vgacontroller1|new_v_count[7]~6_combout\);
+
+-- Location: LCFF_X44_Y19_N15
+\inst2|vgacontroller1|v_count[7]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|vgacontroller1|new_v_count[7]~6_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	ena => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|vgacontroller1|v_count\(7));
+
+-- Location: LCCOMB_X44_Y19_N10
+\inst2|vgacontroller1|LessThan11~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|LessThan11~0_combout\ = (\inst2|vgacontroller1|v_count\(8) & (\inst2|vgacontroller1|v_count\(7) & (\inst2|vgacontroller1|v_count\(5) & \inst2|vgacontroller1|v_count\(6))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|v_count\(8),
+	datab => \inst2|vgacontroller1|v_count\(7),
+	datac => \inst2|vgacontroller1|v_count\(5),
+	datad => \inst2|vgacontroller1|v_count\(6),
+	combout => \inst2|vgacontroller1|LessThan11~0_combout\);
+
+-- Location: LCCOMB_X44_Y18_N20
+\inst2|vgacontroller1|vga_combi~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|vga_combi~1_combout\ = (!\inst2|vgacontroller1|v_count\(9) & (!\inst2|vgacontroller1|LessThan11~0_combout\ & ((\inst2|vgacontroller1|vga_combi~0_combout\) # (!\inst2|vgacontroller1|h_count\(7)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000001000101",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|v_count\(9),
+	datab => \inst2|vgacontroller1|vga_combi~0_combout\,
+	datac => \inst2|vgacontroller1|h_count\(7),
+	datad => \inst2|vgacontroller1|LessThan11~0_combout\,
+	combout => \inst2|vgacontroller1|vga_combi~1_combout\);
+
+-- Location: LCCOMB_X37_Y18_N10
+\inst2|vgacontroller1|ramaddr[15]~53\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[15]~53_combout\ = (!\inst2|decoder1|decoder_claim~regout\ & (\inst2|vgacontroller1|vga_combi~1_combout\ & \reset~combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|decoder_claim~regout\,
+	datac => \inst2|vgacontroller1|vga_combi~1_combout\,
+	datad => \reset~combout\,
+	combout => \inst2|vgacontroller1|ramaddr[15]~53_combout\);
+
+-- Location: PIN_K20,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+\SPIMOSI~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
 	input_async_reset => "none",
@@ -2617,65 +3434,384 @@ PORT MAP (
 	devpor => ww_devpor,
 	devoe => ww_devoe,
 	oe => GND,
-	padio => ww_SPICLK,
-	combout => \SPICLK~combout\);
+	padio => ww_SPIMOSI,
+	combout => \SPIMOSI~combout\);
 
--- Location: LCCOMB_X25_Y20_N24
-\inst2|spi1|sclk_latched~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X44_Y16_N4
+\inst2|spi1|Selector11~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|spi1|sclk_latched~0_combout\ = (\SPICLK~combout\ & !\inst2|sreset~combout\)
+-- \inst2|spi1|Selector11~0_combout\ = (\inst2|spi1|state_reg\(1) & (!\inst2|spi1|state_reg\(3) & ((\inst2|spi1|state_reg\(0))))) # (!\inst2|spi1|state_reg\(1) & (!\inst2|spi1|state_reg\(0) & (\inst2|spi1|state_reg\(3) $ (\inst2|spi1|state_reg\(2)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000011110000",
+	lut_mask => "0101000000000110",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \SPICLK~combout\,
-	datad => \inst2|sreset~combout\,
-	combout => \inst2|spi1|sclk_latched~0_combout\);
+	dataa => \inst2|spi1|state_reg\(3),
+	datab => \inst2|spi1|state_reg\(2),
+	datac => \inst2|spi1|state_reg\(1),
+	datad => \inst2|spi1|state_reg\(0),
+	combout => \inst2|spi1|Selector11~0_combout\);
 
--- Location: LCFF_X25_Y20_N25
-\inst2|spi1|sclk_latched\ : cycloneii_lcell_ff
+-- Location: LCFF_X44_Y16_N5
+\inst2|spi1|state_reg[1]\ : cycloneii_lcell_ff
 PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|spi1|sclk_latched~0_combout\,
+	clk => \SPICLK~combout\,
+	datain => \inst2|spi1|Selector11~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|spi1|sclk_latched~regout\);
+	regout => \inst2|spi1|state_reg\(1));
 
--- Location: LCCOMB_X24_Y20_N20
-\inst2|spi1|spi_rx_data[4]~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X44_Y16_N10
+\inst2|spi1|Selector9~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|spi1|spi_rx_data[4]~0_combout\ = (\inst2|sreset~combout\) # ((!\inst2|spi1|sclk_old~regout\ & \inst2|spi1|sclk_latched~regout\))
+-- \inst2|spi1|Selector9~0_combout\ = (!\inst2|spi1|state_reg\(2) & (!\inst2|spi1|state_reg\(3) & !\inst2|spi1|state_reg\(1)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111101000100",
+	lut_mask => "0000000000000101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|spi1|sclk_old~regout\,
-	datab => \inst2|spi1|sclk_latched~regout\,
-	datad => \inst2|sreset~combout\,
-	combout => \inst2|spi1|spi_rx_data[4]~0_combout\);
+	dataa => \inst2|spi1|state_reg\(2),
+	datac => \inst2|spi1|state_reg\(3),
+	datad => \inst2|spi1|state_reg\(1),
+	combout => \inst2|spi1|Selector9~0_combout\);
 
--- Location: LCFF_X25_Y20_N17
-\inst2|spi1|spi_rx_data[2]\ : cycloneii_lcell_ff
+-- Location: LCFF_X44_Y16_N11
+\inst2|spi1|state_reg[3]\ : cycloneii_lcell_ff
 PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|spi1|spi_rx_data\(1),
-	sclr => \inst2|sreset~combout\,
+	clk => \SPICLK~combout\,
+	datain => \inst2|spi1|Selector9~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|state_reg\(3));
+
+-- Location: LCCOMB_X44_Y16_N2
+\inst2|spi1|Selector12~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|spi1|Selector12~0_combout\ = (!\inst2|spi1|state_reg\(0) & (\inst2|spi1|state_reg\(3) $ (((\inst2|spi1|state_reg\(1)) # (\inst2|spi1|state_reg\(2))))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000100001110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|spi1|state_reg\(1),
+	datab => \inst2|spi1|state_reg\(2),
+	datac => \inst2|spi1|state_reg\(0),
+	datad => \inst2|spi1|state_reg\(3),
+	combout => \inst2|spi1|Selector12~0_combout\);
+
+-- Location: LCFF_X44_Y16_N3
+\inst2|spi1|state_reg[0]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \SPICLK~combout\,
+	datain => \inst2|spi1|Selector12~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|state_reg\(0));
+
+-- Location: LCCOMB_X44_Y16_N28
+\inst2|spi1|Selector10~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|spi1|Selector10~0_combout\ = (\inst2|spi1|state_reg\(2) & (!\inst2|spi1|state_reg\(3) & ((\inst2|spi1|state_reg\(1)) # (\inst2|spi1|state_reg\(0))))) # (!\inst2|spi1|state_reg\(2) & (!\inst2|spi1|state_reg\(1) & (!\inst2|spi1|state_reg\(0) & 
+-- \inst2|spi1|state_reg\(3))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000111100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|spi1|state_reg\(1),
+	datab => \inst2|spi1|state_reg\(0),
+	datac => \inst2|spi1|state_reg\(2),
+	datad => \inst2|spi1|state_reg\(3),
+	combout => \inst2|spi1|Selector10~0_combout\);
+
+-- Location: LCFF_X44_Y16_N29
+\inst2|spi1|state_reg[2]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \SPICLK~combout\,
+	datain => \inst2|spi1|Selector10~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|state_reg\(2));
+
+-- Location: LCCOMB_X44_Y16_N24
+\inst2|spi1|Equal1~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|spi1|Equal1~0_combout\ = (!\inst2|spi1|state_reg\(3) & (!\inst2|spi1|state_reg\(2) & (\inst2|spi1|state_reg\(1) & !\inst2|spi1|state_reg\(0))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000010000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|spi1|state_reg\(3),
+	datab => \inst2|spi1|state_reg\(2),
+	datac => \inst2|spi1|state_reg\(1),
+	datad => \inst2|spi1|state_reg\(0),
+	combout => \inst2|spi1|Equal1~0_combout\);
+
+-- Location: LCFF_X44_Y16_N13
+\inst2|spi1|do_buffer_reg[0]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \SPICLK~combout\,
+	sdata => \SPIMOSI~combout\,
 	sload => VCC,
-	ena => \inst2|spi1|spi_rx_data[4]~0_combout\,
+	ena => \inst2|spi1|Equal1~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|spi1|spi_rx_data\(2));
+	regout => \inst2|spi1|do_buffer_reg\(0));
 
--- Location: LCCOMB_X22_Y17_N30
-\inst2|decoder1|h~5\ : cycloneii_lcell_comb
+-- Location: LCFF_X49_Y16_N1
+\inst2|spi1|sh_reg[0]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \SPICLK~combout\,
+	sdata => \SPIMOSI~combout\,
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|sh_reg\(0));
+
+-- Location: LCCOMB_X44_Y16_N12
+\inst2|spi1|WideOr0~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|h~5_combout\ = (\inst2|decoder1|current_instruction\(2) & \inst2|spi1|spi_rx_data\(2))
+-- \inst2|spi1|WideOr0~0_combout\ = (!\inst2|spi1|state_reg\(1) & !\inst2|spi1|state_reg\(2))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000110011",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|spi1|state_reg\(1),
+	datad => \inst2|spi1|state_reg\(2),
+	combout => \inst2|spi1|WideOr0~0_combout\);
+
+-- Location: LCCOMB_X44_Y16_N22
+\inst2|spi1|Selector8~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|spi1|Selector8~0_combout\ = (\inst2|spi1|sh_reg\(0) & ((\inst2|spi1|state_reg\(3) & (!\inst2|spi1|state_reg\(0) & \inst2|spi1|WideOr0~0_combout\)) # (!\inst2|spi1|state_reg\(3) & ((!\inst2|spi1|WideOr0~0_combout\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0100000000110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|spi1|state_reg\(0),
+	datab => \inst2|spi1|state_reg\(3),
+	datac => \inst2|spi1|sh_reg\(0),
+	datad => \inst2|spi1|WideOr0~0_combout\,
+	combout => \inst2|spi1|Selector8~0_combout\);
+
+-- Location: LCFF_X44_Y16_N23
+\inst2|spi1|sh_reg[1]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \SPICLK~combout\,
+	datain => \inst2|spi1|Selector8~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|sh_reg\(1));
+
+-- Location: LCCOMB_X44_Y16_N8
+\inst2|spi1|Selector7~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|spi1|Selector7~0_combout\ = (\inst2|spi1|sh_reg\(1) & ((\inst2|spi1|state_reg\(3) & (!\inst2|spi1|state_reg\(0) & \inst2|spi1|WideOr0~0_combout\)) # (!\inst2|spi1|state_reg\(3) & ((!\inst2|spi1|WideOr0~0_combout\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000100001000100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|spi1|state_reg\(3),
+	datab => \inst2|spi1|sh_reg\(1),
+	datac => \inst2|spi1|state_reg\(0),
+	datad => \inst2|spi1|WideOr0~0_combout\,
+	combout => \inst2|spi1|Selector7~0_combout\);
+
+-- Location: LCFF_X43_Y16_N23
+\inst2|spi1|do_buffer_reg[2]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \SPICLK~combout\,
+	sdata => \inst2|spi1|Selector7~0_combout\,
+	sload => VCC,
+	ena => \inst2|spi1|Equal1~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|do_buffer_reg\(2));
+
+-- Location: LCCOMB_X44_Y16_N18
+\inst2|spi1|Selector13~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|spi1|Selector13~0_combout\ = (\inst2|spi1|state_reg\(0) & (!\inst2|spi1|state_reg\(3) & ((!\inst2|spi1|state_reg\(2)) # (!\inst2|spi1|state_reg\(1))))) # (!\inst2|spi1|state_reg\(0) & (!\inst2|spi1|state_reg\(1) & (\inst2|spi1|state_reg\(2) $ 
+-- (\inst2|spi1|state_reg\(3)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000100111010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|spi1|state_reg\(0),
+	datab => \inst2|spi1|state_reg\(1),
+	datac => \inst2|spi1|state_reg\(2),
+	datad => \inst2|spi1|state_reg\(3),
+	combout => \inst2|spi1|Selector13~0_combout\);
+
+-- Location: LCCOMB_X45_Y16_N28
+\inst2|spi1|Selector13~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|spi1|Selector13~1_combout\ = (\inst2|spi1|Equal1~0_combout\) # ((\inst2|spi1|do_transfer_reg~regout\ & \inst2|spi1|Selector13~0_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|spi1|Equal1~0_combout\,
+	datac => \inst2|spi1|do_transfer_reg~regout\,
+	datad => \inst2|spi1|Selector13~0_combout\,
+	combout => \inst2|spi1|Selector13~1_combout\);
+
+-- Location: LCFF_X45_Y16_N29
+\inst2|spi1|do_transfer_reg\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \SPICLK~combout\,
+	datain => \inst2|spi1|Selector13~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|do_transfer_reg~regout\);
+
+-- Location: LCCOMB_X45_Y16_N12
+\inst2|spi1|do_valid_A~feeder\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|spi1|do_valid_A~feeder_combout\ = \inst2|spi1|do_transfer_reg~regout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \inst2|spi1|do_transfer_reg~regout\,
+	combout => \inst2|spi1|do_valid_A~feeder_combout\);
+
+-- Location: LCFF_X45_Y16_N13
+\inst2|spi1|do_valid_A\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|spi1|do_valid_A~feeder_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|do_valid_A~regout\);
+
+-- Location: LCCOMB_X45_Y16_N6
+\inst2|spi1|do_valid_B~feeder\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|spi1|do_valid_B~feeder_combout\ = \inst2|spi1|do_valid_A~regout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \inst2|spi1|do_valid_A~regout\,
+	combout => \inst2|spi1|do_valid_B~feeder_combout\);
+
+-- Location: LCFF_X45_Y16_N7
+\inst2|spi1|do_valid_B\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|spi1|do_valid_B~feeder_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|do_valid_B~regout\);
+
+-- Location: LCCOMB_X45_Y16_N2
+\inst2|spi1|do_valid_C~feeder\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|spi1|do_valid_C~feeder_combout\ = \inst2|spi1|do_valid_B~regout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \inst2|spi1|do_valid_B~regout\,
+	combout => \inst2|spi1|do_valid_C~feeder_combout\);
+
+-- Location: LCFF_X45_Y16_N3
+\inst2|spi1|do_valid_C\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|spi1|do_valid_C~feeder_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|do_valid_C~regout\);
+
+-- Location: LCCOMB_X45_Y16_N18
+\inst2|spi1|do_valid_D~feeder\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|spi1|do_valid_D~feeder_combout\ = \inst2|spi1|do_valid_C~regout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \inst2|spi1|do_valid_C~regout\,
+	combout => \inst2|spi1|do_valid_D~feeder_combout\);
+
+-- Location: LCFF_X45_Y16_N19
+\inst2|spi1|do_valid_D\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|spi1|do_valid_D~feeder_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|do_valid_D~regout\);
+
+-- Location: LCCOMB_X45_Y16_N0
+\inst2|spi1|do_valid_next~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|spi1|do_valid_next~0_combout\ = (\inst2|spi1|do_valid_A~regout\ & (!\inst2|spi1|do_valid_D~regout\ & \inst2|spi1|do_valid_B~regout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0010001000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|spi1|do_valid_A~regout\,
+	datab => \inst2|spi1|do_valid_D~regout\,
+	datad => \inst2|spi1|do_valid_B~regout\,
+	combout => \inst2|spi1|do_valid_next~0_combout\);
+
+-- Location: LCFF_X45_Y16_N1
+\inst2|spi1|do_valid_o_reg\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|spi1|do_valid_next~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|do_valid_o_reg~regout\);
+
+-- Location: LCCOMB_X40_Y18_N2
+\inst2|decoder1|prev_spi_data_available~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|prev_spi_data_available~0_combout\ = (\inst2|spi1|do_valid_o_reg~regout\ & \reset~combout\)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2683,877 +3819,55 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|current_instruction\(2),
-	datad => \inst2|spi1|spi_rx_data\(2),
-	combout => \inst2|decoder1|h~5_combout\);
-
--- Location: LCCOMB_X19_Y20_N8
-\inst2|decoder1|packet_num[0]~5\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|packet_num[0]~5_combout\ = (\inst2|decoder1|packet_num[0]~2_combout\ & (((\inst2|decoder1|packet_num\(0))))) # (!\inst2|decoder1|packet_num[0]~2_combout\ & (\inst2|decoder1|current_instruction~1_combout\ & (!\inst2|decoder1|packet_num\(0) 
--- & \reset~combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010010010100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|packet_num[0]~2_combout\,
-	datab => \inst2|decoder1|current_instruction~1_combout\,
-	datac => \inst2|decoder1|packet_num\(0),
+	datab => \inst2|spi1|do_valid_o_reg~regout\,
 	datad => \reset~combout\,
-	combout => \inst2|decoder1|packet_num[0]~5_combout\);
+	combout => \inst2|decoder1|prev_spi_data_available~0_combout\);
 
--- Location: LCFF_X19_Y20_N9
-\inst2|decoder1|packet_num[0]\ : cycloneii_lcell_ff
+-- Location: LCFF_X40_Y18_N3
+\inst2|decoder1|prev_spi_data_available\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|packet_num[0]~5_combout\,
+	datain => \inst2|decoder1|prev_spi_data_available~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|decoder1|packet_num\(0));
+	regout => \inst2|decoder1|prev_spi_data_available~regout\);
 
--- Location: LCCOMB_X22_Y19_N28
-\inst2|decoder1|current_instruction~2\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y18_N0
+\inst2|decoder1|decode_comb~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|current_instruction~2_combout\ = (\reset~combout\ & \inst2|decoder1|current_instruction~1_combout\)
+-- \inst2|decoder1|decode_comb~0_combout\ = (!\inst2|decoder1|prev_spi_data_available~regout\ & \inst2|spi1|do_valid_o_reg~regout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010000010100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \reset~combout\,
-	datac => \inst2|decoder1|current_instruction~1_combout\,
-	combout => \inst2|decoder1|current_instruction~2_combout\);
-
--- Location: LCCOMB_X20_Y19_N18
-\inst2|decoder1|packet_num[1]~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|packet_num[1]~4_combout\ = (\inst2|decoder1|packet_num[0]~2_combout\ & (((\inst2|decoder1|packet_num\(1))))) # (!\inst2|decoder1|packet_num[0]~2_combout\ & (\inst2|decoder1|current_instruction~2_combout\ & (\inst2|decoder1|packet_num\(0) $ 
--- (\inst2|decoder1|packet_num\(1)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101001011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|packet_num\(0),
-	datab => \inst2|decoder1|packet_num[0]~2_combout\,
-	datac => \inst2|decoder1|packet_num\(1),
-	datad => \inst2|decoder1|current_instruction~2_combout\,
-	combout => \inst2|decoder1|packet_num[1]~4_combout\);
-
--- Location: LCFF_X20_Y19_N19
-\inst2|decoder1|packet_num[1]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|packet_num[1]~4_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|packet_num\(1));
-
--- Location: LCCOMB_X20_Y19_N2
-\inst4|hex0[0]~7\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst4|hex0[0]~7_combout\ = (\inst2|decoder1|packet_num\(2) & (\inst2|decoder1|packet_num\(0) & !\inst2|decoder1|packet_num\(1)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|decoder1|packet_num\(2),
-	datac => \inst2|decoder1|packet_num\(0),
-	datad => \inst2|decoder1|packet_num\(1),
-	combout => \inst4|hex0[0]~7_combout\);
-
--- Location: LCCOMB_X20_Y20_N4
-\inst2|decoder1|h~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|h~1_combout\ = (\inst4|hex0[0]~7_combout\ & (\inst2|decoder1|current_instruction\(2) & ((!\inst2|decoder1|current_instruction\(0)) # (!\inst2|decoder1|current_instruction\(1)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0111000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(1),
-	datab => \inst2|decoder1|current_instruction\(0),
-	datac => \inst4|hex0[0]~7_combout\,
-	datad => \inst2|decoder1|current_instruction\(2),
-	combout => \inst2|decoder1|h~1_combout\);
-
--- Location: LCCOMB_X22_Y19_N2
-\inst4|hex1[2]~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst4|hex1[2]~4_combout\ = ((\inst2|decoder1|current_instruction\(2)) # (\inst2|decoder1|current_instruction\(0))) # (!\inst2|decoder1|current_instruction\(1))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111111110011",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|decoder1|current_instruction\(1),
-	datac => \inst2|decoder1|current_instruction\(2),
-	datad => \inst2|decoder1|current_instruction\(0),
-	combout => \inst4|hex1[2]~4_combout\);
-
--- Location: LCCOMB_X20_Y20_N2
-\inst2|decoder1|h~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|h~2_combout\ = ((\inst2|decoder1|decode_comb~0_combout\ & ((\inst2|decoder1|h~1_combout\) # (!\inst4|hex1[2]~4_combout\)))) # (!\reset~combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000111110101111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|decode_comb~0_combout\,
-	datab => \inst2|decoder1|h~1_combout\,
-	datac => \reset~combout\,
-	datad => \inst4|hex1[2]~4_combout\,
-	combout => \inst2|decoder1|h~2_combout\);
-
--- Location: LCFF_X23_Y17_N13
-\inst2|decoder1|h[2]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|h~5_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|h~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|h\(2));
-
--- Location: LCCOMB_X21_Y16_N28
-\inst2|draw1|rect1|Add0~8\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~8_combout\ = (!\inst2|draw1|rect1|started~regout\ & \inst2|decoder1|h\(2))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101000001010000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|started~regout\,
-	datac => \inst2|decoder1|h\(2),
-	combout => \inst2|draw1|rect1|Add0~8_combout\);
-
--- Location: LCCOMB_X23_Y19_N0
-\inst2|decoder1|h~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|h~0_combout\ = (\inst2|spi1|spi_rx_data\(1) & \inst2|decoder1|current_instruction\(2))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|spi1|spi_rx_data\(1),
-	datad => \inst2|decoder1|current_instruction\(2),
-	combout => \inst2|decoder1|h~0_combout\);
-
--- Location: LCFF_X23_Y17_N29
-\inst2|decoder1|h[1]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|h~0_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|h~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|h\(1));
-
--- Location: LCCOMB_X24_Y20_N26
-\inst2|spi1|index[3]~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|spi1|index[3]~0_combout\ = (!\inst2|spi1|index\(2) & (!\inst2|spi1|index\(1) & !\inst2|spi1|index\(0)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000010001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|spi1|index\(2),
-	datab => \inst2|spi1|index\(1),
-	datad => \inst2|spi1|index\(0),
-	combout => \inst2|spi1|index[3]~0_combout\);
-
--- Location: LCCOMB_X24_Y20_N10
-\inst2|spi1|index~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|spi1|index~1_combout\ = ((\inst2|sreset~combout\) # ((!\inst2|spi1|index\(3) & \inst2|spi1|index[3]~0_combout\))) # (!\inst2|spi1|index\(0))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111101001111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|spi1|index\(3),
-	datab => \inst2|spi1|index[3]~0_combout\,
-	datac => \inst2|spi1|index\(0),
-	datad => \inst2|sreset~combout\,
-	combout => \inst2|spi1|index~1_combout\);
-
--- Location: LCFF_X24_Y20_N11
-\inst2|spi1|index[0]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|spi1|index~1_combout\,
-	ena => \inst2|spi1|spi_rx_data[4]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|spi1|index\(0));
-
--- Location: LCCOMB_X24_Y20_N22
-\inst2|spi1|index~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|spi1|index~3_combout\ = (\inst2|spi1|index\(1) $ (!\inst2|spi1|index\(0))) # (!\inst2|spi1|index[3]~2_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111010101011111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|spi1|index[3]~2_combout\,
-	datac => \inst2|spi1|index\(1),
-	datad => \inst2|spi1|index\(0),
-	combout => \inst2|spi1|index~3_combout\);
-
--- Location: LCFF_X24_Y20_N23
-\inst2|spi1|index[1]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|spi1|index~3_combout\,
-	ena => \inst2|spi1|spi_rx_data[4]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|spi1|index\(1));
-
--- Location: LCCOMB_X24_Y20_N6
-\inst2|spi1|index~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|spi1|index~4_combout\ = (\inst2|spi1|index\(2) $ (((!\inst2|spi1|index\(1) & !\inst2|spi1|index\(0))))) # (!\inst2|spi1|index[3]~2_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111010111010111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|spi1|index[3]~2_combout\,
-	datab => \inst2|spi1|index\(1),
-	datac => \inst2|spi1|index\(2),
-	datad => \inst2|spi1|index\(0),
-	combout => \inst2|spi1|index~4_combout\);
-
--- Location: LCFF_X24_Y20_N7
-\inst2|spi1|index[2]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|spi1|index~4_combout\,
-	ena => \inst2|spi1|spi_rx_data[4]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|spi1|index\(2));
-
--- Location: LCCOMB_X24_Y20_N12
-\inst2|spi1|sclk_old~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|spi1|sclk_old~0_combout\ = (\inst2|spi1|sclk_latched~regout\ & !\inst2|sreset~combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|spi1|sclk_latched~regout\,
-	datad => \inst2|sreset~combout\,
-	combout => \inst2|spi1|sclk_old~0_combout\);
-
--- Location: LCFF_X24_Y20_N13
-\inst2|spi1|sclk_old\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|spi1|sclk_old~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|spi1|sclk_old~regout\);
-
--- Location: LCCOMB_X24_Y20_N30
-\inst2|spi1|spi_data_available~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|spi1|spi_data_available~0_combout\ = (\inst2|spi1|index\(0) & (\inst2|spi1|index\(1) & (\inst2|spi1|sclk_old~regout\ & !\inst2|spi1|sclk_latched~regout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000010000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|spi1|index\(0),
-	datab => \inst2|spi1|index\(1),
-	datac => \inst2|spi1|sclk_old~regout\,
-	datad => \inst2|spi1|sclk_latched~regout\,
-	combout => \inst2|spi1|spi_data_available~0_combout\);
-
--- Location: LCCOMB_X24_Y20_N16
-\inst2|spi1|spi_data_available~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|spi1|spi_data_available~1_combout\ = (!\inst2|spi1|index\(3) & (\inst2|spi1|index\(2) & (\inst2|spi1|spi_data_available~0_combout\ & !\inst2|sreset~combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000001000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|spi1|index\(3),
-	datab => \inst2|spi1|index\(2),
-	datac => \inst2|spi1|spi_data_available~0_combout\,
-	datad => \inst2|sreset~combout\,
-	combout => \inst2|spi1|spi_data_available~1_combout\);
-
--- Location: LCFF_X24_Y20_N17
-\inst2|spi1|spi_data_available\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|spi1|spi_data_available~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|spi1|spi_data_available~regout\);
-
--- Location: LCCOMB_X20_Y20_N16
-\inst2|decoder1|decode_comb~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|decode_comb~1_combout\ = (!\inst2|decoder1|prev_spi_data_available~regout\ & \inst2|spi1|spi_data_available~regout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011000000110000",
+	lut_mask => "0011001100000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	datab => \inst2|decoder1|prev_spi_data_available~regout\,
-	datac => \inst2|spi1|spi_data_available~regout\,
-	combout => \inst2|decoder1|decode_comb~1_combout\);
+	datad => \inst2|spi1|do_valid_o_reg~regout\,
+	combout => \inst2|decoder1|decode_comb~0_combout\);
 
--- Location: LCCOMB_X20_Y20_N22
-\inst2|decoder1|en~5\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X43_Y16_N2
+\inst2|decoder1|current_instruction~7\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|en~5_combout\ = (\inst2|decoder1|current_instruction\(2) & (((\inst2|decoder1|decode_comb~1_combout\)))) # (!\inst2|decoder1|current_instruction\(2) & (\inst2|decoder1|current_instruction\(1) & ((\inst2|decoder1|decode_comb~1_combout\) # 
--- (!\inst2|decoder1|current_instruction\(0)))))
+-- \inst2|decoder1|current_instruction~7_combout\ = (!\inst2|spi1|do_buffer_reg\(0) & (\inst2|decoder1|current_instruction~1_combout\ & \reset~combout\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111000110100000",
+	lut_mask => "0011000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(2),
-	datab => \inst2|decoder1|current_instruction\(0),
-	datac => \inst2|decoder1|decode_comb~1_combout\,
-	datad => \inst2|decoder1|current_instruction\(1),
-	combout => \inst2|decoder1|en~5_combout\);
-
--- Location: LCCOMB_X20_Y20_N28
-\inst2|decoder1|en~9\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|en~9_combout\ = (\inst2|decoder1|en~5_combout\ & ((\inst2|decoder1|en~8_combout\) # ((\inst2|decoder1|en\(2) & \inst4|hex1[2]~4_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100100010001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|en~8_combout\,
-	datab => \inst2|decoder1|en~5_combout\,
-	datac => \inst2|decoder1|en\(2),
-	datad => \inst4|hex1[2]~4_combout\,
-	combout => \inst2|decoder1|en~9_combout\);
-
--- Location: LCCOMB_X19_Y20_N14
-\inst4|hex1[3]~8\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst4|hex1[3]~8_combout\ = (!\inst2|decoder1|current_instruction\(2) & !\inst2|decoder1|current_instruction\(1))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000010100000101",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(2),
-	datac => \inst2|decoder1|current_instruction\(1),
-	combout => \inst4|hex1[3]~8_combout\);
-
--- Location: LCCOMB_X19_Y20_N0
-\inst2|decoder1|en~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|en~3_combout\ = (!\inst2|decoder1|spi_reset~0_combout\ & \inst2|draw1|draw_ready~1_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101010100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|spi_reset~0_combout\,
-	datad => \inst2|draw1|draw_ready~1_combout\,
-	combout => \inst2|decoder1|en~3_combout\);
-
--- Location: LCCOMB_X19_Y20_N12
-\inst2|decoder1|en~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|en~4_combout\ = ((\inst2|decoder1|decode_comb~0_combout\ & (!\inst4|hex1[3]~8_combout\)) # (!\inst2|decoder1|decode_comb~0_combout\ & ((!\inst2|decoder1|en~3_combout\)))) # (!\reset~combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101110101111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \reset~combout\,
-	datab => \inst2|decoder1|decode_comb~0_combout\,
-	datac => \inst4|hex1[3]~8_combout\,
-	datad => \inst2|decoder1|en~3_combout\,
-	combout => \inst2|decoder1|en~4_combout\);
-
--- Location: LCFF_X20_Y20_N29
-\inst2|decoder1|en[2]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|en~9_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	ena => \inst2|decoder1|en~4_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|en\(2));
-
--- Location: LCCOMB_X20_Y20_N14
-\inst2|decoder1|en~11\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|en~11_combout\ = (\inst2|decoder1|en~5_combout\ & ((\inst2|decoder1|en~10_combout\) # ((\inst2|decoder1|en\(1) & \inst4|hex1[2]~4_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100100010001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|en~10_combout\,
-	datab => \inst2|decoder1|en~5_combout\,
-	datac => \inst2|decoder1|en\(1),
-	datad => \inst4|hex1[2]~4_combout\,
-	combout => \inst2|decoder1|en~11_combout\);
-
--- Location: LCFF_X20_Y20_N15
-\inst2|decoder1|en[1]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|en~11_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	ena => \inst2|decoder1|en~4_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|en\(1));
-
--- Location: LCCOMB_X21_Y20_N8
-\inst2|draw1|rect1|cy_tmp[0]~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cy_tmp[0]~0_combout\ = (\reset~combout\ & ((\inst2|decoder1|en\(2)) # (\inst2|decoder1|en\(1))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|decoder1|en\(2),
-	datac => \reset~combout\,
-	datad => \inst2|decoder1|en\(1),
-	combout => \inst2|draw1|rect1|cy_tmp[0]~0_combout\);
-
--- Location: LCCOMB_X25_Y20_N6
-\inst2|decoder1|next_is_init~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|next_is_init~0_combout\ = (\inst2|spi1|spi_rx_data\(0) & (\inst2|spi1|spi_rx_data\(2) & \inst2|spi1|spi_rx_data\(1)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|spi1|spi_rx_data\(0),
-	datac => \inst2|spi1|spi_rx_data\(2),
-	datad => \inst2|spi1|spi_rx_data\(1),
-	combout => \inst2|decoder1|next_is_init~0_combout\);
-
--- Location: LCCOMB_X21_Y20_N12
-\inst2|decoder1|next_is_init~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|next_is_init~1_combout\ = (\inst2|decoder1|decoder_claim~regout\ & ((\inst2|decoder1|Equal0~0_combout\) # ((\inst2|decoder1|next_is_init~0_combout\) # (!\inst2|decoder1|decode_comb~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000010110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|Equal0~0_combout\,
-	datab => \inst2|decoder1|decode_comb~0_combout\,
-	datac => \inst2|decoder1|decoder_claim~regout\,
-	datad => \inst2|decoder1|next_is_init~0_combout\,
-	combout => \inst2|decoder1|next_is_init~1_combout\);
-
--- Location: LCFF_X21_Y20_N13
-\inst2|decoder1|decoder_claim\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|next_is_init~1_combout\,
-	sdata => VCC,
-	sload => \ALT_INV_reset~combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|decoder_claim~regout\);
-
--- Location: LCCOMB_X20_Y18_N22
-\inst2|vgacontroller1|new_v_count[6]~7\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|new_v_count[6]~7_combout\ = (\inst2|vgacontroller1|Add1~12_combout\ & !\inst2|vgacontroller1|LessThan9~2_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000101000001010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|Add1~12_combout\,
-	datac => \inst2|vgacontroller1|LessThan9~2_combout\,
-	combout => \inst2|vgacontroller1|new_v_count[6]~7_combout\);
-
--- Location: LCCOMB_X21_Y19_N4
-\inst2|vgacontroller1|h_count[0]~8\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|h_count[0]~8_combout\ = \inst2|vgacontroller1|h_count\(0) $ (VCC)
--- \inst2|vgacontroller1|h_count[0]~9\ = CARRY(\inst2|vgacontroller1|h_count\(0))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011001111001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|vgacontroller1|h_count\(0),
-	datad => VCC,
-	combout => \inst2|vgacontroller1|h_count[0]~8_combout\,
-	cout => \inst2|vgacontroller1|h_count[0]~9\);
-
--- Location: LCCOMB_X22_Y19_N8
-\reset~_wirecell\ : cycloneii_lcell_comb
--- Equation(s):
--- \reset~_wirecell_combout\ = !\reset~combout\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111100001111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \reset~combout\,
-	combout => \reset~_wirecell_combout\);
-
--- Location: LCFF_X21_Y19_N5
-\inst2|vgacontroller1|h_count[0]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|h_count[0]~8_combout\,
-	sdata => \reset~_wirecell_combout\,
-	sload => \inst2|vgacontroller1|h_count[2]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|h_count\(0));
-
--- Location: LCCOMB_X21_Y19_N6
-\inst2|vgacontroller1|h_count[1]~10\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|h_count[1]~10_combout\ = (\inst2|vgacontroller1|h_count\(1) & (!\inst2|vgacontroller1|h_count[0]~9\)) # (!\inst2|vgacontroller1|h_count\(1) & ((\inst2|vgacontroller1|h_count[0]~9\) # (GND)))
--- \inst2|vgacontroller1|h_count[1]~11\ = CARRY((!\inst2|vgacontroller1|h_count[0]~9\) # (!\inst2|vgacontroller1|h_count\(1)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101101001011111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|h_count\(1),
-	datad => VCC,
-	cin => \inst2|vgacontroller1|h_count[0]~9\,
-	combout => \inst2|vgacontroller1|h_count[1]~10_combout\,
-	cout => \inst2|vgacontroller1|h_count[1]~11\);
-
--- Location: LCCOMB_X21_Y19_N8
-\inst2|vgacontroller1|h_count[2]~12\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|h_count[2]~12_combout\ = (\inst2|vgacontroller1|h_count\(2) & (\inst2|vgacontroller1|h_count[1]~11\ $ (GND))) # (!\inst2|vgacontroller1|h_count\(2) & (!\inst2|vgacontroller1|h_count[1]~11\ & VCC))
--- \inst2|vgacontroller1|h_count[2]~13\ = CARRY((\inst2|vgacontroller1|h_count\(2) & !\inst2|vgacontroller1|h_count[1]~11\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100001100001100",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|vgacontroller1|h_count\(2),
-	datad => VCC,
-	cin => \inst2|vgacontroller1|h_count[1]~11\,
-	combout => \inst2|vgacontroller1|h_count[2]~12_combout\,
-	cout => \inst2|vgacontroller1|h_count[2]~13\);
-
--- Location: LCFF_X21_Y19_N9
-\inst2|vgacontroller1|h_count[2]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|h_count[2]~12_combout\,
-	sdata => \reset~_wirecell_combout\,
-	sload => \inst2|vgacontroller1|h_count[2]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|h_count\(2));
-
--- Location: LCCOMB_X21_Y19_N12
-\inst2|vgacontroller1|h_count[4]~16\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|h_count[4]~16_combout\ = (\inst2|vgacontroller1|h_count\(4) & (\inst2|vgacontroller1|h_count[3]~15\ $ (GND))) # (!\inst2|vgacontroller1|h_count\(4) & (!\inst2|vgacontroller1|h_count[3]~15\ & VCC))
--- \inst2|vgacontroller1|h_count[4]~17\ = CARRY((\inst2|vgacontroller1|h_count\(4) & !\inst2|vgacontroller1|h_count[3]~15\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010010100001010",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|h_count\(4),
-	datad => VCC,
-	cin => \inst2|vgacontroller1|h_count[3]~15\,
-	combout => \inst2|vgacontroller1|h_count[4]~16_combout\,
-	cout => \inst2|vgacontroller1|h_count[4]~17\);
-
--- Location: LCCOMB_X21_Y19_N14
-\inst2|vgacontroller1|h_count[5]~19\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|h_count[5]~19_combout\ = (\inst2|vgacontroller1|h_count\(5) & (!\inst2|vgacontroller1|h_count[4]~17\)) # (!\inst2|vgacontroller1|h_count\(5) & ((\inst2|vgacontroller1|h_count[4]~17\) # (GND)))
--- \inst2|vgacontroller1|h_count[5]~20\ = CARRY((!\inst2|vgacontroller1|h_count[4]~17\) # (!\inst2|vgacontroller1|h_count\(5)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011110000111111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|vgacontroller1|h_count\(5),
-	datad => VCC,
-	cin => \inst2|vgacontroller1|h_count[4]~17\,
-	combout => \inst2|vgacontroller1|h_count[5]~19_combout\,
-	cout => \inst2|vgacontroller1|h_count[5]~20\);
-
--- Location: LCCOMB_X21_Y19_N2
-\~GND\ : cycloneii_lcell_comb
--- Equation(s):
--- \~GND~combout\ = GND
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	combout => \~GND~combout\);
-
--- Location: LCFF_X21_Y19_N15
-\inst2|vgacontroller1|h_count[5]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|h_count[5]~19_combout\,
-	sdata => \~GND~combout\,
-	sload => \inst2|vgacontroller1|h_count[2]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|h_count\(5));
-
--- Location: LCCOMB_X21_Y19_N16
-\inst2|vgacontroller1|h_count[6]~21\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|h_count[6]~21_combout\ = (\inst2|vgacontroller1|h_count\(6) & (\inst2|vgacontroller1|h_count[5]~20\ $ (GND))) # (!\inst2|vgacontroller1|h_count\(6) & (!\inst2|vgacontroller1|h_count[5]~20\ & VCC))
--- \inst2|vgacontroller1|h_count[6]~22\ = CARRY((\inst2|vgacontroller1|h_count\(6) & !\inst2|vgacontroller1|h_count[5]~20\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010010100001010",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|h_count\(6),
-	datad => VCC,
-	cin => \inst2|vgacontroller1|h_count[5]~20\,
-	combout => \inst2|vgacontroller1|h_count[6]~21_combout\,
-	cout => \inst2|vgacontroller1|h_count[6]~22\);
-
--- Location: LCCOMB_X21_Y19_N18
-\inst2|vgacontroller1|h_count[7]~23\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|h_count[7]~23_combout\ = \inst2|vgacontroller1|h_count[6]~22\ $ (\inst2|vgacontroller1|h_count\(7))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111111110000",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datad => \inst2|vgacontroller1|h_count\(7),
-	cin => \inst2|vgacontroller1|h_count[6]~22\,
-	combout => \inst2|vgacontroller1|h_count[7]~23_combout\);
-
--- Location: LCFF_X21_Y19_N19
-\inst2|vgacontroller1|h_count[7]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|h_count[7]~23_combout\,
-	sdata => \reset~_wirecell_combout\,
-	sload => \inst2|vgacontroller1|h_count[2]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|h_count\(7));
-
--- Location: LCFF_X21_Y19_N17
-\inst2|vgacontroller1|h_count[6]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|h_count[6]~21_combout\,
-	sdata => \reset~_wirecell_combout\,
-	sload => \inst2|vgacontroller1|h_count[2]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|h_count\(6));
-
--- Location: LCFF_X21_Y19_N13
-\inst2|vgacontroller1|h_count[4]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|h_count[4]~16_combout\,
-	sdata => \~GND~combout\,
-	sload => \inst2|vgacontroller1|h_count[2]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|h_count\(4));
-
--- Location: LCCOMB_X21_Y19_N30
-\inst2|vgacontroller1|LessThan8~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|LessThan8~1_combout\ = (!\inst2|vgacontroller1|h_count\(3) & !\inst2|vgacontroller1|h_count\(4))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000001010101",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|h_count\(3),
-	datad => \inst2|vgacontroller1|h_count\(4),
-	combout => \inst2|vgacontroller1|LessThan8~1_combout\);
-
--- Location: LCCOMB_X21_Y19_N20
-\inst2|vgacontroller1|LessThan8~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|LessThan8~2_combout\ = (\inst2|vgacontroller1|h_count\(7) & (\inst2|vgacontroller1|h_count\(6) & ((\inst2|vgacontroller1|LessThan8~0_combout\) # (!\inst2|vgacontroller1|LessThan8~1_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000000011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|LessThan8~0_combout\,
-	datab => \inst2|vgacontroller1|h_count\(7),
-	datac => \inst2|vgacontroller1|h_count\(6),
-	datad => \inst2|vgacontroller1|LessThan8~1_combout\,
-	combout => \inst2|vgacontroller1|LessThan8~2_combout\);
-
--- Location: LCCOMB_X21_Y18_N4
-\inst2|vgacontroller1|h_count[2]~18\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|h_count[2]~18_combout\ = (\inst2|vgacontroller1|LessThan8~2_combout\) # (!\reset~combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \inst2|vgacontroller1|LessThan8~2_combout\,
+	datab => \inst2|spi1|do_buffer_reg\(0),
+	datac => \inst2|decoder1|current_instruction~1_combout\,
 	datad => \reset~combout\,
-	combout => \inst2|vgacontroller1|h_count[2]~18_combout\);
+	combout => \inst2|decoder1|current_instruction~7_combout\);
 
--- Location: LCFF_X20_Y18_N23
-\inst2|vgacontroller1|v_count[6]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|new_v_count[6]~7_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	ena => \inst2|vgacontroller1|h_count[2]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|v_count\(6));
-
--- Location: LCCOMB_X21_Y18_N24
-\inst2|vgacontroller1|new_v_count[7]~6\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X1_Y20_N2
+\inst2|decoder1|Add1~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|new_v_count[7]~6_combout\ = (\inst2|vgacontroller1|Add1~14_combout\ & !\inst2|vgacontroller1|LessThan9~2_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000010101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|Add1~14_combout\,
-	datad => \inst2|vgacontroller1|LessThan9~2_combout\,
-	combout => \inst2|vgacontroller1|new_v_count[7]~6_combout\);
-
--- Location: LCFF_X21_Y18_N25
-\inst2|vgacontroller1|v_count[7]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|new_v_count[7]~6_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	ena => \inst2|vgacontroller1|h_count[2]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|v_count\(7));
-
--- Location: LCCOMB_X20_Y18_N0
-\inst2|vgacontroller1|Add1~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|Add1~0_combout\ = \inst2|vgacontroller1|v_count\(0) $ (VCC)
--- \inst2|vgacontroller1|Add1~1\ = CARRY(\inst2|vgacontroller1|v_count\(0))
+-- \inst2|decoder1|Add1~0_combout\ = \inst2|decoder1|timeout_count\(0) $ (VCC)
+-- \inst2|decoder1|Add1~1\ = CARRY(\inst2|decoder1|timeout_count\(0))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -3561,121 +3875,32 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|vgacontroller1|v_count\(0),
+	datab => \inst2|decoder1|timeout_count\(0),
 	datad => VCC,
-	combout => \inst2|vgacontroller1|Add1~0_combout\,
-	cout => \inst2|vgacontroller1|Add1~1\);
+	combout => \inst2|decoder1|Add1~0_combout\,
+	cout => \inst2|decoder1|Add1~1\);
 
--- Location: LCCOMB_X20_Y18_N26
-\inst2|vgacontroller1|new_v_count[0]~1\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X44_Y19_N22
+\inst2|vgacontroller1|LessThan7~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|new_v_count[0]~1_combout\ = (\reset~combout\ & (\inst2|vgacontroller1|Add1~0_combout\ & !\inst2|vgacontroller1|LessThan9~2_combout\))
+-- \inst2|vgacontroller1|LessThan7~0_combout\ = (!\inst2|vgacontroller1|v_count\(3) & (!\inst2|vgacontroller1|v_count\(1) & (!\inst2|vgacontroller1|v_count\(4) & !\inst2|vgacontroller1|v_count\(0))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000100000001000",
+	lut_mask => "0000000000000001",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \reset~combout\,
-	datab => \inst2|vgacontroller1|Add1~0_combout\,
-	datac => \inst2|vgacontroller1|LessThan9~2_combout\,
-	combout => \inst2|vgacontroller1|new_v_count[0]~1_combout\);
-
--- Location: LCFF_X20_Y18_N27
-\inst2|vgacontroller1|v_count[0]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|new_v_count[0]~1_combout\,
-	ena => \inst2|vgacontroller1|h_count[2]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|v_count\(0));
-
--- Location: LCCOMB_X20_Y18_N2
-\inst2|vgacontroller1|Add1~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|Add1~2_combout\ = (\inst2|vgacontroller1|v_count\(1) & (!\inst2|vgacontroller1|Add1~1\)) # (!\inst2|vgacontroller1|v_count\(1) & ((\inst2|vgacontroller1|Add1~1\) # (GND)))
--- \inst2|vgacontroller1|Add1~3\ = CARRY((!\inst2|vgacontroller1|Add1~1\) # (!\inst2|vgacontroller1|v_count\(1)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011110000111111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
+	dataa => \inst2|vgacontroller1|v_count\(3),
 	datab => \inst2|vgacontroller1|v_count\(1),
-	datad => VCC,
-	cin => \inst2|vgacontroller1|Add1~1\,
-	combout => \inst2|vgacontroller1|Add1~2_combout\,
-	cout => \inst2|vgacontroller1|Add1~3\);
+	datac => \inst2|vgacontroller1|v_count\(4),
+	datad => \inst2|vgacontroller1|v_count\(0),
+	combout => \inst2|vgacontroller1|LessThan7~0_combout\);
 
--- Location: LCCOMB_X20_Y18_N28
-\inst2|vgacontroller1|new_v_count[1]~2\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X45_Y19_N24
+\inst2|vgacontroller1|new_v_count[2]~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|new_v_count[1]~2_combout\ = ((\inst2|vgacontroller1|Add1~2_combout\ & !\inst2|vgacontroller1|LessThan9~2_combout\)) # (!\reset~combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101110101011101",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \reset~combout\,
-	datab => \inst2|vgacontroller1|Add1~2_combout\,
-	datac => \inst2|vgacontroller1|LessThan9~2_combout\,
-	combout => \inst2|vgacontroller1|new_v_count[1]~2_combout\);
-
--- Location: LCFF_X20_Y18_N29
-\inst2|vgacontroller1|v_count[1]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|new_v_count[1]~2_combout\,
-	ena => \inst2|vgacontroller1|h_count[2]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|v_count\(1));
-
--- Location: LCCOMB_X20_Y18_N4
-\inst2|vgacontroller1|Add1~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|Add1~4_combout\ = (\inst2|vgacontroller1|v_count\(2) & (\inst2|vgacontroller1|Add1~3\ $ (GND))) # (!\inst2|vgacontroller1|v_count\(2) & (!\inst2|vgacontroller1|Add1~3\ & VCC))
--- \inst2|vgacontroller1|Add1~5\ = CARRY((\inst2|vgacontroller1|v_count\(2) & !\inst2|vgacontroller1|Add1~3\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010010100001010",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|v_count\(2),
-	datad => VCC,
-	cin => \inst2|vgacontroller1|Add1~3\,
-	combout => \inst2|vgacontroller1|Add1~4_combout\,
-	cout => \inst2|vgacontroller1|Add1~5\);
-
--- Location: LCCOMB_X20_Y18_N6
-\inst2|vgacontroller1|Add1~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|Add1~6_combout\ = (\inst2|vgacontroller1|v_count\(3) & (!\inst2|vgacontroller1|Add1~5\)) # (!\inst2|vgacontroller1|v_count\(3) & ((\inst2|vgacontroller1|Add1~5\) # (GND)))
--- \inst2|vgacontroller1|Add1~7\ = CARRY((!\inst2|vgacontroller1|Add1~5\) # (!\inst2|vgacontroller1|v_count\(3)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011110000111111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|vgacontroller1|v_count\(3),
-	datad => VCC,
-	cin => \inst2|vgacontroller1|Add1~5\,
-	combout => \inst2|vgacontroller1|Add1~6_combout\,
-	cout => \inst2|vgacontroller1|Add1~7\);
-
--- Location: LCCOMB_X21_Y18_N22
-\inst2|vgacontroller1|v_count[3]~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|v_count[3]~0_combout\ = (\inst2|vgacontroller1|Add1~6_combout\ & !\inst2|vgacontroller1|LessThan9~2_combout\)
+-- \inst2|vgacontroller1|new_v_count[2]~0_combout\ = (\inst2|vgacontroller1|Add1~4_combout\ & !\inst2|vgacontroller1|LessThan9~2_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -3683,96 +3908,11 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \inst2|vgacontroller1|Add1~6_combout\,
-	datad => \inst2|vgacontroller1|LessThan9~2_combout\,
-	combout => \inst2|vgacontroller1|v_count[3]~0_combout\);
-
--- Location: LCCOMB_X21_Y18_N28
-\inst2|vgacontroller1|v_count[3]~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|v_count[3]~1_combout\ = ((\inst2|vgacontroller1|LessThan8~2_combout\ & (\inst2|vgacontroller1|v_count[3]~0_combout\)) # (!\inst2|vgacontroller1|LessThan8~2_combout\ & ((\inst2|vgacontroller1|v_count\(3))))) # (!\reset~combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101100011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|LessThan8~2_combout\,
-	datab => \inst2|vgacontroller1|v_count[3]~0_combout\,
-	datac => \inst2|vgacontroller1|v_count\(3),
-	datad => \reset~combout\,
-	combout => \inst2|vgacontroller1|v_count[3]~1_combout\);
-
--- Location: LCFF_X21_Y18_N29
-\inst2|vgacontroller1|v_count[3]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|v_count[3]~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|v_count\(3));
-
--- Location: LCCOMB_X20_Y18_N16
-\inst2|vgacontroller1|Add1~16\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|Add1~16_combout\ = (\inst2|vgacontroller1|v_count\(8) & (\inst2|vgacontroller1|Add1~15\ $ (GND))) # (!\inst2|vgacontroller1|v_count\(8) & (!\inst2|vgacontroller1|Add1~15\ & VCC))
--- \inst2|vgacontroller1|Add1~17\ = CARRY((\inst2|vgacontroller1|v_count\(8) & !\inst2|vgacontroller1|Add1~15\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100001100001100",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|vgacontroller1|v_count\(8),
-	datad => VCC,
-	cin => \inst2|vgacontroller1|Add1~15\,
-	combout => \inst2|vgacontroller1|Add1~16_combout\,
-	cout => \inst2|vgacontroller1|Add1~17\);
-
--- Location: LCCOMB_X21_Y18_N30
-\inst2|vgacontroller1|new_v_count[8]~5\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|new_v_count[8]~5_combout\ = (\inst2|vgacontroller1|Add1~16_combout\ & !\inst2|vgacontroller1|LessThan9~2_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|vgacontroller1|Add1~16_combout\,
-	datad => \inst2|vgacontroller1|LessThan9~2_combout\,
-	combout => \inst2|vgacontroller1|new_v_count[8]~5_combout\);
-
--- Location: LCFF_X21_Y18_N31
-\inst2|vgacontroller1|v_count[8]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|new_v_count[8]~5_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	ena => \inst2|vgacontroller1|h_count[2]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|v_count\(8));
-
--- Location: LCCOMB_X20_Y18_N24
-\inst2|vgacontroller1|new_v_count[2]~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|new_v_count[2]~0_combout\ = (!\inst2|vgacontroller1|LessThan9~2_combout\ & \inst2|vgacontroller1|Add1~4_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011000000110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|vgacontroller1|LessThan9~2_combout\,
 	datac => \inst2|vgacontroller1|Add1~4_combout\,
+	datad => \inst2|vgacontroller1|LessThan9~2_combout\,
 	combout => \inst2|vgacontroller1|new_v_count[2]~0_combout\);
 
--- Location: LCFF_X20_Y18_N25
+-- Location: LCFF_X45_Y19_N25
 \inst2|vgacontroller1|v_count[2]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
@@ -3783,99 +3923,52 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \inst2|vgacontroller1|v_count\(2));
 
--- Location: LCCOMB_X21_Y18_N20
-\inst2|vgacontroller1|LessThan9~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X44_Y19_N8
+\inst2|vgacontroller1|vga_combi~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|LessThan9~0_combout\ = (\inst2|vgacontroller1|v_count\(7)) # ((\inst2|vgacontroller1|v_count\(8)) # ((\inst2|vgacontroller1|v_count\(2) & \inst2|vgacontroller1|v_count\(3))))
+-- \inst2|vgacontroller1|vga_combi~4_combout\ = (!\inst2|vgacontroller1|v_count\(9) & (((\inst2|vgacontroller1|LessThan7~0_combout\ & !\inst2|vgacontroller1|v_count\(2))) # (!\inst2|vgacontroller1|LessThan11~0_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111011101110",
+	lut_mask => "0000010100001101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|vgacontroller1|v_count\(7),
-	datab => \inst2|vgacontroller1|v_count\(8),
-	datac => \inst2|vgacontroller1|v_count\(2),
-	datad => \inst2|vgacontroller1|v_count\(3),
-	combout => \inst2|vgacontroller1|LessThan9~0_combout\);
+	dataa => \inst2|vgacontroller1|LessThan11~0_combout\,
+	datab => \inst2|vgacontroller1|LessThan7~0_combout\,
+	datac => \inst2|vgacontroller1|v_count\(9),
+	datad => \inst2|vgacontroller1|v_count\(2),
+	combout => \inst2|vgacontroller1|vga_combi~4_combout\);
 
--- Location: LCCOMB_X20_Y18_N20
-\inst2|vgacontroller1|new_v_count[5]~8\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|new_v_count[5]~8_combout\ = (\inst2|vgacontroller1|Add1~10_combout\ & !\inst2|vgacontroller1|LessThan9~2_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000101000001010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|Add1~10_combout\,
-	datac => \inst2|vgacontroller1|LessThan9~2_combout\,
-	combout => \inst2|vgacontroller1|new_v_count[5]~8_combout\);
-
--- Location: LCFF_X20_Y18_N21
-\inst2|vgacontroller1|v_count[5]\ : cycloneii_lcell_ff
+-- Location: LCFF_X43_Y19_N7
+\inst2|vgacontroller1|h_count[1]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|new_v_count[5]~8_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	ena => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	datain => \inst2|vgacontroller1|h_count[1]~10_combout\,
+	sdata => \~GND~combout\,
+	sload => \inst2|vgacontroller1|h_count[2]~18_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|v_count\(5));
+	regout => \inst2|vgacontroller1|h_count\(1));
 
--- Location: LCCOMB_X21_Y18_N26
-\inst2|vgacontroller1|LessThan9~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|LessThan9~1_combout\ = (\inst2|vgacontroller1|v_count\(4)) # (\inst2|vgacontroller1|v_count\(5))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101011111010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|v_count\(4),
-	datac => \inst2|vgacontroller1|v_count\(5),
-	combout => \inst2|vgacontroller1|LessThan9~1_combout\);
-
--- Location: LCCOMB_X21_Y18_N0
-\inst2|vgacontroller1|LessThan9~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|LessThan9~2_combout\ = (\inst2|vgacontroller1|v_count\(9) & ((\inst2|vgacontroller1|v_count\(6)) # ((\inst2|vgacontroller1|LessThan9~0_combout\) # (\inst2|vgacontroller1|LessThan9~1_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010101010101000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|v_count\(9),
-	datab => \inst2|vgacontroller1|v_count\(6),
-	datac => \inst2|vgacontroller1|LessThan9~0_combout\,
-	datad => \inst2|vgacontroller1|LessThan9~1_combout\,
-	combout => \inst2|vgacontroller1|LessThan9~2_combout\);
-
--- Location: LCCOMB_X21_Y19_N26
+-- Location: LCCOMB_X43_Y19_N28
 \inst2|vgacontroller1|vga_combi~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|vga_combi~2_combout\ = (!\inst2|vgacontroller1|h_count\(1) & (!\inst2|vgacontroller1|h_count\(2) & (!\inst2|vgacontroller1|h_count\(0) & \inst2|vgacontroller1|LessThan8~1_combout\)))
+-- \inst2|vgacontroller1|vga_combi~2_combout\ = (\inst2|vgacontroller1|LessThan8~1_combout\ & (!\inst2|vgacontroller1|h_count\(0) & (!\inst2|vgacontroller1|h_count\(2) & !\inst2|vgacontroller1|h_count\(1))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000100000000",
+	lut_mask => "0000000000000010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|vgacontroller1|h_count\(1),
-	datab => \inst2|vgacontroller1|h_count\(2),
-	datac => \inst2|vgacontroller1|h_count\(0),
-	datad => \inst2|vgacontroller1|LessThan8~1_combout\,
+	dataa => \inst2|vgacontroller1|LessThan8~1_combout\,
+	datab => \inst2|vgacontroller1|h_count\(0),
+	datac => \inst2|vgacontroller1|h_count\(2),
+	datad => \inst2|vgacontroller1|h_count\(1),
 	combout => \inst2|vgacontroller1|vga_combi~2_combout\);
 
--- Location: LCCOMB_X21_Y19_N0
+-- Location: LCCOMB_X43_Y19_N22
 \inst2|vgacontroller1|vga_combi~3\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|vgacontroller1|vga_combi~3_combout\ = ((!\inst2|vgacontroller1|h_count\(6) & ((\inst2|vgacontroller1|vga_combi~2_combout\) # (!\inst2|vgacontroller1|h_count\(5))))) # (!\inst2|vgacontroller1|h_count\(7))
@@ -3892,174 +3985,464 @@ PORT MAP (
 	datad => \inst2|vgacontroller1|vga_combi~2_combout\,
 	combout => \inst2|vgacontroller1|vga_combi~3_combout\);
 
--- Location: LCCOMB_X21_Y18_N14
+-- Location: LCCOMB_X44_Y19_N2
 \inst2|vgacontroller1|vga_combi~5\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|vga_combi~5_combout\ = (\inst2|vgacontroller1|LessThan9~2_combout\) # ((\inst2|vgacontroller1|LessThan8~2_combout\) # ((\inst2|vgacontroller1|vga_combi~4_combout\ & \inst2|vgacontroller1|vga_combi~3_combout\)))
+-- \inst2|vgacontroller1|vga_combi~5_combout\ = (\inst2|vgacontroller1|LessThan8~2_combout\) # ((\inst2|vgacontroller1|LessThan9~2_combout\) # ((\inst2|vgacontroller1|vga_combi~4_combout\ & \inst2|vgacontroller1|vga_combi~3_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111011111100",
+	lut_mask => "1111111011101110",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|vgacontroller1|vga_combi~4_combout\,
+	dataa => \inst2|vgacontroller1|LessThan8~2_combout\,
 	datab => \inst2|vgacontroller1|LessThan9~2_combout\,
-	datac => \inst2|vgacontroller1|LessThan8~2_combout\,
+	datac => \inst2|vgacontroller1|vga_combi~4_combout\,
 	datad => \inst2|vgacontroller1|vga_combi~3_combout\,
 	combout => \inst2|vgacontroller1|vga_combi~5_combout\);
 
--- Location: LCCOMB_X20_Y17_N12
+-- Location: LCCOMB_X42_Y19_N6
 \inst2|ramcontroller1|draw_can_access~0\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|ramcontroller1|draw_can_access~0_combout\ = (!\inst2|decoder1|decoder_claim~regout\ & ((!\inst2|vgacontroller1|vga_combi~5_combout\) # (!\reset~combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000001100001111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \reset~combout\,
-	datac => \inst2|decoder1|decoder_claim~regout\,
-	datad => \inst2|vgacontroller1|vga_combi~5_combout\,
-	combout => \inst2|ramcontroller1|draw_can_access~0_combout\);
-
--- Location: LCCOMB_X22_Y17_N6
-\inst2|draw1|rect1|started_tmp~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|started_tmp~0_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|started~regout\) # (\inst2|ramcontroller1|draw_can_access~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	datac => \inst2|draw1|rect1|started~regout\,
-	datad => \inst2|ramcontroller1|draw_can_access~0_combout\,
-	combout => \inst2|draw1|rect1|started_tmp~0_combout\);
-
--- Location: LCFF_X22_Y17_N7
-\inst2|draw1|rect1|started\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|rect1|started_tmp~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|rect1|started~regout\);
-
--- Location: LCCOMB_X22_Y16_N28
-\inst2|draw1|rect1|Add0~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~4_combout\ = (\inst2|decoder1|h\(1) & !\inst2|draw1|rect1|started~regout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|decoder1|h\(1),
-	datad => \inst2|draw1|rect1|started~regout\,
-	combout => \inst2|draw1|rect1|Add0~4_combout\);
-
--- Location: LCCOMB_X23_Y19_N2
-\inst2|decoder1|h~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|h~3_combout\ = (\inst2|spi1|spi_rx_data\(0) & \inst2|decoder1|current_instruction\(2))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \inst2|spi1|spi_rx_data\(0),
-	datad => \inst2|decoder1|current_instruction\(2),
-	combout => \inst2|decoder1|h~3_combout\);
-
--- Location: LCFF_X23_Y17_N11
-\inst2|decoder1|h[0]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|h~3_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|h~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|h\(0));
-
--- Location: LCCOMB_X22_Y16_N0
-\inst2|draw1|rect1|Add0~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~0_combout\ = (\inst2|decoder1|h\(0) & !\inst2|draw1|rect1|started~regout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \inst2|decoder1|h\(0),
-	datad => \inst2|draw1|rect1|started~regout\,
-	combout => \inst2|draw1|rect1|Add0~0_combout\);
-
--- Location: LCCOMB_X22_Y16_N8
-\inst2|draw1|rect1|Add0~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~1_combout\ = \inst2|draw1|rect1|cy\(0) $ (VCC)
--- \inst2|draw1|rect1|Add0~2\ = CARRY(\inst2|draw1|rect1|cy\(0))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011001111001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|rect1|cy\(0),
-	datad => VCC,
-	combout => \inst2|draw1|rect1|Add0~1_combout\,
-	cout => \inst2|draw1|rect1|Add0~2\);
-
--- Location: LCCOMB_X21_Y16_N6
-\inst2|draw1|rect1|Add0~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~3_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|Add0~0_combout\) # ((\inst2|draw1|rect1|draw_write~0_combout\ & \inst2|draw1|rect1|Add0~1_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110110000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|draw_write~0_combout\,
-	datab => \inst2|draw1|rect1|Add0~0_combout\,
-	datac => \inst2|draw1|rect1|Add0~1_combout\,
-	datad => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	combout => \inst2|draw1|rect1|Add0~3_combout\);
-
--- Location: LCCOMB_X21_Y20_N14
-\inst2|draw1|rect1|cy_tmp[0]~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cy_tmp[0]~1_combout\ = (!\inst2|decoder1|decoder_claim~regout\ & !\inst2|vgacontroller1|vga_combi~5_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000001010101",
+	lut_mask => "0000010101010101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|decoder_claim~regout\,
+	datac => \reset~combout\,
 	datad => \inst2|vgacontroller1|vga_combi~5_combout\,
-	combout => \inst2|draw1|rect1|cy_tmp[0]~1_combout\);
+	combout => \inst2|ramcontroller1|draw_can_access~0_combout\);
 
--- Location: LCCOMB_X22_Y17_N24
-\inst2|decoder1|x~5\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y19_N8
+\inst2|draw1|line1|cx[4]~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|x~5_combout\ = (\inst2|spi1|spi_rx_data\(2) & (\inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(1) & \inst2|decoder1|current_instruction\(0))))))
+-- \inst2|draw1|line1|cx[4]~0_combout\ = (!\reset~combout\) # (!\inst2|decoder1|en\(3))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101111101011111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|en\(3),
+	datac => \reset~combout\,
+	combout => \inst2|draw1|line1|cx[4]~0_combout\);
+
+-- Location: LCCOMB_X44_Y16_N14
+\inst2|spi1|Selector4~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|spi1|Selector4~0_combout\ = (\inst2|spi1|sh_reg\(4) & ((\inst2|spi1|state_reg\(3) & (!\inst2|spi1|state_reg\(0) & \inst2|spi1|WideOr0~0_combout\)) # (!\inst2|spi1|state_reg\(3) & ((!\inst2|spi1|WideOr0~0_combout\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000100000100010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|spi1|sh_reg\(4),
+	datab => \inst2|spi1|state_reg\(3),
+	datac => \inst2|spi1|state_reg\(0),
+	datad => \inst2|spi1|WideOr0~0_combout\,
+	combout => \inst2|spi1|Selector4~0_combout\);
+
+-- Location: LCFF_X44_Y16_N15
+\inst2|spi1|sh_reg[5]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \SPICLK~combout\,
+	datain => \inst2|spi1|Selector4~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|sh_reg\(5));
+
+-- Location: LCCOMB_X44_Y16_N26
+\inst2|spi1|Selector3~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|spi1|Selector3~0_combout\ = (\inst2|spi1|sh_reg\(5) & ((\inst2|spi1|state_reg\(3) & (!\inst2|spi1|state_reg\(0) & \inst2|spi1|WideOr0~0_combout\)) # (!\inst2|spi1|state_reg\(3) & ((!\inst2|spi1|WideOr0~0_combout\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0010000001010000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|spi1|state_reg\(3),
+	datab => \inst2|spi1|state_reg\(0),
+	datac => \inst2|spi1|sh_reg\(5),
+	datad => \inst2|spi1|WideOr0~0_combout\,
+	combout => \inst2|spi1|Selector3~0_combout\);
+
+-- Location: LCFF_X44_Y16_N27
+\inst2|spi1|sh_reg[6]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \SPICLK~combout\,
+	datain => \inst2|spi1|Selector3~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|sh_reg\(6));
+
+-- Location: LCFF_X43_Y16_N21
+\inst2|spi1|do_buffer_reg[7]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \SPICLK~combout\,
+	sdata => \inst2|spi1|sh_reg\(6),
+	sload => VCC,
+	ena => \inst2|spi1|Equal1~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|do_buffer_reg\(7));
+
+-- Location: LCCOMB_X42_Y18_N24
+\inst2|decoder1|w[7]~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|w[7]~0_combout\ = ((\inst2|decoder1|current_instruction\(1) & (!\inst2|decoder1|current_instruction\(0) & !\inst2|decoder1|current_instruction\(2)))) # (!\reset~combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000001011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst2|decoder1|current_instruction\(0),
+	datac => \inst2|decoder1|current_instruction\(2),
+	datad => \reset~combout\,
+	combout => \inst2|decoder1|w[7]~0_combout\);
+
+-- Location: LCCOMB_X42_Y16_N12
+\inst2|decoder1|packet_num[2]~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|packet_num[2]~3_combout\ = (\inst2|decoder1|packet_num[2]~2_combout\ & (((\inst2|decoder1|packet_num\(2))))) # (!\inst2|decoder1|packet_num[2]~2_combout\ & (\inst2|decoder1|current_instruction~2_combout\ & (\inst2|decoder1|Add0~0_combout\ 
+-- $ (\inst2|decoder1|packet_num\(2)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101001011000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|Add0~0_combout\,
+	datab => \inst2|decoder1|packet_num[2]~2_combout\,
+	datac => \inst2|decoder1|packet_num\(2),
+	datad => \inst2|decoder1|current_instruction~2_combout\,
+	combout => \inst2|decoder1|packet_num[2]~3_combout\);
+
+-- Location: LCFF_X42_Y16_N13
+\inst2|decoder1|packet_num[2]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|packet_num[2]~3_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|packet_num\(2));
+
+-- Location: LCCOMB_X42_Y16_N26
+\inst2|decoder1|packet_num[1]~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|packet_num[1]~4_combout\ = (\inst2|decoder1|packet_num[2]~2_combout\ & (((\inst2|decoder1|packet_num\(1))))) # (!\inst2|decoder1|packet_num[2]~2_combout\ & (\inst2|decoder1|current_instruction~2_combout\ & (\inst2|decoder1|packet_num\(0) $ 
+-- (\inst2|decoder1|packet_num\(1)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101001011000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|packet_num\(0),
+	datab => \inst2|decoder1|packet_num[2]~2_combout\,
+	datac => \inst2|decoder1|packet_num\(1),
+	datad => \inst2|decoder1|current_instruction~2_combout\,
+	combout => \inst2|decoder1|packet_num[1]~4_combout\);
+
+-- Location: LCFF_X42_Y16_N27
+\inst2|decoder1|packet_num[1]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|packet_num[1]~4_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|packet_num\(1));
+
+-- Location: LCCOMB_X36_Y18_N0
+\inst4|Equal63~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst4|Equal63~3_combout\ = (\inst2|decoder1|packet_num\(2) & (!\inst2|decoder1|packet_num\(0) & !\inst2|decoder1|packet_num\(1)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|decoder1|packet_num\(2),
+	datac => \inst2|decoder1|packet_num\(0),
+	datad => \inst2|decoder1|packet_num\(1),
+	combout => \inst4|Equal63~3_combout\);
+
+-- Location: LCCOMB_X42_Y18_N18
+\inst2|decoder1|w[7]~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|w[7]~1_combout\ = (\inst2|decoder1|current_instruction\(1) & ((\inst2|decoder1|current_instruction\(0)) # ((\inst2|decoder1|current_instruction\(2) & !\inst4|Equal63~3_combout\)))) # (!\inst2|decoder1|current_instruction\(1) & 
+-- (((!\inst4|Equal63~3_combout\)) # (!\inst2|decoder1|current_instruction\(2))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011111100011101",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst2|decoder1|current_instruction\(2),
+	datac => \inst4|Equal63~3_combout\,
+	datad => \inst2|decoder1|current_instruction\(0),
+	combout => \inst2|decoder1|w[7]~1_combout\);
+
+-- Location: LCCOMB_X42_Y18_N20
+\inst2|decoder1|w[7]~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|w[7]~2_combout\ = ((\inst2|decoder1|decode_comb~1_combout\ & !\inst2|decoder1|w[7]~1_combout\)) # (!\reset~combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011001111110011",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \reset~combout\,
+	datac => \inst2|decoder1|decode_comb~1_combout\,
+	datad => \inst2|decoder1|w[7]~1_combout\,
+	combout => \inst2|decoder1|w[7]~2_combout\);
+
+-- Location: LCFF_X39_Y18_N3
+\inst2|decoder1|w[7]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|spi1|do_buffer_reg\(7),
+	sclr => \inst2|decoder1|w[7]~0_combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|w[7]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|w\(7));
+
+-- Location: LCFF_X43_Y16_N27
+\inst2|spi1|do_buffer_reg[6]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \SPICLK~combout\,
+	sdata => \inst2|spi1|Selector3~0_combout\,
+	sload => VCC,
+	ena => \inst2|spi1|Equal1~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|do_buffer_reg\(6));
+
+-- Location: LCCOMB_X42_Y18_N10
+\inst2|decoder1|x~9\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|x~9_combout\ = (\inst2|spi1|do_buffer_reg\(6) & (\inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(1) & \inst2|decoder1|current_instruction\(0))))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0111100000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst2|decoder1|current_instruction\(0),
+	datac => \inst2|decoder1|current_instruction\(2),
+	datad => \inst2|spi1|do_buffer_reg\(6),
+	combout => \inst2|decoder1|x~9_combout\);
+
+-- Location: LCCOMB_X40_Y18_N12
+\inst2|decoder1|x[6]~feeder\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|x[6]~feeder_combout\ = \inst2|decoder1|x~9_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \inst2|decoder1|x~9_combout\,
+	combout => \inst2|decoder1|x[6]~feeder_combout\);
+
+-- Location: LCCOMB_X43_Y16_N16
+\inst2|decoder1|current_instruction~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|current_instruction~6_combout\ = (\inst2|decoder1|current_instruction~2_combout\ & (\inst2|spi1|do_buffer_reg\(0) $ (((\inst2|spi1|do_buffer_reg\(1) & !\inst2|spi1|do_buffer_reg\(2))))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100011000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|spi1|do_buffer_reg\(1),
+	datab => \inst2|spi1|do_buffer_reg\(0),
+	datac => \inst2|spi1|do_buffer_reg\(2),
+	datad => \inst2|decoder1|current_instruction~2_combout\,
+	combout => \inst2|decoder1|current_instruction~6_combout\);
+
+-- Location: LCFF_X43_Y16_N17
+\inst2|decoder1|current_instruction[1]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|current_instruction~6_combout\,
+	ena => \inst2|decoder1|current_instruction[2]~5_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|current_instruction\(1));
+
+-- Location: LCCOMB_X35_Y19_N14
+\inst2|decoder1|x[7]~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|x[7]~1_combout\ = \inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(0) & \inst2|decoder1|current_instruction\(1))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101101010101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|current_instruction\(2),
+	datac => \inst2|decoder1|current_instruction\(0),
+	datad => \inst2|decoder1|current_instruction\(1),
+	combout => \inst2|decoder1|x[7]~1_combout\);
+
+-- Location: LCCOMB_X36_Y19_N4
+\inst4|Equal63~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst4|Equal63~0_combout\ = (\inst2|decoder1|packet_num\(1) & (!\inst2|decoder1|packet_num\(0) & !\inst2|decoder1|packet_num\(2)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000001010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|packet_num\(1),
+	datac => \inst2|decoder1|packet_num\(0),
+	datad => \inst2|decoder1|packet_num\(2),
+	combout => \inst4|Equal63~0_combout\);
+
+-- Location: LCCOMB_X35_Y19_N16
+\inst2|decoder1|x~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|x~2_combout\ = ((\inst2|decoder1|y~0_combout\ & ((\inst4|Equal63~0_combout\) # (!\inst2|decoder1|x[7]~1_combout\)))) # (!\reset~combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111100101111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|y~0_combout\,
+	datab => \inst2|decoder1|x[7]~1_combout\,
+	datac => \reset~combout\,
+	datad => \inst4|Equal63~0_combout\,
+	combout => \inst2|decoder1|x~2_combout\);
+
+-- Location: LCFF_X40_Y18_N13
+\inst2|decoder1|x[6]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|x[6]~feeder_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	ena => \inst2|decoder1|x~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|x\(6));
+
+-- Location: LCFF_X43_Y16_N29
+\inst2|spi1|do_buffer_reg[5]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \SPICLK~combout\,
+	sdata => \inst2|spi1|Selector4~0_combout\,
+	sload => VCC,
+	ena => \inst2|spi1|Equal1~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|do_buffer_reg\(5));
+
+-- Location: LCCOMB_X40_Y18_N26
+\inst2|decoder1|x~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|x~6_combout\ = (\inst2|spi1|do_buffer_reg\(5) & (\inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(1) & \inst2|decoder1|current_instruction\(0))))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110110000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst2|decoder1|current_instruction\(2),
+	datac => \inst2|decoder1|current_instruction\(0),
+	datad => \inst2|spi1|do_buffer_reg\(5),
+	combout => \inst2|decoder1|x~6_combout\);
+
+-- Location: LCCOMB_X40_Y18_N18
+\inst2|decoder1|x[5]~feeder\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|x[5]~feeder_combout\ = \inst2|decoder1|x~6_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \inst2|decoder1|x~6_combout\,
+	combout => \inst2|decoder1|x[5]~feeder_combout\);
+
+-- Location: LCFF_X40_Y18_N19
+\inst2|decoder1|x[5]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|x[5]~feeder_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	ena => \inst2|decoder1|x~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|x\(5));
+
+-- Location: LCCOMB_X44_Y16_N16
+\inst2|spi1|Selector5~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|spi1|Selector5~0_combout\ = (\inst2|spi1|sh_reg\(3) & ((\inst2|spi1|state_reg\(3) & (!\inst2|spi1|state_reg\(0) & \inst2|spi1|WideOr0~0_combout\)) # (!\inst2|spi1|state_reg\(3) & ((!\inst2|spi1|WideOr0~0_combout\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000100000100010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|spi1|sh_reg\(3),
+	datab => \inst2|spi1|state_reg\(3),
+	datac => \inst2|spi1|state_reg\(0),
+	datad => \inst2|spi1|WideOr0~0_combout\,
+	combout => \inst2|spi1|Selector5~0_combout\);
+
+-- Location: LCFF_X43_Y16_N19
+\inst2|spi1|do_buffer_reg[4]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \SPICLK~combout\,
+	sdata => \inst2|spi1|Selector5~0_combout\,
+	sload => VCC,
+	ena => \inst2|spi1|Equal1~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|do_buffer_reg\(4));
+
+-- Location: LCCOMB_X38_Y15_N10
+\inst2|decoder1|x~7\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|x~7_combout\ = (\inst2|spi1|do_buffer_reg\(4) & (\inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(0) & \inst2|decoder1|current_instruction\(1))))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -4068,914 +4451,78 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|current_instruction\(2),
-	datab => \inst2|decoder1|current_instruction\(1),
-	datac => \inst2|decoder1|current_instruction\(0),
-	datad => \inst2|spi1|spi_rx_data\(2),
-	combout => \inst2|decoder1|x~5_combout\);
+	datab => \inst2|decoder1|current_instruction\(0),
+	datac => \inst2|decoder1|current_instruction\(1),
+	datad => \inst2|spi1|do_buffer_reg\(4),
+	combout => \inst2|decoder1|x~7_combout\);
 
--- Location: LCCOMB_X23_Y20_N28
-\inst4|Equal63~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y18_N28
+\inst2|decoder1|x[4]~feeder\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst4|Equal63~0_combout\ = (!\inst2|decoder1|packet_num\(2) & (!\inst2|decoder1|packet_num\(0) & \inst2|decoder1|packet_num\(1)))
+-- \inst2|decoder1|x[4]~feeder_combout\ = \inst2|decoder1|x~7_combout\
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000010100000000",
+	lut_mask => "1111111100000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|packet_num\(2),
-	datac => \inst2|decoder1|packet_num\(0),
-	datad => \inst2|decoder1|packet_num\(1),
-	combout => \inst4|Equal63~0_combout\);
+	datad => \inst2|decoder1|x~7_combout\,
+	combout => \inst2|decoder1|x[4]~feeder_combout\);
 
--- Location: LCCOMB_X22_Y17_N26
-\inst2|decoder1|x[5]~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|x[5]~1_combout\ = \inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(0) & \inst2|decoder1|current_instruction\(1))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011110011001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|decoder1|current_instruction\(2),
-	datac => \inst2|decoder1|current_instruction\(0),
-	datad => \inst2|decoder1|current_instruction\(1),
-	combout => \inst2|decoder1|x[5]~1_combout\);
-
--- Location: LCCOMB_X23_Y20_N22
-\inst2|decoder1|x~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|x~2_combout\ = ((\inst2|decoder1|y~0_combout\ & ((\inst4|Equal63~0_combout\) # (!\inst2|decoder1|x[5]~1_combout\)))) # (!\reset~combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000111110101111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|y~0_combout\,
-	datab => \inst4|Equal63~0_combout\,
-	datac => \reset~combout\,
-	datad => \inst2|decoder1|x[5]~1_combout\,
-	combout => \inst2|decoder1|x~2_combout\);
-
--- Location: LCFF_X24_Y19_N15
-\inst2|decoder1|x[2]\ : cycloneii_lcell_ff
+-- Location: LCFF_X40_Y18_N29
+\inst2|decoder1|x[4]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|x~5_combout\,
+	datain => \inst2|decoder1|x[4]~feeder_combout\,
 	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
 	ena => \inst2|decoder1|x~2_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|decoder1|x\(2));
+	regout => \inst2|decoder1|x\(4));
 
--- Location: LCCOMB_X23_Y20_N6
-\inst2|sreset~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|sreset~0_combout\ = ((\inst2|decoder1|current_instruction\(1) & (!\inst2|decoder1|current_instruction\(2) & !\inst2|decoder1|current_instruction\(0)))) # (!\reset~combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111100101111",
-	sum_lutc_input => "datac")
--- pragma translate_on
+-- Location: LCFF_X44_Y16_N31
+\inst2|spi1|sh_reg[2]\ : cycloneii_lcell_ff
 PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(1),
-	datab => \inst2|decoder1|current_instruction\(2),
-	datac => \reset~combout\,
-	datad => \inst2|decoder1|current_instruction\(0),
-	combout => \inst2|sreset~0_combout\);
-
--- Location: LCCOMB_X22_Y19_N26
-\inst2|decoder1|w[7]~12\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|w[7]~12_combout\ = ((\inst2|decoder1|decode_comb~0_combout\ & ((!\inst4|hex1[2]~4_combout\) # (!\inst2|decoder1|w[7]~13_combout\)))) # (!\reset~combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0111111100001111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|w[7]~13_combout\,
-	datab => \inst4|hex1[2]~4_combout\,
-	datac => \reset~combout\,
-	datad => \inst2|decoder1|decode_comb~0_combout\,
-	combout => \inst2|decoder1|w[7]~12_combout\);
-
--- Location: LCFF_X23_Y19_N19
-\inst2|decoder1|w[2]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|spi1|spi_rx_data\(2),
-	sclr => \inst2|sreset~0_combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|w[7]~12_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|w\(2));
-
--- Location: LCCOMB_X22_Y19_N0
-\inst2|decoder1|next_h[6]~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|next_h[6]~0_combout\ = (\inst2|decoder1|current_instruction\(1) & (!\inst2|decoder1|current_instruction\(0) & ((\inst2|decoder1|decode_comb~1_combout\) # (!\inst2|decoder1|current_instruction\(2))))) # 
--- (!\inst2|decoder1|current_instruction\(1) & (\inst2|decoder1|decode_comb~1_combout\ & (\inst2|decoder1|current_instruction\(2))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010000010101100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|decode_comb~1_combout\,
-	datab => \inst2|decoder1|current_instruction\(1),
-	datac => \inst2|decoder1|current_instruction\(2),
-	datad => \inst2|decoder1|current_instruction\(0),
-	combout => \inst2|decoder1|next_h[6]~0_combout\);
-
--- Location: LCFF_X24_Y20_N15
-\inst2|spi1|spi_rx_data[3]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|spi1|spi_rx_data\(2),
-	sclr => \inst2|sreset~combout\,
-	sload => VCC,
-	ena => \inst2|spi1|spi_rx_data[4]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|spi1|spi_rx_data\(3));
-
--- Location: LCFF_X24_Y20_N1
-\inst2|spi1|spi_rx_data[4]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|spi1|spi_rx_data\(3),
-	sclr => \inst2|sreset~combout\,
-	sload => VCC,
-	ena => \inst2|spi1|spi_rx_data[4]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|spi1|spi_rx_data\(4));
-
--- Location: LCFF_X24_Y20_N25
-\inst2|spi1|spi_rx_data[5]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|spi1|spi_rx_data\(4),
-	sclr => \inst2|sreset~combout\,
-	sload => VCC,
-	ena => \inst2|spi1|spi_rx_data[4]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|spi1|spi_rx_data\(5));
-
--- Location: LCFF_X24_Y20_N9
-\inst2|spi1|spi_rx_data[6]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|spi1|spi_rx_data\(5),
-	sclr => \inst2|sreset~combout\,
-	sload => VCC,
-	ena => \inst2|spi1|spi_rx_data[4]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|spi1|spi_rx_data\(6));
-
--- Location: LCCOMB_X22_Y19_N30
-\inst2|decoder1|next_h[6]~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|next_h[6]~1_combout\ = (\inst2|decoder1|h\(6) & (((\inst2|decoder1|current_instruction\(2) & !\inst4|hex0[0]~7_combout\)) # (!\inst2|decoder1|next_h[6]~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000100010101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|h\(6),
-	datab => \inst2|decoder1|current_instruction\(2),
-	datac => \inst4|hex0[0]~7_combout\,
-	datad => \inst2|decoder1|next_h[6]~0_combout\,
-	combout => \inst2|decoder1|next_h[6]~1_combout\);
-
--- Location: LCCOMB_X22_Y19_N20
-\inst2|decoder1|next_h[6]~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|next_h[6]~3_combout\ = (\inst2|decoder1|next_h[6]~1_combout\) # ((\inst2|decoder1|next_h[6]~2_combout\ & (\inst2|decoder1|next_h[6]~0_combout\ & \inst2|spi1|spi_rx_data\(6))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111110000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|next_h[6]~2_combout\,
-	datab => \inst2|decoder1|next_h[6]~0_combout\,
-	datac => \inst2|spi1|spi_rx_data\(6),
-	datad => \inst2|decoder1|next_h[6]~1_combout\,
-	combout => \inst2|decoder1|next_h[6]~3_combout\);
-
--- Location: LCFF_X22_Y17_N13
-\inst2|decoder1|h[6]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|next_h[6]~3_combout\,
-	sclr => \ALT_INV_reset~combout\,
+	clk => \SPICLK~combout\,
+	sdata => \inst2|spi1|Selector7~0_combout\,
 	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|decoder1|h\(6));
+	regout => \inst2|spi1|sh_reg\(2));
 
--- Location: LCCOMB_X23_Y16_N2
-\inst2|draw1|rect1|Add0~24\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X44_Y16_N0
+\inst2|spi1|Selector6~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|Add0~24_combout\ = (\inst2|decoder1|h\(6) & !\inst2|draw1|rect1|started~regout\)
+-- \inst2|spi1|Selector6~0_combout\ = (\inst2|spi1|sh_reg\(2) & ((\inst2|spi1|state_reg\(3) & (!\inst2|spi1|state_reg\(0) & \inst2|spi1|WideOr0~0_combout\)) # (!\inst2|spi1|state_reg\(3) & ((!\inst2|spi1|WideOr0~0_combout\)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000011110000",
+	lut_mask => "0000100001000100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \inst2|decoder1|h\(6),
-	datad => \inst2|draw1|rect1|started~regout\,
-	combout => \inst2|draw1|rect1|Add0~24_combout\);
+	dataa => \inst2|spi1|state_reg\(3),
+	datab => \inst2|spi1|sh_reg\(2),
+	datac => \inst2|spi1|state_reg\(0),
+	datad => \inst2|spi1|WideOr0~0_combout\,
+	combout => \inst2|spi1|Selector6~0_combout\);
 
--- Location: LCCOMB_X23_Y16_N28
-\inst2|draw1|rect1|draw_write~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|draw_write~0_combout\ = (!\inst2|draw1|rect1|almost_done~regout\ & \inst2|draw1|rect1|started~regout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
+-- Location: LCFF_X43_Y16_N25
+\inst2|spi1|do_buffer_reg[3]\ : cycloneii_lcell_ff
 PORT MAP (
-	datac => \inst2|draw1|rect1|almost_done~regout\,
-	datad => \inst2|draw1|rect1|started~regout\,
-	combout => \inst2|draw1|rect1|draw_write~0_combout\);
-
--- Location: LCCOMB_X23_Y16_N8
-\inst2|draw1|rect1|Add0~27\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~27_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|Add0~24_combout\) # ((\inst2|draw1|rect1|Add0~25_combout\ & \inst2|draw1|rect1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110000011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|Add0~25_combout\,
-	datab => \inst2|draw1|rect1|Add0~24_combout\,
-	datac => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	datad => \inst2|draw1|rect1|draw_write~0_combout\,
-	combout => \inst2|draw1|rect1|Add0~27_combout\);
-
--- Location: LCFF_X22_Y16_N27
-\inst2|draw1|rect1|cy[6]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|draw1|rect1|Add0~27_combout\,
+	clk => \SPICLK~combout\,
+	sdata => \inst2|spi1|Selector6~0_combout\,
 	sload => VCC,
-	ena => \inst2|draw1|rect1|cy_tmp[0]~2_combout\,
+	ena => \inst2|spi1|Equal1~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|draw1|rect1|cy\(6));
+	regout => \inst2|spi1|do_buffer_reg\(3));
 
--- Location: LCCOMB_X21_Y16_N14
-\inst2|draw1|rect1|Equal2~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X43_Y16_N24
+\inst2|decoder1|x~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|Equal2~0_combout\ = \inst2|draw1|rect1|cy\(6) $ (\inst2|decoder1|h\(6))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111111110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \inst2|draw1|rect1|cy\(6),
-	datad => \inst2|decoder1|h\(6),
-	combout => \inst2|draw1|rect1|Equal2~0_combout\);
-
--- Location: LCCOMB_X23_Y19_N6
-\inst2|decoder1|h~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|h~4_combout\ = (\inst2|decoder1|current_instruction\(2) & \inst2|spi1|spi_rx_data\(3))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010101000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(2),
-	datad => \inst2|spi1|spi_rx_data\(3),
-	combout => \inst2|decoder1|h~4_combout\);
-
--- Location: LCFF_X23_Y17_N31
-\inst2|decoder1|h[3]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|h~4_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|h~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|h\(3));
-
--- Location: LCCOMB_X21_Y16_N4
-\inst2|draw1|rect1|cx[6]~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx[6]~3_combout\ = (\inst2|draw1|rect1|cy\(3) & (\inst2|decoder1|h\(3) & (\inst2|decoder1|h\(2) $ (!\inst2|draw1|rect1|cy\(2))))) # (!\inst2|draw1|rect1|cy\(3) & (!\inst2|decoder1|h\(3) & (\inst2|decoder1|h\(2) $ 
--- (!\inst2|draw1|rect1|cy\(2)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000010000100001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cy\(3),
-	datab => \inst2|decoder1|h\(2),
-	datac => \inst2|decoder1|h\(3),
-	datad => \inst2|draw1|rect1|cy\(2),
-	combout => \inst2|draw1|rect1|cx[6]~3_combout\);
-
--- Location: LCCOMB_X22_Y17_N20
-\inst2|decoder1|h~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|h~6_combout\ = (\inst2|spi1|spi_rx_data\(5) & \inst2|decoder1|current_instruction\(2))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \inst2|spi1|spi_rx_data\(5),
-	datad => \inst2|decoder1|current_instruction\(2),
-	combout => \inst2|decoder1|h~6_combout\);
-
--- Location: LCFF_X23_Y17_N9
-\inst2|decoder1|h[5]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|h~6_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|h~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|h\(5));
-
--- Location: LCCOMB_X22_Y16_N26
-\inst2|draw1|rect1|Add0~16\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~16_combout\ = (\inst2|decoder1|h\(4) & !\inst2|draw1|rect1|started~regout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000010101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|h\(4),
-	datad => \inst2|draw1|rect1|started~regout\,
-	combout => \inst2|draw1|rect1|Add0~16_combout\);
-
--- Location: LCCOMB_X22_Y16_N24
-\inst2|draw1|rect1|Add0~19\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~19_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|Add0~16_combout\) # ((\inst2|draw1|rect1|Add0~17_combout\ & \inst2|draw1|rect1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110000011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|Add0~17_combout\,
-	datab => \inst2|draw1|rect1|Add0~16_combout\,
-	datac => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	datad => \inst2|draw1|rect1|draw_write~0_combout\,
-	combout => \inst2|draw1|rect1|Add0~19_combout\);
-
--- Location: LCFF_X22_Y16_N25
-\inst2|draw1|rect1|cy[4]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|rect1|Add0~19_combout\,
-	ena => \inst2|draw1|rect1|cy_tmp[0]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|rect1|cy\(4));
-
--- Location: LCCOMB_X22_Y16_N12
-\inst2|draw1|rect1|Add0~9\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~9_combout\ = (\inst2|draw1|rect1|cy\(2) & ((GND) # (!\inst2|draw1|rect1|Add0~6\))) # (!\inst2|draw1|rect1|cy\(2) & (\inst2|draw1|rect1|Add0~6\ $ (GND)))
--- \inst2|draw1|rect1|Add0~10\ = CARRY((\inst2|draw1|rect1|cy\(2)) # (!\inst2|draw1|rect1|Add0~6\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011110011001111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|rect1|cy\(2),
-	datad => VCC,
-	cin => \inst2|draw1|rect1|Add0~6\,
-	combout => \inst2|draw1|rect1|Add0~9_combout\,
-	cout => \inst2|draw1|rect1|Add0~10\);
-
--- Location: LCCOMB_X22_Y16_N22
-\inst2|draw1|rect1|Add0~23\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~23_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|Add0~20_combout\) # ((\inst2|draw1|rect1|Add0~21_combout\ & \inst2|draw1|rect1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110000010100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|Add0~20_combout\,
-	datab => \inst2|draw1|rect1|Add0~21_combout\,
-	datac => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	datad => \inst2|draw1|rect1|draw_write~0_combout\,
-	combout => \inst2|draw1|rect1|Add0~23_combout\);
-
--- Location: LCFF_X22_Y16_N23
-\inst2|draw1|rect1|cy[5]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|rect1|Add0~23_combout\,
-	ena => \inst2|draw1|rect1|cy_tmp[0]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|rect1|cy\(5));
-
--- Location: LCCOMB_X22_Y16_N30
-\inst2|draw1|rect1|cx[6]~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx[6]~4_combout\ = (\inst2|decoder1|h\(4) & (\inst2|draw1|rect1|cy\(4) & (\inst2|decoder1|h\(5) $ (!\inst2|draw1|rect1|cy\(5))))) # (!\inst2|decoder1|h\(4) & (!\inst2|draw1|rect1|cy\(4) & (\inst2|decoder1|h\(5) $ 
--- (!\inst2|draw1|rect1|cy\(5)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000010000100001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|h\(4),
-	datab => \inst2|decoder1|h\(5),
-	datac => \inst2|draw1|rect1|cy\(4),
-	datad => \inst2|draw1|rect1|cy\(5),
-	combout => \inst2|draw1|rect1|cx[6]~4_combout\);
-
--- Location: LCCOMB_X21_Y16_N24
-\inst2|draw1|rect1|cx[6]~5\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx[6]~5_combout\ = (\inst2|draw1|rect1|cx[6]~2_combout\ & (!\inst2|draw1|rect1|Equal2~0_combout\ & (\inst2|draw1|rect1|cx[6]~3_combout\ & \inst2|draw1|rect1|cx[6]~4_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cx[6]~2_combout\,
-	datab => \inst2|draw1|rect1|Equal2~0_combout\,
-	datac => \inst2|draw1|rect1|cx[6]~3_combout\,
-	datad => \inst2|draw1|rect1|cx[6]~4_combout\,
-	combout => \inst2|draw1|rect1|cx[6]~5_combout\);
-
--- Location: LCCOMB_X21_Y20_N30
-\inst2|draw1|rect1|cx[6]~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx[6]~6_combout\ = (\inst2|draw1|rect1|almost_done_tmp~3_combout\) # ((\inst2|draw1|rect1|cx[6]~5_combout\) # ((!\inst2|decoder1|en\(1) & \inst2|decoder1|en\(2))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111111110100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|en\(1),
-	datab => \inst2|decoder1|en\(2),
-	datac => \inst2|draw1|rect1|almost_done_tmp~3_combout\,
-	datad => \inst2|draw1|rect1|cx[6]~5_combout\,
-	combout => \inst2|draw1|rect1|cx[6]~6_combout\);
-
--- Location: LCCOMB_X21_Y20_N24
-\inst2|vgacontroller1|vga_claim~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|vga_claim~0_combout\ = (!\inst2|decoder1|decoder_claim~regout\ & (\reset~combout\ & \inst2|vgacontroller1|vga_combi~5_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|decoder_claim~regout\,
-	datac => \reset~combout\,
-	datad => \inst2|vgacontroller1|vga_combi~5_combout\,
-	combout => \inst2|vgacontroller1|vga_claim~0_combout\);
-
--- Location: LCCOMB_X22_Y18_N12
-\inst2|draw1|rect1|cx[6]~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx[6]~0_combout\ = (\inst2|draw1|rect1|started~regout\ & ((\inst2|draw1|rect1|almost_done~regout\) # (!\inst2|draw1|rect1|Equal0~4_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010000011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|almost_done~regout\,
-	datac => \inst2|draw1|rect1|started~regout\,
-	datad => \inst2|draw1|rect1|Equal0~4_combout\,
-	combout => \inst2|draw1|rect1|cx[6]~0_combout\);
-
--- Location: LCCOMB_X21_Y20_N16
-\inst2|draw1|rect1|cx[6]~7\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx[6]~7_combout\ = (\inst2|decoder1|decoder_claim~regout\) # ((\inst2|vgacontroller1|vga_claim~0_combout\) # ((\inst2|draw1|rect1|cx[6]~6_combout\ & \inst2|draw1|rect1|cx[6]~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111011111010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|decoder_claim~regout\,
-	datab => \inst2|draw1|rect1|cx[6]~6_combout\,
-	datac => \inst2|vgacontroller1|vga_claim~0_combout\,
-	datad => \inst2|draw1|rect1|cx[6]~0_combout\,
-	combout => \inst2|draw1|rect1|cx[6]~7_combout\);
-
--- Location: LCCOMB_X21_Y20_N22
-\inst2|draw1|rect1|cx[6]~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx[6]~1_combout\ = (\inst2|decoder1|decoder_claim~regout\) # (((\reset~combout\ & \inst2|vgacontroller1|vga_combi~5_combout\)) # (!\inst2|draw1|rect1|cx[6]~0_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101110111011",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|decoder_claim~regout\,
-	datab => \inst2|draw1|rect1|cx[6]~0_combout\,
-	datac => \reset~combout\,
-	datad => \inst2|vgacontroller1|vga_combi~5_combout\,
-	combout => \inst2|draw1|rect1|cx[6]~1_combout\);
-
--- Location: LCFF_X23_Y19_N9
-\inst2|decoder1|w[1]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|spi1|spi_rx_data\(1),
-	sclr => \inst2|sreset~0_combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|w[7]~12_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|w\(1));
-
--- Location: LCCOMB_X23_Y19_N8
-\inst2|draw1|rect1|cx_tmp[1]~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[1]~3_combout\ = (\inst2|draw1|rect1|cx[6]~1_combout\ & (((\inst2|decoder1|w\(1)) # (\inst2|draw1|rect1|cx[6]~7_combout\)))) # (!\inst2|draw1|rect1|cx[6]~1_combout\ & (\inst2|decoder1|x\(1) & 
--- ((!\inst2|draw1|rect1|cx[6]~7_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110011100010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|x\(1),
-	datab => \inst2|draw1|rect1|cx[6]~1_combout\,
-	datac => \inst2|decoder1|w\(1),
-	datad => \inst2|draw1|rect1|cx[6]~7_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[1]~3_combout\);
-
--- Location: LCCOMB_X24_Y18_N8
-\inst2|draw1|rect1|Add1~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add1~0_combout\ = \inst2|draw1|rect1|cx\(0) $ (VCC)
--- \inst2|draw1|rect1|Add1~1\ = CARRY(\inst2|draw1|rect1|cx\(0))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011001111001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|rect1|cx\(0),
-	datad => VCC,
-	combout => \inst2|draw1|rect1|Add1~0_combout\,
-	cout => \inst2|draw1|rect1|Add1~1\);
-
--- Location: LCCOMB_X25_Y18_N24
-\inst2|draw1|rect1|cx_tmp[0]~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[0]~0_combout\ = (\inst2|draw1|rect1|cx[6]~7_combout\ & (((\inst2|draw1|rect1|Add1~0_combout\) # (\inst2|draw1|rect1|cx[6]~1_combout\)))) # (!\inst2|draw1|rect1|cx[6]~7_combout\ & (\inst2|decoder1|x\(0) & 
--- ((!\inst2|draw1|rect1|cx[6]~1_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000011001010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|x\(0),
-	datab => \inst2|draw1|rect1|Add1~0_combout\,
-	datac => \inst2|draw1|rect1|cx[6]~7_combout\,
-	datad => \inst2|draw1|rect1|cx[6]~1_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[0]~0_combout\);
-
--- Location: LCCOMB_X25_Y18_N18
-\inst2|draw1|rect1|cx_tmp[0]~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[0]~1_combout\ = (\inst2|draw1|rect1|cx_tmp[0]~0_combout\ & (((\inst2|draw1|rect1|cx\(0)) # (!\inst2|draw1|rect1|cx[6]~1_combout\)))) # (!\inst2|draw1|rect1|cx_tmp[0]~0_combout\ & (\inst2|decoder1|w\(0) & 
--- ((\inst2|draw1|rect1|cx[6]~1_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100101011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|w\(0),
-	datab => \inst2|draw1|rect1|cx\(0),
-	datac => \inst2|draw1|rect1|cx_tmp[0]~0_combout\,
-	datad => \inst2|draw1|rect1|cx[6]~1_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[0]~1_combout\);
-
--- Location: LCCOMB_X25_Y18_N30
-\inst2|draw1|rect1|cx_tmp[0]~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[0]~2_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & (\inst2|draw1|rect1|cx_tmp[0]~1_combout\ & ((\inst2|draw1|rect1|cx[6]~1_combout\) # (!\inst2|draw1|rect1|almost_done~regout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100010000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|almost_done~regout\,
-	datab => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	datac => \inst2|draw1|rect1|cx[6]~1_combout\,
-	datad => \inst2|draw1|rect1|cx_tmp[0]~1_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[0]~2_combout\);
-
--- Location: LCFF_X25_Y18_N31
-\inst2|draw1|rect1|cx[0]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|rect1|cx_tmp[0]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|rect1|cx\(0));
-
--- Location: LCCOMB_X24_Y18_N10
-\inst2|draw1|rect1|Add1~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add1~2_combout\ = (\inst2|draw1|rect1|cx\(1) & (\inst2|draw1|rect1|Add1~1\ & VCC)) # (!\inst2|draw1|rect1|cx\(1) & (!\inst2|draw1|rect1|Add1~1\))
--- \inst2|draw1|rect1|Add1~3\ = CARRY((!\inst2|draw1|rect1|cx\(1) & !\inst2|draw1|rect1|Add1~1\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100001100000011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|rect1|cx\(1),
-	datad => VCC,
-	cin => \inst2|draw1|rect1|Add1~1\,
-	combout => \inst2|draw1|rect1|Add1~2_combout\,
-	cout => \inst2|draw1|rect1|Add1~3\);
-
--- Location: LCCOMB_X24_Y18_N0
-\inst2|draw1|rect1|cx_tmp[1]~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[1]~4_combout\ = (\inst2|draw1|rect1|cx[6]~7_combout\ & ((\inst2|draw1|rect1|cx_tmp[1]~3_combout\ & (\inst2|draw1|rect1|cx\(1))) # (!\inst2|draw1|rect1|cx_tmp[1]~3_combout\ & ((\inst2|draw1|rect1|Add1~2_combout\))))) # 
--- (!\inst2|draw1|rect1|cx[6]~7_combout\ & (((\inst2|draw1|rect1|cx_tmp[1]~3_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101101011010000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cx[6]~7_combout\,
-	datab => \inst2|draw1|rect1|cx\(1),
-	datac => \inst2|draw1|rect1|cx_tmp[1]~3_combout\,
-	datad => \inst2|draw1|rect1|Add1~2_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[1]~4_combout\);
-
--- Location: LCCOMB_X24_Y18_N28
-\inst2|draw1|rect1|cx_tmp[1]~5\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[1]~5_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & (\inst2|draw1|rect1|cx_tmp[1]~4_combout\ & ((\inst2|draw1|rect1|cx[6]~1_combout\) # (!\inst2|draw1|rect1|almost_done~regout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|almost_done~regout\,
-	datab => \inst2|draw1|rect1|cx[6]~1_combout\,
-	datac => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	datad => \inst2|draw1|rect1|cx_tmp[1]~4_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[1]~5_combout\);
-
--- Location: LCFF_X24_Y18_N29
-\inst2|draw1|rect1|cx[1]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|rect1|cx_tmp[1]~5_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|rect1|cx\(1));
-
--- Location: LCCOMB_X24_Y18_N12
-\inst2|draw1|rect1|Add1~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add1~4_combout\ = (\inst2|draw1|rect1|cx\(2) & ((GND) # (!\inst2|draw1|rect1|Add1~3\))) # (!\inst2|draw1|rect1|cx\(2) & (\inst2|draw1|rect1|Add1~3\ $ (GND)))
--- \inst2|draw1|rect1|Add1~5\ = CARRY((\inst2|draw1|rect1|cx\(2)) # (!\inst2|draw1|rect1|Add1~3\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011110011001111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|rect1|cx\(2),
-	datad => VCC,
-	cin => \inst2|draw1|rect1|Add1~3\,
-	combout => \inst2|draw1|rect1|Add1~4_combout\,
-	cout => \inst2|draw1|rect1|Add1~5\);
-
--- Location: LCCOMB_X23_Y18_N22
-\inst2|draw1|rect1|cx_tmp[2]~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[2]~6_combout\ = (\inst2|draw1|rect1|cx[6]~1_combout\ & (((\inst2|draw1|rect1|cx[6]~7_combout\)))) # (!\inst2|draw1|rect1|cx[6]~1_combout\ & ((\inst2|draw1|rect1|cx[6]~7_combout\ & ((\inst2|draw1|rect1|Add1~4_combout\))) # 
--- (!\inst2|draw1|rect1|cx[6]~7_combout\ & (\inst2|decoder1|x\(2)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111010010100100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cx[6]~1_combout\,
-	datab => \inst2|decoder1|x\(2),
-	datac => \inst2|draw1|rect1|cx[6]~7_combout\,
-	datad => \inst2|draw1|rect1|Add1~4_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[2]~6_combout\);
-
--- Location: LCCOMB_X23_Y18_N20
-\inst2|draw1|rect1|cx_tmp[2]~7\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[2]~7_combout\ = (\inst2|draw1|rect1|cx[6]~1_combout\ & ((\inst2|draw1|rect1|cx_tmp[2]~6_combout\ & (\inst2|draw1|rect1|cx\(2))) # (!\inst2|draw1|rect1|cx_tmp[2]~6_combout\ & ((\inst2|decoder1|w\(2)))))) # 
--- (!\inst2|draw1|rect1|cx[6]~1_combout\ & (((\inst2|draw1|rect1|cx_tmp[2]~6_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101110110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cx[6]~1_combout\,
-	datab => \inst2|draw1|rect1|cx\(2),
-	datac => \inst2|decoder1|w\(2),
-	datad => \inst2|draw1|rect1|cx_tmp[2]~6_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[2]~7_combout\);
-
--- Location: LCCOMB_X23_Y18_N4
-\inst2|draw1|rect1|cx_tmp[2]~8\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[2]~8_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & (\inst2|draw1|rect1|cx_tmp[2]~7_combout\ & ((\inst2|draw1|rect1|cx[6]~1_combout\) # (!\inst2|draw1|rect1|almost_done~regout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000000011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cx[6]~1_combout\,
-	datab => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	datac => \inst2|draw1|rect1|cx_tmp[2]~7_combout\,
-	datad => \inst2|draw1|rect1|almost_done~regout\,
-	combout => \inst2|draw1|rect1|cx_tmp[2]~8_combout\);
-
--- Location: LCFF_X23_Y18_N5
-\inst2|draw1|rect1|cx[2]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|rect1|cx_tmp[2]~8_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|rect1|cx\(2));
-
--- Location: LCCOMB_X24_Y18_N14
-\inst2|draw1|rect1|Add1~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add1~6_combout\ = (\inst2|draw1|rect1|cx\(3) & (\inst2|draw1|rect1|Add1~5\ & VCC)) # (!\inst2|draw1|rect1|cx\(3) & (!\inst2|draw1|rect1|Add1~5\))
--- \inst2|draw1|rect1|Add1~7\ = CARRY((!\inst2|draw1|rect1|cx\(3) & !\inst2|draw1|rect1|Add1~5\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100001100000011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|rect1|cx\(3),
-	datad => VCC,
-	cin => \inst2|draw1|rect1|Add1~5\,
-	combout => \inst2|draw1|rect1|Add1~6_combout\,
-	cout => \inst2|draw1|rect1|Add1~7\);
-
--- Location: LCCOMB_X23_Y18_N12
-\inst2|draw1|rect1|cx_tmp[3]~10\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[3]~10_combout\ = (\inst2|draw1|rect1|cx_tmp[3]~9_combout\ & ((\inst2|draw1|rect1|cx\(3)) # ((!\inst2|draw1|rect1|cx[6]~7_combout\)))) # (!\inst2|draw1|rect1|cx_tmp[3]~9_combout\ & (((\inst2|draw1|rect1|Add1~6_combout\ & 
--- \inst2|draw1|rect1|cx[6]~7_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101100010101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cx_tmp[3]~9_combout\,
-	datab => \inst2|draw1|rect1|cx\(3),
-	datac => \inst2|draw1|rect1|Add1~6_combout\,
-	datad => \inst2|draw1|rect1|cx[6]~7_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[3]~10_combout\);
-
--- Location: LCCOMB_X24_Y18_N30
-\inst2|draw1|rect1|cx_tmp[3]~11\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[3]~11_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & (\inst2|draw1|rect1|cx_tmp[3]~10_combout\ & ((\inst2|draw1|rect1|cx[6]~1_combout\) # (!\inst2|draw1|rect1|almost_done~regout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|almost_done~regout\,
-	datab => \inst2|draw1|rect1|cx[6]~1_combout\,
-	datac => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	datad => \inst2|draw1|rect1|cx_tmp[3]~10_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[3]~11_combout\);
-
--- Location: LCFF_X24_Y18_N31
-\inst2|draw1|rect1|cx[3]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|rect1|cx_tmp[3]~11_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|rect1|cx\(3));
-
--- Location: LCCOMB_X23_Y18_N30
-\inst2|draw1|rect1|Equal0~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Equal0~1_combout\ = (\inst2|decoder1|x\(3) & (\inst2|draw1|rect1|cx\(3) & (\inst2|decoder1|x\(2) $ (!\inst2|draw1|rect1|cx\(2))))) # (!\inst2|decoder1|x\(3) & (!\inst2|draw1|rect1|cx\(3) & (\inst2|decoder1|x\(2) $ 
--- (!\inst2|draw1|rect1|cx\(2)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000001001000001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|x\(3),
-	datab => \inst2|decoder1|x\(2),
-	datac => \inst2|draw1|rect1|cx\(2),
-	datad => \inst2|draw1|rect1|cx\(3),
-	combout => \inst2|draw1|rect1|Equal0~1_combout\);
-
--- Location: LCCOMB_X22_Y17_N2
-\inst2|decoder1|x~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|x~6_combout\ = (\inst2|spi1|spi_rx_data\(5) & (\inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(0) & \inst2|decoder1|current_instruction\(1))))))
+-- \inst2|decoder1|x~4_combout\ = (\inst2|spi1|do_buffer_reg\(3) & (\inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(1) & \inst2|decoder1|current_instruction\(0))))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -4983,102 +4530,119 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(0),
-	datab => \inst2|decoder1|current_instruction\(1),
-	datac => \inst2|spi1|spi_rx_data\(5),
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst2|decoder1|current_instruction\(0),
+	datac => \inst2|spi1|do_buffer_reg\(3),
 	datad => \inst2|decoder1|current_instruction\(2),
-	combout => \inst2|decoder1|x~6_combout\);
+	combout => \inst2|decoder1|x~4_combout\);
 
--- Location: LCFF_X24_Y19_N19
-\inst2|decoder1|x[5]\ : cycloneii_lcell_ff
+-- Location: LCCOMB_X40_Y18_N14
+\inst2|decoder1|x[3]~feeder\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|x[3]~feeder_combout\ = \inst2|decoder1|x~4_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \inst2|decoder1|x~4_combout\,
+	combout => \inst2|decoder1|x[3]~feeder_combout\);
+
+-- Location: LCFF_X40_Y18_N15
+\inst2|decoder1|x[3]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|x~6_combout\,
+	datain => \inst2|decoder1|x[3]~feeder_combout\,
 	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
 	ena => \inst2|decoder1|x~2_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|decoder1|x\(5));
+	regout => \inst2|decoder1|x\(3));
 
--- Location: LCFF_X23_Y19_N5
-\inst2|decoder1|w[5]\ : cycloneii_lcell_ff
+-- Location: LCFF_X39_Y18_N9
+\inst2|decoder1|w[2]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|spi1|spi_rx_data\(5),
-	sclr => \inst2|sreset~0_combout\,
+	sdata => \inst2|spi1|do_buffer_reg\(2),
+	sclr => \inst2|decoder1|w[7]~0_combout\,
 	sload => VCC,
-	ena => \inst2|decoder1|w[7]~12_combout\,
+	ena => \inst2|decoder1|w[7]~2_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|decoder1|w\(5));
+	regout => \inst2|decoder1|w\(2));
 
--- Location: LCCOMB_X23_Y19_N4
-\inst2|draw1|rect1|cx_tmp[5]~15\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X43_Y16_N0
+\inst2|spi1|do_buffer_reg[1]~feeder\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[5]~15_combout\ = (\inst2|draw1|rect1|cx[6]~7_combout\ & (((\inst2|draw1|rect1|cx[6]~1_combout\)))) # (!\inst2|draw1|rect1|cx[6]~7_combout\ & ((\inst2|draw1|rect1|cx[6]~1_combout\ & ((\inst2|decoder1|w\(5)))) # 
--- (!\inst2|draw1|rect1|cx[6]~1_combout\ & (\inst2|decoder1|x\(5)))))
+-- \inst2|spi1|do_buffer_reg[1]~feeder_combout\ = \inst2|spi1|Selector8~0_combout\
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111101001000100",
+	lut_mask => "1111111100000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|rect1|cx[6]~7_combout\,
-	datab => \inst2|decoder1|x\(5),
-	datac => \inst2|decoder1|w\(5),
-	datad => \inst2|draw1|rect1|cx[6]~1_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[5]~15_combout\);
+	datad => \inst2|spi1|Selector8~0_combout\,
+	combout => \inst2|spi1|do_buffer_reg[1]~feeder_combout\);
 
--- Location: LCCOMB_X23_Y18_N26
-\inst2|draw1|rect1|cx_tmp[5]~16\ : cycloneii_lcell_comb
+-- Location: LCFF_X43_Y16_N1
+\inst2|spi1|do_buffer_reg[1]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \SPICLK~combout\,
+	datain => \inst2|spi1|do_buffer_reg[1]~feeder_combout\,
+	ena => \inst2|spi1|Equal1~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|spi1|do_buffer_reg\(1));
+
+-- Location: LCCOMB_X38_Y15_N24
+\inst2|decoder1|x~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[5]~16_combout\ = (\inst2|draw1|rect1|cx[6]~7_combout\ & ((\inst2|draw1|rect1|cx_tmp[5]~15_combout\ & ((\inst2|draw1|rect1|cx\(5)))) # (!\inst2|draw1|rect1|cx_tmp[5]~15_combout\ & (\inst2|draw1|rect1|Add1~10_combout\)))) # 
--- (!\inst2|draw1|rect1|cx[6]~7_combout\ & (((\inst2|draw1|rect1|cx_tmp[5]~15_combout\))))
+-- \inst2|decoder1|x~0_combout\ = (\inst2|spi1|do_buffer_reg\(1) & (\inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(0) & \inst2|decoder1|current_instruction\(1))))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100111110100000",
+	lut_mask => "0110101000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|rect1|Add1~10_combout\,
-	datab => \inst2|draw1|rect1|cx\(5),
-	datac => \inst2|draw1|rect1|cx[6]~7_combout\,
-	datad => \inst2|draw1|rect1|cx_tmp[5]~15_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[5]~16_combout\);
+	dataa => \inst2|decoder1|current_instruction\(2),
+	datab => \inst2|decoder1|current_instruction\(0),
+	datac => \inst2|decoder1|current_instruction\(1),
+	datad => \inst2|spi1|do_buffer_reg\(1),
+	combout => \inst2|decoder1|x~0_combout\);
 
--- Location: LCCOMB_X23_Y18_N18
-\inst2|draw1|rect1|cx_tmp[5]~17\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y18_N30
+\inst2|decoder1|x[1]~feeder\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[5]~17_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & (\inst2|draw1|rect1|cx_tmp[5]~16_combout\ & ((\inst2|draw1|rect1|cx[6]~1_combout\) # (!\inst2|draw1|rect1|almost_done~regout\))))
+-- \inst2|decoder1|x[1]~feeder_combout\ = \inst2|decoder1|x~0_combout\
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100010000000000",
+	lut_mask => "1111111100000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|rect1|almost_done~regout\,
-	datab => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	datac => \inst2|draw1|rect1|cx[6]~1_combout\,
-	datad => \inst2|draw1|rect1|cx_tmp[5]~16_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[5]~17_combout\);
+	datad => \inst2|decoder1|x~0_combout\,
+	combout => \inst2|decoder1|x[1]~feeder_combout\);
 
--- Location: LCFF_X23_Y18_N19
-\inst2|draw1|rect1|cx[5]\ : cycloneii_lcell_ff
+-- Location: LCFF_X40_Y18_N31
+\inst2|decoder1|x[1]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|rect1|cx_tmp[5]~17_combout\,
+	datain => \inst2|decoder1|x[1]~feeder_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	ena => \inst2|decoder1|x~2_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|draw1|rect1|cx\(5));
+	regout => \inst2|decoder1|x\(1));
 
--- Location: LCCOMB_X23_Y20_N4
-\inst2|decoder1|x~7\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y18_N10
+\inst2|decoder1|x~3\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|x~7_combout\ = (\inst2|spi1|spi_rx_data\(4) & (\inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(0) & \inst2|decoder1|current_instruction\(1))))))
+-- \inst2|decoder1|x~3_combout\ = (\inst2|spi1|do_buffer_reg\(0) & (\inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(1) & \inst2|decoder1|current_instruction\(0))))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -5086,710 +4650,77 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(0),
+	dataa => \inst2|decoder1|current_instruction\(1),
 	datab => \inst2|decoder1|current_instruction\(2),
-	datac => \inst2|decoder1|current_instruction\(1),
-	datad => \inst2|spi1|spi_rx_data\(4),
-	combout => \inst2|decoder1|x~7_combout\);
-
--- Location: LCFF_X24_Y19_N29
-\inst2|decoder1|x[4]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|x~7_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|x~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|x\(4));
-
--- Location: LCCOMB_X23_Y18_N0
-\inst2|draw1|rect1|Equal0~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Equal0~2_combout\ = (\inst2|draw1|rect1|cx\(4) & (\inst2|decoder1|x\(4) & (\inst2|draw1|rect1|cx\(5) $ (!\inst2|decoder1|x\(5))))) # (!\inst2|draw1|rect1|cx\(4) & (!\inst2|decoder1|x\(4) & (\inst2|draw1|rect1|cx\(5) $ 
--- (!\inst2|decoder1|x\(5)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000001001000001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cx\(4),
-	datab => \inst2|draw1|rect1|cx\(5),
-	datac => \inst2|decoder1|x\(5),
-	datad => \inst2|decoder1|x\(4),
-	combout => \inst2|draw1|rect1|Equal0~2_combout\);
-
--- Location: LCCOMB_X23_Y20_N18
-\inst2|decoder1|x~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|x~3_combout\ = (\inst2|spi1|spi_rx_data\(0) & (\inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(1) & \inst2|decoder1|current_instruction\(0))))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010100010001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|spi1|spi_rx_data\(0),
-	datab => \inst2|decoder1|current_instruction\(2),
-	datac => \inst2|decoder1|current_instruction\(1),
-	datad => \inst2|decoder1|current_instruction\(0),
+	datac => \inst2|decoder1|current_instruction\(0),
+	datad => \inst2|spi1|do_buffer_reg\(0),
 	combout => \inst2|decoder1|x~3_combout\);
 
--- Location: LCFF_X24_Y19_N7
+-- Location: LCCOMB_X40_Y18_N24
+\inst2|decoder1|x[0]~feeder\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|x[0]~feeder_combout\ = \inst2|decoder1|x~3_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \inst2|decoder1|x~3_combout\,
+	combout => \inst2|decoder1|x[0]~feeder_combout\);
+
+-- Location: LCFF_X40_Y18_N25
 \inst2|decoder1|x[0]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|x~3_combout\,
+	datain => \inst2|decoder1|x[0]~feeder_combout\,
 	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
 	ena => \inst2|decoder1|x~2_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	regout => \inst2|decoder1|x\(0));
 
--- Location: LCCOMB_X23_Y20_N12
-\inst2|decoder1|x~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|x~0_combout\ = (\inst2|spi1|spi_rx_data\(1) & (\inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(1) & \inst2|decoder1|current_instruction\(0))))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010100010001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|spi1|spi_rx_data\(1),
-	datab => \inst2|decoder1|current_instruction\(2),
-	datac => \inst2|decoder1|current_instruction\(1),
-	datad => \inst2|decoder1|current_instruction\(0),
-	combout => \inst2|decoder1|x~0_combout\);
-
--- Location: LCFF_X24_Y19_N5
-\inst2|decoder1|x[1]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|x~0_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|x~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|x\(1));
-
--- Location: LCCOMB_X25_Y18_N20
-\inst2|draw1|rect1|Equal0~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Equal0~0_combout\ = (\inst2|draw1|rect1|cx\(1) & (\inst2|decoder1|x\(1) & (\inst2|draw1|rect1|cx\(0) $ (!\inst2|decoder1|x\(0))))) # (!\inst2|draw1|rect1|cx\(1) & (!\inst2|decoder1|x\(1) & (\inst2|draw1|rect1|cx\(0) $ 
--- (!\inst2|decoder1|x\(0)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000001001000001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cx\(1),
-	datab => \inst2|draw1|rect1|cx\(0),
-	datac => \inst2|decoder1|x\(0),
-	datad => \inst2|decoder1|x\(1),
-	combout => \inst2|draw1|rect1|Equal0~0_combout\);
-
--- Location: LCCOMB_X22_Y18_N28
-\inst2|draw1|rect1|Equal0~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Equal0~4_combout\ = (\inst2|draw1|rect1|Equal0~3_combout\ & (\inst2|draw1|rect1|Equal0~1_combout\ & (\inst2|draw1|rect1|Equal0~2_combout\ & \inst2|draw1|rect1|Equal0~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|Equal0~3_combout\,
-	datab => \inst2|draw1|rect1|Equal0~1_combout\,
-	datac => \inst2|draw1|rect1|Equal0~2_combout\,
-	datad => \inst2|draw1|rect1|Equal0~0_combout\,
-	combout => \inst2|draw1|rect1|Equal0~4_combout\);
-
--- Location: LCCOMB_X21_Y16_N16
-\inst2|draw1|rect1|cy_tmp[0]~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cy_tmp[0]~2_combout\ = ((\inst2|draw1|rect1|cy_tmp[0]~1_combout\ & ((\inst2|draw1|rect1|Equal0~4_combout\) # (!\inst2|draw1|rect1|draw_write~0_combout\)))) # (!\inst2|draw1|rect1|cy_tmp[0]~0_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101010111011101",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	datab => \inst2|draw1|rect1|cy_tmp[0]~1_combout\,
-	datac => \inst2|draw1|rect1|Equal0~4_combout\,
-	datad => \inst2|draw1|rect1|draw_write~0_combout\,
-	combout => \inst2|draw1|rect1|cy_tmp[0]~2_combout\);
-
--- Location: LCFF_X22_Y16_N29
-\inst2|draw1|rect1|cy[0]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|draw1|rect1|Add0~3_combout\,
-	sload => VCC,
-	ena => \inst2|draw1|rect1|cy_tmp[0]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|rect1|cy\(0));
-
--- Location: LCCOMB_X22_Y16_N10
-\inst2|draw1|rect1|Add0~5\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~5_combout\ = (\inst2|draw1|rect1|cy\(1) & (\inst2|draw1|rect1|Add0~2\ & VCC)) # (!\inst2|draw1|rect1|cy\(1) & (!\inst2|draw1|rect1|Add0~2\))
--- \inst2|draw1|rect1|Add0~6\ = CARRY((!\inst2|draw1|rect1|cy\(1) & !\inst2|draw1|rect1|Add0~2\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100001100000011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|rect1|cy\(1),
-	datad => VCC,
-	cin => \inst2|draw1|rect1|Add0~2\,
-	combout => \inst2|draw1|rect1|Add0~5_combout\,
-	cout => \inst2|draw1|rect1|Add0~6\);
-
--- Location: LCCOMB_X21_Y16_N30
-\inst2|draw1|rect1|Add0~7\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~7_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|Add0~4_combout\) # ((\inst2|draw1|rect1|draw_write~0_combout\ & \inst2|draw1|rect1|Add0~5_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110110000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|draw_write~0_combout\,
-	datab => \inst2|draw1|rect1|Add0~4_combout\,
-	datac => \inst2|draw1|rect1|Add0~5_combout\,
-	datad => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	combout => \inst2|draw1|rect1|Add0~7_combout\);
-
--- Location: LCFF_X22_Y16_N3
-\inst2|draw1|rect1|cy[1]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|draw1|rect1|Add0~7_combout\,
-	sload => VCC,
-	ena => \inst2|draw1|rect1|cy_tmp[0]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|rect1|cy\(1));
-
--- Location: LCCOMB_X21_Y16_N22
-\inst2|draw1|rect1|Add0~11\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Add0~11_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|Add0~8_combout\) # ((\inst2|draw1|rect1|Add0~9_combout\ & \inst2|draw1|rect1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010100010001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	datab => \inst2|draw1|rect1|Add0~8_combout\,
-	datac => \inst2|draw1|rect1|Add0~9_combout\,
-	datad => \inst2|draw1|rect1|draw_write~0_combout\,
-	combout => \inst2|draw1|rect1|Add0~11_combout\);
-
--- Location: LCFF_X21_Y16_N23
-\inst2|draw1|rect1|cy[2]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|rect1|Add0~11_combout\,
-	ena => \inst2|draw1|rect1|cy_tmp[0]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|rect1|cy\(2));
-
--- Location: LCCOMB_X23_Y20_N24
-\inst4|Equal63~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst4|Equal63~2_combout\ = (!\inst2|decoder1|packet_num\(2) & (\inst2|decoder1|packet_num\(0) & \inst2|decoder1|packet_num\(1)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|packet_num\(2),
-	datac => \inst2|decoder1|packet_num\(0),
-	datad => \inst2|decoder1|packet_num\(1),
-	combout => \inst4|Equal63~2_combout\);
-
--- Location: LCCOMB_X23_Y20_N14
-\inst2|decoder1|y~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|y~1_combout\ = ((\inst2|decoder1|y~0_combout\ & ((\inst4|Equal63~2_combout\) # (!\inst2|decoder1|x[5]~1_combout\)))) # (!\reset~combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000111110101111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|y~0_combout\,
-	datab => \inst4|Equal63~2_combout\,
-	datac => \reset~combout\,
-	datad => \inst2|decoder1|x[5]~1_combout\,
-	combout => \inst2|decoder1|y~1_combout\);
-
--- Location: LCFF_X23_Y17_N21
-\inst2|decoder1|y[2]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|x~5_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|y~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|y\(2));
-
--- Location: LCCOMB_X23_Y20_N10
-\inst2|decoder1|x~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|x~4_combout\ = (\inst2|spi1|spi_rx_data\(3) & (\inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(1) & \inst2|decoder1|current_instruction\(0))))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010100010001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|spi1|spi_rx_data\(3),
-	datab => \inst2|decoder1|current_instruction\(2),
-	datac => \inst2|decoder1|current_instruction\(1),
-	datad => \inst2|decoder1|current_instruction\(0),
-	combout => \inst2|decoder1|x~4_combout\);
-
--- Location: LCFF_X23_Y17_N23
-\inst2|decoder1|y[3]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|x~4_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|y~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|y\(3));
-
--- Location: LCCOMB_X21_Y16_N2
-\inst2|draw1|rect1|almost_done_tmp~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|almost_done_tmp~1_combout\ = (\inst2|draw1|rect1|cy\(3) & (\inst2|decoder1|y\(3) & (\inst2|draw1|rect1|cy\(2) $ (!\inst2|decoder1|y\(2))))) # (!\inst2|draw1|rect1|cy\(3) & (!\inst2|decoder1|y\(3) & (\inst2|draw1|rect1|cy\(2) $ 
--- (!\inst2|decoder1|y\(2)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000001001000001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cy\(3),
-	datab => \inst2|draw1|rect1|cy\(2),
-	datac => \inst2|decoder1|y\(2),
-	datad => \inst2|decoder1|y\(3),
-	combout => \inst2|draw1|rect1|almost_done_tmp~1_combout\);
-
--- Location: LCCOMB_X22_Y19_N22
-\inst2|decoder1|x~9\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|x~9_combout\ = (\inst2|spi1|spi_rx_data\(6) & (\inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(1) & \inst2|decoder1|current_instruction\(0))))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110000011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(1),
-	datab => \inst2|decoder1|current_instruction\(2),
-	datac => \inst2|spi1|spi_rx_data\(6),
-	datad => \inst2|decoder1|current_instruction\(0),
-	combout => \inst2|decoder1|x~9_combout\);
-
--- Location: LCFF_X23_Y17_N15
-\inst2|decoder1|y[6]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|x~9_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|y~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|y\(6));
-
--- Location: LCCOMB_X21_Y16_N20
-\inst2|draw1|rect1|Equal1~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|Equal1~0_combout\ = \inst2|draw1|rect1|cy\(6) $ (\inst2|decoder1|y\(6))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111111110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \inst2|draw1|rect1|cy\(6),
-	datad => \inst2|decoder1|y\(6),
-	combout => \inst2|draw1|rect1|Equal1~0_combout\);
-
--- Location: LCFF_X23_Y17_N25
-\inst2|decoder1|y[4]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|x~7_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|y~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|y\(4));
-
--- Location: LCCOMB_X23_Y16_N16
-\inst2|draw1|rect1|almost_done_tmp~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|almost_done_tmp~2_combout\ = (\inst2|decoder1|y\(5) & (\inst2|draw1|rect1|cy\(5) & (\inst2|decoder1|y\(4) $ (!\inst2|draw1|rect1|cy\(4))))) # (!\inst2|decoder1|y\(5) & (!\inst2|draw1|rect1|cy\(5) & (\inst2|decoder1|y\(4) $ 
--- (!\inst2|draw1|rect1|cy\(4)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001000000001001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|y\(5),
-	datab => \inst2|draw1|rect1|cy\(5),
-	datac => \inst2|decoder1|y\(4),
-	datad => \inst2|draw1|rect1|cy\(4),
-	combout => \inst2|draw1|rect1|almost_done_tmp~2_combout\);
-
--- Location: LCCOMB_X21_Y16_N18
-\inst2|draw1|rect1|almost_done_tmp~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|almost_done_tmp~3_combout\ = (\inst2|draw1|rect1|almost_done_tmp~0_combout\ & (\inst2|draw1|rect1|almost_done_tmp~1_combout\ & (!\inst2|draw1|rect1|Equal1~0_combout\ & \inst2|draw1|rect1|almost_done_tmp~2_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000100000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|almost_done_tmp~0_combout\,
-	datab => \inst2|draw1|rect1|almost_done_tmp~1_combout\,
-	datac => \inst2|draw1|rect1|Equal1~0_combout\,
-	datad => \inst2|draw1|rect1|almost_done_tmp~2_combout\,
-	combout => \inst2|draw1|rect1|almost_done_tmp~3_combout\);
-
--- Location: LCCOMB_X20_Y17_N2
-\inst2|draw1|rect1|draw_write~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|draw_write~1_combout\ = (!\inst2|draw1|rect1|draw_rect_combi~0_combout\ & (\reset~combout\ & (!\inst2|decoder1|decoder_claim~regout\ & !\inst2|vgacontroller1|vga_combi~5_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|draw_rect_combi~0_combout\,
-	datab => \reset~combout\,
-	datac => \inst2|decoder1|decoder_claim~regout\,
-	datad => \inst2|vgacontroller1|vga_combi~5_combout\,
-	combout => \inst2|draw1|rect1|draw_write~1_combout\);
-
--- Location: LCCOMB_X21_Y16_N0
-\inst2|draw1|rect1|almost_done_tmp~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|almost_done_tmp~4_combout\ = (\inst2|draw1|rect1|draw_write~0_combout\ & (\inst2|draw1|rect1|almost_done_tmp~3_combout\ & (\inst2|draw1|rect1|Equal0~4_combout\ & \inst2|draw1|rect1|draw_write~1_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|draw_write~0_combout\,
-	datab => \inst2|draw1|rect1|almost_done_tmp~3_combout\,
-	datac => \inst2|draw1|rect1|Equal0~4_combout\,
-	datad => \inst2|draw1|rect1|draw_write~1_combout\,
-	combout => \inst2|draw1|rect1|almost_done_tmp~4_combout\);
-
--- Location: LCFF_X21_Y16_N1
-\inst2|draw1|rect1|almost_done\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|rect1|almost_done_tmp~4_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|rect1|almost_done~regout\);
-
--- Location: LCCOMB_X21_Y17_N24
-\inst2|draw1|draw_ready~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|draw_ready~0_combout\ = (!\inst2|draw1|rect1|started~regout\) # (!\inst2|draw1|rect1|almost_done~regout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011001111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|rect1|almost_done~regout\,
-	datad => \inst2|draw1|rect1|started~regout\,
-	combout => \inst2|draw1|draw_ready~0_combout\);
-
--- Location: LCCOMB_X20_Y20_N18
-\inst2|decoder1|en~7\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|en~7_combout\ = (\inst2|decoder1|en~5_combout\ & ((\inst2|decoder1|en~6_combout\) # ((\inst2|decoder1|en\(3) & \inst4|hex1[2]~4_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100100010001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|en~6_combout\,
-	datab => \inst2|decoder1|en~5_combout\,
-	datac => \inst2|decoder1|en\(3),
-	datad => \inst4|hex1[2]~4_combout\,
-	combout => \inst2|decoder1|en~7_combout\);
-
--- Location: LCFF_X20_Y20_N19
-\inst2|decoder1|en[3]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|en~7_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	ena => \inst2|decoder1|en~4_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|en\(3));
-
--- Location: LCCOMB_X21_Y17_N8
-\inst2|draw1|line1|Add10~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add10~0_combout\ = \inst2|draw1|line1|cy\(0) $ (VCC)
--- \inst2|draw1|line1|Add10~1\ = CARRY(\inst2|draw1|line1|cy\(0))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011001111001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|line1|cy\(0),
-	datad => VCC,
-	combout => \inst2|draw1|line1|Add10~0_combout\,
-	cout => \inst2|draw1|line1|Add10~1\);
-
--- Location: LCCOMB_X20_Y17_N18
-\inst2|draw1|line1|cx[3]~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|cx[3]~0_combout\ = (!\inst2|decoder1|en\(3)) # (!\reset~combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011001111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \reset~combout\,
-	datad => \inst2|decoder1|en\(3),
-	combout => \inst2|draw1|line1|cx[3]~0_combout\);
-
--- Location: LCFF_X23_Y17_N17
-\inst2|decoder1|y[0]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|x~3_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|y~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|y\(0));
-
--- Location: LCCOMB_X21_Y17_N22
-\inst2|draw1|line1|Add10~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add10~2_combout\ = (!\inst2|draw1|line1|cx[3]~0_combout\ & ((\inst2|draw1|line1|setup~regout\ & ((\inst2|decoder1|y\(0)))) # (!\inst2|draw1|line1|setup~regout\ & (\inst2|draw1|line1|Add10~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111000000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|setup~regout\,
-	datab => \inst2|draw1|line1|Add10~0_combout\,
-	datac => \inst2|draw1|line1|cx[3]~0_combout\,
-	datad => \inst2|decoder1|y\(0),
-	combout => \inst2|draw1|line1|Add10~2_combout\);
-
--- Location: LCCOMB_X20_Y17_N20
-\inst2|draw1|line1|next_setup~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|next_setup~0_combout\ = ((\inst2|draw1|line1|setup~regout\ & ((!\inst2|ramcontroller1|draw_can_access~0_combout\))) # (!\inst2|draw1|line1|setup~regout\ & (\inst2|draw1|line1|draw_line_comb~9_combout\ & 
--- \inst2|ramcontroller1|draw_can_access~0_combout\))) # (!\inst2|decoder1|en\(3))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011101111110011",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|draw_line_comb~9_combout\,
-	datab => \inst2|decoder1|en\(3),
-	datac => \inst2|draw1|line1|setup~regout\,
-	datad => \inst2|ramcontroller1|draw_can_access~0_combout\,
-	combout => \inst2|draw1|line1|next_setup~0_combout\);
-
--- Location: LCFF_X20_Y17_N21
-\inst2|draw1|line1|setup\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|next_setup~0_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|setup~regout\);
-
--- Location: LCFF_X24_Y20_N21
-\inst2|spi1|spi_rx_data[7]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|spi1|spi_rx_data\(6),
-	sclr => \inst2|sreset~combout\,
-	sload => VCC,
-	ena => \inst2|spi1|spi_rx_data[4]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|spi1|spi_rx_data\(7));
-
--- Location: LCCOMB_X22_Y19_N4
-\inst2|decoder1|x~8\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|x~8_combout\ = (\inst2|spi1|spi_rx_data\(7) & (\inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(1) & \inst2|decoder1|current_instruction\(0))))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110000011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(1),
-	datab => \inst2|decoder1|current_instruction\(2),
-	datac => \inst2|spi1|spi_rx_data\(7),
-	datad => \inst2|decoder1|current_instruction\(0),
-	combout => \inst2|decoder1|x~8_combout\);
-
--- Location: LCFF_X22_Y19_N5
-\inst2|decoder1|x[7]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|x~8_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	ena => \inst2|decoder1|x~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|x\(7));
-
--- Location: LCFF_X23_Y19_N1
-\inst2|decoder1|w[6]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|spi1|spi_rx_data\(6),
-	sclr => \inst2|sreset~0_combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|w[7]~12_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|w\(6));
-
--- Location: LCFF_X24_Y19_N17
-\inst2|decoder1|x[3]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|x~4_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|x~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|x\(3));
-
--- Location: LCFF_X23_Y19_N3
-\inst2|decoder1|w[0]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|spi1|spi_rx_data\(0),
-	sclr => \inst2|sreset~0_combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|w[7]~12_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|w\(0));
-
--- Location: LCCOMB_X23_Y19_N16
-\inst2|draw1|line1|Add0~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add0~2_combout\ = (\inst2|decoder1|x\(1) & ((\inst2|decoder1|w\(1) & (!\inst2|draw1|line1|Add0~1\)) # (!\inst2|decoder1|w\(1) & ((\inst2|draw1|line1|Add0~1\) # (GND))))) # (!\inst2|decoder1|x\(1) & ((\inst2|decoder1|w\(1) & 
--- (\inst2|draw1|line1|Add0~1\ & VCC)) # (!\inst2|decoder1|w\(1) & (!\inst2|draw1|line1|Add0~1\))))
--- \inst2|draw1|line1|Add0~3\ = CARRY((\inst2|decoder1|x\(1) & ((!\inst2|draw1|line1|Add0~1\) # (!\inst2|decoder1|w\(1)))) # (!\inst2|decoder1|x\(1) & (!\inst2|decoder1|w\(1) & !\inst2|draw1|line1|Add0~1\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100100101011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|x\(1),
-	datab => \inst2|decoder1|w\(1),
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add0~1\,
-	combout => \inst2|draw1|line1|Add0~2_combout\,
-	cout => \inst2|draw1|line1|Add0~3\);
-
--- Location: LCCOMB_X23_Y19_N18
+-- Location: LCCOMB_X39_Y18_N8
 \inst2|draw1|line1|Add0~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add0~4_combout\ = ((\inst2|decoder1|w\(2) $ (\inst2|decoder1|x\(2) $ (\inst2|draw1|line1|Add0~3\)))) # (GND)
--- \inst2|draw1|line1|Add0~5\ = CARRY((\inst2|decoder1|w\(2) & ((!\inst2|draw1|line1|Add0~3\) # (!\inst2|decoder1|x\(2)))) # (!\inst2|decoder1|w\(2) & (!\inst2|decoder1|x\(2) & !\inst2|draw1|line1|Add0~3\)))
+-- \inst2|draw1|line1|Add0~4_combout\ = ((\inst2|decoder1|x\(2) $ (\inst2|decoder1|w\(2) $ (\inst2|draw1|line1|Add0~3\)))) # (GND)
+-- \inst2|draw1|line1|Add0~5\ = CARRY((\inst2|decoder1|x\(2) & (\inst2|decoder1|w\(2) & !\inst2|draw1|line1|Add0~3\)) # (!\inst2|decoder1|x\(2) & ((\inst2|decoder1|w\(2)) # (!\inst2|draw1|line1|Add0~3\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1001011000101011",
+	lut_mask => "1001011001001101",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|w\(2),
-	datab => \inst2|decoder1|x\(2),
+	dataa => \inst2|decoder1|x\(2),
+	datab => \inst2|decoder1|w\(2),
 	datad => VCC,
 	cin => \inst2|draw1|line1|Add0~3\,
 	combout => \inst2|draw1|line1|Add0~4_combout\,
 	cout => \inst2|draw1|line1|Add0~5\);
 
--- Location: LCCOMB_X23_Y19_N22
+-- Location: LCCOMB_X39_Y18_N10
+\inst2|draw1|line1|Add0~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add0~6_combout\ = (\inst2|decoder1|w\(3) & ((\inst2|decoder1|x\(3) & (!\inst2|draw1|line1|Add0~5\)) # (!\inst2|decoder1|x\(3) & (\inst2|draw1|line1|Add0~5\ & VCC)))) # (!\inst2|decoder1|w\(3) & ((\inst2|decoder1|x\(3) & 
+-- ((\inst2|draw1|line1|Add0~5\) # (GND))) # (!\inst2|decoder1|x\(3) & (!\inst2|draw1|line1|Add0~5\))))
+-- \inst2|draw1|line1|Add0~7\ = CARRY((\inst2|decoder1|w\(3) & (\inst2|decoder1|x\(3) & !\inst2|draw1|line1|Add0~5\)) # (!\inst2|decoder1|w\(3) & ((\inst2|decoder1|x\(3)) # (!\inst2|draw1|line1|Add0~5\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110100101001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|w\(3),
+	datab => \inst2|decoder1|x\(3),
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add0~5\,
+	combout => \inst2|draw1|line1|Add0~6_combout\,
+	cout => \inst2|draw1|line1|Add0~7\);
+
+-- Location: LCCOMB_X39_Y18_N12
 \inst2|draw1|line1|Add0~8\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add0~8_combout\ = ((\inst2|decoder1|w\(4) $ (\inst2|decoder1|x\(4) $ (\inst2|draw1|line1|Add0~7\)))) # (GND)
@@ -5808,51 +4739,12 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add0~8_combout\,
 	cout => \inst2|draw1|line1|Add0~9\);
 
--- Location: LCCOMB_X23_Y19_N24
+-- Location: LCCOMB_X39_Y18_N14
 \inst2|draw1|line1|Add0~10\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add0~10_combout\ = (\inst2|decoder1|x\(5) & ((\inst2|decoder1|w\(5) & (!\inst2|draw1|line1|Add0~9\)) # (!\inst2|decoder1|w\(5) & ((\inst2|draw1|line1|Add0~9\) # (GND))))) # (!\inst2|decoder1|x\(5) & ((\inst2|decoder1|w\(5) & 
--- (\inst2|draw1|line1|Add0~9\ & VCC)) # (!\inst2|decoder1|w\(5) & (!\inst2|draw1|line1|Add0~9\))))
--- \inst2|draw1|line1|Add0~11\ = CARRY((\inst2|decoder1|x\(5) & ((!\inst2|draw1|line1|Add0~9\) # (!\inst2|decoder1|w\(5)))) # (!\inst2|decoder1|x\(5) & (!\inst2|decoder1|w\(5) & !\inst2|draw1|line1|Add0~9\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100100101011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|x\(5),
-	datab => \inst2|decoder1|w\(5),
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add0~9\,
-	combout => \inst2|draw1|line1|Add0~10_combout\,
-	cout => \inst2|draw1|line1|Add0~11\);
-
--- Location: LCCOMB_X23_Y19_N26
-\inst2|draw1|line1|Add0~12\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add0~12_combout\ = ((\inst2|decoder1|x\(6) $ (\inst2|decoder1|w\(6) $ (\inst2|draw1|line1|Add0~11\)))) # (GND)
--- \inst2|draw1|line1|Add0~13\ = CARRY((\inst2|decoder1|x\(6) & (\inst2|decoder1|w\(6) & !\inst2|draw1|line1|Add0~11\)) # (!\inst2|decoder1|x\(6) & ((\inst2|decoder1|w\(6)) # (!\inst2|draw1|line1|Add0~11\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011001001101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|x\(6),
-	datab => \inst2|decoder1|w\(6),
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add0~11\,
-	combout => \inst2|draw1|line1|Add0~12_combout\,
-	cout => \inst2|draw1|line1|Add0~13\);
-
--- Location: LCCOMB_X23_Y19_N28
-\inst2|draw1|line1|Add0~14\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add0~14_combout\ = (\inst2|decoder1|w\(7) & ((\inst2|decoder1|x\(7) & (!\inst2|draw1|line1|Add0~13\)) # (!\inst2|decoder1|x\(7) & (\inst2|draw1|line1|Add0~13\ & VCC)))) # (!\inst2|decoder1|w\(7) & ((\inst2|decoder1|x\(7) & 
--- ((\inst2|draw1|line1|Add0~13\) # (GND))) # (!\inst2|decoder1|x\(7) & (!\inst2|draw1|line1|Add0~13\))))
--- \inst2|draw1|line1|Add0~15\ = CARRY((\inst2|decoder1|w\(7) & (\inst2|decoder1|x\(7) & !\inst2|draw1|line1|Add0~13\)) # (!\inst2|decoder1|w\(7) & ((\inst2|decoder1|x\(7)) # (!\inst2|draw1|line1|Add0~13\))))
+-- \inst2|draw1|line1|Add0~10_combout\ = (\inst2|decoder1|w\(5) & ((\inst2|decoder1|x\(5) & (!\inst2|draw1|line1|Add0~9\)) # (!\inst2|decoder1|x\(5) & (\inst2|draw1|line1|Add0~9\ & VCC)))) # (!\inst2|decoder1|w\(5) & ((\inst2|decoder1|x\(5) & 
+-- ((\inst2|draw1|line1|Add0~9\) # (GND))) # (!\inst2|decoder1|x\(5) & (!\inst2|draw1|line1|Add0~9\))))
+-- \inst2|draw1|line1|Add0~11\ = CARRY((\inst2|decoder1|w\(5) & (\inst2|decoder1|x\(5) & !\inst2|draw1|line1|Add0~9\)) # (!\inst2|decoder1|w\(5) & ((\inst2|decoder1|x\(5)) # (!\inst2|draw1|line1|Add0~9\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -5860,14 +4752,34 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|w\(7),
-	datab => \inst2|decoder1|x\(7),
+	dataa => \inst2|decoder1|w\(5),
+	datab => \inst2|decoder1|x\(5),
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add0~9\,
+	combout => \inst2|draw1|line1|Add0~10_combout\,
+	cout => \inst2|draw1|line1|Add0~11\);
+
+-- Location: LCCOMB_X39_Y18_N18
+\inst2|draw1|line1|Add0~14\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add0~14_combout\ = (\inst2|decoder1|x\(7) & ((\inst2|decoder1|w\(7) & (!\inst2|draw1|line1|Add0~13\)) # (!\inst2|decoder1|w\(7) & ((\inst2|draw1|line1|Add0~13\) # (GND))))) # (!\inst2|decoder1|x\(7) & ((\inst2|decoder1|w\(7) & 
+-- (\inst2|draw1|line1|Add0~13\ & VCC)) # (!\inst2|decoder1|w\(7) & (!\inst2|draw1|line1|Add0~13\))))
+-- \inst2|draw1|line1|Add0~15\ = CARRY((\inst2|decoder1|x\(7) & ((!\inst2|draw1|line1|Add0~13\) # (!\inst2|decoder1|w\(7)))) # (!\inst2|decoder1|x\(7) & (!\inst2|decoder1|w\(7) & !\inst2|draw1|line1|Add0~13\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110100100101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|x\(7),
+	datab => \inst2|decoder1|w\(7),
 	datad => VCC,
 	cin => \inst2|draw1|line1|Add0~13\,
 	combout => \inst2|draw1|line1|Add0~14_combout\,
 	cout => \inst2|draw1|line1|Add0~15\);
 
--- Location: LCCOMB_X23_Y19_N30
+-- Location: LCCOMB_X39_Y18_N20
 \inst2|draw1|line1|Add0~16\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add0~16_combout\ = !\inst2|draw1|line1|Add0~15\
@@ -5881,7 +4793,7 @@ PORT MAP (
 	cin => \inst2|draw1|line1|Add0~15\,
 	combout => \inst2|draw1|line1|Add0~16_combout\);
 
--- Location: LCCOMB_X24_Y19_N4
+-- Location: LCCOMB_X38_Y18_N0
 \inst2|draw1|line1|dx~0\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|dx~0_combout\ = \inst2|draw1|line1|Add0~0_combout\ $ (\inst2|draw1|line1|Add0~16_combout\)
@@ -5896,7 +4808,7 @@ PORT MAP (
 	datad => \inst2|draw1|line1|Add0~16_combout\,
 	combout => \inst2|draw1|line1|dx~0_combout\);
 
--- Location: LCCOMB_X24_Y19_N14
+-- Location: LCCOMB_X38_Y18_N10
 \inst2|draw1|line1|Add1~0\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add1~0_combout\ = (\inst2|draw1|line1|Add0~16_combout\ & (!\inst2|draw1|line1|dx~0_combout\ & VCC)) # (!\inst2|draw1|line1|Add0~16_combout\ & (\inst2|draw1|line1|dx~0_combout\ $ (GND)))
@@ -5914,12 +4826,12 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add1~0_combout\,
 	cout => \inst2|draw1|line1|Add1~1\);
 
--- Location: LCCOMB_X24_Y19_N16
+-- Location: LCCOMB_X38_Y18_N12
 \inst2|draw1|line1|Add1~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add1~2_combout\ = (\inst2|draw1|line1|Add1~1\ & (\inst2|draw1|line1|Add0~16_combout\ $ ((\inst2|draw1|line1|Add0~2_combout\)))) # (!\inst2|draw1|line1|Add1~1\ & ((\inst2|draw1|line1|Add0~16_combout\ $ 
--- (!\inst2|draw1|line1|Add0~2_combout\)) # (GND)))
--- \inst2|draw1|line1|Add1~3\ = CARRY((\inst2|draw1|line1|Add0~16_combout\ $ (\inst2|draw1|line1|Add0~2_combout\)) # (!\inst2|draw1|line1|Add1~1\))
+-- \inst2|draw1|line1|Add1~2_combout\ = (\inst2|draw1|line1|Add1~1\ & (\inst2|draw1|line1|Add0~2_combout\ $ ((\inst2|draw1|line1|Add0~16_combout\)))) # (!\inst2|draw1|line1|Add1~1\ & ((\inst2|draw1|line1|Add0~2_combout\ $ 
+-- (!\inst2|draw1|line1|Add0~16_combout\)) # (GND)))
+-- \inst2|draw1|line1|Add1~3\ = CARRY((\inst2|draw1|line1|Add0~2_combout\ $ (\inst2|draw1|line1|Add0~16_combout\)) # (!\inst2|draw1|line1|Add1~1\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -5927,14 +4839,14 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add0~16_combout\,
-	datab => \inst2|draw1|line1|Add0~2_combout\,
+	dataa => \inst2|draw1|line1|Add0~2_combout\,
+	datab => \inst2|draw1|line1|Add0~16_combout\,
 	datad => VCC,
 	cin => \inst2|draw1|line1|Add1~1\,
 	combout => \inst2|draw1|line1|Add1~2_combout\,
 	cout => \inst2|draw1|line1|Add1~3\);
 
--- Location: LCCOMB_X24_Y19_N18
+-- Location: LCCOMB_X38_Y18_N14
 \inst2|draw1|line1|Add1~4\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add1~4_combout\ = (\inst2|draw1|line1|Add1~3\ & ((\inst2|draw1|line1|Add0~16_combout\ $ (!\inst2|draw1|line1|Add0~4_combout\)))) # (!\inst2|draw1|line1|Add1~3\ & (\inst2|draw1|line1|Add0~16_combout\ $ (\inst2|draw1|line1|Add0~4_combout\ 
@@ -5954,12 +4866,12 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add1~4_combout\,
 	cout => \inst2|draw1|line1|Add1~5\);
 
--- Location: LCCOMB_X24_Y19_N20
+-- Location: LCCOMB_X38_Y18_N16
 \inst2|draw1|line1|Add1~6\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add1~6_combout\ = (\inst2|draw1|line1|Add1~5\ & (\inst2|draw1|line1|Add0~6_combout\ $ ((\inst2|draw1|line1|Add0~16_combout\)))) # (!\inst2|draw1|line1|Add1~5\ & ((\inst2|draw1|line1|Add0~6_combout\ $ 
--- (!\inst2|draw1|line1|Add0~16_combout\)) # (GND)))
--- \inst2|draw1|line1|Add1~7\ = CARRY((\inst2|draw1|line1|Add0~6_combout\ $ (\inst2|draw1|line1|Add0~16_combout\)) # (!\inst2|draw1|line1|Add1~5\))
+-- \inst2|draw1|line1|Add1~6_combout\ = (\inst2|draw1|line1|Add1~5\ & (\inst2|draw1|line1|Add0~16_combout\ $ ((\inst2|draw1|line1|Add0~6_combout\)))) # (!\inst2|draw1|line1|Add1~5\ & ((\inst2|draw1|line1|Add0~16_combout\ $ 
+-- (!\inst2|draw1|line1|Add0~6_combout\)) # (GND)))
+-- \inst2|draw1|line1|Add1~7\ = CARRY((\inst2|draw1|line1|Add0~16_combout\ $ (\inst2|draw1|line1|Add0~6_combout\)) # (!\inst2|draw1|line1|Add1~5\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -5967,14 +4879,14 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add0~6_combout\,
-	datab => \inst2|draw1|line1|Add0~16_combout\,
+	dataa => \inst2|draw1|line1|Add0~16_combout\,
+	datab => \inst2|draw1|line1|Add0~6_combout\,
 	datad => VCC,
 	cin => \inst2|draw1|line1|Add1~5\,
 	combout => \inst2|draw1|line1|Add1~6_combout\,
 	cout => \inst2|draw1|line1|Add1~7\);
 
--- Location: LCCOMB_X24_Y19_N22
+-- Location: LCCOMB_X38_Y18_N18
 \inst2|draw1|line1|Add1~8\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add1~8_combout\ = (\inst2|draw1|line1|Add1~7\ & ((\inst2|draw1|line1|Add0~16_combout\ $ (!\inst2|draw1|line1|Add0~8_combout\)))) # (!\inst2|draw1|line1|Add1~7\ & (\inst2|draw1|line1|Add0~16_combout\ $ (\inst2|draw1|line1|Add0~8_combout\ 
@@ -5994,7 +4906,7 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add1~8_combout\,
 	cout => \inst2|draw1|line1|Add1~9\);
 
--- Location: LCCOMB_X24_Y19_N24
+-- Location: LCCOMB_X38_Y18_N20
 \inst2|draw1|line1|Add1~10\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add1~10_combout\ = (\inst2|draw1|line1|Add1~9\ & (\inst2|draw1|line1|Add0~16_combout\ $ ((\inst2|draw1|line1|Add0~10_combout\)))) # (!\inst2|draw1|line1|Add1~9\ & ((\inst2|draw1|line1|Add0~16_combout\ $ 
@@ -6014,12 +4926,12 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add1~10_combout\,
 	cout => \inst2|draw1|line1|Add1~11\);
 
--- Location: LCCOMB_X24_Y19_N26
+-- Location: LCCOMB_X38_Y18_N22
 \inst2|draw1|line1|Add1~12\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add1~12_combout\ = (\inst2|draw1|line1|Add1~11\ & ((\inst2|draw1|line1|Add0~16_combout\ $ (!\inst2|draw1|line1|Add0~12_combout\)))) # (!\inst2|draw1|line1|Add1~11\ & (\inst2|draw1|line1|Add0~16_combout\ $ 
--- (\inst2|draw1|line1|Add0~12_combout\ $ (GND))))
--- \inst2|draw1|line1|Add1~13\ = CARRY((!\inst2|draw1|line1|Add1~11\ & (\inst2|draw1|line1|Add0~16_combout\ $ (!\inst2|draw1|line1|Add0~12_combout\))))
+-- \inst2|draw1|line1|Add1~12_combout\ = (\inst2|draw1|line1|Add1~11\ & ((\inst2|draw1|line1|Add0~12_combout\ $ (!\inst2|draw1|line1|Add0~16_combout\)))) # (!\inst2|draw1|line1|Add1~11\ & (\inst2|draw1|line1|Add0~12_combout\ $ 
+-- (\inst2|draw1|line1|Add0~16_combout\ $ (GND))))
+-- \inst2|draw1|line1|Add1~13\ = CARRY((!\inst2|draw1|line1|Add1~11\ & (\inst2|draw1|line1|Add0~12_combout\ $ (!\inst2|draw1|line1|Add0~16_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -6027,14 +4939,14 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add0~16_combout\,
-	datab => \inst2|draw1|line1|Add0~12_combout\,
+	dataa => \inst2|draw1|line1|Add0~12_combout\,
+	datab => \inst2|draw1|line1|Add0~16_combout\,
 	datad => VCC,
 	cin => \inst2|draw1|line1|Add1~11\,
 	combout => \inst2|draw1|line1|Add1~12_combout\,
 	cout => \inst2|draw1|line1|Add1~13\);
 
--- Location: LCCOMB_X24_Y19_N28
+-- Location: LCCOMB_X38_Y18_N24
 \inst2|draw1|line1|Add1~14\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add1~14_combout\ = (\inst2|draw1|line1|Add1~13\ & (\inst2|draw1|line1|Add0~16_combout\ $ ((\inst2|draw1|line1|Add0~14_combout\)))) # (!\inst2|draw1|line1|Add1~13\ & ((\inst2|draw1|line1|Add0~16_combout\ $ 
@@ -6054,7 +4966,54 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add1~14_combout\,
 	cout => \inst2|draw1|line1|Add1~15\);
 
--- Location: LCFF_X23_Y17_N27
+-- Location: LCCOMB_X38_Y18_N26
+\inst2|draw1|line1|Add1~16\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add1~16_combout\ = !\inst2|draw1|line1|Add1~15\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111100001111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	cin => \inst2|draw1|line1|Add1~15\,
+	combout => \inst2|draw1|line1|Add1~16_combout\);
+
+-- Location: LCCOMB_X36_Y19_N6
+\inst4|Equal63~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst4|Equal63~1_combout\ = (\inst2|decoder1|packet_num\(1) & (\inst2|decoder1|packet_num\(0) & !\inst2|decoder1|packet_num\(2)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000010100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|packet_num\(1),
+	datac => \inst2|decoder1|packet_num\(0),
+	datad => \inst2|decoder1|packet_num\(2),
+	combout => \inst4|Equal63~1_combout\);
+
+-- Location: LCCOMB_X35_Y19_N10
+\inst2|decoder1|y~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|y~1_combout\ = ((\inst2|decoder1|y~0_combout\ & ((\inst4|Equal63~1_combout\) # (!\inst2|decoder1|x[7]~1_combout\)))) # (!\reset~combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111100101111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|y~0_combout\,
+	datab => \inst2|decoder1|x[7]~1_combout\,
+	datac => \reset~combout\,
+	datad => \inst4|Equal63~1_combout\,
+	combout => \inst2|decoder1|y~1_combout\);
+
+-- Location: LCFF_X39_Y15_N27
 \inst2|decoder1|y[5]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
@@ -6066,27 +5025,167 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \inst2|decoder1|y\(5));
 
--- Location: LCCOMB_X23_Y17_N18
-\inst2|draw1|line1|Add2~2\ : cycloneii_lcell_comb
+-- Location: LCFF_X39_Y15_N25
+\inst2|decoder1|y[4]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|decoder1|x~7_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|y~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|y\(4));
+
+-- Location: LCFF_X39_Y15_N23
+\inst2|decoder1|y[3]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|decoder1|x~4_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|y~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|y\(3));
+
+-- Location: LCCOMB_X43_Y16_N22
+\inst2|decoder1|h~5\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add2~2_combout\ = (\inst2|decoder1|y\(1) & ((\inst2|decoder1|h\(1) & (!\inst2|draw1|line1|Add2~1\)) # (!\inst2|decoder1|h\(1) & ((\inst2|draw1|line1|Add2~1\) # (GND))))) # (!\inst2|decoder1|y\(1) & ((\inst2|decoder1|h\(1) & 
--- (\inst2|draw1|line1|Add2~1\ & VCC)) # (!\inst2|decoder1|h\(1) & (!\inst2|draw1|line1|Add2~1\))))
--- \inst2|draw1|line1|Add2~3\ = CARRY((\inst2|decoder1|y\(1) & ((!\inst2|draw1|line1|Add2~1\) # (!\inst2|decoder1|h\(1)))) # (!\inst2|decoder1|y\(1) & (!\inst2|decoder1|h\(1) & !\inst2|draw1|line1|Add2~1\)))
+-- \inst2|decoder1|h~5_combout\ = (\inst2|decoder1|current_instruction\(2) & \inst2|spi1|do_buffer_reg\(2))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0110100100101011",
+	lut_mask => "1100000011000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|decoder1|current_instruction\(2),
+	datac => \inst2|spi1|do_buffer_reg\(2),
+	combout => \inst2|decoder1|h~5_combout\);
+
+-- Location: LCCOMB_X42_Y16_N10
+\inst4|hex0[0]~7\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst4|hex0[0]~7_combout\ = (\inst2|decoder1|packet_num\(2) & (!\inst2|decoder1|packet_num\(1) & \inst2|decoder1|packet_num\(0)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0010001000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|packet_num\(2),
+	datab => \inst2|decoder1|packet_num\(1),
+	datad => \inst2|decoder1|packet_num\(0),
+	combout => \inst4|hex0[0]~7_combout\);
+
+-- Location: LCCOMB_X42_Y18_N22
+\inst2|decoder1|h~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|h~1_combout\ = (\inst2|decoder1|current_instruction\(2) & (\inst4|hex0[0]~7_combout\ & ((!\inst2|decoder1|current_instruction\(0)) # (!\inst2|decoder1|current_instruction\(1)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0100000011000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst2|decoder1|current_instruction\(2),
+	datac => \inst4|hex0[0]~7_combout\,
+	datad => \inst2|decoder1|current_instruction\(0),
+	combout => \inst2|decoder1|h~1_combout\);
+
+-- Location: LCCOMB_X42_Y18_N12
+\inst2|decoder1|h~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|h~2_combout\ = ((\inst2|decoder1|decode_comb~1_combout\ & ((\inst2|decoder1|h~1_combout\) # (!\inst4|hex1[2]~4_combout\)))) # (!\reset~combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101000011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst4|hex1[2]~4_combout\,
+	datab => \inst2|decoder1|h~1_combout\,
+	datac => \inst2|decoder1|decode_comb~1_combout\,
+	datad => \reset~combout\,
+	combout => \inst2|decoder1|h~2_combout\);
+
+-- Location: LCFF_X39_Y15_N9
+\inst2|decoder1|h[2]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|decoder1|h~5_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|h~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|h\(2));
+
+-- Location: LCFF_X39_Y15_N19
+\inst2|decoder1|y[1]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|decoder1|x~0_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|y~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|y\(1));
+
+-- Location: LCCOMB_X38_Y15_N30
+\inst2|decoder1|h~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|h~3_combout\ = (\inst2|decoder1|current_instruction\(2) & \inst2|spi1|do_buffer_reg\(0))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|decoder1|current_instruction\(2),
+	datad => \inst2|spi1|do_buffer_reg\(0),
+	combout => \inst2|decoder1|h~3_combout\);
+
+-- Location: LCFF_X39_Y15_N29
+\inst2|decoder1|h[0]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|decoder1|h~3_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|h~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|h\(0));
+
+-- Location: LCCOMB_X39_Y15_N18
+\inst2|draw1|line1|Add2~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add2~2_combout\ = (\inst2|decoder1|h\(1) & ((\inst2|decoder1|y\(1) & (!\inst2|draw1|line1|Add2~1\)) # (!\inst2|decoder1|y\(1) & (\inst2|draw1|line1|Add2~1\ & VCC)))) # (!\inst2|decoder1|h\(1) & ((\inst2|decoder1|y\(1) & 
+-- ((\inst2|draw1|line1|Add2~1\) # (GND))) # (!\inst2|decoder1|y\(1) & (!\inst2|draw1|line1|Add2~1\))))
+-- \inst2|draw1|line1|Add2~3\ = CARRY((\inst2|decoder1|h\(1) & (\inst2|decoder1|y\(1) & !\inst2|draw1|line1|Add2~1\)) # (!\inst2|decoder1|h\(1) & ((\inst2|decoder1|y\(1)) # (!\inst2|draw1|line1|Add2~1\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110100101001101",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|y\(1),
-	datab => \inst2|decoder1|h\(1),
+	dataa => \inst2|decoder1|h\(1),
+	datab => \inst2|decoder1|y\(1),
 	datad => VCC,
 	cin => \inst2|draw1|line1|Add2~1\,
 	combout => \inst2|draw1|line1|Add2~2_combout\,
 	cout => \inst2|draw1|line1|Add2~3\);
 
--- Location: LCCOMB_X23_Y17_N20
+-- Location: LCCOMB_X39_Y15_N20
 \inst2|draw1|line1|Add2~4\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add2~4_combout\ = ((\inst2|decoder1|y\(2) $ (\inst2|decoder1|h\(2) $ (\inst2|draw1|line1|Add2~3\)))) # (GND)
@@ -6105,7 +5204,7 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add2~4_combout\,
 	cout => \inst2|draw1|line1|Add2~5\);
 
--- Location: LCCOMB_X23_Y17_N22
+-- Location: LCCOMB_X39_Y15_N22
 \inst2|draw1|line1|Add2~6\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add2~6_combout\ = (\inst2|decoder1|h\(3) & ((\inst2|decoder1|y\(3) & (!\inst2|draw1|line1|Add2~5\)) # (!\inst2|decoder1|y\(3) & (\inst2|draw1|line1|Add2~5\ & VCC)))) # (!\inst2|decoder1|h\(3) & ((\inst2|decoder1|y\(3) & 
@@ -6125,7 +5224,7 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add2~6_combout\,
 	cout => \inst2|draw1|line1|Add2~7\);
 
--- Location: LCCOMB_X23_Y17_N24
+-- Location: LCCOMB_X39_Y15_N24
 \inst2|draw1|line1|Add2~8\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add2~8_combout\ = ((\inst2|decoder1|h\(4) $ (\inst2|decoder1|y\(4) $ (\inst2|draw1|line1|Add2~7\)))) # (GND)
@@ -6144,7 +5243,7 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add2~8_combout\,
 	cout => \inst2|draw1|line1|Add2~9\);
 
--- Location: LCCOMB_X23_Y17_N26
+-- Location: LCCOMB_X39_Y15_N26
 \inst2|draw1|line1|Add2~10\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add2~10_combout\ = (\inst2|decoder1|h\(5) & ((\inst2|decoder1|y\(5) & (!\inst2|draw1|line1|Add2~9\)) # (!\inst2|decoder1|y\(5) & (\inst2|draw1|line1|Add2~9\ & VCC)))) # (!\inst2|decoder1|h\(5) & ((\inst2|decoder1|y\(5) & 
@@ -6164,7 +5263,19 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add2~10_combout\,
 	cout => \inst2|draw1|line1|Add2~11\);
 
--- Location: LCCOMB_X23_Y17_N28
+-- Location: LCFF_X39_Y15_N1
+\inst2|decoder1|y[6]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|decoder1|x~9_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|y~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|y\(6));
+
+-- Location: LCCOMB_X39_Y15_N28
 \inst2|draw1|line1|Add2~12\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add2~12_combout\ = ((\inst2|decoder1|h\(6) $ (\inst2|decoder1|y\(6) $ (\inst2|draw1|line1|Add2~11\)))) # (GND)
@@ -6183,7 +5294,7 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add2~12_combout\,
 	cout => \inst2|draw1|line1|Add2~13\);
 
--- Location: LCCOMB_X23_Y17_N30
+-- Location: LCCOMB_X39_Y15_N30
 \inst2|draw1|line1|Add2~14\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add2~14_combout\ = \inst2|draw1|line1|Add2~13\
@@ -6197,7 +5308,7 @@ PORT MAP (
 	cin => \inst2|draw1|line1|Add2~13\,
 	combout => \inst2|draw1|line1|Add2~14_combout\);
 
--- Location: LCCOMB_X24_Y17_N16
+-- Location: LCCOMB_X40_Y15_N16
 \inst2|draw1|line1|Add3~0\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add3~0_combout\ = (\inst2|draw1|line1|dy~0_combout\ & (!\inst2|draw1|line1|Add2~14_combout\ & VCC)) # (!\inst2|draw1|line1|dy~0_combout\ & (\inst2|draw1|line1|Add2~14_combout\ $ (GND)))
@@ -6215,7 +5326,7 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add3~0_combout\,
 	cout => \inst2|draw1|line1|Add3~1\);
 
--- Location: LCCOMB_X24_Y17_N18
+-- Location: LCCOMB_X40_Y15_N18
 \inst2|draw1|line1|Add3~2\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add3~2_combout\ = (\inst2|draw1|line1|Add3~1\ & (\inst2|draw1|line1|Add2~14_combout\ $ ((\inst2|draw1|line1|Add2~2_combout\)))) # (!\inst2|draw1|line1|Add3~1\ & ((\inst2|draw1|line1|Add2~14_combout\ $ 
@@ -6235,7 +5346,27 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add3~2_combout\,
 	cout => \inst2|draw1|line1|Add3~3\);
 
--- Location: LCCOMB_X24_Y17_N22
+-- Location: LCCOMB_X40_Y15_N20
+\inst2|draw1|line1|Add3~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add3~4_combout\ = (\inst2|draw1|line1|Add3~3\ & ((\inst2|draw1|line1|Add2~14_combout\ $ (!\inst2|draw1|line1|Add2~4_combout\)))) # (!\inst2|draw1|line1|Add3~3\ & (\inst2|draw1|line1|Add2~14_combout\ $ (\inst2|draw1|line1|Add2~4_combout\ 
+-- $ (GND))))
+-- \inst2|draw1|line1|Add3~5\ = CARRY((!\inst2|draw1|line1|Add3~3\ & (\inst2|draw1|line1|Add2~14_combout\ $ (!\inst2|draw1|line1|Add2~4_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1001011000001001",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add2~14_combout\,
+	datab => \inst2|draw1|line1|Add2~4_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add3~3\,
+	combout => \inst2|draw1|line1|Add3~4_combout\,
+	cout => \inst2|draw1|line1|Add3~5\);
+
+-- Location: LCCOMB_X40_Y15_N22
 \inst2|draw1|line1|Add3~6\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add3~6_combout\ = (\inst2|draw1|line1|Add3~5\ & (\inst2|draw1|line1|Add2~14_combout\ $ ((\inst2|draw1|line1|Add2~6_combout\)))) # (!\inst2|draw1|line1|Add3~5\ & ((\inst2|draw1|line1|Add2~14_combout\ $ 
@@ -6255,7 +5386,7 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add3~6_combout\,
 	cout => \inst2|draw1|line1|Add3~7\);
 
--- Location: LCCOMB_X24_Y17_N26
+-- Location: LCCOMB_X40_Y15_N26
 \inst2|draw1|line1|Add3~10\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add3~10_combout\ = (\inst2|draw1|line1|Add3~9\ & (\inst2|draw1|line1|Add2~14_combout\ $ ((\inst2|draw1|line1|Add2~10_combout\)))) # (!\inst2|draw1|line1|Add3~9\ & ((\inst2|draw1|line1|Add2~14_combout\ $ 
@@ -6275,7 +5406,25 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add3~10_combout\,
 	cout => \inst2|draw1|line1|Add3~11\);
 
--- Location: LCCOMB_X24_Y17_N28
+-- Location: LCCOMB_X40_Y16_N8
+\inst2|draw1|line1|Add7~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add7~0_combout\ = (\inst2|draw1|line1|Add3~0_combout\ & (\inst2|draw1|line1|err\(0) $ (VCC))) # (!\inst2|draw1|line1|Add3~0_combout\ & ((\inst2|draw1|line1|err\(0)) # (GND)))
+-- \inst2|draw1|line1|Add7~1\ = CARRY((\inst2|draw1|line1|err\(0)) # (!\inst2|draw1|line1|Add3~0_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110011011011101",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add3~0_combout\,
+	datab => \inst2|draw1|line1|err\(0),
+	datad => VCC,
+	combout => \inst2|draw1|line1|Add7~0_combout\,
+	cout => \inst2|draw1|line1|Add7~1\);
+
+-- Location: LCCOMB_X40_Y15_N28
 \inst2|draw1|line1|Add3~12\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add3~12_combout\ = (\inst2|draw1|line1|Add3~11\ & ((\inst2|draw1|line1|Add2~14_combout\ $ (!\inst2|draw1|line1|Add2~12_combout\)))) # (!\inst2|draw1|line1|Add3~11\ & (\inst2|draw1|line1|Add2~14_combout\ $ 
@@ -6295,12 +5444,12 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add3~12_combout\,
 	cout => \inst2|draw1|line1|Add3~13\);
 
--- Location: LCCOMB_X25_Y18_N2
-\inst2|draw1|line1|Add4~2\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y16_N18
+\inst2|draw1|line1|Add7~10\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add4~2_combout\ = (\inst2|draw1|line1|Add1~2_combout\ & ((\inst2|draw1|line1|Add3~2_combout\ & (!\inst2|draw1|line1|Add4~1\)) # (!\inst2|draw1|line1|Add3~2_combout\ & (\inst2|draw1|line1|Add4~1\ & VCC)))) # 
--- (!\inst2|draw1|line1|Add1~2_combout\ & ((\inst2|draw1|line1|Add3~2_combout\ & ((\inst2|draw1|line1|Add4~1\) # (GND))) # (!\inst2|draw1|line1|Add3~2_combout\ & (!\inst2|draw1|line1|Add4~1\))))
--- \inst2|draw1|line1|Add4~3\ = CARRY((\inst2|draw1|line1|Add1~2_combout\ & (\inst2|draw1|line1|Add3~2_combout\ & !\inst2|draw1|line1|Add4~1\)) # (!\inst2|draw1|line1|Add1~2_combout\ & ((\inst2|draw1|line1|Add3~2_combout\) # (!\inst2|draw1|line1|Add4~1\))))
+-- \inst2|draw1|line1|Add7~10_combout\ = (\inst2|draw1|line1|err\(5) & ((\inst2|draw1|line1|Add3~10_combout\ & (!\inst2|draw1|line1|Add7~9\)) # (!\inst2|draw1|line1|Add3~10_combout\ & (\inst2|draw1|line1|Add7~9\ & VCC)))) # (!\inst2|draw1|line1|err\(5) & 
+-- ((\inst2|draw1|line1|Add3~10_combout\ & ((\inst2|draw1|line1|Add7~9\) # (GND))) # (!\inst2|draw1|line1|Add3~10_combout\ & (!\inst2|draw1|line1|Add7~9\))))
+-- \inst2|draw1|line1|Add7~11\ = CARRY((\inst2|draw1|line1|err\(5) & (\inst2|draw1|line1|Add3~10_combout\ & !\inst2|draw1|line1|Add7~9\)) # (!\inst2|draw1|line1|err\(5) & ((\inst2|draw1|line1|Add3~10_combout\) # (!\inst2|draw1|line1|Add7~9\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -6308,20 +5457,38 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add1~2_combout\,
-	datab => \inst2|draw1|line1|Add3~2_combout\,
+	dataa => \inst2|draw1|line1|err\(5),
+	datab => \inst2|draw1|line1|Add3~10_combout\,
 	datad => VCC,
-	cin => \inst2|draw1|line1|Add4~1\,
-	combout => \inst2|draw1|line1|Add4~2_combout\,
-	cout => \inst2|draw1|line1|Add4~3\);
+	cin => \inst2|draw1|line1|Add7~9\,
+	combout => \inst2|draw1|line1|Add7~10_combout\,
+	cout => \inst2|draw1|line1|Add7~11\);
 
--- Location: LCCOMB_X25_Y18_N6
-\inst2|draw1|line1|Add4~6\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y16_N20
+\inst2|draw1|line1|Add7~12\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add4~6_combout\ = (\inst2|draw1|line1|Add3~6_combout\ & ((\inst2|draw1|line1|Add1~6_combout\ & (!\inst2|draw1|line1|Add4~5\)) # (!\inst2|draw1|line1|Add1~6_combout\ & ((\inst2|draw1|line1|Add4~5\) # (GND))))) # 
--- (!\inst2|draw1|line1|Add3~6_combout\ & ((\inst2|draw1|line1|Add1~6_combout\ & (\inst2|draw1|line1|Add4~5\ & VCC)) # (!\inst2|draw1|line1|Add1~6_combout\ & (!\inst2|draw1|line1|Add4~5\))))
--- \inst2|draw1|line1|Add4~7\ = CARRY((\inst2|draw1|line1|Add3~6_combout\ & ((!\inst2|draw1|line1|Add4~5\) # (!\inst2|draw1|line1|Add1~6_combout\))) # (!\inst2|draw1|line1|Add3~6_combout\ & (!\inst2|draw1|line1|Add1~6_combout\ & 
--- !\inst2|draw1|line1|Add4~5\)))
+-- \inst2|draw1|line1|Add7~12_combout\ = ((\inst2|draw1|line1|err\(6) $ (\inst2|draw1|line1|Add3~12_combout\ $ (\inst2|draw1|line1|Add7~11\)))) # (GND)
+-- \inst2|draw1|line1|Add7~13\ = CARRY((\inst2|draw1|line1|err\(6) & ((!\inst2|draw1|line1|Add7~11\) # (!\inst2|draw1|line1|Add3~12_combout\))) # (!\inst2|draw1|line1|err\(6) & (!\inst2|draw1|line1|Add3~12_combout\ & !\inst2|draw1|line1|Add7~11\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1001011000101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|err\(6),
+	datab => \inst2|draw1|line1|Add3~12_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add7~11\,
+	combout => \inst2|draw1|line1|Add7~12_combout\,
+	cout => \inst2|draw1|line1|Add7~13\);
+
+-- Location: LCCOMB_X40_Y16_N14
+\inst2|draw1|line1|Add7~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add7~6_combout\ = (\inst2|draw1|line1|Add3~6_combout\ & ((\inst2|draw1|line1|err\(3) & (!\inst2|draw1|line1|Add7~5\)) # (!\inst2|draw1|line1|err\(3) & ((\inst2|draw1|line1|Add7~5\) # (GND))))) # (!\inst2|draw1|line1|Add3~6_combout\ & 
+-- ((\inst2|draw1|line1|err\(3) & (\inst2|draw1|line1|Add7~5\ & VCC)) # (!\inst2|draw1|line1|err\(3) & (!\inst2|draw1|line1|Add7~5\))))
+-- \inst2|draw1|line1|Add7~7\ = CARRY((\inst2|draw1|line1|Add3~6_combout\ & ((!\inst2|draw1|line1|Add7~5\) # (!\inst2|draw1|line1|err\(3)))) # (!\inst2|draw1|line1|Add3~6_combout\ & (!\inst2|draw1|line1|err\(3) & !\inst2|draw1|line1|Add7~5\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -6330,50 +5497,32 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|draw1|line1|Add3~6_combout\,
-	datab => \inst2|draw1|line1|Add1~6_combout\,
+	datab => \inst2|draw1|line1|err\(3),
 	datad => VCC,
-	cin => \inst2|draw1|line1|Add4~5\,
-	combout => \inst2|draw1|line1|Add4~6_combout\,
-	cout => \inst2|draw1|line1|Add4~7\);
+	cin => \inst2|draw1|line1|Add7~5\,
+	combout => \inst2|draw1|line1|Add7~6_combout\,
+	cout => \inst2|draw1|line1|Add7~7\);
 
--- Location: LCCOMB_X25_Y18_N14
-\inst2|draw1|line1|Add4~14\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y16_N16
+\inst2|draw1|line1|Add7~8\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add4~14_combout\ = (\inst2|draw1|line1|Add3~14_combout\ & ((\inst2|draw1|line1|Add1~14_combout\ & (!\inst2|draw1|line1|Add4~13\)) # (!\inst2|draw1|line1|Add1~14_combout\ & ((\inst2|draw1|line1|Add4~13\) # (GND))))) # 
--- (!\inst2|draw1|line1|Add3~14_combout\ & ((\inst2|draw1|line1|Add1~14_combout\ & (\inst2|draw1|line1|Add4~13\ & VCC)) # (!\inst2|draw1|line1|Add1~14_combout\ & (!\inst2|draw1|line1|Add4~13\))))
--- \inst2|draw1|line1|Add4~15\ = CARRY((\inst2|draw1|line1|Add3~14_combout\ & ((!\inst2|draw1|line1|Add4~13\) # (!\inst2|draw1|line1|Add1~14_combout\))) # (!\inst2|draw1|line1|Add3~14_combout\ & (!\inst2|draw1|line1|Add1~14_combout\ & 
--- !\inst2|draw1|line1|Add4~13\)))
+-- \inst2|draw1|line1|Add7~8_combout\ = ((\inst2|draw1|line1|Add3~8_combout\ $ (\inst2|draw1|line1|err\(4) $ (\inst2|draw1|line1|Add7~7\)))) # (GND)
+-- \inst2|draw1|line1|Add7~9\ = CARRY((\inst2|draw1|line1|Add3~8_combout\ & (\inst2|draw1|line1|err\(4) & !\inst2|draw1|line1|Add7~7\)) # (!\inst2|draw1|line1|Add3~8_combout\ & ((\inst2|draw1|line1|err\(4)) # (!\inst2|draw1|line1|Add7~7\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0110100100101011",
+	lut_mask => "1001011001001101",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add3~14_combout\,
-	datab => \inst2|draw1|line1|Add1~14_combout\,
+	dataa => \inst2|draw1|line1|Add3~8_combout\,
+	datab => \inst2|draw1|line1|err\(4),
 	datad => VCC,
-	cin => \inst2|draw1|line1|Add4~13\,
-	combout => \inst2|draw1|line1|Add4~14_combout\,
-	cout => \inst2|draw1|line1|Add4~15\);
+	cin => \inst2|draw1|line1|Add7~7\,
+	combout => \inst2|draw1|line1|Add7~8_combout\,
+	cout => \inst2|draw1|line1|Add7~9\);
 
--- Location: LCCOMB_X25_Y17_N24
-\inst2|draw1|line1|err[0]~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err[0]~1_combout\ = (\inst2|draw1|line1|setup~regout\) # ((!\inst2|draw1|line1|LessThan2~10_combout\ & \inst2|draw1|line1|LessThan3~5_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100111111001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|line1|setup~regout\,
-	datac => \inst2|draw1|line1|LessThan2~10_combout\,
-	datad => \inst2|draw1|line1|LessThan3~5_combout\,
-	combout => \inst2|draw1|line1|err[0]~1_combout\);
-
--- Location: LCCOMB_X27_Y17_N4
+-- Location: LCCOMB_X40_Y16_N10
 \inst2|draw1|line1|Add7~2\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add7~2_combout\ = (\inst2|draw1|line1|err\(1) & ((\inst2|draw1|line1|Add3~2_combout\ & (!\inst2|draw1|line1|Add7~1\)) # (!\inst2|draw1|line1|Add3~2_combout\ & (\inst2|draw1|line1|Add7~1\ & VCC)))) # (!\inst2|draw1|line1|err\(1) & 
@@ -6393,11 +5542,11 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add7~2_combout\,
 	cout => \inst2|draw1|line1|Add7~3\);
 
--- Location: LCCOMB_X26_Y18_N8
+-- Location: LCCOMB_X37_Y16_N2
 \inst2|draw1|line1|Add5~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add5~0_combout\ = (\inst2|draw1|line1|Add7~0_combout\ & (\inst2|draw1|line1|Add1~0_combout\ $ (VCC))) # (!\inst2|draw1|line1|Add7~0_combout\ & (\inst2|draw1|line1|Add1~0_combout\ & VCC))
--- \inst2|draw1|line1|Add5~1\ = CARRY((\inst2|draw1|line1|Add7~0_combout\ & \inst2|draw1|line1|Add1~0_combout\))
+-- \inst2|draw1|line1|Add5~0_combout\ = (\inst2|draw1|line1|Add1~0_combout\ & (\inst2|draw1|line1|Add7~0_combout\ $ (VCC))) # (!\inst2|draw1|line1|Add1~0_combout\ & (\inst2|draw1|line1|Add7~0_combout\ & VCC))
+-- \inst2|draw1|line1|Add5~1\ = CARRY((\inst2|draw1|line1|Add1~0_combout\ & \inst2|draw1|line1|Add7~0_combout\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -6405,13 +5554,13 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add7~0_combout\,
-	datab => \inst2|draw1|line1|Add1~0_combout\,
+	dataa => \inst2|draw1|line1|Add1~0_combout\,
+	datab => \inst2|draw1|line1|Add7~0_combout\,
 	datad => VCC,
 	combout => \inst2|draw1|line1|Add5~0_combout\,
 	cout => \inst2|draw1|line1|Add5~1\);
 
--- Location: LCCOMB_X26_Y18_N10
+-- Location: LCCOMB_X37_Y16_N4
 \inst2|draw1|line1|Add5~2\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add5~2_combout\ = (\inst2|draw1|line1|Add1~2_combout\ & ((\inst2|draw1|line1|Add7~2_combout\ & (\inst2|draw1|line1|Add5~1\ & VCC)) # (!\inst2|draw1|line1|Add7~2_combout\ & (!\inst2|draw1|line1|Add5~1\)))) # 
@@ -6432,166 +5581,11 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add5~2_combout\,
 	cout => \inst2|draw1|line1|Add5~3\);
 
--- Location: LCCOMB_X27_Y17_N30
-\inst2|draw1|line1|err~16\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~16_combout\ = (\inst2|draw1|line1|err[0]~0_combout\ & ((\inst2|draw1|line1|Add9~2_combout\) # ((\inst2|draw1|line1|err[0]~1_combout\)))) # (!\inst2|draw1|line1|err[0]~0_combout\ & (((\inst2|draw1|line1|Add5~2_combout\ & 
--- !\inst2|draw1|line1|err[0]~1_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000010101100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add9~2_combout\,
-	datab => \inst2|draw1|line1|Add5~2_combout\,
-	datac => \inst2|draw1|line1|err[0]~0_combout\,
-	datad => \inst2|draw1|line1|err[0]~1_combout\,
-	combout => \inst2|draw1|line1|err~16_combout\);
-
--- Location: LCCOMB_X27_Y17_N24
-\inst2|draw1|line1|err~17\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~17_combout\ = (\inst2|draw1|line1|err[0]~1_combout\ & ((\inst2|draw1|line1|err~16_combout\ & (\inst2|draw1|line1|Add7~2_combout\)) # (!\inst2|draw1|line1|err~16_combout\ & ((\inst2|draw1|line1|Add4~2_combout\))))) # 
--- (!\inst2|draw1|line1|err[0]~1_combout\ & (((\inst2|draw1|line1|err~16_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1011101111000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add7~2_combout\,
-	datab => \inst2|draw1|line1|err[0]~1_combout\,
-	datac => \inst2|draw1|line1|Add4~2_combout\,
-	datad => \inst2|draw1|line1|err~16_combout\,
-	combout => \inst2|draw1|line1|err~17_combout\);
-
--- Location: LCCOMB_X25_Y17_N28
-\inst2|draw1|line1|err[0]~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err[0]~4_combout\ = (\inst2|draw1|line1|draw_line_comb~9_combout\) # ((!\inst2|draw1|line1|LessThan2~10_combout\ & !\inst2|draw1|line1|LessThan3~5_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110011001111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|line1|draw_line_comb~9_combout\,
-	datac => \inst2|draw1|line1|LessThan2~10_combout\,
-	datad => \inst2|draw1|line1|LessThan3~5_combout\,
-	combout => \inst2|draw1|line1|err[0]~4_combout\);
-
--- Location: LCCOMB_X25_Y17_N2
-\inst2|draw1|line1|err[0]~5\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err[0]~5_combout\ = (\inst2|draw1|line1|cx[3]~0_combout\) # ((\inst2|draw1|rect1|cy_tmp[0]~1_combout\ & ((\inst2|draw1|line1|setup~regout\) # (!\inst2|draw1|line1|err[0]~4_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111100011111100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|setup~regout\,
-	datab => \inst2|draw1|rect1|cy_tmp[0]~1_combout\,
-	datac => \inst2|draw1|line1|cx[3]~0_combout\,
-	datad => \inst2|draw1|line1|err[0]~4_combout\,
-	combout => \inst2|draw1|line1|err[0]~5_combout\);
-
--- Location: LCFF_X27_Y17_N25
-\inst2|draw1|line1|err[1]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|err~17_combout\,
-	sclr => \inst2|draw1|line1|cx[3]~0_combout\,
-	ena => \inst2|draw1|line1|err[0]~5_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|err\(1));
-
--- Location: LCCOMB_X26_Y17_N8
-\inst2|draw1|line1|Add9~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add9~0_combout\ = (\inst2|draw1|line1|err\(0) & (\inst2|draw1|line1|Add1~0_combout\ $ (VCC))) # (!\inst2|draw1|line1|err\(0) & (\inst2|draw1|line1|Add1~0_combout\ & VCC))
--- \inst2|draw1|line1|Add9~1\ = CARRY((\inst2|draw1|line1|err\(0) & \inst2|draw1|line1|Add1~0_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110011010001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|err\(0),
-	datab => \inst2|draw1|line1|Add1~0_combout\,
-	datad => VCC,
-	combout => \inst2|draw1|line1|Add9~0_combout\,
-	cout => \inst2|draw1|line1|Add9~1\);
-
--- Location: LCCOMB_X26_Y17_N12
-\inst2|draw1|line1|Add9~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add9~4_combout\ = ((\inst2|draw1|line1|err\(2) $ (\inst2|draw1|line1|Add1~4_combout\ $ (!\inst2|draw1|line1|Add9~3\)))) # (GND)
--- \inst2|draw1|line1|Add9~5\ = CARRY((\inst2|draw1|line1|err\(2) & ((\inst2|draw1|line1|Add1~4_combout\) # (!\inst2|draw1|line1|Add9~3\))) # (!\inst2|draw1|line1|err\(2) & (\inst2|draw1|line1|Add1~4_combout\ & !\inst2|draw1|line1|Add9~3\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100110001110",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|err\(2),
-	datab => \inst2|draw1|line1|Add1~4_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add9~3\,
-	combout => \inst2|draw1|line1|Add9~4_combout\,
-	cout => \inst2|draw1|line1|Add9~5\);
-
--- Location: LCCOMB_X26_Y17_N16
-\inst2|draw1|line1|Add9~8\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add9~8_combout\ = ((\inst2|draw1|line1|err\(4) $ (\inst2|draw1|line1|Add1~8_combout\ $ (!\inst2|draw1|line1|Add9~7\)))) # (GND)
--- \inst2|draw1|line1|Add9~9\ = CARRY((\inst2|draw1|line1|err\(4) & ((\inst2|draw1|line1|Add1~8_combout\) # (!\inst2|draw1|line1|Add9~7\))) # (!\inst2|draw1|line1|err\(4) & (\inst2|draw1|line1|Add1~8_combout\ & !\inst2|draw1|line1|Add9~7\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100110001110",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|err\(4),
-	datab => \inst2|draw1|line1|Add1~8_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add9~7\,
-	combout => \inst2|draw1|line1|Add9~8_combout\,
-	cout => \inst2|draw1|line1|Add9~9\);
-
--- Location: LCCOMB_X27_Y17_N6
-\inst2|draw1|line1|Add7~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add7~4_combout\ = ((\inst2|draw1|line1|Add3~4_combout\ $ (\inst2|draw1|line1|err\(2) $ (\inst2|draw1|line1|Add7~3\)))) # (GND)
--- \inst2|draw1|line1|Add7~5\ = CARRY((\inst2|draw1|line1|Add3~4_combout\ & (\inst2|draw1|line1|err\(2) & !\inst2|draw1|line1|Add7~3\)) # (!\inst2|draw1|line1|Add3~4_combout\ & ((\inst2|draw1|line1|err\(2)) # (!\inst2|draw1|line1|Add7~3\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011001001101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add3~4_combout\,
-	datab => \inst2|draw1|line1|err\(2),
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add7~3\,
-	combout => \inst2|draw1|line1|Add7~4_combout\,
-	cout => \inst2|draw1|line1|Add7~5\);
-
--- Location: LCCOMB_X26_Y18_N12
+-- Location: LCCOMB_X37_Y16_N6
 \inst2|draw1|line1|Add5~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add5~4_combout\ = ((\inst2|draw1|line1|Add1~4_combout\ $ (\inst2|draw1|line1|Add7~4_combout\ $ (!\inst2|draw1|line1|Add5~3\)))) # (GND)
--- \inst2|draw1|line1|Add5~5\ = CARRY((\inst2|draw1|line1|Add1~4_combout\ & ((\inst2|draw1|line1|Add7~4_combout\) # (!\inst2|draw1|line1|Add5~3\))) # (!\inst2|draw1|line1|Add1~4_combout\ & (\inst2|draw1|line1|Add7~4_combout\ & !\inst2|draw1|line1|Add5~3\)))
+-- \inst2|draw1|line1|Add5~4_combout\ = ((\inst2|draw1|line1|Add7~4_combout\ $ (\inst2|draw1|line1|Add1~4_combout\ $ (!\inst2|draw1|line1|Add5~3\)))) # (GND)
+-- \inst2|draw1|line1|Add5~5\ = CARRY((\inst2|draw1|line1|Add7~4_combout\ & ((\inst2|draw1|line1|Add1~4_combout\) # (!\inst2|draw1|line1|Add5~3\))) # (!\inst2|draw1|line1|Add7~4_combout\ & (\inst2|draw1|line1|Add1~4_combout\ & !\inst2|draw1|line1|Add5~3\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -6599,87 +5593,20 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add1~4_combout\,
-	datab => \inst2|draw1|line1|Add7~4_combout\,
+	dataa => \inst2|draw1|line1|Add7~4_combout\,
+	datab => \inst2|draw1|line1|Add1~4_combout\,
 	datad => VCC,
 	cin => \inst2|draw1|line1|Add5~3\,
 	combout => \inst2|draw1|line1|Add5~4_combout\,
 	cout => \inst2|draw1|line1|Add5~5\);
 
--- Location: LCCOMB_X27_Y17_N0
-\inst2|draw1|line1|err~14\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~14_combout\ = (\inst2|draw1|line1|err[0]~0_combout\ & (((\inst2|draw1|line1|err[0]~1_combout\)))) # (!\inst2|draw1|line1|err[0]~0_combout\ & ((\inst2|draw1|line1|err[0]~1_combout\ & (\inst2|draw1|line1|Add4~4_combout\)) # 
--- (!\inst2|draw1|line1|err[0]~1_combout\ & ((\inst2|draw1|line1|Add5~4_combout\)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101000001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add4~4_combout\,
-	datab => \inst2|draw1|line1|Add5~4_combout\,
-	datac => \inst2|draw1|line1|err[0]~0_combout\,
-	datad => \inst2|draw1|line1|err[0]~1_combout\,
-	combout => \inst2|draw1|line1|err~14_combout\);
-
--- Location: LCCOMB_X27_Y17_N22
-\inst2|draw1|line1|err~15\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~15_combout\ = (\inst2|draw1|line1|err[0]~0_combout\ & ((\inst2|draw1|line1|err~14_combout\ & (\inst2|draw1|line1|Add7~4_combout\)) # (!\inst2|draw1|line1|err~14_combout\ & ((\inst2|draw1|line1|Add9~4_combout\))))) # 
--- (!\inst2|draw1|line1|err[0]~0_combout\ & (((\inst2|draw1|line1|err~14_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111111000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add7~4_combout\,
-	datab => \inst2|draw1|line1|Add9~4_combout\,
-	datac => \inst2|draw1|line1|err[0]~0_combout\,
-	datad => \inst2|draw1|line1|err~14_combout\,
-	combout => \inst2|draw1|line1|err~15_combout\);
-
--- Location: LCFF_X27_Y17_N23
-\inst2|draw1|line1|err[2]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|err~15_combout\,
-	sclr => \inst2|draw1|line1|cx[3]~0_combout\,
-	ena => \inst2|draw1|line1|err[0]~5_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|err\(2));
-
--- Location: LCCOMB_X27_Y17_N8
-\inst2|draw1|line1|Add7~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add7~6_combout\ = (\inst2|draw1|line1|err\(3) & ((\inst2|draw1|line1|Add3~6_combout\ & (!\inst2|draw1|line1|Add7~5\)) # (!\inst2|draw1|line1|Add3~6_combout\ & (\inst2|draw1|line1|Add7~5\ & VCC)))) # (!\inst2|draw1|line1|err\(3) & 
--- ((\inst2|draw1|line1|Add3~6_combout\ & ((\inst2|draw1|line1|Add7~5\) # (GND))) # (!\inst2|draw1|line1|Add3~6_combout\ & (!\inst2|draw1|line1|Add7~5\))))
--- \inst2|draw1|line1|Add7~7\ = CARRY((\inst2|draw1|line1|err\(3) & (\inst2|draw1|line1|Add3~6_combout\ & !\inst2|draw1|line1|Add7~5\)) # (!\inst2|draw1|line1|err\(3) & ((\inst2|draw1|line1|Add3~6_combout\) # (!\inst2|draw1|line1|Add7~5\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100101001101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|err\(3),
-	datab => \inst2|draw1|line1|Add3~6_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add7~5\,
-	combout => \inst2|draw1|line1|Add7~6_combout\,
-	cout => \inst2|draw1|line1|Add7~7\);
-
--- Location: LCCOMB_X26_Y18_N14
+-- Location: LCCOMB_X37_Y16_N8
 \inst2|draw1|line1|Add5~6\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add5~6_combout\ = (\inst2|draw1|line1|Add1~6_combout\ & ((\inst2|draw1|line1|Add7~6_combout\ & (\inst2|draw1|line1|Add5~5\ & VCC)) # (!\inst2|draw1|line1|Add7~6_combout\ & (!\inst2|draw1|line1|Add5~5\)))) # 
--- (!\inst2|draw1|line1|Add1~6_combout\ & ((\inst2|draw1|line1|Add7~6_combout\ & (!\inst2|draw1|line1|Add5~5\)) # (!\inst2|draw1|line1|Add7~6_combout\ & ((\inst2|draw1|line1|Add5~5\) # (GND)))))
--- \inst2|draw1|line1|Add5~7\ = CARRY((\inst2|draw1|line1|Add1~6_combout\ & (!\inst2|draw1|line1|Add7~6_combout\ & !\inst2|draw1|line1|Add5~5\)) # (!\inst2|draw1|line1|Add1~6_combout\ & ((!\inst2|draw1|line1|Add5~5\) # 
--- (!\inst2|draw1|line1|Add7~6_combout\))))
+-- \inst2|draw1|line1|Add5~6_combout\ = (\inst2|draw1|line1|Add7~6_combout\ & ((\inst2|draw1|line1|Add1~6_combout\ & (\inst2|draw1|line1|Add5~5\ & VCC)) # (!\inst2|draw1|line1|Add1~6_combout\ & (!\inst2|draw1|line1|Add5~5\)))) # 
+-- (!\inst2|draw1|line1|Add7~6_combout\ & ((\inst2|draw1|line1|Add1~6_combout\ & (!\inst2|draw1|line1|Add5~5\)) # (!\inst2|draw1|line1|Add1~6_combout\ & ((\inst2|draw1|line1|Add5~5\) # (GND)))))
+-- \inst2|draw1|line1|Add5~7\ = CARRY((\inst2|draw1|line1|Add7~6_combout\ & (!\inst2|draw1|line1|Add1~6_combout\ & !\inst2|draw1|line1|Add5~5\)) # (!\inst2|draw1|line1|Add7~6_combout\ & ((!\inst2|draw1|line1|Add5~5\) # 
+-- (!\inst2|draw1|line1|Add1~6_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -6687,119 +5614,14 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add1~6_combout\,
-	datab => \inst2|draw1|line1|Add7~6_combout\,
+	dataa => \inst2|draw1|line1|Add7~6_combout\,
+	datab => \inst2|draw1|line1|Add1~6_combout\,
 	datad => VCC,
 	cin => \inst2|draw1|line1|Add5~5\,
 	combout => \inst2|draw1|line1|Add5~6_combout\,
 	cout => \inst2|draw1|line1|Add5~7\);
 
--- Location: LCCOMB_X26_Y18_N16
-\inst2|draw1|line1|Add5~8\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add5~8_combout\ = ((\inst2|draw1|line1|Add7~8_combout\ $ (\inst2|draw1|line1|Add1~8_combout\ $ (!\inst2|draw1|line1|Add5~7\)))) # (GND)
--- \inst2|draw1|line1|Add5~9\ = CARRY((\inst2|draw1|line1|Add7~8_combout\ & ((\inst2|draw1|line1|Add1~8_combout\) # (!\inst2|draw1|line1|Add5~7\))) # (!\inst2|draw1|line1|Add7~8_combout\ & (\inst2|draw1|line1|Add1~8_combout\ & !\inst2|draw1|line1|Add5~7\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100110001110",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add7~8_combout\,
-	datab => \inst2|draw1|line1|Add1~8_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add5~7\,
-	combout => \inst2|draw1|line1|Add5~8_combout\,
-	cout => \inst2|draw1|line1|Add5~9\);
-
--- Location: LCCOMB_X27_Y17_N26
-\inst2|draw1|line1|err~8\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~8_combout\ = (\inst2|draw1|line1|err[0]~0_combout\ & (((\inst2|draw1|line1|err[0]~1_combout\)))) # (!\inst2|draw1|line1|err[0]~0_combout\ & ((\inst2|draw1|line1|err[0]~1_combout\ & (\inst2|draw1|line1|Add4~8_combout\)) # 
--- (!\inst2|draw1|line1|err[0]~1_combout\ & ((\inst2|draw1|line1|Add5~8_combout\)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101000001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add4~8_combout\,
-	datab => \inst2|draw1|line1|Add5~8_combout\,
-	datac => \inst2|draw1|line1|err[0]~0_combout\,
-	datad => \inst2|draw1|line1|err[0]~1_combout\,
-	combout => \inst2|draw1|line1|err~8_combout\);
-
--- Location: LCCOMB_X27_Y17_N28
-\inst2|draw1|line1|err~9\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~9_combout\ = (\inst2|draw1|line1|err[0]~0_combout\ & ((\inst2|draw1|line1|err~8_combout\ & (\inst2|draw1|line1|Add7~8_combout\)) # (!\inst2|draw1|line1|err~8_combout\ & ((\inst2|draw1|line1|Add9~8_combout\))))) # 
--- (!\inst2|draw1|line1|err[0]~0_combout\ & (((\inst2|draw1|line1|err~8_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111111000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add7~8_combout\,
-	datab => \inst2|draw1|line1|Add9~8_combout\,
-	datac => \inst2|draw1|line1|err[0]~0_combout\,
-	datad => \inst2|draw1|line1|err~8_combout\,
-	combout => \inst2|draw1|line1|err~9_combout\);
-
--- Location: LCFF_X27_Y17_N29
-\inst2|draw1|line1|err[4]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|err~9_combout\,
-	sclr => \inst2|draw1|line1|cx[3]~0_combout\,
-	ena => \inst2|draw1|line1|err[0]~5_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|err\(4));
-
--- Location: LCCOMB_X27_Y17_N12
-\inst2|draw1|line1|Add7~10\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add7~10_combout\ = (\inst2|draw1|line1|err\(5) & ((\inst2|draw1|line1|Add3~10_combout\ & (!\inst2|draw1|line1|Add7~9\)) # (!\inst2|draw1|line1|Add3~10_combout\ & (\inst2|draw1|line1|Add7~9\ & VCC)))) # (!\inst2|draw1|line1|err\(5) & 
--- ((\inst2|draw1|line1|Add3~10_combout\ & ((\inst2|draw1|line1|Add7~9\) # (GND))) # (!\inst2|draw1|line1|Add3~10_combout\ & (!\inst2|draw1|line1|Add7~9\))))
--- \inst2|draw1|line1|Add7~11\ = CARRY((\inst2|draw1|line1|err\(5) & (\inst2|draw1|line1|Add3~10_combout\ & !\inst2|draw1|line1|Add7~9\)) # (!\inst2|draw1|line1|err\(5) & ((\inst2|draw1|line1|Add3~10_combout\) # (!\inst2|draw1|line1|Add7~9\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100101001101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|err\(5),
-	datab => \inst2|draw1|line1|Add3~10_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add7~9\,
-	combout => \inst2|draw1|line1|Add7~10_combout\,
-	cout => \inst2|draw1|line1|Add7~11\);
-
--- Location: LCCOMB_X27_Y17_N14
-\inst2|draw1|line1|Add7~12\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add7~12_combout\ = ((\inst2|draw1|line1|err\(6) $ (\inst2|draw1|line1|Add3~12_combout\ $ (\inst2|draw1|line1|Add7~11\)))) # (GND)
--- \inst2|draw1|line1|Add7~13\ = CARRY((\inst2|draw1|line1|err\(6) & ((!\inst2|draw1|line1|Add7~11\) # (!\inst2|draw1|line1|Add3~12_combout\))) # (!\inst2|draw1|line1|err\(6) & (!\inst2|draw1|line1|Add3~12_combout\ & !\inst2|draw1|line1|Add7~11\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011000101011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|err\(6),
-	datab => \inst2|draw1|line1|Add3~12_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add7~11\,
-	combout => \inst2|draw1|line1|Add7~12_combout\,
-	cout => \inst2|draw1|line1|Add7~13\);
-
--- Location: LCCOMB_X26_Y18_N18
+-- Location: LCCOMB_X37_Y16_N12
 \inst2|draw1|line1|Add5~10\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add5~10_combout\ = (\inst2|draw1|line1|Add1~10_combout\ & ((\inst2|draw1|line1|Add7~10_combout\ & (\inst2|draw1|line1|Add5~9\ & VCC)) # (!\inst2|draw1|line1|Add7~10_combout\ & (!\inst2|draw1|line1|Add5~9\)))) # 
@@ -6820,31 +5642,27 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add5~10_combout\,
 	cout => \inst2|draw1|line1|Add5~11\);
 
--- Location: LCCOMB_X26_Y18_N20
-\inst2|draw1|line1|Add5~12\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X39_Y16_N6
+\inst2|draw1|line1|err[1]~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add5~12_combout\ = ((\inst2|draw1|line1|Add1~12_combout\ $ (\inst2|draw1|line1|Add7~12_combout\ $ (!\inst2|draw1|line1|Add5~11\)))) # (GND)
--- \inst2|draw1|line1|Add5~13\ = CARRY((\inst2|draw1|line1|Add1~12_combout\ & ((\inst2|draw1|line1|Add7~12_combout\) # (!\inst2|draw1|line1|Add5~11\))) # (!\inst2|draw1|line1|Add1~12_combout\ & (\inst2|draw1|line1|Add7~12_combout\ & 
--- !\inst2|draw1|line1|Add5~11\)))
+-- \inst2|draw1|line1|err[1]~1_combout\ = (\inst2|draw1|line1|setup~regout\) # ((!\inst2|draw1|line1|LessThan2~10_combout\ & \inst2|draw1|line1|LessThan3~5_combout\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0110100110001110",
-	sum_lutc_input => "cin")
+	lut_mask => "1111001111110000",
+	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add1~12_combout\,
-	datab => \inst2|draw1|line1|Add7~12_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add5~11\,
-	combout => \inst2|draw1|line1|Add5~12_combout\,
-	cout => \inst2|draw1|line1|Add5~13\);
+	datab => \inst2|draw1|line1|LessThan2~10_combout\,
+	datac => \inst2|draw1|line1|setup~regout\,
+	datad => \inst2|draw1|line1|LessThan3~5_combout\,
+	combout => \inst2|draw1|line1|err[1]~1_combout\);
 
--- Location: LCCOMB_X25_Y17_N10
-\inst2|draw1|line1|err~2\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X38_Y16_N0
+\inst2|draw1|line1|err~6\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|err~2_combout\ = (\inst2|draw1|line1|err[0]~1_combout\ & ((\inst2|draw1|line1|Add4~12_combout\) # ((\inst2|draw1|line1|err[0]~0_combout\)))) # (!\inst2|draw1|line1|err[0]~1_combout\ & (((\inst2|draw1|line1|Add5~12_combout\ & 
--- !\inst2|draw1|line1|err[0]~0_combout\))))
+-- \inst2|draw1|line1|err~6_combout\ = (\inst2|draw1|line1|err[1]~0_combout\ & ((\inst2|draw1|line1|Add9~14_combout\) # ((\inst2|draw1|line1|err[1]~1_combout\)))) # (!\inst2|draw1|line1|err[1]~0_combout\ & (((\inst2|draw1|line1|Add5~14_combout\ & 
+-- !\inst2|draw1|line1|err[1]~1_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -6852,144 +5670,13 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add4~12_combout\,
-	datab => \inst2|draw1|line1|Add5~12_combout\,
-	datac => \inst2|draw1|line1|err[0]~1_combout\,
-	datad => \inst2|draw1|line1|err[0]~0_combout\,
-	combout => \inst2|draw1|line1|err~2_combout\);
-
--- Location: LCCOMB_X25_Y17_N8
-\inst2|draw1|line1|err~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~3_combout\ = (\inst2|draw1|line1|err[0]~0_combout\ & ((\inst2|draw1|line1|err~2_combout\ & ((\inst2|draw1|line1|Add7~12_combout\))) # (!\inst2|draw1|line1|err~2_combout\ & (\inst2|draw1|line1|Add9~12_combout\)))) # 
--- (!\inst2|draw1|line1|err[0]~0_combout\ & (((\inst2|draw1|line1|err~2_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111001110001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add9~12_combout\,
-	datab => \inst2|draw1|line1|err[0]~0_combout\,
-	datac => \inst2|draw1|line1|Add7~12_combout\,
-	datad => \inst2|draw1|line1|err~2_combout\,
-	combout => \inst2|draw1|line1|err~3_combout\);
-
--- Location: LCFF_X25_Y17_N9
-\inst2|draw1|line1|err[6]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|err~3_combout\,
-	sclr => \inst2|draw1|line1|cx[3]~0_combout\,
-	ena => \inst2|draw1|line1|err[0]~5_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|err\(6));
-
--- Location: LCCOMB_X26_Y17_N22
-\inst2|draw1|line1|Add9~14\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add9~14_combout\ = (\inst2|draw1|line1|err\(7) & ((\inst2|draw1|line1|Add1~14_combout\ & (\inst2|draw1|line1|Add9~13\ & VCC)) # (!\inst2|draw1|line1|Add1~14_combout\ & (!\inst2|draw1|line1|Add9~13\)))) # (!\inst2|draw1|line1|err\(7) & 
--- ((\inst2|draw1|line1|Add1~14_combout\ & (!\inst2|draw1|line1|Add9~13\)) # (!\inst2|draw1|line1|Add1~14_combout\ & ((\inst2|draw1|line1|Add9~13\) # (GND)))))
--- \inst2|draw1|line1|Add9~15\ = CARRY((\inst2|draw1|line1|err\(7) & (!\inst2|draw1|line1|Add1~14_combout\ & !\inst2|draw1|line1|Add9~13\)) # (!\inst2|draw1|line1|err\(7) & ((!\inst2|draw1|line1|Add9~13\) # (!\inst2|draw1|line1|Add1~14_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011000010111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|err\(7),
-	datab => \inst2|draw1|line1|Add1~14_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add9~13\,
-	combout => \inst2|draw1|line1|Add9~14_combout\,
-	cout => \inst2|draw1|line1|Add9~15\);
-
--- Location: LCCOMB_X26_Y17_N6
-\inst2|draw1|line1|err~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~6_combout\ = (\inst2|draw1|line1|err[0]~1_combout\ & (((\inst2|draw1|line1|err[0]~0_combout\)))) # (!\inst2|draw1|line1|err[0]~1_combout\ & ((\inst2|draw1|line1|err[0]~0_combout\ & ((\inst2|draw1|line1|Add9~14_combout\))) # 
--- (!\inst2|draw1|line1|err[0]~0_combout\ & (\inst2|draw1|line1|Add5~14_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111110000001010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add5~14_combout\,
-	datab => \inst2|draw1|line1|Add9~14_combout\,
-	datac => \inst2|draw1|line1|err[0]~1_combout\,
-	datad => \inst2|draw1|line1|err[0]~0_combout\,
+	dataa => \inst2|draw1|line1|Add9~14_combout\,
+	datab => \inst2|draw1|line1|Add5~14_combout\,
+	datac => \inst2|draw1|line1|err[1]~0_combout\,
+	datad => \inst2|draw1|line1|err[1]~1_combout\,
 	combout => \inst2|draw1|line1|err~6_combout\);
 
--- Location: LCCOMB_X26_Y17_N4
-\inst2|draw1|line1|err~7\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~7_combout\ = (\inst2|draw1|line1|err[0]~1_combout\ & ((\inst2|draw1|line1|err~6_combout\ & (\inst2|draw1|line1|Add7~14_combout\)) # (!\inst2|draw1|line1|err~6_combout\ & ((\inst2|draw1|line1|Add4~14_combout\))))) # 
--- (!\inst2|draw1|line1|err[0]~1_combout\ & (((\inst2|draw1|line1|err~6_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111111000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add7~14_combout\,
-	datab => \inst2|draw1|line1|Add4~14_combout\,
-	datac => \inst2|draw1|line1|err[0]~1_combout\,
-	datad => \inst2|draw1|line1|err~6_combout\,
-	combout => \inst2|draw1|line1|err~7_combout\);
-
--- Location: LCFF_X26_Y17_N5
-\inst2|draw1|line1|err[7]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|err~7_combout\,
-	sclr => \inst2|draw1|line1|cx[3]~0_combout\,
-	ena => \inst2|draw1|line1|err[0]~5_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|err\(7));
-
--- Location: LCCOMB_X27_Y17_N18
-\inst2|draw1|line1|Add7~16\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add7~16_combout\ = ((\inst2|draw1|line1|Add3~14_combout\ $ (\inst2|draw1|line1|err\(8) $ (\inst2|draw1|line1|Add7~15\)))) # (GND)
--- \inst2|draw1|line1|Add7~17\ = CARRY((\inst2|draw1|line1|Add3~14_combout\ & (\inst2|draw1|line1|err\(8) & !\inst2|draw1|line1|Add7~15\)) # (!\inst2|draw1|line1|Add3~14_combout\ & ((\inst2|draw1|line1|err\(8)) # (!\inst2|draw1|line1|Add7~15\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011001001101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add3~14_combout\,
-	datab => \inst2|draw1|line1|err\(8),
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add7~15\,
-	combout => \inst2|draw1|line1|Add7~16_combout\,
-	cout => \inst2|draw1|line1|Add7~17\);
-
--- Location: LCCOMB_X27_Y17_N20
-\inst2|draw1|line1|Add7~18\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add7~18_combout\ = \inst2|draw1|line1|Add3~14_combout\ $ (\inst2|draw1|line1|err\(9) $ (!\inst2|draw1|line1|Add7~17\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100101101001",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add3~14_combout\,
-	datab => \inst2|draw1|line1|err\(9),
-	cin => \inst2|draw1|line1|Add7~17\,
-	combout => \inst2|draw1|line1|Add7~18_combout\);
-
--- Location: LCCOMB_X24_Y17_N30
+-- Location: LCCOMB_X40_Y15_N30
 \inst2|draw1|line1|Add3~14\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add3~14_combout\ = \inst2|draw1|line1|Add3~13\
@@ -7003,57 +5690,212 @@ PORT MAP (
 	cin => \inst2|draw1|line1|Add3~13\,
 	combout => \inst2|draw1|line1|Add3~14_combout\);
 
--- Location: LCCOMB_X25_Y18_N16
-\inst2|draw1|line1|Add4~16\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X36_Y16_N16
+\inst2|draw1|line1|Add4~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add4~16_combout\ = \inst2|draw1|line1|Add1~16_combout\ $ (\inst2|draw1|line1|Add4~15\ $ (\inst2|draw1|line1|Add3~14_combout\))
+-- \inst2|draw1|line1|Add4~2_combout\ = (\inst2|draw1|line1|Add1~2_combout\ & ((\inst2|draw1|line1|Add3~2_combout\ & (!\inst2|draw1|line1|Add4~1\)) # (!\inst2|draw1|line1|Add3~2_combout\ & (\inst2|draw1|line1|Add4~1\ & VCC)))) # 
+-- (!\inst2|draw1|line1|Add1~2_combout\ & ((\inst2|draw1|line1|Add3~2_combout\ & ((\inst2|draw1|line1|Add4~1\) # (GND))) # (!\inst2|draw1|line1|Add3~2_combout\ & (!\inst2|draw1|line1|Add4~1\))))
+-- \inst2|draw1|line1|Add4~3\ = CARRY((\inst2|draw1|line1|Add1~2_combout\ & (\inst2|draw1|line1|Add3~2_combout\ & !\inst2|draw1|line1|Add4~1\)) # (!\inst2|draw1|line1|Add1~2_combout\ & ((\inst2|draw1|line1|Add3~2_combout\) # (!\inst2|draw1|line1|Add4~1\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010010101011010",
+	lut_mask => "0110100101001101",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add1~16_combout\,
-	datad => \inst2|draw1|line1|Add3~14_combout\,
-	cin => \inst2|draw1|line1|Add4~15\,
-	combout => \inst2|draw1|line1|Add4~16_combout\);
+	dataa => \inst2|draw1|line1|Add1~2_combout\,
+	datab => \inst2|draw1|line1|Add3~2_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add4~1\,
+	combout => \inst2|draw1|line1|Add4~2_combout\,
+	cout => \inst2|draw1|line1|Add4~3\);
 
--- Location: LCCOMB_X24_Y19_N30
-\inst2|draw1|line1|Add1~16\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X36_Y16_N22
+\inst2|draw1|line1|Add4~8\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add1~16_combout\ = !\inst2|draw1|line1|Add1~15\
+-- \inst2|draw1|line1|Add4~8_combout\ = ((\inst2|draw1|line1|Add3~8_combout\ $ (\inst2|draw1|line1|Add1~8_combout\ $ (\inst2|draw1|line1|Add4~7\)))) # (GND)
+-- \inst2|draw1|line1|Add4~9\ = CARRY((\inst2|draw1|line1|Add3~8_combout\ & (\inst2|draw1|line1|Add1~8_combout\ & !\inst2|draw1|line1|Add4~7\)) # (!\inst2|draw1|line1|Add3~8_combout\ & ((\inst2|draw1|line1|Add1~8_combout\) # (!\inst2|draw1|line1|Add4~7\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000111100001111",
+	lut_mask => "1001011001001101",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	cin => \inst2|draw1|line1|Add1~15\,
-	combout => \inst2|draw1|line1|Add1~16_combout\);
+	dataa => \inst2|draw1|line1|Add3~8_combout\,
+	datab => \inst2|draw1|line1|Add1~8_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add4~7\,
+	combout => \inst2|draw1|line1|Add4~8_combout\,
+	cout => \inst2|draw1|line1|Add4~9\);
 
--- Location: LCCOMB_X26_Y17_N26
-\inst2|draw1|line1|Add9~18\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X36_Y16_N26
+\inst2|draw1|line1|Add4~12\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add9~18_combout\ = \inst2|draw1|line1|err\(9) $ (\inst2|draw1|line1|Add9~17\ $ (\inst2|draw1|line1|Add1~16_combout\))
+-- \inst2|draw1|line1|Add4~12_combout\ = ((\inst2|draw1|line1|Add3~12_combout\ $ (\inst2|draw1|line1|Add1~12_combout\ $ (\inst2|draw1|line1|Add4~11\)))) # (GND)
+-- \inst2|draw1|line1|Add4~13\ = CARRY((\inst2|draw1|line1|Add3~12_combout\ & (\inst2|draw1|line1|Add1~12_combout\ & !\inst2|draw1|line1|Add4~11\)) # (!\inst2|draw1|line1|Add3~12_combout\ & ((\inst2|draw1|line1|Add1~12_combout\) # 
+-- (!\inst2|draw1|line1|Add4~11\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100001100111100",
+	lut_mask => "1001011001001101",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|draw1|line1|err\(9),
-	datad => \inst2|draw1|line1|Add1~16_combout\,
-	cin => \inst2|draw1|line1|Add9~17\,
-	combout => \inst2|draw1|line1|Add9~18_combout\);
+	dataa => \inst2|draw1|line1|Add3~12_combout\,
+	datab => \inst2|draw1|line1|Add1~12_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add4~11\,
+	combout => \inst2|draw1|line1|Add4~12_combout\,
+	cout => \inst2|draw1|line1|Add4~13\);
 
--- Location: LCCOMB_X26_Y17_N2
-\inst2|draw1|line1|err~22\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X36_Y16_N28
+\inst2|draw1|line1|Add4~14\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|err~22_combout\ = (\inst2|draw1|line1|err[0]~1_combout\ & (((\inst2|draw1|line1|err[0]~0_combout\)))) # (!\inst2|draw1|line1|err[0]~1_combout\ & ((\inst2|draw1|line1|err[0]~0_combout\ & ((\inst2|draw1|line1|Add9~18_combout\))) # 
--- (!\inst2|draw1|line1|err[0]~0_combout\ & (\inst2|draw1|line1|Add5~18_combout\))))
+-- \inst2|draw1|line1|Add4~14_combout\ = (\inst2|draw1|line1|Add1~14_combout\ & ((\inst2|draw1|line1|Add3~14_combout\ & (!\inst2|draw1|line1|Add4~13\)) # (!\inst2|draw1|line1|Add3~14_combout\ & (\inst2|draw1|line1|Add4~13\ & VCC)))) # 
+-- (!\inst2|draw1|line1|Add1~14_combout\ & ((\inst2|draw1|line1|Add3~14_combout\ & ((\inst2|draw1|line1|Add4~13\) # (GND))) # (!\inst2|draw1|line1|Add3~14_combout\ & (!\inst2|draw1|line1|Add4~13\))))
+-- \inst2|draw1|line1|Add4~15\ = CARRY((\inst2|draw1|line1|Add1~14_combout\ & (\inst2|draw1|line1|Add3~14_combout\ & !\inst2|draw1|line1|Add4~13\)) # (!\inst2|draw1|line1|Add1~14_combout\ & ((\inst2|draw1|line1|Add3~14_combout\) # 
+-- (!\inst2|draw1|line1|Add4~13\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110100101001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add1~14_combout\,
+	datab => \inst2|draw1|line1|Add3~14_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add4~13\,
+	combout => \inst2|draw1|line1|Add4~14_combout\,
+	cout => \inst2|draw1|line1|Add4~15\);
+
+-- Location: LCCOMB_X38_Y16_N6
+\inst2|draw1|line1|err~7\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~7_combout\ = (\inst2|draw1|line1|err~6_combout\ & ((\inst2|draw1|line1|Add7~14_combout\) # ((!\inst2|draw1|line1|err[1]~1_combout\)))) # (!\inst2|draw1|line1|err~6_combout\ & (((\inst2|draw1|line1|Add4~14_combout\ & 
+-- \inst2|draw1|line1|err[1]~1_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011100011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add7~14_combout\,
+	datab => \inst2|draw1|line1|err~6_combout\,
+	datac => \inst2|draw1|line1|Add4~14_combout\,
+	datad => \inst2|draw1|line1|err[1]~1_combout\,
+	combout => \inst2|draw1|line1|err~7_combout\);
+
+-- Location: LCCOMB_X43_Y16_N18
+\inst2|decoder1|next_is_init~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|next_is_init~0_combout\ = (\inst2|spi1|do_buffer_reg\(2) & (\inst2|spi1|do_buffer_reg\(0) & \inst2|spi1|do_buffer_reg\(1)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000100000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|spi1|do_buffer_reg\(2),
+	datab => \inst2|spi1|do_buffer_reg\(0),
+	datad => \inst2|spi1|do_buffer_reg\(1),
+	combout => \inst2|decoder1|next_is_init~0_combout\);
+
+-- Location: LCCOMB_X42_Y18_N4
+\inst2|decoder1|next_is_init~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|next_is_init~1_combout\ = (\inst2|decoder1|decoder_claim~regout\ & ((\inst2|decoder1|Equal0~0_combout\) # ((\inst2|decoder1|next_is_init~0_combout\) # (!\inst2|decoder1|decode_comb~1_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000010110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|Equal0~0_combout\,
+	datab => \inst2|decoder1|decode_comb~1_combout\,
+	datac => \inst2|decoder1|decoder_claim~regout\,
+	datad => \inst2|decoder1|next_is_init~0_combout\,
+	combout => \inst2|decoder1|next_is_init~1_combout\);
+
+-- Location: LCFF_X42_Y18_N5
+\inst2|decoder1|decoder_claim\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|next_is_init~1_combout\,
+	sdata => VCC,
+	sload => \ALT_INV_reset~combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|decoder_claim~regout\);
+
+-- Location: LCCOMB_X38_Y20_N28
+\inst2|draw1|rect1|cy_tmp[0]~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cy_tmp[0]~1_combout\ = (!\inst2|decoder1|decoder_claim~regout\ & !\inst2|vgacontroller1|vga_combi~5_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|decoder1|decoder_claim~regout\,
+	datad => \inst2|vgacontroller1|vga_combi~5_combout\,
+	combout => \inst2|draw1|rect1|cy_tmp[0]~1_combout\);
+
+-- Location: LCCOMB_X39_Y16_N0
+\inst2|draw1|line1|err[1]~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err[1]~4_combout\ = (\inst2|draw1|line1|draw_line_comb~9_combout\) # ((!\inst2|draw1|line1|LessThan2~10_combout\ & !\inst2|draw1|line1|LessThan3~5_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011110011",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|line1|LessThan2~10_combout\,
+	datac => \inst2|draw1|line1|draw_line_comb~9_combout\,
+	datad => \inst2|draw1|line1|LessThan3~5_combout\,
+	combout => \inst2|draw1|line1|err[1]~4_combout\);
+
+-- Location: LCCOMB_X39_Y16_N18
+\inst2|draw1|line1|err[1]~5\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err[1]~5_combout\ = (\inst2|draw1|line1|cx[4]~0_combout\) # ((\inst2|draw1|rect1|cy_tmp[0]~1_combout\ & ((\inst2|draw1|line1|setup~regout\) # (!\inst2|draw1|line1|err[1]~4_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110101011111010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|cx[4]~0_combout\,
+	datab => \inst2|draw1|line1|setup~regout\,
+	datac => \inst2|draw1|rect1|cy_tmp[0]~1_combout\,
+	datad => \inst2|draw1|line1|err[1]~4_combout\,
+	combout => \inst2|draw1|line1|err[1]~5_combout\);
+
+-- Location: LCFF_X38_Y16_N7
+\inst2|draw1|line1|err[7]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|err~7_combout\,
+	sclr => \inst2|draw1|line1|cx[4]~0_combout\,
+	ena => \inst2|draw1|line1|err[1]~5_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|err\(7));
+
+-- Location: LCCOMB_X38_Y16_N10
+\inst2|draw1|line1|err~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~2_combout\ = (\inst2|draw1|line1|err[1]~0_combout\ & (((\inst2|draw1|line1|err[1]~1_combout\)))) # (!\inst2|draw1|line1|err[1]~0_combout\ & ((\inst2|draw1|line1|err[1]~1_combout\ & ((\inst2|draw1|line1|Add4~12_combout\))) # 
+-- (!\inst2|draw1|line1|err[1]~1_combout\ & (\inst2|draw1|line1|Add5~12_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -7061,64 +5903,17 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add5~18_combout\,
-	datab => \inst2|draw1|line1|Add9~18_combout\,
-	datac => \inst2|draw1|line1|err[0]~1_combout\,
-	datad => \inst2|draw1|line1|err[0]~0_combout\,
-	combout => \inst2|draw1|line1|err~22_combout\);
+	dataa => \inst2|draw1|line1|Add5~12_combout\,
+	datab => \inst2|draw1|line1|Add4~12_combout\,
+	datac => \inst2|draw1|line1|err[1]~0_combout\,
+	datad => \inst2|draw1|line1|err[1]~1_combout\,
+	combout => \inst2|draw1|line1|err~2_combout\);
 
--- Location: LCCOMB_X26_Y17_N28
-\inst2|draw1|line1|err~23\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X38_Y16_N20
+\inst2|draw1|line1|err~3\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|err~23_combout\ = (\inst2|draw1|line1|err[0]~1_combout\ & ((\inst2|draw1|line1|err~22_combout\ & (\inst2|draw1|line1|Add7~18_combout\)) # (!\inst2|draw1|line1|err~22_combout\ & ((\inst2|draw1|line1|Add4~16_combout\))))) # 
--- (!\inst2|draw1|line1|err[0]~1_combout\ & (((\inst2|draw1|line1|err~22_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101110110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|err[0]~1_combout\,
-	datab => \inst2|draw1|line1|Add7~18_combout\,
-	datac => \inst2|draw1|line1|Add4~16_combout\,
-	datad => \inst2|draw1|line1|err~22_combout\,
-	combout => \inst2|draw1|line1|err~23_combout\);
-
--- Location: LCFF_X26_Y17_N29
-\inst2|draw1|line1|err[9]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|err~23_combout\,
-	sclr => \inst2|draw1|line1|cx[3]~0_combout\,
-	ena => \inst2|draw1|line1|err[0]~5_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|err\(9));
-
--- Location: LCCOMB_X26_Y18_N30
-\inst2|draw1|line1|err~10\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~10_combout\ = (\inst2|draw1|line1|err[0]~1_combout\ & (((\inst2|draw1|line1|err[0]~0_combout\)))) # (!\inst2|draw1|line1|err[0]~1_combout\ & ((\inst2|draw1|line1|err[0]~0_combout\ & (\inst2|draw1|line1|Add9~10_combout\)) # 
--- (!\inst2|draw1|line1|err[0]~0_combout\ & ((\inst2|draw1|line1|Add5~10_combout\)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101000001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add9~10_combout\,
-	datab => \inst2|draw1|line1|Add5~10_combout\,
-	datac => \inst2|draw1|line1|err[0]~1_combout\,
-	datad => \inst2|draw1|line1|err[0]~0_combout\,
-	combout => \inst2|draw1|line1|err~10_combout\);
-
--- Location: LCCOMB_X26_Y18_N4
-\inst2|draw1|line1|err~11\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~11_combout\ = (\inst2|draw1|line1|err[0]~1_combout\ & ((\inst2|draw1|line1|err~10_combout\ & ((\inst2|draw1|line1|Add7~10_combout\))) # (!\inst2|draw1|line1|err~10_combout\ & (\inst2|draw1|line1|Add4~10_combout\)))) # 
--- (!\inst2|draw1|line1|err[0]~1_combout\ & (((\inst2|draw1|line1|err~10_combout\))))
+-- \inst2|draw1|line1|err~3_combout\ = (\inst2|draw1|line1|err[1]~0_combout\ & ((\inst2|draw1|line1|err~2_combout\ & ((\inst2|draw1|line1|Add7~12_combout\))) # (!\inst2|draw1|line1|err~2_combout\ & (\inst2|draw1|line1|Add9~12_combout\)))) # 
+-- (!\inst2|draw1|line1|err[1]~0_combout\ & (((\inst2|draw1|line1|err~2_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -7126,432 +5921,28 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add4~10_combout\,
-	datab => \inst2|draw1|line1|Add7~10_combout\,
-	datac => \inst2|draw1|line1|err[0]~1_combout\,
-	datad => \inst2|draw1|line1|err~10_combout\,
-	combout => \inst2|draw1|line1|err~11_combout\);
+	dataa => \inst2|draw1|line1|Add9~12_combout\,
+	datab => \inst2|draw1|line1|Add7~12_combout\,
+	datac => \inst2|draw1|line1|err[1]~0_combout\,
+	datad => \inst2|draw1|line1|err~2_combout\,
+	combout => \inst2|draw1|line1|err~3_combout\);
 
--- Location: LCFF_X26_Y18_N5
-\inst2|draw1|line1|err[5]\ : cycloneii_lcell_ff
+-- Location: LCFF_X38_Y16_N21
+\inst2|draw1|line1|err[6]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|err~11_combout\,
-	sclr => \inst2|draw1|line1|cx[3]~0_combout\,
-	ena => \inst2|draw1|line1|err[0]~5_combout\,
+	datain => \inst2|draw1|line1|err~3_combout\,
+	sclr => \inst2|draw1|line1|cx[4]~0_combout\,
+	ena => \inst2|draw1|line1|err[1]~5_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|err\(5));
+	regout => \inst2|draw1|line1|err\(6));
 
--- Location: LCCOMB_X24_Y17_N2
-\inst2|draw1|line1|Add6~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add6~0_combout\ = (\inst2|draw1|line1|Add3~0_combout\ & (!\inst2|draw1|line1|Add3~2_combout\ & VCC)) # (!\inst2|draw1|line1|Add3~0_combout\ & (\inst2|draw1|line1|Add3~2_combout\ $ (GND)))
--- \inst2|draw1|line1|Add6~1\ = CARRY((!\inst2|draw1|line1|Add3~0_combout\ & !\inst2|draw1|line1|Add3~2_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110011000010001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add3~0_combout\,
-	datab => \inst2|draw1|line1|Add3~2_combout\,
-	datad => VCC,
-	combout => \inst2|draw1|line1|Add6~0_combout\,
-	cout => \inst2|draw1|line1|Add6~1\);
-
--- Location: LCCOMB_X24_Y17_N4
-\inst2|draw1|line1|Add6~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add6~2_combout\ = (\inst2|draw1|line1|Add3~4_combout\ & ((\inst2|draw1|line1|Add6~1\) # (GND))) # (!\inst2|draw1|line1|Add3~4_combout\ & (!\inst2|draw1|line1|Add6~1\))
--- \inst2|draw1|line1|Add6~3\ = CARRY((\inst2|draw1|line1|Add3~4_combout\) # (!\inst2|draw1|line1|Add6~1\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010010110101111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add3~4_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add6~1\,
-	combout => \inst2|draw1|line1|Add6~2_combout\,
-	cout => \inst2|draw1|line1|Add6~3\);
-
--- Location: LCCOMB_X24_Y17_N6
-\inst2|draw1|line1|Add6~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add6~4_combout\ = (\inst2|draw1|line1|Add3~6_combout\ & (!\inst2|draw1|line1|Add6~3\ & VCC)) # (!\inst2|draw1|line1|Add3~6_combout\ & (\inst2|draw1|line1|Add6~3\ $ (GND)))
--- \inst2|draw1|line1|Add6~5\ = CARRY((!\inst2|draw1|line1|Add3~6_combout\ & !\inst2|draw1|line1|Add6~3\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011110000000011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|line1|Add3~6_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add6~3\,
-	combout => \inst2|draw1|line1|Add6~4_combout\,
-	cout => \inst2|draw1|line1|Add6~5\);
-
--- Location: LCCOMB_X24_Y17_N8
-\inst2|draw1|line1|Add6~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add6~6_combout\ = (\inst2|draw1|line1|Add3~8_combout\ & ((\inst2|draw1|line1|Add6~5\) # (GND))) # (!\inst2|draw1|line1|Add3~8_combout\ & (!\inst2|draw1|line1|Add6~5\))
--- \inst2|draw1|line1|Add6~7\ = CARRY((\inst2|draw1|line1|Add3~8_combout\) # (!\inst2|draw1|line1|Add6~5\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010010110101111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add3~8_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add6~5\,
-	combout => \inst2|draw1|line1|Add6~6_combout\,
-	cout => \inst2|draw1|line1|Add6~7\);
-
--- Location: LCCOMB_X25_Y17_N26
-\inst2|draw1|line1|LessThan3~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan3~0_combout\ = (\inst2|draw1|line1|err\(4) & (!\inst2|draw1|line1|Add6~8_combout\ & (\inst2|draw1|line1|Add6~10_combout\ $ (!\inst2|draw1|line1|err\(5)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000010000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add6~10_combout\,
-	datab => \inst2|draw1|line1|err\(4),
-	datac => \inst2|draw1|line1|err\(5),
-	datad => \inst2|draw1|line1|Add6~8_combout\,
-	combout => \inst2|draw1|line1|LessThan3~0_combout\);
-
--- Location: LCCOMB_X26_Y18_N0
-\inst2|draw1|line1|err~12\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~12_combout\ = (\inst2|draw1|line1|err[0]~1_combout\ & (((\inst2|draw1|line1|err[0]~0_combout\)))) # (!\inst2|draw1|line1|err[0]~1_combout\ & ((\inst2|draw1|line1|err[0]~0_combout\ & (\inst2|draw1|line1|Add9~6_combout\)) # 
--- (!\inst2|draw1|line1|err[0]~0_combout\ & ((\inst2|draw1|line1|Add5~6_combout\)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101000001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add9~6_combout\,
-	datab => \inst2|draw1|line1|Add5~6_combout\,
-	datac => \inst2|draw1|line1|err[0]~1_combout\,
-	datad => \inst2|draw1|line1|err[0]~0_combout\,
-	combout => \inst2|draw1|line1|err~12_combout\);
-
--- Location: LCCOMB_X26_Y18_N6
-\inst2|draw1|line1|err~13\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~13_combout\ = (\inst2|draw1|line1|err[0]~1_combout\ & ((\inst2|draw1|line1|err~12_combout\ & (\inst2|draw1|line1|Add7~6_combout\)) # (!\inst2|draw1|line1|err~12_combout\ & ((\inst2|draw1|line1|Add4~6_combout\))))) # 
--- (!\inst2|draw1|line1|err[0]~1_combout\ & (((\inst2|draw1|line1|err~12_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111111000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add7~6_combout\,
-	datab => \inst2|draw1|line1|Add4~6_combout\,
-	datac => \inst2|draw1|line1|err[0]~1_combout\,
-	datad => \inst2|draw1|line1|err~12_combout\,
-	combout => \inst2|draw1|line1|err~13_combout\);
-
--- Location: LCFF_X26_Y18_N7
-\inst2|draw1|line1|err[3]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|err~13_combout\,
-	sclr => \inst2|draw1|line1|cx[3]~0_combout\,
-	ena => \inst2|draw1|line1|err[0]~5_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|err\(3));
-
--- Location: LCCOMB_X26_Y18_N2
-\inst2|draw1|line1|err~18\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~18_combout\ = (\inst2|draw1|line1|err[0]~1_combout\ & ((\inst2|draw1|line1|Add4~0_combout\) # ((\inst2|draw1|line1|err[0]~0_combout\)))) # (!\inst2|draw1|line1|err[0]~1_combout\ & (((\inst2|draw1|line1|Add5~0_combout\ & 
--- !\inst2|draw1|line1|err[0]~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000010101100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add4~0_combout\,
-	datab => \inst2|draw1|line1|Add5~0_combout\,
-	datac => \inst2|draw1|line1|err[0]~1_combout\,
-	datad => \inst2|draw1|line1|err[0]~0_combout\,
-	combout => \inst2|draw1|line1|err~18_combout\);
-
--- Location: LCCOMB_X26_Y18_N28
-\inst2|draw1|line1|err~19\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~19_combout\ = (\inst2|draw1|line1|err[0]~0_combout\ & ((\inst2|draw1|line1|err~18_combout\ & (\inst2|draw1|line1|Add7~0_combout\)) # (!\inst2|draw1|line1|err~18_combout\ & ((\inst2|draw1|line1|Add9~0_combout\))))) # 
--- (!\inst2|draw1|line1|err[0]~0_combout\ & (((\inst2|draw1|line1|err~18_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111111000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add7~0_combout\,
-	datab => \inst2|draw1|line1|Add9~0_combout\,
-	datac => \inst2|draw1|line1|err[0]~0_combout\,
-	datad => \inst2|draw1|line1|err~18_combout\,
-	combout => \inst2|draw1|line1|err~19_combout\);
-
--- Location: LCFF_X26_Y18_N29
-\inst2|draw1|line1|err[0]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|err~19_combout\,
-	sclr => \inst2|draw1|line1|cx[3]~0_combout\,
-	ena => \inst2|draw1|line1|err[0]~5_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|err\(0));
-
--- Location: LCCOMB_X24_Y17_N0
-\inst2|draw1|line1|LessThan3~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan3~1_combout\ = (\inst2|draw1|line1|err\(1) & (((\inst2|draw1|line1|err\(0) & !\inst2|draw1|line1|Add6~0_combout\)) # (!\inst2|draw1|line1|Add6~2_combout\))) # (!\inst2|draw1|line1|err\(1) & (\inst2|draw1|line1|err\(0) & 
--- (!\inst2|draw1|line1|Add6~2_combout\ & !\inst2|draw1|line1|Add6~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000101010001110",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|err\(1),
-	datab => \inst2|draw1|line1|err\(0),
-	datac => \inst2|draw1|line1|Add6~2_combout\,
-	datad => \inst2|draw1|line1|Add6~0_combout\,
-	combout => \inst2|draw1|line1|LessThan3~1_combout\);
-
--- Location: LCCOMB_X25_Y17_N0
-\inst2|draw1|line1|LessThan3~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan3~2_combout\ = (\inst2|draw1|line1|err\(2) & ((\inst2|draw1|line1|LessThan3~1_combout\) # (!\inst2|draw1|line1|Add6~4_combout\))) # (!\inst2|draw1|line1|err\(2) & (\inst2|draw1|line1|LessThan3~1_combout\ & 
--- !\inst2|draw1|line1|Add6~4_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010000011111010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|err\(2),
-	datac => \inst2|draw1|line1|LessThan3~1_combout\,
-	datad => \inst2|draw1|line1|Add6~4_combout\,
-	combout => \inst2|draw1|line1|LessThan3~2_combout\);
-
--- Location: LCCOMB_X25_Y17_N30
-\inst2|draw1|line1|LessThan3~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan3~3_combout\ = (\inst2|draw1|line1|err\(3) & ((\inst2|draw1|line1|LessThan3~2_combout\) # (!\inst2|draw1|line1|Add6~6_combout\))) # (!\inst2|draw1|line1|err\(3) & (!\inst2|draw1|line1|Add6~6_combout\ & 
--- \inst2|draw1|line1|LessThan3~2_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100111100001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|line1|err\(3),
-	datac => \inst2|draw1|line1|Add6~6_combout\,
-	datad => \inst2|draw1|line1|LessThan3~2_combout\,
-	combout => \inst2|draw1|line1|LessThan3~3_combout\);
-
--- Location: LCCOMB_X25_Y17_N12
-\inst2|draw1|line1|LessThan3~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan3~4_combout\ = (\inst2|draw1|line1|LessThan3~3_combout\ & (\inst2|draw1|line1|Add6~8_combout\ $ (!\inst2|draw1|line1|err\(4))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001100100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add6~8_combout\,
-	datab => \inst2|draw1|line1|err\(4),
-	datad => \inst2|draw1|line1|LessThan3~3_combout\,
-	combout => \inst2|draw1|line1|LessThan3~4_combout\);
-
--- Location: LCCOMB_X25_Y17_N4
-\inst2|draw1|line1|LessThan3~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan3~6_combout\ = (\inst2|draw1|line1|LessThan3~0_combout\) # ((\inst2|draw1|line1|Add6~10_combout\ & (\inst2|draw1|line1|err\(5) & \inst2|draw1|line1|LessThan3~4_combout\)) # (!\inst2|draw1|line1|Add6~10_combout\ & 
--- ((\inst2|draw1|line1|err\(5)) # (\inst2|draw1|line1|LessThan3~4_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111110111011100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add6~10_combout\,
-	datab => \inst2|draw1|line1|LessThan3~0_combout\,
-	datac => \inst2|draw1|line1|err\(5),
-	datad => \inst2|draw1|line1|LessThan3~4_combout\,
-	combout => \inst2|draw1|line1|LessThan3~6_combout\);
-
--- Location: LCCOMB_X25_Y17_N6
-\inst2|draw1|line1|LessThan3~7\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan3~7_combout\ = (\inst2|draw1|line1|Add6~12_combout\ & (\inst2|draw1|line1|err\(7) & (\inst2|draw1|line1|LessThan3~6_combout\ & \inst2|draw1|line1|err\(6)))) # (!\inst2|draw1|line1|Add6~12_combout\ & ((\inst2|draw1|line1|err\(7)) 
--- # ((\inst2|draw1|line1|LessThan3~6_combout\) # (\inst2|draw1|line1|err\(6)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101010101010100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add6~12_combout\,
-	datab => \inst2|draw1|line1|err\(7),
-	datac => \inst2|draw1|line1|LessThan3~6_combout\,
-	datad => \inst2|draw1|line1|err\(6),
-	combout => \inst2|draw1|line1|LessThan3~7_combout\);
-
--- Location: LCCOMB_X25_Y17_N18
-\inst2|draw1|line1|LessThan3~5\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan3~5_combout\ = (\inst2|draw1|line1|Add6~12_combout\ & (((\inst2|draw1|line1|err\(8) & \inst2|draw1|line1|LessThan3~7_combout\)) # (!\inst2|draw1|line1|err\(9)))) # (!\inst2|draw1|line1|Add6~12_combout\ & 
--- (!\inst2|draw1|line1|err\(9) & ((\inst2|draw1|line1|err\(8)) # (\inst2|draw1|line1|LessThan3~7_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1011001100110010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add6~12_combout\,
-	datab => \inst2|draw1|line1|err\(9),
-	datac => \inst2|draw1|line1|err\(8),
-	datad => \inst2|draw1|line1|LessThan3~7_combout\,
-	combout => \inst2|draw1|line1|LessThan3~5_combout\);
-
--- Location: LCCOMB_X25_Y17_N22
-\inst2|draw1|line1|err[0]~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err[0]~0_combout\ = (!\inst2|draw1|line1|setup~regout\ & ((!\inst2|draw1|line1|LessThan3~5_combout\) # (!\inst2|draw1|line1|LessThan2~10_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000001100110011",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|line1|setup~regout\,
-	datac => \inst2|draw1|line1|LessThan2~10_combout\,
-	datad => \inst2|draw1|line1|LessThan3~5_combout\,
-	combout => \inst2|draw1|line1|err[0]~0_combout\);
-
--- Location: LCCOMB_X26_Y17_N0
-\inst2|draw1|line1|err~20\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~20_combout\ = (\inst2|draw1|line1|err[0]~1_combout\ & ((\inst2|draw1|line1|Add4~16_combout\) # ((\inst2|draw1|line1|err[0]~0_combout\)))) # (!\inst2|draw1|line1|err[0]~1_combout\ & (((\inst2|draw1|line1|Add5~16_combout\ & 
--- !\inst2|draw1|line1|err[0]~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000010101100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add4~16_combout\,
-	datab => \inst2|draw1|line1|Add5~16_combout\,
-	datac => \inst2|draw1|line1|err[0]~1_combout\,
-	datad => \inst2|draw1|line1|err[0]~0_combout\,
-	combout => \inst2|draw1|line1|err~20_combout\);
-
--- Location: LCCOMB_X26_Y17_N30
-\inst2|draw1|line1|err~21\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|err~21_combout\ = (\inst2|draw1|line1|err[0]~0_combout\ & ((\inst2|draw1|line1|err~20_combout\ & ((\inst2|draw1|line1|Add7~16_combout\))) # (!\inst2|draw1|line1|err~20_combout\ & (\inst2|draw1|line1|Add9~16_combout\)))) # 
--- (!\inst2|draw1|line1|err[0]~0_combout\ & (((\inst2|draw1|line1|err~20_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111001110001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add9~16_combout\,
-	datab => \inst2|draw1|line1|err[0]~0_combout\,
-	datac => \inst2|draw1|line1|Add7~16_combout\,
-	datad => \inst2|draw1|line1|err~20_combout\,
-	combout => \inst2|draw1|line1|err~21_combout\);
-
--- Location: LCFF_X26_Y17_N31
-\inst2|draw1|line1|err[8]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|err~21_combout\,
-	sclr => \inst2|draw1|line1|cx[3]~0_combout\,
-	ena => \inst2|draw1|line1|err[0]~5_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|err\(8));
-
--- Location: LCCOMB_X25_Y19_N22
-\inst2|draw1|line1|LessThan2~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan2~6_combout\ = (\inst2|draw1|line1|Add1~10_combout\ & (((!\inst2|draw1|line1|err\(3) & \inst2|draw1|line1|Add1~8_combout\)) # (!\inst2|draw1|line1|err\(4)))) # (!\inst2|draw1|line1|Add1~10_combout\ & (!\inst2|draw1|line1|err\(3) 
--- & (!\inst2|draw1|line1|err\(4) & \inst2|draw1|line1|Add1~8_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0100110100001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|err\(3),
-	datab => \inst2|draw1|line1|Add1~10_combout\,
-	datac => \inst2|draw1|line1|err\(4),
-	datad => \inst2|draw1|line1|Add1~8_combout\,
-	combout => \inst2|draw1|line1|LessThan2~6_combout\);
-
--- Location: LCCOMB_X25_Y19_N8
-\inst2|draw1|line1|LessThan2~7\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan2~7_combout\ = (\inst2|draw1|line1|err\(6) & (\inst2|draw1|line1|Add1~12_combout\ & (!\inst2|draw1|line1|err\(5) & \inst2|draw1|line1|Add1~14_combout\))) # (!\inst2|draw1|line1|err\(6) & ((\inst2|draw1|line1|Add1~14_combout\) # 
--- ((\inst2|draw1|line1|Add1~12_combout\ & !\inst2|draw1|line1|err\(5)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101110100000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|err\(6),
-	datab => \inst2|draw1|line1|Add1~12_combout\,
-	datac => \inst2|draw1|line1|err\(5),
-	datad => \inst2|draw1|line1|Add1~14_combout\,
-	combout => \inst2|draw1|line1|LessThan2~7_combout\);
-
--- Location: LCCOMB_X25_Y19_N28
+-- Location: LCCOMB_X38_Y18_N2
 \inst2|draw1|line1|LessThan2~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|LessThan2~0_combout\ = (\inst2|draw1|line1|err\(6) & (\inst2|draw1|line1|Add1~14_combout\ & (\inst2|draw1|line1|Add1~12_combout\ $ (!\inst2|draw1|line1|err\(5))))) # (!\inst2|draw1|line1|err\(6) & (!\inst2|draw1|line1|Add1~14_combout\ & 
--- (\inst2|draw1|line1|Add1~12_combout\ $ (!\inst2|draw1|line1|err\(5)))))
+-- \inst2|draw1|line1|LessThan2~0_combout\ = (\inst2|draw1|line1|err\(5) & (\inst2|draw1|line1|Add1~12_combout\ & (\inst2|draw1|line1|err\(6) $ (!\inst2|draw1|line1|Add1~14_combout\)))) # (!\inst2|draw1|line1|err\(5) & (!\inst2|draw1|line1|Add1~12_combout\ & 
+-- (\inst2|draw1|line1|err\(6) $ (!\inst2|draw1|line1|Add1~14_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -7559,33 +5950,17 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|err\(6),
-	datab => \inst2|draw1|line1|Add1~12_combout\,
-	datac => \inst2|draw1|line1|err\(5),
-	datad => \inst2|draw1|line1|Add1~14_combout\,
+	dataa => \inst2|draw1|line1|err\(5),
+	datab => \inst2|draw1|line1|err\(6),
+	datac => \inst2|draw1|line1|Add1~14_combout\,
+	datad => \inst2|draw1|line1|Add1~12_combout\,
 	combout => \inst2|draw1|line1|LessThan2~0_combout\);
 
--- Location: LCCOMB_X25_Y19_N26
-\inst2|draw1|line1|LessThan2~8\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X38_Y18_N8
+\inst2|draw1|line1|LessThan2~6\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|LessThan2~8_combout\ = (\inst2|draw1|line1|LessThan2~7_combout\) # ((\inst2|draw1|line1|LessThan2~6_combout\ & \inst2|draw1|line1|LessThan2~0_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111110011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|line1|LessThan2~6_combout\,
-	datac => \inst2|draw1|line1|LessThan2~7_combout\,
-	datad => \inst2|draw1|line1|LessThan2~0_combout\,
-	combout => \inst2|draw1|line1|LessThan2~8_combout\);
-
--- Location: LCCOMB_X24_Y19_N8
-\inst2|draw1|line1|LessThan2~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan2~3_combout\ = (\inst2|draw1|line1|err\(2) & (!\inst2|draw1|line1|err\(1) & (\inst2|draw1|line1|Add1~6_combout\ & \inst2|draw1|line1|Add1~4_combout\))) # (!\inst2|draw1|line1|err\(2) & ((\inst2|draw1|line1|Add1~6_combout\) # 
--- ((!\inst2|draw1|line1|err\(1) & \inst2|draw1|line1|Add1~4_combout\))))
+-- \inst2|draw1|line1|LessThan2~6_combout\ = (\inst2|draw1|line1|err\(4) & (!\inst2|draw1|line1|err\(3) & (\inst2|draw1|line1|Add1~10_combout\ & \inst2|draw1|line1|Add1~8_combout\))) # (!\inst2|draw1|line1|err\(4) & ((\inst2|draw1|line1|Add1~10_combout\) # 
+-- ((!\inst2|draw1|line1|err\(3) & \inst2|draw1|line1|Add1~8_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -7593,17 +5968,135 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
+	dataa => \inst2|draw1|line1|err\(4),
+	datab => \inst2|draw1|line1|err\(3),
+	datac => \inst2|draw1|line1|Add1~10_combout\,
+	datad => \inst2|draw1|line1|Add1~8_combout\,
+	combout => \inst2|draw1|line1|LessThan2~6_combout\);
+
+-- Location: LCCOMB_X38_Y18_N6
+\inst2|draw1|line1|LessThan2~7\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan2~7_combout\ = (\inst2|draw1|line1|err\(6) & (!\inst2|draw1|line1|err\(5) & (\inst2|draw1|line1|Add1~14_combout\ & \inst2|draw1|line1|Add1~12_combout\))) # (!\inst2|draw1|line1|err\(6) & ((\inst2|draw1|line1|Add1~14_combout\) # 
+-- ((!\inst2|draw1|line1|err\(5) & \inst2|draw1|line1|Add1~12_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0111000100110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|err\(5),
+	datab => \inst2|draw1|line1|err\(6),
+	datac => \inst2|draw1|line1|Add1~14_combout\,
+	datad => \inst2|draw1|line1|Add1~12_combout\,
+	combout => \inst2|draw1|line1|LessThan2~7_combout\);
+
+-- Location: LCCOMB_X38_Y18_N28
+\inst2|draw1|line1|LessThan2~8\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan2~8_combout\ = (\inst2|draw1|line1|LessThan2~7_combout\) # ((\inst2|draw1|line1|LessThan2~0_combout\ & \inst2|draw1|line1|LessThan2~6_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|line1|LessThan2~0_combout\,
+	datac => \inst2|draw1|line1|LessThan2~6_combout\,
+	datad => \inst2|draw1|line1|LessThan2~7_combout\,
+	combout => \inst2|draw1|line1|LessThan2~8_combout\);
+
+-- Location: LCCOMB_X38_Y17_N8
+\inst2|draw1|line1|Add9~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add9~4_combout\ = ((\inst2|draw1|line1|err\(2) $ (\inst2|draw1|line1|Add1~4_combout\ $ (!\inst2|draw1|line1|Add9~3\)))) # (GND)
+-- \inst2|draw1|line1|Add9~5\ = CARRY((\inst2|draw1|line1|err\(2) & ((\inst2|draw1|line1|Add1~4_combout\) # (!\inst2|draw1|line1|Add9~3\))) # (!\inst2|draw1|line1|err\(2) & (\inst2|draw1|line1|Add1~4_combout\ & !\inst2|draw1|line1|Add9~3\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110100110001110",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
 	dataa => \inst2|draw1|line1|err\(2),
-	datab => \inst2|draw1|line1|err\(1),
-	datac => \inst2|draw1|line1|Add1~6_combout\,
-	datad => \inst2|draw1|line1|Add1~4_combout\,
+	datab => \inst2|draw1|line1|Add1~4_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add9~3\,
+	combout => \inst2|draw1|line1|Add9~4_combout\,
+	cout => \inst2|draw1|line1|Add9~5\);
+
+-- Location: LCCOMB_X38_Y16_N12
+\inst2|draw1|line1|err~14\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~14_combout\ = (\inst2|draw1|line1|err[1]~0_combout\ & (((\inst2|draw1|line1|err[1]~1_combout\)))) # (!\inst2|draw1|line1|err[1]~0_combout\ & ((\inst2|draw1|line1|err[1]~1_combout\ & (\inst2|draw1|line1|Add4~4_combout\)) # 
+-- (!\inst2|draw1|line1|err[1]~1_combout\ & ((\inst2|draw1|line1|Add5~4_combout\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101000001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add4~4_combout\,
+	datab => \inst2|draw1|line1|Add5~4_combout\,
+	datac => \inst2|draw1|line1|err[1]~0_combout\,
+	datad => \inst2|draw1|line1|err[1]~1_combout\,
+	combout => \inst2|draw1|line1|err~14_combout\);
+
+-- Location: LCCOMB_X38_Y16_N22
+\inst2|draw1|line1|err~15\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~15_combout\ = (\inst2|draw1|line1|err[1]~0_combout\ & ((\inst2|draw1|line1|err~14_combout\ & (\inst2|draw1|line1|Add7~4_combout\)) # (!\inst2|draw1|line1|err~14_combout\ & ((\inst2|draw1|line1|Add9~4_combout\))))) # 
+-- (!\inst2|draw1|line1|err[1]~0_combout\ & (((\inst2|draw1|line1|err~14_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add7~4_combout\,
+	datab => \inst2|draw1|line1|Add9~4_combout\,
+	datac => \inst2|draw1|line1|err[1]~0_combout\,
+	datad => \inst2|draw1|line1|err~14_combout\,
+	combout => \inst2|draw1|line1|err~15_combout\);
+
+-- Location: LCFF_X38_Y16_N23
+\inst2|draw1|line1|err[2]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|err~15_combout\,
+	sclr => \inst2|draw1|line1|cx[4]~0_combout\,
+	ena => \inst2|draw1|line1|err[1]~5_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|err\(2));
+
+-- Location: LCCOMB_X38_Y16_N14
+\inst2|draw1|line1|LessThan2~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan2~3_combout\ = (\inst2|draw1|line1|err\(2) & (!\inst2|draw1|line1|err\(1) & (\inst2|draw1|line1|Add1~4_combout\ & \inst2|draw1|line1|Add1~6_combout\))) # (!\inst2|draw1|line1|err\(2) & ((\inst2|draw1|line1|Add1~6_combout\) # 
+-- ((!\inst2|draw1|line1|err\(1) & \inst2|draw1|line1|Add1~4_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0111001100010000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|err\(1),
+	datab => \inst2|draw1|line1|err\(2),
+	datac => \inst2|draw1|line1|Add1~4_combout\,
+	datad => \inst2|draw1|line1|Add1~6_combout\,
 	combout => \inst2|draw1|line1|LessThan2~3_combout\);
 
--- Location: LCCOMB_X24_Y19_N0
+-- Location: LCCOMB_X38_Y16_N2
 \inst2|draw1|line1|LessThan2~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|LessThan2~1_combout\ = (\inst2|draw1|line1|err\(2) & (\inst2|draw1|line1|Add1~6_combout\ & (\inst2|draw1|line1|err\(1) $ (!\inst2|draw1|line1|Add1~4_combout\)))) # (!\inst2|draw1|line1|err\(2) & (!\inst2|draw1|line1|Add1~6_combout\ & 
--- (\inst2|draw1|line1|err\(1) $ (!\inst2|draw1|line1|Add1~4_combout\))))
+-- \inst2|draw1|line1|LessThan2~1_combout\ = (\inst2|draw1|line1|err\(1) & (\inst2|draw1|line1|Add1~4_combout\ & (\inst2|draw1|line1|err\(2) $ (!\inst2|draw1|line1|Add1~6_combout\)))) # (!\inst2|draw1|line1|err\(1) & (!\inst2|draw1|line1|Add1~4_combout\ & 
+-- (\inst2|draw1|line1|err\(2) $ (!\inst2|draw1|line1|Add1~6_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -7611,13 +6104,13 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|err\(2),
-	datab => \inst2|draw1|line1|err\(1),
-	datac => \inst2|draw1|line1|Add1~6_combout\,
-	datad => \inst2|draw1|line1|Add1~4_combout\,
+	dataa => \inst2|draw1|line1|err\(1),
+	datab => \inst2|draw1|line1|err\(2),
+	datac => \inst2|draw1|line1|Add1~4_combout\,
+	datad => \inst2|draw1|line1|Add1~6_combout\,
 	combout => \inst2|draw1|line1|LessThan2~1_combout\);
 
--- Location: LCCOMB_X24_Y19_N2
+-- Location: LCCOMB_X38_Y16_N28
 \inst2|draw1|line1|LessThan2~2\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|LessThan2~2_combout\ = (\inst2|draw1|line1|LessThan2~1_combout\ & ((\inst2|draw1|line1|err\(0) & (\inst2|draw1|line1|Add1~0_combout\ & \inst2|draw1|line1|Add1~2_combout\)) # (!\inst2|draw1|line1|err\(0) & 
@@ -7635,7 +6128,7 @@ PORT MAP (
 	datad => \inst2|draw1|line1|LessThan2~1_combout\,
 	combout => \inst2|draw1|line1|LessThan2~2_combout\);
 
--- Location: LCCOMB_X24_Y19_N10
+-- Location: LCCOMB_X38_Y16_N16
 \inst2|draw1|line1|LessThan2~4\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|LessThan2~4_combout\ = (\inst2|draw1|line1|LessThan2~3_combout\ & (\inst2|draw1|line1|err\(3) $ ((!\inst2|draw1|line1|Add1~8_combout\)))) # (!\inst2|draw1|line1|LessThan2~3_combout\ & (\inst2|draw1|line1|LessThan2~2_combout\ & 
@@ -7643,34 +6136,34 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1001100110010000",
+	lut_mask => "1010010110000100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|draw1|line1|err\(3),
-	datab => \inst2|draw1|line1|Add1~8_combout\,
-	datac => \inst2|draw1|line1|LessThan2~3_combout\,
+	datab => \inst2|draw1|line1|LessThan2~3_combout\,
+	datac => \inst2|draw1|line1|Add1~8_combout\,
 	datad => \inst2|draw1|line1|LessThan2~2_combout\,
 	combout => \inst2|draw1|line1|LessThan2~4_combout\);
 
--- Location: LCCOMB_X24_Y19_N12
+-- Location: LCCOMB_X39_Y16_N26
 \inst2|draw1|line1|LessThan2~5\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|LessThan2~5_combout\ = (\inst2|draw1|line1|LessThan2~0_combout\ & (\inst2|draw1|line1|LessThan2~4_combout\ & (\inst2|draw1|line1|err\(4) $ (!\inst2|draw1|line1|Add1~10_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1000010000000000",
+	lut_mask => "1001000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|draw1|line1|err\(4),
-	datab => \inst2|draw1|line1|LessThan2~0_combout\,
-	datac => \inst2|draw1|line1|Add1~10_combout\,
+	datab => \inst2|draw1|line1|Add1~10_combout\,
+	datac => \inst2|draw1|line1|LessThan2~0_combout\,
 	datad => \inst2|draw1|line1|LessThan2~4_combout\,
 	combout => \inst2|draw1|line1|LessThan2~5_combout\);
 
--- Location: LCCOMB_X25_Y17_N16
+-- Location: LCCOMB_X39_Y16_N16
 \inst2|draw1|line1|LessThan2~9\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|LessThan2~9_combout\ = (\inst2|draw1|line1|Add1~16_combout\ & (((\inst2|draw1|line1|LessThan2~8_combout\) # (\inst2|draw1|line1|LessThan2~5_combout\)) # (!\inst2|draw1|line1|err\(7)))) # (!\inst2|draw1|line1|Add1~16_combout\ & 
@@ -7688,71 +6181,705 @@ PORT MAP (
 	datad => \inst2|draw1|line1|LessThan2~5_combout\,
 	combout => \inst2|draw1|line1|LessThan2~9_combout\);
 
--- Location: LCCOMB_X25_Y17_N14
+-- Location: LCCOMB_X39_Y16_N2
 \inst2|draw1|line1|LessThan2~10\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|LessThan2~10_combout\ = (\inst2|draw1|line1|Add1~16_combout\ & (\inst2|draw1|line1|err\(9) & ((\inst2|draw1|line1|LessThan2~9_combout\) # (!\inst2|draw1|line1|err\(8))))) # (!\inst2|draw1|line1|Add1~16_combout\ & 
--- ((\inst2|draw1|line1|err\(9)) # ((!\inst2|draw1|line1|err\(8) & \inst2|draw1|line1|LessThan2~9_combout\))))
+-- \inst2|draw1|line1|LessThan2~10_combout\ = (\inst2|draw1|line1|err\(9) & (((\inst2|draw1|line1|LessThan2~9_combout\) # (!\inst2|draw1|line1|Add1~16_combout\)) # (!\inst2|draw1|line1|err\(8)))) # (!\inst2|draw1|line1|err\(9) & (!\inst2|draw1|line1|err\(8) 
+-- & (\inst2|draw1|line1|LessThan2~9_combout\ & !\inst2|draw1|line1|Add1~16_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111011100010000",
+	lut_mask => "1010001010111010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add1~16_combout\,
+	dataa => \inst2|draw1|line1|err\(9),
 	datab => \inst2|draw1|line1|err\(8),
 	datac => \inst2|draw1|line1|LessThan2~9_combout\,
-	datad => \inst2|draw1|line1|err\(9),
+	datad => \inst2|draw1|line1|Add1~16_combout\,
 	combout => \inst2|draw1|line1|LessThan2~10_combout\);
 
--- Location: LCCOMB_X21_Y17_N28
-\inst2|draw1|line1|cy[4]~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X39_Y16_N8
+\inst2|draw1|line1|err[1]~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|cy[4]~0_combout\ = (\inst2|draw1|line1|draw_line_comb~9_combout\) # (!\inst2|draw1|line1|LessThan2~10_combout\)
+-- \inst2|draw1|line1|err[1]~0_combout\ = (!\inst2|draw1|line1|setup~regout\ & ((!\inst2|draw1|line1|LessThan3~5_combout\) # (!\inst2|draw1|line1|LessThan2~10_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010101011111111",
+	lut_mask => "0000001100001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|line1|LessThan2~10_combout\,
+	datac => \inst2|draw1|line1|setup~regout\,
+	datad => \inst2|draw1|line1|LessThan3~5_combout\,
+	combout => \inst2|draw1|line1|err[1]~0_combout\);
+
+-- Location: LCCOMB_X37_Y16_N30
+\inst2|draw1|line1|err~18\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~18_combout\ = (\inst2|draw1|line1|err[1]~1_combout\ & ((\inst2|draw1|line1|Add4~0_combout\) # ((\inst2|draw1|line1|err[1]~0_combout\)))) # (!\inst2|draw1|line1|err[1]~1_combout\ & (((\inst2|draw1|line1|Add5~0_combout\ & 
+-- !\inst2|draw1|line1|err[1]~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000010101100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add4~0_combout\,
+	datab => \inst2|draw1|line1|Add5~0_combout\,
+	datac => \inst2|draw1|line1|err[1]~1_combout\,
+	datad => \inst2|draw1|line1|err[1]~0_combout\,
+	combout => \inst2|draw1|line1|err~18_combout\);
+
+-- Location: LCCOMB_X37_Y16_N28
+\inst2|draw1|line1|err~19\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~19_combout\ = (\inst2|draw1|line1|err[1]~0_combout\ & ((\inst2|draw1|line1|err~18_combout\ & ((\inst2|draw1|line1|Add7~0_combout\))) # (!\inst2|draw1|line1|err~18_combout\ & (\inst2|draw1|line1|Add9~0_combout\)))) # 
+-- (!\inst2|draw1|line1|err[1]~0_combout\ & (((\inst2|draw1|line1|err~18_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add9~0_combout\,
+	datab => \inst2|draw1|line1|Add7~0_combout\,
+	datac => \inst2|draw1|line1|err[1]~0_combout\,
+	datad => \inst2|draw1|line1|err~18_combout\,
+	combout => \inst2|draw1|line1|err~19_combout\);
+
+-- Location: LCFF_X37_Y16_N29
+\inst2|draw1|line1|err[0]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|err~19_combout\,
+	sclr => \inst2|draw1|line1|cx[4]~0_combout\,
+	ena => \inst2|draw1|line1|err[1]~5_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|err\(0));
+
+-- Location: LCCOMB_X36_Y16_N2
+\inst2|draw1|line1|err~12\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~12_combout\ = (\inst2|draw1|line1|err[1]~0_combout\ & ((\inst2|draw1|line1|Add9~6_combout\) # ((\inst2|draw1|line1|err[1]~1_combout\)))) # (!\inst2|draw1|line1|err[1]~0_combout\ & (((\inst2|draw1|line1|Add5~6_combout\ & 
+-- !\inst2|draw1|line1|err[1]~1_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000010101100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add9~6_combout\,
+	datab => \inst2|draw1|line1|Add5~6_combout\,
+	datac => \inst2|draw1|line1|err[1]~0_combout\,
+	datad => \inst2|draw1|line1|err[1]~1_combout\,
+	combout => \inst2|draw1|line1|err~12_combout\);
+
+-- Location: LCCOMB_X36_Y16_N6
+\inst2|draw1|line1|err~13\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~13_combout\ = (\inst2|draw1|line1|err[1]~1_combout\ & ((\inst2|draw1|line1|err~12_combout\ & ((\inst2|draw1|line1|Add7~6_combout\))) # (!\inst2|draw1|line1|err~12_combout\ & (\inst2|draw1|line1|Add4~6_combout\)))) # 
+-- (!\inst2|draw1|line1|err[1]~1_combout\ & (((\inst2|draw1|line1|err~12_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add4~6_combout\,
+	datab => \inst2|draw1|line1|Add7~6_combout\,
+	datac => \inst2|draw1|line1|err[1]~1_combout\,
+	datad => \inst2|draw1|line1|err~12_combout\,
+	combout => \inst2|draw1|line1|err~13_combout\);
+
+-- Location: LCFF_X36_Y16_N7
+\inst2|draw1|line1|err[3]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|err~13_combout\,
+	sclr => \inst2|draw1|line1|cx[4]~0_combout\,
+	ena => \inst2|draw1|line1|err[1]~5_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|err\(3));
+
+-- Location: LCCOMB_X38_Y17_N12
+\inst2|draw1|line1|Add9~8\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add9~8_combout\ = ((\inst2|draw1|line1|err\(4) $ (\inst2|draw1|line1|Add1~8_combout\ $ (!\inst2|draw1|line1|Add9~7\)))) # (GND)
+-- \inst2|draw1|line1|Add9~9\ = CARRY((\inst2|draw1|line1|err\(4) & ((\inst2|draw1|line1|Add1~8_combout\) # (!\inst2|draw1|line1|Add9~7\))) # (!\inst2|draw1|line1|err\(4) & (\inst2|draw1|line1|Add1~8_combout\ & !\inst2|draw1|line1|Add9~7\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110100110001110",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|err\(4),
+	datab => \inst2|draw1|line1|Add1~8_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add9~7\,
+	combout => \inst2|draw1|line1|Add9~8_combout\,
+	cout => \inst2|draw1|line1|Add9~9\);
+
+-- Location: LCCOMB_X38_Y16_N18
+\inst2|draw1|line1|err~8\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~8_combout\ = (\inst2|draw1|line1|err[1]~0_combout\ & (((\inst2|draw1|line1|err[1]~1_combout\)))) # (!\inst2|draw1|line1|err[1]~0_combout\ & ((\inst2|draw1|line1|err[1]~1_combout\ & ((\inst2|draw1|line1|Add4~8_combout\))) # 
+-- (!\inst2|draw1|line1|err[1]~1_combout\ & (\inst2|draw1|line1|Add5~8_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110000001010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add5~8_combout\,
+	datab => \inst2|draw1|line1|Add4~8_combout\,
+	datac => \inst2|draw1|line1|err[1]~0_combout\,
+	datad => \inst2|draw1|line1|err[1]~1_combout\,
+	combout => \inst2|draw1|line1|err~8_combout\);
+
+-- Location: LCCOMB_X38_Y16_N8
+\inst2|draw1|line1|err~9\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~9_combout\ = (\inst2|draw1|line1|err[1]~0_combout\ & ((\inst2|draw1|line1|err~8_combout\ & (\inst2|draw1|line1|Add7~8_combout\)) # (!\inst2|draw1|line1|err~8_combout\ & ((\inst2|draw1|line1|Add9~8_combout\))))) # 
+-- (!\inst2|draw1|line1|err[1]~0_combout\ & (((\inst2|draw1|line1|err~8_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add7~8_combout\,
+	datab => \inst2|draw1|line1|Add9~8_combout\,
+	datac => \inst2|draw1|line1|err[1]~0_combout\,
+	datad => \inst2|draw1|line1|err~8_combout\,
+	combout => \inst2|draw1|line1|err~9_combout\);
+
+-- Location: LCFF_X38_Y16_N9
+\inst2|draw1|line1|err[4]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|err~9_combout\,
+	sclr => \inst2|draw1|line1|cx[4]~0_combout\,
+	ena => \inst2|draw1|line1|err[1]~5_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|err\(4));
+
+-- Location: LCCOMB_X36_Y16_N12
+\inst2|draw1|line1|err~10\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~10_combout\ = (\inst2|draw1|line1|err[1]~0_combout\ & ((\inst2|draw1|line1|Add9~10_combout\) # ((\inst2|draw1|line1|err[1]~1_combout\)))) # (!\inst2|draw1|line1|err[1]~0_combout\ & (((\inst2|draw1|line1|Add5~10_combout\ & 
+-- !\inst2|draw1|line1|err[1]~1_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000010101100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add9~10_combout\,
+	datab => \inst2|draw1|line1|Add5~10_combout\,
+	datac => \inst2|draw1|line1|err[1]~0_combout\,
+	datad => \inst2|draw1|line1|err[1]~1_combout\,
+	combout => \inst2|draw1|line1|err~10_combout\);
+
+-- Location: LCCOMB_X36_Y16_N0
+\inst2|draw1|line1|err~11\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~11_combout\ = (\inst2|draw1|line1|err[1]~1_combout\ & ((\inst2|draw1|line1|err~10_combout\ & ((\inst2|draw1|line1|Add7~10_combout\))) # (!\inst2|draw1|line1|err~10_combout\ & (\inst2|draw1|line1|Add4~10_combout\)))) # 
+-- (!\inst2|draw1|line1|err[1]~1_combout\ & (((\inst2|draw1|line1|err~10_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add4~10_combout\,
+	datab => \inst2|draw1|line1|Add7~10_combout\,
+	datac => \inst2|draw1|line1|err[1]~1_combout\,
+	datad => \inst2|draw1|line1|err~10_combout\,
+	combout => \inst2|draw1|line1|err~11_combout\);
+
+-- Location: LCFF_X36_Y16_N1
+\inst2|draw1|line1|err[5]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|err~11_combout\,
+	sclr => \inst2|draw1|line1|cx[4]~0_combout\,
+	ena => \inst2|draw1|line1|err[1]~5_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|err\(5));
+
+-- Location: LCCOMB_X36_Y16_N30
+\inst2|draw1|line1|Add4~16\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add4~16_combout\ = \inst2|draw1|line1|Add3~14_combout\ $ (\inst2|draw1|line1|Add4~15\ $ (\inst2|draw1|line1|Add1~16_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100001100111100",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|line1|Add3~14_combout\,
+	datad => \inst2|draw1|line1|Add1~16_combout\,
+	cin => \inst2|draw1|line1|Add4~15\,
+	combout => \inst2|draw1|line1|Add4~16_combout\);
+
+-- Location: LCCOMB_X40_Y16_N0
+\inst2|draw1|line1|err~20\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~20_combout\ = (\inst2|draw1|line1|err[1]~1_combout\ & (((\inst2|draw1|line1|Add4~16_combout\) # (\inst2|draw1|line1|err[1]~0_combout\)))) # (!\inst2|draw1|line1|err[1]~1_combout\ & (\inst2|draw1|line1|Add5~16_combout\ & 
+-- ((!\inst2|draw1|line1|err[1]~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011001010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add5~16_combout\,
+	datab => \inst2|draw1|line1|Add4~16_combout\,
+	datac => \inst2|draw1|line1|err[1]~1_combout\,
+	datad => \inst2|draw1|line1|err[1]~0_combout\,
+	combout => \inst2|draw1|line1|err~20_combout\);
+
+-- Location: LCCOMB_X40_Y16_N30
+\inst2|draw1|line1|err~21\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~21_combout\ = (\inst2|draw1|line1|err[1]~0_combout\ & ((\inst2|draw1|line1|err~20_combout\ & ((\inst2|draw1|line1|Add7~16_combout\))) # (!\inst2|draw1|line1|err~20_combout\ & (\inst2|draw1|line1|Add9~16_combout\)))) # 
+-- (!\inst2|draw1|line1|err[1]~0_combout\ & (((\inst2|draw1|line1|err~20_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111010110001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|err[1]~0_combout\,
+	datab => \inst2|draw1|line1|Add9~16_combout\,
+	datac => \inst2|draw1|line1|Add7~16_combout\,
+	datad => \inst2|draw1|line1|err~20_combout\,
+	combout => \inst2|draw1|line1|err~21_combout\);
+
+-- Location: LCFF_X40_Y16_N31
+\inst2|draw1|line1|err[8]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|err~21_combout\,
+	sclr => \inst2|draw1|line1|cx[4]~0_combout\,
+	ena => \inst2|draw1|line1|err[1]~5_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|err\(8));
+
+-- Location: LCCOMB_X40_Y15_N0
+\inst2|draw1|line1|Add6~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add6~0_combout\ = (\inst2|draw1|line1|Add3~0_combout\ & (!\inst2|draw1|line1|Add3~2_combout\ & VCC)) # (!\inst2|draw1|line1|Add3~0_combout\ & (\inst2|draw1|line1|Add3~2_combout\ $ (GND)))
+-- \inst2|draw1|line1|Add6~1\ = CARRY((!\inst2|draw1|line1|Add3~0_combout\ & !\inst2|draw1|line1|Add3~2_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110011000010001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add3~0_combout\,
+	datab => \inst2|draw1|line1|Add3~2_combout\,
+	datad => VCC,
+	combout => \inst2|draw1|line1|Add6~0_combout\,
+	cout => \inst2|draw1|line1|Add6~1\);
+
+-- Location: LCCOMB_X40_Y15_N2
+\inst2|draw1|line1|Add6~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add6~2_combout\ = (\inst2|draw1|line1|Add3~4_combout\ & ((\inst2|draw1|line1|Add6~1\) # (GND))) # (!\inst2|draw1|line1|Add3~4_combout\ & (!\inst2|draw1|line1|Add6~1\))
+-- \inst2|draw1|line1|Add6~3\ = CARRY((\inst2|draw1|line1|Add3~4_combout\) # (!\inst2|draw1|line1|Add6~1\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010010110101111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add3~4_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add6~1\,
+	combout => \inst2|draw1|line1|Add6~2_combout\,
+	cout => \inst2|draw1|line1|Add6~3\);
+
+-- Location: LCCOMB_X40_Y15_N4
+\inst2|draw1|line1|Add6~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add6~4_combout\ = (\inst2|draw1|line1|Add3~6_combout\ & (!\inst2|draw1|line1|Add6~3\ & VCC)) # (!\inst2|draw1|line1|Add3~6_combout\ & (\inst2|draw1|line1|Add6~3\ $ (GND)))
+-- \inst2|draw1|line1|Add6~5\ = CARRY((!\inst2|draw1|line1|Add3~6_combout\ & !\inst2|draw1|line1|Add6~3\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011110000000011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|line1|Add3~6_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add6~3\,
+	combout => \inst2|draw1|line1|Add6~4_combout\,
+	cout => \inst2|draw1|line1|Add6~5\);
+
+-- Location: LCCOMB_X40_Y15_N6
+\inst2|draw1|line1|Add6~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add6~6_combout\ = (\inst2|draw1|line1|Add3~8_combout\ & ((\inst2|draw1|line1|Add6~5\) # (GND))) # (!\inst2|draw1|line1|Add3~8_combout\ & (!\inst2|draw1|line1|Add6~5\))
+-- \inst2|draw1|line1|Add6~7\ = CARRY((\inst2|draw1|line1|Add3~8_combout\) # (!\inst2|draw1|line1|Add6~5\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010010110101111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add3~8_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add6~5\,
+	combout => \inst2|draw1|line1|Add6~6_combout\,
+	cout => \inst2|draw1|line1|Add6~7\);
+
+-- Location: LCCOMB_X40_Y15_N8
+\inst2|draw1|line1|Add6~8\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add6~8_combout\ = (\inst2|draw1|line1|Add3~10_combout\ & (!\inst2|draw1|line1|Add6~7\ & VCC)) # (!\inst2|draw1|line1|Add3~10_combout\ & (\inst2|draw1|line1|Add6~7\ $ (GND)))
+-- \inst2|draw1|line1|Add6~9\ = CARRY((!\inst2|draw1|line1|Add3~10_combout\ & !\inst2|draw1|line1|Add6~7\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011110000000011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|line1|Add3~10_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add6~7\,
+	combout => \inst2|draw1|line1|Add6~8_combout\,
+	cout => \inst2|draw1|line1|Add6~9\);
+
+-- Location: LCCOMB_X40_Y15_N10
+\inst2|draw1|line1|Add6~10\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add6~10_combout\ = (\inst2|draw1|line1|Add3~12_combout\ & ((\inst2|draw1|line1|Add6~9\) # (GND))) # (!\inst2|draw1|line1|Add3~12_combout\ & (!\inst2|draw1|line1|Add6~9\))
+-- \inst2|draw1|line1|Add6~11\ = CARRY((\inst2|draw1|line1|Add3~12_combout\) # (!\inst2|draw1|line1|Add6~9\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100001111001111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|line1|Add3~12_combout\,
+	datad => VCC,
+	cin => \inst2|draw1|line1|Add6~9\,
+	combout => \inst2|draw1|line1|Add6~10_combout\,
+	cout => \inst2|draw1|line1|Add6~11\);
+
+-- Location: LCCOMB_X40_Y15_N12
+\inst2|draw1|line1|Add6~12\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add6~12_combout\ = \inst2|draw1|line1|Add6~11\ $ (\inst2|draw1|line1|Add3~14_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111111110000",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datad => \inst2|draw1|line1|Add3~14_combout\,
+	cin => \inst2|draw1|line1|Add6~11\,
+	combout => \inst2|draw1|line1|Add6~12_combout\);
+
+-- Location: LCCOMB_X39_Y16_N14
+\inst2|draw1|line1|LessThan3~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan3~0_combout\ = (\inst2|draw1|line1|err\(4) & (!\inst2|draw1|line1|Add6~8_combout\ & (\inst2|draw1|line1|err\(5) $ (!\inst2|draw1|line1|Add6~10_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000100000000010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|err\(4),
+	datab => \inst2|draw1|line1|err\(5),
+	datac => \inst2|draw1|line1|Add6~8_combout\,
+	datad => \inst2|draw1|line1|Add6~10_combout\,
+	combout => \inst2|draw1|line1|LessThan3~0_combout\);
+
+-- Location: LCCOMB_X40_Y16_N6
+\inst2|draw1|line1|err~16\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~16_combout\ = (\inst2|draw1|line1|err[1]~1_combout\ & (((\inst2|draw1|line1|err[1]~0_combout\)))) # (!\inst2|draw1|line1|err[1]~1_combout\ & ((\inst2|draw1|line1|err[1]~0_combout\ & (\inst2|draw1|line1|Add9~2_combout\)) # 
+-- (!\inst2|draw1|line1|err[1]~0_combout\ & ((\inst2|draw1|line1|Add5~2_combout\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101000001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add9~2_combout\,
+	datab => \inst2|draw1|line1|Add5~2_combout\,
+	datac => \inst2|draw1|line1|err[1]~1_combout\,
+	datad => \inst2|draw1|line1|err[1]~0_combout\,
+	combout => \inst2|draw1|line1|err~16_combout\);
+
+-- Location: LCCOMB_X40_Y16_N28
+\inst2|draw1|line1|err~17\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|err~17_combout\ = (\inst2|draw1|line1|err[1]~1_combout\ & ((\inst2|draw1|line1|err~16_combout\ & (\inst2|draw1|line1|Add7~2_combout\)) # (!\inst2|draw1|line1|err~16_combout\ & ((\inst2|draw1|line1|Add4~2_combout\))))) # 
+-- (!\inst2|draw1|line1|err[1]~1_combout\ & (((\inst2|draw1|line1|err~16_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add7~2_combout\,
+	datab => \inst2|draw1|line1|Add4~2_combout\,
+	datac => \inst2|draw1|line1|err[1]~1_combout\,
+	datad => \inst2|draw1|line1|err~16_combout\,
+	combout => \inst2|draw1|line1|err~17_combout\);
+
+-- Location: LCFF_X40_Y16_N29
+\inst2|draw1|line1|err[1]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|err~17_combout\,
+	sclr => \inst2|draw1|line1|cx[4]~0_combout\,
+	ena => \inst2|draw1|line1|err[1]~5_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|err\(1));
+
+-- Location: LCCOMB_X40_Y15_N14
+\inst2|draw1|line1|LessThan3~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan3~1_combout\ = (\inst2|draw1|line1|err\(1) & (((\inst2|draw1|line1|err\(0) & !\inst2|draw1|line1|Add6~0_combout\)) # (!\inst2|draw1|line1|Add6~2_combout\))) # (!\inst2|draw1|line1|err\(1) & (\inst2|draw1|line1|err\(0) & 
+-- (!\inst2|draw1|line1|Add6~0_combout\ & !\inst2|draw1|line1|Add6~2_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0010000011110010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|err\(0),
+	datab => \inst2|draw1|line1|Add6~0_combout\,
+	datac => \inst2|draw1|line1|err\(1),
+	datad => \inst2|draw1|line1|Add6~2_combout\,
+	combout => \inst2|draw1|line1|LessThan3~1_combout\);
+
+-- Location: LCCOMB_X39_Y16_N28
+\inst2|draw1|line1|LessThan3~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan3~2_combout\ = (\inst2|draw1|line1|err\(2) & ((\inst2|draw1|line1|LessThan3~1_combout\) # (!\inst2|draw1|line1|Add6~4_combout\))) # (!\inst2|draw1|line1|err\(2) & (!\inst2|draw1|line1|Add6~4_combout\ & 
+-- \inst2|draw1|line1|LessThan3~1_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111100001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|line1|err\(2),
+	datac => \inst2|draw1|line1|Add6~4_combout\,
+	datad => \inst2|draw1|line1|LessThan3~1_combout\,
+	combout => \inst2|draw1|line1|LessThan3~2_combout\);
+
+-- Location: LCCOMB_X39_Y16_N10
+\inst2|draw1|line1|LessThan3~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan3~3_combout\ = (\inst2|draw1|line1|Add6~6_combout\ & (\inst2|draw1|line1|err\(3) & \inst2|draw1|line1|LessThan3~2_combout\)) # (!\inst2|draw1|line1|Add6~6_combout\ & ((\inst2|draw1|line1|err\(3)) # 
+-- (\inst2|draw1|line1|LessThan3~2_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111001100110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|line1|Add6~6_combout\,
+	datac => \inst2|draw1|line1|err\(3),
+	datad => \inst2|draw1|line1|LessThan3~2_combout\,
+	combout => \inst2|draw1|line1|LessThan3~3_combout\);
+
+-- Location: LCCOMB_X39_Y16_N12
+\inst2|draw1|line1|LessThan3~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan3~4_combout\ = (\inst2|draw1|line1|LessThan3~3_combout\ & (\inst2|draw1|line1|err\(4) $ (!\inst2|draw1|line1|Add6~8_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010010100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|err\(4),
+	datac => \inst2|draw1|line1|Add6~8_combout\,
+	datad => \inst2|draw1|line1|LessThan3~3_combout\,
+	combout => \inst2|draw1|line1|LessThan3~4_combout\);
+
+-- Location: LCCOMB_X39_Y16_N20
+\inst2|draw1|line1|LessThan3~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan3~6_combout\ = (\inst2|draw1|line1|LessThan3~0_combout\) # ((\inst2|draw1|line1|err\(5) & ((\inst2|draw1|line1|LessThan3~4_combout\) # (!\inst2|draw1|line1|Add6~10_combout\))) # (!\inst2|draw1|line1|err\(5) & 
+-- (!\inst2|draw1|line1|Add6~10_combout\ & \inst2|draw1|line1|LessThan3~4_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101111110010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|err\(5),
+	datab => \inst2|draw1|line1|Add6~10_combout\,
+	datac => \inst2|draw1|line1|LessThan3~0_combout\,
+	datad => \inst2|draw1|line1|LessThan3~4_combout\,
+	combout => \inst2|draw1|line1|LessThan3~6_combout\);
+
+-- Location: LCCOMB_X39_Y16_N22
+\inst2|draw1|line1|LessThan3~7\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan3~7_combout\ = (\inst2|draw1|line1|err\(6) & (((\inst2|draw1|line1|err\(7) & \inst2|draw1|line1|LessThan3~6_combout\)) # (!\inst2|draw1|line1|Add6~12_combout\))) # (!\inst2|draw1|line1|err\(6) & 
+-- (!\inst2|draw1|line1|Add6~12_combout\ & ((\inst2|draw1|line1|err\(7)) # (\inst2|draw1|line1|LessThan3~6_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000000011111110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|err\(6),
+	datab => \inst2|draw1|line1|err\(7),
+	datac => \inst2|draw1|line1|LessThan3~6_combout\,
+	datad => \inst2|draw1|line1|Add6~12_combout\,
+	combout => \inst2|draw1|line1|LessThan3~7_combout\);
+
+-- Location: LCCOMB_X39_Y16_N30
+\inst2|draw1|line1|LessThan3~5\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan3~5_combout\ = (\inst2|draw1|line1|err\(9) & (\inst2|draw1|line1|err\(8) & (\inst2|draw1|line1|Add6~12_combout\ & \inst2|draw1|line1|LessThan3~7_combout\))) # (!\inst2|draw1|line1|err\(9) & ((\inst2|draw1|line1|err\(8)) # 
+-- ((\inst2|draw1|line1|Add6~12_combout\) # (\inst2|draw1|line1|LessThan3~7_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101010101010100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|err\(9),
+	datab => \inst2|draw1|line1|err\(8),
+	datac => \inst2|draw1|line1|Add6~12_combout\,
+	datad => \inst2|draw1|line1|LessThan3~7_combout\,
+	combout => \inst2|draw1|line1|LessThan3~5_combout\);
+
+-- Location: LCCOMB_X39_Y16_N24
+\inst2|draw1|line1|cx[4]~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|cx[4]~1_combout\ = ((!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|draw_line_comb~9_combout\) # (!\inst2|draw1|line1|LessThan3~5_combout\)))) # (!\inst2|ramcontroller1|draw_can_access~0_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011101100111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|draw1|line1|draw_line_comb~9_combout\,
-	datad => \inst2|draw1|line1|LessThan2~10_combout\,
-	combout => \inst2|draw1|line1|cy[4]~0_combout\);
+	datab => \inst2|ramcontroller1|draw_can_access~0_combout\,
+	datac => \inst2|draw1|line1|setup~regout\,
+	datad => \inst2|draw1|line1|LessThan3~5_combout\,
+	combout => \inst2|draw1|line1|cx[4]~1_combout\);
 
--- Location: LCCOMB_X21_Y17_N6
-\inst2|draw1|line1|Add10~3\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X39_Y17_N0
+\inst2|draw1|line1|Add8~3\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add10~3_combout\ = (\inst2|draw1|line1|cx[3]~0_combout\) # ((\inst2|ramcontroller1|draw_can_access~0_combout\ & ((\inst2|draw1|line1|setup~regout\) # (!\inst2|draw1|line1|cy[4]~0_combout\))))
+-- \inst2|draw1|line1|Add8~3_combout\ = (!\inst2|draw1|line1|cx[4]~0_combout\ & ((\inst2|draw1|line1|cx[4]~1_combout\ & ((\inst2|draw1|line1|cx\(0)))) # (!\inst2|draw1|line1|cx[4]~1_combout\ & (\inst2|draw1|line1|Add8~2_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1110101011101110",
+	lut_mask => "0011000000100010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|cx[3]~0_combout\,
-	datab => \inst2|ramcontroller1|draw_can_access~0_combout\,
-	datac => \inst2|draw1|line1|setup~regout\,
-	datad => \inst2|draw1|line1|cy[4]~0_combout\,
-	combout => \inst2|draw1|line1|Add10~3_combout\);
+	dataa => \inst2|draw1|line1|Add8~2_combout\,
+	datab => \inst2|draw1|line1|cx[4]~0_combout\,
+	datac => \inst2|draw1|line1|cx\(0),
+	datad => \inst2|draw1|line1|cx[4]~1_combout\,
+	combout => \inst2|draw1|line1|Add8~3_combout\);
 
--- Location: LCFF_X21_Y17_N23
-\inst2|draw1|line1|cy[0]\ : cycloneii_lcell_ff
+-- Location: LCFF_X39_Y17_N1
+\inst2|draw1|line1|cx[0]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|Add10~2_combout\,
-	ena => \inst2|draw1|line1|Add10~3_combout\,
+	datain => \inst2|draw1|line1|Add8~3_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|cy\(0));
+	regout => \inst2|draw1|line1|cx\(0));
 
--- Location: LCCOMB_X22_Y17_N8
-\inst2|draw1|line1|draw_line_comb~5\ : cycloneii_lcell_comb
+-- Location: LCFF_X39_Y18_N1
+\inst2|decoder1|w[0]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|spi1|do_buffer_reg\(0),
+	sclr => \inst2|decoder1|w[7]~0_combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|w[7]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|w\(0));
+
+-- Location: LCCOMB_X40_Y17_N4
+\inst2|draw1|line1|Add8~7\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|draw_line_comb~5_combout\ = (\inst2|draw1|line1|cy\(1) & (\inst2|decoder1|h\(1) & (\inst2|draw1|line1|cy\(0) $ (!\inst2|decoder1|h\(0))))) # (!\inst2|draw1|line1|cy\(1) & (!\inst2|decoder1|h\(1) & (\inst2|draw1|line1|cy\(0) $ 
--- (!\inst2|decoder1|h\(0)))))
+-- \inst2|draw1|line1|Add8~7_combout\ = (!\inst2|draw1|line1|cx[4]~0_combout\ & ((\inst2|draw1|line1|cx[4]~1_combout\ & ((\inst2|draw1|line1|cx\(1)))) # (!\inst2|draw1|line1|cx[4]~1_combout\ & (\inst2|draw1|line1|Add8~6_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011000000100010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add8~6_combout\,
+	datab => \inst2|draw1|line1|cx[4]~0_combout\,
+	datac => \inst2|draw1|line1|cx\(1),
+	datad => \inst2|draw1|line1|cx[4]~1_combout\,
+	combout => \inst2|draw1|line1|Add8~7_combout\);
+
+-- Location: LCFF_X40_Y17_N5
+\inst2|draw1|line1|cx[1]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|Add8~7_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|cx\(1));
+
+-- Location: LCCOMB_X39_Y18_N0
+\inst2|draw1|line1|draw_line_comb~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|draw_line_comb~0_combout\ = (\inst2|decoder1|w\(1) & (\inst2|draw1|line1|cx\(1) & (\inst2|draw1|line1|cx\(0) $ (!\inst2|decoder1|w\(0))))) # (!\inst2|decoder1|w\(1) & (!\inst2|draw1|line1|cx\(1) & (\inst2|draw1|line1|cx\(0) $ 
+-- (!\inst2|decoder1|w\(0)))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -7760,16 +6887,162 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|cy\(1),
-	datab => \inst2|draw1|line1|cy\(0),
-	datac => \inst2|decoder1|h\(0),
-	datad => \inst2|decoder1|h\(1),
-	combout => \inst2|draw1|line1|draw_line_comb~5_combout\);
+	dataa => \inst2|decoder1|w\(1),
+	datab => \inst2|draw1|line1|cx\(0),
+	datac => \inst2|decoder1|w\(0),
+	datad => \inst2|draw1|line1|cx\(1),
+	combout => \inst2|draw1|line1|draw_line_comb~0_combout\);
 
--- Location: LCCOMB_X23_Y17_N0
-\inst2|draw1|line1|LessThan1~1\ : cycloneii_lcell_comb
+-- Location: LCFF_X39_Y18_N29
+\inst2|decoder1|w[6]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|spi1|do_buffer_reg\(6),
+	sclr => \inst2|decoder1|w[7]~0_combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|w[7]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|w\(6));
+
+-- Location: LCCOMB_X40_Y17_N24
+\inst2|draw1|line1|Add8~27\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|LessThan1~1_cout\ = CARRY((\inst2|decoder1|h\(0) & !\inst2|decoder1|y\(0)))
+-- \inst2|draw1|line1|Add8~27_combout\ = (!\inst2|draw1|line1|cx[4]~0_combout\ & ((\inst2|draw1|line1|cx[4]~1_combout\ & ((\inst2|draw1|line1|cx\(6)))) # (!\inst2|draw1|line1|cx[4]~1_combout\ & (\inst2|draw1|line1|Add8~26_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011000000100010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add8~26_combout\,
+	datab => \inst2|draw1|line1|cx[4]~0_combout\,
+	datac => \inst2|draw1|line1|cx\(6),
+	datad => \inst2|draw1|line1|cx[4]~1_combout\,
+	combout => \inst2|draw1|line1|Add8~27_combout\);
+
+-- Location: LCFF_X40_Y17_N25
+\inst2|draw1|line1|cx[6]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|Add8~27_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|cx\(6));
+
+-- Location: LCCOMB_X39_Y20_N4
+\inst2|draw1|line1|draw_line_comb~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|draw_line_comb~3_combout\ = (\inst2|draw1|line1|cx\(7) & (\inst2|decoder1|w\(7) & (\inst2|decoder1|w\(6) $ (!\inst2|draw1|line1|cx\(6))))) # (!\inst2|draw1|line1|cx\(7) & (!\inst2|decoder1|w\(7) & (\inst2|decoder1|w\(6) $ 
+-- (!\inst2|draw1|line1|cx\(6)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000010000100001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|cx\(7),
+	datab => \inst2|decoder1|w\(6),
+	datac => \inst2|decoder1|w\(7),
+	datad => \inst2|draw1|line1|cx\(6),
+	combout => \inst2|draw1|line1|draw_line_comb~3_combout\);
+
+-- Location: LCCOMB_X39_Y17_N2
+\inst2|draw1|line1|Add8~11\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add8~11_combout\ = (!\inst2|draw1|line1|cx[4]~0_combout\ & ((\inst2|draw1|line1|cx[4]~1_combout\ & ((\inst2|draw1|line1|cx\(2)))) # (!\inst2|draw1|line1|cx[4]~1_combout\ & (\inst2|draw1|line1|Add8~10_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011000000100010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add8~10_combout\,
+	datab => \inst2|draw1|line1|cx[4]~0_combout\,
+	datac => \inst2|draw1|line1|cx\(2),
+	datad => \inst2|draw1|line1|cx[4]~1_combout\,
+	combout => \inst2|draw1|line1|Add8~11_combout\);
+
+-- Location: LCFF_X39_Y17_N3
+\inst2|draw1|line1|cx[2]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|Add8~11_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|cx\(2));
+
+-- Location: LCCOMB_X40_Y18_N6
+\inst2|decoder1|x~8\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|x~8_combout\ = (\inst2|spi1|do_buffer_reg\(7) & (\inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(1) & \inst2|decoder1|current_instruction\(0))))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110110000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst2|decoder1|current_instruction\(2),
+	datac => \inst2|decoder1|current_instruction\(0),
+	datad => \inst2|spi1|do_buffer_reg\(7),
+	combout => \inst2|decoder1|x~8_combout\);
+
+-- Location: LCFF_X40_Y18_N7
+\inst2|decoder1|x[7]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|x~8_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	ena => \inst2|decoder1|x~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|x\(7));
+
+-- Location: LCFF_X39_Y18_N23
+\inst2|decoder1|w[5]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|spi1|do_buffer_reg\(5),
+	sclr => \inst2|decoder1|w[7]~0_combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|w[7]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|w\(5));
+
+-- Location: LCFF_X39_Y18_N13
+\inst2|decoder1|w[4]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|spi1|do_buffer_reg\(4),
+	sclr => \inst2|decoder1|w[7]~0_combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|w[7]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|w\(4));
+
+-- Location: LCFF_X39_Y18_N7
+\inst2|decoder1|w[1]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|spi1|do_buffer_reg\(1),
+	sclr => \inst2|decoder1|w[7]~0_combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|w[7]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|w\(1));
+
+-- Location: LCCOMB_X39_Y20_N16
+\inst2|draw1|line1|LessThan0~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan0~1_cout\ = CARRY((\inst2|decoder1|w\(0) & !\inst2|decoder1|x\(0)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -7777,15 +7050,15 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|h\(0),
-	datab => \inst2|decoder1|y\(0),
+	dataa => \inst2|decoder1|w\(0),
+	datab => \inst2|decoder1|x\(0),
 	datad => VCC,
-	cout => \inst2|draw1|line1|LessThan1~1_cout\);
+	cout => \inst2|draw1|line1|LessThan0~1_cout\);
 
--- Location: LCCOMB_X23_Y17_N2
-\inst2|draw1|line1|LessThan1~3\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X39_Y20_N18
+\inst2|draw1|line1|LessThan0~3\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|LessThan1~3_cout\ = CARRY((\inst2|decoder1|y\(1) & ((!\inst2|draw1|line1|LessThan1~1_cout\) # (!\inst2|decoder1|h\(1)))) # (!\inst2|decoder1|y\(1) & (!\inst2|decoder1|h\(1) & !\inst2|draw1|line1|LessThan1~1_cout\)))
+-- \inst2|draw1|line1|LessThan0~3_cout\ = CARRY((\inst2|decoder1|x\(1) & ((!\inst2|draw1|line1|LessThan0~1_cout\) # (!\inst2|decoder1|w\(1)))) # (!\inst2|decoder1|x\(1) & (!\inst2|decoder1|w\(1) & !\inst2|draw1|line1|LessThan0~1_cout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -7793,16 +7066,16 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|y\(1),
-	datab => \inst2|decoder1|h\(1),
+	dataa => \inst2|decoder1|x\(1),
+	datab => \inst2|decoder1|w\(1),
 	datad => VCC,
-	cin => \inst2|draw1|line1|LessThan1~1_cout\,
-	cout => \inst2|draw1|line1|LessThan1~3_cout\);
+	cin => \inst2|draw1|line1|LessThan0~1_cout\,
+	cout => \inst2|draw1|line1|LessThan0~3_cout\);
 
--- Location: LCCOMB_X23_Y17_N4
-\inst2|draw1|line1|LessThan1~5\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X39_Y20_N20
+\inst2|draw1|line1|LessThan0~5\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|LessThan1~5_cout\ = CARRY((\inst2|decoder1|y\(2) & (\inst2|decoder1|h\(2) & !\inst2|draw1|line1|LessThan1~3_cout\)) # (!\inst2|decoder1|y\(2) & ((\inst2|decoder1|h\(2)) # (!\inst2|draw1|line1|LessThan1~3_cout\))))
+-- \inst2|draw1|line1|LessThan0~5_cout\ = CARRY((\inst2|decoder1|x\(2) & (\inst2|decoder1|w\(2) & !\inst2|draw1|line1|LessThan0~3_cout\)) # (!\inst2|decoder1|x\(2) & ((\inst2|decoder1|w\(2)) # (!\inst2|draw1|line1|LessThan0~3_cout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -7810,16 +7083,16 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|y\(2),
-	datab => \inst2|decoder1|h\(2),
+	dataa => \inst2|decoder1|x\(2),
+	datab => \inst2|decoder1|w\(2),
 	datad => VCC,
-	cin => \inst2|draw1|line1|LessThan1~3_cout\,
-	cout => \inst2|draw1|line1|LessThan1~5_cout\);
+	cin => \inst2|draw1|line1|LessThan0~3_cout\,
+	cout => \inst2|draw1|line1|LessThan0~5_cout\);
 
--- Location: LCCOMB_X23_Y17_N6
-\inst2|draw1|line1|LessThan1~7\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X39_Y20_N22
+\inst2|draw1|line1|LessThan0~7\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|LessThan1~7_cout\ = CARRY((\inst2|decoder1|h\(3) & (\inst2|decoder1|y\(3) & !\inst2|draw1|line1|LessThan1~5_cout\)) # (!\inst2|decoder1|h\(3) & ((\inst2|decoder1|y\(3)) # (!\inst2|draw1|line1|LessThan1~5_cout\))))
+-- \inst2|draw1|line1|LessThan0~7_cout\ = CARRY((\inst2|decoder1|w\(3) & (\inst2|decoder1|x\(3) & !\inst2|draw1|line1|LessThan0~5_cout\)) # (!\inst2|decoder1|w\(3) & ((\inst2|decoder1|x\(3)) # (!\inst2|draw1|line1|LessThan0~5_cout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -7827,83 +7100,334 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|h\(3),
+	dataa => \inst2|decoder1|w\(3),
+	datab => \inst2|decoder1|x\(3),
+	datad => VCC,
+	cin => \inst2|draw1|line1|LessThan0~5_cout\,
+	cout => \inst2|draw1|line1|LessThan0~7_cout\);
+
+-- Location: LCCOMB_X39_Y20_N24
+\inst2|draw1|line1|LessThan0~9\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan0~9_cout\ = CARRY((\inst2|decoder1|x\(4) & (\inst2|decoder1|w\(4) & !\inst2|draw1|line1|LessThan0~7_cout\)) # (!\inst2|decoder1|x\(4) & ((\inst2|decoder1|w\(4)) # (!\inst2|draw1|line1|LessThan0~7_cout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000001001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|x\(4),
+	datab => \inst2|decoder1|w\(4),
+	datad => VCC,
+	cin => \inst2|draw1|line1|LessThan0~7_cout\,
+	cout => \inst2|draw1|line1|LessThan0~9_cout\);
+
+-- Location: LCCOMB_X39_Y20_N26
+\inst2|draw1|line1|LessThan0~11\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan0~11_cout\ = CARRY((\inst2|decoder1|x\(5) & ((!\inst2|draw1|line1|LessThan0~9_cout\) # (!\inst2|decoder1|w\(5)))) # (!\inst2|decoder1|x\(5) & (!\inst2|decoder1|w\(5) & !\inst2|draw1|line1|LessThan0~9_cout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|x\(5),
+	datab => \inst2|decoder1|w\(5),
+	datad => VCC,
+	cin => \inst2|draw1|line1|LessThan0~9_cout\,
+	cout => \inst2|draw1|line1|LessThan0~11_cout\);
+
+-- Location: LCCOMB_X39_Y20_N28
+\inst2|draw1|line1|LessThan0~13\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan0~13_cout\ = CARRY((\inst2|decoder1|x\(6) & (\inst2|decoder1|w\(6) & !\inst2|draw1|line1|LessThan0~11_cout\)) # (!\inst2|decoder1|x\(6) & ((\inst2|decoder1|w\(6)) # (!\inst2|draw1|line1|LessThan0~11_cout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000001001101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|x\(6),
+	datab => \inst2|decoder1|w\(6),
+	datad => VCC,
+	cin => \inst2|draw1|line1|LessThan0~11_cout\,
+	cout => \inst2|draw1|line1|LessThan0~13_cout\);
+
+-- Location: LCCOMB_X39_Y20_N30
+\inst2|draw1|line1|LessThan0~14\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|LessThan0~14_combout\ = (\inst2|decoder1|w\(7) & ((\inst2|draw1|line1|LessThan0~13_cout\) # (!\inst2|decoder1|x\(7)))) # (!\inst2|decoder1|w\(7) & (\inst2|draw1|line1|LessThan0~13_cout\ & !\inst2|decoder1|x\(7)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100000011111100",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|decoder1|w\(7),
+	datad => \inst2|decoder1|x\(7),
+	cin => \inst2|draw1|line1|LessThan0~13_cout\,
+	combout => \inst2|draw1|line1|LessThan0~14_combout\);
+
+-- Location: LCCOMB_X39_Y17_N6
+\inst2|draw1|line1|Add8~14\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add8~14_combout\ = (\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|x\(3))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add8~12_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|decoder1|x\(3),
+	datac => \inst2|draw1|line1|setup~regout\,
+	datad => \inst2|draw1|line1|Add8~12_combout\,
+	combout => \inst2|draw1|line1|Add8~14_combout\);
+
+-- Location: LCCOMB_X39_Y16_N4
+\inst2|draw1|line1|Add8~15\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add8~15_combout\ = (!\inst2|draw1|line1|cx[4]~0_combout\ & ((\inst2|draw1|line1|cx[4]~1_combout\ & ((\inst2|draw1|line1|cx\(3)))) # (!\inst2|draw1|line1|cx[4]~1_combout\ & (\inst2|draw1|line1|Add8~14_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101000001000100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|cx[4]~0_combout\,
+	datab => \inst2|draw1|line1|Add8~14_combout\,
+	datac => \inst2|draw1|line1|cx\(3),
+	datad => \inst2|draw1|line1|cx[4]~1_combout\,
+	combout => \inst2|draw1|line1|Add8~15_combout\);
+
+-- Location: LCFF_X39_Y16_N5
+\inst2|draw1|line1|cx[3]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|Add8~15_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|cx\(3));
+
+-- Location: LCCOMB_X39_Y20_N12
+\inst2|draw1|line1|draw_line_comb~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|draw_line_comb~1_combout\ = (\inst2|decoder1|w\(3) & (\inst2|draw1|line1|cx\(3) & (\inst2|draw1|line1|cx\(2) $ (!\inst2|decoder1|w\(2))))) # (!\inst2|decoder1|w\(3) & (!\inst2|draw1|line1|cx\(3) & (\inst2|draw1|line1|cx\(2) $ 
+-- (!\inst2|decoder1|w\(2)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000001001000001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|w\(3),
+	datab => \inst2|draw1|line1|cx\(2),
+	datac => \inst2|decoder1|w\(2),
+	datad => \inst2|draw1|line1|cx\(3),
+	combout => \inst2|draw1|line1|draw_line_comb~1_combout\);
+
+-- Location: LCCOMB_X39_Y20_N14
+\inst2|draw1|line1|draw_line_comb~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|draw_line_comb~4_combout\ = (\inst2|draw1|line1|draw_line_comb~2_combout\ & (\inst2|draw1|line1|draw_line_comb~0_combout\ & (\inst2|draw1|line1|draw_line_comb~3_combout\ & \inst2|draw1|line1|draw_line_comb~1_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|draw_line_comb~2_combout\,
+	datab => \inst2|draw1|line1|draw_line_comb~0_combout\,
+	datac => \inst2|draw1|line1|draw_line_comb~3_combout\,
+	datad => \inst2|draw1|line1|draw_line_comb~1_combout\,
+	combout => \inst2|draw1|line1|draw_line_comb~4_combout\);
+
+-- Location: LCCOMB_X39_Y19_N28
+\inst2|draw1|line1|Add10~18\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add10~18_combout\ = (!\inst2|draw1|line1|cx[4]~0_combout\ & ((\inst2|draw1|line1|setup~regout\ & ((\inst2|decoder1|y\(5)))) # (!\inst2|draw1|line1|setup~regout\ & (\inst2|draw1|line1|Add10~16_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111000000010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add10~16_combout\,
+	datab => \inst2|draw1|line1|setup~regout\,
+	datac => \inst2|draw1|line1|cx[4]~0_combout\,
+	datad => \inst2|decoder1|y\(5),
+	combout => \inst2|draw1|line1|Add10~18_combout\);
+
+-- Location: LCCOMB_X39_Y19_N26
+\inst2|draw1|line1|cy[0]~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|cy[0]~0_combout\ = (\inst2|draw1|line1|draw_line_comb~9_combout\) # (!\inst2|draw1|line1|LessThan2~10_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|line1|draw_line_comb~9_combout\,
+	datad => \inst2|draw1|line1|LessThan2~10_combout\,
+	combout => \inst2|draw1|line1|cy[0]~0_combout\);
+
+-- Location: LCCOMB_X39_Y19_N30
+\inst2|draw1|line1|Add10~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add10~3_combout\ = (\inst2|draw1|line1|cx[4]~0_combout\) # ((\inst2|ramcontroller1|draw_can_access~0_combout\ & ((\inst2|draw1|line1|setup~regout\) # (!\inst2|draw1|line1|cy[0]~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111100011111010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|ramcontroller1|draw_can_access~0_combout\,
+	datab => \inst2|draw1|line1|setup~regout\,
+	datac => \inst2|draw1|line1|cx[4]~0_combout\,
+	datad => \inst2|draw1|line1|cy[0]~0_combout\,
+	combout => \inst2|draw1|line1|Add10~3_combout\);
+
+-- Location: LCFF_X39_Y19_N29
+\inst2|draw1|line1|cy[5]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|Add10~18_combout\,
+	ena => \inst2|draw1|line1|Add10~3_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|cy\(5));
+
+-- Location: LCCOMB_X38_Y15_N0
+\inst2|decoder1|h~7\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|h~7_combout\ = (\inst2|decoder1|current_instruction\(2) & \inst2|spi1|do_buffer_reg\(4))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|decoder1|current_instruction\(2),
+	datad => \inst2|spi1|do_buffer_reg\(4),
+	combout => \inst2|decoder1|h~7_combout\);
+
+-- Location: LCFF_X39_Y15_N11
+\inst2|decoder1|h[4]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|decoder1|h~7_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|h~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|h\(4));
+
+-- Location: LCCOMB_X39_Y19_N20
+\inst2|draw1|line1|Add10~12\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add10~12_combout\ = (!\inst2|draw1|line1|cx[4]~0_combout\ & ((\inst2|draw1|line1|setup~regout\ & ((\inst2|decoder1|y\(3)))) # (!\inst2|draw1|line1|setup~regout\ & (\inst2|draw1|line1|Add10~10_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000110000001010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add10~10_combout\,
 	datab => \inst2|decoder1|y\(3),
-	datad => VCC,
-	cin => \inst2|draw1|line1|LessThan1~5_cout\,
-	cout => \inst2|draw1|line1|LessThan1~7_cout\);
+	datac => \inst2|draw1|line1|cx[4]~0_combout\,
+	datad => \inst2|draw1|line1|setup~regout\,
+	combout => \inst2|draw1|line1|Add10~12_combout\);
 
--- Location: LCCOMB_X23_Y17_N8
-\inst2|draw1|line1|LessThan1~9\ : cycloneii_lcell_comb
+-- Location: LCFF_X39_Y19_N21
+\inst2|draw1|line1|cy[3]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|Add10~12_combout\,
+	ena => \inst2|draw1|line1|Add10~3_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|cy\(3));
+
+-- Location: LCCOMB_X39_Y19_N0
+\inst2|draw1|line1|Add10~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|LessThan1~9_cout\ = CARRY((\inst2|decoder1|h\(4) & ((!\inst2|draw1|line1|LessThan1~7_cout\) # (!\inst2|decoder1|y\(4)))) # (!\inst2|decoder1|h\(4) & (!\inst2|decoder1|y\(4) & !\inst2|draw1|line1|LessThan1~7_cout\)))
+-- \inst2|draw1|line1|Add10~0_combout\ = \inst2|draw1|line1|cy\(0) $ (VCC)
+-- \inst2|draw1|line1|Add10~1\ = CARRY(\inst2|draw1|line1|cy\(0))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000000101011",
-	sum_lutc_input => "cin")
+	lut_mask => "0101010110101010",
+	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|h\(4),
-	datab => \inst2|decoder1|y\(4),
+	dataa => \inst2|draw1|line1|cy\(0),
 	datad => VCC,
-	cin => \inst2|draw1|line1|LessThan1~7_cout\,
-	cout => \inst2|draw1|line1|LessThan1~9_cout\);
+	combout => \inst2|draw1|line1|Add10~0_combout\,
+	cout => \inst2|draw1|line1|Add10~1\);
 
--- Location: LCCOMB_X23_Y17_N10
-\inst2|draw1|line1|LessThan1~11\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan1~11_cout\ = CARRY((\inst2|decoder1|h\(5) & (\inst2|decoder1|y\(5) & !\inst2|draw1|line1|LessThan1~9_cout\)) # (!\inst2|decoder1|h\(5) & ((\inst2|decoder1|y\(5)) # (!\inst2|draw1|line1|LessThan1~9_cout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000001001101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|h\(5),
-	datab => \inst2|decoder1|y\(5),
-	datad => VCC,
-	cin => \inst2|draw1|line1|LessThan1~9_cout\,
-	cout => \inst2|draw1|line1|LessThan1~11_cout\);
-
--- Location: LCCOMB_X23_Y17_N12
-\inst2|draw1|line1|LessThan1~12\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan1~12_combout\ = (\inst2|decoder1|h\(6) & ((!\inst2|decoder1|y\(6)) # (!\inst2|draw1|line1|LessThan1~11_cout\))) # (!\inst2|decoder1|h\(6) & (!\inst2|draw1|line1|LessThan1~11_cout\ & !\inst2|decoder1|y\(6)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000101010101111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|h\(6),
-	datad => \inst2|decoder1|y\(6),
-	cin => \inst2|draw1|line1|LessThan1~11_cout\,
-	combout => \inst2|draw1|line1|LessThan1~12_combout\);
-
--- Location: LCCOMB_X21_Y17_N10
+-- Location: LCCOMB_X39_Y19_N2
 \inst2|draw1|line1|Add10~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add10~4_combout\ = (\inst2|draw1|line1|cy\(1) & ((\inst2|draw1|line1|LessThan1~12_combout\ & (!\inst2|draw1|line1|Add10~1\)) # (!\inst2|draw1|line1|LessThan1~12_combout\ & (\inst2|draw1|line1|Add10~1\ & VCC)))) # 
--- (!\inst2|draw1|line1|cy\(1) & ((\inst2|draw1|line1|LessThan1~12_combout\ & ((\inst2|draw1|line1|Add10~1\) # (GND))) # (!\inst2|draw1|line1|LessThan1~12_combout\ & (!\inst2|draw1|line1|Add10~1\))))
--- \inst2|draw1|line1|Add10~5\ = CARRY((\inst2|draw1|line1|cy\(1) & (\inst2|draw1|line1|LessThan1~12_combout\ & !\inst2|draw1|line1|Add10~1\)) # (!\inst2|draw1|line1|cy\(1) & ((\inst2|draw1|line1|LessThan1~12_combout\) # (!\inst2|draw1|line1|Add10~1\))))
+-- \inst2|draw1|line1|Add10~4_combout\ = (\inst2|draw1|line1|LessThan1~12_combout\ & ((\inst2|draw1|line1|cy\(1) & (!\inst2|draw1|line1|Add10~1\)) # (!\inst2|draw1|line1|cy\(1) & ((\inst2|draw1|line1|Add10~1\) # (GND))))) # 
+-- (!\inst2|draw1|line1|LessThan1~12_combout\ & ((\inst2|draw1|line1|cy\(1) & (\inst2|draw1|line1|Add10~1\ & VCC)) # (!\inst2|draw1|line1|cy\(1) & (!\inst2|draw1|line1|Add10~1\))))
+-- \inst2|draw1|line1|Add10~5\ = CARRY((\inst2|draw1|line1|LessThan1~12_combout\ & ((!\inst2|draw1|line1|Add10~1\) # (!\inst2|draw1|line1|cy\(1)))) # (!\inst2|draw1|line1|LessThan1~12_combout\ & (!\inst2|draw1|line1|cy\(1) & !\inst2|draw1|line1|Add10~1\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0110100101001101",
+	lut_mask => "0110100100101011",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|cy\(1),
-	datab => \inst2|draw1|line1|LessThan1~12_combout\,
+	dataa => \inst2|draw1|line1|LessThan1~12_combout\,
+	datab => \inst2|draw1|line1|cy\(1),
 	datad => VCC,
 	cin => \inst2|draw1|line1|Add10~1\,
 	combout => \inst2|draw1|line1|Add10~4_combout\,
 	cout => \inst2|draw1|line1|Add10~5\);
 
--- Location: LCCOMB_X21_Y17_N12
+-- Location: LCCOMB_X39_Y19_N16
+\inst2|draw1|line1|Add10~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add10~6_combout\ = (!\inst2|draw1|line1|cx[4]~0_combout\ & ((\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|y\(1))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add10~4_combout\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000101000001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|y\(1),
+	datab => \inst2|draw1|line1|Add10~4_combout\,
+	datac => \inst2|draw1|line1|cx[4]~0_combout\,
+	datad => \inst2|draw1|line1|setup~regout\,
+	combout => \inst2|draw1|line1|Add10~6_combout\);
+
+-- Location: LCFF_X39_Y19_N17
+\inst2|draw1|line1|cy[1]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|Add10~6_combout\,
+	ena => \inst2|draw1|line1|Add10~3_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|cy\(1));
+
+-- Location: LCCOMB_X39_Y19_N4
 \inst2|draw1|line1|Add10~7\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|Add10~7_combout\ = ((\inst2|draw1|line1|LessThan1~12_combout\ $ (\inst2|draw1|line1|cy\(2) $ (\inst2|draw1|line1|Add10~5\)))) # (GND)
@@ -7922,684 +7446,154 @@ PORT MAP (
 	combout => \inst2|draw1|line1|Add10~7_combout\,
 	cout => \inst2|draw1|line1|Add10~8\);
 
--- Location: LCCOMB_X21_Y17_N2
+-- Location: LCCOMB_X40_Y19_N14
 \inst2|draw1|line1|Add10~9\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add10~9_combout\ = (!\inst2|draw1|line1|cx[3]~0_combout\ & ((\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|y\(2))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add10~7_combout\)))))
+-- \inst2|draw1|line1|Add10~9_combout\ = (!\inst2|draw1|line1|cx[4]~0_combout\ & ((\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|y\(2))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add10~7_combout\)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000110100001000",
+	lut_mask => "0000000010111000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|setup~regout\,
-	datab => \inst2|decoder1|y\(2),
-	datac => \inst2|draw1|line1|cx[3]~0_combout\,
-	datad => \inst2|draw1|line1|Add10~7_combout\,
+	dataa => \inst2|decoder1|y\(2),
+	datab => \inst2|draw1|line1|setup~regout\,
+	datac => \inst2|draw1|line1|Add10~7_combout\,
+	datad => \inst2|draw1|line1|cx[4]~0_combout\,
 	combout => \inst2|draw1|line1|Add10~9_combout\);
 
--- Location: LCFF_X21_Y17_N3
+-- Location: LCFF_X39_Y19_N27
 \inst2|draw1|line1|cy[2]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|Add10~9_combout\,
+	sdata => \inst2|draw1|line1|Add10~9_combout\,
+	sload => VCC,
 	ena => \inst2|draw1|line1|Add10~3_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	regout => \inst2|draw1|line1|cy\(2));
 
--- Location: LCCOMB_X21_Y17_N14
-\inst2|draw1|line1|Add10~10\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add10~10_combout\ = (\inst2|draw1|line1|LessThan1~12_combout\ & ((\inst2|draw1|line1|cy\(3) & (!\inst2|draw1|line1|Add10~8\)) # (!\inst2|draw1|line1|cy\(3) & ((\inst2|draw1|line1|Add10~8\) # (GND))))) # 
--- (!\inst2|draw1|line1|LessThan1~12_combout\ & ((\inst2|draw1|line1|cy\(3) & (\inst2|draw1|line1|Add10~8\ & VCC)) # (!\inst2|draw1|line1|cy\(3) & (!\inst2|draw1|line1|Add10~8\))))
--- \inst2|draw1|line1|Add10~11\ = CARRY((\inst2|draw1|line1|LessThan1~12_combout\ & ((!\inst2|draw1|line1|Add10~8\) # (!\inst2|draw1|line1|cy\(3)))) # (!\inst2|draw1|line1|LessThan1~12_combout\ & (!\inst2|draw1|line1|cy\(3) & !\inst2|draw1|line1|Add10~8\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100100101011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|LessThan1~12_combout\,
-	datab => \inst2|draw1|line1|cy\(3),
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add10~8\,
-	combout => \inst2|draw1|line1|Add10~10_combout\,
-	cout => \inst2|draw1|line1|Add10~11\);
-
--- Location: LCCOMB_X21_Y17_N26
-\inst2|draw1|line1|Add10~12\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add10~12_combout\ = (!\inst2|draw1|line1|cx[3]~0_combout\ & ((\inst2|draw1|line1|setup~regout\ & ((\inst2|decoder1|y\(3)))) # (!\inst2|draw1|line1|setup~regout\ & (\inst2|draw1|line1|Add10~10_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111000000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|setup~regout\,
-	datab => \inst2|draw1|line1|Add10~10_combout\,
-	datac => \inst2|draw1|line1|cx[3]~0_combout\,
-	datad => \inst2|decoder1|y\(3),
-	combout => \inst2|draw1|line1|Add10~12_combout\);
-
--- Location: LCFF_X21_Y17_N27
-\inst2|draw1|line1|cy[3]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|Add10~12_combout\,
-	ena => \inst2|draw1|line1|Add10~3_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|cy\(3));
-
--- Location: LCCOMB_X21_Y17_N16
-\inst2|draw1|line1|Add10~13\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add10~13_combout\ = ((\inst2|draw1|line1|cy\(4) $ (\inst2|draw1|line1|LessThan1~12_combout\ $ (\inst2|draw1|line1|Add10~11\)))) # (GND)
--- \inst2|draw1|line1|Add10~14\ = CARRY((\inst2|draw1|line1|cy\(4) & ((!\inst2|draw1|line1|Add10~11\) # (!\inst2|draw1|line1|LessThan1~12_combout\))) # (!\inst2|draw1|line1|cy\(4) & (!\inst2|draw1|line1|LessThan1~12_combout\ & 
--- !\inst2|draw1|line1|Add10~11\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011000101011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|cy\(4),
-	datab => \inst2|draw1|line1|LessThan1~12_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add10~11\,
-	combout => \inst2|draw1|line1|Add10~13_combout\,
-	cout => \inst2|draw1|line1|Add10~14\);
-
--- Location: LCCOMB_X21_Y17_N18
-\inst2|draw1|line1|Add10~16\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add10~16_combout\ = (\inst2|draw1|line1|LessThan1~12_combout\ & ((\inst2|draw1|line1|cy\(5) & (!\inst2|draw1|line1|Add10~14\)) # (!\inst2|draw1|line1|cy\(5) & ((\inst2|draw1|line1|Add10~14\) # (GND))))) # 
--- (!\inst2|draw1|line1|LessThan1~12_combout\ & ((\inst2|draw1|line1|cy\(5) & (\inst2|draw1|line1|Add10~14\ & VCC)) # (!\inst2|draw1|line1|cy\(5) & (!\inst2|draw1|line1|Add10~14\))))
--- \inst2|draw1|line1|Add10~17\ = CARRY((\inst2|draw1|line1|LessThan1~12_combout\ & ((!\inst2|draw1|line1|Add10~14\) # (!\inst2|draw1|line1|cy\(5)))) # (!\inst2|draw1|line1|LessThan1~12_combout\ & (!\inst2|draw1|line1|cy\(5) & 
--- !\inst2|draw1|line1|Add10~14\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100100101011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|LessThan1~12_combout\,
-	datab => \inst2|draw1|line1|cy\(5),
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add10~14\,
-	combout => \inst2|draw1|line1|Add10~16_combout\,
-	cout => \inst2|draw1|line1|Add10~17\);
-
--- Location: LCCOMB_X21_Y17_N30
-\inst2|draw1|line1|Add10~18\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add10~18_combout\ = (!\inst2|draw1|line1|cx[3]~0_combout\ & ((\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|y\(5))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add10~16_combout\)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0100010101000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|cx[3]~0_combout\,
-	datab => \inst2|decoder1|y\(5),
-	datac => \inst2|draw1|line1|setup~regout\,
-	datad => \inst2|draw1|line1|Add10~16_combout\,
-	combout => \inst2|draw1|line1|Add10~18_combout\);
-
--- Location: LCFF_X21_Y17_N31
-\inst2|draw1|line1|cy[5]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|Add10~18_combout\,
-	ena => \inst2|draw1|line1|Add10~3_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|cy\(5));
-
--- Location: LCCOMB_X20_Y17_N0
+-- Location: LCCOMB_X39_Y19_N18
 \inst2|draw1|line1|Add10~15\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add10~15_combout\ = (!\inst2|draw1|line1|cx[3]~0_combout\ & ((\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|y\(4))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add10~13_combout\)))))
+-- \inst2|draw1|line1|Add10~15_combout\ = (!\inst2|draw1|line1|cx[4]~0_combout\ & ((\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|y\(4))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add10~13_combout\)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000011011000",
+	lut_mask => "0000101000001100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|setup~regout\,
-	datab => \inst2|decoder1|y\(4),
-	datac => \inst2|draw1|line1|Add10~13_combout\,
-	datad => \inst2|draw1|line1|cx[3]~0_combout\,
+	dataa => \inst2|decoder1|y\(4),
+	datab => \inst2|draw1|line1|Add10~13_combout\,
+	datac => \inst2|draw1|line1|cx[4]~0_combout\,
+	datad => \inst2|draw1|line1|setup~regout\,
 	combout => \inst2|draw1|line1|Add10~15_combout\);
 
--- Location: LCFF_X21_Y17_N25
+-- Location: LCFF_X39_Y19_N19
 \inst2|draw1|line1|cy[4]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|draw1|line1|Add10~15_combout\,
-	sload => VCC,
+	datain => \inst2|draw1|line1|Add10~15_combout\,
 	ena => \inst2|draw1|line1|Add10~3_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	regout => \inst2|draw1|line1|cy\(4));
 
--- Location: LCCOMB_X22_Y17_N14
+-- Location: LCCOMB_X39_Y19_N14
 \inst2|draw1|line1|draw_line_comb~7\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|draw_line_comb~7_combout\ = (\inst2|decoder1|h\(4) & (\inst2|draw1|line1|cy\(4) & (\inst2|decoder1|h\(5) $ (!\inst2|draw1|line1|cy\(5))))) # (!\inst2|decoder1|h\(4) & (!\inst2|draw1|line1|cy\(4) & (\inst2|decoder1|h\(5) $ 
--- (!\inst2|draw1|line1|cy\(5)))))
+-- \inst2|draw1|line1|draw_line_comb~7_combout\ = (\inst2|decoder1|h\(5) & (\inst2|draw1|line1|cy\(5) & (\inst2|decoder1|h\(4) $ (!\inst2|draw1|line1|cy\(4))))) # (!\inst2|decoder1|h\(5) & (!\inst2|draw1|line1|cy\(5) & (\inst2|decoder1|h\(4) $ 
+-- (!\inst2|draw1|line1|cy\(4)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1000001001000001",
+	lut_mask => "1001000000001001",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|h\(4),
-	datab => \inst2|decoder1|h\(5),
-	datac => \inst2|draw1|line1|cy\(5),
+	dataa => \inst2|decoder1|h\(5),
+	datab => \inst2|draw1|line1|cy\(5),
+	datac => \inst2|decoder1|h\(4),
 	datad => \inst2|draw1|line1|cy\(4),
 	combout => \inst2|draw1|line1|draw_line_comb~7_combout\);
 
--- Location: LCCOMB_X21_Y17_N20
-\inst2|draw1|line1|Add10~19\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add10~19_combout\ = \inst2|draw1|line1|cy\(6) $ (\inst2|draw1|line1|LessThan1~12_combout\ $ (\inst2|draw1|line1|Add10~17\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011010010110",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|cy\(6),
-	datab => \inst2|draw1|line1|LessThan1~12_combout\,
-	cin => \inst2|draw1|line1|Add10~17\,
-	combout => \inst2|draw1|line1|Add10~19_combout\);
-
--- Location: LCCOMB_X20_Y17_N30
+-- Location: LCCOMB_X39_Y19_N24
 \inst2|draw1|line1|Add10~21\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|Add10~21_combout\ = (!\inst2|draw1|line1|cx[3]~0_combout\ & ((\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|y\(6))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add10~19_combout\)))))
+-- \inst2|draw1|line1|Add10~21_combout\ = (!\inst2|draw1|line1|cx[4]~0_combout\ & ((\inst2|draw1|line1|setup~regout\ & ((\inst2|decoder1|y\(6)))) # (!\inst2|draw1|line1|setup~regout\ & (\inst2|draw1|line1|Add10~19_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011000100100000",
+	lut_mask => "0000111000000010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|setup~regout\,
-	datab => \inst2|draw1|line1|cx[3]~0_combout\,
-	datac => \inst2|decoder1|y\(6),
-	datad => \inst2|draw1|line1|Add10~19_combout\,
+	dataa => \inst2|draw1|line1|Add10~19_combout\,
+	datab => \inst2|draw1|line1|setup~regout\,
+	datac => \inst2|draw1|line1|cx[4]~0_combout\,
+	datad => \inst2|decoder1|y\(6),
 	combout => \inst2|draw1|line1|Add10~21_combout\);
 
--- Location: LCFF_X21_Y17_N29
+-- Location: LCFF_X39_Y19_N25
 \inst2|draw1|line1|cy[6]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|draw1|line1|Add10~21_combout\,
-	sload => VCC,
+	datain => \inst2|draw1|line1|Add10~21_combout\,
 	ena => \inst2|draw1|line1|Add10~3_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	regout => \inst2|draw1|line1|cy\(6));
 
--- Location: LCCOMB_X22_Y17_N4
+-- Location: LCCOMB_X38_Y20_N8
 \inst2|draw1|line1|draw_line_comb~8\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|line1|draw_line_comb~8_combout\ = (\inst2|draw1|line1|draw_line_comb~7_combout\ & (\inst2|decoder1|h\(6) $ (!\inst2|draw1|line1|cy\(6))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010000001010000",
+	lut_mask => "1000010010000100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|h\(6),
-	datac => \inst2|draw1|line1|draw_line_comb~7_combout\,
-	datad => \inst2|draw1|line1|cy\(6),
+	datab => \inst2|draw1|line1|draw_line_comb~7_combout\,
+	datac => \inst2|draw1|line1|cy\(6),
 	combout => \inst2|draw1|line1|draw_line_comb~8_combout\);
 
--- Location: LCCOMB_X25_Y17_N20
-\inst2|draw1|line1|cx[3]~1\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X43_Y16_N28
+\inst2|decoder1|h~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|cx[3]~1_combout\ = ((!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|draw_line_comb~9_combout\) # (!\inst2|draw1|line1|LessThan3~5_combout\)))) # (!\inst2|ramcontroller1|draw_can_access~0_combout\)
+-- \inst2|decoder1|h~4_combout\ = (\inst2|spi1|do_buffer_reg\(3) & \inst2|decoder1|current_instruction\(2))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101110101011111",
+	lut_mask => "1000100010001000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|ramcontroller1|draw_can_access~0_combout\,
-	datab => \inst2|draw1|line1|draw_line_comb~9_combout\,
-	datac => \inst2|draw1|line1|setup~regout\,
-	datad => \inst2|draw1|line1|LessThan3~5_combout\,
-	combout => \inst2|draw1|line1|cx[3]~1_combout\);
+	dataa => \inst2|spi1|do_buffer_reg\(3),
+	datab => \inst2|decoder1|current_instruction\(2),
+	combout => \inst2|decoder1|h~4_combout\);
 
--- Location: LCCOMB_X25_Y16_N28
-\inst2|draw1|line1|Add8~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~3_combout\ = (!\inst2|draw1|line1|cx[3]~0_combout\ & ((\inst2|draw1|line1|cx[3]~1_combout\ & ((\inst2|draw1|line1|cx\(0)))) # (!\inst2|draw1|line1|cx[3]~1_combout\ & (\inst2|draw1|line1|Add8~2_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011000000100010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add8~2_combout\,
-	datab => \inst2|draw1|line1|cx[3]~0_combout\,
-	datac => \inst2|draw1|line1|cx\(0),
-	datad => \inst2|draw1|line1|cx[3]~1_combout\,
-	combout => \inst2|draw1|line1|Add8~3_combout\);
-
--- Location: LCFF_X25_Y16_N29
-\inst2|draw1|line1|cx[0]\ : cycloneii_lcell_ff
+-- Location: LCFF_X39_Y15_N13
+\inst2|decoder1|h[3]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|Add8~3_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|cx\(0));
-
--- Location: LCFF_X23_Y19_N7
-\inst2|decoder1|w[7]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|spi1|spi_rx_data\(7),
-	sclr => \inst2|sreset~0_combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|w[7]~12_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|w\(7));
-
--- Location: LCCOMB_X22_Y19_N14
-\inst2|decoder1|x[6]~feeder\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|x[6]~feeder_combout\ = \inst2|decoder1|x~9_combout\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \inst2|decoder1|x~9_combout\,
-	combout => \inst2|decoder1|x[6]~feeder_combout\);
-
--- Location: LCFF_X22_Y19_N15
-\inst2|decoder1|x[6]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|x[6]~feeder_combout\,
+	sdata => \inst2|decoder1|h~4_combout\,
 	sclr => \ALT_INV_reset~combout\,
-	ena => \inst2|decoder1|x~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|x\(6));
-
--- Location: LCFF_X23_Y19_N23
-\inst2|decoder1|w[4]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|spi1|spi_rx_data\(4),
-	sclr => \inst2|sreset~0_combout\,
 	sload => VCC,
-	ena => \inst2|decoder1|w[7]~12_combout\,
+	ena => \inst2|decoder1|h~2_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|decoder1|w\(4));
+	regout => \inst2|decoder1|h\(3));
 
--- Location: LCFF_X23_Y19_N21
-\inst2|decoder1|w[3]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|spi1|spi_rx_data\(3),
-	sclr => \inst2|sreset~0_combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|w[7]~12_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|w\(3));
-
--- Location: LCCOMB_X26_Y19_N14
-\inst2|draw1|line1|LessThan0~1\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X38_Y15_N2
+\inst2|draw1|line1|draw_line_comb~6\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|LessThan0~1_cout\ = CARRY((!\inst2|decoder1|x\(0) & \inst2|decoder1|w\(0)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000001000100",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|x\(0),
-	datab => \inst2|decoder1|w\(0),
-	datad => VCC,
-	cout => \inst2|draw1|line1|LessThan0~1_cout\);
-
--- Location: LCCOMB_X26_Y19_N16
-\inst2|draw1|line1|LessThan0~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan0~3_cout\ = CARRY((\inst2|decoder1|w\(1) & (\inst2|decoder1|x\(1) & !\inst2|draw1|line1|LessThan0~1_cout\)) # (!\inst2|decoder1|w\(1) & ((\inst2|decoder1|x\(1)) # (!\inst2|draw1|line1|LessThan0~1_cout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000001001101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|w\(1),
-	datab => \inst2|decoder1|x\(1),
-	datad => VCC,
-	cin => \inst2|draw1|line1|LessThan0~1_cout\,
-	cout => \inst2|draw1|line1|LessThan0~3_cout\);
-
--- Location: LCCOMB_X26_Y19_N18
-\inst2|draw1|line1|LessThan0~5\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan0~5_cout\ = CARRY((\inst2|decoder1|x\(2) & (\inst2|decoder1|w\(2) & !\inst2|draw1|line1|LessThan0~3_cout\)) # (!\inst2|decoder1|x\(2) & ((\inst2|decoder1|w\(2)) # (!\inst2|draw1|line1|LessThan0~3_cout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000001001101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|x\(2),
-	datab => \inst2|decoder1|w\(2),
-	datad => VCC,
-	cin => \inst2|draw1|line1|LessThan0~3_cout\,
-	cout => \inst2|draw1|line1|LessThan0~5_cout\);
-
--- Location: LCCOMB_X26_Y19_N20
-\inst2|draw1|line1|LessThan0~7\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan0~7_cout\ = CARRY((\inst2|decoder1|x\(3) & ((!\inst2|draw1|line1|LessThan0~5_cout\) # (!\inst2|decoder1|w\(3)))) # (!\inst2|decoder1|x\(3) & (!\inst2|decoder1|w\(3) & !\inst2|draw1|line1|LessThan0~5_cout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000101011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|x\(3),
-	datab => \inst2|decoder1|w\(3),
-	datad => VCC,
-	cin => \inst2|draw1|line1|LessThan0~5_cout\,
-	cout => \inst2|draw1|line1|LessThan0~7_cout\);
-
--- Location: LCCOMB_X26_Y19_N22
-\inst2|draw1|line1|LessThan0~9\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan0~9_cout\ = CARRY((\inst2|decoder1|x\(4) & (\inst2|decoder1|w\(4) & !\inst2|draw1|line1|LessThan0~7_cout\)) # (!\inst2|decoder1|x\(4) & ((\inst2|decoder1|w\(4)) # (!\inst2|draw1|line1|LessThan0~7_cout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000001001101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|x\(4),
-	datab => \inst2|decoder1|w\(4),
-	datad => VCC,
-	cin => \inst2|draw1|line1|LessThan0~7_cout\,
-	cout => \inst2|draw1|line1|LessThan0~9_cout\);
-
--- Location: LCCOMB_X26_Y19_N24
-\inst2|draw1|line1|LessThan0~11\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan0~11_cout\ = CARRY((\inst2|decoder1|x\(5) & ((!\inst2|draw1|line1|LessThan0~9_cout\) # (!\inst2|decoder1|w\(5)))) # (!\inst2|decoder1|x\(5) & (!\inst2|decoder1|w\(5) & !\inst2|draw1|line1|LessThan0~9_cout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000101011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|x\(5),
-	datab => \inst2|decoder1|w\(5),
-	datad => VCC,
-	cin => \inst2|draw1|line1|LessThan0~9_cout\,
-	cout => \inst2|draw1|line1|LessThan0~11_cout\);
-
--- Location: LCCOMB_X26_Y19_N26
-\inst2|draw1|line1|LessThan0~13\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan0~13_cout\ = CARRY((\inst2|decoder1|w\(6) & ((!\inst2|draw1|line1|LessThan0~11_cout\) # (!\inst2|decoder1|x\(6)))) # (!\inst2|decoder1|w\(6) & (!\inst2|decoder1|x\(6) & !\inst2|draw1|line1|LessThan0~11_cout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000101011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|w\(6),
-	datab => \inst2|decoder1|x\(6),
-	datad => VCC,
-	cin => \inst2|draw1|line1|LessThan0~11_cout\,
-	cout => \inst2|draw1|line1|LessThan0~13_cout\);
-
--- Location: LCCOMB_X26_Y19_N28
-\inst2|draw1|line1|LessThan0~14\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|LessThan0~14_combout\ = (\inst2|decoder1|x\(7) & (\inst2|draw1|line1|LessThan0~13_cout\ & \inst2|decoder1|w\(7))) # (!\inst2|decoder1|x\(7) & ((\inst2|draw1|line1|LessThan0~13_cout\) # (\inst2|decoder1|w\(7))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111001100110000",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|decoder1|x\(7),
-	datad => \inst2|decoder1|w\(7),
-	cin => \inst2|draw1|line1|LessThan0~13_cout\,
-	combout => \inst2|draw1|line1|LessThan0~14_combout\);
-
--- Location: LCCOMB_X25_Y16_N4
-\inst2|draw1|line1|Add8~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~4_combout\ = (\inst2|draw1|line1|cx\(1) & ((\inst2|draw1|line1|LessThan0~14_combout\ & (!\inst2|draw1|line1|Add8~1\)) # (!\inst2|draw1|line1|LessThan0~14_combout\ & (\inst2|draw1|line1|Add8~1\ & VCC)))) # 
--- (!\inst2|draw1|line1|cx\(1) & ((\inst2|draw1|line1|LessThan0~14_combout\ & ((\inst2|draw1|line1|Add8~1\) # (GND))) # (!\inst2|draw1|line1|LessThan0~14_combout\ & (!\inst2|draw1|line1|Add8~1\))))
--- \inst2|draw1|line1|Add8~5\ = CARRY((\inst2|draw1|line1|cx\(1) & (\inst2|draw1|line1|LessThan0~14_combout\ & !\inst2|draw1|line1|Add8~1\)) # (!\inst2|draw1|line1|cx\(1) & ((\inst2|draw1|line1|LessThan0~14_combout\) # (!\inst2|draw1|line1|Add8~1\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100101001101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|cx\(1),
-	datab => \inst2|draw1|line1|LessThan0~14_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add8~1\,
-	combout => \inst2|draw1|line1|Add8~4_combout\,
-	cout => \inst2|draw1|line1|Add8~5\);
-
--- Location: LCCOMB_X26_Y19_N8
-\inst2|draw1|line1|Add8~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~6_combout\ = (\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|x\(1))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add8~4_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111010110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|setup~regout\,
-	datac => \inst2|decoder1|x\(1),
-	datad => \inst2|draw1|line1|Add8~4_combout\,
-	combout => \inst2|draw1|line1|Add8~6_combout\);
-
--- Location: LCCOMB_X25_Y19_N20
-\inst2|draw1|line1|Add8~7\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~7_combout\ = (!\inst2|draw1|line1|cx[3]~0_combout\ & ((\inst2|draw1|line1|cx[3]~1_combout\ & ((\inst2|draw1|line1|cx\(1)))) # (!\inst2|draw1|line1|cx[3]~1_combout\ & (\inst2|draw1|line1|Add8~6_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101000001000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|cx[3]~0_combout\,
-	datab => \inst2|draw1|line1|Add8~6_combout\,
-	datac => \inst2|draw1|line1|cx\(1),
-	datad => \inst2|draw1|line1|cx[3]~1_combout\,
-	combout => \inst2|draw1|line1|Add8~7_combout\);
-
--- Location: LCFF_X25_Y19_N21
-\inst2|draw1|line1|cx[1]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|Add8~7_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|cx\(1));
-
--- Location: LCCOMB_X25_Y16_N26
-\inst2|draw1|line1|draw_line_comb~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|draw_line_comb~0_combout\ = (\inst2|decoder1|w\(1) & (\inst2|draw1|line1|cx\(1) & (\inst2|draw1|line1|cx\(0) $ (!\inst2|decoder1|w\(0))))) # (!\inst2|decoder1|w\(1) & (!\inst2|draw1|line1|cx\(1) & (\inst2|draw1|line1|cx\(0) $ 
--- (!\inst2|decoder1|w\(0)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000001001000001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|w\(1),
-	datab => \inst2|draw1|line1|cx\(0),
-	datac => \inst2|decoder1|w\(0),
-	datad => \inst2|draw1|line1|cx\(1),
-	combout => \inst2|draw1|line1|draw_line_comb~0_combout\);
-
--- Location: LCCOMB_X25_Y16_N8
-\inst2|draw1|line1|Add8~12\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~12_combout\ = (\inst2|draw1|line1|cx\(3) & ((\inst2|draw1|line1|LessThan0~14_combout\ & (!\inst2|draw1|line1|Add8~9\)) # (!\inst2|draw1|line1|LessThan0~14_combout\ & (\inst2|draw1|line1|Add8~9\ & VCC)))) # 
--- (!\inst2|draw1|line1|cx\(3) & ((\inst2|draw1|line1|LessThan0~14_combout\ & ((\inst2|draw1|line1|Add8~9\) # (GND))) # (!\inst2|draw1|line1|LessThan0~14_combout\ & (!\inst2|draw1|line1|Add8~9\))))
--- \inst2|draw1|line1|Add8~13\ = CARRY((\inst2|draw1|line1|cx\(3) & (\inst2|draw1|line1|LessThan0~14_combout\ & !\inst2|draw1|line1|Add8~9\)) # (!\inst2|draw1|line1|cx\(3) & ((\inst2|draw1|line1|LessThan0~14_combout\) # (!\inst2|draw1|line1|Add8~9\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110100101001101",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|cx\(3),
-	datab => \inst2|draw1|line1|LessThan0~14_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add8~9\,
-	combout => \inst2|draw1|line1|Add8~12_combout\,
-	cout => \inst2|draw1|line1|Add8~13\);
-
--- Location: LCCOMB_X25_Y16_N10
-\inst2|draw1|line1|Add8~16\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~16_combout\ = ((\inst2|draw1|line1|cx\(4) $ (\inst2|draw1|line1|LessThan0~14_combout\ $ (\inst2|draw1|line1|Add8~13\)))) # (GND)
--- \inst2|draw1|line1|Add8~17\ = CARRY((\inst2|draw1|line1|cx\(4) & ((!\inst2|draw1|line1|Add8~13\) # (!\inst2|draw1|line1|LessThan0~14_combout\))) # (!\inst2|draw1|line1|cx\(4) & (!\inst2|draw1|line1|LessThan0~14_combout\ & !\inst2|draw1|line1|Add8~13\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011000101011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|cx\(4),
-	datab => \inst2|draw1|line1|LessThan0~14_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add8~13\,
-	combout => \inst2|draw1|line1|Add8~16_combout\,
-	cout => \inst2|draw1|line1|Add8~17\);
-
--- Location: LCCOMB_X24_Y16_N14
-\inst2|draw1|line1|Add8~18\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~18_combout\ = (\inst2|draw1|line1|setup~regout\ & ((\inst2|decoder1|x\(4)))) # (!\inst2|draw1|line1|setup~regout\ & (\inst2|draw1|line1|Add8~16_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101001010000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|setup~regout\,
-	datac => \inst2|draw1|line1|Add8~16_combout\,
-	datad => \inst2|decoder1|x\(4),
-	combout => \inst2|draw1|line1|Add8~18_combout\);
-
--- Location: LCCOMB_X24_Y16_N0
-\inst2|draw1|line1|Add8~19\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~19_combout\ = (!\inst2|draw1|line1|cx[3]~0_combout\ & ((\inst2|draw1|line1|cx[3]~1_combout\ & ((\inst2|draw1|line1|cx\(4)))) # (!\inst2|draw1|line1|cx[3]~1_combout\ & (\inst2|draw1|line1|Add8~18_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101000001000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|cx[3]~0_combout\,
-	datab => \inst2|draw1|line1|Add8~18_combout\,
-	datac => \inst2|draw1|line1|cx\(4),
-	datad => \inst2|draw1|line1|cx[3]~1_combout\,
-	combout => \inst2|draw1|line1|Add8~19_combout\);
-
--- Location: LCFF_X24_Y16_N1
-\inst2|draw1|line1|cx[4]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|Add8~19_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|cx\(4));
-
--- Location: LCCOMB_X25_Y16_N22
-\inst2|draw1|line1|Add8~23\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~23_combout\ = (!\inst2|draw1|line1|cx[3]~0_combout\ & ((\inst2|draw1|line1|cx[3]~1_combout\ & ((\inst2|draw1|line1|cx\(5)))) # (!\inst2|draw1|line1|cx[3]~1_combout\ & (\inst2|draw1|line1|Add8~22_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011000000100010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|Add8~22_combout\,
-	datab => \inst2|draw1|line1|cx[3]~0_combout\,
-	datac => \inst2|draw1|line1|cx\(5),
-	datad => \inst2|draw1|line1|cx[3]~1_combout\,
-	combout => \inst2|draw1|line1|Add8~23_combout\);
-
--- Location: LCFF_X25_Y16_N23
-\inst2|draw1|line1|cx[5]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|Add8~23_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|cx\(5));
-
--- Location: LCCOMB_X24_Y16_N30
-\inst2|draw1|line1|draw_line_comb~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|draw_line_comb~2_combout\ = (\inst2|decoder1|w\(4) & (\inst2|draw1|line1|cx\(4) & (\inst2|decoder1|w\(5) $ (!\inst2|draw1|line1|cx\(5))))) # (!\inst2|decoder1|w\(4) & (!\inst2|draw1|line1|cx\(4) & (\inst2|decoder1|w\(5) $ 
--- (!\inst2|draw1|line1|cx\(5)))))
+-- \inst2|draw1|line1|draw_line_comb~6_combout\ = (\inst2|draw1|line1|cy\(2) & (\inst2|decoder1|h\(2) & (\inst2|decoder1|h\(3) $ (!\inst2|draw1|line1|cy\(3))))) # (!\inst2|draw1|line1|cy\(2) & (!\inst2|decoder1|h\(2) & (\inst2|decoder1|h\(3) $ 
+-- (!\inst2|draw1|line1|cy\(3)))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -8607,112 +7601,16 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|w\(4),
-	datab => \inst2|draw1|line1|cx\(4),
-	datac => \inst2|decoder1|w\(5),
-	datad => \inst2|draw1|line1|cx\(5),
-	combout => \inst2|draw1|line1|draw_line_comb~2_combout\);
+	dataa => \inst2|draw1|line1|cy\(2),
+	datab => \inst2|decoder1|h\(2),
+	datac => \inst2|decoder1|h\(3),
+	datad => \inst2|draw1|line1|cy\(3),
+	combout => \inst2|draw1|line1|draw_line_comb~6_combout\);
 
--- Location: LCCOMB_X25_Y16_N14
-\inst2|draw1|line1|Add8~24\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~24_combout\ = ((\inst2|draw1|line1|cx\(6) $ (\inst2|draw1|line1|LessThan0~14_combout\ $ (\inst2|draw1|line1|Add8~21\)))) # (GND)
--- \inst2|draw1|line1|Add8~25\ = CARRY((\inst2|draw1|line1|cx\(6) & ((!\inst2|draw1|line1|Add8~21\) # (!\inst2|draw1|line1|LessThan0~14_combout\))) # (!\inst2|draw1|line1|cx\(6) & (!\inst2|draw1|line1|LessThan0~14_combout\ & !\inst2|draw1|line1|Add8~21\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001011000101011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|cx\(6),
-	datab => \inst2|draw1|line1|LessThan0~14_combout\,
-	datad => VCC,
-	cin => \inst2|draw1|line1|Add8~21\,
-	combout => \inst2|draw1|line1|Add8~24_combout\,
-	cout => \inst2|draw1|line1|Add8~25\);
-
--- Location: LCCOMB_X25_Y19_N0
-\inst2|draw1|line1|Add8~26\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~26_combout\ = (\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|x\(6))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add8~24_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1011101110001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|x\(6),
-	datab => \inst2|draw1|line1|setup~regout\,
-	datad => \inst2|draw1|line1|Add8~24_combout\,
-	combout => \inst2|draw1|line1|Add8~26_combout\);
-
--- Location: LCCOMB_X25_Y19_N2
-\inst2|draw1|line1|Add8~27\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~27_combout\ = (!\inst2|draw1|line1|cx[3]~0_combout\ & ((\inst2|draw1|line1|cx[3]~1_combout\ & ((\inst2|draw1|line1|cx\(6)))) # (!\inst2|draw1|line1|cx[3]~1_combout\ & (\inst2|draw1|line1|Add8~26_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101000001000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|cx[3]~0_combout\,
-	datab => \inst2|draw1|line1|Add8~26_combout\,
-	datac => \inst2|draw1|line1|cx\(6),
-	datad => \inst2|draw1|line1|cx[3]~1_combout\,
-	combout => \inst2|draw1|line1|Add8~27_combout\);
-
--- Location: LCFF_X25_Y19_N3
-\inst2|draw1|line1|cx[6]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|Add8~27_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|cx\(6));
-
--- Location: LCCOMB_X25_Y19_N18
-\inst2|draw1|line1|draw_line_comb~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|draw_line_comb~3_combout\ = (\inst2|draw1|line1|cx\(7) & (\inst2|decoder1|w\(7) & (\inst2|decoder1|w\(6) $ (!\inst2|draw1|line1|cx\(6))))) # (!\inst2|draw1|line1|cx\(7) & (!\inst2|decoder1|w\(7) & (\inst2|decoder1|w\(6) $ 
--- (!\inst2|draw1|line1|cx\(6)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1001000000001001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|cx\(7),
-	datab => \inst2|decoder1|w\(7),
-	datac => \inst2|decoder1|w\(6),
-	datad => \inst2|draw1|line1|cx\(6),
-	combout => \inst2|draw1|line1|draw_line_comb~3_combout\);
-
--- Location: LCCOMB_X25_Y16_N0
-\inst2|draw1|line1|draw_line_comb~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|draw_line_comb~4_combout\ = (\inst2|draw1|line1|draw_line_comb~1_combout\ & (\inst2|draw1|line1|draw_line_comb~0_combout\ & (\inst2|draw1|line1|draw_line_comb~2_combout\ & \inst2|draw1|line1|draw_line_comb~3_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|draw_line_comb~1_combout\,
-	datab => \inst2|draw1|line1|draw_line_comb~0_combout\,
-	datac => \inst2|draw1|line1|draw_line_comb~2_combout\,
-	datad => \inst2|draw1|line1|draw_line_comb~3_combout\,
-	combout => \inst2|draw1|line1|draw_line_comb~4_combout\);
-
--- Location: LCCOMB_X22_Y17_N10
+-- Location: LCCOMB_X38_Y20_N30
 \inst2|draw1|line1|draw_line_comb~9\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|draw_line_comb~9_combout\ = (\inst2|draw1|line1|draw_line_comb~6_combout\ & (\inst2|draw1|line1|draw_line_comb~5_combout\ & (\inst2|draw1|line1|draw_line_comb~8_combout\ & \inst2|draw1|line1|draw_line_comb~4_combout\)))
+-- \inst2|draw1|line1|draw_line_comb~9_combout\ = (\inst2|draw1|line1|draw_line_comb~5_combout\ & (\inst2|draw1|line1|draw_line_comb~4_combout\ & (\inst2|draw1|line1|draw_line_comb~8_combout\ & \inst2|draw1|line1|draw_line_comb~6_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -8720,16 +7618,156 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|draw_line_comb~6_combout\,
-	datab => \inst2|draw1|line1|draw_line_comb~5_combout\,
+	dataa => \inst2|draw1|line1|draw_line_comb~5_combout\,
+	datab => \inst2|draw1|line1|draw_line_comb~4_combout\,
 	datac => \inst2|draw1|line1|draw_line_comb~8_combout\,
-	datad => \inst2|draw1|line1|draw_line_comb~4_combout\,
+	datad => \inst2|draw1|line1|draw_line_comb~6_combout\,
 	combout => \inst2|draw1|line1|draw_line_comb~9_combout\);
 
--- Location: LCCOMB_X20_Y17_N24
+-- Location: LCCOMB_X40_Y19_N30
+\inst2|draw1|line1|next_setup~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|next_setup~0_combout\ = ((\inst2|ramcontroller1|draw_can_access~0_combout\ & (!\inst2|draw1|line1|setup~regout\ & \inst2|draw1|line1|draw_line_comb~9_combout\)) # (!\inst2|ramcontroller1|draw_can_access~0_combout\ & 
+-- (\inst2|draw1|line1|setup~regout\))) # (!\inst2|decoder1|en\(3))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0111110101110101",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|en\(3),
+	datab => \inst2|ramcontroller1|draw_can_access~0_combout\,
+	datac => \inst2|draw1|line1|setup~regout\,
+	datad => \inst2|draw1|line1|draw_line_comb~9_combout\,
+	combout => \inst2|draw1|line1|next_setup~0_combout\);
+
+-- Location: LCFF_X40_Y19_N31
+\inst2|draw1|line1|setup\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|next_setup~0_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|setup~regout\);
+
+-- Location: LCCOMB_X42_Y19_N24
 \inst2|draw1|line1|done~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|done~0_combout\ = (!\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|en\(3) & (\inst2|draw1|line1|draw_line_comb~9_combout\ & \inst2|ramcontroller1|draw_can_access~0_combout\)))
+-- \inst2|draw1|line1|done~0_combout\ = (\inst2|decoder1|en\(3) & (!\inst2|draw1|line1|setup~regout\ & (\inst2|draw1|line1|draw_line_comb~9_combout\ & \inst2|ramcontroller1|draw_can_access~0_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0010000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|en\(3),
+	datab => \inst2|draw1|line1|setup~regout\,
+	datac => \inst2|draw1|line1|draw_line_comb~9_combout\,
+	datad => \inst2|ramcontroller1|draw_can_access~0_combout\,
+	combout => \inst2|draw1|line1|done~0_combout\);
+
+-- Location: LCCOMB_X40_Y19_N28
+\inst2|decoder1|en~10\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|en~10_combout\ = (!\inst2|decoder1|current_instruction\(1) & (\inst4|hex0[0]~7_combout\ & (!\inst2|decoder1|current_instruction\(0) & \inst2|decoder1|current_instruction\(2))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000010000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst4|hex0[0]~7_combout\,
+	datac => \inst2|decoder1|current_instruction\(0),
+	datad => \inst2|decoder1|current_instruction\(2),
+	combout => \inst2|decoder1|en~10_combout\);
+
+-- Location: LCCOMB_X40_Y19_N18
+\inst2|decoder1|en~5\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|en~5_combout\ = (\inst2|decoder1|current_instruction\(2) & (((\inst2|decoder1|decode_comb~0_combout\)))) # (!\inst2|decoder1|current_instruction\(2) & (\inst2|decoder1|current_instruction\(1) & ((\inst2|decoder1|decode_comb~0_combout\) # 
+-- (!\inst2|decoder1|current_instruction\(0)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110010001010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst2|decoder1|decode_comb~0_combout\,
+	datac => \inst2|decoder1|current_instruction\(0),
+	datad => \inst2|decoder1|current_instruction\(2),
+	combout => \inst2|decoder1|en~5_combout\);
+
+-- Location: LCCOMB_X40_Y19_N4
+\inst2|decoder1|en~11\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|en~11_combout\ = (\inst2|decoder1|en~5_combout\ & ((\inst2|decoder1|en~10_combout\) # ((\inst4|hex1[2]~4_combout\ & \inst2|decoder1|en\(1)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110110000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst4|hex1[2]~4_combout\,
+	datab => \inst2|decoder1|en~10_combout\,
+	datac => \inst2|decoder1|en\(1),
+	datad => \inst2|decoder1|en~5_combout\,
+	combout => \inst2|decoder1|en~11_combout\);
+
+-- Location: LCCOMB_X40_Y19_N2
+\inst4|hex1[3]~7\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst4|hex1[3]~7_combout\ = (!\inst2|decoder1|current_instruction\(1) & !\inst2|decoder1|current_instruction\(2))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|decoder1|current_instruction\(1),
+	datad => \inst2|decoder1|current_instruction\(2),
+	combout => \inst4|hex1[3]~7_combout\);
+
+-- Location: LCCOMB_X40_Y19_N12
+\inst2|decoder1|en~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|en~4_combout\ = ((\inst2|decoder1|decode_comb~1_combout\ & (!\inst4|hex1[3]~7_combout\)) # (!\inst2|decoder1|decode_comb~1_combout\ & ((!\inst2|decoder1|en~3_combout\)))) # (!\reset~combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0010111101111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|decode_comb~1_combout\,
+	datab => \inst4|hex1[3]~7_combout\,
+	datac => \reset~combout\,
+	datad => \inst2|decoder1|en~3_combout\,
+	combout => \inst2|decoder1|en~4_combout\);
+
+-- Location: LCFF_X40_Y19_N5
+\inst2|decoder1|en[1]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|en~11_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	ena => \inst2|decoder1|en~4_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|en\(1));
+
+-- Location: LCCOMB_X40_Y19_N10
+\inst2|decoder1|en~8\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|en~8_combout\ = (!\inst2|decoder1|current_instruction\(1) & (\inst4|hex0[0]~7_combout\ & (\inst2|decoder1|current_instruction\(0) & \inst2|decoder1|current_instruction\(2))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -8737,604 +7775,311 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|setup~regout\,
-	datab => \inst2|decoder1|en\(3),
-	datac => \inst2|draw1|line1|draw_line_comb~9_combout\,
-	datad => \inst2|ramcontroller1|draw_can_access~0_combout\,
-	combout => \inst2|draw1|line1|done~0_combout\);
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst4|hex0[0]~7_combout\,
+	datac => \inst2|decoder1|current_instruction\(0),
+	datad => \inst2|decoder1|current_instruction\(2),
+	combout => \inst2|decoder1|en~8_combout\);
 
--- Location: LCCOMB_X20_Y17_N4
-\inst2|draw1|draw_ready~1\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y19_N22
+\inst2|decoder1|en~9\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|draw_ready~1_combout\ = (!\inst2|draw1|pixel1|done~0_combout\ & (!\inst2|draw1|line1|done~0_combout\ & ((\inst2|draw1|draw_ready~0_combout\) # (!\inst2|draw1|rect1|draw_write~1_combout\))))
+-- \inst2|decoder1|en~9_combout\ = (\inst2|decoder1|en~5_combout\ & ((\inst2|decoder1|en~8_combout\) # ((\inst4|hex1[2]~4_combout\ & \inst2|decoder1|en\(2)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000010000000101",
+	lut_mask => "1100110010000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|pixel1|done~0_combout\,
-	datab => \inst2|draw1|draw_ready~0_combout\,
-	datac => \inst2|draw1|line1|done~0_combout\,
-	datad => \inst2|draw1|rect1|draw_write~1_combout\,
-	combout => \inst2|draw1|draw_ready~1_combout\);
+	dataa => \inst4|hex1[2]~4_combout\,
+	datab => \inst2|decoder1|en~5_combout\,
+	datac => \inst2|decoder1|en\(2),
+	datad => \inst2|decoder1|en~8_combout\,
+	combout => \inst2|decoder1|en~9_combout\);
 
--- Location: LCCOMB_X19_Y20_N16
-\inst2|decoder1|packet_num[0]~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|packet_num[0]~2_combout\ = (!\inst2|decoder1|spi_reset~0_combout\ & (!\inst2|decoder1|decode_comb~0_combout\ & (\reset~combout\ & \inst2|draw1|draw_ready~1_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0001000000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|spi_reset~0_combout\,
-	datab => \inst2|decoder1|decode_comb~0_combout\,
-	datac => \reset~combout\,
-	datad => \inst2|draw1|draw_ready~1_combout\,
-	combout => \inst2|decoder1|packet_num[0]~2_combout\);
-
--- Location: LCCOMB_X20_Y19_N28
-\inst2|decoder1|packet_num[2]~3\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|packet_num[2]~3_combout\ = (\inst2|decoder1|packet_num[0]~2_combout\ & (((\inst2|decoder1|packet_num\(2))))) # (!\inst2|decoder1|packet_num[0]~2_combout\ & (\inst2|decoder1|current_instruction~2_combout\ & (\inst2|decoder1|Add0~0_combout\ 
--- $ (\inst2|decoder1|packet_num\(2)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101001011000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|Add0~0_combout\,
-	datab => \inst2|decoder1|packet_num[0]~2_combout\,
-	datac => \inst2|decoder1|packet_num\(2),
-	datad => \inst2|decoder1|current_instruction~2_combout\,
-	combout => \inst2|decoder1|packet_num[2]~3_combout\);
-
--- Location: LCFF_X20_Y19_N29
-\inst2|decoder1|packet_num[2]\ : cycloneii_lcell_ff
+-- Location: LCFF_X40_Y19_N23
+\inst2|decoder1|en[2]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|packet_num[2]~3_combout\,
+	datain => \inst2|decoder1|en~9_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	ena => \inst2|decoder1|en~4_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|decoder1|packet_num\(2));
+	regout => \inst2|decoder1|en\(2));
 
--- Location: LCCOMB_X20_Y19_N16
-\inst4|Equal63~1\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X42_Y19_N22
+\inst2|draw1|rect1|cy_tmp[0]~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst4|Equal63~1_combout\ = (!\inst2|decoder1|packet_num\(2) & \inst2|decoder1|packet_num\(1))
+-- \inst2|draw1|rect1|cy_tmp[0]~0_combout\ = (\reset~combout\ & ((\inst2|decoder1|en\(1)) # (\inst2|decoder1|en\(2))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011001100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|decoder1|packet_num\(2),
-	datad => \inst2|decoder1|packet_num\(1),
-	combout => \inst4|Equal63~1_combout\);
-
--- Location: LCCOMB_X20_Y19_N4
-\inst2|decoder1|done~7\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|done~7_combout\ = (\inst2|decoder1|current_instruction\(2) & (!\inst4|Equal63~1_combout\ & ((!\inst2|decoder1|current_instruction\(0)) # (!\inst2|decoder1|current_instruction\(1)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000001000001010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(2),
-	datab => \inst2|decoder1|current_instruction\(1),
-	datac => \inst4|Equal63~1_combout\,
-	datad => \inst2|decoder1|current_instruction\(0),
-	combout => \inst2|decoder1|done~7_combout\);
-
--- Location: LCCOMB_X20_Y19_N0
-\inst2|decoder1|done~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|done~4_combout\ = (\inst2|decoder1|done~7_combout\ & ((\inst2|decoder1|packet_num\(1)) # (\inst2|decoder1|packet_num\(0) $ (!\inst2|decoder1|packet_num\(2)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000010010000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|packet_num\(0),
-	datab => \inst2|decoder1|packet_num\(2),
-	datac => \inst2|decoder1|done~7_combout\,
-	datad => \inst2|decoder1|packet_num\(1),
-	combout => \inst2|decoder1|done~4_combout\);
-
--- Location: LCCOMB_X20_Y20_N10
-\inst2|decoder1|done~5\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|done~5_combout\ = (\inst2|vgacontroller1|vgavsync~2_combout\ & (!\inst4|hex1[3]~7_combout\ & ((\inst2|decoder1|done~4_combout\) # (!\inst2|decoder1|current_instruction\(2))))) # (!\inst2|vgacontroller1|vgavsync~2_combout\ & 
--- ((\inst2|decoder1|done~4_combout\) # ((!\inst2|decoder1|current_instruction\(2)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0100110001011111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|vgavsync~2_combout\,
-	datab => \inst2|decoder1|done~4_combout\,
-	datac => \inst4|hex1[3]~7_combout\,
-	datad => \inst2|decoder1|current_instruction\(2),
-	combout => \inst2|decoder1|done~5_combout\);
-
--- Location: LCCOMB_X19_Y20_N4
-\inst2|decoder1|current_instruction[2]~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|current_instruction[2]~4_combout\ = (\inst2|decoder1|current_instruction[2]~0_combout\ & (\inst2|decoder1|decode_comb~0_combout\ & ((!\inst2|decoder1|done~5_combout\) # (!\inst2|decoder1|done~6_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010101000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|current_instruction[2]~0_combout\,
-	datab => \inst2|decoder1|done~6_combout\,
-	datac => \inst2|decoder1|done~5_combout\,
-	datad => \inst2|decoder1|decode_comb~0_combout\,
-	combout => \inst2|decoder1|current_instruction[2]~4_combout\);
-
--- Location: LCCOMB_X19_Y20_N18
-\inst2|decoder1|current_instruction[2]~5\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|current_instruction[2]~5_combout\ = ((!\inst2|decoder1|current_instruction[2]~4_combout\ & ((\inst2|decoder1|decode_comb~0_combout\) # (!\inst2|decoder1|en~3_combout\)))) # (!\reset~combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101110101011111",
+	lut_mask => "1010101010100000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \reset~combout\,
-	datab => \inst2|decoder1|decode_comb~0_combout\,
-	datac => \inst2|decoder1|current_instruction[2]~4_combout\,
-	datad => \inst2|decoder1|en~3_combout\,
-	combout => \inst2|decoder1|current_instruction[2]~5_combout\);
+	datac => \inst2|decoder1|en\(1),
+	datad => \inst2|decoder1|en\(2),
+	combout => \inst2|draw1|rect1|cy_tmp[0]~0_combout\);
 
--- Location: LCFF_X23_Y20_N1
-\inst2|decoder1|current_instruction[1]\ : cycloneii_lcell_ff
+-- Location: LCCOMB_X42_Y19_N8
+\inst2|draw1|rect1|started_tmp~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|started_tmp~0_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|started~regout\) # (\inst2|ramcontroller1|draw_can_access~0_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110011000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	datac => \inst2|draw1|rect1|started~regout\,
+	datad => \inst2|ramcontroller1|draw_can_access~0_combout\,
+	combout => \inst2|draw1|rect1|started_tmp~0_combout\);
+
+-- Location: LCFF_X42_Y19_N9
+\inst2|draw1|rect1|started\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|current_instruction~6_combout\,
-	ena => \inst2|decoder1|current_instruction[2]~5_combout\,
+	datain => \inst2|draw1|rect1|started_tmp~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|decoder1|current_instruction\(1));
+	regout => \inst2|draw1|rect1|started~regout\);
 
--- Location: LCCOMB_X20_Y19_N26
+-- Location: LCCOMB_X42_Y18_N2
 \inst2|decoder1|Equal0~1\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|decoder1|Equal0~1_combout\ = (!\inst2|decoder1|current_instruction\(2) & (\inst2|decoder1|current_instruction\(1) & \inst2|decoder1|current_instruction\(0)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100010000000000",
+	lut_mask => "0011000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(2),
-	datab => \inst2|decoder1|current_instruction\(1),
+	datab => \inst2|decoder1|current_instruction\(2),
+	datac => \inst2|decoder1|current_instruction\(1),
 	datad => \inst2|decoder1|current_instruction\(0),
 	combout => \inst2|decoder1|Equal0~1_combout\);
 
--- Location: LCCOMB_X20_Y19_N30
-\inst2|decoder1|done~6\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X36_Y19_N28
+\inst2|decoder1|en~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|done~6_combout\ = (\inst2|decoder1|packet_num\(2)) # ((\inst2|decoder1|packet_num\(0) $ (!\inst2|decoder1|packet_num\(1))) # (!\inst2|decoder1|Equal0~1_combout\))
+-- \inst2|decoder1|en~1_combout\ = (\inst2|decoder1|en\(0)) # ((\inst4|Equal63~1_combout\ & \inst2|decoder1|Equal0~1_combout\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111101110111111",
+	lut_mask => "1111101011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst4|Equal63~1_combout\,
+	datac => \inst2|decoder1|en\(0),
+	datad => \inst2|decoder1|Equal0~1_combout\,
+	combout => \inst2|decoder1|en~1_combout\);
+
+-- Location: LCCOMB_X42_Y18_N0
+\inst2|decoder1|Equal0~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|Equal0~0_combout\ = (\inst2|decoder1|current_instruction\(2)) # ((\inst2|decoder1|current_instruction\(1)) # (\inst2|decoder1|current_instruction\(0)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111111111100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|decoder1|current_instruction\(2),
+	datac => \inst2|decoder1|current_instruction\(1),
+	datad => \inst2|decoder1|current_instruction\(0),
+	combout => \inst2|decoder1|Equal0~0_combout\);
+
+-- Location: LCCOMB_X40_Y19_N24
+\inst2|decoder1|en~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|en~2_combout\ = (\inst2|decoder1|en~0_combout\ & (\inst2|decoder1|decode_comb~0_combout\ & (\inst2|decoder1|en~1_combout\ & \inst2|decoder1|Equal0~0_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|en~0_combout\,
+	datab => \inst2|decoder1|decode_comb~0_combout\,
+	datac => \inst2|decoder1|en~1_combout\,
+	datad => \inst2|decoder1|Equal0~0_combout\,
+	combout => \inst2|decoder1|en~2_combout\);
+
+-- Location: LCFF_X40_Y19_N25
+\inst2|decoder1|en[0]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|en~2_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	ena => \inst2|decoder1|en~4_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|en\(0));
+
+-- Location: LCCOMB_X42_Y19_N20
+\inst2|draw1|pixel1|draw_write~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|pixel1|draw_write~0_combout\ = (\reset~combout\ & (!\inst2|draw1|pixel1|busy~regout\ & (\inst2|decoder1|en\(0) & \inst2|ramcontroller1|draw_can_access~0_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0010000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \reset~combout\,
+	datab => \inst2|draw1|pixel1|busy~regout\,
+	datac => \inst2|decoder1|en\(0),
+	datad => \inst2|ramcontroller1|draw_can_access~0_combout\,
+	combout => \inst2|draw1|pixel1|draw_write~0_combout\);
+
+-- Location: LCFF_X42_Y19_N29
+\inst2|draw1|pixel1|busy\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|draw1|pixel1|draw_write~0_combout\,
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|pixel1|busy~regout\);
+
+-- Location: LCCOMB_X42_Y19_N16
+\inst2|draw1|pixel1|done~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|pixel1|done~0_combout\ = (\reset~combout\ & (\inst2|draw1|pixel1|busy~regout\ & (\inst2|decoder1|en\(0) & \inst2|ramcontroller1|draw_can_access~0_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \reset~combout\,
+	datab => \inst2|draw1|pixel1|busy~regout\,
+	datac => \inst2|decoder1|en\(0),
+	datad => \inst2|ramcontroller1|draw_can_access~0_combout\,
+	combout => \inst2|draw1|pixel1|done~0_combout\);
+
+-- Location: LCCOMB_X42_Y19_N28
+\inst2|vgacontroller1|ramaddr[15]~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[15]~4_combout\ = (\reset~combout\ & !\inst2|decoder1|decoder_claim~regout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000010101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \reset~combout\,
+	datad => \inst2|decoder1|decoder_claim~regout\,
+	combout => \inst2|vgacontroller1|ramaddr[15]~4_combout\);
+
+-- Location: LCCOMB_X42_Y19_N2
+\inst2|draw1|rect1|draw_write~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|draw_write~1_combout\ = (!\inst2|vgacontroller1|vga_combi~5_combout\ & (\inst2|vgacontroller1|ramaddr[15]~4_combout\ & ((\inst2|decoder1|en\(1)) # (\inst2|decoder1|en\(2)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101000001000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|vga_combi~5_combout\,
+	datab => \inst2|decoder1|en\(1),
+	datac => \inst2|vgacontroller1|ramaddr[15]~4_combout\,
+	datad => \inst2|decoder1|en\(2),
+	combout => \inst2|draw1|rect1|draw_write~1_combout\);
+
+-- Location: LCCOMB_X42_Y19_N30
+\inst2|draw1|draw_ready~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|draw_ready~0_combout\ = (!\inst2|draw1|pixel1|done~0_combout\ & (((!\inst2|draw1|rect1|draw_write~1_combout\) # (!\inst2|draw1|rect1|started~regout\)) # (!\inst2|draw1|rect1|almost_done~regout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000011100001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|almost_done~regout\,
+	datab => \inst2|draw1|rect1|started~regout\,
+	datac => \inst2|draw1|pixel1|done~0_combout\,
+	datad => \inst2|draw1|rect1|draw_write~1_combout\,
+	combout => \inst2|draw1|draw_ready~0_combout\);
+
+-- Location: LCCOMB_X42_Y19_N14
+\inst2|decoder1|timeout_count[4]~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|timeout_count[4]~2_combout\ = (\reset~combout\ & (!\inst2|decoder1|decode_comb~1_combout\ & (!\inst2|draw1|line1|done~0_combout\ & \inst2|draw1|draw_ready~0_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000001000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \reset~combout\,
+	datab => \inst2|decoder1|decode_comb~1_combout\,
+	datac => \inst2|draw1|line1|done~0_combout\,
+	datad => \inst2|draw1|draw_ready~0_combout\,
+	combout => \inst2|decoder1|timeout_count[4]~2_combout\);
+
+-- Location: LCCOMB_X42_Y16_N20
+\inst2|decoder1|timeout_count[4]~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|timeout_count[4]~3_combout\ = (!\inst2|decoder1|timeout_count[4]~2_combout\) # (!\inst2|decoder1|LessThan0~4_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111111111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|decoder1|LessThan0~4_combout\,
+	datad => \inst2|decoder1|timeout_count[4]~2_combout\,
+	combout => \inst2|decoder1|timeout_count[4]~3_combout\);
+
+-- Location: LCCOMB_X42_Y16_N22
+\inst2|decoder1|timeout_count[4]~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|timeout_count[4]~4_combout\ = (\inst2|decoder1|packet_num\(2)) # ((\inst2|decoder1|packet_num\(1)) # ((\inst2|decoder1|packet_num\(0)) # (!\inst2|decoder1|timeout_count[4]~2_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|packet_num\(2),
-	datab => \inst2|decoder1|Equal0~1_combout\,
+	datab => \inst2|decoder1|packet_num\(1),
 	datac => \inst2|decoder1|packet_num\(0),
-	datad => \inst2|decoder1|packet_num\(1),
-	combout => \inst2|decoder1|done~6_combout\);
+	datad => \inst2|decoder1|timeout_count[4]~2_combout\,
+	combout => \inst2|decoder1|timeout_count[4]~4_combout\);
 
--- Location: LCCOMB_X19_Y20_N2
-\inst2|decoder1|current_instruction~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|current_instruction~1_combout\ = (\inst2|decoder1|decode_comb~0_combout\ & (((!\inst2|decoder1|done~5_combout\) # (!\inst2|decoder1|done~6_combout\)) # (!\inst2|decoder1|current_instruction[2]~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|current_instruction[2]~0_combout\,
-	datab => \inst2|decoder1|done~6_combout\,
-	datac => \inst2|decoder1|done~5_combout\,
-	datad => \inst2|decoder1|decode_comb~0_combout\,
-	combout => \inst2|decoder1|current_instruction~1_combout\);
-
--- Location: LCCOMB_X23_Y20_N26
-\inst2|decoder1|current_instruction~7\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|current_instruction~7_combout\ = (!\inst2|spi1|spi_rx_data\(0) & (\reset~combout\ & \inst2|decoder1|current_instruction~1_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0100010000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|spi1|spi_rx_data\(0),
-	datab => \reset~combout\,
-	datad => \inst2|decoder1|current_instruction~1_combout\,
-	combout => \inst2|decoder1|current_instruction~7_combout\);
-
--- Location: LCFF_X23_Y20_N27
-\inst2|decoder1|current_instruction[0]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|current_instruction~7_combout\,
-	ena => \inst2|decoder1|current_instruction[2]~5_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|current_instruction\(0));
-
--- Location: LCCOMB_X19_Y20_N6
-\inst4|hex1[3]~7\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst4|hex1[3]~7_combout\ = (!\inst2|decoder1|current_instruction\(1) & (\inst2|decoder1|current_instruction\(0) & !\inst2|decoder1|current_instruction\(2)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000001010000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(1),
-	datac => \inst2|decoder1|current_instruction\(0),
-	datad => \inst2|decoder1|current_instruction\(2),
-	combout => \inst4|hex1[3]~7_combout\);
-
--- Location: LCCOMB_X20_Y20_N30
-\inst2|decoder1|decode_comb~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|decode_comb~0_combout\ = (\inst4|hex1[3]~7_combout\) # (((\inst2|spi1|spi_data_available~regout\ & !\inst2|decoder1|prev_spi_data_available~regout\)) # (!\inst4|hex1[2]~4_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111001011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|spi1|spi_data_available~regout\,
-	datab => \inst2|decoder1|prev_spi_data_available~regout\,
-	datac => \inst4|hex1[3]~7_combout\,
-	datad => \inst4|hex1[2]~4_combout\,
-	combout => \inst2|decoder1|decode_comb~0_combout\);
-
--- Location: LCCOMB_X5_Y20_N0
-\inst2|decoder1|Add1~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|Add1~0_combout\ = \inst2|decoder1|timeout_count\(0) $ (VCC)
--- \inst2|decoder1|Add1~1\ = CARRY(\inst2|decoder1|timeout_count\(0))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011001111001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|decoder1|timeout_count\(0),
-	datad => VCC,
-	combout => \inst2|decoder1|Add1~0_combout\,
-	cout => \inst2|decoder1|Add1~1\);
-
--- Location: LCCOMB_X5_Y20_N4
-\inst2|decoder1|Add1~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|Add1~4_combout\ = (\inst2|decoder1|timeout_count\(2) & (\inst2|decoder1|Add1~3\ $ (GND))) # (!\inst2|decoder1|timeout_count\(2) & (!\inst2|decoder1|Add1~3\ & VCC))
--- \inst2|decoder1|Add1~5\ = CARRY((\inst2|decoder1|timeout_count\(2) & !\inst2|decoder1|Add1~3\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100001100001100",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|decoder1|timeout_count\(2),
-	datad => VCC,
-	cin => \inst2|decoder1|Add1~3\,
-	combout => \inst2|decoder1|Add1~4_combout\,
-	cout => \inst2|decoder1|Add1~5\);
-
--- Location: LCCOMB_X5_Y20_N6
-\inst2|decoder1|Add1~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|Add1~6_combout\ = (\inst2|decoder1|timeout_count\(3) & (!\inst2|decoder1|Add1~5\)) # (!\inst2|decoder1|timeout_count\(3) & ((\inst2|decoder1|Add1~5\) # (GND)))
--- \inst2|decoder1|Add1~7\ = CARRY((!\inst2|decoder1|Add1~5\) # (!\inst2|decoder1|timeout_count\(3)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101101001011111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|timeout_count\(3),
-	datad => VCC,
-	cin => \inst2|decoder1|Add1~5\,
-	combout => \inst2|decoder1|Add1~6_combout\,
-	cout => \inst2|decoder1|Add1~7\);
-
--- Location: LCCOMB_X5_Y20_N8
-\inst2|decoder1|Add1~8\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|Add1~8_combout\ = (\inst2|decoder1|timeout_count\(4) & (\inst2|decoder1|Add1~7\ $ (GND))) # (!\inst2|decoder1|timeout_count\(4) & (!\inst2|decoder1|Add1~7\ & VCC))
--- \inst2|decoder1|Add1~9\ = CARRY((\inst2|decoder1|timeout_count\(4) & !\inst2|decoder1|Add1~7\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100001100001100",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|decoder1|timeout_count\(4),
-	datad => VCC,
-	cin => \inst2|decoder1|Add1~7\,
-	combout => \inst2|decoder1|Add1~8_combout\,
-	cout => \inst2|decoder1|Add1~9\);
-
--- Location: LCCOMB_X23_Y20_N2
-\inst4|hex0[0]~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst4|hex0[0]~6_combout\ = (!\inst2|decoder1|packet_num\(0) & (!\inst2|decoder1|packet_num\(2) & !\inst2|decoder1|packet_num\(1)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000101",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|packet_num\(0),
-	datac => \inst2|decoder1|packet_num\(2),
-	datad => \inst2|decoder1|packet_num\(1),
-	combout => \inst4|hex0[0]~6_combout\);
-
--- Location: LCCOMB_X19_Y20_N30
-\inst2|decoder1|timeout_count[13]~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|timeout_count[13]~2_combout\ = ((\inst2|decoder1|decode_comb~0_combout\) # ((!\inst2|draw1|draw_ready~1_combout\) # (!\inst4|hex0[0]~6_combout\))) # (!\reset~combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101111111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \reset~combout\,
-	datab => \inst2|decoder1|decode_comb~0_combout\,
-	datac => \inst4|hex0[0]~6_combout\,
-	datad => \inst2|draw1|draw_ready~1_combout\,
-	combout => \inst2|decoder1|timeout_count[13]~2_combout\);
-
--- Location: LCFF_X5_Y20_N9
-\inst2|decoder1|timeout_count[4]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|Add1~8_combout\,
-	sclr => \inst2|decoder1|timeout_count[13]~1_combout\,
-	ena => \inst2|decoder1|timeout_count[13]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|timeout_count\(4));
-
--- Location: LCCOMB_X5_Y20_N12
-\inst2|decoder1|Add1~12\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|Add1~12_combout\ = (\inst2|decoder1|timeout_count\(6) & (\inst2|decoder1|Add1~11\ $ (GND))) # (!\inst2|decoder1|timeout_count\(6) & (!\inst2|decoder1|Add1~11\ & VCC))
--- \inst2|decoder1|Add1~13\ = CARRY((\inst2|decoder1|timeout_count\(6) & !\inst2|decoder1|Add1~11\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010010100001010",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|timeout_count\(6),
-	datad => VCC,
-	cin => \inst2|decoder1|Add1~11\,
-	combout => \inst2|decoder1|Add1~12_combout\,
-	cout => \inst2|decoder1|Add1~13\);
-
--- Location: LCCOMB_X5_Y20_N14
-\inst2|decoder1|Add1~14\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|Add1~14_combout\ = (\inst2|decoder1|timeout_count\(7) & (!\inst2|decoder1|Add1~13\)) # (!\inst2|decoder1|timeout_count\(7) & ((\inst2|decoder1|Add1~13\) # (GND)))
--- \inst2|decoder1|Add1~15\ = CARRY((!\inst2|decoder1|Add1~13\) # (!\inst2|decoder1|timeout_count\(7)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011110000111111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|decoder1|timeout_count\(7),
-	datad => VCC,
-	cin => \inst2|decoder1|Add1~13\,
-	combout => \inst2|decoder1|Add1~14_combout\,
-	cout => \inst2|decoder1|Add1~15\);
-
--- Location: LCFF_X5_Y20_N15
-\inst2|decoder1|timeout_count[7]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|Add1~14_combout\,
-	sclr => \inst2|decoder1|timeout_count[13]~1_combout\,
-	ena => \inst2|decoder1|timeout_count[13]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|timeout_count\(7));
-
--- Location: LCCOMB_X5_Y20_N16
-\inst2|decoder1|Add1~16\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|Add1~16_combout\ = (\inst2|decoder1|timeout_count\(8) & (\inst2|decoder1|Add1~15\ $ (GND))) # (!\inst2|decoder1|timeout_count\(8) & (!\inst2|decoder1|Add1~15\ & VCC))
--- \inst2|decoder1|Add1~17\ = CARRY((\inst2|decoder1|timeout_count\(8) & !\inst2|decoder1|Add1~15\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010010100001010",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|timeout_count\(8),
-	datad => VCC,
-	cin => \inst2|decoder1|Add1~15\,
-	combout => \inst2|decoder1|Add1~16_combout\,
-	cout => \inst2|decoder1|Add1~17\);
-
--- Location: LCCOMB_X5_Y20_N18
-\inst2|decoder1|Add1~18\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|Add1~18_combout\ = (\inst2|decoder1|timeout_count\(9) & (!\inst2|decoder1|Add1~17\)) # (!\inst2|decoder1|timeout_count\(9) & ((\inst2|decoder1|Add1~17\) # (GND)))
--- \inst2|decoder1|Add1~19\ = CARRY((!\inst2|decoder1|Add1~17\) # (!\inst2|decoder1|timeout_count\(9)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011110000111111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|decoder1|timeout_count\(9),
-	datad => VCC,
-	cin => \inst2|decoder1|Add1~17\,
-	combout => \inst2|decoder1|Add1~18_combout\,
-	cout => \inst2|decoder1|Add1~19\);
-
--- Location: LCFF_X5_Y20_N19
-\inst2|decoder1|timeout_count[9]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|Add1~18_combout\,
-	sclr => \inst2|decoder1|timeout_count[13]~1_combout\,
-	ena => \inst2|decoder1|timeout_count[13]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|timeout_count\(9));
-
--- Location: LCCOMB_X5_Y20_N20
-\inst2|decoder1|Add1~20\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|Add1~20_combout\ = (\inst2|decoder1|timeout_count\(10) & (\inst2|decoder1|Add1~19\ $ (GND))) # (!\inst2|decoder1|timeout_count\(10) & (!\inst2|decoder1|Add1~19\ & VCC))
--- \inst2|decoder1|Add1~21\ = CARRY((\inst2|decoder1|timeout_count\(10) & !\inst2|decoder1|Add1~19\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010010100001010",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|timeout_count\(10),
-	datad => VCC,
-	cin => \inst2|decoder1|Add1~19\,
-	combout => \inst2|decoder1|Add1~20_combout\,
-	cout => \inst2|decoder1|Add1~21\);
-
--- Location: LCFF_X5_Y20_N21
-\inst2|decoder1|timeout_count[10]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|Add1~20_combout\,
-	sclr => \inst2|decoder1|timeout_count[13]~1_combout\,
-	ena => \inst2|decoder1|timeout_count[13]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|timeout_count\(10));
-
--- Location: LCFF_X5_Y20_N13
-\inst2|decoder1|timeout_count[6]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|Add1~12_combout\,
-	sclr => \inst2|decoder1|timeout_count[13]~1_combout\,
-	ena => \inst2|decoder1|timeout_count[13]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|timeout_count\(6));
-
--- Location: LCCOMB_X4_Y20_N0
-\inst2|decoder1|LessThan0~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|LessThan0~0_combout\ = (((!\inst2|decoder1|timeout_count\(9)) # (!\inst2|decoder1|timeout_count\(6))) # (!\inst2|decoder1|timeout_count\(10))) # (!\inst2|decoder1|timeout_count\(13))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0111111111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|timeout_count\(13),
-	datab => \inst2|decoder1|timeout_count\(10),
-	datac => \inst2|decoder1|timeout_count\(6),
-	datad => \inst2|decoder1|timeout_count\(9),
-	combout => \inst2|decoder1|LessThan0~0_combout\);
-
--- Location: LCCOMB_X19_Y20_N20
-\inst2|decoder1|timeout_count[13]~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|timeout_count[13]~0_combout\ = (\reset~combout\ & (!\inst2|decoder1|decode_comb~0_combout\ & \inst2|draw1|draw_ready~1_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010001000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \reset~combout\,
-	datab => \inst2|decoder1|decode_comb~0_combout\,
-	datad => \inst2|draw1|draw_ready~1_combout\,
-	combout => \inst2|decoder1|timeout_count[13]~0_combout\);
-
--- Location: LCCOMB_X10_Y20_N6
-\inst2|decoder1|timeout_count[13]~1\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|timeout_count[13]~1_combout\ = ((!\inst2|decoder1|LessThan0~3_combout\ & (!\inst2|decoder1|LessThan0~1_combout\ & !\inst2|decoder1|LessThan0~0_combout\))) # (!\inst2|decoder1|timeout_count[13]~0_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|LessThan0~3_combout\,
-	datab => \inst2|decoder1|LessThan0~1_combout\,
-	datac => \inst2|decoder1|LessThan0~0_combout\,
-	datad => \inst2|decoder1|timeout_count[13]~0_combout\,
-	combout => \inst2|decoder1|timeout_count[13]~1_combout\);
-
--- Location: LCFF_X5_Y20_N1
+-- Location: LCFF_X1_Y20_N3
 \inst2|decoder1|timeout_count[0]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
 	datain => \inst2|decoder1|Add1~0_combout\,
-	sclr => \inst2|decoder1|timeout_count[13]~1_combout\,
-	ena => \inst2|decoder1|timeout_count[13]~2_combout\,
+	sclr => \inst2|decoder1|timeout_count[4]~3_combout\,
+	ena => \inst2|decoder1|timeout_count[4]~4_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	regout => \inst2|decoder1|timeout_count\(0));
 
--- Location: LCCOMB_X5_Y20_N2
+-- Location: LCCOMB_X1_Y20_N4
 \inst2|decoder1|Add1~2\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|decoder1|Add1~2_combout\ = (\inst2|decoder1|timeout_count\(1) & (!\inst2|decoder1|Add1~1\)) # (!\inst2|decoder1|timeout_count\(1) & ((\inst2|decoder1|Add1~1\) # (GND)))
@@ -9352,43 +8097,275 @@ PORT MAP (
 	combout => \inst2|decoder1|Add1~2_combout\,
 	cout => \inst2|decoder1|Add1~3\);
 
--- Location: LCFF_X5_Y20_N3
+-- Location: LCFF_X1_Y20_N5
 \inst2|decoder1|timeout_count[1]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
 	datain => \inst2|decoder1|Add1~2_combout\,
-	sclr => \inst2|decoder1|timeout_count[13]~1_combout\,
-	ena => \inst2|decoder1|timeout_count[13]~2_combout\,
+	sclr => \inst2|decoder1|timeout_count[4]~3_combout\,
+	ena => \inst2|decoder1|timeout_count[4]~4_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	regout => \inst2|decoder1|timeout_count\(1));
 
--- Location: LCFF_X5_Y20_N5
-\inst2|decoder1|timeout_count[2]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|Add1~4_combout\,
-	sclr => \inst2|decoder1|timeout_count[13]~1_combout\,
-	ena => \inst2|decoder1|timeout_count[13]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|timeout_count\(2));
+-- Location: LCCOMB_X1_Y20_N8
+\inst2|decoder1|Add1~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|Add1~6_combout\ = (\inst2|decoder1|timeout_count\(3) & (!\inst2|decoder1|Add1~5\)) # (!\inst2|decoder1|timeout_count\(3) & ((\inst2|decoder1|Add1~5\) # (GND)))
+-- \inst2|decoder1|Add1~7\ = CARRY((!\inst2|decoder1|Add1~5\) # (!\inst2|decoder1|timeout_count\(3)))
 
--- Location: LCFF_X5_Y20_N7
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011110000111111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|decoder1|timeout_count\(3),
+	datad => VCC,
+	cin => \inst2|decoder1|Add1~5\,
+	combout => \inst2|decoder1|Add1~6_combout\,
+	cout => \inst2|decoder1|Add1~7\);
+
+-- Location: LCFF_X1_Y20_N9
 \inst2|decoder1|timeout_count[3]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
 	datain => \inst2|decoder1|Add1~6_combout\,
-	sclr => \inst2|decoder1|timeout_count[13]~1_combout\,
-	ena => \inst2|decoder1|timeout_count[13]~2_combout\,
+	sclr => \inst2|decoder1|timeout_count[4]~3_combout\,
+	ena => \inst2|decoder1|timeout_count[4]~4_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	regout => \inst2|decoder1|timeout_count\(3));
 
--- Location: LCCOMB_X6_Y20_N16
+-- Location: LCCOMB_X1_Y20_N10
+\inst2|decoder1|Add1~8\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|Add1~8_combout\ = (\inst2|decoder1|timeout_count\(4) & (\inst2|decoder1|Add1~7\ $ (GND))) # (!\inst2|decoder1|timeout_count\(4) & (!\inst2|decoder1|Add1~7\ & VCC))
+-- \inst2|decoder1|Add1~9\ = CARRY((\inst2|decoder1|timeout_count\(4) & !\inst2|decoder1|Add1~7\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010010100001010",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|timeout_count\(4),
+	datad => VCC,
+	cin => \inst2|decoder1|Add1~7\,
+	combout => \inst2|decoder1|Add1~8_combout\,
+	cout => \inst2|decoder1|Add1~9\);
+
+-- Location: LCCOMB_X1_Y20_N14
+\inst2|decoder1|Add1~12\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|Add1~12_combout\ = (\inst2|decoder1|timeout_count\(6) & (\inst2|decoder1|Add1~11\ $ (GND))) # (!\inst2|decoder1|timeout_count\(6) & (!\inst2|decoder1|Add1~11\ & VCC))
+-- \inst2|decoder1|Add1~13\ = CARRY((\inst2|decoder1|timeout_count\(6) & !\inst2|decoder1|Add1~11\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100001100001100",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|decoder1|timeout_count\(6),
+	datad => VCC,
+	cin => \inst2|decoder1|Add1~11\,
+	combout => \inst2|decoder1|Add1~12_combout\,
+	cout => \inst2|decoder1|Add1~13\);
+
+-- Location: LCFF_X1_Y20_N15
+\inst2|decoder1|timeout_count[6]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|Add1~12_combout\,
+	sclr => \inst2|decoder1|timeout_count[4]~3_combout\,
+	ena => \inst2|decoder1|timeout_count[4]~4_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|timeout_count\(6));
+
+-- Location: LCCOMB_X1_Y20_N16
+\inst2|decoder1|Add1~14\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|Add1~14_combout\ = (\inst2|decoder1|timeout_count\(7) & (!\inst2|decoder1|Add1~13\)) # (!\inst2|decoder1|timeout_count\(7) & ((\inst2|decoder1|Add1~13\) # (GND)))
+-- \inst2|decoder1|Add1~15\ = CARRY((!\inst2|decoder1|Add1~13\) # (!\inst2|decoder1|timeout_count\(7)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101101001011111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|timeout_count\(7),
+	datad => VCC,
+	cin => \inst2|decoder1|Add1~13\,
+	combout => \inst2|decoder1|Add1~14_combout\,
+	cout => \inst2|decoder1|Add1~15\);
+
+-- Location: LCCOMB_X1_Y20_N18
+\inst2|decoder1|Add1~16\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|Add1~16_combout\ = (\inst2|decoder1|timeout_count\(8) & (\inst2|decoder1|Add1~15\ $ (GND))) # (!\inst2|decoder1|timeout_count\(8) & (!\inst2|decoder1|Add1~15\ & VCC))
+-- \inst2|decoder1|Add1~17\ = CARRY((\inst2|decoder1|timeout_count\(8) & !\inst2|decoder1|Add1~15\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100001100001100",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|decoder1|timeout_count\(8),
+	datad => VCC,
+	cin => \inst2|decoder1|Add1~15\,
+	combout => \inst2|decoder1|Add1~16_combout\,
+	cout => \inst2|decoder1|Add1~17\);
+
+-- Location: LCFF_X1_Y20_N19
+\inst2|decoder1|timeout_count[8]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|Add1~16_combout\,
+	sclr => \inst2|decoder1|timeout_count[4]~3_combout\,
+	ena => \inst2|decoder1|timeout_count[4]~4_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|timeout_count\(8));
+
+-- Location: LCCOMB_X1_Y20_N20
+\inst2|decoder1|Add1~18\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|Add1~18_combout\ = (\inst2|decoder1|timeout_count\(9) & (!\inst2|decoder1|Add1~17\)) # (!\inst2|decoder1|timeout_count\(9) & ((\inst2|decoder1|Add1~17\) # (GND)))
+-- \inst2|decoder1|Add1~19\ = CARRY((!\inst2|decoder1|Add1~17\) # (!\inst2|decoder1|timeout_count\(9)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101101001011111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|timeout_count\(9),
+	datad => VCC,
+	cin => \inst2|decoder1|Add1~17\,
+	combout => \inst2|decoder1|Add1~18_combout\,
+	cout => \inst2|decoder1|Add1~19\);
+
+-- Location: LCCOMB_X1_Y20_N22
+\inst2|decoder1|Add1~20\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|Add1~20_combout\ = (\inst2|decoder1|timeout_count\(10) & (\inst2|decoder1|Add1~19\ $ (GND))) # (!\inst2|decoder1|timeout_count\(10) & (!\inst2|decoder1|Add1~19\ & VCC))
+-- \inst2|decoder1|Add1~21\ = CARRY((\inst2|decoder1|timeout_count\(10) & !\inst2|decoder1|Add1~19\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100001100001100",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|decoder1|timeout_count\(10),
+	datad => VCC,
+	cin => \inst2|decoder1|Add1~19\,
+	combout => \inst2|decoder1|Add1~20_combout\,
+	cout => \inst2|decoder1|Add1~21\);
+
+-- Location: LCFF_X1_Y20_N23
+\inst2|decoder1|timeout_count[10]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|Add1~20_combout\,
+	sclr => \inst2|decoder1|timeout_count[4]~3_combout\,
+	ena => \inst2|decoder1|timeout_count[4]~4_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|timeout_count\(10));
+
+-- Location: LCCOMB_X1_Y20_N24
+\inst2|decoder1|Add1~22\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|Add1~22_combout\ = (\inst2|decoder1|timeout_count\(11) & (!\inst2|decoder1|Add1~21\)) # (!\inst2|decoder1|timeout_count\(11) & ((\inst2|decoder1|Add1~21\) # (GND)))
+-- \inst2|decoder1|Add1~23\ = CARRY((!\inst2|decoder1|Add1~21\) # (!\inst2|decoder1|timeout_count\(11)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101101001011111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|timeout_count\(11),
+	datad => VCC,
+	cin => \inst2|decoder1|Add1~21\,
+	combout => \inst2|decoder1|Add1~22_combout\,
+	cout => \inst2|decoder1|Add1~23\);
+
+-- Location: LCCOMB_X1_Y20_N26
+\inst2|decoder1|Add1~24\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|Add1~24_combout\ = (\inst2|decoder1|timeout_count\(12) & (\inst2|decoder1|Add1~23\ $ (GND))) # (!\inst2|decoder1|timeout_count\(12) & (!\inst2|decoder1|Add1~23\ & VCC))
+-- \inst2|decoder1|Add1~25\ = CARRY((\inst2|decoder1|timeout_count\(12) & !\inst2|decoder1|Add1~23\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100001100001100",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|decoder1|timeout_count\(12),
+	datad => VCC,
+	cin => \inst2|decoder1|Add1~23\,
+	combout => \inst2|decoder1|Add1~24_combout\,
+	cout => \inst2|decoder1|Add1~25\);
+
+-- Location: LCFF_X1_Y20_N27
+\inst2|decoder1|timeout_count[12]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|Add1~24_combout\,
+	sclr => \inst2|decoder1|timeout_count[4]~3_combout\,
+	ena => \inst2|decoder1|timeout_count[4]~4_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|timeout_count\(12));
+
+-- Location: LCCOMB_X2_Y20_N0
+\inst2|decoder1|LessThan0~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|LessThan0~3_combout\ = (!\inst2|decoder1|timeout_count\(12)) # (!\inst2|decoder1|timeout_count\(0))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101010111111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|timeout_count\(0),
+	datad => \inst2|decoder1|timeout_count\(12),
+	combout => \inst2|decoder1|LessThan0~3_combout\);
+
+-- Location: LCFF_X1_Y20_N17
+\inst2|decoder1|timeout_count[7]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|Add1~14_combout\,
+	sclr => \inst2|decoder1|timeout_count[4]~3_combout\,
+	ena => \inst2|decoder1|timeout_count[4]~4_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|timeout_count\(7));
+
+-- Location: LCFF_X1_Y20_N11
+\inst2|decoder1|timeout_count[4]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|Add1~8_combout\,
+	sclr => \inst2|decoder1|timeout_count[4]~3_combout\,
+	ena => \inst2|decoder1|timeout_count[4]~4_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|timeout_count\(4));
+
+-- Location: LCCOMB_X1_Y20_N0
 \inst2|decoder1|LessThan0~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|LessThan0~1_combout\ = (((!\inst2|decoder1|timeout_count\(4)) # (!\inst2|decoder1|timeout_count\(3))) # (!\inst2|decoder1|timeout_count\(2))) # (!\inst2|decoder1|timeout_count\(5))
+-- \inst2|decoder1|LessThan0~1_combout\ = (((!\inst2|decoder1|timeout_count\(4)) # (!\inst2|decoder1|timeout_count\(7))) # (!\inst2|decoder1|timeout_count\(1))) # (!\inst2|decoder1|timeout_count\(2))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -9396,112 +8373,401 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|timeout_count\(5),
-	datab => \inst2|decoder1|timeout_count\(2),
-	datac => \inst2|decoder1|timeout_count\(3),
+	dataa => \inst2|decoder1|timeout_count\(2),
+	datab => \inst2|decoder1|timeout_count\(1),
+	datac => \inst2|decoder1|timeout_count\(7),
 	datad => \inst2|decoder1|timeout_count\(4),
 	combout => \inst2|decoder1|LessThan0~1_combout\);
 
--- Location: LCCOMB_X10_Y20_N0
-\inst2|decoder1|spi_reset~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X1_Y20_N28
+\inst2|decoder1|Add1~26\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|spi_reset~0_combout\ = (!\inst2|decoder1|LessThan0~3_combout\ & (!\inst2|decoder1|LessThan0~1_combout\ & (!\inst2|decoder1|LessThan0~0_combout\ & !\inst4|hex0[0]~6_combout\)))
+-- \inst2|decoder1|Add1~26_combout\ = \inst2|decoder1|Add1~25\ $ (\inst2|decoder1|timeout_count\(13))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000000000001",
-	sum_lutc_input => "datac")
+	lut_mask => "0000111111110000",
+	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|LessThan0~3_combout\,
-	datab => \inst2|decoder1|LessThan0~1_combout\,
-	datac => \inst2|decoder1|LessThan0~0_combout\,
-	datad => \inst4|hex0[0]~6_combout\,
-	combout => \inst2|decoder1|spi_reset~0_combout\);
+	datad => \inst2|decoder1|timeout_count\(13),
+	cin => \inst2|decoder1|Add1~25\,
+	combout => \inst2|decoder1|Add1~26_combout\);
 
--- Location: LCCOMB_X24_Y20_N2
-\inst2|sreset\ : cycloneii_lcell_comb
+-- Location: LCFF_X1_Y20_N29
+\inst2|decoder1|timeout_count[13]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|Add1~26_combout\,
+	sclr => \inst2|decoder1|timeout_count[4]~3_combout\,
+	ena => \inst2|decoder1|timeout_count[4]~4_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|timeout_count\(13));
+
+-- Location: LCFF_X1_Y20_N21
+\inst2|decoder1|timeout_count[9]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|Add1~18_combout\,
+	sclr => \inst2|decoder1|timeout_count[4]~3_combout\,
+	ena => \inst2|decoder1|timeout_count[4]~4_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|timeout_count\(9));
+
+-- Location: LCCOMB_X1_Y23_N24
+\inst2|decoder1|LessThan0~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|sreset~combout\ = (\inst2|sreset~0_combout\) # ((!\inst2|decoder1|decode_comb~0_combout\ & (\inst2|draw1|draw_ready~1_combout\ & \inst2|decoder1|spi_reset~0_combout\)))
+-- \inst2|decoder1|LessThan0~0_combout\ = (((!\inst2|decoder1|timeout_count\(10)) # (!\inst2|decoder1|timeout_count\(9))) # (!\inst2|decoder1|timeout_count\(13))) # (!\inst2|decoder1|timeout_count\(6))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1011101010101010",
+	lut_mask => "0111111111111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|sreset~0_combout\,
+	dataa => \inst2|decoder1|timeout_count\(6),
+	datab => \inst2|decoder1|timeout_count\(13),
+	datac => \inst2|decoder1|timeout_count\(9),
+	datad => \inst2|decoder1|timeout_count\(10),
+	combout => \inst2|decoder1|LessThan0~0_combout\);
+
+-- Location: LCCOMB_X2_Y20_N26
+\inst2|decoder1|LessThan0~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|LessThan0~4_combout\ = (\inst2|decoder1|LessThan0~2_combout\) # ((\inst2|decoder1|LessThan0~3_combout\) # ((\inst2|decoder1|LessThan0~1_combout\) # (\inst2|decoder1|LessThan0~0_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111111111110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|LessThan0~2_combout\,
+	datab => \inst2|decoder1|LessThan0~3_combout\,
+	datac => \inst2|decoder1|LessThan0~1_combout\,
+	datad => \inst2|decoder1|LessThan0~0_combout\,
+	combout => \inst2|decoder1|LessThan0~4_combout\);
+
+-- Location: LCCOMB_X42_Y16_N0
+\inst2|decoder1|packet_num[2]~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|packet_num[2]~2_combout\ = (\inst2|decoder1|timeout_count[4]~2_combout\ & ((\inst2|decoder1|LessThan0~4_combout\) # (\inst4|hex0[0]~6_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|decoder1|LessThan0~4_combout\,
+	datac => \inst4|hex0[0]~6_combout\,
+	datad => \inst2|decoder1|timeout_count[4]~2_combout\,
+	combout => \inst2|decoder1|packet_num[2]~2_combout\);
+
+-- Location: LCCOMB_X42_Y16_N28
+\inst2|decoder1|packet_num[0]~5\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|packet_num[0]~5_combout\ = (\inst2|decoder1|packet_num[2]~2_combout\ & (((\inst2|decoder1|packet_num\(0))))) # (!\inst2|decoder1|packet_num[2]~2_combout\ & (\reset~combout\ & (!\inst2|decoder1|packet_num\(0) & 
+-- \inst2|decoder1|current_instruction~1_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100001011000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \reset~combout\,
+	datab => \inst2|decoder1|packet_num[2]~2_combout\,
+	datac => \inst2|decoder1|packet_num\(0),
+	datad => \inst2|decoder1|current_instruction~1_combout\,
+	combout => \inst2|decoder1|packet_num[0]~5_combout\);
+
+-- Location: LCFF_X42_Y16_N29
+\inst2|decoder1|packet_num[0]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|packet_num[0]~5_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|packet_num\(0));
+
+-- Location: LCCOMB_X42_Y16_N14
+\inst4|hex0[0]~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst4|hex0[0]~6_combout\ = (!\inst2|decoder1|packet_num\(2) & (!\inst2|decoder1|packet_num\(0) & !\inst2|decoder1|packet_num\(1)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000010001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|packet_num\(2),
+	datab => \inst2|decoder1|packet_num\(0),
+	datad => \inst2|decoder1|packet_num\(1),
+	combout => \inst4|hex0[0]~6_combout\);
+
+-- Location: LCCOMB_X42_Y16_N24
+\inst2|decoder1|en~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|en~3_combout\ = (\inst2|draw1|draw_ready~0_combout\ & (!\inst2|draw1|line1|done~0_combout\ & ((\inst4|hex0[0]~6_combout\) # (\inst2|decoder1|LessThan0~4_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000010101000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|draw_ready~0_combout\,
+	datab => \inst4|hex0[0]~6_combout\,
+	datac => \inst2|decoder1|LessThan0~4_combout\,
+	datad => \inst2|draw1|line1|done~0_combout\,
+	combout => \inst2|decoder1|en~3_combout\);
+
+-- Location: LCCOMB_X36_Y19_N30
+\inst4|Equal63~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst4|Equal63~2_combout\ = (\inst2|decoder1|packet_num\(0) & (!\inst2|decoder1|packet_num\(1) & !\inst2|decoder1|packet_num\(2)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|decoder1|packet_num\(0),
+	datac => \inst2|decoder1|packet_num\(1),
+	datad => \inst2|decoder1|packet_num\(2),
+	combout => \inst4|Equal63~2_combout\);
+
+-- Location: LCCOMB_X36_Y19_N2
+\inst2|decoder1|done~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|done~0_combout\ = (\inst2|decoder1|packet_num\(2)) # (!\inst2|decoder1|packet_num\(1))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|decoder1|packet_num\(1),
+	datad => \inst2|decoder1|packet_num\(2),
+	combout => \inst2|decoder1|done~0_combout\);
+
+-- Location: LCCOMB_X35_Y19_N30
+\inst2|decoder1|done~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|done~1_combout\ = (\inst2|decoder1|current_instruction\(2) & (\inst2|decoder1|done~0_combout\ & ((!\inst2|decoder1|current_instruction\(0)) # (!\inst2|decoder1|current_instruction\(1)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0010101000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|current_instruction\(2),
+	datab => \inst2|decoder1|current_instruction\(1),
+	datac => \inst2|decoder1|current_instruction\(0),
+	datad => \inst2|decoder1|done~0_combout\,
+	combout => \inst2|decoder1|done~1_combout\);
+
+-- Location: LCCOMB_X36_Y19_N26
+\inst2|decoder1|done~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|done~2_combout\ = ((!\inst4|Equal63~2_combout\ & (\inst2|decoder1|done~1_combout\ & !\inst4|Equal63~3_combout\))) # (!\inst2|decoder1|current_instruction\(2))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101010101110101",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|current_instruction\(2),
+	datab => \inst4|Equal63~2_combout\,
+	datac => \inst2|decoder1|done~1_combout\,
+	datad => \inst4|Equal63~3_combout\,
+	combout => \inst2|decoder1|done~2_combout\);
+
+-- Location: LCCOMB_X43_Y16_N4
+\inst2|decoder1|next_int_ready~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|next_int_ready~3_combout\ = (!\inst2|spi1|do_buffer_reg\(3) & !\inst2|spi1|do_buffer_reg\(4))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|spi1|do_buffer_reg\(3),
+	datad => \inst2|spi1|do_buffer_reg\(4),
+	combout => \inst2|decoder1|next_int_ready~3_combout\);
+
+-- Location: LCCOMB_X43_Y16_N26
+\inst2|decoder1|next_int_ready~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|next_int_ready~2_combout\ = (!\inst2|spi1|do_buffer_reg\(6) & (!\inst2|spi1|do_buffer_reg\(5) & ((!\inst2|spi1|do_buffer_reg\(2)) # (!\inst2|spi1|do_buffer_reg\(1)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000000111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|spi1|do_buffer_reg\(1),
+	datab => \inst2|spi1|do_buffer_reg\(2),
+	datac => \inst2|spi1|do_buffer_reg\(6),
+	datad => \inst2|spi1|do_buffer_reg\(5),
+	combout => \inst2|decoder1|next_int_ready~2_combout\);
+
+-- Location: LCCOMB_X43_Y16_N20
+\inst2|decoder1|next_int_ready~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|next_int_ready~4_combout\ = (\inst4|hex0[0]~6_combout\ & (\inst2|decoder1|next_int_ready~3_combout\ & (!\inst2|spi1|do_buffer_reg\(7) & \inst2|decoder1|next_int_ready~2_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000100000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst4|hex0[0]~6_combout\,
+	datab => \inst2|decoder1|next_int_ready~3_combout\,
+	datac => \inst2|spi1|do_buffer_reg\(7),
+	datad => \inst2|decoder1|next_int_ready~2_combout\,
+	combout => \inst2|decoder1|next_int_ready~4_combout\);
+
+-- Location: LCCOMB_X43_Y16_N10
+\inst2|decoder1|current_instruction[2]~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|current_instruction[2]~0_combout\ = (\inst2|decoder1|current_instruction\(1)) # ((\inst2|decoder1|current_instruction\(2)) # ((\inst2|decoder1|current_instruction\(0)) # (!\inst2|decoder1|next_int_ready~4_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111111101111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst2|decoder1|current_instruction\(2),
+	datac => \inst2|decoder1|next_int_ready~4_combout\,
+	datad => \inst2|decoder1|current_instruction\(0),
+	combout => \inst2|decoder1|current_instruction[2]~0_combout\);
+
+-- Location: LCCOMB_X43_Y16_N12
+\inst2|decoder1|current_instruction[2]~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|current_instruction[2]~4_combout\ = (\inst2|decoder1|decode_comb~1_combout\ & (\inst2|decoder1|current_instruction[2]~0_combout\ & ((!\inst2|decoder1|done~2_combout\) # (!\inst2|decoder1|done~3_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0100110000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|done~3_combout\,
+	datab => \inst2|decoder1|decode_comb~1_combout\,
+	datac => \inst2|decoder1|done~2_combout\,
+	datad => \inst2|decoder1|current_instruction[2]~0_combout\,
+	combout => \inst2|decoder1|current_instruction[2]~4_combout\);
+
+-- Location: LCCOMB_X43_Y16_N14
+\inst2|decoder1|current_instruction[2]~5\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|current_instruction[2]~5_combout\ = ((!\inst2|decoder1|current_instruction[2]~4_combout\ & ((\inst2|decoder1|decode_comb~1_combout\) # (!\inst2|decoder1|en~3_combout\)))) # (!\reset~combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101010111110111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \reset~combout\,
+	datab => \inst2|decoder1|en~3_combout\,
+	datac => \inst2|decoder1|decode_comb~1_combout\,
+	datad => \inst2|decoder1|current_instruction[2]~4_combout\,
+	combout => \inst2|decoder1|current_instruction[2]~5_combout\);
+
+-- Location: LCFF_X43_Y16_N3
+\inst2|decoder1|current_instruction[0]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|current_instruction~7_combout\,
+	ena => \inst2|decoder1|current_instruction[2]~5_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|current_instruction\(0));
+
+-- Location: LCCOMB_X40_Y19_N20
+\inst2|decoder1|decode_comb~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|decode_comb~1_combout\ = (\inst2|decoder1|decode_comb~0_combout\) # ((!\inst2|decoder1|current_instruction\(2) & (\inst2|decoder1|current_instruction\(1) $ (\inst2|decoder1|current_instruction\(0)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110011011110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|current_instruction\(1),
 	datab => \inst2|decoder1|decode_comb~0_combout\,
-	datac => \inst2|draw1|draw_ready~1_combout\,
-	datad => \inst2|decoder1|spi_reset~0_combout\,
-	combout => \inst2|sreset~combout\);
+	datac => \inst2|decoder1|current_instruction\(0),
+	datad => \inst2|decoder1|current_instruction\(2),
+	combout => \inst2|decoder1|decode_comb~1_combout\);
 
--- Location: LCCOMB_X25_Y20_N14
-\inst2|spi1|mosi_latched~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X43_Y16_N8
+\inst2|decoder1|current_instruction~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|spi1|mosi_latched~0_combout\ = (\SPIMOSI~combout\ & !\inst2|sreset~combout\)
+-- \inst2|decoder1|current_instruction~1_combout\ = (\inst2|decoder1|decode_comb~1_combout\ & (((!\inst2|decoder1|current_instruction[2]~0_combout\) # (!\inst2|decoder1|done~2_combout\)) # (!\inst2|decoder1|done~3_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000011110000",
+	lut_mask => "0100110011001100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \SPIMOSI~combout\,
-	datad => \inst2|sreset~combout\,
-	combout => \inst2|spi1|mosi_latched~0_combout\);
+	dataa => \inst2|decoder1|done~3_combout\,
+	datab => \inst2|decoder1|decode_comb~1_combout\,
+	datac => \inst2|decoder1|done~2_combout\,
+	datad => \inst2|decoder1|current_instruction[2]~0_combout\,
+	combout => \inst2|decoder1|current_instruction~1_combout\);
 
--- Location: LCFF_X25_Y20_N15
-\inst2|spi1|mosi_latched\ : cycloneii_lcell_ff
+-- Location: LCCOMB_X43_Y16_N30
+\inst2|decoder1|current_instruction~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|current_instruction~2_combout\ = (\reset~combout\ & \inst2|decoder1|current_instruction~1_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010000010100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
 PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|spi1|mosi_latched~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|spi1|mosi_latched~regout\);
+	dataa => \reset~combout\,
+	datac => \inst2|decoder1|current_instruction~1_combout\,
+	combout => \inst2|decoder1|current_instruction~2_combout\);
 
--- Location: LCFF_X25_Y20_N13
-\inst2|spi1|spi_rx_data[0]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|spi1|mosi_latched~regout\,
-	sclr => \inst2|sreset~combout\,
-	sload => VCC,
-	ena => \inst2|spi1|spi_rx_data[4]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|spi1|spi_rx_data\(0));
-
--- Location: LCFF_X25_Y20_N31
-\inst2|spi1|spi_rx_data[1]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|spi1|spi_rx_data\(0),
-	sclr => \inst2|sreset~combout\,
-	sload => VCC,
-	ena => \inst2|spi1|spi_rx_data[4]~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|spi1|spi_rx_data\(1));
-
--- Location: LCCOMB_X23_Y19_N10
+-- Location: LCCOMB_X43_Y16_N6
 \inst2|decoder1|current_instruction~3\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|current_instruction~3_combout\ = (\inst2|decoder1|current_instruction~2_combout\ & ((\inst2|spi1|spi_rx_data\(1) & (\inst2|spi1|spi_rx_data\(0))) # (!\inst2|spi1|spi_rx_data\(1) & ((\inst2|spi1|spi_rx_data\(2))))))
+-- \inst2|decoder1|current_instruction~3_combout\ = (\inst2|decoder1|current_instruction~2_combout\ & ((\inst2|spi1|do_buffer_reg\(2)) # ((\inst2|spi1|do_buffer_reg\(1) & \inst2|spi1|do_buffer_reg\(0)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1011100000000000",
+	lut_mask => "1111100000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|spi1|spi_rx_data\(0),
-	datab => \inst2|spi1|spi_rx_data\(1),
-	datac => \inst2|spi1|spi_rx_data\(2),
+	dataa => \inst2|spi1|do_buffer_reg\(1),
+	datab => \inst2|spi1|do_buffer_reg\(0),
+	datac => \inst2|spi1|do_buffer_reg\(2),
 	datad => \inst2|decoder1|current_instruction~2_combout\,
 	combout => \inst2|decoder1|current_instruction~3_combout\);
 
--- Location: LCFF_X23_Y19_N11
+-- Location: LCFF_X43_Y16_N7
 \inst2|decoder1|current_instruction[2]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
@@ -9511,59 +8777,852 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \inst2|decoder1|current_instruction\(2));
 
--- Location: LCCOMB_X21_Y20_N28
-\inst2|decoder1|en~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y18_N20
+\inst2|decoder1|asb~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|en~0_combout\ = (\inst2|decoder1|current_instruction\(2)) # (\inst2|decoder1|current_instruction\(0) $ (!\inst2|decoder1|current_instruction\(1)))
+-- \inst2|decoder1|asb~0_combout\ = \inst2|decoder1|asb~regout\ $ (((\inst2|decoder1|current_instruction\(0) & (!\inst2|decoder1|current_instruction\(2) & !\inst2|decoder1|current_instruction\(1)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1110111011011101",
+	lut_mask => "1111000011010010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|current_instruction\(0),
 	datab => \inst2|decoder1|current_instruction\(2),
+	datac => \inst2|decoder1|asb~regout\,
 	datad => \inst2|decoder1|current_instruction\(1),
-	combout => \inst2|decoder1|en~0_combout\);
+	combout => \inst2|decoder1|asb~0_combout\);
 
--- Location: LCCOMB_X21_Y20_N6
-\inst2|decoder1|Equal0~0\ : cycloneii_lcell_comb
+-- Location: LCFF_X40_Y18_N21
+\inst2|decoder1|asb\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|asb~0_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|asb~regout\);
+
+-- Location: LCCOMB_X38_Y15_N26
+\inst2|decoder1|next_h[6]~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|Equal0~0_combout\ = (\inst2|decoder1|current_instruction\(0)) # ((\inst2|decoder1|current_instruction\(2)) # (\inst2|decoder1|current_instruction\(1)))
+-- \inst2|decoder1|next_h[6]~0_combout\ = (\inst2|decoder1|current_instruction\(2) & (\inst2|decoder1|decode_comb~0_combout\ & ((!\inst2|decoder1|current_instruction\(1)) # (!\inst2|decoder1|current_instruction\(0))))) # 
+-- (!\inst2|decoder1|current_instruction\(2) & (!\inst2|decoder1|current_instruction\(0) & (\inst2|decoder1|current_instruction\(1))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111111101110",
+	lut_mask => "0011101000010000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(0),
-	datab => \inst2|decoder1|current_instruction\(2),
-	datad => \inst2|decoder1|current_instruction\(1),
-	combout => \inst2|decoder1|Equal0~0_combout\);
+	dataa => \inst2|decoder1|current_instruction\(2),
+	datab => \inst2|decoder1|current_instruction\(0),
+	datac => \inst2|decoder1|current_instruction\(1),
+	datad => \inst2|decoder1|decode_comb~0_combout\,
+	combout => \inst2|decoder1|next_h[6]~0_combout\);
 
--- Location: LCCOMB_X20_Y19_N8
-\inst2|decoder1|en~1\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X42_Y16_N16
+\inst2|decoder1|next_h[6]~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|en~1_combout\ = (\inst2|decoder1|en\(0)) # ((\inst2|decoder1|packet_num\(0) & (\inst2|decoder1|Equal0~1_combout\ & \inst4|Equal63~1_combout\)))
+-- \inst2|decoder1|next_h[6]~2_combout\ = (\inst2|decoder1|packet_num\(0) & (\inst2|decoder1|current_instruction\(2) & (!\inst2|decoder1|packet_num\(1) & \inst2|decoder1|packet_num\(2))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111110000000",
+	lut_mask => "0000100000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|packet_num\(0),
-	datab => \inst2|decoder1|Equal0~1_combout\,
-	datac => \inst4|Equal63~1_combout\,
-	datad => \inst2|decoder1|en\(0),
-	combout => \inst2|decoder1|en~1_combout\);
+	datab => \inst2|decoder1|current_instruction\(2),
+	datac => \inst2|decoder1|packet_num\(1),
+	datad => \inst2|decoder1|packet_num\(2),
+	combout => \inst2|decoder1|next_h[6]~2_combout\);
 
--- Location: LCCOMB_X20_Y20_N12
-\inst2|decoder1|en~2\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X38_Y15_N12
+\inst2|decoder1|next_h[6]~3\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|en~2_combout\ = (\inst2|decoder1|decode_comb~1_combout\ & (\inst2|decoder1|en~0_combout\ & (\inst2|decoder1|Equal0~0_combout\ & \inst2|decoder1|en~1_combout\)))
+-- \inst2|decoder1|next_h[6]~3_combout\ = (\inst2|decoder1|next_h[6]~1_combout\) # ((\inst2|decoder1|next_h[6]~0_combout\ & (\inst2|decoder1|next_h[6]~2_combout\ & \inst2|spi1|do_buffer_reg\(6))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110101010101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|next_h[6]~1_combout\,
+	datab => \inst2|decoder1|next_h[6]~0_combout\,
+	datac => \inst2|decoder1|next_h[6]~2_combout\,
+	datad => \inst2|spi1|do_buffer_reg\(6),
+	combout => \inst2|decoder1|next_h[6]~3_combout\);
+
+-- Location: LCFF_X38_Y15_N13
+\inst2|decoder1|h[6]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|next_h[6]~3_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|h\(6));
+
+-- Location: LCCOMB_X36_Y19_N16
+\inst2|draw1|rect1|Add0~24\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add0~24_combout\ = (\inst2|decoder1|h\(6) & !\inst2|draw1|rect1|started~regout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|decoder1|h\(6),
+	datad => \inst2|draw1|rect1|started~regout\,
+	combout => \inst2|draw1|rect1|Add0~24_combout\);
+
+-- Location: LCCOMB_X38_Y20_N2
+\inst2|draw1|rect1|Add0~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add0~0_combout\ = (!\inst2|draw1|rect1|started~regout\ & \inst2|decoder1|h\(0))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|draw1|rect1|started~regout\,
+	datad => \inst2|decoder1|h\(0),
+	combout => \inst2|draw1|rect1|Add0~0_combout\);
+
+-- Location: LCCOMB_X38_Y20_N12
+\inst2|draw1|rect1|Add0~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add0~3_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|Add0~0_combout\) # ((\inst2|draw1|rect1|Add0~1_combout\ & \inst2|draw1|rect1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110110000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|Add0~1_combout\,
+	datab => \inst2|draw1|rect1|Add0~0_combout\,
+	datac => \inst2|draw1|rect1|draw_write~0_combout\,
+	datad => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	combout => \inst2|draw1|rect1|Add0~3_combout\);
+
+-- Location: LCCOMB_X42_Y20_N16
+\inst2|draw1|rect1|cx[1]~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx[1]~0_combout\ = (\inst2|draw1|rect1|started~regout\ & ((\inst2|draw1|rect1|almost_done~regout\) # (!\inst2|draw1|rect1|Equal0~4_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011101100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|almost_done~regout\,
+	datab => \inst2|draw1|rect1|Equal0~4_combout\,
+	datad => \inst2|draw1|rect1|started~regout\,
+	combout => \inst2|draw1|rect1|cx[1]~0_combout\);
+
+-- Location: LCCOMB_X42_Y19_N4
+\inst2|draw1|rect1|cx[1]~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx[1]~1_combout\ = (\inst2|decoder1|decoder_claim~regout\) # (((\reset~combout\ & \inst2|vgacontroller1|vga_combi~5_combout\)) # (!\inst2|draw1|rect1|cx[1]~0_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110111110101111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|decoder_claim~regout\,
+	datab => \reset~combout\,
+	datac => \inst2|draw1|rect1|cx[1]~0_combout\,
+	datad => \inst2|vgacontroller1|vga_combi~5_combout\,
+	combout => \inst2|draw1|rect1|cx[1]~1_combout\);
+
+-- Location: LCCOMB_X40_Y20_N2
+\inst2|draw1|rect1|Add1~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add1~0_combout\ = \inst2|draw1|rect1|cx\(0) $ (VCC)
+-- \inst2|draw1|rect1|Add1~1\ = CARRY(\inst2|draw1|rect1|cx\(0))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011001111001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|rect1|cx\(0),
+	datad => VCC,
+	combout => \inst2|draw1|rect1|Add1~0_combout\,
+	cout => \inst2|draw1|rect1|Add1~1\);
+
+-- Location: LCCOMB_X38_Y15_N28
+\inst2|draw1|rect1|Equal2~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Equal2~0_combout\ = \inst2|draw1|rect1|cy\(6) $ (\inst2|decoder1|h\(6))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111111110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|draw1|rect1|cy\(6),
+	datad => \inst2|decoder1|h\(6),
+	combout => \inst2|draw1|rect1|Equal2~0_combout\);
+
+-- Location: LCCOMB_X37_Y19_N18
+\inst2|draw1|rect1|Add0~13\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add0~13_combout\ = (\inst2|draw1|rect1|cy\(3) & (\inst2|draw1|rect1|Add0~10\ & VCC)) # (!\inst2|draw1|rect1|cy\(3) & (!\inst2|draw1|rect1|Add0~10\))
+-- \inst2|draw1|rect1|Add0~14\ = CARRY((!\inst2|draw1|rect1|cy\(3) & !\inst2|draw1|rect1|Add0~10\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010010100000101",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cy\(3),
+	datad => VCC,
+	cin => \inst2|draw1|rect1|Add0~10\,
+	combout => \inst2|draw1|rect1|Add0~13_combout\,
+	cout => \inst2|draw1|rect1|Add0~14\);
+
+-- Location: LCCOMB_X37_Y19_N28
+\inst2|draw1|rect1|Add0~15\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add0~15_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|Add0~12_combout\) # ((\inst2|draw1|rect1|Add0~13_combout\ & \inst2|draw1|rect1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110101000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|Add0~12_combout\,
+	datab => \inst2|draw1|rect1|Add0~13_combout\,
+	datac => \inst2|draw1|rect1|draw_write~0_combout\,
+	datad => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	combout => \inst2|draw1|rect1|Add0~15_combout\);
+
+-- Location: LCFF_X37_Y19_N29
+\inst2|draw1|rect1|cy[3]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|rect1|Add0~15_combout\,
+	ena => \inst2|draw1|rect1|cy_tmp[0]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|rect1|cy\(3));
+
+-- Location: LCCOMB_X38_Y15_N14
+\inst2|draw1|rect1|cx[1]~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx[1]~3_combout\ = (\inst2|draw1|rect1|cy\(2) & (\inst2|decoder1|h\(2) & (\inst2|decoder1|h\(3) $ (!\inst2|draw1|rect1|cy\(3))))) # (!\inst2|draw1|rect1|cy\(2) & (!\inst2|decoder1|h\(2) & (\inst2|decoder1|h\(3) $ 
+-- (!\inst2|draw1|rect1|cy\(3)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1001000000001001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cy\(2),
+	datab => \inst2|decoder1|h\(2),
+	datac => \inst2|decoder1|h\(3),
+	datad => \inst2|draw1|rect1|cy\(3),
+	combout => \inst2|draw1|rect1|cx[1]~3_combout\);
+
+-- Location: LCCOMB_X38_Y15_N4
+\inst2|decoder1|h~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|h~0_combout\ = (\inst2|decoder1|current_instruction\(2) & \inst2|spi1|do_buffer_reg\(1))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|decoder1|current_instruction\(2),
+	datad => \inst2|spi1|do_buffer_reg\(1),
+	combout => \inst2|decoder1|h~0_combout\);
+
+-- Location: LCFF_X39_Y15_N15
+\inst2|decoder1|h[1]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|decoder1|h~0_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|h~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|h\(1));
+
+-- Location: LCCOMB_X38_Y20_N4
+\inst2|draw1|rect1|Add0~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add0~4_combout\ = (!\inst2|draw1|rect1|started~regout\ & \inst2|decoder1|h\(1))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011000000110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|rect1|started~regout\,
+	datac => \inst2|decoder1|h\(1),
+	combout => \inst2|draw1|rect1|Add0~4_combout\);
+
+-- Location: LCCOMB_X38_Y20_N18
+\inst2|draw1|rect1|Add0~7\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add0~7_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|Add0~4_combout\) # ((\inst2|draw1|rect1|Add0~5_combout\ & \inst2|draw1|rect1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111100000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|Add0~5_combout\,
+	datab => \inst2|draw1|rect1|draw_write~0_combout\,
+	datac => \inst2|draw1|rect1|Add0~4_combout\,
+	datad => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	combout => \inst2|draw1|rect1|Add0~7_combout\);
+
+-- Location: LCFF_X38_Y20_N19
+\inst2|draw1|rect1|cy[1]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|rect1|Add0~7_combout\,
+	ena => \inst2|draw1|rect1|cy_tmp[0]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|rect1|cy\(1));
+
+-- Location: LCCOMB_X38_Y20_N24
+\inst2|draw1|rect1|cx[1]~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx[1]~2_combout\ = (\inst2|draw1|rect1|cy\(0) & (\inst2|decoder1|h\(0) & (\inst2|draw1|rect1|cy\(1) $ (!\inst2|decoder1|h\(1))))) # (!\inst2|draw1|rect1|cy\(0) & (!\inst2|decoder1|h\(0) & (\inst2|draw1|rect1|cy\(1) $ 
+-- (!\inst2|decoder1|h\(1)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000001001000001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cy\(0),
+	datab => \inst2|draw1|rect1|cy\(1),
+	datac => \inst2|decoder1|h\(1),
+	datad => \inst2|decoder1|h\(0),
+	combout => \inst2|draw1|rect1|cx[1]~2_combout\);
+
+-- Location: LCCOMB_X38_Y15_N18
+\inst2|draw1|rect1|cx[1]~5\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx[1]~5_combout\ = (\inst2|draw1|rect1|cx[1]~4_combout\ & (!\inst2|draw1|rect1|Equal2~0_combout\ & (\inst2|draw1|rect1|cx[1]~3_combout\ & \inst2|draw1|rect1|cx[1]~2_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0010000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cx[1]~4_combout\,
+	datab => \inst2|draw1|rect1|Equal2~0_combout\,
+	datac => \inst2|draw1|rect1|cx[1]~3_combout\,
+	datad => \inst2|draw1|rect1|cx[1]~2_combout\,
+	combout => \inst2|draw1|rect1|cx[1]~5_combout\);
+
+-- Location: LCCOMB_X42_Y19_N18
+\inst2|draw1|rect1|cx[1]~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx[1]~6_combout\ = (\inst2|draw1|rect1|almost_done_tmp~3_combout\) # ((\inst2|draw1|rect1|cx[1]~5_combout\) # ((\inst2|decoder1|en\(2) & !\inst2|decoder1|en\(1))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111110101110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|almost_done_tmp~3_combout\,
+	datab => \inst2|decoder1|en\(2),
+	datac => \inst2|decoder1|en\(1),
+	datad => \inst2|draw1|rect1|cx[1]~5_combout\,
+	combout => \inst2|draw1|rect1|cx[1]~6_combout\);
+
+-- Location: LCCOMB_X42_Y19_N10
+\inst2|vgacontroller1|vga_claim~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|vga_claim~2_combout\ = (!\inst2|decoder1|decoder_claim~regout\ & (\reset~combout\ & \inst2|vgacontroller1|vga_combi~5_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|decoder_claim~regout\,
+	datac => \reset~combout\,
+	datad => \inst2|vgacontroller1|vga_combi~5_combout\,
+	combout => \inst2|vgacontroller1|vga_claim~2_combout\);
+
+-- Location: LCCOMB_X42_Y19_N0
+\inst2|draw1|rect1|cx[1]~7\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx[1]~7_combout\ = (\inst2|decoder1|decoder_claim~regout\) # ((\inst2|vgacontroller1|vga_claim~2_combout\) # ((\inst2|draw1|rect1|cx[1]~6_combout\ & \inst2|draw1|rect1|cx[1]~0_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111111101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|decoder_claim~regout\,
+	datab => \inst2|draw1|rect1|cx[1]~6_combout\,
+	datac => \inst2|draw1|rect1|cx[1]~0_combout\,
+	datad => \inst2|vgacontroller1|vga_claim~2_combout\,
+	combout => \inst2|draw1|rect1|cx[1]~7_combout\);
+
+-- Location: LCCOMB_X42_Y20_N18
+\inst2|draw1|rect1|cx_tmp[0]~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[0]~0_combout\ = (\inst2|draw1|rect1|cx[1]~1_combout\ & (((\inst2|draw1|rect1|cx[1]~7_combout\)))) # (!\inst2|draw1|rect1|cx[1]~1_combout\ & ((\inst2|draw1|rect1|cx[1]~7_combout\ & ((\inst2|draw1|rect1|Add1~0_combout\))) # 
+-- (!\inst2|draw1|rect1|cx[1]~7_combout\ & (\inst2|decoder1|x\(0)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110000100010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|x\(0),
+	datab => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datac => \inst2|draw1|rect1|Add1~0_combout\,
+	datad => \inst2|draw1|rect1|cx[1]~7_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[0]~0_combout\);
+
+-- Location: LCCOMB_X42_Y20_N12
+\inst2|draw1|rect1|cx_tmp[0]~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[0]~1_combout\ = (\inst2|draw1|rect1|cx[1]~1_combout\ & ((\inst2|draw1|rect1|cx_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|cx\(0)))) # (!\inst2|draw1|rect1|cx_tmp[0]~0_combout\ & (\inst2|decoder1|w\(0))))) # 
+-- (!\inst2|draw1|rect1|cx[1]~1_combout\ & (((\inst2|draw1|rect1|cx_tmp[0]~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|w\(0),
+	datab => \inst2|draw1|rect1|cx\(0),
+	datac => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datad => \inst2|draw1|rect1|cx_tmp[0]~0_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[0]~1_combout\);
+
+-- Location: LCCOMB_X42_Y20_N0
+\inst2|draw1|rect1|cx_tmp[0]~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[0]~2_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & (\inst2|draw1|rect1|cx_tmp[0]~1_combout\ & ((\inst2|draw1|rect1|cx[1]~1_combout\) # (!\inst2|draw1|rect1|almost_done~regout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|almost_done~regout\,
+	datab => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datac => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	datad => \inst2|draw1|rect1|cx_tmp[0]~1_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[0]~2_combout\);
+
+-- Location: LCFF_X42_Y20_N1
+\inst2|draw1|rect1|cx[0]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|rect1|cx_tmp[0]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|rect1|cx\(0));
+
+-- Location: LCCOMB_X39_Y20_N0
+\inst2|draw1|rect1|cx_tmp[1]~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[1]~3_combout\ = (\inst2|draw1|rect1|cx[1]~1_combout\ & (((\inst2|draw1|rect1|cx[1]~7_combout\) # (\inst2|decoder1|w\(1))))) # (!\inst2|draw1|rect1|cx[1]~1_combout\ & (\inst2|decoder1|x\(1) & 
+-- (!\inst2|draw1|rect1|cx[1]~7_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111011000010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|x\(1),
+	datab => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datac => \inst2|draw1|rect1|cx[1]~7_combout\,
+	datad => \inst2|decoder1|w\(1),
+	combout => \inst2|draw1|rect1|cx_tmp[1]~3_combout\);
+
+-- Location: LCCOMB_X39_Y20_N10
+\inst2|draw1|rect1|cx_tmp[1]~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[1]~4_combout\ = (\inst2|draw1|rect1|cx[1]~7_combout\ & ((\inst2|draw1|rect1|cx_tmp[1]~3_combout\ & ((\inst2|draw1|rect1|cx\(1)))) # (!\inst2|draw1|rect1|cx_tmp[1]~3_combout\ & (\inst2|draw1|rect1|Add1~2_combout\)))) # 
+-- (!\inst2|draw1|rect1|cx[1]~7_combout\ & (((\inst2|draw1|rect1|cx_tmp[1]~3_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111110100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|Add1~2_combout\,
+	datab => \inst2|draw1|rect1|cx\(1),
+	datac => \inst2|draw1|rect1|cx[1]~7_combout\,
+	datad => \inst2|draw1|rect1|cx_tmp[1]~3_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[1]~4_combout\);
+
+-- Location: LCCOMB_X42_Y20_N10
+\inst2|draw1|rect1|cx_tmp[1]~5\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[1]~5_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & (\inst2|draw1|rect1|cx_tmp[1]~4_combout\ & ((\inst2|draw1|rect1|cx[1]~1_combout\) # (!\inst2|draw1|rect1|almost_done~regout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|almost_done~regout\,
+	datab => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datac => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	datad => \inst2|draw1|rect1|cx_tmp[1]~4_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[1]~5_combout\);
+
+-- Location: LCFF_X42_Y20_N11
+\inst2|draw1|rect1|cx[1]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|rect1|cx_tmp[1]~5_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|rect1|cx\(1));
+
+-- Location: LCCOMB_X42_Y20_N4
+\inst2|draw1|rect1|Equal0~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Equal0~0_combout\ = (\inst2|decoder1|x\(0) & (\inst2|draw1|rect1|cx\(0) & (\inst2|decoder1|x\(1) $ (!\inst2|draw1|rect1|cx\(1))))) # (!\inst2|decoder1|x\(0) & (!\inst2|draw1|rect1|cx\(0) & (\inst2|decoder1|x\(1) $ 
+-- (!\inst2|draw1|rect1|cx\(1)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1001000000001001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|x\(0),
+	datab => \inst2|draw1|rect1|cx\(0),
+	datac => \inst2|decoder1|x\(1),
+	datad => \inst2|draw1|rect1|cx\(1),
+	combout => \inst2|draw1|rect1|Equal0~0_combout\);
+
+-- Location: LCCOMB_X42_Y20_N2
+\inst2|draw1|rect1|cx_tmp[4]~12\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[4]~12_combout\ = (\inst2|draw1|rect1|cx[1]~1_combout\ & (((\inst2|draw1|rect1|cx[1]~7_combout\)))) # (!\inst2|draw1|rect1|cx[1]~1_combout\ & ((\inst2|draw1|rect1|cx[1]~7_combout\ & (\inst2|draw1|rect1|Add1~8_combout\)) # 
+-- (!\inst2|draw1|rect1|cx[1]~7_combout\ & ((\inst2|decoder1|x\(4))))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101000001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|Add1~8_combout\,
+	datab => \inst2|decoder1|x\(4),
+	datac => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datad => \inst2|draw1|rect1|cx[1]~7_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[4]~12_combout\);
+
+-- Location: LCCOMB_X42_Y20_N28
+\inst2|draw1|rect1|cx_tmp[4]~13\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[4]~13_combout\ = (\inst2|draw1|rect1|cx[1]~1_combout\ & ((\inst2|draw1|rect1|cx_tmp[4]~12_combout\ & (\inst2|draw1|rect1|cx\(4))) # (!\inst2|draw1|rect1|cx_tmp[4]~12_combout\ & ((\inst2|decoder1|w\(4)))))) # 
+-- (!\inst2|draw1|rect1|cx[1]~1_combout\ & (((\inst2|draw1|rect1|cx_tmp[4]~12_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011101111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cx\(4),
+	datab => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datac => \inst2|decoder1|w\(4),
+	datad => \inst2|draw1|rect1|cx_tmp[4]~12_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[4]~13_combout\);
+
+-- Location: LCCOMB_X42_Y20_N6
+\inst2|draw1|rect1|cx_tmp[4]~14\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[4]~14_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & (\inst2|draw1|rect1|cx_tmp[4]~13_combout\ & ((\inst2|draw1|rect1|cx[1]~1_combout\) # (!\inst2|draw1|rect1|almost_done~regout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|almost_done~regout\,
+	datab => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datac => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	datad => \inst2|draw1|rect1|cx_tmp[4]~13_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[4]~14_combout\);
+
+-- Location: LCFF_X42_Y20_N7
+\inst2|draw1|rect1|cx[4]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|rect1|cx_tmp[4]~14_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|rect1|cx\(4));
+
+-- Location: LCCOMB_X42_Y20_N20
+\inst2|draw1|rect1|Equal0~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Equal0~2_combout\ = (\inst2|draw1|rect1|cx\(5) & (\inst2|decoder1|x\(5) & (\inst2|decoder1|x\(4) $ (!\inst2|draw1|rect1|cx\(4))))) # (!\inst2|draw1|rect1|cx\(5) & (!\inst2|decoder1|x\(5) & (\inst2|decoder1|x\(4) $ 
+-- (!\inst2|draw1|rect1|cx\(4)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000010000100001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cx\(5),
+	datab => \inst2|decoder1|x\(4),
+	datac => \inst2|decoder1|x\(5),
+	datad => \inst2|draw1|rect1|cx\(4),
+	combout => \inst2|draw1|rect1|Equal0~2_combout\);
+
+-- Location: LCCOMB_X40_Y18_N8
+\inst2|decoder1|x~5\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|x~5_combout\ = (\inst2|spi1|do_buffer_reg\(2) & (\inst2|decoder1|current_instruction\(2) $ (((\inst2|decoder1|current_instruction\(0) & \inst2|decoder1|current_instruction\(1))))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110110000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|current_instruction\(0),
+	datab => \inst2|decoder1|current_instruction\(2),
+	datac => \inst2|decoder1|current_instruction\(1),
+	datad => \inst2|spi1|do_buffer_reg\(2),
+	combout => \inst2|decoder1|x~5_combout\);
+
+-- Location: LCCOMB_X40_Y18_N4
+\inst2|decoder1|x[2]~feeder\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|x[2]~feeder_combout\ = \inst2|decoder1|x~5_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|decoder1|x~5_combout\,
+	combout => \inst2|decoder1|x[2]~feeder_combout\);
+
+-- Location: LCFF_X40_Y18_N5
+\inst2|decoder1|x[2]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|x[2]~feeder_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	ena => \inst2|decoder1|x~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|x\(2));
+
+-- Location: LCCOMB_X40_Y20_N6
+\inst2|draw1|rect1|Add1~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add1~4_combout\ = (\inst2|draw1|rect1|cx\(2) & ((GND) # (!\inst2|draw1|rect1|Add1~3\))) # (!\inst2|draw1|rect1|cx\(2) & (\inst2|draw1|rect1|Add1~3\ $ (GND)))
+-- \inst2|draw1|rect1|Add1~5\ = CARRY((\inst2|draw1|rect1|cx\(2)) # (!\inst2|draw1|rect1|Add1~3\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011110011001111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|rect1|cx\(2),
+	datad => VCC,
+	cin => \inst2|draw1|rect1|Add1~3\,
+	combout => \inst2|draw1|rect1|Add1~4_combout\,
+	cout => \inst2|draw1|rect1|Add1~5\);
+
+-- Location: LCCOMB_X40_Y20_N20
+\inst2|draw1|rect1|cx_tmp[2]~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[2]~6_combout\ = (\inst2|draw1|rect1|cx[1]~1_combout\ & (\inst2|draw1|rect1|cx[1]~7_combout\)) # (!\inst2|draw1|rect1|cx[1]~1_combout\ & ((\inst2|draw1|rect1|cx[1]~7_combout\ & ((\inst2|draw1|rect1|Add1~4_combout\))) # 
+-- (!\inst2|draw1|rect1|cx[1]~7_combout\ & (\inst2|decoder1|x\(2)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101110010011000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datab => \inst2|draw1|rect1|cx[1]~7_combout\,
+	datac => \inst2|decoder1|x\(2),
+	datad => \inst2|draw1|rect1|Add1~4_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[2]~6_combout\);
+
+-- Location: LCCOMB_X40_Y20_N26
+\inst2|draw1|rect1|cx_tmp[2]~7\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[2]~7_combout\ = (\inst2|draw1|rect1|cx_tmp[2]~6_combout\ & (((\inst2|draw1|rect1|cx\(2)) # (!\inst2|draw1|rect1|cx[1]~1_combout\)))) # (!\inst2|draw1|rect1|cx_tmp[2]~6_combout\ & (\inst2|decoder1|w\(2) & 
+-- ((\inst2|draw1|rect1|cx[1]~1_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100101011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|w\(2),
+	datab => \inst2|draw1|rect1|cx\(2),
+	datac => \inst2|draw1|rect1|cx_tmp[2]~6_combout\,
+	datad => \inst2|draw1|rect1|cx[1]~1_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[2]~7_combout\);
+
+-- Location: LCCOMB_X40_Y20_N28
+\inst2|draw1|rect1|cx_tmp[2]~8\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[2]~8_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & (\inst2|draw1|rect1|cx_tmp[2]~7_combout\ & ((\inst2|draw1|rect1|cx[1]~1_combout\) # (!\inst2|draw1|rect1|almost_done~regout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000100000001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	datab => \inst2|draw1|rect1|cx_tmp[2]~7_combout\,
+	datac => \inst2|draw1|rect1|almost_done~regout\,
+	datad => \inst2|draw1|rect1|cx[1]~1_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[2]~8_combout\);
+
+-- Location: LCFF_X40_Y20_N29
+\inst2|draw1|rect1|cx[2]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|rect1|cx_tmp[2]~8_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|rect1|cx\(2));
+
+-- Location: LCCOMB_X40_Y20_N8
+\inst2|draw1|rect1|Add1~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add1~6_combout\ = (\inst2|draw1|rect1|cx\(3) & (\inst2|draw1|rect1|Add1~5\ & VCC)) # (!\inst2|draw1|rect1|cx\(3) & (!\inst2|draw1|rect1|Add1~5\))
+-- \inst2|draw1|rect1|Add1~7\ = CARRY((!\inst2|draw1|rect1|cx\(3) & !\inst2|draw1|rect1|Add1~5\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100001100000011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|rect1|cx\(3),
+	datad => VCC,
+	cin => \inst2|draw1|rect1|Add1~5\,
+	combout => \inst2|draw1|rect1|Add1~6_combout\,
+	cout => \inst2|draw1|rect1|Add1~7\);
+
+-- Location: LCCOMB_X40_Y20_N24
+\inst2|draw1|rect1|cx_tmp[3]~10\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[3]~10_combout\ = (\inst2|draw1|rect1|cx_tmp[3]~9_combout\ & ((\inst2|draw1|rect1|cx\(3)) # ((!\inst2|draw1|rect1|cx[1]~7_combout\)))) # (!\inst2|draw1|rect1|cx_tmp[3]~9_combout\ & (((\inst2|draw1|rect1|Add1~6_combout\ & 
+-- \inst2|draw1|rect1|cx[1]~7_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101100010101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cx_tmp[3]~9_combout\,
+	datab => \inst2|draw1|rect1|cx\(3),
+	datac => \inst2|draw1|rect1|Add1~6_combout\,
+	datad => \inst2|draw1|rect1|cx[1]~7_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[3]~10_combout\);
+
+-- Location: LCCOMB_X40_Y20_N22
+\inst2|draw1|rect1|cx_tmp[3]~11\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[3]~11_combout\ = (\inst2|draw1|rect1|cx_tmp[3]~10_combout\ & (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|cx[1]~1_combout\) # (!\inst2|draw1|rect1|almost_done~regout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datab => \inst2|draw1|rect1|almost_done~regout\,
+	datac => \inst2|draw1|rect1|cx_tmp[3]~10_combout\,
+	datad => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[3]~11_combout\);
+
+-- Location: LCFF_X40_Y20_N23
+\inst2|draw1|rect1|cx[3]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|rect1|cx_tmp[3]~11_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|rect1|cx\(3));
+
+-- Location: LCCOMB_X43_Y20_N24
+\inst2|draw1|rect1|Equal0~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Equal0~1_combout\ = (\inst2|decoder1|x\(3) & (\inst2|draw1|rect1|cx\(3) & (\inst2|decoder1|x\(2) $ (!\inst2|draw1|rect1|cx\(2))))) # (!\inst2|decoder1|x\(3) & (!\inst2|draw1|rect1|cx\(3) & (\inst2|decoder1|x\(2) $ 
+-- (!\inst2|draw1|rect1|cx\(2)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1001000000001001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|x\(3),
+	datab => \inst2|draw1|rect1|cx\(3),
+	datac => \inst2|decoder1|x\(2),
+	datad => \inst2|draw1|rect1|cx\(2),
+	combout => \inst2|draw1|rect1|Equal0~1_combout\);
+
+-- Location: LCCOMB_X42_Y20_N30
+\inst2|draw1|rect1|Equal0~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Equal0~4_combout\ = (\inst2|draw1|rect1|Equal0~3_combout\ & (\inst2|draw1|rect1|Equal0~0_combout\ & (\inst2|draw1|rect1|Equal0~2_combout\ & \inst2|draw1|rect1|Equal0~1_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -9571,100 +9630,166 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|decode_comb~1_combout\,
-	datab => \inst2|decoder1|en~0_combout\,
-	datac => \inst2|decoder1|Equal0~0_combout\,
-	datad => \inst2|decoder1|en~1_combout\,
-	combout => \inst2|decoder1|en~2_combout\);
+	dataa => \inst2|draw1|rect1|Equal0~3_combout\,
+	datab => \inst2|draw1|rect1|Equal0~0_combout\,
+	datac => \inst2|draw1|rect1|Equal0~2_combout\,
+	datad => \inst2|draw1|rect1|Equal0~1_combout\,
+	combout => \inst2|draw1|rect1|Equal0~4_combout\);
 
--- Location: LCFF_X20_Y20_N13
-\inst2|decoder1|en[0]\ : cycloneii_lcell_ff
+-- Location: LCCOMB_X38_Y20_N6
+\inst2|draw1|rect1|cy_tmp[0]~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cy_tmp[0]~2_combout\ = ((\inst2|draw1|rect1|cy_tmp[0]~1_combout\ & ((\inst2|draw1|rect1|Equal0~4_combout\) # (!\inst2|draw1|rect1|draw_write~0_combout\)))) # (!\inst2|draw1|rect1|cy_tmp[0]~0_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111011101010101",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	datab => \inst2|draw1|rect1|draw_write~0_combout\,
+	datac => \inst2|draw1|rect1|Equal0~4_combout\,
+	datad => \inst2|draw1|rect1|cy_tmp[0]~1_combout\,
+	combout => \inst2|draw1|rect1|cy_tmp[0]~2_combout\);
+
+-- Location: LCFF_X38_Y20_N13
+\inst2|draw1|rect1|cy[0]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|en~2_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	ena => \inst2|decoder1|en~4_combout\,
+	datain => \inst2|draw1|rect1|Add0~3_combout\,
+	ena => \inst2|draw1|rect1|cy_tmp[0]~2_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|decoder1|en\(0));
+	regout => \inst2|draw1|rect1|cy\(0));
 
--- Location: LCCOMB_X20_Y17_N22
-\inst2|draw1|pixel1|busy~feeder\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X37_Y19_N16
+\inst2|draw1|rect1|Add0~9\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|pixel1|busy~feeder_combout\ = \inst2|draw1|pixel1|draw_write~0_combout\
+-- \inst2|draw1|rect1|Add0~9_combout\ = (\inst2|draw1|rect1|cy\(2) & ((GND) # (!\inst2|draw1|rect1|Add0~6\))) # (!\inst2|draw1|rect1|cy\(2) & (\inst2|draw1|rect1|Add0~6\ $ (GND)))
+-- \inst2|draw1|rect1|Add0~10\ = CARRY((\inst2|draw1|rect1|cy\(2)) # (!\inst2|draw1|rect1|Add0~6\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100000000",
+	lut_mask => "0011110011001111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|draw1|rect1|cy\(2),
+	datad => VCC,
+	cin => \inst2|draw1|rect1|Add0~6\,
+	combout => \inst2|draw1|rect1|Add0~9_combout\,
+	cout => \inst2|draw1|rect1|Add0~10\);
+
+-- Location: LCCOMB_X38_Y15_N8
+\inst2|draw1|rect1|Add0~8\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add0~8_combout\ = (\inst2|decoder1|h\(2) & !\inst2|draw1|rect1|started~regout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datad => \inst2|draw1|pixel1|draw_write~0_combout\,
-	combout => \inst2|draw1|pixel1|busy~feeder_combout\);
+	datac => \inst2|decoder1|h\(2),
+	datad => \inst2|draw1|rect1|started~regout\,
+	combout => \inst2|draw1|rect1|Add0~8_combout\);
 
--- Location: LCFF_X20_Y17_N23
-\inst2|draw1|pixel1|busy\ : cycloneii_lcell_ff
+-- Location: LCCOMB_X37_Y19_N2
+\inst2|draw1|rect1|Add0~11\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add0~11_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|Add0~8_combout\) # ((\inst2|draw1|rect1|draw_write~0_combout\ & \inst2|draw1|rect1|Add0~9_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110010000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|draw_write~0_combout\,
+	datab => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	datac => \inst2|draw1|rect1|Add0~9_combout\,
+	datad => \inst2|draw1|rect1|Add0~8_combout\,
+	combout => \inst2|draw1|rect1|Add0~11_combout\);
+
+-- Location: LCFF_X37_Y19_N3
+\inst2|draw1|rect1|cy[2]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|pixel1|busy~feeder_combout\,
+	datain => \inst2|draw1|rect1|Add0~11_combout\,
+	ena => \inst2|draw1|rect1|cy_tmp[0]~2_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|draw1|pixel1|busy~regout\);
+	regout => \inst2|draw1|rect1|cy\(2));
 
--- Location: LCCOMB_X20_Y17_N6
-\inst2|draw1|pixel1|draw_write~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X37_Y19_N20
+\inst2|draw1|rect1|Add0~17\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|pixel1|draw_write~0_combout\ = (\inst2|ramcontroller1|draw_can_access~0_combout\ & (\inst2|decoder1|en\(0) & (\reset~combout\ & !\inst2|draw1|pixel1|busy~regout\)))
+-- \inst2|draw1|rect1|Add0~17_combout\ = (\inst2|draw1|rect1|cy\(4) & ((GND) # (!\inst2|draw1|rect1|Add0~14\))) # (!\inst2|draw1|rect1|cy\(4) & (\inst2|draw1|rect1|Add0~14\ $ (GND)))
+-- \inst2|draw1|rect1|Add0~18\ = CARRY((\inst2|draw1|rect1|cy\(4)) # (!\inst2|draw1|rect1|Add0~14\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000010000000",
-	sum_lutc_input => "datac")
+	lut_mask => "0101101010101111",
+	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|ramcontroller1|draw_can_access~0_combout\,
-	datab => \inst2|decoder1|en\(0),
-	datac => \reset~combout\,
-	datad => \inst2|draw1|pixel1|busy~regout\,
-	combout => \inst2|draw1|pixel1|draw_write~0_combout\);
+	dataa => \inst2|draw1|rect1|cy\(4),
+	datad => VCC,
+	cin => \inst2|draw1|rect1|Add0~14\,
+	combout => \inst2|draw1|rect1|Add0~17_combout\,
+	cout => \inst2|draw1|rect1|Add0~18\);
 
--- Location: LCCOMB_X20_Y17_N16
-\inst2|draw1|line1|draw_write~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X37_Y19_N22
+\inst2|draw1|rect1|Add0~21\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|draw_write~0_combout\ = ((\inst2|draw1|line1|setup~regout\) # (!\inst2|decoder1|en\(3))) # (!\inst2|ramcontroller1|draw_can_access~0_combout\)
+-- \inst2|draw1|rect1|Add0~21_combout\ = (\inst2|draw1|rect1|cy\(5) & (\inst2|draw1|rect1|Add0~18\ & VCC)) # (!\inst2|draw1|rect1|cy\(5) & (!\inst2|draw1|rect1|Add0~18\))
+-- \inst2|draw1|rect1|Add0~22\ = CARRY((!\inst2|draw1|rect1|cy\(5) & !\inst2|draw1|rect1|Add0~18\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111010111111111",
-	sum_lutc_input => "datac")
+	lut_mask => "1100001100000011",
+	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|ramcontroller1|draw_can_access~0_combout\,
-	datac => \inst2|draw1|line1|setup~regout\,
-	datad => \inst2|decoder1|en\(3),
-	combout => \inst2|draw1|line1|draw_write~0_combout\);
+	datab => \inst2|draw1|rect1|cy\(5),
+	datad => VCC,
+	cin => \inst2|draw1|rect1|Add0~18\,
+	combout => \inst2|draw1|rect1|Add0~21_combout\,
+	cout => \inst2|draw1|rect1|Add0~22\);
 
--- Location: LCCOMB_X23_Y16_N10
-\inst2|vgacontroller1|ramaddr[15]~2\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X37_Y19_N0
+\inst2|draw1|rect1|Add0~23\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|ramaddr[15]~2_combout\ = (\inst2|draw1|pixel1|draw_write~0_combout\) # (((\inst2|draw1|rect1|draw_write~1_combout\ & \inst2|draw1|rect1|draw_write~0_combout\)) # (!\inst2|draw1|line1|draw_write~0_combout\))
+-- \inst2|draw1|rect1|Add0~23_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|Add0~20_combout\) # ((\inst2|draw1|rect1|Add0~21_combout\ & \inst2|draw1|rect1|draw_write~0_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1110111111001111",
+	lut_mask => "1110101000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|rect1|draw_write~1_combout\,
-	datab => \inst2|draw1|pixel1|draw_write~0_combout\,
-	datac => \inst2|draw1|line1|draw_write~0_combout\,
-	datad => \inst2|draw1|rect1|draw_write~0_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[15]~2_combout\);
+	dataa => \inst2|draw1|rect1|Add0~20_combout\,
+	datab => \inst2|draw1|rect1|Add0~21_combout\,
+	datac => \inst2|draw1|rect1|draw_write~0_combout\,
+	datad => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	combout => \inst2|draw1|rect1|Add0~23_combout\);
 
--- Location: LCCOMB_X20_Y18_N18
-\inst2|vgacontroller1|Add1~18\ : cycloneii_lcell_comb
+-- Location: LCFF_X37_Y19_N1
+\inst2|draw1|rect1|cy[5]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|rect1|Add0~23_combout\,
+	ena => \inst2|draw1|rect1|cy_tmp[0]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|rect1|cy\(5));
+
+-- Location: LCCOMB_X37_Y19_N24
+\inst2|draw1|rect1|Add0~25\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|Add1~18_combout\ = \inst2|vgacontroller1|Add1~17\ $ (\inst2|vgacontroller1|v_count\(9))
+-- \inst2|draw1|rect1|Add0~25_combout\ = \inst2|draw1|rect1|Add0~22\ $ (\inst2|draw1|rect1|cy\(6))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -9672,55 +9797,121 @@ GENERIC MAP (
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datad => \inst2|vgacontroller1|v_count\(9),
-	cin => \inst2|vgacontroller1|Add1~17\,
-	combout => \inst2|vgacontroller1|Add1~18_combout\);
+	datad => \inst2|draw1|rect1|cy\(6),
+	cin => \inst2|draw1|rect1|Add0~22\,
+	combout => \inst2|draw1|rect1|Add0~25_combout\);
 
--- Location: LCCOMB_X20_Y18_N30
-\inst2|vgacontroller1|new_v_count[9]~3\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X37_Y19_N26
+\inst2|draw1|rect1|Add0~27\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|new_v_count[9]~3_combout\ = ((\inst2|vgacontroller1|Add1~18_combout\ & !\inst2|vgacontroller1|LessThan9~2_combout\)) # (!\reset~combout\)
+-- \inst2|draw1|rect1|Add0~27_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|Add0~24_combout\) # ((\inst2|draw1|rect1|draw_write~0_combout\ & \inst2|draw1|rect1|Add0~25_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101110101011101",
+	lut_mask => "1110110000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \reset~combout\,
-	datab => \inst2|vgacontroller1|Add1~18_combout\,
-	datac => \inst2|vgacontroller1|LessThan9~2_combout\,
-	combout => \inst2|vgacontroller1|new_v_count[9]~3_combout\);
+	dataa => \inst2|draw1|rect1|draw_write~0_combout\,
+	datab => \inst2|draw1|rect1|Add0~24_combout\,
+	datac => \inst2|draw1|rect1|Add0~25_combout\,
+	datad => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	combout => \inst2|draw1|rect1|Add0~27_combout\);
 
--- Location: LCFF_X20_Y18_N31
-\inst2|vgacontroller1|v_count[9]\ : cycloneii_lcell_ff
+-- Location: LCFF_X37_Y19_N27
+\inst2|draw1|rect1|cy[6]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|new_v_count[9]~3_combout\,
-	ena => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	datain => \inst2|draw1|rect1|Add0~27_combout\,
+	ena => \inst2|draw1|rect1|cy_tmp[0]~2_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|v_count\(9));
+	regout => \inst2|draw1|rect1|cy\(6));
 
--- Location: LCCOMB_X21_Y18_N8
-\inst2|vgacontroller1|vgavsync~1\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X38_Y19_N0
+\inst2|draw1|rect1|Equal1~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|vgavsync~1_combout\ = (\inst2|vgacontroller1|v_count\(4)) # (\inst2|vgacontroller1|v_count\(9))
+-- \inst2|draw1|rect1|Equal1~0_combout\ = \inst2|decoder1|y\(6) $ (\inst2|draw1|rect1|cy\(6))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111101011111010",
+	lut_mask => "0101010110101010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|vgacontroller1|v_count\(4),
-	datac => \inst2|vgacontroller1|v_count\(9),
-	combout => \inst2|vgacontroller1|vgavsync~1_combout\);
+	dataa => \inst2|decoder1|y\(6),
+	datad => \inst2|draw1|rect1|cy\(6),
+	combout => \inst2|draw1|rect1|Equal1~0_combout\);
 
--- Location: LCCOMB_X21_Y18_N2
-\inst2|vgacontroller1|LessThan11~0\ : cycloneii_lcell_comb
+-- Location: LCFF_X39_Y15_N17
+\inst2|decoder1|y[0]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|decoder1|x~3_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|y~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|y\(0));
+
+-- Location: LCCOMB_X37_Y19_N4
+\inst2|draw1|rect1|almost_done_tmp~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|LessThan11~0_combout\ = (\inst2|vgacontroller1|v_count\(7) & (\inst2|vgacontroller1|v_count\(6) & (\inst2|vgacontroller1|v_count\(5) & \inst2|vgacontroller1|v_count\(8))))
+-- \inst2|draw1|rect1|almost_done_tmp~0_combout\ = (\inst2|draw1|rect1|cy\(1) & (\inst2|decoder1|y\(1) & (\inst2|decoder1|y\(0) $ (!\inst2|draw1|rect1|cy\(0))))) # (!\inst2|draw1|rect1|cy\(1) & (!\inst2|decoder1|y\(1) & (\inst2|decoder1|y\(0) $ 
+-- (!\inst2|draw1|rect1|cy\(0)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000010000100001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cy\(1),
+	datab => \inst2|decoder1|y\(0),
+	datac => \inst2|decoder1|y\(1),
+	datad => \inst2|draw1|rect1|cy\(0),
+	combout => \inst2|draw1|rect1|almost_done_tmp~0_combout\);
+
+-- Location: LCCOMB_X38_Y19_N18
+\inst2|draw1|rect1|almost_done_tmp~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|almost_done_tmp~2_combout\ = (\inst2|draw1|rect1|cy\(4) & (\inst2|decoder1|y\(4) & (\inst2|draw1|rect1|cy\(5) $ (!\inst2|decoder1|y\(5))))) # (!\inst2|draw1|rect1|cy\(4) & (!\inst2|decoder1|y\(4) & (\inst2|draw1|rect1|cy\(5) $ 
+-- (!\inst2|decoder1|y\(5)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1001000000001001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cy\(4),
+	datab => \inst2|decoder1|y\(4),
+	datac => \inst2|draw1|rect1|cy\(5),
+	datad => \inst2|decoder1|y\(5),
+	combout => \inst2|draw1|rect1|almost_done_tmp~2_combout\);
+
+-- Location: LCCOMB_X38_Y19_N10
+\inst2|draw1|rect1|almost_done_tmp~3\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|almost_done_tmp~3_combout\ = (\inst2|draw1|rect1|almost_done_tmp~1_combout\ & (!\inst2|draw1|rect1|Equal1~0_combout\ & (\inst2|draw1|rect1|almost_done_tmp~0_combout\ & \inst2|draw1|rect1|almost_done_tmp~2_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0010000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|almost_done_tmp~1_combout\,
+	datab => \inst2|draw1|rect1|Equal1~0_combout\,
+	datac => \inst2|draw1|rect1|almost_done_tmp~0_combout\,
+	datad => \inst2|draw1|rect1|almost_done_tmp~2_combout\,
+	combout => \inst2|draw1|rect1|almost_done_tmp~3_combout\);
+
+-- Location: LCCOMB_X38_Y20_N16
+\inst2|draw1|rect1|almost_done_tmp~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|almost_done_tmp~4_combout\ = (\inst2|draw1|rect1|Equal0~4_combout\ & (\inst2|draw1|rect1|draw_write~0_combout\ & (\inst2|draw1|rect1|draw_write~1_combout\ & \inst2|draw1|rect1|almost_done_tmp~3_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -9728,192 +9919,151 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|vgacontroller1|v_count\(7),
-	datab => \inst2|vgacontroller1|v_count\(6),
-	datac => \inst2|vgacontroller1|v_count\(5),
-	datad => \inst2|vgacontroller1|v_count\(8),
-	combout => \inst2|vgacontroller1|LessThan11~0_combout\);
+	dataa => \inst2|draw1|rect1|Equal0~4_combout\,
+	datab => \inst2|draw1|rect1|draw_write~0_combout\,
+	datac => \inst2|draw1|rect1|draw_write~1_combout\,
+	datad => \inst2|draw1|rect1|almost_done_tmp~3_combout\,
+	combout => \inst2|draw1|rect1|almost_done_tmp~4_combout\);
 
--- Location: LCCOMB_X21_Y18_N18
-\inst2|vgacontroller1|vgavsync~2\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|vgavsync~2_combout\ = (\inst2|vgacontroller1|vgavsync~0_combout\) # (((\inst2|vgacontroller1|vgavsync~1_combout\) # (!\inst2|vgacontroller1|LessThan11~0_combout\)) # (!\inst2|vgacontroller1|v_count\(3)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|vgavsync~0_combout\,
-	datab => \inst2|vgacontroller1|v_count\(3),
-	datac => \inst2|vgacontroller1|vgavsync~1_combout\,
-	datad => \inst2|vgacontroller1|LessThan11~0_combout\,
-	combout => \inst2|vgacontroller1|vgavsync~2_combout\);
-
--- Location: LCCOMB_X20_Y20_N8
-\inst2|decoder1|next_asb~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|next_asb~0_combout\ = \inst2|decoder1|asb~regout\ $ (((\inst4|hex1[3]~7_combout\ & !\inst2|vgacontroller1|vgavsync~2_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000000111100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst4|hex1[3]~7_combout\,
-	datac => \inst2|decoder1|asb~regout\,
-	datad => \inst2|vgacontroller1|vgavsync~2_combout\,
-	combout => \inst2|decoder1|next_asb~0_combout\);
-
--- Location: LCFF_X20_Y20_N9
-\inst2|decoder1|asb\ : cycloneii_lcell_ff
+-- Location: LCFF_X38_Y20_N17
+\inst2|draw1|rect1|almost_done\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|next_asb~0_combout\,
-	sclr => \ALT_INV_reset~combout\,
+	datain => \inst2|draw1|rect1|almost_done_tmp~4_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|decoder1|asb~regout\);
+	regout => \inst2|draw1|rect1|almost_done~regout\);
 
--- Location: LCCOMB_X22_Y19_N6
-\inst2|vgacontroller1|vga_combi~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X38_Y20_N14
+\inst2|draw1|rect1|draw_write~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|vga_combi~0_combout\ = (!\inst2|vgacontroller1|h_count\(6) & !\inst2|vgacontroller1|h_count\(5))
+-- \inst2|draw1|rect1|draw_write~0_combout\ = (\inst2|draw1|rect1|started~regout\ & !\inst2|draw1|rect1|almost_done~regout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000000110011",
+	lut_mask => "0000110000001100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|vgacontroller1|h_count\(6),
-	datad => \inst2|vgacontroller1|h_count\(5),
-	combout => \inst2|vgacontroller1|vga_combi~0_combout\);
+	datab => \inst2|draw1|rect1|started~regout\,
+	datac => \inst2|draw1|rect1|almost_done~regout\,
+	combout => \inst2|draw1|rect1|draw_write~0_combout\);
 
--- Location: LCCOMB_X22_Y19_N12
-\inst2|vgacontroller1|vga_combi~1\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y19_N0
+\inst2|decoder1|en~6\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|vga_combi~1_combout\ = (!\inst2|vgacontroller1|LessThan11~0_combout\ & (!\inst2|vgacontroller1|v_count\(9) & ((\inst2|vgacontroller1|vga_combi~0_combout\) # (!\inst2|vgacontroller1|h_count\(7)))))
+-- \inst2|decoder1|en~6_combout\ = (\inst2|decoder1|current_instruction\(1) & (\inst4|hex0[0]~7_combout\ & (!\inst2|decoder1|current_instruction\(0) & \inst2|decoder1|current_instruction\(2))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000010100000001",
+	lut_mask => "0000100000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|vgacontroller1|LessThan11~0_combout\,
-	datab => \inst2|vgacontroller1|h_count\(7),
-	datac => \inst2|vgacontroller1|v_count\(9),
-	datad => \inst2|vgacontroller1|vga_combi~0_combout\,
-	combout => \inst2|vgacontroller1|vga_combi~1_combout\);
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst4|hex0[0]~7_combout\,
+	datac => \inst2|decoder1|current_instruction\(0),
+	datad => \inst2|decoder1|current_instruction\(2),
+	combout => \inst2|decoder1|en~6_combout\);
 
--- Location: LCCOMB_X24_Y23_N18
-\inst2|vgacontroller1|ramaddr[15]~19\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y19_N16
+\inst2|decoder1|en~7\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|ramaddr[15]~19_combout\ = (\inst2|vgacontroller1|vga_combi~1_combout\ & (!\inst2|decoder1|decoder_claim~regout\ & \reset~combout\))
+-- \inst2|decoder1|en~7_combout\ = (\inst2|decoder1|en~5_combout\ & ((\inst2|decoder1|en~6_combout\) # ((\inst4|hex1[2]~4_combout\ & \inst2|decoder1|en\(3)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000110000000000",
+	lut_mask => "1110110000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|vgacontroller1|vga_combi~1_combout\,
-	datac => \inst2|decoder1|decoder_claim~regout\,
-	datad => \reset~combout\,
-	combout => \inst2|vgacontroller1|ramaddr[15]~19_combout\);
+	dataa => \inst4|hex1[2]~4_combout\,
+	datab => \inst2|decoder1|en~6_combout\,
+	datac => \inst2|decoder1|en\(3),
+	datad => \inst2|decoder1|en~5_combout\,
+	combout => \inst2|decoder1|en~7_combout\);
 
--- Location: LCCOMB_X24_Y23_N24
-\inst2|vgacontroller1|ramaddr[15]~20\ : cycloneii_lcell_comb
+-- Location: LCFF_X40_Y19_N17
+\inst2|decoder1|en[3]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|decoder1|en~7_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	ena => \inst2|decoder1|en~4_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|en\(3));
+
+-- Location: LCCOMB_X42_Y19_N26
+\inst2|draw1|line1|draw_write~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|ramaddr[15]~20_combout\ = (\inst2|decoder1|asb~regout\ & (!\inst2|vgacontroller1|ramaddr[15]~2_combout\)) # (!\inst2|decoder1|asb~regout\ & ((!\inst2|vgacontroller1|ramaddr[15]~19_combout\)))
+-- \inst2|draw1|line1|draw_write~0_combout\ = ((\inst2|draw1|line1|setup~regout\) # (!\inst2|decoder1|en\(3))) # (!\inst2|ramcontroller1|draw_can_access~0_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011000000111111",
+	lut_mask => "1101111111011111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|vgacontroller1|ramaddr[15]~2_combout\,
-	datac => \inst2|decoder1|asb~regout\,
-	datad => \inst2|vgacontroller1|ramaddr[15]~19_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[15]~20_combout\);
+	dataa => \inst2|ramcontroller1|draw_can_access~0_combout\,
+	datab => \inst2|draw1|line1|setup~regout\,
+	datac => \inst2|decoder1|en\(3),
+	combout => \inst2|draw1|line1|draw_write~0_combout\);
 
--- Location: LCCOMB_X24_Y23_N6
-\inst2|vgacontroller1|ramaddr[15]~51\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X38_Y20_N0
+\inst2|vgacontroller1|ramaddr[15]~5\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|ramaddr[15]~51_combout\ = (\inst2|vgacontroller1|ramaddr[15]~2_combout\) # ((!\inst2|decoder1|decoder_claim~regout\ & (\inst2|vgacontroller1|vga_combi~1_combout\ & \reset~combout\)))
+-- \inst2|vgacontroller1|ramaddr[15]~5_combout\ = ((\inst2|draw1|pixel1|draw_write~0_combout\) # ((\inst2|draw1|rect1|draw_write~1_combout\ & \inst2|draw1|rect1|draw_write~0_combout\))) # (!\inst2|draw1|line1|draw_write~0_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111010011110000",
+	lut_mask => "1111111110001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|draw_write~1_combout\,
+	datab => \inst2|draw1|rect1|draw_write~0_combout\,
+	datac => \inst2|draw1|line1|draw_write~0_combout\,
+	datad => \inst2|draw1|pixel1|draw_write~0_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[15]~5_combout\);
+
+-- Location: LCCOMB_X37_Y18_N12
+\inst2|vgacontroller1|ramaddr[15]~22\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[15]~22_combout\ = (\inst2|decoder1|asb~regout\ & ((!\inst2|vgacontroller1|ramaddr[15]~5_combout\))) # (!\inst2|decoder1|asb~regout\ & (!\inst2|vgacontroller1|ramaddr[15]~53_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0001000111011101",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|ramaddr[15]~53_combout\,
+	datab => \inst2|decoder1|asb~regout\,
+	datad => \inst2|vgacontroller1|ramaddr[15]~5_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[15]~22_combout\);
+
+-- Location: LCCOMB_X37_Y18_N4
+\inst2|vgacontroller1|ramaddr[15]~54\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[15]~54_combout\ = (\inst2|vgacontroller1|ramaddr[15]~5_combout\) # ((!\inst2|decoder1|decoder_claim~regout\ & (\reset~combout\ & \inst2|vgacontroller1|vga_combi~1_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111101000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|decoder_claim~regout\,
-	datab => \inst2|vgacontroller1|vga_combi~1_combout\,
-	datac => \inst2|vgacontroller1|ramaddr[15]~2_combout\,
-	datad => \reset~combout\,
-	combout => \inst2|vgacontroller1|ramaddr[15]~51_combout\);
+	datab => \reset~combout\,
+	datac => \inst2|vgacontroller1|vga_combi~1_combout\,
+	datad => \inst2|vgacontroller1|ramaddr[15]~5_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[15]~54_combout\);
 
--- Location: LCCOMB_X21_Y16_N8
+-- Location: LCCOMB_X38_Y19_N30
 \inst2|draw1|rect1|ramaddr[14]~30\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|ramaddr[14]~30_combout\ = (\inst2|draw1|rect1|cy\(6)) # (((\inst2|draw1|rect1|almost_done~regout\) # (!\inst2|draw1|rect1|started~regout\)) # (!\inst2|draw1|rect1|draw_write~1_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111110111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cy\(6),
-	datab => \inst2|draw1|rect1|draw_write~1_combout\,
-	datac => \inst2|draw1|rect1|started~regout\,
-	datad => \inst2|draw1|rect1|almost_done~regout\,
-	combout => \inst2|draw1|rect1|ramaddr[14]~30_combout\);
-
--- Location: LCCOMB_X22_Y18_N22
-\inst2|vgacontroller1|ramaddr[14]~21\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[14]~21_combout\ = (\inst2|draw1|line1|draw_write~0_combout\ & (((\inst2|vgacontroller1|v_count\(8)) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\)))) # (!\inst2|draw1|line1|draw_write~0_combout\ & 
--- (\inst2|draw1|line1|cy\(6) & ((\inst2|vgacontroller1|v_count\(8)) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110000011101110",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|draw_write~0_combout\,
-	datab => \inst2|draw1|line1|cy\(6),
-	datac => \inst2|vgacontroller1|v_count\(8),
-	datad => \inst2|vgacontroller1|ramaddr[15]~19_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[14]~21_combout\);
-
--- Location: LCCOMB_X22_Y18_N4
-\inst2|vgacontroller1|ramaddr[14]~22\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[14]~22_combout\ = (\inst2|draw1|rect1|ramaddr[14]~30_combout\ & (\inst2|vgacontroller1|ramaddr[14]~21_combout\ & ((\inst2|decoder1|y\(6)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000101000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|ramaddr[14]~30_combout\,
-	datab => \inst2|decoder1|y\(6),
-	datac => \inst2|draw1|pixel1|draw_write~0_combout\,
-	datad => \inst2|vgacontroller1|ramaddr[14]~21_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[14]~22_combout\);
-
--- Location: LCCOMB_X23_Y16_N6
-\inst2|draw1|rect1|ramaddr[13]~31\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|ramaddr[13]~31_combout\ = ((\inst2|draw1|rect1|cy\(5)) # ((\inst2|draw1|rect1|almost_done~regout\) # (!\inst2|draw1|rect1|started~regout\))) # (!\inst2|draw1|rect1|draw_write~1_combout\)
+-- \inst2|draw1|rect1|ramaddr[14]~30_combout\ = ((\inst2|draw1|rect1|cy\(6)) # ((\inst2|draw1|rect1|almost_done~regout\) # (!\inst2|draw1|rect1|started~regout\))) # (!\inst2|draw1|rect1|draw_write~1_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -9922,68 +10072,338 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|draw1|rect1|draw_write~1_combout\,
-	datab => \inst2|draw1|rect1|cy\(5),
+	datab => \inst2|draw1|rect1|cy\(6),
 	datac => \inst2|draw1|rect1|almost_done~regout\,
 	datad => \inst2|draw1|rect1|started~regout\,
-	combout => \inst2|draw1|rect1|ramaddr[13]~31_combout\);
+	combout => \inst2|draw1|rect1|ramaddr[14]~30_combout\);
 
--- Location: LCCOMB_X22_Y17_N0
-\inst2|vgacontroller1|ramaddr[13]~23\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X44_Y19_N12
+\inst2|vgacontroller1|new_v_count[8]~5\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|ramaddr[13]~23_combout\ = (\inst2|draw1|line1|cy\(5) & ((\inst2|vgacontroller1|v_count\(7)) # ((!\inst2|vgacontroller1|ramaddr[15]~19_combout\)))) # (!\inst2|draw1|line1|cy\(5) & (\inst2|draw1|line1|draw_write~0_combout\ & 
--- ((\inst2|vgacontroller1|v_count\(7)) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))))
+-- \inst2|vgacontroller1|new_v_count[8]~5_combout\ = (\inst2|vgacontroller1|Add1~16_combout\ & !\inst2|vgacontroller1|LessThan9~2_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100100011111010",
+	lut_mask => "0000000011110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|cy\(5),
-	datab => \inst2|vgacontroller1|v_count\(7),
-	datac => \inst2|draw1|line1|draw_write~0_combout\,
-	datad => \inst2|vgacontroller1|ramaddr[15]~19_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[13]~23_combout\);
+	datac => \inst2|vgacontroller1|Add1~16_combout\,
+	datad => \inst2|vgacontroller1|LessThan9~2_combout\,
+	combout => \inst2|vgacontroller1|new_v_count[8]~5_combout\);
 
--- Location: LCCOMB_X23_Y16_N22
-\inst2|vgacontroller1|ramaddr[13]~24\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[13]~24_combout\ = (\inst2|draw1|rect1|ramaddr[13]~31_combout\ & (\inst2|vgacontroller1|ramaddr[13]~23_combout\ & ((\inst2|decoder1|y\(5)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1000100000001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
+-- Location: LCFF_X44_Y19_N13
+\inst2|vgacontroller1|v_count[8]\ : cycloneii_lcell_ff
 PORT MAP (
-	dataa => \inst2|draw1|rect1|ramaddr[13]~31_combout\,
-	datab => \inst2|vgacontroller1|ramaddr[13]~23_combout\,
-	datac => \inst2|draw1|pixel1|draw_write~0_combout\,
-	datad => \inst2|decoder1|y\(5),
-	combout => \inst2|vgacontroller1|ramaddr[13]~24_combout\);
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|vgacontroller1|new_v_count[8]~5_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	ena => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|vgacontroller1|v_count\(8));
 
--- Location: LCCOMB_X22_Y17_N22
-\inst2|vgacontroller1|ramaddr[12]~25\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X36_Y19_N10
+\inst2|vgacontroller1|ramaddr[14]~23\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|ramaddr[12]~25_combout\ = (\inst2|draw1|line1|draw_write~0_combout\ & (((\inst2|vgacontroller1|v_count\(6))) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))) # (!\inst2|draw1|line1|draw_write~0_combout\ & 
--- (\inst2|draw1|line1|cy\(4) & ((\inst2|vgacontroller1|v_count\(6)) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))))
+-- \inst2|vgacontroller1|ramaddr[14]~23_combout\ = (\inst2|draw1|line1|draw_write~0_combout\ & (((\inst2|vgacontroller1|v_count\(8)) # (!\inst2|vgacontroller1|ramaddr[15]~53_combout\)))) # (!\inst2|draw1|line1|draw_write~0_combout\ & 
+-- (\inst2|draw1|line1|cy\(6) & ((\inst2|vgacontroller1|v_count\(8)) # (!\inst2|vgacontroller1|ramaddr[15]~53_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111001110100010",
+	lut_mask => "1110111000001110",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|draw1|line1|draw_write~0_combout\,
-	datab => \inst2|vgacontroller1|ramaddr[15]~19_combout\,
-	datac => \inst2|vgacontroller1|v_count\(6),
-	datad => \inst2|draw1|line1|cy\(4),
-	combout => \inst2|vgacontroller1|ramaddr[12]~25_combout\);
+	datab => \inst2|draw1|line1|cy\(6),
+	datac => \inst2|vgacontroller1|ramaddr[15]~53_combout\,
+	datad => \inst2|vgacontroller1|v_count\(8),
+	combout => \inst2|vgacontroller1|ramaddr[14]~23_combout\);
 
--- Location: LCCOMB_X23_Y16_N12
+-- Location: LCCOMB_X38_Y19_N20
+\inst2|vgacontroller1|ramaddr[14]~24\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[14]~24_combout\ = (\inst2|draw1|rect1|ramaddr[14]~30_combout\ & (\inst2|vgacontroller1|ramaddr[14]~23_combout\ & ((\inst2|decoder1|y\(6)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000000011000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|y\(6),
+	datab => \inst2|draw1|rect1|ramaddr[14]~30_combout\,
+	datac => \inst2|vgacontroller1|ramaddr[14]~23_combout\,
+	datad => \inst2|draw1|pixel1|draw_write~0_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[14]~24_combout\);
+
+-- Location: LCCOMB_X38_Y19_N24
+\inst2|draw1|rect1|ramaddr[13]~31\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|ramaddr[13]~31_combout\ = ((\inst2|draw1|rect1|almost_done~regout\) # ((\inst2|draw1|rect1|cy\(5)) # (!\inst2|draw1|rect1|started~regout\))) # (!\inst2|draw1|rect1|draw_write~1_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110111111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|draw_write~1_combout\,
+	datab => \inst2|draw1|rect1|almost_done~regout\,
+	datac => \inst2|draw1|rect1|cy\(5),
+	datad => \inst2|draw1|rect1|started~regout\,
+	combout => \inst2|draw1|rect1|ramaddr[13]~31_combout\);
+
+-- Location: LCCOMB_X36_Y19_N20
+\inst2|vgacontroller1|ramaddr[13]~25\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[13]~25_combout\ = (\inst2|draw1|line1|draw_write~0_combout\ & (((\inst2|vgacontroller1|v_count\(7)) # (!\inst2|vgacontroller1|ramaddr[15]~53_combout\)))) # (!\inst2|draw1|line1|draw_write~0_combout\ & 
+-- (\inst2|draw1|line1|cy\(5) & ((\inst2|vgacontroller1|v_count\(7)) # (!\inst2|vgacontroller1|ramaddr[15]~53_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110111000001110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|draw_write~0_combout\,
+	datab => \inst2|draw1|line1|cy\(5),
+	datac => \inst2|vgacontroller1|ramaddr[15]~53_combout\,
+	datad => \inst2|vgacontroller1|v_count\(7),
+	combout => \inst2|vgacontroller1|ramaddr[13]~25_combout\);
+
+-- Location: LCCOMB_X38_Y19_N2
+\inst2|vgacontroller1|ramaddr[13]~26\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[13]~26_combout\ = (\inst2|draw1|rect1|ramaddr[13]~31_combout\ & (\inst2|vgacontroller1|ramaddr[13]~25_combout\ & ((\inst2|decoder1|y\(5)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000000010100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|ramaddr[13]~31_combout\,
+	datab => \inst2|decoder1|y\(5),
+	datac => \inst2|vgacontroller1|ramaddr[13]~25_combout\,
+	datad => \inst2|draw1|pixel1|draw_write~0_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[13]~26_combout\);
+
+-- Location: LCCOMB_X42_Y19_N12
+\inst2|vgacontroller1|ramaddr[12]~27\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[12]~27_combout\ = (\inst2|vgacontroller1|v_count\(6) & ((\inst2|draw1|line1|cy\(4)) # ((\inst2|draw1|line1|draw_write~0_combout\)))) # (!\inst2|vgacontroller1|v_count\(6) & (!\inst2|vgacontroller1|ramaddr[15]~53_combout\ & 
+-- ((\inst2|draw1|line1|cy\(4)) # (\inst2|draw1|line1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010111110001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|v_count\(6),
+	datab => \inst2|draw1|line1|cy\(4),
+	datac => \inst2|vgacontroller1|ramaddr[15]~53_combout\,
+	datad => \inst2|draw1|line1|draw_write~0_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[12]~27_combout\);
+
+-- Location: LCCOMB_X37_Y19_N8
+\inst2|draw1|rect1|Add0~16\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add0~16_combout\ = (\inst2|decoder1|h\(4) & !\inst2|draw1|rect1|started~regout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|decoder1|h\(4),
+	datad => \inst2|draw1|rect1|started~regout\,
+	combout => \inst2|draw1|rect1|Add0~16_combout\);
+
+-- Location: LCCOMB_X37_Y19_N10
+\inst2|draw1|rect1|Add0~19\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|Add0~19_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & ((\inst2|draw1|rect1|Add0~16_combout\) # ((\inst2|draw1|rect1|draw_write~0_combout\ & \inst2|draw1|rect1|Add0~17_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110110000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|draw_write~0_combout\,
+	datab => \inst2|draw1|rect1|Add0~16_combout\,
+	datac => \inst2|draw1|rect1|Add0~17_combout\,
+	datad => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	combout => \inst2|draw1|rect1|Add0~19_combout\);
+
+-- Location: LCFF_X37_Y19_N11
+\inst2|draw1|rect1|cy[4]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|rect1|Add0~19_combout\,
+	ena => \inst2|draw1|rect1|cy_tmp[0]~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|rect1|cy\(4));
+
+-- Location: LCCOMB_X38_Y19_N14
 \inst2|draw1|rect1|ramaddr[12]~32\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|ramaddr[12]~32_combout\ = (((\inst2|draw1|rect1|almost_done~regout\) # (\inst2|draw1|rect1|cy\(4))) # (!\inst2|draw1|rect1|started~regout\)) # (!\inst2|draw1|rect1|draw_write~1_combout\)
+-- \inst2|draw1|rect1|ramaddr[12]~32_combout\ = ((\inst2|draw1|rect1|almost_done~regout\) # ((\inst2|draw1|rect1|cy\(4)) # (!\inst2|draw1|rect1|started~regout\))) # (!\inst2|draw1|rect1|draw_write~1_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111111011111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|draw_write~1_combout\,
+	datab => \inst2|draw1|rect1|almost_done~regout\,
+	datac => \inst2|draw1|rect1|started~regout\,
+	datad => \inst2|draw1|rect1|cy\(4),
+	combout => \inst2|draw1|rect1|ramaddr[12]~32_combout\);
+
+-- Location: LCCOMB_X38_Y19_N28
+\inst2|vgacontroller1|ramaddr[12]~28\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[12]~28_combout\ = (\inst2|vgacontroller1|ramaddr[12]~27_combout\ & (\inst2|draw1|rect1|ramaddr[12]~32_combout\ & ((\inst2|decoder1|y\(4)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000000010100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|ramaddr[12]~27_combout\,
+	datab => \inst2|decoder1|y\(4),
+	datac => \inst2|draw1|rect1|ramaddr[12]~32_combout\,
+	datad => \inst2|draw1|pixel1|draw_write~0_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[12]~28_combout\);
+
+-- Location: LCCOMB_X38_Y19_N16
+\inst2|draw1|rect1|ramaddr[11]~33\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|ramaddr[11]~33_combout\ = ((\inst2|draw1|rect1|cy\(3)) # ((\inst2|draw1|rect1|almost_done~regout\) # (!\inst2|draw1|rect1|started~regout\))) # (!\inst2|draw1|rect1|draw_write~1_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110111111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|draw_write~1_combout\,
+	datab => \inst2|draw1|rect1|cy\(3),
+	datac => \inst2|draw1|rect1|almost_done~regout\,
+	datad => \inst2|draw1|rect1|started~regout\,
+	combout => \inst2|draw1|rect1|ramaddr[11]~33_combout\);
+
+-- Location: LCCOMB_X38_Y19_N22
+\inst2|vgacontroller1|ramaddr[11]~29\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[11]~29_combout\ = (\inst2|draw1|line1|cy\(3) & (((\inst2|vgacontroller1|v_count\(5)) # (!\inst2|vgacontroller1|ramaddr[15]~53_combout\)))) # (!\inst2|draw1|line1|cy\(3) & (\inst2|draw1|line1|draw_write~0_combout\ & 
+-- ((\inst2|vgacontroller1|v_count\(5)) # (!\inst2|vgacontroller1|ramaddr[15]~53_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110111000001110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|cy\(3),
+	datab => \inst2|draw1|line1|draw_write~0_combout\,
+	datac => \inst2|vgacontroller1|ramaddr[15]~53_combout\,
+	datad => \inst2|vgacontroller1|v_count\(5),
+	combout => \inst2|vgacontroller1|ramaddr[11]~29_combout\);
+
+-- Location: LCCOMB_X38_Y19_N4
+\inst2|vgacontroller1|ramaddr[11]~30\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[11]~30_combout\ = (\inst2|draw1|rect1|ramaddr[11]~33_combout\ & (\inst2|vgacontroller1|ramaddr[11]~29_combout\ & ((\inst2|decoder1|y\(3)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000000010001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|ramaddr[11]~33_combout\,
+	datab => \inst2|vgacontroller1|ramaddr[11]~29_combout\,
+	datac => \inst2|decoder1|y\(3),
+	datad => \inst2|draw1|pixel1|draw_write~0_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[11]~30_combout\);
+
+-- Location: LCCOMB_X38_Y19_N6
+\inst2|draw1|rect1|ramaddr[10]~34\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|ramaddr[10]~34_combout\ = ((\inst2|draw1|rect1|almost_done~regout\) # ((\inst2|draw1|rect1|cy\(2)) # (!\inst2|draw1|rect1|started~regout\))) # (!\inst2|draw1|rect1|draw_write~1_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111111011111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|draw_write~1_combout\,
+	datab => \inst2|draw1|rect1|almost_done~regout\,
+	datac => \inst2|draw1|rect1|started~regout\,
+	datad => \inst2|draw1|rect1|cy\(2),
+	combout => \inst2|draw1|rect1|ramaddr[10]~34_combout\);
+
+-- Location: LCCOMB_X38_Y19_N26
+\inst2|vgacontroller1|ramaddr[10]~31\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[10]~31_combout\ = (\inst2|vgacontroller1|ramaddr[15]~53_combout\ & (\inst2|vgacontroller1|v_count\(4) & ((\inst2|draw1|line1|draw_write~0_combout\) # (\inst2|draw1|line1|cy\(2))))) # 
+-- (!\inst2|vgacontroller1|ramaddr[15]~53_combout\ & ((\inst2|draw1|line1|draw_write~0_combout\) # ((\inst2|draw1|line1|cy\(2)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111010111000100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|ramaddr[15]~53_combout\,
+	datab => \inst2|draw1|line1|draw_write~0_combout\,
+	datac => \inst2|vgacontroller1|v_count\(4),
+	datad => \inst2|draw1|line1|cy\(2),
+	combout => \inst2|vgacontroller1|ramaddr[10]~31_combout\);
+
+-- Location: LCFF_X39_Y15_N21
+\inst2|decoder1|y[2]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	sdata => \inst2|decoder1|x~5_combout\,
+	sclr => \ALT_INV_reset~combout\,
+	sload => VCC,
+	ena => \inst2|decoder1|y~1_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|decoder1|y\(2));
+
+-- Location: LCCOMB_X38_Y19_N8
+\inst2|vgacontroller1|ramaddr[10]~32\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[10]~32_combout\ = (\inst2|draw1|rect1|ramaddr[10]~34_combout\ & (\inst2|vgacontroller1|ramaddr[10]~31_combout\ & ((\inst2|decoder1|y\(2)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000000010001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|ramaddr[10]~34_combout\,
+	datab => \inst2|vgacontroller1|ramaddr[10]~31_combout\,
+	datac => \inst2|decoder1|y\(2),
+	datad => \inst2|draw1|pixel1|draw_write~0_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[10]~32_combout\);
+
+-- Location: LCCOMB_X38_Y20_N22
+\inst2|draw1|rect1|ramaddr[9]~35\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|ramaddr[9]~35_combout\ = (((\inst2|draw1|rect1|almost_done~regout\) # (\inst2|draw1|rect1|cy\(1))) # (!\inst2|draw1|rect1|started~regout\)) # (!\inst2|draw1|rect1|draw_write~1_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -9994,433 +10414,72 @@ PORT MAP (
 	dataa => \inst2|draw1|rect1|draw_write~1_combout\,
 	datab => \inst2|draw1|rect1|started~regout\,
 	datac => \inst2|draw1|rect1|almost_done~regout\,
-	datad => \inst2|draw1|rect1|cy\(4),
-	combout => \inst2|draw1|rect1|ramaddr[12]~32_combout\);
-
--- Location: LCCOMB_X23_Y16_N4
-\inst2|vgacontroller1|ramaddr[12]~26\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[12]~26_combout\ = (\inst2|vgacontroller1|ramaddr[12]~25_combout\ & (\inst2|draw1|rect1|ramaddr[12]~32_combout\ & ((\inst2|decoder1|y\(4)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010001000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|ramaddr[12]~25_combout\,
-	datab => \inst2|draw1|pixel1|draw_write~0_combout\,
-	datac => \inst2|decoder1|y\(4),
-	datad => \inst2|draw1|rect1|ramaddr[12]~32_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[12]~26_combout\);
-
--- Location: LCCOMB_X21_Y16_N10
-\inst2|draw1|rect1|ramaddr[11]~33\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|ramaddr[11]~33_combout\ = (\inst2|draw1|rect1|cy\(3)) # ((\inst2|draw1|rect1|almost_done~regout\) # ((!\inst2|draw1|rect1|draw_write~1_combout\) # (!\inst2|draw1|rect1|started~regout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110111111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cy\(3),
-	datab => \inst2|draw1|rect1|almost_done~regout\,
-	datac => \inst2|draw1|rect1|started~regout\,
-	datad => \inst2|draw1|rect1|draw_write~1_combout\,
-	combout => \inst2|draw1|rect1|ramaddr[11]~33_combout\);
-
--- Location: LCCOMB_X22_Y18_N10
-\inst2|vgacontroller1|ramaddr[11]~27\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[11]~27_combout\ = (\inst2|draw1|line1|cy\(3) & (((\inst2|vgacontroller1|v_count\(5))) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))) # (!\inst2|draw1|line1|cy\(3) & (\inst2|draw1|line1|draw_write~0_combout\ & 
--- ((\inst2|vgacontroller1|v_count\(5)) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111001110100010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|cy\(3),
-	datab => \inst2|vgacontroller1|ramaddr[15]~19_combout\,
-	datac => \inst2|vgacontroller1|v_count\(5),
-	datad => \inst2|draw1|line1|draw_write~0_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[11]~27_combout\);
-
--- Location: LCCOMB_X22_Y18_N20
-\inst2|vgacontroller1|ramaddr[11]~28\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[11]~28_combout\ = (\inst2|draw1|rect1|ramaddr[11]~33_combout\ & (\inst2|vgacontroller1|ramaddr[11]~27_combout\ & ((\inst2|decoder1|y\(3)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010001000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|ramaddr[11]~33_combout\,
-	datab => \inst2|draw1|pixel1|draw_write~0_combout\,
-	datac => \inst2|decoder1|y\(3),
-	datad => \inst2|vgacontroller1|ramaddr[11]~27_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[11]~28_combout\);
-
--- Location: LCCOMB_X21_Y18_N16
-\inst2|vgacontroller1|new_v_count[4]~4\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|new_v_count[4]~4_combout\ = (\inst2|vgacontroller1|Add1~8_combout\ & !\inst2|vgacontroller1|LessThan9~2_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000010101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|Add1~8_combout\,
-	datad => \inst2|vgacontroller1|LessThan9~2_combout\,
-	combout => \inst2|vgacontroller1|new_v_count[4]~4_combout\);
-
--- Location: LCFF_X21_Y18_N17
-\inst2|vgacontroller1|v_count[4]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|new_v_count[4]~4_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	ena => \inst2|vgacontroller1|h_count[2]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|v_count\(4));
-
--- Location: LCCOMB_X22_Y18_N18
-\inst2|vgacontroller1|ramaddr[10]~29\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[10]~29_combout\ = (\inst2|draw1|line1|draw_write~0_combout\ & ((\inst2|vgacontroller1|v_count\(4)) # ((!\inst2|vgacontroller1|ramaddr[15]~19_combout\)))) # (!\inst2|draw1|line1|draw_write~0_combout\ & 
--- (\inst2|draw1|line1|cy\(2) & ((\inst2|vgacontroller1|v_count\(4)) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100100011111010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|draw_write~0_combout\,
-	datab => \inst2|vgacontroller1|v_count\(4),
-	datac => \inst2|draw1|line1|cy\(2),
-	datad => \inst2|vgacontroller1|ramaddr[15]~19_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[10]~29_combout\);
-
--- Location: LCCOMB_X23_Y16_N18
-\inst2|draw1|rect1|ramaddr[10]~34\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|ramaddr[10]~34_combout\ = (\inst2|draw1|rect1|cy\(2)) # (((\inst2|draw1|rect1|almost_done~regout\) # (!\inst2|draw1|rect1|draw_write~1_combout\)) # (!\inst2|draw1|rect1|started~regout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cy\(2),
-	datab => \inst2|draw1|rect1|started~regout\,
-	datac => \inst2|draw1|rect1|almost_done~regout\,
-	datad => \inst2|draw1|rect1|draw_write~1_combout\,
-	combout => \inst2|draw1|rect1|ramaddr[10]~34_combout\);
-
--- Location: LCCOMB_X23_Y16_N26
-\inst2|vgacontroller1|ramaddr[10]~30\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[10]~30_combout\ = (\inst2|vgacontroller1|ramaddr[10]~29_combout\ & (\inst2|draw1|rect1|ramaddr[10]~34_combout\ & ((\inst2|decoder1|y\(2)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010001000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|ramaddr[10]~29_combout\,
-	datab => \inst2|draw1|pixel1|draw_write~0_combout\,
-	datac => \inst2|decoder1|y\(2),
-	datad => \inst2|draw1|rect1|ramaddr[10]~34_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[10]~30_combout\);
-
--- Location: LCFF_X23_Y17_N19
-\inst2|decoder1|y[1]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	sdata => \inst2|decoder1|x~0_combout\,
-	sclr => \ALT_INV_reset~combout\,
-	sload => VCC,
-	ena => \inst2|decoder1|y~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|y\(1));
-
--- Location: LCCOMB_X21_Y17_N0
-\inst2|draw1|line1|Add10~6\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add10~6_combout\ = (!\inst2|draw1|line1|cx[3]~0_combout\ & ((\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|y\(1))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add10~4_combout\)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000110100001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|setup~regout\,
-	datab => \inst2|decoder1|y\(1),
-	datac => \inst2|draw1|line1|cx[3]~0_combout\,
-	datad => \inst2|draw1|line1|Add10~4_combout\,
-	combout => \inst2|draw1|line1|Add10~6_combout\);
-
--- Location: LCFF_X21_Y17_N1
-\inst2|draw1|line1|cy[1]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|Add10~6_combout\,
-	ena => \inst2|draw1|line1|Add10~3_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|cy\(1));
-
--- Location: LCCOMB_X22_Y17_N16
-\inst2|vgacontroller1|ramaddr[9]~31\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[9]~31_combout\ = (\inst2|draw1|line1|draw_write~0_combout\ & (((\inst2|vgacontroller1|v_count\(3))) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))) # (!\inst2|draw1|line1|draw_write~0_combout\ & 
--- (\inst2|draw1|line1|cy\(1) & ((\inst2|vgacontroller1|v_count\(3)) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101000110010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|draw_write~0_combout\,
-	datab => \inst2|vgacontroller1|ramaddr[15]~19_combout\,
-	datac => \inst2|draw1|line1|cy\(1),
-	datad => \inst2|vgacontroller1|v_count\(3),
-	combout => \inst2|vgacontroller1|ramaddr[9]~31_combout\);
-
--- Location: LCCOMB_X23_Y16_N0
-\inst2|draw1|rect1|ramaddr[9]~35\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|ramaddr[9]~35_combout\ = (\inst2|draw1|rect1|cy\(1)) # (((\inst2|draw1|rect1|almost_done~regout\) # (!\inst2|draw1|rect1|draw_write~1_combout\)) # (!\inst2|draw1|rect1|started~regout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cy\(1),
-	datab => \inst2|draw1|rect1|started~regout\,
-	datac => \inst2|draw1|rect1|almost_done~regout\,
-	datad => \inst2|draw1|rect1|draw_write~1_combout\,
+	datad => \inst2|draw1|rect1|cy\(1),
 	combout => \inst2|draw1|rect1|ramaddr[9]~35_combout\);
 
--- Location: LCCOMB_X23_Y16_N24
-\inst2|vgacontroller1|ramaddr[9]~32\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X44_Y19_N30
+\inst2|vgacontroller1|v_count[3]~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|ramaddr[9]~32_combout\ = (\inst2|vgacontroller1|ramaddr[9]~31_combout\ & (\inst2|draw1|rect1|ramaddr[9]~35_combout\ & ((\inst2|decoder1|y\(1)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
+-- \inst2|vgacontroller1|v_count[3]~0_combout\ = (!\inst2|vgacontroller1|LessThan9~2_combout\ & \inst2|vgacontroller1|Add1~6_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010001000000000",
+	lut_mask => "0011001100000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|vgacontroller1|ramaddr[9]~31_combout\,
-	datab => \inst2|draw1|pixel1|draw_write~0_combout\,
-	datac => \inst2|decoder1|y\(1),
-	datad => \inst2|draw1|rect1|ramaddr[9]~35_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[9]~32_combout\);
+	datab => \inst2|vgacontroller1|LessThan9~2_combout\,
+	datad => \inst2|vgacontroller1|Add1~6_combout\,
+	combout => \inst2|vgacontroller1|v_count[3]~0_combout\);
 
--- Location: LCCOMB_X22_Y18_N24
-\inst2|vgacontroller1|ramaddr[8]~33\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X44_Y19_N0
+\inst2|vgacontroller1|v_count[3]~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|ramaddr[8]~33_combout\ = (\inst2|draw1|line1|draw_write~0_combout\ & (((\inst2|vgacontroller1|v_count\(2))) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))) # (!\inst2|draw1|line1|draw_write~0_combout\ & 
--- (\inst2|draw1|line1|cy\(0) & ((\inst2|vgacontroller1|v_count\(2)) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))))
+-- \inst2|vgacontroller1|v_count[3]~1_combout\ = ((\inst2|vgacontroller1|LessThan8~2_combout\ & (\inst2|vgacontroller1|v_count[3]~0_combout\)) # (!\inst2|vgacontroller1|LessThan8~2_combout\ & ((\inst2|vgacontroller1|v_count\(3))))) # (!\reset~combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111001110100010",
+	lut_mask => "1101100011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|draw_write~0_combout\,
-	datab => \inst2|vgacontroller1|ramaddr[15]~19_combout\,
-	datac => \inst2|vgacontroller1|v_count\(2),
-	datad => \inst2|draw1|line1|cy\(0),
-	combout => \inst2|vgacontroller1|ramaddr[8]~33_combout\);
+	dataa => \inst2|vgacontroller1|LessThan8~2_combout\,
+	datab => \inst2|vgacontroller1|v_count[3]~0_combout\,
+	datac => \inst2|vgacontroller1|v_count\(3),
+	datad => \reset~combout\,
+	combout => \inst2|vgacontroller1|v_count[3]~1_combout\);
 
--- Location: LCCOMB_X22_Y18_N2
-\inst2|draw1|rect1|ramaddr[8]~36\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|ramaddr[8]~36_combout\ = (\inst2|draw1|rect1|almost_done~regout\) # ((\inst2|draw1|rect1|cy\(0)) # ((!\inst2|draw1|rect1|draw_write~1_combout\) # (!\inst2|draw1|rect1|started~regout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110111111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|almost_done~regout\,
-	datab => \inst2|draw1|rect1|cy\(0),
-	datac => \inst2|draw1|rect1|started~regout\,
-	datad => \inst2|draw1|rect1|draw_write~1_combout\,
-	combout => \inst2|draw1|rect1|ramaddr[8]~36_combout\);
-
--- Location: LCCOMB_X22_Y18_N26
-\inst2|vgacontroller1|ramaddr[8]~34\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[8]~34_combout\ = (\inst2|vgacontroller1|ramaddr[8]~33_combout\ & (\inst2|draw1|rect1|ramaddr[8]~36_combout\ & ((\inst2|decoder1|y\(0)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010001000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|ramaddr[8]~33_combout\,
-	datab => \inst2|draw1|pixel1|draw_write~0_combout\,
-	datac => \inst2|decoder1|y\(0),
-	datad => \inst2|draw1|rect1|ramaddr[8]~36_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[8]~34_combout\);
-
--- Location: LCCOMB_X25_Y16_N16
-\inst2|draw1|line1|Add8~28\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~28_combout\ = \inst2|draw1|line1|cx\(7) $ (\inst2|draw1|line1|Add8~25\ $ (!\inst2|draw1|line1|LessThan0~14_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011110011000011",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|line1|cx\(7),
-	datad => \inst2|draw1|line1|LessThan0~14_combout\,
-	cin => \inst2|draw1|line1|Add8~25\,
-	combout => \inst2|draw1|line1|Add8~28_combout\);
-
--- Location: LCCOMB_X25_Y19_N10
-\inst2|draw1|line1|Add8~30\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~30_combout\ = (\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|x\(7))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add8~28_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|decoder1|x\(7),
-	datac => \inst2|draw1|line1|Add8~28_combout\,
-	datad => \inst2|draw1|line1|setup~regout\,
-	combout => \inst2|draw1|line1|Add8~30_combout\);
-
--- Location: LCCOMB_X25_Y19_N24
-\inst2|draw1|line1|Add8~31\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~31_combout\ = (!\inst2|draw1|line1|cx[3]~0_combout\ & ((\inst2|draw1|line1|cx[3]~1_combout\ & ((\inst2|draw1|line1|cx\(7)))) # (!\inst2|draw1|line1|cx[3]~1_combout\ & (\inst2|draw1|line1|Add8~30_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101000001000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|cx[3]~0_combout\,
-	datab => \inst2|draw1|line1|Add8~30_combout\,
-	datac => \inst2|draw1|line1|cx\(7),
-	datad => \inst2|draw1|line1|cx[3]~1_combout\,
-	combout => \inst2|draw1|line1|Add8~31_combout\);
-
--- Location: LCFF_X25_Y19_N25
-\inst2|draw1|line1|cx[7]\ : cycloneii_lcell_ff
+-- Location: LCFF_X44_Y19_N1
+\inst2|vgacontroller1|v_count[3]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|Add8~31_combout\,
+	datain => \inst2|vgacontroller1|v_count[3]~1_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|cx\(7));
+	regout => \inst2|vgacontroller1|v_count\(3));
 
--- Location: LCCOMB_X25_Y19_N12
-\inst2|vgacontroller1|ramaddr[7]~35\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X38_Y20_N20
+\inst2|vgacontroller1|ramaddr[9]~33\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|ramaddr[7]~35_combout\ = (\inst2|draw1|line1|draw_write~0_combout\ & (((\inst2|vgacontroller1|h_count\(7))) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))) # (!\inst2|draw1|line1|draw_write~0_combout\ & 
--- (\inst2|draw1|line1|cx\(7) & ((\inst2|vgacontroller1|h_count\(7)) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))))
+-- \inst2|vgacontroller1|ramaddr[9]~33_combout\ = (\inst2|vgacontroller1|ramaddr[15]~53_combout\ & (\inst2|vgacontroller1|v_count\(3) & ((\inst2|draw1|line1|cy\(1)) # (\inst2|draw1|line1|draw_write~0_combout\)))) # 
+-- (!\inst2|vgacontroller1|ramaddr[15]~53_combout\ & ((\inst2|draw1|line1|cy\(1)) # ((\inst2|draw1|line1|draw_write~0_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111101000110010",
+	lut_mask => "1111110001010100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|draw_write~0_combout\,
-	datab => \inst2|vgacontroller1|ramaddr[15]~19_combout\,
-	datac => \inst2|draw1|line1|cx\(7),
-	datad => \inst2|vgacontroller1|h_count\(7),
-	combout => \inst2|vgacontroller1|ramaddr[7]~35_combout\);
+	dataa => \inst2|vgacontroller1|ramaddr[15]~53_combout\,
+	datab => \inst2|draw1|line1|cy\(1),
+	datac => \inst2|draw1|line1|draw_write~0_combout\,
+	datad => \inst2|vgacontroller1|v_count\(3),
+	combout => \inst2|vgacontroller1|ramaddr[9]~33_combout\);
 
--- Location: LCCOMB_X24_Y18_N16
-\inst2|draw1|rect1|Add1~8\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X38_Y20_N26
+\inst2|vgacontroller1|ramaddr[9]~34\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|Add1~8_combout\ = (\inst2|draw1|rect1|cx\(4) & ((GND) # (!\inst2|draw1|rect1|Add1~7\))) # (!\inst2|draw1|rect1|cx\(4) & (\inst2|draw1|rect1|Add1~7\ $ (GND)))
--- \inst2|draw1|rect1|Add1~9\ = CARRY((\inst2|draw1|rect1|cx\(4)) # (!\inst2|draw1|rect1|Add1~7\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011110011001111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datab => \inst2|draw1|rect1|cx\(4),
-	datad => VCC,
-	cin => \inst2|draw1|rect1|Add1~7\,
-	combout => \inst2|draw1|rect1|Add1~8_combout\,
-	cout => \inst2|draw1|rect1|Add1~9\);
-
--- Location: LCCOMB_X23_Y18_N2
-\inst2|draw1|rect1|cx_tmp[4]~12\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[4]~12_combout\ = (\inst2|draw1|rect1|cx[6]~1_combout\ & (((\inst2|draw1|rect1|cx[6]~7_combout\)))) # (!\inst2|draw1|rect1|cx[6]~1_combout\ & ((\inst2|draw1|rect1|cx[6]~7_combout\ & ((\inst2|draw1|rect1|Add1~8_combout\))) # 
--- (!\inst2|draw1|rect1|cx[6]~7_combout\ & (\inst2|decoder1|x\(4)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101001000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cx[6]~1_combout\,
-	datab => \inst2|decoder1|x\(4),
-	datac => \inst2|draw1|rect1|Add1~8_combout\,
-	datad => \inst2|draw1|rect1|cx[6]~7_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[4]~12_combout\);
-
--- Location: LCCOMB_X23_Y18_N24
-\inst2|draw1|rect1|cx_tmp[4]~13\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[4]~13_combout\ = (\inst2|draw1|rect1|cx[6]~1_combout\ & ((\inst2|draw1|rect1|cx_tmp[4]~12_combout\ & ((\inst2|draw1|rect1|cx\(4)))) # (!\inst2|draw1|rect1|cx_tmp[4]~12_combout\ & (\inst2|decoder1|w\(4))))) # 
--- (!\inst2|draw1|rect1|cx[6]~1_combout\ & (((\inst2|draw1|rect1|cx_tmp[4]~12_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100111110100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|w\(4),
-	datab => \inst2|draw1|rect1|cx\(4),
-	datac => \inst2|draw1|rect1|cx[6]~1_combout\,
-	datad => \inst2|draw1|rect1|cx_tmp[4]~12_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[4]~13_combout\);
-
--- Location: LCCOMB_X23_Y18_N28
-\inst2|draw1|rect1|cx_tmp[4]~14\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[4]~14_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & (\inst2|draw1|rect1|cx_tmp[4]~13_combout\ & ((\inst2|draw1|rect1|cx[6]~1_combout\) # (!\inst2|draw1|rect1|almost_done~regout\))))
+-- \inst2|vgacontroller1|ramaddr[9]~34_combout\ = (\inst2|draw1|rect1|ramaddr[9]~35_combout\ & (\inst2|vgacontroller1|ramaddr[9]~33_combout\ & ((\inst2|decoder1|y\(1)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -10428,22 +10487,172 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|rect1|cx[6]~1_combout\,
-	datab => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	datac => \inst2|draw1|rect1|cx_tmp[4]~13_combout\,
-	datad => \inst2|draw1|rect1|almost_done~regout\,
-	combout => \inst2|draw1|rect1|cx_tmp[4]~14_combout\);
+	dataa => \inst2|decoder1|y\(1),
+	datab => \inst2|draw1|rect1|ramaddr[9]~35_combout\,
+	datac => \inst2|vgacontroller1|ramaddr[9]~33_combout\,
+	datad => \inst2|draw1|pixel1|draw_write~0_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[9]~34_combout\);
 
--- Location: LCFF_X23_Y18_N29
-\inst2|draw1|rect1|cx[4]\ : cycloneii_lcell_ff
+-- Location: LCCOMB_X39_Y19_N22
+\inst2|draw1|line1|Add10~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add10~2_combout\ = (!\inst2|draw1|line1|cx[4]~0_combout\ & ((\inst2|draw1|line1|setup~regout\ & (\inst2|decoder1|y\(0))) # (!\inst2|draw1|line1|setup~regout\ & ((\inst2|draw1|line1|Add10~0_combout\)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000101000001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|y\(0),
+	datab => \inst2|draw1|line1|Add10~0_combout\,
+	datac => \inst2|draw1|line1|cx[4]~0_combout\,
+	datad => \inst2|draw1|line1|setup~regout\,
+	combout => \inst2|draw1|line1|Add10~2_combout\);
+
+-- Location: LCFF_X39_Y19_N23
+\inst2|draw1|line1|cy[0]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|rect1|cx_tmp[4]~14_combout\,
+	datain => \inst2|draw1|line1|Add10~2_combout\,
+	ena => \inst2|draw1|line1|Add10~3_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|draw1|rect1|cx\(4));
+	regout => \inst2|draw1|line1|cy\(0));
 
--- Location: LCCOMB_X24_Y18_N22
+-- Location: LCCOMB_X43_Y20_N22
+\inst2|vgacontroller1|ramaddr[8]~35\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[8]~35_combout\ = (\inst2|vgacontroller1|ramaddr[15]~53_combout\ & (\inst2|vgacontroller1|v_count\(2) & ((\inst2|draw1|line1|cy\(0)) # (\inst2|draw1|line1|draw_write~0_combout\)))) # 
+-- (!\inst2|vgacontroller1|ramaddr[15]~53_combout\ & ((\inst2|draw1|line1|cy\(0)) # ((\inst2|draw1|line1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111010111000100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|ramaddr[15]~53_combout\,
+	datab => \inst2|draw1|line1|cy\(0),
+	datac => \inst2|vgacontroller1|v_count\(2),
+	datad => \inst2|draw1|line1|draw_write~0_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[8]~35_combout\);
+
+-- Location: LCCOMB_X43_Y20_N2
+\inst2|draw1|rect1|ramaddr[8]~36\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|ramaddr[8]~36_combout\ = ((\inst2|draw1|rect1|cy\(0)) # ((\inst2|draw1|rect1|almost_done~regout\) # (!\inst2|draw1|rect1|draw_write~1_combout\))) # (!\inst2|draw1|rect1|started~regout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110111111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|started~regout\,
+	datab => \inst2|draw1|rect1|cy\(0),
+	datac => \inst2|draw1|rect1|almost_done~regout\,
+	datad => \inst2|draw1|rect1|draw_write~1_combout\,
+	combout => \inst2|draw1|rect1|ramaddr[8]~36_combout\);
+
+-- Location: LCCOMB_X43_Y20_N0
+\inst2|vgacontroller1|ramaddr[8]~36\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[8]~36_combout\ = (\inst2|vgacontroller1|ramaddr[8]~35_combout\ & (\inst2|draw1|rect1|ramaddr[8]~36_combout\ & ((\inst2|decoder1|y\(0)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100010000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|pixel1|draw_write~0_combout\,
+	datab => \inst2|vgacontroller1|ramaddr[8]~35_combout\,
+	datac => \inst2|decoder1|y\(0),
+	datad => \inst2|draw1|rect1|ramaddr[8]~36_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[8]~36_combout\);
+
+-- Location: LCCOMB_X40_Y17_N26
+\inst2|vgacontroller1|ramaddr[7]~37\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[7]~37_combout\ = (\inst2|draw1|line1|cx\(7) & ((\inst2|vgacontroller1|h_count\(7)) # ((!\inst2|vgacontroller1|ramaddr[15]~53_combout\)))) # (!\inst2|draw1|line1|cx\(7) & (\inst2|draw1|line1|draw_write~0_combout\ & 
+-- ((\inst2|vgacontroller1|h_count\(7)) # (!\inst2|vgacontroller1|ramaddr[15]~53_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100100011111010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|cx\(7),
+	datab => \inst2|vgacontroller1|h_count\(7),
+	datac => \inst2|draw1|line1|draw_write~0_combout\,
+	datad => \inst2|vgacontroller1|ramaddr[15]~53_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[7]~37_combout\);
+
+-- Location: LCCOMB_X39_Y20_N2
+\inst2|draw1|rect1|cx_tmp[6]~18\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[6]~18_combout\ = (\inst2|draw1|rect1|cx[1]~1_combout\ & (((\inst2|draw1|rect1|cx[1]~7_combout\)))) # (!\inst2|draw1|rect1|cx[1]~1_combout\ & ((\inst2|draw1|rect1|cx[1]~7_combout\ & (\inst2|draw1|rect1|Add1~12_combout\)) # 
+-- (!\inst2|draw1|rect1|cx[1]~7_combout\ & ((\inst2|decoder1|x\(6))))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110001111100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|Add1~12_combout\,
+	datab => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datac => \inst2|draw1|rect1|cx[1]~7_combout\,
+	datad => \inst2|decoder1|x\(6),
+	combout => \inst2|draw1|rect1|cx_tmp[6]~18_combout\);
+
+-- Location: LCCOMB_X39_Y18_N28
+\inst2|draw1|rect1|cx_tmp[6]~19\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[6]~19_combout\ = (\inst2|draw1|rect1|cx[1]~1_combout\ & ((\inst2|draw1|rect1|cx_tmp[6]~18_combout\ & ((\inst2|draw1|rect1|cx\(6)))) # (!\inst2|draw1|rect1|cx_tmp[6]~18_combout\ & (\inst2|decoder1|w\(6))))) # 
+-- (!\inst2|draw1|rect1|cx[1]~1_combout\ & (\inst2|draw1|rect1|cx_tmp[6]~18_combout\))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110110001100100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datab => \inst2|draw1|rect1|cx_tmp[6]~18_combout\,
+	datac => \inst2|decoder1|w\(6),
+	datad => \inst2|draw1|rect1|cx\(6),
+	combout => \inst2|draw1|rect1|cx_tmp[6]~19_combout\);
+
+-- Location: LCCOMB_X39_Y18_N24
+\inst2|draw1|rect1|cx_tmp[6]~20\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|cx_tmp[6]~20_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & (\inst2|draw1|rect1|cx_tmp[6]~19_combout\ & ((\inst2|draw1|rect1|cx[1]~1_combout\) # (!\inst2|draw1|rect1|almost_done~regout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010001000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	datab => \inst2|draw1|rect1|almost_done~regout\,
+	datac => \inst2|draw1|rect1|cx[1]~1_combout\,
+	datad => \inst2|draw1|rect1|cx_tmp[6]~19_combout\,
+	combout => \inst2|draw1|rect1|cx_tmp[6]~20_combout\);
+
+-- Location: LCFF_X39_Y18_N25
+\inst2|draw1|rect1|cx[6]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|rect1|cx_tmp[6]~20_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|rect1|cx\(6));
+
+-- Location: LCCOMB_X40_Y20_N16
 \inst2|draw1|rect1|Add1~14\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|draw1|rect1|Add1~14_combout\ = \inst2|draw1|rect1|Add1~13\ $ (!\inst2|draw1|rect1|cx\(7))
@@ -10458,42 +10667,42 @@ PORT MAP (
 	cin => \inst2|draw1|rect1|Add1~13\,
 	combout => \inst2|draw1|rect1|Add1~14_combout\);
 
--- Location: LCCOMB_X23_Y18_N8
+-- Location: LCCOMB_X40_Y20_N30
 \inst2|draw1|rect1|cx_tmp[7]~22\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[7]~22_combout\ = (\inst2|draw1|rect1|cx_tmp[7]~21_combout\ & (((\inst2|draw1|rect1|cx\(7))) # (!\inst2|draw1|rect1|cx[6]~7_combout\))) # (!\inst2|draw1|rect1|cx_tmp[7]~21_combout\ & (\inst2|draw1|rect1|cx[6]~7_combout\ & 
--- ((\inst2|draw1|rect1|Add1~14_combout\))))
+-- \inst2|draw1|rect1|cx_tmp[7]~22_combout\ = (\inst2|draw1|rect1|cx_tmp[7]~21_combout\ & ((\inst2|draw1|rect1|cx\(7)) # ((!\inst2|draw1|rect1|cx[1]~7_combout\)))) # (!\inst2|draw1|rect1|cx_tmp[7]~21_combout\ & (((\inst2|draw1|rect1|Add1~14_combout\ & 
+-- \inst2|draw1|rect1|cx[1]~7_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1110011010100010",
+	lut_mask => "1101100010101010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|draw1|rect1|cx_tmp[7]~21_combout\,
-	datab => \inst2|draw1|rect1|cx[6]~7_combout\,
-	datac => \inst2|draw1|rect1|cx\(7),
-	datad => \inst2|draw1|rect1|Add1~14_combout\,
+	datab => \inst2|draw1|rect1|cx\(7),
+	datac => \inst2|draw1|rect1|Add1~14_combout\,
+	datad => \inst2|draw1|rect1|cx[1]~7_combout\,
 	combout => \inst2|draw1|rect1|cx_tmp[7]~22_combout\);
 
--- Location: LCCOMB_X23_Y18_N14
+-- Location: LCCOMB_X40_Y20_N0
 \inst2|draw1|rect1|cx_tmp[7]~23\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[7]~23_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & (\inst2|draw1|rect1|cx_tmp[7]~22_combout\ & ((\inst2|draw1|rect1|cx[6]~1_combout\) # (!\inst2|draw1|rect1|almost_done~regout\))))
+-- \inst2|draw1|rect1|cx_tmp[7]~23_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & (\inst2|draw1|rect1|cx_tmp[7]~22_combout\ & ((\inst2|draw1|rect1|cx[1]~1_combout\) # (!\inst2|draw1|rect1|almost_done~regout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1000000011000000",
+	lut_mask => "1000100000001000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|rect1|cx[6]~1_combout\,
-	datab => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	datac => \inst2|draw1|rect1|cx_tmp[7]~22_combout\,
-	datad => \inst2|draw1|rect1|almost_done~regout\,
+	dataa => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
+	datab => \inst2|draw1|rect1|cx_tmp[7]~22_combout\,
+	datac => \inst2|draw1|rect1|almost_done~regout\,
+	datad => \inst2|draw1|rect1|cx[1]~1_combout\,
 	combout => \inst2|draw1|rect1|cx_tmp[7]~23_combout\);
 
--- Location: LCFF_X23_Y18_N15
+-- Location: LCFF_X40_Y20_N1
 \inst2|draw1|rect1|cx[7]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
@@ -10502,80 +10711,27 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \inst2|draw1|rect1|cx\(7));
 
--- Location: LCCOMB_X22_Y18_N16
+-- Location: LCCOMB_X40_Y17_N18
 \inst2|draw1|rect1|ramaddr[7]~37\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|ramaddr[7]~37_combout\ = (\inst2|draw1|rect1|almost_done~regout\) # ((\inst2|draw1|rect1|cx\(7)) # ((!\inst2|draw1|rect1|draw_write~1_combout\) # (!\inst2|draw1|rect1|started~regout\)))
+-- \inst2|draw1|rect1|ramaddr[7]~37_combout\ = (\inst2|draw1|rect1|almost_done~regout\) # (((\inst2|draw1|rect1|cx\(7)) # (!\inst2|draw1|rect1|started~regout\)) # (!\inst2|draw1|rect1|draw_write~1_combout\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1110111111111111",
+	lut_mask => "1111111110111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|draw1|rect1|almost_done~regout\,
-	datab => \inst2|draw1|rect1|cx\(7),
+	datab => \inst2|draw1|rect1|draw_write~1_combout\,
 	datac => \inst2|draw1|rect1|started~regout\,
-	datad => \inst2|draw1|rect1|draw_write~1_combout\,
+	datad => \inst2|draw1|rect1|cx\(7),
 	combout => \inst2|draw1|rect1|ramaddr[7]~37_combout\);
 
--- Location: LCCOMB_X25_Y19_N6
-\inst2|vgacontroller1|ramaddr[7]~36\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y17_N28
+\inst2|vgacontroller1|ramaddr[7]~38\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|ramaddr[7]~36_combout\ = (\inst2|vgacontroller1|ramaddr[7]~35_combout\ & (\inst2|draw1|rect1|ramaddr[7]~37_combout\ & ((\inst2|decoder1|x\(7)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010001000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|ramaddr[7]~35_combout\,
-	datab => \inst2|draw1|pixel1|draw_write~0_combout\,
-	datac => \inst2|decoder1|x\(7),
-	datad => \inst2|draw1|rect1|ramaddr[7]~37_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[7]~36_combout\);
-
--- Location: LCCOMB_X25_Y18_N28
-\inst2|draw1|rect1|cx_tmp[6]~18\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[6]~18_combout\ = (\inst2|draw1|rect1|cx[6]~7_combout\ & ((\inst2|draw1|rect1|Add1~12_combout\) # ((\inst2|draw1|rect1|cx[6]~1_combout\)))) # (!\inst2|draw1|rect1|cx[6]~7_combout\ & (((\inst2|decoder1|x\(6) & 
--- !\inst2|draw1|rect1|cx[6]~1_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000010101100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|Add1~12_combout\,
-	datab => \inst2|decoder1|x\(6),
-	datac => \inst2|draw1|rect1|cx[6]~7_combout\,
-	datad => \inst2|draw1|rect1|cx[6]~1_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[6]~18_combout\);
-
--- Location: LCCOMB_X25_Y18_N22
-\inst2|draw1|rect1|cx_tmp[6]~19\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[6]~19_combout\ = (\inst2|draw1|rect1|cx[6]~1_combout\ & ((\inst2|draw1|rect1|cx_tmp[6]~18_combout\ & ((\inst2|draw1|rect1|cx\(6)))) # (!\inst2|draw1|rect1|cx_tmp[6]~18_combout\ & (\inst2|decoder1|w\(6))))) # 
--- (!\inst2|draw1|rect1|cx[6]~1_combout\ & (((\inst2|draw1|rect1|cx_tmp[6]~18_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111010110001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|cx[6]~1_combout\,
-	datab => \inst2|decoder1|w\(6),
-	datac => \inst2|draw1|rect1|cx\(6),
-	datad => \inst2|draw1|rect1|cx_tmp[6]~18_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[6]~19_combout\);
-
--- Location: LCCOMB_X25_Y18_N26
-\inst2|draw1|rect1|cx_tmp[6]~20\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|cx_tmp[6]~20_combout\ = (\inst2|draw1|rect1|cy_tmp[0]~0_combout\ & (\inst2|draw1|rect1|cx_tmp[6]~19_combout\ & ((\inst2|draw1|rect1|cx[6]~1_combout\) # (!\inst2|draw1|rect1|almost_done~regout\))))
+-- \inst2|vgacontroller1|ramaddr[7]~38_combout\ = (\inst2|vgacontroller1|ramaddr[7]~37_combout\ & (\inst2|draw1|rect1|ramaddr[7]~37_combout\ & ((\inst2|decoder1|x\(7)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -10583,275 +10739,68 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|rect1|almost_done~regout\,
-	datab => \inst2|draw1|rect1|cy_tmp[0]~0_combout\,
-	datac => \inst2|draw1|rect1|cx[6]~1_combout\,
-	datad => \inst2|draw1|rect1|cx_tmp[6]~19_combout\,
-	combout => \inst2|draw1|rect1|cx_tmp[6]~20_combout\);
+	dataa => \inst2|draw1|pixel1|draw_write~0_combout\,
+	datab => \inst2|vgacontroller1|ramaddr[7]~37_combout\,
+	datac => \inst2|decoder1|x\(7),
+	datad => \inst2|draw1|rect1|ramaddr[7]~37_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[7]~38_combout\);
 
--- Location: LCFF_X25_Y18_N27
-\inst2|draw1|rect1|cx[6]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|rect1|cx_tmp[6]~20_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|rect1|cx\(6));
-
--- Location: LCCOMB_X24_Y18_N6
+-- Location: LCCOMB_X40_Y17_N12
 \inst2|draw1|rect1|ramaddr[6]~38\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|ramaddr[6]~38_combout\ = (\inst2|draw1|rect1|almost_done~regout\) # (((\inst2|draw1|rect1|cx\(6)) # (!\inst2|draw1|rect1|draw_write~1_combout\)) # (!\inst2|draw1|rect1|started~regout\))
+-- \inst2|draw1|rect1|ramaddr[6]~38_combout\ = ((\inst2|draw1|rect1|cx\(6)) # ((\inst2|draw1|rect1|almost_done~regout\) # (!\inst2|draw1|rect1|draw_write~1_combout\))) # (!\inst2|draw1|rect1|started~regout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111101111111111",
+	lut_mask => "1111110111111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|rect1|almost_done~regout\,
-	datab => \inst2|draw1|rect1|started~regout\,
-	datac => \inst2|draw1|rect1|cx\(6),
+	dataa => \inst2|draw1|rect1|started~regout\,
+	datab => \inst2|draw1|rect1|cx\(6),
+	datac => \inst2|draw1|rect1|almost_done~regout\,
 	datad => \inst2|draw1|rect1|draw_write~1_combout\,
 	combout => \inst2|draw1|rect1|ramaddr[6]~38_combout\);
 
--- Location: LCCOMB_X25_Y19_N16
-\inst2|vgacontroller1|ramaddr[6]~37\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y17_N14
+\inst2|vgacontroller1|ramaddr[6]~39\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|ramaddr[6]~37_combout\ = (\inst2|vgacontroller1|h_count\(6) & (((\inst2|draw1|line1|draw_write~0_combout\) # (\inst2|draw1|line1|cx\(6))))) # (!\inst2|vgacontroller1|h_count\(6) & (!\inst2|vgacontroller1|ramaddr[15]~19_combout\ & 
--- ((\inst2|draw1|line1|draw_write~0_combout\) # (\inst2|draw1|line1|cx\(6)))))
+-- \inst2|vgacontroller1|ramaddr[6]~39_combout\ = (\inst2|draw1|line1|cx\(6) & ((\inst2|vgacontroller1|h_count\(6)) # ((!\inst2|vgacontroller1|ramaddr[15]~53_combout\)))) # (!\inst2|draw1|line1|cx\(6) & (\inst2|draw1|line1|draw_write~0_combout\ & 
+-- ((\inst2|vgacontroller1|h_count\(6)) # (!\inst2|vgacontroller1|ramaddr[15]~53_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1011101110110000",
+	lut_mask => "1100100011111010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|vgacontroller1|h_count\(6),
-	datab => \inst2|vgacontroller1|ramaddr[15]~19_combout\,
+	dataa => \inst2|draw1|line1|cx\(6),
+	datab => \inst2|vgacontroller1|h_count\(6),
 	datac => \inst2|draw1|line1|draw_write~0_combout\,
-	datad => \inst2|draw1|line1|cx\(6),
-	combout => \inst2|vgacontroller1|ramaddr[6]~37_combout\);
+	datad => \inst2|vgacontroller1|ramaddr[15]~53_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[6]~39_combout\);
 
--- Location: LCCOMB_X25_Y19_N30
-\inst2|vgacontroller1|ramaddr[6]~38\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X40_Y17_N0
+\inst2|vgacontroller1|ramaddr[6]~40\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|ramaddr[6]~38_combout\ = (\inst2|draw1|rect1|ramaddr[6]~38_combout\ & (\inst2|vgacontroller1|ramaddr[6]~37_combout\ & ((\inst2|decoder1|x\(6)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
+-- \inst2|vgacontroller1|ramaddr[6]~40_combout\ = (\inst2|draw1|rect1|ramaddr[6]~38_combout\ & (\inst2|vgacontroller1|ramaddr[6]~39_combout\ & ((\inst2|decoder1|x\(6)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010000000100000",
+	lut_mask => "1000100000001000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|draw1|rect1|ramaddr[6]~38_combout\,
-	datab => \inst2|draw1|pixel1|draw_write~0_combout\,
-	datac => \inst2|vgacontroller1|ramaddr[6]~37_combout\,
+	datab => \inst2|vgacontroller1|ramaddr[6]~39_combout\,
+	datac => \inst2|draw1|pixel1|draw_write~0_combout\,
 	datad => \inst2|decoder1|x\(6),
-	combout => \inst2|vgacontroller1|ramaddr[6]~38_combout\);
+	combout => \inst2|vgacontroller1|ramaddr[6]~40_combout\);
 
--- Location: LCCOMB_X24_Y16_N12
-\inst2|vgacontroller1|ramaddr[5]~39\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X39_Y17_N8
+\inst2|draw1|line1|Add8~23\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|ramaddr[5]~39_combout\ = (\inst2|draw1|line1|draw_write~0_combout\ & (((\inst2|vgacontroller1|h_count\(5))) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))) # (!\inst2|draw1|line1|draw_write~0_combout\ & 
--- (\inst2|draw1|line1|cx\(5) & ((\inst2|vgacontroller1|h_count\(5)) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111001110100010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|draw_write~0_combout\,
-	datab => \inst2|vgacontroller1|ramaddr[15]~19_combout\,
-	datac => \inst2|vgacontroller1|h_count\(5),
-	datad => \inst2|draw1|line1|cx\(5),
-	combout => \inst2|vgacontroller1|ramaddr[5]~39_combout\);
-
--- Location: LCCOMB_X24_Y18_N24
-\inst2|draw1|rect1|ramaddr[5]~39\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|ramaddr[5]~39_combout\ = (\inst2|draw1|rect1|almost_done~regout\) # (((\inst2|draw1|rect1|cx\(5)) # (!\inst2|draw1|rect1|draw_write~1_combout\)) # (!\inst2|draw1|rect1|started~regout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111110111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|almost_done~regout\,
-	datab => \inst2|draw1|rect1|started~regout\,
-	datac => \inst2|draw1|rect1|draw_write~1_combout\,
-	datad => \inst2|draw1|rect1|cx\(5),
-	combout => \inst2|draw1|rect1|ramaddr[5]~39_combout\);
-
--- Location: LCCOMB_X24_Y16_N2
-\inst2|vgacontroller1|ramaddr[5]~40\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[5]~40_combout\ = (\inst2|vgacontroller1|ramaddr[5]~39_combout\ & (\inst2|draw1|rect1|ramaddr[5]~39_combout\ & ((\inst2|decoder1|x\(5)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010000000100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|ramaddr[5]~39_combout\,
-	datab => \inst2|draw1|pixel1|draw_write~0_combout\,
-	datac => \inst2|draw1|rect1|ramaddr[5]~39_combout\,
-	datad => \inst2|decoder1|x\(5),
-	combout => \inst2|vgacontroller1|ramaddr[5]~40_combout\);
-
--- Location: LCCOMB_X23_Y16_N14
-\inst2|draw1|rect1|ramaddr[4]~40\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|ramaddr[4]~40_combout\ = (((\inst2|draw1|rect1|almost_done~regout\) # (\inst2|draw1|rect1|cx\(4))) # (!\inst2|draw1|rect1|started~regout\)) # (!\inst2|draw1|rect1|draw_write~1_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111111110111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|draw_write~1_combout\,
-	datab => \inst2|draw1|rect1|started~regout\,
-	datac => \inst2|draw1|rect1|almost_done~regout\,
-	datad => \inst2|draw1|rect1|cx\(4),
-	combout => \inst2|draw1|rect1|ramaddr[4]~40_combout\);
-
--- Location: LCCOMB_X24_Y16_N16
-\inst2|vgacontroller1|ramaddr[4]~41\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[4]~41_combout\ = (\inst2|vgacontroller1|h_count\(4) & ((\inst2|draw1|line1|cx\(4)) # ((\inst2|draw1|line1|draw_write~0_combout\)))) # (!\inst2|vgacontroller1|h_count\(4) & (!\inst2|vgacontroller1|ramaddr[15]~19_combout\ & 
--- ((\inst2|draw1|line1|cx\(4)) # (\inst2|draw1|line1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010100011111100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|h_count\(4),
-	datab => \inst2|draw1|line1|cx\(4),
-	datac => \inst2|draw1|line1|draw_write~0_combout\,
-	datad => \inst2|vgacontroller1|ramaddr[15]~19_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[4]~41_combout\);
-
--- Location: LCCOMB_X24_Y16_N22
-\inst2|vgacontroller1|ramaddr[4]~42\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[4]~42_combout\ = (\inst2|draw1|rect1|ramaddr[4]~40_combout\ & (\inst2|vgacontroller1|ramaddr[4]~41_combout\ & ((\inst2|decoder1|x\(4)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010000000100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|ramaddr[4]~40_combout\,
-	datab => \inst2|draw1|pixel1|draw_write~0_combout\,
-	datac => \inst2|vgacontroller1|ramaddr[4]~41_combout\,
-	datad => \inst2|decoder1|x\(4),
-	combout => \inst2|vgacontroller1|ramaddr[4]~42_combout\);
-
--- Location: LCCOMB_X24_Y18_N26
-\inst2|draw1|rect1|ramaddr[3]~41\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|ramaddr[3]~41_combout\ = (\inst2|draw1|rect1|almost_done~regout\) # (((\inst2|draw1|rect1|cx\(3)) # (!\inst2|draw1|rect1|draw_write~1_combout\)) # (!\inst2|draw1|rect1|started~regout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111110111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|almost_done~regout\,
-	datab => \inst2|draw1|rect1|started~regout\,
-	datac => \inst2|draw1|rect1|draw_write~1_combout\,
-	datad => \inst2|draw1|rect1|cx\(3),
-	combout => \inst2|draw1|rect1|ramaddr[3]~41_combout\);
-
--- Location: LCCOMB_X24_Y16_N8
-\inst2|draw1|line1|Add8~14\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~14_combout\ = (\inst2|draw1|line1|setup~regout\ & ((\inst2|decoder1|x\(3)))) # (!\inst2|draw1|line1|setup~regout\ & (\inst2|draw1|line1|Add8~12_combout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110010011100100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|setup~regout\,
-	datab => \inst2|draw1|line1|Add8~12_combout\,
-	datac => \inst2|decoder1|x\(3),
-	combout => \inst2|draw1|line1|Add8~14_combout\);
-
--- Location: LCCOMB_X24_Y16_N28
-\inst2|draw1|line1|Add8~15\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~15_combout\ = (!\inst2|draw1|line1|cx[3]~0_combout\ & ((\inst2|draw1|line1|cx[3]~1_combout\ & ((\inst2|draw1|line1|cx\(3)))) # (!\inst2|draw1|line1|cx[3]~1_combout\ & (\inst2|draw1|line1|Add8~14_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101000001000100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|cx[3]~0_combout\,
-	datab => \inst2|draw1|line1|Add8~14_combout\,
-	datac => \inst2|draw1|line1|cx\(3),
-	datad => \inst2|draw1|line1|cx[3]~1_combout\,
-	combout => \inst2|draw1|line1|Add8~15_combout\);
-
--- Location: LCFF_X24_Y16_N29
-\inst2|draw1|line1|cx[3]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|Add8~15_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|cx\(3));
-
--- Location: LCCOMB_X24_Y16_N4
-\inst2|vgacontroller1|ramaddr[3]~43\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[3]~43_combout\ = (\inst2|vgacontroller1|h_count\(3) & ((\inst2|draw1|line1|cx\(3)) # ((\inst2|draw1|line1|draw_write~0_combout\)))) # (!\inst2|vgacontroller1|h_count\(3) & (!\inst2|vgacontroller1|ramaddr[15]~19_combout\ & 
--- ((\inst2|draw1|line1|cx\(3)) # (\inst2|draw1|line1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010100011111100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|h_count\(3),
-	datab => \inst2|draw1|line1|cx\(3),
-	datac => \inst2|draw1|line1|draw_write~0_combout\,
-	datad => \inst2|vgacontroller1|ramaddr[15]~19_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[3]~43_combout\);
-
--- Location: LCCOMB_X24_Y16_N18
-\inst2|vgacontroller1|ramaddr[3]~44\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[3]~44_combout\ = (\inst2|draw1|rect1|ramaddr[3]~41_combout\ & (\inst2|vgacontroller1|ramaddr[3]~43_combout\ & ((\inst2|decoder1|x\(3)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010001000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|ramaddr[3]~41_combout\,
-	datab => \inst2|draw1|pixel1|draw_write~0_combout\,
-	datac => \inst2|decoder1|x\(3),
-	datad => \inst2|vgacontroller1|ramaddr[3]~43_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[3]~44_combout\);
-
--- Location: LCCOMB_X25_Y16_N24
-\inst2|draw1|line1|Add8~11\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|line1|Add8~11_combout\ = (!\inst2|draw1|line1|cx[3]~0_combout\ & ((\inst2|draw1|line1|cx[3]~1_combout\ & ((\inst2|draw1|line1|cx\(2)))) # (!\inst2|draw1|line1|cx[3]~1_combout\ & (\inst2|draw1|line1|Add8~10_combout\))))
+-- \inst2|draw1|line1|Add8~23_combout\ = (!\inst2|draw1|line1|cx[4]~0_combout\ & ((\inst2|draw1|line1|cx[4]~1_combout\ & ((\inst2|draw1|line1|cx\(5)))) # (!\inst2|draw1|line1|cx[4]~1_combout\ & (\inst2|draw1|line1|Add8~22_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -10859,224 +10808,417 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|line1|Add8~10_combout\,
-	datab => \inst2|draw1|line1|cx[3]~0_combout\,
-	datac => \inst2|draw1|line1|cx\(2),
-	datad => \inst2|draw1|line1|cx[3]~1_combout\,
-	combout => \inst2|draw1|line1|Add8~11_combout\);
+	dataa => \inst2|draw1|line1|Add8~22_combout\,
+	datab => \inst2|draw1|line1|cx[4]~0_combout\,
+	datac => \inst2|draw1|line1|cx\(5),
+	datad => \inst2|draw1|line1|cx[4]~1_combout\,
+	combout => \inst2|draw1|line1|Add8~23_combout\);
 
--- Location: LCFF_X25_Y16_N25
-\inst2|draw1|line1|cx[2]\ : cycloneii_lcell_ff
+-- Location: LCFF_X39_Y17_N9
+\inst2|draw1|line1|cx[5]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|draw1|line1|Add8~11_combout\,
+	datain => \inst2|draw1|line1|Add8~23_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	regout => \inst2|draw1|line1|cx\(2));
+	regout => \inst2|draw1|line1|cx\(5));
 
--- Location: LCCOMB_X24_Y16_N20
-\inst2|vgacontroller1|ramaddr[2]~45\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X43_Y20_N14
+\inst2|vgacontroller1|ramaddr[5]~41\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|ramaddr[2]~45_combout\ = (\inst2|vgacontroller1|h_count\(2) & (((\inst2|draw1|line1|draw_write~0_combout\) # (\inst2|draw1|line1|cx\(2))))) # (!\inst2|vgacontroller1|h_count\(2) & (!\inst2|vgacontroller1|ramaddr[15]~19_combout\ & 
--- ((\inst2|draw1|line1|draw_write~0_combout\) # (\inst2|draw1|line1|cx\(2)))))
+-- \inst2|vgacontroller1|ramaddr[5]~41_combout\ = (\inst2|draw1|line1|draw_write~0_combout\ & (((\inst2|vgacontroller1|h_count\(5)) # (!\inst2|vgacontroller1|ramaddr[15]~53_combout\)))) # (!\inst2|draw1|line1|draw_write~0_combout\ & 
+-- (\inst2|draw1|line1|cx\(5) & ((\inst2|vgacontroller1|h_count\(5)) # (!\inst2|vgacontroller1|ramaddr[15]~53_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1011101110110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|h_count\(2),
-	datab => \inst2|vgacontroller1|ramaddr[15]~19_combout\,
-	datac => \inst2|draw1|line1|draw_write~0_combout\,
-	datad => \inst2|draw1|line1|cx\(2),
-	combout => \inst2|vgacontroller1|ramaddr[2]~45_combout\);
-
--- Location: LCCOMB_X23_Y18_N10
-\inst2|draw1|rect1|ramaddr[2]~42\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|ramaddr[2]~42_combout\ = (\inst2|draw1|rect1|almost_done~regout\) # ((\inst2|draw1|rect1|cx\(2)) # ((!\inst2|draw1|rect1|draw_write~1_combout\) # (!\inst2|draw1|rect1|started~regout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110111111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|almost_done~regout\,
-	datab => \inst2|draw1|rect1|cx\(2),
-	datac => \inst2|draw1|rect1|started~regout\,
-	datad => \inst2|draw1|rect1|draw_write~1_combout\,
-	combout => \inst2|draw1|rect1|ramaddr[2]~42_combout\);
-
--- Location: LCCOMB_X24_Y16_N26
-\inst2|vgacontroller1|ramaddr[2]~46\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[2]~46_combout\ = (\inst2|vgacontroller1|ramaddr[2]~45_combout\ & (\inst2|draw1|rect1|ramaddr[2]~42_combout\ & ((\inst2|decoder1|x\(2)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010001000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|vgacontroller1|ramaddr[2]~45_combout\,
-	datab => \inst2|draw1|pixel1|draw_write~0_combout\,
-	datac => \inst2|decoder1|x\(2),
-	datad => \inst2|draw1|rect1|ramaddr[2]~42_combout\,
-	combout => \inst2|vgacontroller1|ramaddr[2]~46_combout\);
-
--- Location: LCCOMB_X24_Y18_N4
-\inst2|draw1|rect1|ramaddr[1]~43\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|draw1|rect1|ramaddr[1]~43_combout\ = (\inst2|draw1|rect1|almost_done~regout\) # (((\inst2|draw1|rect1|cx\(1)) # (!\inst2|draw1|rect1|draw_write~1_combout\)) # (!\inst2|draw1|rect1|started~regout\))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111110111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|almost_done~regout\,
-	datab => \inst2|draw1|rect1|started~regout\,
-	datac => \inst2|draw1|rect1|draw_write~1_combout\,
-	datad => \inst2|draw1|rect1|cx\(1),
-	combout => \inst2|draw1|rect1|ramaddr[1]~43_combout\);
-
--- Location: LCFF_X21_Y19_N7
-\inst2|vgacontroller1|h_count[1]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|vgacontroller1|h_count[1]~10_combout\,
-	sdata => \~GND~combout\,
-	sload => \inst2|vgacontroller1|h_count[2]~18_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|vgacontroller1|h_count\(1));
-
--- Location: LCCOMB_X25_Y19_N4
-\inst2|vgacontroller1|ramaddr[1]~47\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[1]~47_combout\ = (\inst2|draw1|line1|cx\(1) & (((\inst2|vgacontroller1|h_count\(1))) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))) # (!\inst2|draw1|line1|cx\(1) & (\inst2|draw1|line1|draw_write~0_combout\ & 
--- ((\inst2|vgacontroller1|h_count\(1)) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101000110010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|line1|cx\(1),
-	datab => \inst2|vgacontroller1|ramaddr[15]~19_combout\,
-	datac => \inst2|draw1|line1|draw_write~0_combout\,
-	datad => \inst2|vgacontroller1|h_count\(1),
-	combout => \inst2|vgacontroller1|ramaddr[1]~47_combout\);
-
--- Location: LCCOMB_X25_Y19_N14
-\inst2|vgacontroller1|ramaddr[1]~48\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[1]~48_combout\ = (\inst2|draw1|rect1|ramaddr[1]~43_combout\ & (\inst2|vgacontroller1|ramaddr[1]~47_combout\ & ((\inst2|decoder1|x\(1)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010000000100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|draw1|rect1|ramaddr[1]~43_combout\,
-	datab => \inst2|draw1|pixel1|draw_write~0_combout\,
-	datac => \inst2|vgacontroller1|ramaddr[1]~47_combout\,
-	datad => \inst2|decoder1|x\(1),
-	combout => \inst2|vgacontroller1|ramaddr[1]~48_combout\);
-
--- Location: LCCOMB_X24_Y16_N24
-\inst2|vgacontroller1|ramaddr[0]~49\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|vgacontroller1|ramaddr[0]~49_combout\ = (\inst2|draw1|line1|draw_write~0_combout\ & (((\inst2|vgacontroller1|h_count\(0))) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))) # (!\inst2|draw1|line1|draw_write~0_combout\ & 
--- (\inst2|draw1|line1|cx\(0) & ((\inst2|vgacontroller1|h_count\(0)) # (!\inst2|vgacontroller1|ramaddr[15]~19_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111001110100010",
+	lut_mask => "1110111000001110",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|draw1|line1|draw_write~0_combout\,
-	datab => \inst2|vgacontroller1|ramaddr[15]~19_combout\,
-	datac => \inst2|vgacontroller1|h_count\(0),
-	datad => \inst2|draw1|line1|cx\(0),
-	combout => \inst2|vgacontroller1|ramaddr[0]~49_combout\);
+	datab => \inst2|draw1|line1|cx\(5),
+	datac => \inst2|vgacontroller1|ramaddr[15]~53_combout\,
+	datad => \inst2|vgacontroller1|h_count\(5),
+	combout => \inst2|vgacontroller1|ramaddr[5]~41_combout\);
 
--- Location: LCCOMB_X24_Y18_N2
-\inst2|draw1|rect1|ramaddr[0]~44\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X42_Y20_N26
+\inst2|draw1|rect1|ramaddr[5]~39\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|rect1|ramaddr[0]~44_combout\ = (\inst2|draw1|rect1|almost_done~regout\) # (((\inst2|draw1|rect1|cx\(0)) # (!\inst2|draw1|rect1|draw_write~1_combout\)) # (!\inst2|draw1|rect1|started~regout\))
+-- \inst2|draw1|rect1|ramaddr[5]~39_combout\ = (\inst2|draw1|rect1|cx\(5)) # (((\inst2|draw1|rect1|almost_done~regout\) # (!\inst2|draw1|rect1|started~regout\)) # (!\inst2|draw1|rect1|draw_write~1_combout\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111110111111",
+	lut_mask => "1111101111111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|draw1|rect1|almost_done~regout\,
-	datab => \inst2|draw1|rect1|started~regout\,
-	datac => \inst2|draw1|rect1|draw_write~1_combout\,
+	dataa => \inst2|draw1|rect1|cx\(5),
+	datab => \inst2|draw1|rect1|draw_write~1_combout\,
+	datac => \inst2|draw1|rect1|almost_done~regout\,
+	datad => \inst2|draw1|rect1|started~regout\,
+	combout => \inst2|draw1|rect1|ramaddr[5]~39_combout\);
+
+-- Location: LCCOMB_X42_Y20_N24
+\inst2|vgacontroller1|ramaddr[5]~42\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[5]~42_combout\ = (\inst2|vgacontroller1|ramaddr[5]~41_combout\ & (\inst2|draw1|rect1|ramaddr[5]~39_combout\ & ((\inst2|decoder1|x\(5)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|x\(5),
+	datab => \inst2|draw1|pixel1|draw_write~0_combout\,
+	datac => \inst2|vgacontroller1|ramaddr[5]~41_combout\,
+	datad => \inst2|draw1|rect1|ramaddr[5]~39_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[5]~42_combout\);
+
+-- Location: LCCOMB_X40_Y17_N30
+\inst2|draw1|line1|Add8~19\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|line1|Add8~19_combout\ = (!\inst2|draw1|line1|cx[4]~0_combout\ & ((\inst2|draw1|line1|cx[4]~1_combout\ & ((\inst2|draw1|line1|cx\(4)))) # (!\inst2|draw1|line1|cx[4]~1_combout\ & (\inst2|draw1|line1|Add8~18_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011000000100010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|Add8~18_combout\,
+	datab => \inst2|draw1|line1|cx[4]~0_combout\,
+	datac => \inst2|draw1|line1|cx\(4),
+	datad => \inst2|draw1|line1|cx[4]~1_combout\,
+	combout => \inst2|draw1|line1|Add8~19_combout\);
+
+-- Location: LCFF_X40_Y17_N31
+\inst2|draw1|line1|cx[4]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|draw1|line1|Add8~19_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|draw1|line1|cx\(4));
+
+-- Location: LCFF_X43_Y19_N13
+\inst2|vgacontroller1|h_count[4]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|vgacontroller1|h_count[4]~16_combout\,
+	sdata => \~GND~combout\,
+	sload => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|vgacontroller1|h_count\(4));
+
+-- Location: LCCOMB_X40_Y17_N2
+\inst2|vgacontroller1|ramaddr[4]~43\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[4]~43_combout\ = (\inst2|vgacontroller1|ramaddr[15]~53_combout\ & (\inst2|vgacontroller1|h_count\(4) & ((\inst2|draw1|line1|cx\(4)) # (\inst2|draw1|line1|draw_write~0_combout\)))) # 
+-- (!\inst2|vgacontroller1|ramaddr[15]~53_combout\ & ((\inst2|draw1|line1|cx\(4)) # ((\inst2|draw1|line1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110001010100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|ramaddr[15]~53_combout\,
+	datab => \inst2|draw1|line1|cx\(4),
+	datac => \inst2|draw1|line1|draw_write~0_combout\,
+	datad => \inst2|vgacontroller1|h_count\(4),
+	combout => \inst2|vgacontroller1|ramaddr[4]~43_combout\);
+
+-- Location: LCCOMB_X42_Y20_N8
+\inst2|draw1|rect1|ramaddr[4]~40\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|ramaddr[4]~40_combout\ = (((\inst2|draw1|rect1|almost_done~regout\) # (\inst2|draw1|rect1|cx\(4))) # (!\inst2|draw1|rect1|draw_write~1_combout\)) # (!\inst2|draw1|rect1|started~regout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111111110111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|started~regout\,
+	datab => \inst2|draw1|rect1|draw_write~1_combout\,
+	datac => \inst2|draw1|rect1|almost_done~regout\,
+	datad => \inst2|draw1|rect1|cx\(4),
+	combout => \inst2|draw1|rect1|ramaddr[4]~40_combout\);
+
+-- Location: LCCOMB_X42_Y17_N16
+\inst2|vgacontroller1|ramaddr[4]~44\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[4]~44_combout\ = (\inst2|vgacontroller1|ramaddr[4]~43_combout\ & (\inst2|draw1|rect1|ramaddr[4]~40_combout\ & ((\inst2|decoder1|x\(4)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000110000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|x\(4),
+	datab => \inst2|vgacontroller1|ramaddr[4]~43_combout\,
+	datac => \inst2|draw1|pixel1|draw_write~0_combout\,
+	datad => \inst2|draw1|rect1|ramaddr[4]~40_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[4]~44_combout\);
+
+-- Location: LCFF_X43_Y19_N11
+\inst2|vgacontroller1|h_count[3]\ : cycloneii_lcell_ff
+PORT MAP (
+	clk => \inst1|count[2]~clkctrl_outclk\,
+	datain => \inst2|vgacontroller1|h_count[3]~14_combout\,
+	sdata => \~GND~combout\,
+	sload => \inst2|vgacontroller1|h_count[2]~18_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	regout => \inst2|vgacontroller1|h_count\(3));
+
+-- Location: LCCOMB_X43_Y20_N28
+\inst2|vgacontroller1|ramaddr[3]~45\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[3]~45_combout\ = (\inst2|vgacontroller1|ramaddr[15]~53_combout\ & (\inst2|vgacontroller1|h_count\(3) & ((\inst2|draw1|line1|cx\(3)) # (\inst2|draw1|line1|draw_write~0_combout\)))) # 
+-- (!\inst2|vgacontroller1|ramaddr[15]~53_combout\ & (((\inst2|draw1|line1|cx\(3)) # (\inst2|draw1|line1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101110111010000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|ramaddr[15]~53_combout\,
+	datab => \inst2|vgacontroller1|h_count\(3),
+	datac => \inst2|draw1|line1|cx\(3),
+	datad => \inst2|draw1|line1|draw_write~0_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[3]~45_combout\);
+
+-- Location: LCCOMB_X43_Y20_N4
+\inst2|draw1|rect1|ramaddr[3]~41\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|ramaddr[3]~41_combout\ = ((\inst2|draw1|rect1|cx\(3)) # ((\inst2|draw1|rect1|almost_done~regout\) # (!\inst2|draw1|rect1|draw_write~1_combout\))) # (!\inst2|draw1|rect1|started~regout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110111111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|started~regout\,
+	datab => \inst2|draw1|rect1|cx\(3),
+	datac => \inst2|draw1|rect1|almost_done~regout\,
+	datad => \inst2|draw1|rect1|draw_write~1_combout\,
+	combout => \inst2|draw1|rect1|ramaddr[3]~41_combout\);
+
+-- Location: LCCOMB_X43_Y20_N18
+\inst2|vgacontroller1|ramaddr[3]~46\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[3]~46_combout\ = (\inst2|vgacontroller1|ramaddr[3]~45_combout\ & (\inst2|draw1|rect1|ramaddr[3]~41_combout\ & ((\inst2|decoder1|x\(3)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100000001000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|pixel1|draw_write~0_combout\,
+	datab => \inst2|vgacontroller1|ramaddr[3]~45_combout\,
+	datac => \inst2|draw1|rect1|ramaddr[3]~41_combout\,
+	datad => \inst2|decoder1|x\(3),
+	combout => \inst2|vgacontroller1|ramaddr[3]~46_combout\);
+
+-- Location: LCCOMB_X43_Y20_N26
+\inst2|draw1|rect1|ramaddr[2]~42\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|ramaddr[2]~42_combout\ = ((\inst2|draw1|rect1|cx\(2)) # ((\inst2|draw1|rect1|almost_done~regout\) # (!\inst2|draw1|rect1|draw_write~1_combout\))) # (!\inst2|draw1|rect1|started~regout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110111111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|started~regout\,
+	datab => \inst2|draw1|rect1|cx\(2),
+	datac => \inst2|draw1|rect1|almost_done~regout\,
+	datad => \inst2|draw1|rect1|draw_write~1_combout\,
+	combout => \inst2|draw1|rect1|ramaddr[2]~42_combout\);
+
+-- Location: LCCOMB_X43_Y20_N20
+\inst2|vgacontroller1|ramaddr[2]~47\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[2]~47_combout\ = (\inst2|draw1|line1|cx\(2) & ((\inst2|vgacontroller1|h_count\(2)) # ((!\inst2|vgacontroller1|ramaddr[15]~53_combout\)))) # (!\inst2|draw1|line1|cx\(2) & (\inst2|draw1|line1|draw_write~0_combout\ & 
+-- ((\inst2|vgacontroller1|h_count\(2)) # (!\inst2|vgacontroller1|ramaddr[15]~53_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111110001010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|cx\(2),
+	datab => \inst2|vgacontroller1|h_count\(2),
+	datac => \inst2|vgacontroller1|ramaddr[15]~53_combout\,
+	datad => \inst2|draw1|line1|draw_write~0_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[2]~47_combout\);
+
+-- Location: LCCOMB_X43_Y20_N10
+\inst2|vgacontroller1|ramaddr[2]~48\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[2]~48_combout\ = (\inst2|draw1|rect1|ramaddr[2]~42_combout\ & (\inst2|vgacontroller1|ramaddr[2]~47_combout\ & ((\inst2|decoder1|x\(2)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000000011000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|x\(2),
+	datab => \inst2|draw1|rect1|ramaddr[2]~42_combout\,
+	datac => \inst2|vgacontroller1|ramaddr[2]~47_combout\,
+	datad => \inst2|draw1|pixel1|draw_write~0_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[2]~48_combout\);
+
+-- Location: LCCOMB_X40_Y17_N8
+\inst2|vgacontroller1|ramaddr[1]~49\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[1]~49_combout\ = (\inst2|vgacontroller1|ramaddr[15]~53_combout\ & (\inst2|vgacontroller1|h_count\(1) & ((\inst2|draw1|line1|cx\(1)) # (\inst2|draw1|line1|draw_write~0_combout\)))) # 
+-- (!\inst2|vgacontroller1|ramaddr[15]~53_combout\ & ((\inst2|draw1|line1|cx\(1)) # ((\inst2|draw1|line1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110001010100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|ramaddr[15]~53_combout\,
+	datab => \inst2|draw1|line1|cx\(1),
+	datac => \inst2|draw1|line1|draw_write~0_combout\,
+	datad => \inst2|vgacontroller1|h_count\(1),
+	combout => \inst2|vgacontroller1|ramaddr[1]~49_combout\);
+
+-- Location: LCCOMB_X40_Y17_N10
+\inst2|draw1|rect1|ramaddr[1]~43\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|ramaddr[1]~43_combout\ = ((\inst2|draw1|rect1|cx\(1)) # ((\inst2|draw1|rect1|almost_done~regout\) # (!\inst2|draw1|rect1|draw_write~1_combout\))) # (!\inst2|draw1|rect1|started~regout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110111111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|started~regout\,
+	datab => \inst2|draw1|rect1|cx\(1),
+	datac => \inst2|draw1|rect1|almost_done~regout\,
+	datad => \inst2|draw1|rect1|draw_write~1_combout\,
+	combout => \inst2|draw1|rect1|ramaddr[1]~43_combout\);
+
+-- Location: LCCOMB_X40_Y17_N22
+\inst2|vgacontroller1|ramaddr[1]~50\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[1]~50_combout\ = (\inst2|vgacontroller1|ramaddr[1]~49_combout\ & (\inst2|draw1|rect1|ramaddr[1]~43_combout\ & ((\inst2|decoder1|x\(1)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1000110000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|x\(1),
+	datab => \inst2|vgacontroller1|ramaddr[1]~49_combout\,
+	datac => \inst2|draw1|pixel1|draw_write~0_combout\,
+	datad => \inst2|draw1|rect1|ramaddr[1]~43_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[1]~50_combout\);
+
+-- Location: LCCOMB_X43_Y20_N12
+\inst2|vgacontroller1|ramaddr[0]~51\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|ramaddr[0]~51_combout\ = (\inst2|draw1|line1|cx\(0) & ((\inst2|vgacontroller1|h_count\(0)) # ((!\inst2|vgacontroller1|ramaddr[15]~53_combout\)))) # (!\inst2|draw1|line1|cx\(0) & (\inst2|draw1|line1|draw_write~0_combout\ & 
+-- ((\inst2|vgacontroller1|h_count\(0)) # (!\inst2|vgacontroller1|ramaddr[15]~53_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100111110001010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|line1|cx\(0),
+	datab => \inst2|vgacontroller1|h_count\(0),
+	datac => \inst2|vgacontroller1|ramaddr[15]~53_combout\,
+	datad => \inst2|draw1|line1|draw_write~0_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[0]~51_combout\);
+
+-- Location: LCCOMB_X42_Y20_N22
+\inst2|draw1|rect1|ramaddr[0]~44\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|draw1|rect1|ramaddr[0]~44_combout\ = (((\inst2|draw1|rect1|almost_done~regout\) # (\inst2|draw1|rect1|cx\(0))) # (!\inst2|draw1|rect1|draw_write~1_combout\)) # (!\inst2|draw1|rect1|started~regout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111111110111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|draw1|rect1|started~regout\,
+	datab => \inst2|draw1|rect1|draw_write~1_combout\,
+	datac => \inst2|draw1|rect1|almost_done~regout\,
 	datad => \inst2|draw1|rect1|cx\(0),
 	combout => \inst2|draw1|rect1|ramaddr[0]~44_combout\);
 
--- Location: LCCOMB_X24_Y16_N6
-\inst2|vgacontroller1|ramaddr[0]~50\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X42_Y20_N14
+\inst2|vgacontroller1|ramaddr[0]~52\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|ramaddr[0]~50_combout\ = (\inst2|vgacontroller1|ramaddr[0]~49_combout\ & (\inst2|draw1|rect1|ramaddr[0]~44_combout\ & ((\inst2|decoder1|x\(0)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
+-- \inst2|vgacontroller1|ramaddr[0]~52_combout\ = (\inst2|vgacontroller1|ramaddr[0]~51_combout\ & (\inst2|draw1|rect1|ramaddr[0]~44_combout\ & ((\inst2|decoder1|x\(0)) # (!\inst2|draw1|pixel1|draw_write~0_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010000000100000",
+	lut_mask => "1011000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|vgacontroller1|ramaddr[0]~49_combout\,
+	dataa => \inst2|decoder1|x\(0),
 	datab => \inst2|draw1|pixel1|draw_write~0_combout\,
-	datac => \inst2|draw1|rect1|ramaddr[0]~44_combout\,
-	datad => \inst2|decoder1|x\(0),
-	combout => \inst2|vgacontroller1|ramaddr[0]~50_combout\);
+	datac => \inst2|vgacontroller1|ramaddr[0]~51_combout\,
+	datad => \inst2|draw1|rect1|ramaddr[0]~44_combout\,
+	combout => \inst2|vgacontroller1|ramaddr[0]~52_combout\);
 
--- Location: LCCOMB_X23_Y20_N20
+-- Location: LCCOMB_X35_Y19_N12
 \inst2|decoder1|y~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|y~0_combout\ = (\inst2|decoder1|current_instruction\(2) & (\inst2|decoder1|decode_comb~1_combout\ & ((!\inst2|decoder1|current_instruction\(0)) # (!\inst2|decoder1|current_instruction\(1))))) # (!\inst2|decoder1|current_instruction\(2) & 
--- (\inst2|decoder1|current_instruction\(1) & ((\inst2|decoder1|decode_comb~1_combout\) # (!\inst2|decoder1|current_instruction\(0)))))
+-- \inst2|decoder1|y~0_combout\ = (\inst2|decoder1|current_instruction\(2) & (\inst2|decoder1|decode_comb~0_combout\ & ((!\inst2|decoder1|current_instruction\(0)) # (!\inst2|decoder1|current_instruction\(1))))) # (!\inst2|decoder1|current_instruction\(2) & 
+-- (\inst2|decoder1|current_instruction\(1) & ((\inst2|decoder1|decode_comb~0_combout\) # (!\inst2|decoder1|current_instruction\(0)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0110000011100010",
+	lut_mask => "0110111000000100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|current_instruction\(1),
-	datab => \inst2|decoder1|current_instruction\(2),
-	datac => \inst2|decoder1|decode_comb~1_combout\,
-	datad => \inst2|decoder1|current_instruction\(0),
+	dataa => \inst2|decoder1|current_instruction\(2),
+	datab => \inst2|decoder1|current_instruction\(1),
+	datac => \inst2|decoder1|current_instruction\(0),
+	datad => \inst2|decoder1|decode_comb~0_combout\,
 	combout => \inst2|decoder1|y~0_combout\);
 
--- Location: LCCOMB_X23_Y20_N30
+-- Location: LCCOMB_X35_Y19_N8
 \inst2|decoder1|color~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|color~0_combout\ = ((\inst2|decoder1|y~0_combout\ & ((\inst4|Equal63~3_combout\) # (!\inst2|decoder1|x[5]~1_combout\)))) # (!\reset~combout\)
+-- \inst2|decoder1|color~0_combout\ = ((\inst2|decoder1|y~0_combout\ & ((\inst4|Equal63~2_combout\) # (!\inst2|decoder1|x[7]~1_combout\)))) # (!\reset~combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1011001111110011",
+	lut_mask => "1101111101010101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst4|Equal63~3_combout\,
-	datab => \reset~combout\,
-	datac => \inst2|decoder1|y~0_combout\,
-	datad => \inst2|decoder1|x[5]~1_combout\,
+	dataa => \reset~combout\,
+	datab => \inst4|Equal63~2_combout\,
+	datac => \inst2|decoder1|x[7]~1_combout\,
+	datad => \inst2|decoder1|y~0_combout\,
 	combout => \inst2|decoder1|color~0_combout\);
 
--- Location: LCFF_X24_Y23_N1
+-- Location: LCFF_X37_Y18_N1
 \inst2|decoder1|color[5]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
@@ -11088,74 +11230,76 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \inst2|decoder1|color\(5));
 
--- Location: LCCOMB_X24_Y23_N0
+-- Location: LCCOMB_X37_Y18_N0
 \inst2|draw1|line1|ramdata[5]~6\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|ramdata[5]~6_combout\ = (\inst2|decoder1|color\(5)) # (!\inst2|vgacontroller1|ramaddr[15]~2_combout\)
+-- \inst2|draw1|line1|ramdata[5]~6_combout\ = (\inst2|decoder1|color\(5)) # (!\inst2|vgacontroller1|ramaddr[15]~5_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111001111110011",
+	lut_mask => "1111000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|vgacontroller1|ramaddr[15]~2_combout\,
 	datac => \inst2|decoder1|color\(5),
+	datad => \inst2|vgacontroller1|ramaddr[15]~5_combout\,
 	combout => \inst2|draw1|line1|ramdata[5]~6_combout\);
 
--- Location: LCFF_X23_Y20_N5
+-- Location: LCFF_X37_Y18_N3
 \inst2|decoder1|color[4]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|x~7_combout\,
+	sdata => \inst2|decoder1|x~7_combout\,
 	sclr => \ALT_INV_reset~combout\,
+	sload => VCC,
 	ena => \inst2|decoder1|color~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	regout => \inst2|decoder1|color\(4));
 
--- Location: LCCOMB_X24_Y23_N20
+-- Location: LCCOMB_X37_Y18_N2
 \inst2|draw1|line1|ramdata[4]~7\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|ramdata[4]~7_combout\ = (\inst2|decoder1|color\(4)) # (!\inst2|vgacontroller1|ramaddr[15]~2_combout\)
+-- \inst2|draw1|line1|ramdata[4]~7_combout\ = (\inst2|decoder1|color\(4)) # (!\inst2|vgacontroller1|ramaddr[15]~5_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100001111",
+	lut_mask => "1111000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \inst2|vgacontroller1|ramaddr[15]~2_combout\,
-	datad => \inst2|decoder1|color\(4),
+	datac => \inst2|decoder1|color\(4),
+	datad => \inst2|vgacontroller1|ramaddr[15]~5_combout\,
 	combout => \inst2|draw1|line1|ramdata[4]~7_combout\);
 
--- Location: LCFF_X23_Y20_N11
+-- Location: LCFF_X37_Y18_N29
 \inst2|decoder1|color[3]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|x~4_combout\,
+	sdata => \inst2|decoder1|x~4_combout\,
 	sclr => \ALT_INV_reset~combout\,
+	sload => VCC,
 	ena => \inst2|decoder1|color~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	regout => \inst2|decoder1|color\(3));
 
--- Location: LCCOMB_X24_Y23_N28
+-- Location: LCCOMB_X37_Y18_N28
 \inst2|draw1|line1|ramdata[3]~8\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|ramdata[3]~8_combout\ = (\inst2|decoder1|color\(3)) # (!\inst2|vgacontroller1|ramaddr[15]~2_combout\)
+-- \inst2|draw1|line1|ramdata[3]~8_combout\ = (\inst2|decoder1|color\(3)) # (!\inst2|vgacontroller1|ramaddr[15]~5_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100001111",
+	lut_mask => "1111000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \inst2|vgacontroller1|ramaddr[15]~2_combout\,
-	datad => \inst2|decoder1|color\(3),
+	datac => \inst2|decoder1|color\(3),
+	datad => \inst2|vgacontroller1|ramaddr[15]~5_combout\,
 	combout => \inst2|draw1|line1|ramdata[3]~8_combout\);
 
--- Location: LCFF_X24_Y23_N9
+-- Location: LCFF_X37_Y18_N19
 \inst2|decoder1|color[2]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
@@ -11167,112 +11311,114 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \inst2|decoder1|color\(2));
 
--- Location: LCCOMB_X24_Y23_N8
+-- Location: LCCOMB_X37_Y18_N18
 \inst2|draw1|line1|ramdata[2]~9\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|ramdata[2]~9_combout\ = (\inst2|decoder1|color\(2)) # (!\inst2|vgacontroller1|ramaddr[15]~2_combout\)
+-- \inst2|draw1|line1|ramdata[2]~9_combout\ = (\inst2|decoder1|color\(2)) # (!\inst2|vgacontroller1|ramaddr[15]~5_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111001111110011",
+	lut_mask => "1111000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|vgacontroller1|ramaddr[15]~2_combout\,
 	datac => \inst2|decoder1|color\(2),
+	datad => \inst2|vgacontroller1|ramaddr[15]~5_combout\,
 	combout => \inst2|draw1|line1|ramdata[2]~9_combout\);
 
--- Location: LCFF_X23_Y20_N13
+-- Location: LCFF_X37_Y18_N9
 \inst2|decoder1|color[1]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|x~0_combout\,
+	sdata => \inst2|decoder1|x~0_combout\,
 	sclr => \ALT_INV_reset~combout\,
+	sload => VCC,
 	ena => \inst2|decoder1|color~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	regout => \inst2|decoder1|color\(1));
 
--- Location: LCCOMB_X24_Y23_N16
+-- Location: LCCOMB_X37_Y18_N8
 \inst2|draw1|line1|ramdata[1]~10\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|ramdata[1]~10_combout\ = (\inst2|decoder1|color\(1)) # (!\inst2|vgacontroller1|ramaddr[15]~2_combout\)
+-- \inst2|draw1|line1|ramdata[1]~10_combout\ = (\inst2|decoder1|color\(1)) # (!\inst2|vgacontroller1|ramaddr[15]~5_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100001111",
+	lut_mask => "1111000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \inst2|vgacontroller1|ramaddr[15]~2_combout\,
-	datad => \inst2|decoder1|color\(1),
+	datac => \inst2|decoder1|color\(1),
+	datad => \inst2|vgacontroller1|ramaddr[15]~5_combout\,
 	combout => \inst2|draw1|line1|ramdata[1]~10_combout\);
 
--- Location: LCFF_X23_Y20_N19
+-- Location: LCFF_X37_Y18_N7
 \inst2|decoder1|color[0]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|x~3_combout\,
+	sdata => \inst2|decoder1|x~3_combout\,
 	sclr => \ALT_INV_reset~combout\,
+	sload => VCC,
 	ena => \inst2|decoder1|color~0_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	regout => \inst2|decoder1|color\(0));
 
--- Location: LCCOMB_X24_Y23_N4
+-- Location: LCCOMB_X37_Y18_N6
 \inst2|draw1|line1|ramdata[0]~11\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|draw1|line1|ramdata[0]~11_combout\ = (\inst2|decoder1|color\(0)) # (!\inst2|vgacontroller1|ramaddr[15]~2_combout\)
+-- \inst2|draw1|line1|ramdata[0]~11_combout\ = (\inst2|decoder1|color\(0)) # (!\inst2|vgacontroller1|ramaddr[15]~5_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100001111",
+	lut_mask => "1111000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => \inst2|vgacontroller1|ramaddr[15]~2_combout\,
-	datad => \inst2|decoder1|color\(0),
+	datac => \inst2|decoder1|color\(0),
+	datad => \inst2|vgacontroller1|ramaddr[15]~5_combout\,
 	combout => \inst2|draw1|line1|ramdata[0]~11_combout\);
 
--- Location: LCCOMB_X21_Y19_N28
+-- Location: LCCOMB_X43_Y20_N16
 \inst2|vgacontroller1|vgahsync~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|vgahsync~1_combout\ = (\inst2|vgacontroller1|h_count\(3) & (((\inst2|vgacontroller1|h_count\(0)) # (\inst2|vgacontroller1|h_count\(1))) # (!\inst2|vgacontroller1|h_count\(2))))
+-- \inst2|vgacontroller1|vgahsync~1_combout\ = (\inst2|vgacontroller1|h_count\(3) & ((\inst2|vgacontroller1|h_count\(1)) # ((\inst2|vgacontroller1|h_count\(0)) # (!\inst2|vgacontroller1|h_count\(2)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010101010100010",
+	lut_mask => "1100110010001100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|vgacontroller1|h_count\(3),
-	datab => \inst2|vgacontroller1|h_count\(2),
-	datac => \inst2|vgacontroller1|h_count\(0),
-	datad => \inst2|vgacontroller1|h_count\(1),
+	dataa => \inst2|vgacontroller1|h_count\(1),
+	datab => \inst2|vgacontroller1|h_count\(3),
+	datac => \inst2|vgacontroller1|h_count\(2),
+	datad => \inst2|vgacontroller1|h_count\(0),
 	combout => \inst2|vgacontroller1|vgahsync~1_combout\);
 
--- Location: LCCOMB_X22_Y19_N24
+-- Location: LCCOMB_X43_Y19_N0
 \inst2|vgacontroller1|vgahsync~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|vgahsync~0_combout\ = (\inst2|vgacontroller1|h_count\(5) & (\inst2|vgacontroller1|h_count\(7) & (\reset~combout\ & !\inst2|vgacontroller1|h_count\(6))))
+-- \inst2|vgacontroller1|vgahsync~0_combout\ = (!\inst2|vgacontroller1|h_count\(6) & (\inst2|vgacontroller1|h_count\(7) & (\inst2|vgacontroller1|h_count\(5) & \reset~combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000010000000",
+	lut_mask => "0100000000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|vgacontroller1|h_count\(5),
+	dataa => \inst2|vgacontroller1|h_count\(6),
 	datab => \inst2|vgacontroller1|h_count\(7),
-	datac => \reset~combout\,
-	datad => \inst2|vgacontroller1|h_count\(6),
+	datac => \inst2|vgacontroller1|h_count\(5),
+	datad => \reset~combout\,
 	combout => \inst2|vgacontroller1|vgahsync~0_combout\);
 
--- Location: LCCOMB_X21_Y19_N22
+-- Location: LCCOMB_X43_Y20_N6
 \inst2|vgacontroller1|vgahsync~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|vgacontroller1|vgahsync~2_combout\ = ((\inst2|vgacontroller1|h_count\(4) & (\inst2|vgacontroller1|vgahsync~1_combout\ & \inst2|vgacontroller1|h_count\(2))) # (!\inst2|vgacontroller1|h_count\(4) & (!\inst2|vgacontroller1|vgahsync~1_combout\ & 
--- !\inst2|vgacontroller1|h_count\(2)))) # (!\inst2|vgacontroller1|vgahsync~0_combout\)
+-- \inst2|vgacontroller1|vgahsync~2_combout\ = ((\inst2|vgacontroller1|h_count\(4) & (\inst2|vgacontroller1|h_count\(2) & \inst2|vgacontroller1|vgahsync~1_combout\)) # (!\inst2|vgacontroller1|h_count\(4) & (!\inst2|vgacontroller1|h_count\(2) & 
+-- !\inst2|vgacontroller1|vgahsync~1_combout\))) # (!\inst2|vgacontroller1|vgahsync~0_combout\)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -11281,12 +11427,62 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|vgacontroller1|h_count\(4),
-	datab => \inst2|vgacontroller1|vgahsync~1_combout\,
-	datac => \inst2|vgacontroller1|h_count\(2),
+	datab => \inst2|vgacontroller1|h_count\(2),
+	datac => \inst2|vgacontroller1|vgahsync~1_combout\,
 	datad => \inst2|vgacontroller1|vgahsync~0_combout\,
 	combout => \inst2|vgacontroller1|vgahsync~2_combout\);
 
--- Location: LCCOMB_X24_Y23_N12
+-- Location: LCCOMB_X44_Y19_N18
+\inst2|vgacontroller1|vgavsync~0\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|vgavsync~0_combout\ = ((\inst2|vgacontroller1|v_count\(2) & ((\inst2|vgacontroller1|v_count\(0)) # (\inst2|vgacontroller1|v_count\(1)))) # (!\inst2|vgacontroller1|v_count\(2) & ((!\inst2|vgacontroller1|v_count\(1))))) # 
+-- (!\reset~combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111010111011111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \reset~combout\,
+	datab => \inst2|vgacontroller1|v_count\(0),
+	datac => \inst2|vgacontroller1|v_count\(2),
+	datad => \inst2|vgacontroller1|v_count\(1),
+	combout => \inst2|vgacontroller1|vgavsync~0_combout\);
+
+-- Location: LCCOMB_X44_Y19_N4
+\inst2|vgacontroller1|vgavsync~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|vgavsync~1_combout\ = (\inst2|vgacontroller1|v_count\(9)) # (\inst2|vgacontroller1|v_count\(4))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101011111010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|v_count\(9),
+	datac => \inst2|vgacontroller1|v_count\(4),
+	combout => \inst2|vgacontroller1|vgavsync~1_combout\);
+
+-- Location: LCCOMB_X44_Y19_N6
+\inst2|vgacontroller1|vgavsync~2\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|vgacontroller1|vgavsync~2_combout\ = ((\inst2|vgacontroller1|vgavsync~0_combout\) # ((\inst2|vgacontroller1|vgavsync~1_combout\) # (!\inst2|vgacontroller1|v_count\(3)))) # (!\inst2|vgacontroller1|LessThan11~0_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111110111111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|vgacontroller1|LessThan11~0_combout\,
+	datab => \inst2|vgacontroller1|vgavsync~0_combout\,
+	datac => \inst2|vgacontroller1|vgavsync~1_combout\,
+	datad => \inst2|vgacontroller1|v_count\(3),
+	combout => \inst2|vgacontroller1|vgavsync~2_combout\);
+
+-- Location: LCCOMB_X27_Y1_N6
 \inst1|count[0]~2\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst1|count[0]~2_combout\ = !\inst1|count\(0)
@@ -11300,7 +11496,7 @@ PORT MAP (
 	datac => \inst1|count\(0),
 	combout => \inst1|count[0]~2_combout\);
 
--- Location: LCFF_X24_Y23_N13
+-- Location: LCFF_X27_Y1_N7
 \inst1|count[0]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clock_50mhz~clkctrl_outclk\,
@@ -11309,7 +11505,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \inst1|count\(0));
 
--- Location: LCCOMB_X24_Y23_N26
+-- Location: LCCOMB_X27_Y1_N18
 \inst1|count[1]~1\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst1|count[1]~1_combout\ = \inst1|count\(1) $ (\inst1|count\(0))
@@ -11324,7 +11520,7 @@ PORT MAP (
 	datad => \inst1|count\(0),
 	combout => \inst1|count[1]~1_combout\);
 
--- Location: LCFF_X24_Y23_N27
+-- Location: LCFF_X27_Y1_N19
 \inst1|count[1]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clock_50mhz~clkctrl_outclk\,
@@ -11333,7 +11529,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \inst1|count\(1));
 
--- Location: LCCOMB_X24_Y23_N30
+-- Location: LCCOMB_X27_Y1_N4
 \inst1|count[2]~0\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst1|count[2]~0_combout\ = \inst1|count\(2) $ (((\inst1|count\(1) & \inst1|count\(0))))
@@ -11349,7 +11545,7 @@ PORT MAP (
 	datad => \inst1|count\(0),
 	combout => \inst1|count[2]~0_combout\);
 
--- Location: LCFF_X24_Y23_N31
+-- Location: LCFF_X27_Y1_N5
 \inst1|count[2]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \clock_50mhz~clkctrl_outclk\,
@@ -11358,60 +11554,127 @@ PORT MAP (
 	devpor => ww_devpor,
 	regout => \inst1|count\(2));
 
--- Location: LCCOMB_X24_Y23_N10
+-- Location: LCCOMB_X37_Y18_N24
 \inst2|ramcontroller1|write_enable~0\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst2|ramcontroller1|write_enable~0_combout\ = (\inst1|count\(2) & !\inst2|decoder1|decoder_claim~regout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000110000001100",
+	lut_mask => "0000000011110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst1|count\(2),
-	datac => \inst2|decoder1|decoder_claim~regout\,
+	datac => \inst1|count\(2),
+	datad => \inst2|decoder1|decoder_claim~regout\,
 	combout => \inst2|ramcontroller1|write_enable~0_combout\);
 
--- Location: LCCOMB_X24_Y23_N22
+-- Location: LCCOMB_X37_Y18_N30
 \inst2|ramcontroller1|write_enable~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|ramcontroller1|write_enable~1_combout\ = (\inst2|ramcontroller1|write_enable~0_combout\ & (\inst2|vgacontroller1|ramaddr[15]~2_combout\ & ((!\reset~combout\) # (!\inst2|vgacontroller1|vga_combi~1_combout\))))
+-- \inst2|ramcontroller1|write_enable~1_combout\ = (\inst2|vgacontroller1|ramaddr[15]~5_combout\ & (\inst2|ramcontroller1|write_enable~0_combout\ & ((!\reset~combout\) # (!\inst2|vgacontroller1|vga_combi~1_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000100010001000",
+	lut_mask => "0100000011000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|ramcontroller1|write_enable~0_combout\,
-	datab => \inst2|vgacontroller1|ramaddr[15]~2_combout\,
-	datac => \inst2|vgacontroller1|vga_combi~1_combout\,
+	dataa => \inst2|vgacontroller1|vga_combi~1_combout\,
+	datab => \inst2|vgacontroller1|ramaddr[15]~5_combout\,
+	datac => \inst2|ramcontroller1|write_enable~0_combout\,
 	datad => \reset~combout\,
 	combout => \inst2|ramcontroller1|write_enable~1_combout\);
 
--- Location: LCCOMB_X19_Y20_N28
-\inst2|decoder1|next_int_ready~7\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X36_Y19_N8
+\inst2|decoder1|next_int_ready~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|next_int_ready~7_combout\ = (\inst2|decoder1|decode_comb~0_combout\ & (\inst2|decoder1|next_int_ready~6_combout\)) # (!\inst2|decoder1|decode_comb~0_combout\ & (((\inst2|decoder1|int_ready~regout\) # (!\inst2|decoder1|en~3_combout\))))
+-- \inst2|decoder1|next_int_ready~0_combout\ = (\inst2|decoder1|Equal0~1_combout\ & (((\inst2|decoder1|packet_num\(2)) # (!\inst2|decoder1|packet_num\(1))))) # (!\inst2|decoder1|Equal0~1_combout\ & (\inst2|decoder1|done~1_combout\ & 
+-- ((\inst2|decoder1|packet_num\(1)) # (!\inst2|decoder1|packet_num\(2)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1011100010111011",
+	lut_mask => "1110110000101110",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|next_int_ready~6_combout\,
-	datab => \inst2|decoder1|decode_comb~0_combout\,
-	datac => \inst2|decoder1|int_ready~regout\,
-	datad => \inst2|decoder1|en~3_combout\,
-	combout => \inst2|decoder1|next_int_ready~7_combout\);
+	dataa => \inst2|decoder1|done~1_combout\,
+	datab => \inst2|decoder1|Equal0~1_combout\,
+	datac => \inst2|decoder1|packet_num\(1),
+	datad => \inst2|decoder1|packet_num\(2),
+	combout => \inst2|decoder1|next_int_ready~0_combout\);
 
--- Location: LCFF_X19_Y20_N29
+-- Location: LCCOMB_X35_Y19_N24
+\inst4|hex1[3]~8\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst4|hex1[3]~8_combout\ = \inst2|decoder1|current_instruction\(0) $ (\inst2|decoder1|current_instruction\(1))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111111110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \inst2|decoder1|current_instruction\(0),
+	datad => \inst2|decoder1|current_instruction\(1),
+	combout => \inst4|hex1[3]~8_combout\);
+
+-- Location: LCCOMB_X36_Y19_N24
+\inst2|decoder1|next_int_ready~1\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|next_int_ready~1_combout\ = (\inst2|decoder1|current_instruction\(2) & (!\inst4|Equal63~2_combout\ & (\inst2|decoder1|next_int_ready~0_combout\))) # (!\inst2|decoder1|current_instruction\(2) & ((\inst4|hex1[3]~8_combout\) # 
+-- ((!\inst4|Equal63~2_combout\ & \inst2|decoder1|next_int_ready~0_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0111010100110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|current_instruction\(2),
+	datab => \inst4|Equal63~2_combout\,
+	datac => \inst2|decoder1|next_int_ready~0_combout\,
+	datad => \inst4|hex1[3]~8_combout\,
+	combout => \inst2|decoder1|next_int_ready~1_combout\);
+
+-- Location: LCCOMB_X40_Y19_N6
+\inst2|decoder1|next_int_ready~5\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|next_int_ready~5_combout\ = (\inst2|decoder1|Equal0~0_combout\ & (\inst2|decoder1|next_int_ready~1_combout\)) # (!\inst2|decoder1|Equal0~0_combout\ & ((!\inst2|decoder1|next_int_ready~4_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100000011110011",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|decoder1|Equal0~0_combout\,
+	datac => \inst2|decoder1|next_int_ready~1_combout\,
+	datad => \inst2|decoder1|next_int_ready~4_combout\,
+	combout => \inst2|decoder1|next_int_ready~5_combout\);
+
+-- Location: LCCOMB_X40_Y19_N26
+\inst2|decoder1|next_int_ready~6\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst2|decoder1|next_int_ready~6_combout\ = (\inst2|decoder1|decode_comb~1_combout\ & (((\inst2|decoder1|next_int_ready~5_combout\)))) # (!\inst2|decoder1|decode_comb~1_combout\ & (((\inst2|decoder1|int_ready~regout\)) # (!\inst2|decoder1|en~3_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111101101010001",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst2|decoder1|decode_comb~1_combout\,
+	datab => \inst2|decoder1|en~3_combout\,
+	datac => \inst2|decoder1|int_ready~regout\,
+	datad => \inst2|decoder1|next_int_ready~5_combout\,
+	combout => \inst2|decoder1|next_int_ready~6_combout\);
+
+-- Location: LCFF_X40_Y19_N27
 \inst2|decoder1|int_ready\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|next_int_ready~7_combout\,
+	datain => \inst2|decoder1|next_int_ready~6_combout\,
 	sclr => \ALT_INV_reset~combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
@@ -11443,243 +11706,185 @@ PORT MAP (
 	padio => ww_debug_in,
 	combout => \debug_in~combout\);
 
--- Location: LCCOMB_X49_Y13_N16
+-- Location: LCCOMB_X49_Y14_N16
 inst6 : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst6~combout\ = (\inst2|decoder1|int_ready~regout\) # (!\debug_in~combout\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100110011111111",
+	lut_mask => "1111000011111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|int_ready~regout\,
+	datac => \inst2|decoder1|int_ready~regout\,
 	datad => \debug_in~combout\,
 	combout => \inst6~combout\);
 
--- Location: LCCOMB_X5_Y20_N22
-\inst2|decoder1|Add1~22\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|Add1~22_combout\ = (\inst2|decoder1|timeout_count\(11) & (!\inst2|decoder1|Add1~21\)) # (!\inst2|decoder1|timeout_count\(11) & ((\inst2|decoder1|Add1~21\) # (GND)))
--- \inst2|decoder1|Add1~23\ = CARRY((!\inst2|decoder1|Add1~21\) # (!\inst2|decoder1|timeout_count\(11)))
-
+-- Location: PIN_J20,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+\SPICLK~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011110000111111",
-	sum_lutc_input => "cin")
+	input_async_reset => "none",
+	input_power_up => "low",
+	input_register_mode => "none",
+	input_sync_reset => "none",
+	oe_async_reset => "none",
+	oe_power_up => "low",
+	oe_register_mode => "none",
+	oe_sync_reset => "none",
+	operation_mode => "input",
+	output_async_reset => "none",
+	output_power_up => "low",
+	output_register_mode => "none",
+	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|timeout_count\(11),
-	datad => VCC,
-	cin => \inst2|decoder1|Add1~21\,
-	combout => \inst2|decoder1|Add1~22_combout\,
-	cout => \inst2|decoder1|Add1~23\);
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	devoe => ww_devoe,
+	oe => GND,
+	padio => ww_SPICLK,
+	combout => \SPICLK~combout\);
 
--- Location: LCFF_X5_Y20_N23
+-- Location: LCFF_X1_Y20_N25
 \inst2|decoder1|timeout_count[11]\ : cycloneii_lcell_ff
 PORT MAP (
 	clk => \inst1|count[2]~clkctrl_outclk\,
 	datain => \inst2|decoder1|Add1~22_combout\,
-	sclr => \inst2|decoder1|timeout_count[13]~1_combout\,
-	ena => \inst2|decoder1|timeout_count[13]~2_combout\,
+	sclr => \inst2|decoder1|timeout_count[4]~3_combout\,
+	ena => \inst2|decoder1|timeout_count[4]~4_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	regout => \inst2|decoder1|timeout_count\(11));
 
--- Location: LCCOMB_X5_Y20_N24
-\inst2|decoder1|Add1~24\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X1_Y23_N4
+\inst4|hex3[6]~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2|decoder1|Add1~24_combout\ = (\inst2|decoder1|timeout_count\(12) & (\inst2|decoder1|Add1~23\ $ (GND))) # (!\inst2|decoder1|timeout_count\(12) & (!\inst2|decoder1|Add1~23\ & VCC))
--- \inst2|decoder1|Add1~25\ = CARRY((\inst2|decoder1|timeout_count\(12) & !\inst2|decoder1|Add1~23\))
+-- \inst4|hex3[6]~0_combout\ = (\inst2|decoder1|timeout_count\(10) & ((\inst2|decoder1|timeout_count\(13)) # (\inst2|decoder1|timeout_count\(12) $ (\inst2|decoder1|timeout_count\(11))))) # (!\inst2|decoder1|timeout_count\(10) & 
+-- ((\inst2|decoder1|timeout_count\(11)) # (\inst2|decoder1|timeout_count\(12) $ (\inst2|decoder1|timeout_count\(13)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010010100001010",
-	sum_lutc_input => "cin")
+	lut_mask => "1101111011110110",
+	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|timeout_count\(12),
-	datad => VCC,
-	cin => \inst2|decoder1|Add1~23\,
-	combout => \inst2|decoder1|Add1~24_combout\,
-	cout => \inst2|decoder1|Add1~25\);
-
--- Location: LCCOMB_X5_Y20_N26
-\inst2|decoder1|Add1~26\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst2|decoder1|Add1~26_combout\ = \inst2|decoder1|Add1~25\ $ (\inst2|decoder1|timeout_count\(13))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111111110000",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	datad => \inst2|decoder1|timeout_count\(13),
-	cin => \inst2|decoder1|Add1~25\,
-	combout => \inst2|decoder1|Add1~26_combout\);
-
--- Location: LCFF_X5_Y20_N27
-\inst2|decoder1|timeout_count[13]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|Add1~26_combout\,
-	sclr => \inst2|decoder1|timeout_count[13]~1_combout\,
-	ena => \inst2|decoder1|timeout_count[13]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|timeout_count\(13));
-
--- Location: LCFF_X5_Y20_N25
-\inst2|decoder1|timeout_count[12]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|Add1~24_combout\,
-	sclr => \inst2|decoder1|timeout_count[13]~1_combout\,
-	ena => \inst2|decoder1|timeout_count[13]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|timeout_count\(12));
-
--- Location: LCCOMB_X4_Y20_N20
-\inst4|hex3[6]~0\ : cycloneii_lcell_comb
--- Equation(s):
--- \inst4|hex3[6]~0_combout\ = (\inst2|decoder1|timeout_count\(10) & ((\inst2|decoder1|timeout_count\(13)) # (\inst2|decoder1|timeout_count\(11) $ (\inst2|decoder1|timeout_count\(12))))) # (!\inst2|decoder1|timeout_count\(10) & 
--- ((\inst2|decoder1|timeout_count\(11)) # (\inst2|decoder1|timeout_count\(13) $ (\inst2|decoder1|timeout_count\(12)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1110011111111010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \inst2|decoder1|timeout_count\(11),
-	datab => \inst2|decoder1|timeout_count\(10),
-	datac => \inst2|decoder1|timeout_count\(13),
-	datad => \inst2|decoder1|timeout_count\(12),
+	datab => \inst2|decoder1|timeout_count\(13),
+	datac => \inst2|decoder1|timeout_count\(11),
+	datad => \inst2|decoder1|timeout_count\(10),
 	combout => \inst4|hex3[6]~0_combout\);
 
--- Location: LCCOMB_X4_Y20_N18
+-- Location: LCCOMB_X1_Y23_N22
 \inst4|hex3[5]~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst4|hex3[5]~1_combout\ = (\inst2|decoder1|timeout_count\(11) & ((\inst2|decoder1|timeout_count\(13)) # ((!\inst2|decoder1|timeout_count\(10) & \inst2|decoder1|timeout_count\(12))))) # (!\inst2|decoder1|timeout_count\(11) & 
--- ((\inst2|decoder1|timeout_count\(13) $ (\inst2|decoder1|timeout_count\(12))) # (!\inst2|decoder1|timeout_count\(10))))
+-- \inst4|hex3[5]~1_combout\ = (\inst2|decoder1|timeout_count\(12) & ((\inst2|decoder1|timeout_count\(13) $ (!\inst2|decoder1|timeout_count\(11))) # (!\inst2|decoder1|timeout_count\(10)))) # (!\inst2|decoder1|timeout_count\(12) & 
+-- ((\inst2|decoder1|timeout_count\(13)) # ((!\inst2|decoder1|timeout_count\(11) & !\inst2|decoder1|timeout_count\(10)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1011011111110001",
+	lut_mask => "1100011011101111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|timeout_count\(11),
-	datab => \inst2|decoder1|timeout_count\(10),
-	datac => \inst2|decoder1|timeout_count\(13),
-	datad => \inst2|decoder1|timeout_count\(12),
+	dataa => \inst2|decoder1|timeout_count\(12),
+	datab => \inst2|decoder1|timeout_count\(13),
+	datac => \inst2|decoder1|timeout_count\(11),
+	datad => \inst2|decoder1|timeout_count\(10),
 	combout => \inst4|hex3[5]~1_combout\);
 
--- Location: LCCOMB_X4_Y20_N16
+-- Location: LCCOMB_X1_Y23_N20
 \inst4|hex3[4]~2\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst4|hex3[4]~2_combout\ = (\inst2|decoder1|timeout_count\(11) & (((\inst2|decoder1|timeout_count\(13))) # (!\inst2|decoder1|timeout_count\(10)))) # (!\inst2|decoder1|timeout_count\(11) & ((\inst2|decoder1|timeout_count\(12) & 
--- ((\inst2|decoder1|timeout_count\(13)))) # (!\inst2|decoder1|timeout_count\(12) & (!\inst2|decoder1|timeout_count\(10)))))
+-- \inst4|hex3[4]~2_combout\ = (\inst2|decoder1|timeout_count\(11) & (((\inst2|decoder1|timeout_count\(13)) # (!\inst2|decoder1|timeout_count\(10))))) # (!\inst2|decoder1|timeout_count\(11) & ((\inst2|decoder1|timeout_count\(12) & 
+-- (\inst2|decoder1|timeout_count\(13))) # (!\inst2|decoder1|timeout_count\(12) & ((!\inst2|decoder1|timeout_count\(10))))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111001010110011",
+	lut_mask => "1100100011111101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|timeout_count\(11),
-	datab => \inst2|decoder1|timeout_count\(10),
-	datac => \inst2|decoder1|timeout_count\(13),
-	datad => \inst2|decoder1|timeout_count\(12),
+	dataa => \inst2|decoder1|timeout_count\(12),
+	datab => \inst2|decoder1|timeout_count\(13),
+	datac => \inst2|decoder1|timeout_count\(11),
+	datad => \inst2|decoder1|timeout_count\(10),
 	combout => \inst4|hex3[4]~2_combout\);
 
--- Location: LCCOMB_X4_Y20_N26
+-- Location: LCCOMB_X1_Y23_N30
 \inst4|hex3[3]~3\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst4|hex3[3]~3_combout\ = (\inst2|decoder1|timeout_count\(11) & ((\inst2|decoder1|timeout_count\(10) & ((\inst2|decoder1|timeout_count\(12)))) # (!\inst2|decoder1|timeout_count\(10) & (\inst2|decoder1|timeout_count\(13) & 
--- !\inst2|decoder1|timeout_count\(12))))) # (!\inst2|decoder1|timeout_count\(11) & (!\inst2|decoder1|timeout_count\(13) & (\inst2|decoder1|timeout_count\(10) $ (\inst2|decoder1|timeout_count\(12)))))
+-- \inst4|hex3[3]~3_combout\ = (\inst2|decoder1|timeout_count\(11) & ((\inst2|decoder1|timeout_count\(12) & ((\inst2|decoder1|timeout_count\(10)))) # (!\inst2|decoder1|timeout_count\(12) & (\inst2|decoder1|timeout_count\(13) & 
+-- !\inst2|decoder1|timeout_count\(10))))) # (!\inst2|decoder1|timeout_count\(11) & (!\inst2|decoder1|timeout_count\(13) & (\inst2|decoder1|timeout_count\(12) $ (\inst2|decoder1|timeout_count\(10)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1000100100100100",
+	lut_mask => "1010000101000010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|timeout_count\(11),
-	datab => \inst2|decoder1|timeout_count\(10),
-	datac => \inst2|decoder1|timeout_count\(13),
-	datad => \inst2|decoder1|timeout_count\(12),
+	dataa => \inst2|decoder1|timeout_count\(12),
+	datab => \inst2|decoder1|timeout_count\(13),
+	datac => \inst2|decoder1|timeout_count\(11),
+	datad => \inst2|decoder1|timeout_count\(10),
 	combout => \inst4|hex3[3]~3_combout\);
 
--- Location: LCCOMB_X4_Y20_N28
+-- Location: LCCOMB_X1_Y23_N0
 \inst4|hex3[2]~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst4|hex3[2]~4_combout\ = (\inst2|decoder1|timeout_count\(13) & (((!\inst2|decoder1|timeout_count\(11) & \inst2|decoder1|timeout_count\(10))) # (!\inst2|decoder1|timeout_count\(12)))) # (!\inst2|decoder1|timeout_count\(13) & 
--- (((\inst2|decoder1|timeout_count\(10)) # (\inst2|decoder1|timeout_count\(12))) # (!\inst2|decoder1|timeout_count\(11))))
+-- \inst4|hex3[2]~4_combout\ = (\inst2|decoder1|timeout_count\(12) & (((!\inst2|decoder1|timeout_count\(11) & \inst2|decoder1|timeout_count\(10))) # (!\inst2|decoder1|timeout_count\(13)))) # (!\inst2|decoder1|timeout_count\(12) & 
+-- ((\inst2|decoder1|timeout_count\(13)) # ((\inst2|decoder1|timeout_count\(10)) # (!\inst2|decoder1|timeout_count\(11)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100111111111101",
+	lut_mask => "0111111101100111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|timeout_count\(11),
-	datab => \inst2|decoder1|timeout_count\(10),
-	datac => \inst2|decoder1|timeout_count\(13),
-	datad => \inst2|decoder1|timeout_count\(12),
+	dataa => \inst2|decoder1|timeout_count\(12),
+	datab => \inst2|decoder1|timeout_count\(13),
+	datac => \inst2|decoder1|timeout_count\(11),
+	datad => \inst2|decoder1|timeout_count\(10),
 	combout => \inst4|hex3[2]~4_combout\);
 
--- Location: LCCOMB_X4_Y20_N30
+-- Location: LCCOMB_X1_Y23_N14
 \inst4|hex3[1]~5\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst4|hex3[1]~5_combout\ = (\inst2|decoder1|timeout_count\(11) & ((\inst2|decoder1|timeout_count\(10) & (!\inst2|decoder1|timeout_count\(13))) # (!\inst2|decoder1|timeout_count\(10) & ((!\inst2|decoder1|timeout_count\(12)))))) # 
--- (!\inst2|decoder1|timeout_count\(11) & ((\inst2|decoder1|timeout_count\(10) $ (!\inst2|decoder1|timeout_count\(13))) # (!\inst2|decoder1|timeout_count\(12))))
+-- \inst4|hex3[1]~5_combout\ = (\inst2|decoder1|timeout_count\(13) & ((\inst2|decoder1|timeout_count\(10) & ((!\inst2|decoder1|timeout_count\(11)))) # (!\inst2|decoder1|timeout_count\(10) & (!\inst2|decoder1|timeout_count\(12))))) # 
+-- (!\inst2|decoder1|timeout_count\(13) & ((\inst2|decoder1|timeout_count\(11) $ (!\inst2|decoder1|timeout_count\(10))) # (!\inst2|decoder1|timeout_count\(12))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100100101111111",
+	lut_mask => "0011110101010111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|timeout_count\(11),
-	datab => \inst2|decoder1|timeout_count\(10),
-	datac => \inst2|decoder1|timeout_count\(13),
-	datad => \inst2|decoder1|timeout_count\(12),
+	dataa => \inst2|decoder1|timeout_count\(12),
+	datab => \inst2|decoder1|timeout_count\(13),
+	datac => \inst2|decoder1|timeout_count\(11),
+	datad => \inst2|decoder1|timeout_count\(10),
 	combout => \inst4|hex3[1]~5_combout\);
 
--- Location: LCCOMB_X4_Y20_N8
+-- Location: LCCOMB_X1_Y23_N12
 \inst4|hex3[0]~6\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst4|hex3[0]~6_combout\ = (\inst2|decoder1|timeout_count\(13) & ((\inst2|decoder1|timeout_count\(11) $ (!\inst2|decoder1|timeout_count\(12))) # (!\inst2|decoder1|timeout_count\(10)))) # (!\inst2|decoder1|timeout_count\(13) & 
--- ((\inst2|decoder1|timeout_count\(11)) # (\inst2|decoder1|timeout_count\(10) $ (!\inst2|decoder1|timeout_count\(12)))))
+-- \inst4|hex3[0]~6_combout\ = (\inst2|decoder1|timeout_count\(12) & ((\inst2|decoder1|timeout_count\(11)) # (\inst2|decoder1|timeout_count\(13) $ (\inst2|decoder1|timeout_count\(10))))) # (!\inst2|decoder1|timeout_count\(12) & 
+-- ((\inst2|decoder1|timeout_count\(13) $ (\inst2|decoder1|timeout_count\(11))) # (!\inst2|decoder1|timeout_count\(10))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1011111001111011",
+	lut_mask => "1011011011111101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|timeout_count\(11),
-	datab => \inst2|decoder1|timeout_count\(10),
-	datac => \inst2|decoder1|timeout_count\(13),
-	datad => \inst2|decoder1|timeout_count\(12),
+	dataa => \inst2|decoder1|timeout_count\(12),
+	datab => \inst2|decoder1|timeout_count\(13),
+	datac => \inst2|decoder1|timeout_count\(11),
+	datad => \inst2|decoder1|timeout_count\(10),
 	combout => \inst4|hex3[0]~6_combout\);
 
--- Location: LCFF_X5_Y20_N17
-\inst2|decoder1|timeout_count[8]\ : cycloneii_lcell_ff
-PORT MAP (
-	clk => \inst1|count[2]~clkctrl_outclk\,
-	datain => \inst2|decoder1|Add1~16_combout\,
-	sclr => \inst2|decoder1|timeout_count[13]~1_combout\,
-	ena => \inst2|decoder1|timeout_count[13]~2_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	regout => \inst2|decoder1|timeout_count\(8));
-
--- Location: LCCOMB_X4_Y20_N22
+-- Location: LCCOMB_X1_Y23_N26
 \inst4|hex2[6]~0\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst4|hex2[6]~0_combout\ = (\inst2|decoder1|timeout_count\(6) & ((\inst2|decoder1|timeout_count\(9)) # (\inst2|decoder1|timeout_count\(8) $ (\inst2|decoder1|timeout_count\(7))))) # (!\inst2|decoder1|timeout_count\(6) & 
@@ -11687,17 +11892,17 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111110101101110",
+	lut_mask => "1111011011011110",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|timeout_count\(8),
 	datab => \inst2|decoder1|timeout_count\(7),
-	datac => \inst2|decoder1|timeout_count\(6),
-	datad => \inst2|decoder1|timeout_count\(9),
+	datac => \inst2|decoder1|timeout_count\(9),
+	datad => \inst2|decoder1|timeout_count\(6),
 	combout => \inst4|hex2[6]~0_combout\);
 
--- Location: LCCOMB_X4_Y20_N12
+-- Location: LCCOMB_X1_Y23_N16
 \inst4|hex2[5]~1\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst4|hex2[5]~1_combout\ = (\inst2|decoder1|timeout_count\(8) & ((\inst2|decoder1|timeout_count\(7) $ (!\inst2|decoder1|timeout_count\(9))) # (!\inst2|decoder1|timeout_count\(6)))) # (!\inst2|decoder1|timeout_count\(8) & 
@@ -11705,123 +11910,123 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1101111100101011",
+	lut_mask => "1101001011111011",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|timeout_count\(8),
 	datab => \inst2|decoder1|timeout_count\(7),
-	datac => \inst2|decoder1|timeout_count\(6),
-	datad => \inst2|decoder1|timeout_count\(9),
+	datac => \inst2|decoder1|timeout_count\(9),
+	datad => \inst2|decoder1|timeout_count\(6),
 	combout => \inst4|hex2[5]~1_combout\);
 
--- Location: LCCOMB_X4_Y20_N10
+-- Location: LCCOMB_X1_Y23_N6
 \inst4|hex2[4]~2\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst4|hex2[4]~2_combout\ = (\inst2|decoder1|timeout_count\(7) & (((\inst2|decoder1|timeout_count\(9)) # (!\inst2|decoder1|timeout_count\(6))))) # (!\inst2|decoder1|timeout_count\(7) & ((\inst2|decoder1|timeout_count\(8) & 
--- ((\inst2|decoder1|timeout_count\(9)))) # (!\inst2|decoder1|timeout_count\(8) & (!\inst2|decoder1|timeout_count\(6)))))
+-- (\inst2|decoder1|timeout_count\(9))) # (!\inst2|decoder1|timeout_count\(8) & ((!\inst2|decoder1|timeout_count\(6))))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1110111100001101",
+	lut_mask => "1110000011111101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|timeout_count\(8),
 	datab => \inst2|decoder1|timeout_count\(7),
-	datac => \inst2|decoder1|timeout_count\(6),
-	datad => \inst2|decoder1|timeout_count\(9),
+	datac => \inst2|decoder1|timeout_count\(9),
+	datad => \inst2|decoder1|timeout_count\(6),
 	combout => \inst4|hex2[4]~2_combout\);
 
--- Location: LCCOMB_X4_Y20_N4
+-- Location: LCCOMB_X1_Y23_N28
 \inst4|hex2[3]~3\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst4|hex2[3]~3_combout\ = (\inst2|decoder1|timeout_count\(7) & ((\inst2|decoder1|timeout_count\(8) & (\inst2|decoder1|timeout_count\(6))) # (!\inst2|decoder1|timeout_count\(8) & (!\inst2|decoder1|timeout_count\(6) & \inst2|decoder1|timeout_count\(9))))) 
--- # (!\inst2|decoder1|timeout_count\(7) & (!\inst2|decoder1|timeout_count\(9) & (\inst2|decoder1|timeout_count\(8) $ (\inst2|decoder1|timeout_count\(6)))))
+-- \inst4|hex2[3]~3_combout\ = (\inst2|decoder1|timeout_count\(7) & ((\inst2|decoder1|timeout_count\(8) & ((\inst2|decoder1|timeout_count\(6)))) # (!\inst2|decoder1|timeout_count\(8) & (\inst2|decoder1|timeout_count\(9) & 
+-- !\inst2|decoder1|timeout_count\(6))))) # (!\inst2|decoder1|timeout_count\(7) & (!\inst2|decoder1|timeout_count\(9) & (\inst2|decoder1|timeout_count\(8) $ (\inst2|decoder1|timeout_count\(6)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1000010010010010",
+	lut_mask => "1000100101000010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|timeout_count\(8),
 	datab => \inst2|decoder1|timeout_count\(7),
-	datac => \inst2|decoder1|timeout_count\(6),
-	datad => \inst2|decoder1|timeout_count\(9),
+	datac => \inst2|decoder1|timeout_count\(9),
+	datad => \inst2|decoder1|timeout_count\(6),
 	combout => \inst4|hex2[3]~3_combout\);
 
--- Location: LCCOMB_X4_Y20_N2
+-- Location: LCCOMB_X1_Y23_N10
 \inst4|hex2[2]~4\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst4|hex2[2]~4_combout\ = (\inst2|decoder1|timeout_count\(8) & (((!\inst2|decoder1|timeout_count\(7) & \inst2|decoder1|timeout_count\(6))) # (!\inst2|decoder1|timeout_count\(9)))) # (!\inst2|decoder1|timeout_count\(8) & 
--- (((\inst2|decoder1|timeout_count\(6)) # (\inst2|decoder1|timeout_count\(9))) # (!\inst2|decoder1|timeout_count\(7))))
+-- (((\inst2|decoder1|timeout_count\(9)) # (\inst2|decoder1|timeout_count\(6))) # (!\inst2|decoder1|timeout_count\(7))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0111010111111011",
+	lut_mask => "0111111101011011",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|timeout_count\(8),
 	datab => \inst2|decoder1|timeout_count\(7),
-	datac => \inst2|decoder1|timeout_count\(6),
-	datad => \inst2|decoder1|timeout_count\(9),
+	datac => \inst2|decoder1|timeout_count\(9),
+	datad => \inst2|decoder1|timeout_count\(6),
 	combout => \inst4|hex2[2]~4_combout\);
 
--- Location: LCCOMB_X4_Y20_N24
+-- Location: LCCOMB_X1_Y23_N8
 \inst4|hex2[1]~5\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst4|hex2[1]~5_combout\ = (\inst2|decoder1|timeout_count\(7) & ((\inst2|decoder1|timeout_count\(6) & ((!\inst2|decoder1|timeout_count\(9)))) # (!\inst2|decoder1|timeout_count\(6) & (!\inst2|decoder1|timeout_count\(8))))) # 
--- (!\inst2|decoder1|timeout_count\(7) & ((\inst2|decoder1|timeout_count\(6) $ (!\inst2|decoder1|timeout_count\(9))) # (!\inst2|decoder1|timeout_count\(8))))
+-- (!\inst2|decoder1|timeout_count\(7) & ((\inst2|decoder1|timeout_count\(9) $ (!\inst2|decoder1|timeout_count\(6))) # (!\inst2|decoder1|timeout_count\(8))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011010111010111",
+	lut_mask => "0011110101010111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|timeout_count\(8),
 	datab => \inst2|decoder1|timeout_count\(7),
-	datac => \inst2|decoder1|timeout_count\(6),
-	datad => \inst2|decoder1|timeout_count\(9),
+	datac => \inst2|decoder1|timeout_count\(9),
+	datad => \inst2|decoder1|timeout_count\(6),
 	combout => \inst4|hex2[1]~5_combout\);
 
--- Location: LCCOMB_X4_Y20_N6
+-- Location: LCCOMB_X1_Y23_N18
 \inst4|hex2[0]~6\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst4|hex2[0]~6_combout\ = (\inst2|decoder1|timeout_count\(8) & ((\inst2|decoder1|timeout_count\(7)) # (\inst2|decoder1|timeout_count\(6) $ (\inst2|decoder1|timeout_count\(9))))) # (!\inst2|decoder1|timeout_count\(8) & ((\inst2|decoder1|timeout_count\(7) 
+-- \inst4|hex2[0]~6_combout\ = (\inst2|decoder1|timeout_count\(8) & ((\inst2|decoder1|timeout_count\(7)) # (\inst2|decoder1|timeout_count\(9) $ (\inst2|decoder1|timeout_count\(6))))) # (!\inst2|decoder1|timeout_count\(8) & ((\inst2|decoder1|timeout_count\(7) 
 -- $ (\inst2|decoder1|timeout_count\(9))) # (!\inst2|decoder1|timeout_count\(6))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1001111111101101",
+	lut_mask => "1001111011111101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|timeout_count\(8),
 	datab => \inst2|decoder1|timeout_count\(7),
-	datac => \inst2|decoder1|timeout_count\(6),
-	datad => \inst2|decoder1|timeout_count\(9),
+	datac => \inst2|decoder1|timeout_count\(9),
+	datad => \inst2|decoder1|timeout_count\(6),
 	combout => \inst4|hex2[0]~6_combout\);
 
--- Location: LCCOMB_X19_Y21_N0
+-- Location: LCCOMB_X34_Y19_N4
 \inst4|hex1[6]~0\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst4|hex1[6]~0_combout\ = (\inst2|decoder1|current_instruction\(1) & ((!\inst2|decoder1|current_instruction\(2)) # (!\inst2|decoder1|current_instruction\(0)))) # (!\inst2|decoder1|current_instruction\(1) & ((\inst2|decoder1|current_instruction\(2))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011111111001100",
+	lut_mask => "0111101001111010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|current_instruction\(1),
-	datac => \inst2|decoder1|current_instruction\(0),
-	datad => \inst2|decoder1|current_instruction\(2),
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst2|decoder1|current_instruction\(0),
+	datac => \inst2|decoder1|current_instruction\(2),
 	combout => \inst4|hex1[6]~0_combout\);
 
--- Location: LCCOMB_X19_Y21_N2
+-- Location: LCCOMB_X34_Y19_N10
 \inst4|hex1[5]~1\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst4|hex1[5]~1_combout\ = (\inst2|decoder1|current_instruction\(1) & (!\inst2|decoder1|current_instruction\(0) & \inst2|decoder1|current_instruction\(2))) # (!\inst2|decoder1|current_instruction\(1) & ((\inst2|decoder1|current_instruction\(2)) # 
@@ -11829,32 +12034,32 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011111100000011",
+	lut_mask => "0111000101110001",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|current_instruction\(1),
-	datac => \inst2|decoder1|current_instruction\(0),
-	datad => \inst2|decoder1|current_instruction\(2),
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst2|decoder1|current_instruction\(0),
+	datac => \inst2|decoder1|current_instruction\(2),
 	combout => \inst4|hex1[5]~1_combout\);
 
--- Location: LCCOMB_X19_Y21_N4
+-- Location: LCCOMB_X34_Y19_N8
 \inst4|hex1[4]~2\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst4|hex1[4]~2_combout\ = (\inst2|decoder1|current_instruction\(0)) # ((!\inst2|decoder1|current_instruction\(1) & \inst2|decoder1|current_instruction\(2)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111001111110000",
+	lut_mask => "1101110011011100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|current_instruction\(1),
-	datac => \inst2|decoder1|current_instruction\(0),
-	datad => \inst2|decoder1|current_instruction\(2),
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst2|decoder1|current_instruction\(0),
+	datac => \inst2|decoder1|current_instruction\(2),
 	combout => \inst4|hex1[4]~2_combout\);
 
--- Location: LCCOMB_X19_Y21_N10
+-- Location: LCCOMB_X34_Y19_N26
 \inst4|hex1[3]~3\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst4|hex1[3]~3_combout\ = (\inst2|decoder1|current_instruction\(1) & (\inst2|decoder1|current_instruction\(0) & \inst2|decoder1|current_instruction\(2))) # (!\inst2|decoder1|current_instruction\(1) & (\inst2|decoder1|current_instruction\(0) $ 
@@ -11862,141 +12067,157 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100001100110000",
+	lut_mask => "1001010010010100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|current_instruction\(1),
-	datac => \inst2|decoder1|current_instruction\(0),
-	datad => \inst2|decoder1|current_instruction\(2),
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst2|decoder1|current_instruction\(0),
+	datac => \inst2|decoder1|current_instruction\(2),
 	combout => \inst4|hex1[3]~3_combout\);
 
--- Location: LCCOMB_X19_Y21_N12
+-- Location: LCCOMB_X42_Y18_N6
+\inst4|hex1[2]~4\ : cycloneii_lcell_comb
+-- Equation(s):
+-- \inst4|hex1[2]~4_combout\ = (\inst2|decoder1|current_instruction\(2)) # ((\inst2|decoder1|current_instruction\(0)) # (!\inst2|decoder1|current_instruction\(1)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111111001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \inst2|decoder1|current_instruction\(2),
+	datac => \inst2|decoder1|current_instruction\(1),
+	datad => \inst2|decoder1|current_instruction\(0),
+	combout => \inst4|hex1[2]~4_combout\);
+
+-- Location: LCCOMB_X34_Y19_N12
 \inst4|hex1[1]~5\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst4|hex1[1]~5_combout\ = (\inst2|decoder1|current_instruction\(1) $ (!\inst2|decoder1|current_instruction\(0))) # (!\inst2|decoder1|current_instruction\(2))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100001111111111",
+	lut_mask => "1001111110011111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|current_instruction\(1),
-	datac => \inst2|decoder1|current_instruction\(0),
-	datad => \inst2|decoder1|current_instruction\(2),
+	dataa => \inst2|decoder1|current_instruction\(1),
+	datab => \inst2|decoder1|current_instruction\(0),
+	datac => \inst2|decoder1|current_instruction\(2),
 	combout => \inst4|hex1[1]~5_combout\);
 
--- Location: LCCOMB_X19_Y20_N26
+-- Location: LCCOMB_X34_Y19_N22
 \inst4|hex1[0]~6\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst4|hex1[0]~6_combout\ = (\inst2|decoder1|current_instruction\(1)) # (\inst2|decoder1|current_instruction\(0) $ (!\inst2|decoder1|current_instruction\(2)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111101010101111",
+	lut_mask => "1110101111101011",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \inst2|decoder1|current_instruction\(1),
-	datac => \inst2|decoder1|current_instruction\(0),
-	datad => \inst2|decoder1|current_instruction\(2),
+	datab => \inst2|decoder1|current_instruction\(0),
+	datac => \inst2|decoder1|current_instruction\(2),
 	combout => \inst4|hex1[0]~6_combout\);
 
--- Location: LCCOMB_X1_Y20_N12
+-- Location: LCCOMB_X36_Y19_N12
 \inst4|hex0[5]~0\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst4|hex0[5]~0_combout\ = (\inst2|decoder1|packet_num\(2) & ((!\inst2|decoder1|packet_num\(1)) # (!\inst2|decoder1|packet_num\(0)))) # (!\inst2|decoder1|packet_num\(2) & ((\inst2|decoder1|packet_num\(1))))
+-- \inst4|hex0[5]~0_combout\ = (\inst2|decoder1|packet_num\(1) & ((!\inst2|decoder1|packet_num\(2)) # (!\inst2|decoder1|packet_num\(0)))) # (!\inst2|decoder1|packet_num\(1) & ((\inst2|decoder1|packet_num\(2))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011111111001100",
+	lut_mask => "0101111110101010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|packet_num\(2),
+	dataa => \inst2|decoder1|packet_num\(1),
 	datac => \inst2|decoder1|packet_num\(0),
-	datad => \inst2|decoder1|packet_num\(1),
+	datad => \inst2|decoder1|packet_num\(2),
 	combout => \inst4|hex0[5]~0_combout\);
 
--- Location: LCCOMB_X1_Y20_N22
+-- Location: LCCOMB_X36_Y19_N22
 \inst4|hex0[5]~1\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst4|hex0[5]~1_combout\ = (\inst2|decoder1|packet_num\(2) & (\inst2|decoder1|packet_num\(0) & \inst2|decoder1|packet_num\(1))) # (!\inst2|decoder1|packet_num\(2) & ((\inst2|decoder1|packet_num\(0)) # (\inst2|decoder1|packet_num\(1))))
+-- \inst4|hex0[5]~1_combout\ = (\inst2|decoder1|packet_num\(1) & ((\inst2|decoder1|packet_num\(0)) # (!\inst2|decoder1|packet_num\(2)))) # (!\inst2|decoder1|packet_num\(1) & (\inst2|decoder1|packet_num\(0) & !\inst2|decoder1|packet_num\(2)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111001100110000",
+	lut_mask => "1010000011111010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|packet_num\(2),
+	dataa => \inst2|decoder1|packet_num\(1),
 	datac => \inst2|decoder1|packet_num\(0),
-	datad => \inst2|decoder1|packet_num\(1),
+	datad => \inst2|decoder1|packet_num\(2),
 	combout => \inst4|hex0[5]~1_combout\);
 
--- Location: LCCOMB_X1_Y20_N0
+-- Location: LCCOMB_X36_Y19_N0
 \inst4|hex0[4]~2\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst4|hex0[4]~2_combout\ = (!\inst2|decoder1|packet_num\(0) & ((\inst2|decoder1|packet_num\(1)) # (!\inst2|decoder1|packet_num\(2))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000111100000011",
+	lut_mask => "0000101000001111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|packet_num\(2),
+	dataa => \inst2|decoder1|packet_num\(1),
 	datac => \inst2|decoder1|packet_num\(0),
-	datad => \inst2|decoder1|packet_num\(1),
+	datad => \inst2|decoder1|packet_num\(2),
 	combout => \inst4|hex0[4]~2_combout\);
 
--- Location: LCCOMB_X1_Y20_N10
+-- Location: LCCOMB_X36_Y19_N18
 \inst4|hex0[3]~3\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst4|hex0[3]~3_combout\ = (\inst2|decoder1|packet_num\(2) & (\inst2|decoder1|packet_num\(0) $ (\inst2|decoder1|packet_num\(1)))) # (!\inst2|decoder1|packet_num\(2) & ((\inst2|decoder1|packet_num\(1)) # (!\inst2|decoder1|packet_num\(0))))
+-- \inst4|hex0[3]~3_combout\ = (\inst2|decoder1|packet_num\(1) & ((!\inst2|decoder1|packet_num\(2)) # (!\inst2|decoder1|packet_num\(0)))) # (!\inst2|decoder1|packet_num\(1) & (\inst2|decoder1|packet_num\(0) $ (!\inst2|decoder1|packet_num\(2))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011111111000011",
+	lut_mask => "0101101010101111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|packet_num\(2),
+	dataa => \inst2|decoder1|packet_num\(1),
 	datac => \inst2|decoder1|packet_num\(0),
-	datad => \inst2|decoder1|packet_num\(1),
+	datad => \inst2|decoder1|packet_num\(2),
 	combout => \inst4|hex0[3]~3_combout\);
 
--- Location: LCCOMB_X1_Y20_N28
+-- Location: LCCOMB_X36_Y18_N24
 \inst4|hex0[1]~4\ : cycloneii_lcell_comb
 -- Equation(s):
 -- \inst4|hex0[1]~4_combout\ = (\inst2|decoder1|packet_num\(0) $ (!\inst2|decoder1|packet_num\(1))) # (!\inst2|decoder1|packet_num\(2))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111001100111111",
+	lut_mask => "1001111110011111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|packet_num\(2),
-	datac => \inst2|decoder1|packet_num\(0),
-	datad => \inst2|decoder1|packet_num\(1),
+	dataa => \inst2|decoder1|packet_num\(0),
+	datab => \inst2|decoder1|packet_num\(1),
+	datac => \inst2|decoder1|packet_num\(2),
 	combout => \inst4|hex0[1]~4_combout\);
 
--- Location: LCCOMB_X1_Y20_N26
+-- Location: LCCOMB_X36_Y18_N26
 \inst4|hex0[0]~5\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst4|hex0[0]~5_combout\ = (\inst2|decoder1|packet_num\(1)) # (\inst2|decoder1|packet_num\(2) $ (!\inst2|decoder1|packet_num\(0)))
+-- \inst4|hex0[0]~5_combout\ = (\inst2|decoder1|packet_num\(1)) # (\inst2|decoder1|packet_num\(0) $ (!\inst2|decoder1|packet_num\(2)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111111000011",
+	lut_mask => "1110110111101101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \inst2|decoder1|packet_num\(2),
-	datac => \inst2|decoder1|packet_num\(0),
-	datad => \inst2|decoder1|packet_num\(1),
+	dataa => \inst2|decoder1|packet_num\(0),
+	datab => \inst2|decoder1|packet_num\(1),
+	datac => \inst2|decoder1|packet_num\(2),
 	combout => \inst4|hex0[0]~5_combout\);
 
 -- Location: PIN_B20,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
@@ -12025,22 +12246,22 @@ PORT MAP (
 	padio => ww_VGACOLOR(0),
 	combout => \VGACOLOR~combout\(0));
 
--- Location: LCCOMB_X21_Y20_N10
-\inst|vga_b[3]~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X42_Y23_N8
+\inst|vga_b[3]~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst|vga_b[3]~0_combout\ = (!\inst2|decoder1|decoder_claim~regout\ & (\reset~combout\ & (\VGACOLOR~combout\(0) & \inst2|vgacontroller1|vga_combi~5_combout\)))
+-- \inst|vga_b[3]~4_combout\ = (\reset~combout\ & (\inst2|vgacontroller1|vga_combi~5_combout\ & (!\inst2|decoder1|decoder_claim~regout\ & \VGACOLOR~combout\(0))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100000000000000",
+	lut_mask => "0000100000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|decoder_claim~regout\,
-	datab => \reset~combout\,
-	datac => \VGACOLOR~combout\(0),
-	datad => \inst2|vgacontroller1|vga_combi~5_combout\,
-	combout => \inst|vga_b[3]~0_combout\);
+	dataa => \reset~combout\,
+	datab => \inst2|vgacontroller1|vga_combi~5_combout\,
+	datac => \inst2|decoder1|decoder_claim~regout\,
+	datad => \VGACOLOR~combout\(0),
+	combout => \inst|vga_b[3]~4_combout\);
 
 -- Location: PIN_C22,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \VGACOLOR[1]~I\ : cycloneii_io
@@ -12068,22 +12289,22 @@ PORT MAP (
 	padio => ww_VGACOLOR(1),
 	combout => \VGACOLOR~combout\(1));
 
--- Location: LCCOMB_X21_Y20_N4
-\inst|vga_b[1]~1\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X42_Y23_N10
+\inst|vga_b[1]~5\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst|vga_b[1]~1_combout\ = (!\inst2|decoder1|decoder_claim~regout\ & (\VGACOLOR~combout\(1) & (\reset~combout\ & \inst2|vgacontroller1|vga_combi~5_combout\)))
+-- \inst|vga_b[1]~5_combout\ = (\reset~combout\ & (\inst2|vgacontroller1|vga_combi~5_combout\ & (!\inst2|decoder1|decoder_claim~regout\ & \VGACOLOR~combout\(1))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100000000000000",
+	lut_mask => "0000100000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|decoder_claim~regout\,
-	datab => \VGACOLOR~combout\(1),
-	datac => \reset~combout\,
-	datad => \inst2|vgacontroller1|vga_combi~5_combout\,
-	combout => \inst|vga_b[1]~1_combout\);
+	dataa => \reset~combout\,
+	datab => \inst2|vgacontroller1|vga_combi~5_combout\,
+	datac => \inst2|decoder1|decoder_claim~regout\,
+	datad => \VGACOLOR~combout\(1),
+	combout => \inst|vga_b[1]~5_combout\);
 
 -- Location: PIN_D22,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \VGACOLOR[2]~I\ : cycloneii_io
@@ -12111,22 +12332,22 @@ PORT MAP (
 	padio => ww_VGACOLOR(2),
 	combout => \VGACOLOR~combout\(2));
 
--- Location: LCCOMB_X21_Y20_N18
-\inst|vga_g[3]~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X42_Y23_N12
+\inst|vga_g[3]~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst|vga_g[3]~0_combout\ = (!\inst2|decoder1|decoder_claim~regout\ & (\VGACOLOR~combout\(2) & (\reset~combout\ & \inst2|vgacontroller1|vga_combi~5_combout\)))
+-- \inst|vga_g[3]~4_combout\ = (\reset~combout\ & (\inst2|vgacontroller1|vga_combi~5_combout\ & (!\inst2|decoder1|decoder_claim~regout\ & \VGACOLOR~combout\(2))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100000000000000",
+	lut_mask => "0000100000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|decoder_claim~regout\,
-	datab => \VGACOLOR~combout\(2),
-	datac => \reset~combout\,
-	datad => \inst2|vgacontroller1|vga_combi~5_combout\,
-	combout => \inst|vga_g[3]~0_combout\);
+	dataa => \reset~combout\,
+	datab => \inst2|vgacontroller1|vga_combi~5_combout\,
+	datac => \inst2|decoder1|decoder_claim~regout\,
+	datad => \VGACOLOR~combout\(2),
+	combout => \inst|vga_g[3]~4_combout\);
 
 -- Location: PIN_E22,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \VGACOLOR[3]~I\ : cycloneii_io
@@ -12154,22 +12375,22 @@ PORT MAP (
 	padio => ww_VGACOLOR(3),
 	combout => \VGACOLOR~combout\(3));
 
--- Location: LCCOMB_X21_Y20_N0
-\inst|vga_g[1]~1\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X42_Y23_N22
+\inst|vga_g[1]~5\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst|vga_g[1]~1_combout\ = (\inst2|vgacontroller1|vga_combi~5_combout\ & (\reset~combout\ & (\VGACOLOR~combout\(3) & !\inst2|decoder1|decoder_claim~regout\)))
+-- \inst|vga_g[1]~5_combout\ = (\reset~combout\ & (\inst2|vgacontroller1|vga_combi~5_combout\ & (!\inst2|decoder1|decoder_claim~regout\ & \VGACOLOR~combout\(3))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000010000000",
+	lut_mask => "0000100000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|vgacontroller1|vga_combi~5_combout\,
-	datab => \reset~combout\,
-	datac => \VGACOLOR~combout\(3),
-	datad => \inst2|decoder1|decoder_claim~regout\,
-	combout => \inst|vga_g[1]~1_combout\);
+	dataa => \reset~combout\,
+	datab => \inst2|vgacontroller1|vga_combi~5_combout\,
+	datac => \inst2|decoder1|decoder_claim~regout\,
+	datad => \VGACOLOR~combout\(3),
+	combout => \inst|vga_g[1]~5_combout\);
 
 -- Location: PIN_F22,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \VGACOLOR[4]~I\ : cycloneii_io
@@ -12197,22 +12418,22 @@ PORT MAP (
 	padio => ww_VGACOLOR(4),
 	combout => \VGACOLOR~combout\(4));
 
--- Location: LCCOMB_X21_Y20_N2
-\inst|vga_r[3]~0\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X42_Y23_N4
+\inst|vga_r[3]~4\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst|vga_r[3]~0_combout\ = (!\inst2|decoder1|decoder_claim~regout\ & (\VGACOLOR~combout\(4) & (\reset~combout\ & \inst2|vgacontroller1|vga_combi~5_combout\)))
+-- \inst|vga_r[3]~4_combout\ = (\reset~combout\ & (\inst2|vgacontroller1|vga_combi~5_combout\ & (!\inst2|decoder1|decoder_claim~regout\ & \VGACOLOR~combout\(4))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100000000000000",
+	lut_mask => "0000100000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|decoder_claim~regout\,
-	datab => \VGACOLOR~combout\(4),
-	datac => \reset~combout\,
-	datad => \inst2|vgacontroller1|vga_combi~5_combout\,
-	combout => \inst|vga_r[3]~0_combout\);
+	dataa => \reset~combout\,
+	datab => \inst2|vgacontroller1|vga_combi~5_combout\,
+	datac => \inst2|decoder1|decoder_claim~regout\,
+	datad => \VGACOLOR~combout\(4),
+	combout => \inst|vga_r[3]~4_combout\);
 
 -- Location: PIN_G22,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \VGACOLOR[5]~I\ : cycloneii_io
@@ -12240,22 +12461,22 @@ PORT MAP (
 	padio => ww_VGACOLOR(5),
 	combout => \VGACOLOR~combout\(5));
 
--- Location: LCCOMB_X21_Y20_N20
-\inst|vga_r[1]~1\ : cycloneii_lcell_comb
+-- Location: LCCOMB_X42_Y23_N26
+\inst|vga_r[1]~5\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst|vga_r[1]~1_combout\ = (!\inst2|decoder1|decoder_claim~regout\ & (\VGACOLOR~combout\(5) & (\reset~combout\ & \inst2|vgacontroller1|vga_combi~5_combout\)))
+-- \inst|vga_r[1]~5_combout\ = (\reset~combout\ & (\inst2|vgacontroller1|vga_combi~5_combout\ & (!\inst2|decoder1|decoder_claim~regout\ & \VGACOLOR~combout\(5))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0100000000000000",
+	lut_mask => "0000100000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \inst2|decoder1|decoder_claim~regout\,
-	datab => \VGACOLOR~combout\(5),
-	datac => \reset~combout\,
-	datad => \inst2|vgacontroller1|vga_combi~5_combout\,
-	combout => \inst|vga_r[1]~1_combout\);
+	dataa => \reset~combout\,
+	datab => \inst2|vgacontroller1|vga_combi~5_combout\,
+	datac => \inst2|decoder1|decoder_claim~regout\,
+	datad => \VGACOLOR~combout\(5),
+	combout => \inst|vga_r[1]~5_combout\);
 
 -- Location: PIN_A13,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 24mA
 \RAMADDR[15]~I\ : cycloneii_io
@@ -12276,8 +12497,8 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|vgacontroller1|ramaddr[15]~20_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~51_combout\,
+	datain => \inst2|vgacontroller1|ramaddr[15]~22_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~54_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12302,8 +12523,8 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|vgacontroller1|ramaddr[14]~22_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~51_combout\,
+	datain => \inst2|vgacontroller1|ramaddr[14]~24_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~54_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12328,8 +12549,8 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|vgacontroller1|ramaddr[13]~24_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~51_combout\,
+	datain => \inst2|vgacontroller1|ramaddr[13]~26_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~54_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12354,8 +12575,8 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|vgacontroller1|ramaddr[12]~26_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~51_combout\,
+	datain => \inst2|vgacontroller1|ramaddr[12]~28_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~54_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12380,8 +12601,8 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|vgacontroller1|ramaddr[11]~28_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~51_combout\,
+	datain => \inst2|vgacontroller1|ramaddr[11]~30_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~54_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12406,8 +12627,8 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|vgacontroller1|ramaddr[10]~30_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~51_combout\,
+	datain => \inst2|vgacontroller1|ramaddr[10]~32_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~54_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12432,8 +12653,8 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|vgacontroller1|ramaddr[9]~32_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~51_combout\,
+	datain => \inst2|vgacontroller1|ramaddr[9]~34_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~54_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12458,8 +12679,8 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|vgacontroller1|ramaddr[8]~34_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~51_combout\,
+	datain => \inst2|vgacontroller1|ramaddr[8]~36_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~54_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12484,8 +12705,8 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|vgacontroller1|ramaddr[7]~36_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~51_combout\,
+	datain => \inst2|vgacontroller1|ramaddr[7]~38_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~54_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12510,8 +12731,8 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|vgacontroller1|ramaddr[6]~38_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~51_combout\,
+	datain => \inst2|vgacontroller1|ramaddr[6]~40_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~54_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12536,8 +12757,8 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|vgacontroller1|ramaddr[5]~40_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~51_combout\,
+	datain => \inst2|vgacontroller1|ramaddr[5]~42_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~54_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12562,8 +12783,8 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|vgacontroller1|ramaddr[4]~42_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~51_combout\,
+	datain => \inst2|vgacontroller1|ramaddr[4]~44_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~54_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12588,8 +12809,8 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|vgacontroller1|ramaddr[3]~44_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~51_combout\,
+	datain => \inst2|vgacontroller1|ramaddr[3]~46_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~54_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12614,8 +12835,8 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|vgacontroller1|ramaddr[2]~46_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~51_combout\,
+	datain => \inst2|vgacontroller1|ramaddr[2]~48_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~54_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12640,8 +12861,8 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|vgacontroller1|ramaddr[1]~48_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~51_combout\,
+	datain => \inst2|vgacontroller1|ramaddr[1]~50_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~54_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12666,8 +12887,8 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|vgacontroller1|ramaddr[0]~50_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~51_combout\,
+	datain => \inst2|vgacontroller1|ramaddr[0]~52_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~54_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12693,7 +12914,7 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	datain => \inst2|draw1|line1|ramdata[5]~6_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~2_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~5_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12719,7 +12940,7 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	datain => \inst2|draw1|line1|ramdata[4]~7_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~2_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~5_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12745,7 +12966,7 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	datain => \inst2|draw1|line1|ramdata[3]~8_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~2_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~5_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12771,7 +12992,7 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	datain => \inst2|draw1|line1|ramdata[2]~9_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~2_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~5_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12797,7 +13018,7 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	datain => \inst2|draw1|line1|ramdata[1]~10_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~2_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~5_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -12823,7 +13044,7 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	datain => \inst2|draw1|line1|ramdata[0]~11_combout\,
-	oe => \inst2|vgacontroller1|ramaddr[15]~2_combout\,
+	oe => \inst2|vgacontroller1|ramaddr[15]~5_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -13160,7 +13381,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|spi1|spi_rx_data\(7),
+	datain => \inst2|spi1|do_buffer_reg\(7),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -13186,7 +13407,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|spi1|spi_rx_data\(6),
+	datain => \inst2|spi1|do_buffer_reg\(6),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -13212,7 +13433,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|spi1|spi_rx_data\(5),
+	datain => \inst2|spi1|do_buffer_reg\(5),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -13238,7 +13459,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|spi1|spi_rx_data\(4),
+	datain => \inst2|spi1|do_buffer_reg\(4),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -13264,7 +13485,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|spi1|spi_rx_data\(3),
+	datain => \inst2|spi1|do_buffer_reg\(3),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -13290,7 +13511,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|spi1|spi_rx_data\(2),
+	datain => \inst2|spi1|do_buffer_reg\(2),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -13316,7 +13537,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|spi1|spi_rx_data\(1),
+	datain => \inst2|spi1|do_buffer_reg\(1),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -13342,7 +13563,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst2|spi1|spi_rx_data\(0),
+	datain => \inst2|spi1|do_buffer_reg\(0),
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -14096,7 +14317,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst|vga_b[3]~0_combout\,
+	datain => \inst|vga_b[3]~4_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -14122,7 +14343,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst|vga_b[3]~0_combout\,
+	datain => \inst|vga_b[3]~4_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -14148,7 +14369,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst|vga_b[1]~1_combout\,
+	datain => \inst|vga_b[1]~5_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -14174,7 +14395,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst|vga_b[1]~1_combout\,
+	datain => \inst|vga_b[1]~5_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -14200,7 +14421,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst|vga_g[3]~0_combout\,
+	datain => \inst|vga_g[3]~4_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -14226,7 +14447,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst|vga_g[3]~0_combout\,
+	datain => \inst|vga_g[3]~4_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -14252,7 +14473,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst|vga_g[1]~1_combout\,
+	datain => \inst|vga_g[1]~5_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -14278,7 +14499,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst|vga_g[1]~1_combout\,
+	datain => \inst|vga_g[1]~5_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -14304,7 +14525,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst|vga_r[3]~0_combout\,
+	datain => \inst|vga_r[3]~4_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -14330,7 +14551,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst|vga_r[3]~0_combout\,
+	datain => \inst|vga_r[3]~4_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -14356,7 +14577,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst|vga_r[1]~1_combout\,
+	datain => \inst|vga_r[1]~5_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,
@@ -14382,7 +14603,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \inst|vga_r[1]~1_combout\,
+	datain => \inst|vga_r[1]~5_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,

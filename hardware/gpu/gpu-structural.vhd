@@ -58,11 +58,6 @@ architecture structural of gpu is
 	end component;
 
 	component spi is
-		Generic (   
-			N : positive := 8;                                             -- 32bit serial word length is default
-			CPOL : std_logic := '0';                                        -- SPI mode selection (mode 0 default)
-			CPHA : std_logic := '0';                                        -- CPOL = clock polarity, CPHA = clock phase.
-			PREFETCH : positive := 3);                                      -- prefetch lookahead cycles
 		Port (  
 			clk_i : in std_logic := 'X';                                    -- internal interface clock (clocks di/do registers)
 			spi_ssel_i : in std_logic := 'X';                               -- spi bus slave select line
@@ -70,17 +65,17 @@ architecture structural of gpu is
 			spi_mosi_i : in std_logic := 'X';                               -- spi bus mosi input
 			spi_miso_o : out std_logic := 'X';                              -- spi bus spi_miso_o output
 			di_req_o : out std_logic;                                       -- preload lookahead data request line
-			di_i : in  std_logic_vector (N-1 downto 0) := (others => 'X');  -- parallel load data in (clocked in on rising edge of clk_i)
+			di_i : in  std_logic_vector (SizeSPIData-1 downto 0) := (others => 'X');  -- parallel load data in (clocked in on rising edge of clk_i)
 			wren_i : in std_logic := 'X';                                   -- user data write enable
 			wr_ack_o : out std_logic;                                       -- write acknowledge
 			do_valid_o : out std_logic;                                     -- do_o data valid strobe, valid during one clk_i rising edge.
-			do_o : out  std_logic_vector (N-1 downto 0);                    -- parallel output (clocked out on falling clk_i)
+			do_o : out  std_logic_vector (SizeSPIData-1 downto 0);                    -- parallel output (clocked out on falling clk_i)
 			--- debug ports: can be removed for the application circuit ---
 			do_transfer_o : out std_logic;                                  -- debug: internal transfer driver
 			wren_o : out std_logic;                                         -- debug: internal state of the wren_i pulse stretcher
 			rx_bit_next_o : out std_logic;                                  -- debug: internal rx bit
 			state_dbg_o : out std_logic_vector (3 downto 0);                -- debug: internal state register
-			sh_reg_dbg_o : out std_logic_vector (N-1 downto 0)    
+			sh_reg_dbg_o : out std_logic_vector (SizeSPIData-1 downto 0)    
 			);         -- debug: internal shift register
 	end component;
 

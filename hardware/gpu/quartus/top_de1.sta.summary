@@ -3,16 +3,24 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'gen6mhz:inst1|count[2]'
-Slack : -11.199
-TNS   : -955.772
+Slack : -11.069
+TNS   : -842.724
+
+Type  : Slow Model Setup 'SPICLK'
+Slack : -1.628
+TNS   : -21.362
 
 Type  : Slow Model Setup 'clock_50mhz'
-Slack : -0.213
-TNS   : -0.213
+Slack : -0.211
+TNS   : -0.211
 
 Type  : Slow Model Hold 'clock_50mhz'
-Slack : -2.688
-TNS   : -2.688
+Slack : -2.690
+TNS   : -2.690
+
+Type  : Slow Model Hold 'SPICLK'
+Slack : 0.445
+TNS   : 0.000
 
 Type  : Slow Model Hold 'gen6mhz:inst1|count[2]'
 Slack : 0.445
@@ -22,23 +30,35 @@ Type  : Slow Model Minimum Pulse Width 'clock_50mhz'
 Slack : -1.631
 TNS   : -5.297
 
+Type  : Slow Model Minimum Pulse Width 'SPICLK'
+Slack : -1.469
+TNS   : -25.909
+
 Type  : Slow Model Minimum Pulse Width 'gen6mhz:inst1|count[2]'
 Slack : -0.611
-TNS   : -173.524
+TNS   : -160.082
 
 Type  : Fast Model Setup 'gen6mhz:inst1|count[2]'
-Slack : -3.532
-TNS   : -276.320
+Slack : -3.432
+TNS   : -247.867
+
+Type  : Fast Model Setup 'SPICLK'
+Slack : -0.080
+TNS   : -0.560
 
 Type  : Fast Model Setup 'clock_50mhz'
-Slack : 0.523
+Slack : 0.524
 TNS   : 0.000
 
 Type  : Fast Model Hold 'clock_50mhz'
-Slack : -1.719
-TNS   : -1.719
+Slack : -1.720
+TNS   : -1.720
 
 Type  : Fast Model Hold 'gen6mhz:inst1|count[2]'
+Slack : 0.055
+TNS   : 0.000
+
+Type  : Fast Model Hold 'SPICLK'
 Slack : 0.215
 TNS   : 0.000
 
@@ -46,8 +66,12 @@ Type  : Fast Model Minimum Pulse Width 'clock_50mhz'
 Slack : -1.380
 TNS   : -4.380
 
+Type  : Fast Model Minimum Pulse Width 'SPICLK'
+Slack : -1.222
+TNS   : -21.222
+
 Type  : Fast Model Minimum Pulse Width 'gen6mhz:inst1|count[2]'
 Slack : -0.500
-TNS   : -142.000
+TNS   : -131.000
 
 ------------------------------------------------------------

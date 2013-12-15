@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_de1
-Sat Dec 14 18:51:53 2013
+Sun Dec 15 13:47:20 2013
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -20,8 +20,10 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  12. Parameter Settings for User Entity Instance: gpu:inst2|draw:draw1|draw_sprite:sprite1
  13. Parameter Settings for User Entity Instance: gpu:inst2|vgacontroller:vgacontroller1
  14. Parameter Settings for User Entity Instance: gpu:inst2|spi:spi1
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+ 15. Port Connectivity Checks: "gpu:inst2|spi:spi1"
+ 16. Port Connectivity Checks: "gpu:inst2|decoder:decoder1"
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -47,15 +49,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Dec 14 18:51:53 2013           ;
+; Analysis & Synthesis Status        ; Successful - Sun Dec 15 13:47:20 2013           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; top_de1                                         ;
 ; Top-level Entity Name              ; top_de1                                         ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 573                                             ;
-;     Total combinational functions  ; 544                                             ;
-;     Dedicated logic registers      ; 145                                             ;
-; Total registers                    ; 145                                             ;
+; Total logic elements               ; 577                                             ;
+;     Total combinational functions  ; 543                                             ;
+;     Dedicated logic registers      ; 154                                             ;
+; Total registers                    ; 154                                             ;
 ; Total pins                         ; 93                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -178,7 +180,6 @@ applicable agreement for further details.
 ; ../draw_line.vhd                 ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/draw_line.vhd               ;         ;
 ; ../vgacontroller-behaviour.vhd   ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/vgacontroller-behaviour.vhd ;         ;
 ; ../vgacontroller.vhd             ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/vgacontroller.vhd           ;         ;
-; ../spi-behaviour.vhd             ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/spi-behaviour.vhd           ;         ;
 ; ../spi.vhd                       ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/spi.vhd                     ;         ;
 ; ../ramcontroller-behaviour.vhd   ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/ramcontroller-behaviour.vhd ;         ;
 ; ../ramcontroller.vhd             ; yes             ; User VHDL File                     ; C:/Users/Erwin/Documents/GitHub/DaC/hardware/gpu/ramcontroller.vhd           ;         ;
@@ -204,28 +205,28 @@ applicable agreement for further details.
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Estimated Total logic elements              ; 573                    ;
+; Estimated Total logic elements              ; 577                    ;
 ;                                             ;                        ;
-; Total combinational functions               ; 544                    ;
+; Total combinational functions               ; 543                    ;
 ; Logic element usage by number of LUT inputs ;                        ;
-;     -- 4 input functions                    ; 266                    ;
-;     -- 3 input functions                    ; 153                    ;
-;     -- <=2 input functions                  ; 125                    ;
+;     -- 4 input functions                    ; 269                    ;
+;     -- 3 input functions                    ; 150                    ;
+;     -- <=2 input functions                  ; 124                    ;
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 405                    ;
+;     -- normal mode                          ; 404                    ;
 ;     -- arithmetic mode                      ; 139                    ;
 ;                                             ;                        ;
-; Total registers                             ; 145                    ;
-;     -- Dedicated logic registers            ; 145                    ;
+; Total registers                             ; 154                    ;
+;     -- Dedicated logic registers            ; 154                    ;
 ;     -- I/O registers                        ; 0                      ;
 ;                                             ;                        ;
 ; I/O pins                                    ; 93                     ;
 ; Embedded Multiplier 9-bit elements          ; 0                      ;
 ; Maximum fan-out node                        ; gen6mhz:inst1|count[2] ;
-; Maximum fan-out                             ; 144                    ;
-; Total fan-out                               ; 2348                   ;
-; Average fan-out                             ; 3.00                   ;
+; Maximum fan-out                             ; 133                    ;
+; Total fan-out                               ; 2355                   ;
+; Average fan-out                             ; 2.98                   ;
 +---------------------------------------------+------------------------+
 
 
@@ -234,17 +235,17 @@ applicable agreement for further details.
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
 ; Compilation Hierarchy Node           ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                             ; Library Name ;
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
-; |top_de1                             ; 544 (3)           ; 145 (0)      ; 0           ; 0            ; 0       ; 0         ; 93   ; 0            ; |top_de1                                        ; work         ;
+; |top_de1                             ; 543 (3)           ; 154 (0)      ; 0           ; 0            ; 0       ; 0         ; 93   ; 0            ; |top_de1                                        ; work         ;
 ;    |gen6mhz:inst1|                   ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gen6mhz:inst1                          ; work         ;
-;    |gpu:inst2|                       ; 497 (2)           ; 142 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2                              ; work         ;
-;       |decoder:decoder1|             ; 95 (95)           ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|decoder:decoder1             ; work         ;
-;       |draw:draw1|                   ; 300 (2)           ; 44 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1                   ; work         ;
+;    |gpu:inst2|                       ; 496 (0)           ; 151 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2                              ; work         ;
+;       |decoder:decoder1|             ; 94 (94)           ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|decoder:decoder1             ; work         ;
+;       |draw:draw1|                   ; 298 (1)           ; 44 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1                   ; work         ;
 ;          |draw_line:line1|           ; 201 (201)         ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1   ; work         ;
 ;          |draw_pixel:pixel1|         ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_pixel:pixel1 ; work         ;
-;          |draw_rect:rect1|           ; 95 (95)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1   ; work         ;
+;          |draw_rect:rect1|           ; 94 (94)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1   ; work         ;
 ;       |ramcontroller:ramcontroller1| ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|ramcontroller:ramcontroller1 ; work         ;
-;       |spi:spi1|                     ; 12 (12)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|spi:spi1                     ; work         ;
-;       |vgacontroller:vgacontroller1| ; 85 (85)           ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1 ; work         ;
+;       |spi:spi1|                     ; 15 (15)           ; 25 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|spi:spi1                     ; work         ;
+;       |vgacontroller:vgacontroller1| ; 86 (86)           ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1 ; work         ;
 ;    |pre_vga_dac_4:inst|              ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|pre_vga_dac_4:inst                     ; work         ;
 ;    |ssegdecoder:inst4|               ; 35 (35)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_de1|ssegdecoder:inst4                      ; work         ;
 +--------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
@@ -258,6 +259,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------------------+------------------------------------------------------------------+
 ; gpu:inst2|decoder:decoder1|id[0..8]                     ; Merged with gpu:inst2|decoder:decoder1|id[9]                     ;
 ; gpu:inst2|decoder:decoder1|id[9]                        ; Stuck at GND due to stuck port data_in                           ;
+; gpu:inst2|spi:spi1|di_reg[0..6]                         ; Stuck at GND due to stuck port clock_enable                      ;
+; gpu:inst2|spi:spi1|wren                                 ; Stuck at GND due to stuck port data_in                           ;
 ; gpu:inst2|decoder:decoder1|en[4]                        ; Stuck at GND due to stuck port data_in                           ;
 ; gpu:inst2|draw:draw1|draw_sprite:sprite1|data_reg[0..5] ; Lost fanout                                                      ;
 ; gpu:inst2|draw:draw1|draw_sprite:sprite1|dcounter[0]    ; Lost fanout                                                      ;
@@ -269,7 +272,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gpu:inst2|draw:draw1|draw_sprite:sprite1|dcounter[2]    ; Merged with gpu:inst2|draw:draw1|draw_sprite:sprite1|dcounter[1] ;
 ; gpu:inst2|decoder:decoder1|current_instruction[3]       ; Stuck at GND due to stuck port data_in                           ;
 ; gpu:inst2|draw:draw1|draw_sprite:sprite1|dcounter[1]    ; Lost fanout                                                      ;
-; Total Number of Removed Registers = 44                  ;                                                                  ;
+; Total Number of Removed Registers = 52                  ;                                                                  ;
 +---------------------------------------------------------+------------------------------------------------------------------+
 
 
@@ -311,12 +314,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 145   ;
-; Number of registers using Synchronous Clear  ; 81    ;
+; Total registers                              ; 154   ;
+; Number of registers using Synchronous Clear  ; 73    ;
 ; Number of registers using Synchronous Load   ; 9     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 101   ;
+; Number of registers using Clock Enable       ; 97    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -326,28 +329,26 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |top_de1|gpu:inst2|spi:spi1|spi_rx_data[4]                    ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_de1|gpu:inst2|spi:spi1|index[3]                          ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|v_count[1]    ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|v_count[9]    ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|dcounter[0] ;
-; 6:1                ; 14 bits   ; 56 LEs        ; 0 LEs                ; 56 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|timeout_count[13]         ;
-; 7:1                ; 12 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|counter[4]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|cy[2]       ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|cx[7]       ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|packet_num[0]             ;
-; 9:1                ; 10 bits   ; 60 LEs        ; 20 LEs               ; 40 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|err[0]          ;
+; 6:1                ; 14 bits   ; 56 LEs        ; 0 LEs                ; 56 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|timeout_count[4]          ;
+; 7:1                ; 12 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|counter[2]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|cy[0]       ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|cx[0]       ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|packet_num[2]             ;
+; 9:1                ; 10 bits   ; 60 LEs        ; 20 LEs               ; 40 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|err[1]          ;
 ; 9:1                ; 8 bits    ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|w[7]                      ;
 ; 17:1               ; 3 bits    ; 33 LEs        ; 18 LEs               ; 15 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|current_instruction[2]    ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|h_count[2]    ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|v_count[4]    ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1|cy[5]           ;
-; 16:1               ; 6 bits    ; 60 LEs        ; 12 LEs               ; 48 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|color[4]                  ;
-; 17:1               ; 6 bits    ; 66 LEs        ; 12 LEs               ; 54 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|h[1]                      ;
-; 16:1               ; 7 bits    ; 70 LEs        ; 14 LEs               ; 56 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|y[6]                      ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1|cx[6]           ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|cx[3]           ;
-; 17:1               ; 8 bits    ; 88 LEs        ; 16 LEs               ; 72 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|x[5]                      ;
-; 9:1                ; 7 bits    ; 42 LEs        ; 14 LEs               ; 28 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|cy[4]           ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |top_de1|gpu:inst2|vgacontroller:vgacontroller1|v_count[7]    ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1|cy[2]           ;
+; 16:1               ; 6 bits    ; 60 LEs        ; 12 LEs               ; 48 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|color[5]                  ;
+; 17:1               ; 6 bits    ; 66 LEs        ; 12 LEs               ; 54 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|h[5]                      ;
+; 16:1               ; 7 bits    ; 70 LEs        ; 14 LEs               ; 56 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|y[0]                      ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_rect:rect1|cx[1]           ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|cx[4]           ;
+; 17:1               ; 8 bits    ; 88 LEs        ; 16 LEs               ; 72 LEs                 ; Yes        ; |top_de1|gpu:inst2|decoder:decoder1|x[7]                      ;
+; 9:1                ; 7 bits    ; 42 LEs        ; 14 LEs               ; 28 LEs                 ; Yes        ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|cy[0]           ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |top_de1|gpu:inst2|draw:draw1|draw_line:line1|draw_write      ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |top_de1|gpu:inst2|draw:draw1|draw_sprite:sprite1|done        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
@@ -389,9 +390,38 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+----------------------------------------+
 ; Parameter Name ; Value ; Type                                   ;
 +----------------+-------+----------------------------------------+
-; c              ; 4     ; Signed Integer                         ;
+; CPOL           ; '0'   ; Enumerated                             ;
+; CPHA           ; '0'   ; Enumerated                             ;
+; PREFETCH       ; 3     ; Signed Integer                         ;
 +----------------+-------+----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "gpu:inst2|spi:spi1"                                                                          ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; spi_ssel_i    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; spi_miso_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; di_req_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; wr_ack_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; do_transfer_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; wren_o        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rx_bit_next_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; state_dbg_o   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; sh_reg_dbg_o  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "gpu:inst2|decoder:decoder1"                                                               ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; soft_reset ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; spi_reset  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -409,7 +439,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Dec 14 18:51:49 2013
+    Info: Processing started: Sun Dec 15 13:47:16 2013
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off de1 -c top_de1
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/ssegdecoder.vhd
@@ -430,9 +460,9 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
 Info (12021): Found 2 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/sram.vhd
     Info (12022): Found design unit 1: sram-behavior
     Info (12023): Found entity 1: sram
-Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/spi-behaviour.vhd
-    Info (12022): Found design unit 1: spi-behaviour
-Info (12021): Found 1 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/spi.vhd
+Warning (12019): Can't analyze file -- file ../spi-behaviour.vhd is missing
+Info (12021): Found 2 design units, including 1 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/spi.vhd
+    Info (12022): Found design unit 1: spi-rtl
     Info (12023): Found entity 1: spi
 Info (12021): Found 1 design units, including 0 entities, in source file /users/erwin/documents/github/dac/hardware/gpu/ramcontroller-behaviour.vhd
     Info (12022): Found design unit 1: ramcontroller-behaviour
@@ -471,6 +501,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file top_de1
     Info (12023): Found entity 1: top_de1
 Info (12127): Elaborating entity "top_de1" for the top level hierarchy
 Info (12128): Elaborating entity "gpu" for hierarchy "gpu:inst2"
+Warning (10036): Verilog HDL or VHDL warning at gpu-structural.vhd(131): object "sreset" assigned a value but never read
 Info (12128): Elaborating entity "draw" for hierarchy "gpu:inst2|draw:draw1"
 Info (12128): Elaborating entity "draw_pixel" for hierarchy "gpu:inst2|draw:draw1|draw_pixel:pixel1"
 Info (12128): Elaborating entity "draw_rect" for hierarchy "gpu:inst2|draw:draw1|draw_rect:rect1"
@@ -531,14 +562,14 @@ Warning (13027): Removed fan-outs from the following always-disabled I/O buffers
 Info (17049): 8 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 674 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 684 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
     Info (21059): Implemented 76 output pins
     Info (21060): Implemented 6 bidirectional pins
-    Info (21061): Implemented 581 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 45 warnings
-    Info: Peak virtual memory: 499 megabytes
-    Info: Processing ended: Sat Dec 14 18:51:53 2013
+    Info (21061): Implemented 591 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 47 warnings
+    Info: Peak virtual memory: 515 megabytes
+    Info: Processing ended: Sun Dec 15 13:47:20 2013
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:04
 
