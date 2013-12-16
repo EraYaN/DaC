@@ -4,7 +4,7 @@ use IEEE.numeric_std.all;
 use work.parameter_def.all;
 
 architecture behaviour of decoder is
-	type instruction is (i_none, i_switch, i_reset, i_pixel, i_rect, i_frect, i_line, i_sprite, i_lsprite);
+	type instruction is (i_none, i_switch, i_fill, i_pixel, i_rect, i_frect, i_line, i_sprite, i_lsprite);
 	attribute enum_encoding : string;
 	attribute enum_encoding of instruction : type is "sequential";
 
@@ -28,10 +28,6 @@ begin
 	decoder_claim <= is_init;
 	ramaddr <= id & h(SizeSpriteCounter-1 downto 0) when decoder_write = '1' else (others => 'Z');
 	ramdata <= next_ramdata when decoder_write = '1' else (others => 'Z');
-	--debug shit
-	decoder_debug_pn <= '0' & std_logic_vector(packet_num);
-	decoder_debug_i <= std_logic_vector(to_unsigned(instruction'pos(current_instruction), decoder_debug_i'length));
-	decoder_debug_c <= std_logic_vector(timeout_count(SizeTimeoutCounter-1 downto SizeTimeoutCounter-8));
 
 	--synchronizer + input buffer + output buffer + state change
 	decode_seq: process (clk)	
@@ -95,7 +91,6 @@ begin
 		
 		--defaults for non-buffered signals	
 		next_ramdata <= (others => '0');
-		soft_reset <= '0';
 		spi_reset <= '0';
 		decoder_write <= '0';
 
@@ -103,7 +98,7 @@ begin
 		done := '0';
 
 		--action depending on state
-		if (current_spi_data_available = '1' and prev_spi_data_available = '0') or current_instruction = i_switch or current_instruction = i_reset then
+		if (current_spi_data_available = '1' and prev_spi_data_available = '0') or current_instruction = i_switch or current_instruction = i_fill then
 			next_int_ready <= '0';
 			next_timeout_count <= (others => '0');
 			spi_reset <= '1';
@@ -151,18 +146,20 @@ begin
 					done := '1';
 					next_int_ready <= '1';
 				end if;
-			elsif current_instruction = i_reset then
-				soft_reset <= '1';
-				done := '1';
-				next_timeout_count <= (others => '0');
-				next_x <= (others => '0');
-				next_y <= (others => '0');
-				next_w <= (others => '0');
-				next_h <= (others => '0');
-				next_id <= (others => '0');
-				next_color <= (others => '0');
-				next_en <= (others => '0');
-				next_int_ready <= '1';
+			elsif current_instruction = i_fill then
+				if packet_num = 1 then
+					done := '1';
+					color <= spi_data_rx(SizeRAMData-1 downto 0);
+					next_x <= (others => '0');
+					next_y <= (others => '0');
+					next_w <= std_logic_vector(ResolutionX);
+					next_h <= std_logic_vector(ResolutionY);
+					next_en(2) <= '1';
+				else
+					--shit broke
+					done := '1';
+					next_int_ready <= '1';
+				end if;
 			elsif current_instruction = i_pixel then
 				if packet_num = 1 then
 					next_color <= spi_data_rx(SizeColor-1 downto 0);

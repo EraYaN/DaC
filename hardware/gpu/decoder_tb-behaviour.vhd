@@ -82,7 +82,6 @@ begin
 			en=>en,
 			asb=>asb,
 			int_ready=>int_ready,
-			soft_reset=>soft_reset,
 			decoder_can_access=>decoder_can_access,
 			decoder_write=>decoder_write,
 			decoder_claim=>decoder_claim,
