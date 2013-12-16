@@ -106,7 +106,7 @@ begin
 		if (current_spi_data_available = '1' and prev_spi_data_available = '0') or current_instruction = i_switch or current_instruction = i_reset then
 			next_int_ready <= '0';
 			next_timeout_count <= (others => '0');
-			
+			spi_reset <= '1';
 			if current_instruction = i_none then
 				if packet_num = 0 then
 					--determine next instruction
@@ -238,7 +238,7 @@ begin
 						next_ramdata <= spi_data_rx(SizeRAMData-1 downto 0);
 						decoder_write <= '1';
 
-						if unsigned(h) /= unsigned(x) then
+						if unsigned(h) /= unsigned(x)-1 then
 							next_h <= std_logic_vector(unsigned(h) + 1);
 						else
 							--done
@@ -263,6 +263,7 @@ begin
 			elsif done = '1' then
 				next_packet_num <= to_unsigned(0,SizeNumPackets);
 				next_instruction <= i_none;
+				spi_reset <= '1';
 			end if;
 
 		elsif draw_ready = '1' then
