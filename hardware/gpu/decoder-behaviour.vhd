@@ -109,7 +109,7 @@ begin
 						if spi_data_rx(InstrSize-1 downto 0) = "000" then
 							 next_instruction <= i_switch;
 						elsif spi_data_rx(InstrSize-1 downto 0) = "001" then
-							next_instruction <= i_reset;
+							next_instruction <= i_fill;
 						elsif spi_data_rx(InstrSize-1 downto 0) = "010" then 
 							next_instruction <= i_pixel;
 						elsif spi_data_rx(InstrSize-1 downto 0) = "011" then 
@@ -149,11 +149,11 @@ begin
 			elsif current_instruction = i_fill then
 				if packet_num = 1 then
 					done := '1';
-					color <= spi_data_rx(SizeRAMData-1 downto 0);
+					next_color <= spi_data_rx(SizeRAMData-1 downto 0);
 					next_x <= (others => '0');
 					next_y <= (others => '0');
-					next_w <= std_logic_vector(ResolutionX);
-					next_h <= std_logic_vector(ResolutionY);
+					next_w <= std_logic_vector(to_unsigned(ResolutionX-1,SizeX));
+					next_h <= std_logic_vector(to_unsigned(ResolutionY-1,SizeY));
 					next_en(2) <= '1';
 				else
 					--shit broke

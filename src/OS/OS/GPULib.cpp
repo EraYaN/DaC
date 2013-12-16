@@ -87,11 +87,11 @@ void GPULib::switchScreenBuffer()
 
 void GPULib::drawFill(byte color)
 {
-	/*Instruction *instr = new Instruction(2);
+	Instruction *instr = new Instruction(2);
 	instr->packets[0] = 1;
 	instr->packets[1] = color;
-	appendInstructionToQueue(instr);*/
-	drawFilledRect(0, 0, XMAX, YMAX, color);	
+	appendInstructionToQueue(instr);
+	//drawFilledRect(0, 0, XMAX, YMAX, color);	
 }
 
 void GPULib::drawPixel(byte x, byte y, byte color)
