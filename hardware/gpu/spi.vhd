@@ -7,7 +7,7 @@ use IEEE.math_real.log2;
 
 entity spi is
 	generic (
-	 	c : integer := integer(ceil(log2(real(SizeSPIData))))+1
+	 	c : integer := integer(ceil(log2(real(SizeSPIData))))
 	);
 	port (
 		reset : in std_logic;

@@ -26,7 +26,7 @@ public:
 		ys[1] = 60;
 		ys[2] = 100;
 		ys[3] = 60;	
-		numPoints = 3;
+		numPoints = 20;
 		points = (Point**)malloc(sizeof(Point*)*numPoints);
 		for(int p = 0; p<numPoints;  p++){
 			int dx = 0;
