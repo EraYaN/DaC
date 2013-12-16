@@ -44,14 +44,14 @@ begin
 	 		 '0' after 50 ns;
 		              --enablef testen
 	
-	enable <=         '1' after 0 ns, '0' after 500 ns;
+	enable <=         '1' after 0 ns, '0' after 400 ns;
 	
 	enablef <=        '0' after 0 ns, '1' after 500 ns;
 		
 	draw_can_access <= '1' after 0 ns;
 				            
 	
-	color <=          "1010" after 0 ns;
+	color <=          "101010" after 0 ns;
 	
 	asb <=            '0' after 0 ns;
 	
@@ -63,6 +63,7 @@ begin
 	w	<=             "00000100" after 0 ns; 
 	
 	h	<=             "0000100" after 0 ns;
+
 				
 lbl: draw_rect port map(	       
            clk              => clk,                
@@ -83,6 +84,12 @@ lbl: draw_rect port map(
 		       );     
 
 end behaviour;
+
+
+
+
+
+
 
 
 
