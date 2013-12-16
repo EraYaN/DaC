@@ -25,7 +25,6 @@ architecture behaviour of decoder_tb is
 			asb			: buffer	std_logic;	--Currently active screen buffer
 			--Direct CPU interaction
 			int_ready	: buffer	std_logic;	--Instruction processed signal
-			soft_reset	: out		std_logic;
 			--RAM Controller interaction
 			decoder_can_access	: in std_logic;		--Can access RAM?
 			decoder_write		: out std_logic;	--Intention to write to RAM
@@ -53,7 +52,6 @@ signal id					: std_logic_vector(SizeSpriteID-1 downto 0);
 signal en					: std_logic_vector(NumDrawModules-1 downto 0);
 signal asb					: std_logic;
 signal int_ready			: std_logic;
-signal soft_reset			: std_logic;
 signal decoder_can_access	: std_logic;
 signal decoder_write		: std_logic;
 signal decoder_claim		: std_logic;	

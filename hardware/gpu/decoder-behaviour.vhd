@@ -6,7 +6,7 @@ use work.parameter_def.all;
 architecture behaviour of decoder is
 	type instruction is (i_none, i_switch, i_fill, i_pixel, i_rect, i_frect, i_line, i_sprite, i_lsprite);
 	attribute enum_encoding : string;
-	attribute enum_encoding of instruction : type is "sequential";
+	attribute enum_encoding of instruction : type is "0000 0001 0010 0011 0100 0101 0110 0111 1000";
 
 	--state signals and regs
 	signal packet_num, next_packet_num : unsigned(SizeNumPackets-1 downto 0); --current packet number
@@ -285,3 +285,6 @@ begin
 	end process;
 
 end behaviour;
+
+
+
