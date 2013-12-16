@@ -12,7 +12,7 @@ architecture behaviour of decoder is
 	signal packet_num, next_packet_num : unsigned(SizeNumPackets-1 downto 0); --current packet number
 	signal current_instruction, next_instruction : instruction; --current instruction
 	signal timeout_count, next_timeout_count : unsigned(SizeTimeoutCounter-1 downto 0);
-	signal prev_spi_data_available : std_logic;
+	signal current_spi_data_available, prev_spi_data_available : std_logic;
 
 	--output registers
 	signal next_x, next_w : std_logic_vector(SizeX-1 downto 0);
@@ -22,7 +22,6 @@ architecture behaviour of decoder is
 	signal next_en : std_logic_vector(NumDrawModules-1 downto 0);
 	signal next_int_ready, next_is_init, next_asb : std_logic;
 	signal next_ramdata : std_logic_vector(SizeRAMData-1 downto 0);
-	signal next_decoder_write : std_logic;
 
 begin
 	--"asynchronous" RAM interaction
@@ -43,6 +42,7 @@ begin
 				packet_num <= (others => '0');
 				timeout_count <= (others => '0');
 				current_instruction <= i_none;
+				current_spi_data_available <= '0';
 				prev_spi_data_available <= '0';
 				x <= (others => '0');
 				y <= (others => '0');
@@ -54,13 +54,13 @@ begin
 				asb <= '0';
 				is_init <= '1';
 				int_ready <= '0';
-				decoder_write <= '0';
 			else
 				--update all registers
 				packet_num <= next_packet_num;
 				timeout_count <= next_timeout_count;
 				current_instruction <= next_instruction;
-				prev_spi_data_available <= spi_data_available;
+				current_spi_data_available <= spi_data_available;
+				prev_spi_data_available <= current_spi_data_available;
 				x <= next_x;
 				y <= next_y;
 				w <= next_w;
@@ -71,12 +71,11 @@ begin
 				asb <= next_asb;
 				is_init <= next_is_init;
 				int_ready <= next_int_ready;
-				decoder_write <= next_decoder_write;
 			end if;		
 		end if;
 	end process;
 
-	decode_comb: process (x, y, w, h, id, color, en, asb, is_init, int_ready, draw_ready, spi_data_available, prev_spi_data_available, spi_data_rx, current_instruction, packet_num, decoder_can_access, timeout_count, vgavsync)
+	decode_comb: process (x, y, w, h, id, color, en, asb, is_init, int_ready, draw_ready, current_spi_data_available, prev_spi_data_available, spi_data_rx, current_instruction, packet_num, decoder_can_access, timeout_count, vgavsync)
 		variable done : std_logic;		
 	begin
 		--defaults for buffered signals
@@ -93,18 +92,18 @@ begin
 		next_instruction <= current_instruction;
 		next_packet_num <= packet_num;
 		next_timeout_count <= timeout_count;
-		next_decoder_write <= '0';
 		
 		--defaults for non-buffered signals	
 		next_ramdata <= (others => '0');
 		soft_reset <= '0';
 		spi_reset <= '0';
+		decoder_write <= '0';
 
 		--init variables
 		done := '0';
 
 		--action depending on state
-		if (spi_data_available = '1' and prev_spi_data_available = '0') or current_instruction = i_switch or current_instruction = i_reset then
+		if (current_spi_data_available = '1' and prev_spi_data_available = '0') or current_instruction = i_switch or current_instruction = i_reset then
 			next_int_ready <= '0';
 			next_timeout_count <= (others => '0');
 			
@@ -215,8 +214,8 @@ begin
 				elsif packet_num = 4 then
 					next_w <= spi_data_rx(SizeX-1 downto 0);
 				elsif packet_num = 5 then
-					next_h <= spi_data_rx(SizeSPIData-1 downto SizeSPIData-SizeSpriteID);
-					next_id(SizeSpriteID-1 downto SizeSpriteID-(SizeSpriteID-SizeSPIData)) <= spi_data_rx(SizeSPIData-SizeSpriteID-1 downto 0);
+					next_h(SizeSpriteCounter-1 downto 0) <= spi_data_rx(SizeSPIData-1 downto SizeSPIData-SizeSpriteCounter);
+					next_id(SizeSpriteID-1 downto SizeSpriteID-(SizeSpriteID-SizeSPIData)) <= spi_data_rx(SizeSPIData-SizeSpriteCounter-1 downto 0);
 				elsif packet_num = 6 then
 					next_id(SizeSpriteID-(SizeSpriteID-SizeSPIData)-1 downto 0) <= spi_data_rx(SizeSPIData-1 downto 0);
 					--done
@@ -236,9 +235,9 @@ begin
 				elsif packet_num = 3 then
 					if decoder_can_access = '1' then
 						next_ramdata <= spi_data_rx(SizeRAMData-1 downto 0);
-						next_decoder_write <= '1';
+						decoder_write <= '1';
 
-						if unsigned(x) /= 0 then
+						if (unsigned(x) - 1) /= 0 then
 							next_x <= std_logic_vector(unsigned(x) - 1);
 						else
 							--done

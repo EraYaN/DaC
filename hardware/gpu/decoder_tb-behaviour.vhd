@@ -94,22 +94,20 @@ begin
 
 	clk		<= '1' after 0 ns,
 			'0' after 80 ns when clk /= '0' else '1' after 80 ns;
+	reset	<= '1' after 0 ns,
+			'0' after 320 ns;
 	spi_data_available	<= '1' after 0 ns,
 							'0' after 250 ns when (spi_data_available /= '0' ) else '1' after 500 ns when enable_spi = '1' else '0';
+	decoder_can_access <= '1' after 0 ns;
 
 	vgavsync <= '0';
 
 	process
 	begin
-		reset <= '1';
 		enable_spi <= '0';
 		spi_data_rx <= "00000000";
 		draw_ready <= '0';
-		decoder_can_access <= '1' after 0 ns;
-		wait until rising_edge(clk);
-		wait until rising_edge(clk);
-		reset <= '0';
-
+		
 		wait until rising_edge(clk);
 		wait until rising_edge(clk);
 
@@ -192,8 +190,27 @@ begin
 		wait until falling_edge(spi_data_available);
 		enable_spi <= '0';
 		
-
 		wait for 960 ns;
-		
+
+		enable_spi <= '1';
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00000110"; --draw sprite (110)
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00111111"; --color 111111
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "01010101"; --x
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "10101010"; --y
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "11111111"; --w
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "11001100"; --data length + id
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00110011"; --id
+		wait until falling_edge(spi_data_available);
+		enable_spi <= '0';
+
+		wait;
+
 	end process;
 end behaviour;

@@ -122,19 +122,19 @@ sr: sram port map (
 		wait until rising_edge(clk);
 		wait until rising_edge(clk);
 		reset <= '0';
-		-- wait until rising_edge(clk);
-		-- wait until rising_edge(clk);		
-		-- sendByte("00000111",spi_mosi,spiclk_en, spibyte); -- sprite --byte 1
-		-- sendByte("00100000",spi_mosi,spiclk_en, spibyte); -- sprite len (8) and 2MSB addr --byte 2
-		-- sendByte("00000011",spi_mosi,spiclk_en, spibyte); -- sprite 8LSB addr = 3 --byte 3
-		-- sendByte("00111111",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 4
-		-- sendByte("00100001",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 5
-		-- sendByte("00111101",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 6
-		-- sendByte("00111101",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 7
-		-- sendByte("00110001",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 8
-		-- sendByte("00111101",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 9
-		-- sendByte("00111101",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 10
-		-- sendByte("00100001",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 11
+		wait until rising_edge(clk);
+		wait until rising_edge(clk);		
+		sendByte("00000111",spi_mosi,spiclk_en, spibyte); -- sprite --byte 1
+		sendByte("00100000",spi_mosi,spiclk_en, spibyte); -- sprite len (8) and 2MSB addr --byte 2
+		sendByte("00000011",spi_mosi,spiclk_en, spibyte); -- sprite 8LSB addr = 3 --byte 3
+		sendByte(not"00111111",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 4
+		sendByte(not"00100001",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 5
+		sendByte(not"00111101",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 6
+		sendByte(not"00111101",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 7
+		sendByte(not"00110001",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 8
+		sendByte(not"00111101",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 9
+		sendByte(not"00111101",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 10
+		sendByte(not"00100001",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 11
 		wait until rising_edge(clk);
 		wait until rising_edge(clk);		
 		-- sendByte("00000001",spi_mosi,spiclk_en, spibyte); -- fill --byte 12
@@ -173,15 +173,15 @@ sr: sram port map (
 		sendByte("01010000",spi_mosi,spiclk_en, spibyte); -- Y1 = 80 --byte 34
 		wait until int_ready = '1' and rising_edge(int_ready);
 		wait until rising_edge(clk);
-		-- sendByte("00000110",spi_mosi,spiclk_en, spibyte); -- sprite --byte 35
-		-- sendByte("00010101",spi_mosi,spiclk_en, spibyte); -- greyish --byte 36
-		-- sendByte("00001000",spi_mosi,spiclk_en, spibyte); -- X = 16 --byte 37
-		-- sendByte("00001000",spi_mosi,spiclk_en, spibyte); -- Y = 16 --byte 38
-		-- sendByte("00000110",spi_mosi,spiclk_en, spibyte); -- W = 6 --byte 39
-		-- sendByte("00100000",spi_mosi,spiclk_en, spibyte); -- sprite len (8) and 2MSB addr --byte 40
-		-- sendByte("00000011",spi_mosi,spiclk_en, spibyte); -- sprite 8LSB addr --byte 41
-		-- wait until int_ready = '1';
-		-- wait until rising_edge(clk);		
+		sendByte("00000110",spi_mosi,spiclk_en, spibyte); -- sprite --byte 35
+		sendByte("00010101",spi_mosi,spiclk_en, spibyte); -- greyish --byte 36
+		sendByte("00001000",spi_mosi,spiclk_en, spibyte); -- X = 16 --byte 37
+		sendByte("00001000",spi_mosi,spiclk_en, spibyte); -- Y = 16 --byte 38
+		sendByte("00000110",spi_mosi,spiclk_en, spibyte); -- W = 6 --byte 39
+		sendByte("00100000",spi_mosi,spiclk_en, spibyte); -- sprite len (8) and 2MSB addr --byte 40
+		sendByte("00000011",spi_mosi,spiclk_en, spibyte); -- sprite 8LSB addr --byte 41
+		wait until int_ready = '1';
+		wait until rising_edge(clk);		
 		--finish
 		dump <= TRUE;
 		wait until rising_edge(clk);
