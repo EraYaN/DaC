@@ -19,7 +19,7 @@ class GPULib
 {
 public:
 	//Sprite Addresses
-	int lastSpriteID;
+	int nextSpriteID;
 	//general
 	GPULib(); //Constructor
 	~GPULib(); //Destructor
@@ -34,7 +34,6 @@ public:
 
 	//draw
 	void switchScreenBuffer();
-	void gpuReset();
 	void drawFill(byte color);
 	void drawPixel(byte x, byte y, byte color);
 	void drawRect(byte x, byte y, byte w, byte h, byte color);
@@ -42,12 +41,13 @@ public:
 	void drawLine(byte x0, byte y0, byte x1, byte y1, byte color);
 	void drawSprite(Sprite* sprite, byte x, byte y, byte color);
 	void drawSprite(int address, byte x, byte y, byte w, byte l, byte color);
+	void drawChar6x8(char c, byte x, byte y, byte color);
+	void drawString6x8(const char* string, byte x, byte y, byte color);
 
 	//fake (software) draw	
 	void drawTriangle(byte x0, byte y0, byte x1, byte y1, byte x2, byte y2, byte color);
 	void drawPoly(byte* x, byte* y, byte size, byte color);
-	void drawChar(char c, byte x, byte y, byte color);
-	void drawString(const char* string, byte x, byte y, byte color);
+	
 
 	//loading sprites
 	bool loadSprites(Sprite *set[], int size, bool *rfn);

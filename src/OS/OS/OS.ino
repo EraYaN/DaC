@@ -45,7 +45,7 @@ void loop()
 		if(first && readyfornext){	
 			GPU->cleanUp();
 			//GPU->gpuReset();
-			//GPU->loadSprites(sprites_font6x8_set,95,&readyfornext);
+			GPU->loadSprites(sprites_font6x8_set,95,&readyfornext);
 			//GPU->cleanUp();
 			//GPU->drawFill(B000000);
 			//GPU->transferQueue();

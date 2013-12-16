@@ -119,7 +119,7 @@ namespace SpriteTool
 			int size = w * h;
 			Color[] sprite = new Color[size];
 			int i = 0;
-			for (int y = h - 1; y >= 0; y--)
+			for (int y = 0; y < h; y++)
 			{
 				for (int x = w - 1; x >= 0; x--)
 				{

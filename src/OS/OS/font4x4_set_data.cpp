@@ -1,381 +1,381 @@
 #include "Util.h"
-extern const prog_uchar set_font4x4_sprite_114[] = {
+extern const prog_uchar set_font4x4_sprite_032[] = {
+	  0,  0
+};
+
+extern const prog_uchar set_font4x4_sprite_033[] = {
+	  4,  1
+};
+
+extern const prog_uchar set_font4x4_sprite_034[] = {
+	 10,  0
+};
+
+extern const prog_uchar set_font4x4_sprite_035[] = {
+	 46, 58
+};
+
+extern const prog_uchar set_font4x4_sprite_036[] = {
+	  4, 59
+};
+
+extern const prog_uchar set_font4x4_sprite_037[] = {
+	 10, 41
+};
+
+extern const prog_uchar set_font4x4_sprite_038[] = {
+	 36, 57
+};
+
+extern const prog_uchar set_font4x4_sprite_039[] = {
+	  4,  1
+};
+
+extern const prog_uchar set_font4x4_sprite_040[] = {
+	  2,  9
+};
+
+extern const prog_uchar set_font4x4_sprite_041[] = {
+	 36, 16
+};
+
+extern const prog_uchar set_font4x4_sprite_042[] = {
+	 46, 19
+};
+
+extern const prog_uchar set_font4x4_sprite_043[] = {
+	 36, 19
+};
+
+extern const prog_uchar set_font4x4_sprite_044[] = {
+	  0, 16
+};
+
+extern const prog_uchar set_font4x4_sprite_045[] = {
+	 32,  3
+};
+
+extern const prog_uchar set_font4x4_sprite_046[] = {
+	  0, 16
+};
+
+extern const prog_uchar set_font4x4_sprite_047[] = {
+	  2, 33
+};
+
+extern const prog_uchar set_font4x4_sprite_048[] = {
+	 44, 26
+};
+
+extern const prog_uchar set_font4x4_sprite_049[] = {
+	 12, 57
+};
+
+extern const prog_uchar set_font4x4_sprite_050[] = {
+	 12, 25
+};
+
+extern const prog_uchar set_font4x4_sprite_051[] = {
+	 46, 57
+};
+
+extern const prog_uchar set_font4x4_sprite_052[] = {
+	 38, 11
+};
+
+extern const prog_uchar set_font4x4_sprite_053[] = {
+	  6, 49
+};
+
+extern const prog_uchar set_font4x4_sprite_054[] = {
+	 40, 59
+};
+
+extern const prog_uchar set_font4x4_sprite_055[] = {
+	 46, 16
+};
+
+extern const prog_uchar set_font4x4_sprite_056[] = {
+	 36, 59
+};
+
+extern const prog_uchar set_font4x4_sprite_057[] = {
+	 46, 11
+};
+
+extern const prog_uchar set_font4x4_sprite_058[] = {
 	  0, 17
 };
 
-extern const prog_uchar set_font4x4_sprite_115[] = {
-	  0,-2147483635
+extern const prog_uchar set_font4x4_sprite_059[] = {
+	  4, 16
 };
 
-extern const prog_uchar set_font4x4_sprite_116[] = {
-	 32,-2147483620
+extern const prog_uchar set_font4x4_sprite_060[] = {
+	  2,  9
 };
 
-extern const prog_uchar set_font4x4_sprite_117[] = {
-	 32,-2147483628
+extern const prog_uchar set_font4x4_sprite_061[] = {
+	 14, 56
 };
 
-extern const prog_uchar set_font4x4_sprite_118[] = {
-	  0,-2147483628
+extern const prog_uchar set_font4x4_sprite_062[] = {
+	 36, 16
 };
 
-extern const prog_uchar set_font4x4_sprite_119[] = {
-	 32,-2147483627
+extern const prog_uchar set_font4x4_sprite_063[] = {
+	 46,  1
 };
 
-extern const prog_uchar set_font4x4_sprite_120[] = {
-	 32, 29
+extern const prog_uchar set_font4x4_sprite_064[] = {
+	 46, 51
 };
 
-extern const prog_uchar set_font4x4_sprite_121[] = {
-	 44,-2147483628
+extern const prog_uchar set_font4x4_sprite_065[] = {
+	 46, 43
 };
 
-extern const prog_uchar set_font4x4_sprite_122[] = {
-	 32,-2147483624
+extern const prog_uchar set_font4x4_sprite_066[] = {
+	 44, 59
 };
 
-extern const prog_uchar set_font4x4_sprite_123[] = {
-	 32,-2147483624
+extern const prog_uchar set_font4x4_sprite_067[] = {
+	 14, 58
 };
 
-extern const prog_uchar set_font4x4_sprite_124[] = {
-	  0,-2147483640
+extern const prog_uchar set_font4x4_sprite_068[] = {
+	 44, 50
 };
 
-extern const prog_uchar set_font4x4_sprite_125[] = {
-	  0,-2147483635
+extern const prog_uchar set_font4x4_sprite_069[] = {
+	 14, 59
 };
 
-extern const prog_uchar set_font4x4_sprite_126[] = {
-	  0, 24
+extern const prog_uchar set_font4x4_sprite_070[] = {
+	 14, 35
 };
 
-extern const prog_uchar set_font4x4_sprite_32[] = {
+extern const prog_uchar set_font4x4_sprite_071[] = {
+	 44, 58
+};
+
+extern const prog_uchar set_font4x4_sprite_072[] = {
+	 42, 43
+};
+
+extern const prog_uchar set_font4x4_sprite_073[] = {
+	 14, 57
+};
+
+extern const prog_uchar set_font4x4_sprite_074[] = {
+	 34, 58
+};
+
+extern const prog_uchar set_font4x4_sprite_075[] = {
+	 10, 43
+};
+
+extern const prog_uchar set_font4x4_sprite_076[] = {
+	  8, 58
+};
+
+extern const prog_uchar set_font4x4_sprite_077[] = {
+	 46, 43
+};
+
+extern const prog_uchar set_font4x4_sprite_078[] = {
+	 44, 42
+};
+
+extern const prog_uchar set_font4x4_sprite_079[] = {
+	 46, 58
+};
+
+extern const prog_uchar set_font4x4_sprite_080[] = {
+	 46, 35
+};
+
+extern const prog_uchar set_font4x4_sprite_081[] = {
+	 46, 50
+};
+
+extern const prog_uchar set_font4x4_sprite_082[] = {
+	 14, 43
+};
+
+extern const prog_uchar set_font4x4_sprite_083[] = {
+	  6, 49
+};
+
+extern const prog_uchar set_font4x4_sprite_084[] = {
+	 14, 17
+};
+
+extern const prog_uchar set_font4x4_sprite_085[] = {
+	 42, 58
+};
+
+extern const prog_uchar set_font4x4_sprite_086[] = {
+	 42, 18
+};
+
+extern const prog_uchar set_font4x4_sprite_087[] = {
+	 42, 59
+};
+
+extern const prog_uchar set_font4x4_sprite_088[] = {
+	 10, 41
+};
+
+extern const prog_uchar set_font4x4_sprite_089[] = {
+	 42, 19
+};
+
+extern const prog_uchar set_font4x4_sprite_090[] = {
+	 12, 25
+};
+
+extern const prog_uchar set_font4x4_sprite_091[] = {
+	  6, 25
+};
+
+extern const prog_uchar set_font4x4_sprite_092[] = {
+	  8,  9
+};
+
+extern const prog_uchar set_font4x4_sprite_093[] = {
+	 12, 49
+};
+
+extern const prog_uchar set_font4x4_sprite_094[] = {
+	 36,  2
+};
+
+extern const prog_uchar set_font4x4_sprite_095[] = {
 	  0,  0
 };
 
-extern const prog_uchar set_font4x4_sprite_33[] = {
-	  4,  8
+extern const prog_uchar set_font4x4_sprite_096[] = {
+	  6, 59
 };
 
-extern const prog_uchar set_font4x4_sprite_34[] = {
-	  0,  0
+extern const prog_uchar set_font4x4_sprite_097[] = {
+	 32, 57
 };
 
-extern const prog_uchar set_font4x4_sprite_35[] = {
-	 32,-2147483627
+extern const prog_uchar set_font4x4_sprite_098[] = {
+	 40, 59
 };
 
-extern const prog_uchar set_font4x4_sprite_36[] = {
-	 32,-2147483623
-};
-
-extern const prog_uchar set_font4x4_sprite_37[] = {
-	 32,  9
-};
-
-extern const prog_uchar set_font4x4_sprite_38[] = {
-	 32,-2147483635
-};
-
-extern const prog_uchar set_font4x4_sprite_39[] = {
-	  0,  8
-};
-
-extern const prog_uchar set_font4x4_sprite_40[] = {
-	 32,  8
-};
-
-extern const prog_uchar set_font4x4_sprite_41[] = {
-	  0,-2147483644
-};
-
-extern const prog_uchar set_font4x4_sprite_42[] = {
-	  0,-2147483620
-};
-
-extern const prog_uchar set_font4x4_sprite_43[] = {
-	  0,-2147483620
-};
-
-extern const prog_uchar set_font4x4_sprite_44[] = {
-	  4,-2147483648
-};
-
-extern const prog_uchar set_font4x4_sprite_45[] = {
-	  0, 28
-};
-
-extern const prog_uchar set_font4x4_sprite_46[] = {
-	  0,-2147483648
-};
-
-extern const prog_uchar set_font4x4_sprite_47[] = {
-	  0,  9
-};
-
-extern const prog_uchar set_font4x4_sprite_48[] = {
-	 32,-2147483628
-};
-
-extern const prog_uchar set_font4x4_sprite_49[] = {
-	 32,-2147483639
-};
-
-extern const prog_uchar set_font4x4_sprite_50[] = {
-	 32,-2147483640
-};
-
-extern const prog_uchar set_font4x4_sprite_51[] = {
-	 32,-2147483635
-};
-
-extern const prog_uchar set_font4x4_sprite_52[] = {
-	 32, 28
-};
-
-extern const prog_uchar set_font4x4_sprite_53[] = {
-	  0,-2147483639
-};
-
-extern const prog_uchar set_font4x4_sprite_54[] = {
-	 32,-2147483619
-};
-
-extern const prog_uchar set_font4x4_sprite_55[] = {
-	  0,-2147483644
-};
-
-extern const prog_uchar set_font4x4_sprite_56[] = {
-	 32,-2147483619
-};
-
-extern const prog_uchar set_font4x4_sprite_57[] = {
-	 32, 28
-};
-
-extern const prog_uchar set_font4x4_sprite_58[] = {
-	  0,-2147483640
-};
-
-extern const prog_uchar set_font4x4_sprite_59[] = {
-	  8,-2147483648
-};
-
-extern const prog_uchar set_font4x4_sprite_60[] = {
-	 32,  8
-};
-
-extern const prog_uchar set_font4x4_sprite_61[] = {
-	 32,-2147483647
-};
-
-extern const prog_uchar set_font4x4_sprite_62[] = {
-	  0,-2147483644
-};
-
-extern const prog_uchar set_font4x4_sprite_63[] = {
-	  4, 12
-};
-
-extern const prog_uchar set_font4x4_sprite_64[] = {
-	  0,-2147483619
-};
-
-extern const prog_uchar set_font4x4_sprite_65[] = {
-	 32, 29
-};
-
-extern const prog_uchar set_font4x4_sprite_66[] = {
-	 32,-2147483619
-};
-
-extern const prog_uchar set_font4x4_sprite_67[] = {
-	 32,-2147483631
-};
-
-extern const prog_uchar set_font4x4_sprite_68[] = {
-	  0,-2147483627
-};
-
-extern const prog_uchar set_font4x4_sprite_69[] = {
-	 32,-2147483623
-};
-
-extern const prog_uchar set_font4x4_sprite_70[] = {
-	  0, 25
-};
-
-extern const prog_uchar set_font4x4_sprite_71[] = {
-	 32,-2147483627
-};
-
-extern const prog_uchar set_font4x4_sprite_72[] = {
-	 32, 29
-};
-
-extern const prog_uchar set_font4x4_sprite_73[] = {
-	 32,-2147483639
-};
-
-extern const prog_uchar set_font4x4_sprite_74[] = {
-	 32,-2147483627
-};
-
-extern const prog_uchar set_font4x4_sprite_75[] = {
-	 32, 25
-};
-
-extern const prog_uchar set_font4x4_sprite_76[] = {
-	 32,-2147483631
-};
-
-extern const prog_uchar set_font4x4_sprite_77[] = {
-	 32, 29
-};
-
-extern const prog_uchar set_font4x4_sprite_78[] = {
-	 32, 21
-};
-
-extern const prog_uchar set_font4x4_sprite_79[] = {
-	 32,-2147483627
-};
-
-extern const prog_uchar set_font4x4_sprite_80[] = {
-	  0, 29
-};
-
-extern const prog_uchar set_font4x4_sprite_81[] = {
-	  0,-2147483627
-};
-
-extern const prog_uchar set_font4x4_sprite_82[] = {
-	 32, 25
-};
-
-extern const prog_uchar set_font4x4_sprite_83[] = {
-	  0,-2147483639
-};
-
-extern const prog_uchar set_font4x4_sprite_84[] = {
-	  0,-2147483640
-};
-
-extern const prog_uchar set_font4x4_sprite_85[] = {
-	 32,-2147483627
-};
-
-extern const prog_uchar set_font4x4_sprite_86[] = {
-	  0,-2147483628
-};
-
-extern const prog_uchar set_font4x4_sprite_87[] = {
-	 32,-2147483619
-};
-
-extern const prog_uchar set_font4x4_sprite_88[] = {
-	 32,  9
-};
-
-extern const prog_uchar set_font4x4_sprite_89[] = {
-	  0,-2147483620
-};
-
-extern const prog_uchar set_font4x4_sprite_90[] = {
-	 32,-2147483640
-};
-
-extern const prog_uchar set_font4x4_sprite_91[] = {
-	 32,-2147483640
-};
-
-extern const prog_uchar set_font4x4_sprite_92[] = {
-	 32,  8
-};
-
-extern const prog_uchar set_font4x4_sprite_93[] = {
-	  0,-2147483639
-};
-
-extern const prog_uchar set_font4x4_sprite_94[] = {
-	  0, 20
-};
-
-extern const prog_uchar set_font4x4_sprite_95[] = {
-	 15,  0
-};
-
-extern const prog_uchar set_font4x4_sprite_96[] = {
-	 32,-2147483623
-};
-
-extern const prog_uchar set_font4x4_sprite_97[] = {
-	 32,-2147483635
-};
-
-extern const prog_uchar set_font4x4_sprite_98[] = {
-	 32,-2147483619
-};
-
-extern const prog_uchar set_font4x4_sprite_99[] = {
-	  0,-2147483632
+extern const prog_uchar set_font4x4_sprite_099[] = {
+	  4, 18
 };
 
 extern const prog_uchar set_font4x4_sprite_100[] = {
-	 32,-2147483619
+	 34, 59
 };
 
 extern const prog_uchar set_font4x4_sprite_101[] = {
-	  0,-2147483619
+	 32, 51
 };
 
 extern const prog_uchar set_font4x4_sprite_102[] = {
-	  0,-2147483636
+	 38, 17
 };
 
 extern const prog_uchar set_font4x4_sprite_103[] = {
-	 44,-2147483620
+	 32, 27
 };
 
 extern const prog_uchar set_font4x4_sprite_104[] = {
-	 32, 25
+	  8, 43
 };
 
 extern const prog_uchar set_font4x4_sprite_105[] = {
-	  0,-2147483640
+	  0, 17
 };
 
 extern const prog_uchar set_font4x4_sprite_106[] = {
-	 36,  5
+	 32, 40
 };
 
 extern const prog_uchar set_font4x4_sprite_107[] = {
-	 32, 29
+	 40, 43
 };
 
 extern const prog_uchar set_font4x4_sprite_108[] = {
-	 32,-2147483640
+	  4, 25
 };
 
 extern const prog_uchar set_font4x4_sprite_109[] = {
-	 32,-2147483619
+	 32, 59
 };
 
 extern const prog_uchar set_font4x4_sprite_110[] = {
-	 32, 25
+	  0, 43
 };
 
 extern const prog_uchar set_font4x4_sprite_111[] = {
-	  0,-2147483628
+	 36, 18
 };
 
 extern const prog_uchar set_font4x4_sprite_112[] = {
-	  8,-2147483627
+	 44, 50
 };
 
 extern const prog_uchar set_font4x4_sprite_113[] = {
-	 34,-2147483628
+	 36, 26
+};
+
+extern const prog_uchar set_font4x4_sprite_114[] = {
+	  4, 34
+};
+
+extern const prog_uchar set_font4x4_sprite_115[] = {
+	 32, 49
+};
+
+extern const prog_uchar set_font4x4_sprite_116[] = {
+	 36, 27
+};
+
+extern const prog_uchar set_font4x4_sprite_117[] = {
+	 32, 26
+};
+
+extern const prog_uchar set_font4x4_sprite_118[] = {
+	 32, 18
+};
+
+extern const prog_uchar set_font4x4_sprite_119[] = {
+	 32, 58
+};
+
+extern const prog_uchar set_font4x4_sprite_120[] = {
+	 32, 43
+};
+
+extern const prog_uchar set_font4x4_sprite_121[] = {
+	 32, 26
+};
+
+extern const prog_uchar set_font4x4_sprite_122[] = {
+	  0, 27
+};
+
+extern const prog_uchar set_font4x4_sprite_123[] = {
+	  6, 27
+};
+
+extern const prog_uchar set_font4x4_sprite_124[] = {
+	  4, 17
+};
+
+extern const prog_uchar set_font4x4_sprite_125[] = {
+	 44, 49
+};
+
+extern const prog_uchar set_font4x4_sprite_126[] = {
+	  6,  3
 };
 

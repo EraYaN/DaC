@@ -59,6 +59,7 @@ architecture structural of gpu is
 	component spi is
 		port (
 			reset : in std_logic;
+			spi_reset : in std_logic;		
 			clk : in std_logic;
 			spi_clk : in std_logic;
 			spi_mosi : in std_logic;
@@ -150,7 +151,7 @@ architecture structural of gpu is
 
 begin
 	reset_n <= not reset;
-	sreset <= (reset or soft_reset or spi_reset);
+	sreset <= (reset or soft_reset);
 	ramwe_n <= not ramwe;
 	asb_debug <= asb;
 	spi_debug<=spi_data_rx;
@@ -233,6 +234,7 @@ begin
 	spi1: spi port map (
 		clk=>clk,
 		reset=>sreset,
+		spi_reset=>spi_reset,
 		spi_clk=>spi_clk,
 		spi_mosi=>spi_mosi,
 		spi_data_available=>spi_data_available,

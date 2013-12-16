@@ -54,7 +54,7 @@ draw_rect_combi: process (reset, enable, draw_can_access, x, y, l, almost_done,c
 						else 
 							oe <= '1';
 							done <= '0';
-							if std_logic_vector(counter) = l and cx = x1 then		
+							if std_logic_vector(counter) >= l and cx >= x1 then		
 								almost_done_tmp <= '1';
 								else
 								almost_done_tmp <= '0';

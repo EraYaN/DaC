@@ -50,37 +50,28 @@ begin
 	
 	clk <= '1' after 0 ns,
 	 '0' after HCLOCKPERIOD when clk /= '0' else '1' after HCLOCKPERIOD;
-	ramdata <= "0010" WHEN draw_read = '1' ELSE (others => 'Z');
+	ramdata <= "001010" WHEN draw_read = '1' ELSE (others => 'Z');
 	
 	asb <= '1';
 
 	x <= std_logic_vector(to_unsigned(30,SizeX));
-	w <= std_logic_vector(to_unsigned(8,SizeX));
+	w <= std_logic_vector(to_unsigned(6,SizeX));
 	y <= std_logic_vector(to_unsigned(50,SizeY));
-	h <= std_logic_vector(to_unsigned(16,SizeY));
+	h <= std_logic_vector(to_unsigned(8,SizeY));
 	startaddr<=std_logic_vector(to_unsigned(120*256+64,SizeRAMAddr));
 	id <= startaddr(SizeSpriteID-1 downto 0);
-	color <= "1011";
+	color <= "101111";
 process
 	begin
 		--setup
 		reset <= '1';
 		draw_can_access <= '1';
-		enable <= '0';
-		
+		enable <= '0';		
 		wait until rising_edge(clk);
 		wait until rising_edge(clk);
 		reset <= '0';
 		wait until rising_edge(clk);
-		enable <= '1';
-		wait for 10*CLOCKPERIOD;
-		draw_can_access <= '0';
-		wait for 6*CLOCKPERIOD;
-		draw_can_access <= '1';
-		wait for 15*CLOCKPERIOD;
-		draw_can_access <= '0';
-		wait for 4*CLOCKPERIOD;
-		draw_can_access <= '1';
+		enable <= '1';		
 		wait until rising_edge(done);
 		enable <= '0';
 		wait;
@@ -106,3 +97,15 @@ sprite: draw_sprite port map(
 ); 
 
 end behaviour;
+
+
+
+
+
+
+
+
+
+
+
+
