@@ -110,25 +110,28 @@ begin
 		wait until rising_edge(clk);
 		reset <= '0';
 
-		-- enable_spi <= '1';
-		-- wait until rising_edge(spi_data_available);
-		-- spi_data_rx <= "00000111"; --load sprite
-		-- wait until rising_edge(spi_data_available);
-		-- spi_data_rx <= "00010001"; --data length of 4, address(16 downto 14) = 01
-		-- wait until rising_edge(spi_data_available);
-		-- spi_data_rx <= "01010101"; --address(13 downto 6) = 01010101
-		-- wait until rising_edge(spi_data_available);
-		-- spi_data_rx <= "10100101"; --data 0
-		-- wait until rising_edge(spi_data_available);
-		-- spi_data_rx <= "11110000"; --data 1
-		-- wait until rising_edge(spi_data_available);
-		-- spi_data_rx <= "00001111"; --data 2
-		-- wait until rising_edge(spi_data_available);
-		-- spi_data_rx <= "00110000"; --data 3
-		-- wait until falling_edge(spi_data_available);
-		-- enable_spi <= '0';
+		wait until rising_edge(clk);
+		wait until rising_edge(clk);
 
-		-- wait for 960 ns;
+		enable_spi <= '1';
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00000111"; --load sprite
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00010001"; --data length of 4, address(16 downto 14) = 01
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "01010101"; --address(13 downto 6) = 01010101
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "10100101"; --data 0
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "11110000"; --data 1
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00001111"; --data 2
+		wait until rising_edge(spi_data_available);
+		spi_data_rx <= "00110000"; --data 3
+		wait until falling_edge(spi_data_available);
+		enable_spi <= '0';
+
+		wait for 960 ns;
 
 		-- enable_spi <= '1';
 		-- wait until rising_edge(spi_data_available);
