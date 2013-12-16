@@ -26,7 +26,7 @@ architecture behaviour of decoder is
 begin
 	--"asynchronous" RAM interaction
 	decoder_claim <= is_init;
-	ramaddr <= id & x(SizeSpriteCounter-1 downto 0) when decoder_write = '1' else (others => 'Z');
+	ramaddr <= id & h(SizeSpriteCounter-1 downto 0) when decoder_write = '1' else (others => 'Z');
 	ramdata <= next_ramdata when decoder_write = '1' else (others => 'Z');
 	--debug shit
 	decoder_debug_pn <= '0' & std_logic_vector(packet_num);
@@ -228,6 +228,7 @@ begin
 				end if;
 			elsif current_instruction = i_lsprite and is_init = '1' then
 				if packet_num = 1 then
+					next_h <= (others => '0');
 					next_x(SizeSpriteCounter-1 downto 0) <= spi_data_rx(SizeSPIData-1 downto SizeSPIData-SizeSpriteCounter); --save data length to x
 					next_id(SizeSpriteID-1 downto SizeSpriteID-(SizeSpriteID-SizeSPIData)) <= spi_data_rx(SizeSpriteID-SizeSPIData-1 downto 0);
 				elsif packet_num = 2 then
@@ -237,8 +238,8 @@ begin
 						next_ramdata <= spi_data_rx(SizeRAMData-1 downto 0);
 						decoder_write <= '1';
 
-						if (unsigned(x) - 1) /= 0 then
-							next_x <= std_logic_vector(unsigned(x) - 1);
+						if unsigned(h) /= unsigned(x) then
+							next_h <= std_logic_vector(unsigned(h) + 1);
 						else
 							--done
 							done := '1';
