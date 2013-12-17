@@ -279,7 +279,7 @@ begin
 				next_packet_num <= (others => '0');
 				next_instruction <= i_none;
 				next_int_ready <= '1';
-				spi_reset<='1';
+				spi_reset <= '1';
 			end if;
 		end if;
 	end process;
