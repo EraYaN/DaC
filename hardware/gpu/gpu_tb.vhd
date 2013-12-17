@@ -23,9 +23,7 @@ component gpu is
 		ramaddr : out std_logic_vector(SizeRAMAddr-1 downto 0);
 		ramwe_n : out std_logic;
 		vgahsync : out std_logic;
-		vgavsync : out std_logic;
-		asb_debug : out std_logic;
-		spi_debug : out std_logic_vector(SizeSPIData-1 downto 0)
+		vgavsync : out std_logic
 	);
 end component;
 
