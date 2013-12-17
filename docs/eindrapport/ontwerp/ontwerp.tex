@@ -14,7 +14,7 @@ Ons GPU is ingedeeld volgens Figure ~\ref{fig:Blokschema GPU}.
 
 \begin{figure}[H]
 \centering
-	\includegraphics[width=\linewidth, angle=90]{resource/systeemdrawing-v2.png}
+	\includegraphics[scale=0.9, angle=90]{resource/systeemdrawing-detail.png}
 	\caption{Blokschema GPU}
 	\label{fig:Blokschema GPU}
 \end{figure}
@@ -38,14 +38,15 @@ In Tabel \ref{tab:spec-params} staat een overzicht van de gebruikte parameters e
 	pkg & MaxNumPackets & integer & 3 & Maximaal aantal pakketjes in één instructie\\ 
 	pkg & SizeSpriteID & integer & 10 & Het aantal bits voor het SpriteID \\
 	pkg & SizeSpriteCounter & integer & 6 & Het aantal bits voor de sprite counter\\
-	pkg & SizeTimeoutCounter & integer & 7 & Het aantal bits voor de timout counter\\
-	pkg & NumDrawModules & integer & 5 & Aantal Draw modules\\ 
+	pkg & TimoutCount & integer & $2**7-1$ & Het aantal ticks per timout\\
+	pkg & SizeTimeoutCounter & integer & 8 & Het aantal bits voor de timout counter\\
+	pkg & NumDrawModules & integer & 6 & Aantal Draw modules\\ 
 	pkg & SizeX & integer & 8 & Het aantal bits voor de X coordinaat\\
 	pkg & SizeY & integer & 7 & Het aantal bits voor de Y coordinaat\\
 	pkg & NumStateReg & integer & 1 & Aantal globale state registers\\
-	pkg & SizeRAMData & integer & 3 & Aantal bits per woord in het RAM\\
+	pkg & SizeRAMData & integer & 6 & Aantal bits per woord in het RAM\\
 	pkg & SizeRAMAddr & integer & 16 & Aantal adresbits voor het RAM\\
-	pkg & SizeColor & integer & 3 & Aantal bits kleur\\
+	pkg & SizeColor & integer & 6 & Aantal bits kleur\\
 	pkg & SizeSPIData & integer & 8 & Aantal bits van de SPI pakketjes\\
 	pkg & ResolutionX & integer & 160 & Horizontale resolutie \\
 	pkg & ResolutionY & integer & 120 & Verticale resolutie \\
