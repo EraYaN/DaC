@@ -7,47 +7,60 @@
 \title{EPO3: Eindrapport - Decoder}
 
 \begin{document}
-\chapter{Ontwerpspecificaties}
+\chapter{Ontwerpspecificaties van de GPU}
 \label{ch:spec}
 
-Dit zijn de functionele eisen van de GPU met de bijbehorende randvoorwaarden van de GPU en externe onderdelen.
+\section {Functie van de GPU}
+Een GPU is elektrische schakeling ontworpen om aan de hand van input data het geheugen te vormen en te wijzigen, zodat het maken van afbeeldingen voor een screen buffer snel genoeg gaat voor een vloeiende beeld op het beelscherm. De GPU die voor  dit project ontworpen en gefabriceerd wordt, zal dezelfde functie hebben als een algemene GPU, maar voor dit project zijn er bepaalde beperkingen voor de IC, die worden beschreven in de " Randvoorwaarden van de IC".
+\\De GPU zal opgebouwd moeten worden volgens het blokschema in figuur~\ref{overzichtGPU}.
+Zoals er in het blokschema gezien kan worden, zijn er een aantal externe interacties nodig om met de GPU een afbeelding op een monitor te laten schrijven. Ten eerste is er een CPU nodig om de benodigde data voor een schermafbeelding van één frame te sturen naar de GPU. Daarna zal de GPU deze data moeten omzetten naar zijn pixel equivalent en deze op het externe SRAM moeten schrijven, zodat de frame niet wordt vergeten bij het invoeren van de volgende frame. Ook moet de GPU het huidige frame uit het SRAM kunnen uitlezen, om deze vervolgens te modificeren tot een signaal dat door een VGA monitor verwerkt kan worden tot een schermafbeelding.
 
-\section {Randvoorwaarden van de IC}
-\begin {itemize}
-\item De IC zal gemaakt worden met behulp van het Philips C3DM process \cite{epo3-manual}
-\item Er kunnen maximaal 2 bond bars (40000 transistorparen) aan transistoren worden gebruikt
-\item Er kunnen maximaal 36 IO-pinnen worden gebruikt
-\item De gebruikte klokfrequentie is 6.177 MHz
-\item De voedingsspanning van het IC bedraagt 5 volt
-\item Er mogen alleen FSMs (Finite State Machines) van het Moore-type gebruikt worden
-\end {itemize}
-
-\section {Randvoorwaarden van de AVR ATmega2560}
-Dit is een 8-bit microcontroller gemaakt door de firma Atmel. Wij gebruiken een ATmega2560 op een Arduino bord (Arduino Mega).
-\begin{table}[H]
+\begin{figure}[H]
 \centering
-\caption{Randvoorwaarden van de ATmega2560-16AU\cite{AVR}}
-\label{tab:spec-avr}
-\begin{tabular}{c c}
-	\hline\hline
- 	Eigenschap & Waarde\\
- 	\hline
-	$V_{cc}$ & 5\volt \\
-	GPIO Pins & 86 \\
-	Flash & 256KB \\
-	RAM & 8KB \\
-  	\hline
-\end{tabular}
-\end{table} 
+        \includegraphics[scale=0.75, angle=90]{Resource/system_overview.png}
+        \caption{overzicht GPU}
+        \label{fig:overzichtGPU}
+\end{figure} 
 
 \section {Functionele Eisen}
+Om een GPU van acceptabel niveau te ontwerpen, zijn er deze funtionele eisen gesteld.
 \begin {itemize}
-\item De GPU moet in staat zijn om een aantal elementaire vormen (pixel en vierkant) op een beeldscherm te tekenen
-\item De GPU krijgt data betreffende deze elementaire vormen vanuit de CPU (een AVR), bijvoorbeeld voor een vierkant bestaat de data uit de x- en y-coördinaten, breedte, hoogte en kleur
-\item Het beeldscherm wordt aangestuurd middels een VGA-signaal die wordt gestuurd door de GPU met de data van de CPU
-\item De GPU moet minimaal 160x120 individuele beeldpunten kunnen tekenen met 3-bit kleur mogelijkheden (rood, groen, blauw) of 8 grijswaarden)
-\item De communicatie tussen de CPU en de GPU moet met behulp van een SPI verbinding gedaan worden
-\item De communicatie tussen de externe RAM en de GPU moet met een parralele bus verbinding tot stand gebracht worden
-\item Als de schakeling geactiveerd wordt, moeten alle FSMs in hun begintoestand komen door middel van een reset-signaal
+\item De GPU moet in staat zijn om een aantal elementaire vormen (pixels, vierkanten en lijnen) op een beeldscherm te tekenen.
+\item De GPU krijgt data betreffende deze elementaire vormen vanuit de CPU (een AVR), bijvoorbeeld voor een vierkant bestaat de data uit de x- en y-coördinaten, breedte, hoogte en kleur.
+\item De communicatie tussen de CPU en de GPU moet met een SPI verbinding gedaan worden.
+\item Het beeldscherm wordt aangestuurd middels een VGA-signaal, die wordt gestuurd door de GPU.
+\item De GPU moet minimaal 160x120 individuele beeldpunten kunnen tekenen met 6-bit RGB kleur mogelijkheden.
+\item De communicatie tussen de externe SRAM en de GPU moet met een parralele bus verbinding tot stand gebracht worden.
+\item Om problemen te voorkomen met de externe SRAM moet ervoor gezorgd worden dat er niet tegelijkertijd gelezen en geschreven wordt uit het SRAM. Daar is het Write Enable signaal uit figuur~\ref{overzichtGPU} voor.
 \end{itemize}
+
+\section {Randvoorwaarden van de IC}
+
+Voor de te gebruiken IC zijn er een aantal randvoorwaarden waaraan gehouden moet worden wil dit project goed slagen. Deze randvoorwaarden zijn gegeven in de projecthandleiding\cite {epo3-manual}.
+
+\begin {itemize}
+\item  Voor de FSM’s (Finite State Machine) mogen alleen deze van het Moore-type gebruikt
+worden.
+\item Als de schakeling geactiveerd wordt, moeten alle FSM’s in hun resetoestand komen door middel van een resetsignaal.
+\item Voor het genereren van het kloksignaal kan gebruik gemaakt worden van een kristal van 6.144 MHz of 32 kHz, dat extern wordt aangesloten aan de IC met 2 pinnen.
+\item Het kristal voor de klok wordt met 2 pinnen aangesloten aan de IC en heeft een klokfrequentie is 6.144 Mhz.
+\item Het streven is om zo weinig mogelijk componenten extern te gebruiken. De dissipatie van de chip dient echter ook beperkt te zijn. Dit geeft een compromis voor de maximale stroom
+die de elektronica mag dissiperen voor de aansturing van de LEDs, etc.
+\item De voedingsspanning van het IC bedraagt 5 Volt.
+\item Het IC wordt gemaakt met een 1.6 µm nwell-CMOS proces(het Philips C3DM proces).
+\item  Het beschikbare chip-oppervlak is circa $0.4  cm^2$ , hetgeen overeenkomt met ongeveer 40.000 transistorparen, die gelijk zijn verdeeld over 2 bond bars.
+\item  Er zijn op het IC 36 verbonden aansluitingen, waarvan 4 pinnen voor de voeding zijn.
+\end {itemize}
+
+\textbf{Parameters Sea-of-Gates}
+\begin {itemize}
+\item $V_{DD} = 5V$
+\item$ V_{T0} = 0.7V$
+\item  $t_{ox} = 25 ∗ 10^{−9}m$
+\item Nmos L×W = 1.6 × 23.2µm
+\item Pmos L×W = 1.6 × 29.6µm
+\end {itemize}
+
+
+
 \end{document}
