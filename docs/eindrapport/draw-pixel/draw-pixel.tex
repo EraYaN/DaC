@@ -22,38 +22,19 @@ Drawpixel is het blok dat het tekenen van een pixel implementeert. Drawpixel ont
 %specificaties blok (copy paste)
 \subsection{Specificaties}
 \label{ssec:specs_dp}
-Door deze module worden aparte pixels getekend, hiervoor zijn de x- en y-coördinaten en de kleur van de pixel nodig. Drawpixel dient asb, y en x in een vector te plaatsen van lengte SizeRAMAddr, gedefinieerd in de package file. X en y zijn ook vectoren met lengten gedefinieerd in de package. Ook dient de color vector naar ramdata geschreven te worden.  Er moet alleen bij enable \& draw\_can\_access = hoog naar RAM geschreven worden, waarbij draw\_write gedurende het schrijven hoog is. (voor de controller)  Nadat er geschreven is, moet done gedurende een klokslag hoog worden. Er mag alleen in het niet actieve RAM geschreven worden, dus wanneer asb '0' is. 
-
-\begin{table}[H]
+Door deze module worden aparte pixels getekend, hiervoor zijn de x- en y-coördinaten en de kleur van de pixel nodig. Drawpixel dient asb, y en x in een vector te plaatsen van lengte SizeRAMAddr, gedefinieerd in de package file. X en y zijn ook vectoren met lengten gedefinieerd in de package. Ook dient de color vector naar ramdata geschreven te worden.  Er moet alleen bij enable \& draw\_can\_access = hoog naar RAM geschreven worden, waarbij draw\_write gedurende het schrijven hoog is. (voor de controller)  Nadat er geschreven is, moet done gedurende een klokslag hoog worden. Er mag alleen in het niet actieve RAM geschreven worden, dus wanneer asb '0' is. Het hele blok met zijn in- en uitgangen is te zien in figuur  \ref{fig:dp_blokschema}. 
+\begin{figure} [h!]
 \centering
-\caption{Specificaties van de Pixel Draw Module}
-\label{tab:spec-pixel-draw}
-\begin{tabular}{c c c}
-	\hline\hline
- 	Naam & Modus & Type\\
- 	\hline	
-	clk & in & std\_logic \\
-	reset & in & std\_logic \\
-	enable& in & std\_logic \\
-	color & in & std\_logic\_vector(SizeColor-1 downto 0) \\
-	x & in & std\_logic\_vector(SizeX-1 downto 0) \\
-	y & in & std\_logic\_vector(SizeY-1 downto 0) \\
-	asb & in & std\_logic \\
-	done & out & std\_logic \\
-	ramaddr &out & std\_logic\_vector(SizeRAMAddr-1 downto 0) \\
-	ramdata &out & std\_logic\_vector(SizeRAMData-1 downto 0) \\
-	draw\_write &out & std\_logic \\
-	draw\_can\_access & in & std\_logic \\
-  	\hline
-\end{tabular}
-\end{table}
-
+\includegraphics [width = \textwidth] {resource/dp_blokschema-rc}
+\caption{Blokschema drawpixel}
+\label{fig:dp_blokschema}
+\end{figure}
 
 %VHDL
 \subsection{VHDL}
 \label{ssec:vhdl_dp}
 \subsubsection{Entity}
-De entity is opgebouwd volgens de specificaties in tabel \ref{tab:spec-pixel-draw}. De in- en uitgangen zijn letterlijk overgenomen en zijn schaalbaar, zoals te zien in de tabel. 
+De entity is precies opgebouwd volgens  figuur  \ref{fig:dp_blokschema}. De in- en uitgangen zijn letterlijk overgenomen en zijn schaalbaar, zoals te zien in de figuur. Wanneer het vectoren betreft, die in de package omschreven worden, zijn het allemaal std\_logic\_vectoren. 
 
 \subsubsection{Behaviour}
 De behaviour is opgedeeld in een sequentieel gedeelte waar de state 'busy' wordt opgeslagen en een combinatorisch gedeelte waar de signalen oe, draw\_write, done en de state worden bepaald. Oe is een tussensignaal op basis waarvan bepaald wordt of ramaddr en ramdata geschreven worden. Het is belangrijk dat de uitgangen 'Z' worden indien oe = 1 niet klopt, omdat de draad waarop de uitgang gezet wordt een bidirectional bus is. Het sequentiele process wordt getriggered op de clk, het combinatorische process op een verandering in reset, enable, draw\_can\_access of busy. 
@@ -70,7 +51,9 @@ De eerste test betreft het simuleren van de behaviour met een testbench. Dit bet
 
 %Synthese
 \subsection{Synthese}
-De synthese is nog niet mogelijk vanwege een onbekende fout, waardoor parameters later nog kunnen veranderen. 
+De synthese is nu uitgevoerd voor 6-bit kleur. 
+
+%wachten op plaatjes alex
 
 %Switchlevel test
 \subsection{Switchlevel}
