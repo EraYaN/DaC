@@ -57,11 +57,11 @@ De module begint op x0 en y0 en schuift iedere process-executie op naar een nieu
 
 %Testplan VHDL
 \subsection{Testplan}
-De draw-line module is getest met een testbench waarin één lijn wordt getekend. In de waveform in ModelSim is dan eenvoudig te zien of de coördinaten van de getekende pixels inderdaad op elkaar volgen en dus mogelijkerwijs een lijn vormen. Wanneer dit zo is kan de module in combinatie met de overige delen van de GPU gesimuleerd worden. Het resultaat hiervan kan gecontroleerd worden met de SRAMDebugTool, waarin dan daadwerkelijk een lijn waar zou zijn te nemen. Als laatst wordt de lijn op de FPGA geïmplementeerd en kan worden gecontroleerd of op het beeldscherm inderdaad een lijn verschijnt.
+De draw-line module is getest met een testbench waarin één lijn wordt getekend. In de waveform in ModelSim is dan eenvoudig te zien of de coördinaten van de getekende pixels inderdaad op elkaar volgen en dus mogelijkerwijs een lijn vormen. Wanneer dit zo is kan de module in combinatie met de overige delen van de GPU gesimuleerd worden. Het resultaat hiervan kan gecontroleerd worden met de SRAMDebugTool, waarin dan daadwerkelijk een lijn zou zijn waar te nemen. Als laatst wordt de lijn op de FPGA geïmplementeerd en kan worden gecontroleerd of op het beeldscherm inderdaad een lijn verschijnt.
 
 %Synthese
 \subsection{Synthese}
-
+De draw-line module verwerkt relatief grote vectors. Hij moet deze opslaan en er moeten optel- en shiftoperaties op uitgevoerd worden. Dit alles resulteert in een synthese die een vrij groot transistoroppervlak oplevert. De synthesizer levert een ``total cell area'' op van 3190. Madonna levert bij dit soort aantallen transistoren niet zulke goede resultaten, dus het plaatsen van de rijen is handmatig gedaan. Het blijkt dat het beste resultaat behaald wordt met het plaatsen van 18 rijen, waar de onderlinge afstand tussen de cellen 6 bedraagt. Ook is de optie ``vary distance'' uitgeschakeld. Wanneer vervolgens Trout wordt losgelaten op deze plaatsing, levert dit een aantal van 23706 transistoren op, waarvan er 6393 daadwerkelijk gebruikt zijn. De efficiëntie voor deze module bedraagt dan 26.97\%.
 
 %Switchlevel test
 \subsection{Switchlevel}
