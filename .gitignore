@@ -236,3 +236,6 @@ GWTF
 *.vstf
 */quartus/*
 quartus
+
+#SRAM shit
+sram_dump.dat
