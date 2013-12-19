@@ -41,48 +41,31 @@ De behaviour is opgedeeld in een sequentieel gedeelte waar de state 'busy' wordt
 
 %Testplan VHDL
 \subsection{VHDL-simulatie}
-De eerste test betreft het simuleren van de behaviour met een testbench. Dit betreft een lege entity en een behaviour waarin een x-vector, y-vector en color-vector aangeboden worden volgens de lengte in de package file. Er is gekozen om de modelsim-simulatie eenmalig per blok op te nemen. 
+\subsubsection{Test 1}
+De eerste test betreft het simuleren van de behaviour met een testbench. Dit betreft een lege entity en een behaviour waarin een x-vector, y-vector en color-vector aangeboden worden volgens de lengte in de package file.  Er is ingezoomd op een gedeelte van de wave, namelijk wanneer er geschreven wordt naar het RAM
+
 \begin{figure} [h!]
 \centering
 \includegraphics [scale = 0.7] {resource/dp_sim}
 \caption{Modelsim simulatie behavioural of drawpixel}
 \label{fig:dp_sim}
 \end{figure}
+\subsubsection{Test 2}
+De tweede test betreft het testen van de synthesized VHDL. Op enkele begincondities na is deze gelijk aan  figuur \ref{fig:dp_sim}. 
 
+\subsubsection{Test 3}
+Om nog een extra test uit te voeren kan er uit de layout VHDL geëxtraheerd worden. Wanneer die vervolgens gesimuleerd wordt met modelsim, is te controleren of de schakeling op layoutniveau net zo werkt als op VHDL-niveau. Deze is exact gelijk aan test 2. 
 %Synthese
 \subsection{Synthese}
 De synthese is nu uitgevoerd voor 6-bit kleur. 
 
-%wachten op plaatjes alex
 
 %Switchlevel test
 \subsection{Switchlevel}
-Op switchlevel niveau wordt de simulatie op transistor niveau vergeleken met de simulatie op vhdl niveau. Hierbij wordt er vanuit de list-file een command file gemaakt. Vervolgens wordt via layout\ simulate en show\_result een simulatie geopend. Nu kan figuur \ref{fig:dp_sim} hiermee op het oog vergeleken worden. De optie compare geeft de mogelijkheid om dit exact te doen met GoWithTheFlow. De ref-file van de simulatie in figuur \ref{fig:dp_sim} wordt dan vergeleken met de res-file van de switch level simulatie. Is de implementatie goed dan horen alle waardes overeen te komen, op de eerste na. In ons ontwerp bevinden zich echter 'Z'-uitgangen, die door de compare niet goed begrepen worden. De noodzaak van 'Z's is al toegelicht. 
-\\ \newline
-Er waren al figuren gemaakt, maar die kloppen dus niet
-
-%\begin{figure} [h!]
-%\includegraphics [width = \textwidth] {resource/dp_sw_lev}
-%\caption{Simulatie op transistor niveau}
-%\label{fig:dp_sw_lev}
-%\end{figure}
+Op switchlevel niveau wordt de simulatie op transistor niveau vergeleken met de simulatie op vhdl niveau. Hierbij wordt er vanuit de list-file een command file gemaakt. Vervolgens wordt via layout\ simulate en show\_result een simulatie geopend. Nu kan figuur \ref{fig:dp_sim} hiermee op het oog vergeleken worden. De optie compare geeft de mogelijkheid om dit exact te doen met GoWithTheFlow. De ref-file van de simulatie in figuur \ref{fig:dp_sim} wordt dan vergeleken met de res-file van de switch level simulatie. Is de implementatie goed dan horen alle waardes overeen te komen, op de eerste na. In ons ontwerp bevinden zich echter 'Z'-uitgangen, die door de compare niet goed begrepen worden. De noodzaak van 'Z's is al toegelicht. Het switch level resultaat komt overeen met het modelsim resultaat. 
 
 
 
-%\begin{figure} [h!]
-%\includegraphics [width = \textwidth] {resource/dp_comp}
-%\caption{GWTF compare}
-%\label{fig:dp_comp}
-%\end{figure}
-
-
-
-
-
-
-%Extracted test
-\subsection{Extracted}
-Om nog een extra test uit te voeren kan er uit de layout VHDL geëxtraheerd worden. Wanneer die vervolgens gesimuleerd wordt met modelsim, is te controleren of de schakeling op layoutniveau net zo werkt als op VHDL-niveau. 
 
 
 %Conclusie
