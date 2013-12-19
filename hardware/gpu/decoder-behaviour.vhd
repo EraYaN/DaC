@@ -4,9 +4,9 @@ use IEEE.numeric_std.all;
 use work.parameter_def.all;
 
 architecture behaviour of decoder is
-	type instruction is (i_none, i_switch, i_fill, i_pixel, i_rect, i_frect, i_line, i_sprite, i_lsprite);
+	type instruction is (i_none, i_switch, i_fill, i_pixel, i_rect, i_frect, i_sprite, i_lsprite);
 	attribute enum_encoding : string;
-	attribute enum_encoding of instruction : type is "0000 0001 0010 0011 0100 0101 0110 0111 1000";
+	attribute enum_encoding of instruction : type is " 000 001 010 011 100 101 110 111";
 
 	--state signals and regs
 	signal packet_num, next_packet_num : unsigned(SizeNumPackets-1 downto 0); --current packet number
@@ -116,8 +116,6 @@ begin
 							next_instruction <= i_rect;
 						elsif spi_data_rx(InstrSize-1 downto 0) = "100" then 
 							next_instruction <= i_frect;
-						elsif spi_data_rx(InstrSize-1 downto 0) = "101" then 
-							next_instruction <= i_line;
 						elsif spi_data_rx(InstrSize-1 downto 0) = "110" then 
 							next_instruction <= i_sprite;
 						elsif spi_data_rx(InstrSize-1 downto 0) = "111" then 
@@ -176,7 +174,7 @@ begin
 					next_int_ready <= '1';
 				end if;
 
-			elsif current_instruction = i_rect or current_instruction = i_frect or current_instruction = i_line then
+			elsif current_instruction = i_rect or current_instruction = i_frect then
 				if packet_num = 1 then
 					next_color <= spi_data_rx(SizeColor-1 downto 0);
 				elsif packet_num = 2 then
@@ -193,8 +191,6 @@ begin
 						next_en(1) <= '1';
 					elsif current_instruction = i_frect then
 						next_en(2) <= '1';
-					elsif current_instruction = i_line then
-						next_en(3) <= '1';
 					end if;
 				else
 					--shit broke
@@ -217,7 +213,7 @@ begin
 					next_id(SizeSpriteID-(SizeSpriteID-SizeSPIData)-1 downto 0) <= spi_data_rx(SizeSPIData-1 downto 0);
 					--done
 					done := '1';
-					next_en(4) <= '1';
+					next_en(3) <= '1';
 				else
 					--shit broke
 					done := '1';
@@ -285,6 +281,12 @@ begin
 	end process;
 
 end behaviour;
+
+
+
+
+
+
 
 
 

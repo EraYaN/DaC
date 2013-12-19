@@ -19,7 +19,7 @@ Zoals er in het blokschemate zien is, is er randapparatuur nodig om de GPU een a
 %Aanpassen deze figuur
 \begin{figure}[H]
 \centering
-	\includegraphics[scale=0.9]{Resource/system_overview.png}
+	\includegraphics[scale=0.7]{Resource/system_overview.png}
 	\caption{Een systematisch overzicht van de GPU}
 	\label{fig:spec-overzicht}
 \end{figure} 
@@ -44,27 +44,19 @@ Om een GPU van acceptabel niveau te ontwerpen, zijn de volgende functionele eise
 De bij dit project ontworpen chip wordt uitgevoerd met de Sea-of-Gates techniek. Dit houdt in dat er een vast aantal transistoren, pinnen en oppervlak beschikbaar wordt gesteld. Het is zaak dit aantal zo goed mogelijk te benutten voor een optimaal resultaat. Door deze voorwaarde moet bij het ontwerp rekening gehouden worden met een aantal randvoorwaarden/ontwerpeisen. Deze randvoorwaarden zijn gegeven in de projecthandleiding en hieronder voor de volledigheid nog eens opgesomd. \cite{epo3-manual}
 
 \begin{itemize}
-\item Voor schakelingen van het type FSM (Finite State Machine) mag alleen een synchroon (Moore)-type gebruikt worden
-worden
-\item Als de schakeling geactiveerd wordt, moeten alle FSM’s in hun resettoestand komen door middel van een resetsignaal
-\item Voor het genereren van het kloksignaal kan gebruik gemaakt worden van een kristal van 6.144 MHz of 32 kHz, dat extern wordt aangesloten aan de IC met 2 pinnen
-\item Het kristal voor de klok wordt met 2 pinnen aangesloten aan de IC en heeft een klokfrequentie is 6.144 Mhz
-\item Het streven is om zo weinig mogelijk componenten extern te gebruiken. De dissipatie van de chip dient echter ook beperkt te zijn. Dit geeft een compromis voor de maximale stroom
-die de elektronica mag dissiperen voor de aansturing van de LEDs, etc.
-\item De voedingsspanning van het IC bedraagt 5 Volt
-\item Het IC wordt gemaakt met een 1.6 µm nwell-CMOS proces (het Philips C3DM proces)
-\item Het beschikbare chip-oppervlak is circa $0.4  cm^2$ , hetgeen overeenkomt met ongeveer 40.000 transistorparen, die gelijk zijn verdeeld over 2 bond bars
-\item Er zijn op het IC 36 verbonden aansluitingen, waarvan vier pinnen voor de voeding zijn, twee voor het kloksignaal en nog eens één voor het reset-signaal
-\end {itemize}
+	\item Voor schakelingen van het type FSM (Finite State Machine) mag alleen een synchroon (Moore)-type gebruikt worden
+	worden
+	\item Als de schakeling geactiveerd wordt, moeten alle FSM’s in hun resettoestand komen door middel van een resetsignaal
+	\item Voor het genereren van het kloksignaal kan gebruik gemaakt worden van een kristal van 6.144 MHz of 32 kHz, dat extern wordt aangesloten aan de IC met 2 pinnen
+	\item Het kristal voor de klok wordt met 2 pinnen aangesloten aan de IC en heeft een klokfrequentie is 6.144 Mhz
+	\item Het streven is om zo weinig mogelijk componenten extern te gebruiken. De dissipatie van de chip dient echter ook beperkt te zijn. Dit geeft een compromis voor de maximale stroom
+	die de elektronica mag dissiperen voor de aansturing van de LEDs, etc.
+	\item De voedingsspanning van het IC bedraagt 5 Volt
+	\item Het IC wordt gemaakt met een 1.6 µm nwell-CMOS proces (het Philips C3DM proces)
+	\item Het beschikbare chip-oppervlak is circa $0.4  cm^2$ , hetgeen overeenkomt met ongeveer 40.000 transistorparen, die gelijk zijn verdeeld over 2 bond bars
+	\item Er zijn op het IC 36 verbonden aansluitingen, waarvan vier pinnen voor de voeding zijn, twee voor het kloksignaal en nog eens één voor het reset-signaal
+\end{itemize}
 
-\textbf{Parameters Sea-of-Gates}
-\begin {itemize}
-\item $V_{DD} = 5V$
-\item$ V_{T0} = 0.7V$
-\item  $t_{ox} = 25 ∗ 10^{−9}m$
-\item Nmos L×W = 1.6 × 23.2µm
-\item Pmos L×W = 1.6 × 29.6µm
-\end {itemize}
-
+Overige relevante gegevens en ontwerpeisen zijn te vinden in de projecthandleiding.
 
 \end{document}

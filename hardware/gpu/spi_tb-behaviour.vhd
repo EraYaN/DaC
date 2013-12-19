@@ -61,6 +61,7 @@ begin
 			'0' after HSPICLOCKPERIOD when spiclk /= '0' else '1' after HSPICLOCKPERIOD;
 	
 	spi_clk <= spiclk and spiclk_en;
+	spi_reset <= '0' after 0 ns;
 		
 	process
 	begin
