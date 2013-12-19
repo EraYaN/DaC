@@ -3,11 +3,16 @@
 \input{../../library/style.tex}
 \addbibresource{../../library/bibliography.bib}
 
-\author{}
+\author{Efraim Eland}
 \title{EPO3: Eindrapport - Draw}
 
 \begin{document}
 \chapter{Draw}
 \label{ch:draw}
 
+De module draw is een overkoepelende module die op een overzichtelijk manier verschillende modules met elkaar verbindt. Het verbindt de decoder, RAM-chip en RAM-controller met de vier verschillende modules draw\_pixel, draw\_rect, draw\_line en draw\_sprite. Module draw is een structural beschrijving. De entity van deze module is te vinden in bijlage \ref{appsec:draw.vhd} en de structural beschrijving is te vinden in bijlage \ref{appsec:draw_structural.vhd}. In figuur \ref{fig:blok_draw} is een blokschema te zien van deze module.
+\\\\
+In de structural beschrijving van deze module is duidelijk te zien dat de vier modules zijn gebruikt als component. In de port map is te zien dat alle inputs (signalen van de decoder) en alle outputs (naar RAM-chip en RAM-controller) zijn verbonden met alle componenten. Tevens zorgt deze module ervoor dat de vector en de juiste modules activeert.
+\\\\
+Deze module is uiteindelijk niet als module in de lay-out verwerkt. Om ruimte te besparen is deze module verwerkt in andere modules.
 \end{document}
