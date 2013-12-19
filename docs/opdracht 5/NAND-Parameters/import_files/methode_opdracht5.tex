@@ -1,0 +1,69 @@
+\documentclass{article}  
+\input{../../../library/preamble}  
+\input{../../../library/style}  
+\begin{document}
+
+\newcommand{\tss}{\textsubscript}
+\newcommand{\tsss}{\textsuperscript}
+
+Voor het bepalen van de \emph{R\tss{eq}} en de \emph{C\tss{out}} wordt er gebruikt gemaakt van een SPICE model en enkele berekeningen. Een vereenvoudigde schakeling om de \emph{C\tss{out}} te bepalen is te zien in figuur \ref{res:PDN_schematic}. Het bepalen van deze weerstand en deze capaciteit wordt gedaan aan de hand van het volgende stappenplan:
+
+ \begin{figure} [h!]
+ \begin{center}
+ \includegraphics [scale = 0.5] {../figures/PDN_schematic}
+ \caption{Vereenvoudigde schakeling van het PDN, op \emph{t = 0} is de spanning over \emph{C\tss{load}} gelijk aan \emph{5V}}
+ \label{res:PDN_schematic}
+ \end{center}
+ \end{figure}
+
+\begin{enumerate}
+
+%%%STAP 1%%%
+\item \textbf{Stroom bepalen door NMOS transistoren op \emph{t = 0} d.m.v. SPICE simulatie}\\
+Om \emph{R\tss{eq}} te bepalen moet de stroom door de NMOS transistoren worden bepaald op \emph{t = 0}. Op dit tijdstip zal, wanneer \emph{V\tss{in} = V\tss{DD}} en de spanning over \emph{C\tss{load}} gelijk is aan \emph{5V}, het PUN dicht zijn en het PDN open zijn.  De capaciteiten \emph{C\tss{load}} en \emph{C\tss{out}} zijn op dat tijdstip opgeladen en zullen zich langzaam ontladen. De \emph{R\tss{eq}} kan dan worden bepaald aan de hand van de volgende formule:
+
+\begin{equation}
+R\tss{eq} = \frac{5V}{i(0)}
+\end{equation}
+
+Hierbij is aangenomen dat R\tss{eq} op dat tijdstip constant is.
+
+%%%STAP 2%%%
+\item \textbf{De RC tijd bepalen}\\
+Om de RC tijd ($\tau$) uit figuur \ref{res:PDN_schematic} te bepalen, moeten we eerst voor beide schakelingen een functie voor de spanning bepalen. Dit kan aan de hand van de volgende formule uit het Lineaire Schakelingen boek [2], p. 307:
+
+\begin{equation}
+v(t) = v(\infty) + [v(0+) - v(\infty)]e\tsss{-t/$\tau$}
+\end{equation}
+
+Als we deze formule invullen krijgen we:
+
+\begin{equation}
+v(t) = 5V \cdot e\tsss{-t/$\tau$}
+\end{equation}
+
+Als we deze formules omschrijven krijgen we:
+
+\begin{equation}
+\tau = R\tss{eq}C\tss{eq} = \frac{-t}{ln(\frac{v(t)}{5V})}
+\end{equation}
+
+Hierbij kan de waarde \emph{t} en de waarde \emph{v(t)} uit de spannings karakteristiek worden afgelezen, die is opgesteld tijdens de SPICE simulatie.
+
+%%%STAP 3%%%
+\item \textbf{\emph{C\tss{out}} berekenen aan de hand van $\tau$}\\
+Als laatst kan de \emph{C\tss{out}} en berekend worden d.m.v. de RC tijd:
+
+\begin{equation}
+\tau = R\tss{eq}C\tss{eq} = R\tss{eq}(C\tss{out} + C\tss{load})
+\end{equation}
+
+Als we deze formule omschrijven krijgen we een functie die de \emph{C\tss{out}} kan bepalen:
+
+\begin{equation}
+C\tss{out} = \frac{-t}{R\tss{eq} ln(\frac{v(t)}{5V})} - C\tss{load}
+\end{equation}
+
+\end{enumerate}
+
+\end{document}

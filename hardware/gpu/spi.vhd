@@ -11,14 +11,11 @@ entity spi is
 	);
 	port (
 		reset : in std_logic;
+		spi_reset : in std_logic;
 		clk : in std_logic;
 		spi_clk : in std_logic;
-		spi_ss : in std_logic;
 		spi_mosi : in std_logic;
-		--SPI_MISO : out std_logic;
 		spi_data_available : out std_logic;
-		--DataToTx : in std_logic_vector(SizeSPIData-1 downto 0);
-		--DataToTxLoad: in std_logic;
 		spi_data_rx : out std_logic_vector(SizeSPIData-1 downto 0)
 	);
 end spi;

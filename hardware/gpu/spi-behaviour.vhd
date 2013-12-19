@@ -5,69 +5,63 @@ USE work.parameter_def.ALL;
 
 architecture behaviour of spi is
 
-	signal sclk_latched, sclk_old : std_logic;
-	signal ss_latched, ss_old : std_logic;
-	signal mosi_latched: std_logic;
-	--signal TxData : std_logic_vector(SizeSPIData-1 downto 0);
-	signal index: unsigned (c-1 downto 0);
-	signal spi_rx_data : std_logic_vector(SizeSPIData-1 downto 0);
+		signal sclk_latched, sclk_old : std_logic;
+		signal mosi_latched: std_logic;
+		signal index: unsigned (c-1 downto 0);
+		signal spi_rx_data : std_logic_vector(SizeSPIData-1 downto 0);
+		signal timer : unsigned (5 downto 0);
 
 begin
 
 --Sync process
-process(clk, reset)
+process(clk,spi_reset)
 
 begin
-	if (reset = '1') then
+	if spi_reset = '1' then
+		index <= to_unsigned(0,c);
+	elsif rising_edge(clk) then
+		if (reset = '1') then
+			spi_rx_data <= (others => '0');
+			index <= to_unsigned(0,c);
+			sclk_old <= '0';
+			sclk_latched <= '0';
+			spi_data_available <= '0';
+			mosi_latched <= '0';
+			timer <= to_unsigned(0,6);
+		else
+			sclk_latched <= spi_clk;
+			sclk_old <= sclk_latched;
+			spi_data_available <= '0';
+			mosi_latched <= spi_mosi;
 
-		spi_rx_data <= (others => '0');
-		index <= to_unsigned(SizeSPIData-1,c);
-		--TxData <= (others => '0');
-		sclk_old <= '0';
-		sclk_latched <= '0';
-		ss_old <= '0';
-		ss_latched <= '0';
-		spi_data_available <= '0';
-		mosi_latched <= '0';
-
-	elsif( rising_edge(clk) ) then
-
-		sclk_latched <= spi_clk;
-		sclk_old <= sclk_latched;
-		ss_latched <= spi_ss;
-		ss_old <= ss_latched;
-		spi_data_available <= '0';
-		mosi_latched <= spi_mosi;
-
-		--if(DataToTxLoad = '1') then
-		--	TxData <= DataToTx;
-		--end if;
-
-		if (ss_old = '1' and ss_latched = '0') then
-			index <= to_unsigned(SizeSPIData-1,c);
-		end if;
-
-		if( ss_latched = '0' ) then
-			if(sclk_old = '0' and sclk_latched = '1') then
+			if sclk_old = '0' and sclk_latched = '1' then
 				spi_rx_data <= spi_rx_data(SizeSPIData-2 downto 0) & mosi_latched;
-				if(index = 0) then
-					index <= to_unsigned(SizeSPIData-1,c);
+				if index = (SizeSPIData-1) then
+					index <= to_unsigned(0,c);
 				else
-					index <= index-1;
+					index <= index+1;
 				end if;
-			elsif(sclk_old = '1' and sclk_latched = '0') then
-				if( index = SizeSPIData-1 ) then
+			elsif sclk_old = '1' and sclk_latched = '0' then
+				if index = 0 then
 					spi_data_available <= '1';
 				end if;
-			--	TxData <= TxData(SizeSPIData-2 downto 0) & '1';
+			end if;
+
+			if spi_clk = '0' then
+				timer <= timer+1;
+			else
+				timer <= to_unsigned(0,6);
+			end if;
+			
+			if timer > 60 then
+				index <= to_unsigned(0,c);
 			end if;
 		end if;
 	end if;
 end process;
 
 --Combinational assignments
-
---SPI_MISO <= TxData(SizeSPIData-1);
 spi_data_rx <= spi_rx_data;
 
 end behaviour;
+

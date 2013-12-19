@@ -1,0 +1,94 @@
+% Als je labels toe wilt voegen, doe het dan consequent
+% voor een section ---> \label{sec:name_of_block}
+%voor een subsection ---> \label{ssec:name_of_subsec}
+%voor een subsubsec --> \label{sssec:name_of_subsubsec} en zo door
+
+%Template voor elk apart blok EPO3 A4
+\documentclass{scrartcl} % scrartcl of scrreprt
+\input{../../library/preamble.tex} 
+\input{../../library/style.tex}
+
+
+\author{Kees Hogenhout}% <------fill in your name
+\title{EPO3: Eindrapport - Draw-pixel}
+
+\begin{document}
+\section{Drawpixel} %<----- fill in section name
+\label{sec:drawpixel} % <-----fill in lable name
+
+%specificaties blok (copy paste)
+\subsection{Specificaties}
+\label{ssec:specs_dp}
+Door de draw\_pixel module worden aparte pixels getekend. Hiervoor worden de x- en y-coördinaten en de kleur van de pixel aangeleverd uit de CPU via de instructiedecoder.  Drawpixel dient: 
+\begin{itemize}
+\item asb, y en x in een vector te plaatsen van lengte SizeRAMAddr
+\item color naar een vector te schrijven van lengte SizeRAMdata
+\end{itemize}
+  Er mag alleen bij enable \& draw\_can\_access = hoog naar het RAM geschreven worden, waarbij draw\_write gedurende het schrijven hoog is.  Nadat er geschreven is, moet done gedurende een klokslag hoog worden. Vanwege de bidirectional bus moeten RAMaddr en RAMdata `Z' worden, wanneer niet geschreven wordt. Er mag alleen in het niet actieve RAM geschreven worden, dus wanneer asb '0' is. Het hele blok met zijn in- en uitgangen is te zien in figuur  \ref{fig:dp_blokschema}. 
+\begin{figure} [h!]
+\centering
+\includegraphics [width = \textwidth] {resource/dp_blokschema-rc}
+\caption{Blokschema drawpixel}
+\label{fig:dp_blokschema}
+\end{figure}
+
+%VHDL
+\subsection{Ontwerp en specificatie}
+\label{ssec:vhdl_dp}
+\subsubsection{VHDL-Entity}
+De entity is precies opgebouwd volgens  figuur  \ref{fig:dp_blokschema}. De in- en uitgangen zijn letterlijk overgenomen en zijn schaalbaar, zoals te zien in de figuur. Wanneer het vectoren betreft, die in de package omschreven worden, zijn het allemaal std\_logic\_vectoren. 
+
+\subsubsection{VHDL-Behaviour}
+De behaviour is opgedeeld in een sequentieel gedeelte waar de state 'busy' wordt opgeslagen en een combinatorisch gedeelte waar de signalen oe, draw\_write, done en de state worden bepaald. Oe is een tussensignaal op basis waarvan bepaald wordt of ramaddr en ramdata geschreven worden. Het is belangrijk dat de uitgangen 'Z' worden indien oe = 1 niet klopt, omdat de draad waarop de uitgang gezet wordt een bidirectional bus is. Het sequentiele process wordt getriggered op de clk, het combinatorische process op een verandering in reset, enable, draw\_can\_access of busy. 
+
+%Testplan VHDL
+\subsection{VHDL-simulatie}
+\subsubsection{Test 1}
+De eerste test betreft het simuleren van de behaviour met een testbench. Dit betreft een lege entity en een behaviour waarin een x-vector, y-vector en color-vector aangeboden worden volgens de lengte in de package file.  Er is ingezoomd op een gedeelte van de wave, namelijk wanneer er geschreven wordt naar het RAM. Te zien is dat er alleen wordt geschreven naar het RAM wanneer enable \& draw\_can\_access hoog zijn.  Draw\_write wordt tijdens dit schrijven hoog gehouden en na het schrijven gaat done gedurende 1 klokslag omhoog. Wanneer niet geschreven wordt,  zijn RAMAddr en RAMdata `Z'. Dit voldoet aan de specificaties. 
+
+\begin{figure} [h!]
+\centering
+\includegraphics [width = \textwidth] {resource/dp_new_wave-rc.jpg}
+\caption{Modelsim simulatie behavioural of drawpixel}
+\label{fig:dp_sim}
+\end{figure}
+\subsubsection{Test 2}
+De tweede test betreft het testen van de synthesized VHDL. Op enkele begincondities na is deze gelijk aan  figuur \ref{fig:dp_sim}. 
+
+\subsubsection{Test 3}
+Om nog een extra test uit te voeren kan er uit de layout VHDL geëxtraheerd worden. Wanneer die vervolgens gesimuleerd wordt met modelsim, is te controleren of de schakeling op layoutniveau net zo werkt als op VHDL-niveau. Deze is exact gelijk aan test 2. 
+%Synthese
+\subsection{Synthese}
+De synthese is nu uitgevoerd voor 6-bit kleur. Aanvankelijk bedroeg het aantal transistoren 3000 transistoren (correct werkend en volledig gecheckt), maar na een aantal overbodige flipflops te verwijderen werd dat minder. De laatste stand is 388 transistoren, waarbij 382 transistoren effectief. Dit geeft een efficientie van 98.45\% in een langwerpige vorm. Deze is met de optie row placer gemaakt. (zie figuur \ref{fig:dp_layout}) De layout is klein opgenomen, omdat het slechts ter illustratie is hoe draw\_pixel er uit gaat zien op de chip. 
+\begin{figure} [h!]
+\centering
+\includegraphics [scale = 0.135] {resource/dp_layout-rc.jpg}
+\caption{Layout draw\_pixel}
+\label{fig:dp_layout}
+\end{figure}
+
+\newpage
+%Switchlevel test
+\subsection{Switchlevel}
+Op switchlevel niveau wordt de simulatie op transistor niveau vergeleken met de simulatie op vhdl niveau. Hierbij wordt er vanuit de list-file een command file gemaakt. Vervolgens wordt via layout\ simulate en show\_result een simulatie geopend. Nu kan figuur \ref{fig:dp_sim} hiermee op het oog vergeleken worden. De optie compare geeft de mogelijkheid om dit exact te doen met GoWithTheFlow. De ref-file van de simulatie in figuur \ref{fig:dp_sim} wordt dan vergeleken met de res-file van de switch level simulatie. Is de implementatie goed dan horen alle waardes overeen te komen, op de eerste na. In ons ontwerp bevinden zich echter 'Z'-uitgangen, die door de compare niet goed begrepen worden. De noodzaak van 'Z's is al toegelicht. Het switch level resultaat (zie figuur \ref{fig:dp_sw_lev} komt overeen met het modelsim resultaat.
+\begin{figure} [h!]
+\centering
+\includegraphics [width = \textwidth] {resource/dp_sw_lev-rc}
+\caption{Switch level simulatie Draw\_pixel}
+\label{fig:dp_sw_lev}
+\end{figure}
+
+
+
+%Conclusie
+\subsection{Conclusie}
+Elke simulatie van draw\_pixel geeft het gewenste resultaat, ook op synthesized en extracted niveau. Na het splitsen van de VHDL in een combinatorisch en sequentieel deel is het aantal transistoren aanzienlijk verminderd. Een nadeel van Place\&Route zou kunnen zijn dat er een vierkant blokje ontstaat. Wanneer de vorm aangepast wordt om op te totale chip te passen, kan dat een hogere efficicientie geven. Dat is uitgevoerd, met een hogere efficientie van 98.45\% tot gevolg. 
+
+
+
+
+
+
+
+
+\end{document}

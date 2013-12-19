@@ -1,44 +1,60 @@
-#ifndef _GPULib_H
-#define _GPULib_H
-
-#define MAX_NUM_INSTR_PACKETS 5
-#define INT_READY_PIN 0
-
-#include "Arduino.h"
-
-
-enum InstructionType { ssb, fill, pixel, rect, frect, line, circle, fcircle };
-
+#pragma once
+#ifndef _GPULIB_
+#define _GPULIB_
 struct Instruction {
-	InstructionType type;
-	byte x, y, w, h, color;
-	int numPackets;
+	//instruction data
+	const int numPackets;
+	byte *packets;
+	//queue data (linked list)
+	Instruction *nextInstruction;
+	Instruction(const int numPackets) : numPackets(numPackets) {
+		packets = new byte[numPackets];
+	};
+	~Instruction(){
+		delete[] packets;
+	}
 };
 
 class GPULib
 {
 public:
-	GPULib(int queuesize); //Constructor
+	//Sprite Addresses
+	int nextSpriteID;
+	//general
+	GPULib(); //Constructor
 	~GPULib(); //Destructor
+
+	//instructions and queue
 	void clearQueue();
+	void cleanUp();
 	void transferQueue();
 	void sendNextInstruction();
-	byte* makePackets(Instruction *instr);
+	void appendInstructionToQueue(Instruction *instruction);
+	void shiftQueue();
 
+	//draw
 	void switchScreenBuffer();
 	void drawFill(byte color);
 	void drawPixel(byte x, byte y, byte color);
 	void drawRect(byte x, byte y, byte w, byte h, byte color);
 	void drawFilledRect(byte x, byte y, byte w, byte h, byte color);
 	void drawLine(byte x0, byte y0, byte x1, byte y1, byte color);
-	void drawCircle(byte x, byte y, byte r, byte color);
-	void drawFilledCircle(byte x, byte y, byte r, byte color);
+	void drawSprite(Sprite* sprite, byte x, byte y, byte color);
+	void drawSprite(int address, byte x, byte y, byte w, byte l, byte color);
+	void drawChar6x8(char c, byte x, byte y, byte color);
+	void drawString6x8(const char* string, byte x, byte y, byte color);
 
-public:
-	Instruction **queue;
-	int currentIndex; //global iterator thingie
-	int numInstructions;
-	int queueSize;
+	//fake (software) draw	
+	void drawTriangle(byte x0, byte y0, byte x1, byte y1, byte x2, byte y2, byte color);
+	void drawPoly(byte* x, byte* y, byte size, byte color);
+	
+
+	//loading sprites
+	bool loadSprites(Sprite *set[], int size, bool *rfn);
+	void sendSprite(Sprite* set);
+	//state variable
+	bool sending;
+
+	Instruction *queueHead, *queueTail; //head and tail of linked list
 };
-
-#endif //_GPULib_H
+#endif

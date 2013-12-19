@@ -1,0 +1,51 @@
+\documentclass{scrartcl} % scrartcl of scrreprt
+\input{../../library/preamble.tex}
+\input{../../library/style.tex}
+\addbibresource{../../library/bibliography.bib}
+
+\author{Alex Janssen}
+\title{EPO3: Eindrapport - Draw-sprite}
+
+\begin{document}
+\section{Draw-sprite}
+\label{sec:draw-sprite}
+
+%Specs
+\subsection{Specificaties}
+Draw\_sprite is een module die coordinaten van pixels uit kan lezen uit het RAM en dat vervolgens in de screenbuffer kan plaatsen zodat het mogelijk is om ingewikkeldere afbeeldingen te kunnen tekenen. Bij de ingang worden de coordinaten aangegeven van waar de sprite moet worden getekend, en de startlocatie van de sprite in het RAM samen met de lengte en de breedte ervan.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{resource/draw_sprite.png}
+	\caption{Een blokschema van draw\_sprite, met de namen van de gebruikte in- en uitgangen en tussen haakjes het aantal bits}
+	\label{fig:draw-sprite-schema}
+\end{figure}
+
+%Ontwerp en implementatie
+\subsection{Ontwerp en implementatie}
+Deze module wordt pas aangeroepen zodra enable 1 is en mag net als alle andere modules lezen uit het RAM en schrijven wanneer draw\_can\_access gelijk is aan '1'. Vervolgens zal deze met behulp van de startlocatie in het RAM waar de sprite staat en de breedte en hoogte ervan de pixels een voor 1 uitlezen en wegschrijven in de screenbuffer waarna het wordt getekend op het scherm door de met behulp van de VGA controller.
+
+%VHDL simulatie
+\subsection{VHDL simulatie}
+Voor de VHDL simulatie is ModelSim gebruikt, waarvoor een testbench is geschreven. In de testbench wordt eerst enable laag gehouden, waarbij hij inderdaad niets uitvoert wat er ook op de ingangen komt te staan.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{resource/draw_simulate.png}
+	\caption{De simulatie van draw sprite, nadat enable op '1' is gegaan}
+	\label{fig:draw-sprite-simulatie}
+\end{figure}
+Vervolgens gaat afhankelijk van het startadres de draw sprite module de verschillende geheugenlocaties af en leest daar de kleur van uit. Dit blijft hij zodanig herhalen totdat hij bij de laatste aangegeven locatie komt die aangegeven zijn door middel van een breedte en hoogte, waarna done '1' wordt
+
+%Synthese
+\subsection{Synthese en lay-out}
+De draw-sprite module heeft weinig te maken met optel en shiftoperaties, waardoor er bij de synthese relatief weinig transistoren zijn gebruikt. Er is voor het behalen van een hogere efficiëntie nog gewerkt met het handmatig placen van rows en blokken, wat heeft gezorgd voor een uiteindelijk resultaat met 9900 transistoren waarvan er 3847 daadwerkelijk gebruikt zijn. De uiteindelijke efficiëntie van deze module bedraagt dan 38.86\%.
+
+%Switchlevel test
+\subsection{Switch-level simulatie}
+
+
+%Conclusie
+\subsection{Conclusie}
+De module werkt naar behoren, en vergroot onze mogelijkheden bij het maken van spellen enorm. De module gebruikt uiteindelijk 9900 transistoren dus neemt grofweg een achste deel in van onze chip. Aangezien de simulaties overeenkomen met onze verwachtingen en de module succesvol gesynthetiseerd is mogen we concluderen dat hij correct functioneerd.
+
+\end{document}

@@ -214,12 +214,11 @@ pip-log.txt
 *.pyg
 !*-rc.pdf
 
-#Ignore Robin's pathfinder logs
-log.txt
-
 #Modelsim shit
 work/
 *.wlf
+vlog.opt
+modelsim.ini
 
 #sublime text shit
 *.sublime-workspace
@@ -232,3 +231,11 @@ test
 ![Hh]ardware/*/
 ![Hh]ardware/**/VHDL/*.vhd
 GWTF
+*.vhd.bak
+*.vhd_
+*.vstf
+*/quartus/*
+quartus
+
+#SRAM shit
+sram_dump.dat

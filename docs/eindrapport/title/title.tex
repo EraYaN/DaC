@@ -1,0 +1,83 @@
+\documentclass[12pt]{scrreprt}
+\newcommand{\tss}{\textsubscript}
+\input{../../library/preamble}
+
+\begin{document}
+
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE TU Delft}\\[1.5cm] % Name of your university/college
+\textsc{\Large EE2821 EPO-3 Project "Maak een chip"}\\[0.5cm] % Major heading such as course name
+\textsc{\large Ontwerprapport Project groep A1}\\[0.5cm] % Minor heading such as course title
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries GPU kan het allemaal}\\[0.2cm] % Title of your document
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Leden:}\\
+\begin{tabular}{cc}
+Efraïm\textsc{ Eland} & 4170563 \\
+Erwin \textsc{de Haan} & 4222814\\
+Robin \textsc{Hes}& 4236815\\
+Tu \textsc{Hoang} &4203496 \\
+Kees \textsc{Hogenhout} & 4220927\\
+Alex \textsc{Janssen} &	4231333\\
+Jorden \textsc{ Kerkhof} & 4232461\\
+Peter \textsc{Stijnman} & 4215788 \\
+Xenia \textsc{Wesdijk} & 4144074\\
+\end{tabular}
+
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervisor:} \\
+Dr. Marian \textsc{Bartek} % Supervisor's Name
+\end{flushright}
+\end{minipage}\\[3cm]
+
+%\Large \emph{Author:}\\
+%John \textsc{Smith}\\[1.5cm] % Your name
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large \today}\\ [1.5cm]
+
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+%\includegraphics{Logo}\\ 
+ 
+%----------------------------------------------------------------------------------------
+% 
+
+\textbf{Abstract} \\
+Voor het EPO-3 project is er hebben wij een graphic processing unit ontworpen, oftewel een GPU. Het totale ontwerp is binnen de limieten gebleven en heeft een het resultaat kan ook daadwerkelijk op de chip worden geproduceerd, er worden namelijk intotaal XXXXX transistoren gebruikt en XX pinnen van de 80.000 transistoren en de 36 pinnen. De chip is in staat om pixel, lijnen, vierkanten en gevulde vierkanten te berekenen aan de hand van coordinaten die worden doorgegeven door een programma geschreven in C++, en deze figuren vervolgens weer te geven op het scherm. Verder is het ook mogelijk sprites op te kunnen slaan in het externe RAM en deze vervolgens aan te roepen. Met deze mogelijkheden hebben we de optie in plaats van slecht een enkel spel, zoveel spellen te kunnen draaien op de chip als we willen.
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+\end{document}

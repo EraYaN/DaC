@@ -37,13 +37,13 @@ namespace SRAMDebugTool
 				}
 			}
 			MemoryMapImage.Source = loadBitmap(MemoryMap);
-			for (int i = 0; i < 16; i++)
+			for (int i = 0; i < 64; i++)
 			{
 				Button button = new Button();
 				button.MouseDown += button_MouseDown;
 				button.Content = String.Format("Kleur: {0}",Convert.ToString(i,16).ToUpper());
 				button.Foreground = System.Windows.Media.Brushes.Red;
-				byte grayvalue = (byte)Conv4to8(i);
+				byte grayvalue = (byte)Conv6to8(i);
 				System.Windows.Media.SolidColorBrush mySolidColorBrush = new System.Windows.Media.SolidColorBrush();
 				mySolidColorBrush.Color = System.Windows.Media.Color.FromArgb(255, grayvalue, grayvalue, grayvalue);
 				button.Background = mySolidColorBrush;
@@ -128,7 +128,7 @@ namespace SRAMDebugTool
 							{
 								if (IsGrayscale)
 								{
-									int grayvalue = Conv4to8(Convert.ToInt32(tmp[1], 2));
+									int grayvalue = Conv6to8(Convert.ToInt32(tmp[1], 2));
 									MemoryMap.SetPixel(x, y, Color.FromArgb(grayvalue, grayvalue, grayvalue));
 								}
 							}
@@ -160,12 +160,12 @@ namespace SRAMDebugTool
 							{
 								if (c.ToArgb() == Color.Blue.ToArgb())
 								{
-									VHDLString.Append("XXXX");
+									VHDLString.Append("XXXXXX");
 								}
 								else
 								{
-									int grayvalue = Conv8to4((int)Math.Round(((float)c.B + (float)c.G + (float)c.R)) / 3 / 255 * 15);
-									VHDLString.Append(Convert.ToString(grayvalue, 2).PadLeft(4, '0'));
+									int grayvalue = Conv8to6(ConvRGBto8(c));
+									VHDLString.Append(Convert.ToString(grayvalue, 2).PadLeft(6, '0'));
 								}
 							}
 
@@ -182,11 +182,23 @@ namespace SRAMDebugTool
 		}
 		int Conv4to8(int a)
 		{
-			return (int)Math.Round((double)a * 255.0 / 15.0);
+			return (int)Math.Round((double)a * 256.0 / 16.0);
 		}
 		int Conv8to4(int a)
 		{
-			return (int)Math.Min(15, Math.Round((double)a / 255.0 * 15.0));
+			return (int)Math.Min(15, Math.Round((double)a / 256.0 * 16.0));
 		}
+		int Conv6to8(int a)
+		{
+			return (int)Math.Round((double)a * 256.0 / 64.0);
+		}
+		int Conv8to6(int a)
+		{
+			return (int)Math.Min(63, Math.Round((double)a / 256.0 * 64.0));
+		}
+        int ConvRGBto8(Color c)
+        {
+            return (int)Math.Round(((float)c.B + (float)c.G + (float)c.R) / 3);
+        }
 	}
 }

@@ -6,31 +6,24 @@
 \date{22 november 2013}
 
 \begin{document}
-\chapter{Specificaties}
-\section {Functionele Eisen}
-\begin {itemize}
-\item De GPU is in staat een aantal elementaire vormen (pixel en vierkant) te tekenen op een beeldscherm
-\item De GPU krijgt data betreffende deze elementaire vormen vanuit de CPU (een AVR)
-\item Het beeldscherm wordt aangestuurd middels een VGA-signaal, dit is het uitgangssignaal van de chip
-\item De GPU moet minimaal 160x120 individuele beeldpunten kunnen tekenen met 4-bit kleur mogelijkheden (rood, groen, blauw en intensiteit of 16 grijswaarden)
-\end{itemize}
+\chapter{Ontwerpspecificaties}
+Hier staan de functionele eisen van de GPU met de bijbehorende randvoorwaarden van de GPU en externe onderdelen.
 
-\section {Specificaties van de IC}
+\section {Randvoorwaarden van de IC}
 \begin {itemize}
-\item Er wordt gebruik gemaakt van de Sea-of-Gates-techniek (SoG)
-\item Er kunnen maximaal 2 bond bars (40000 transistorparen) worden gebruikt
-\item Er kunnen maximaal 32 IO-pinnen worden gebruikt
-\item Er mogen alleen FSMs (Finite State Machines) van het Moore-type gebruikt worden
-\item Als de schakeling geactiveerd wordt moeten alle FSMs in hun begintoestand komen door middel van een reset-signaal
+\item De IC zal gemaakt worden met behulp van het Philips C3DM process \cite{epo3-manual}
+\item Er kunnen maximaal 2 bond bars (40000 transistorparen) aan transistoren worden gebruikt
+\item Er kunnen maximaal 36 IO-pinnen worden gebruikt
 \item De gebruikte klokfrequentie is 6.177 MHz
 \item De voedingsspanning van het IC bedraagt 5 volt
-\end{itemize}
+\item Er mogen alleen FSMs (Finite State Machines) van het Moore-type gebruikt worden
+\end {itemize}
 
-\section {Specificaties van de AVR ATmega2560}
+\section {Randvoorwaarden van de AVR ATmega2560}
 Dit is een 8-bit microcontroller gemaakt door de firma Atmel. Wij gebruiken een ATmega2560 op een Arduino bord (Arduino Mega).
 \begin{table}[H]
 \centering
-\caption{Specificaties van de ATmega2560-16AU}
+\caption{Randvoorwaarden van de ATmega2560-16AU}
 \label{tab:spec-avr}
 \begin{tabular}{c c}
 	\hline\hline
@@ -44,4 +37,14 @@ Dit is een 8-bit microcontroller gemaakt door de firma Atmel. Wij gebruiken een 
 \end{tabular}
 \end{table}
 
+\section {Functionele Eisen}
+\begin {itemize}
+\item De GPU is in staat een aantal elementaire vormen (pixel en vierkant) te tekenen op een beeldscherm
+\item De GPU krijgt data betreffende deze elementaire vormen vanuit de CPU (een AVR)
+\item Het beeldscherm wordt aangestuurd middels een VGA-signaal die wordt gestuurd door de GPU met informatie van de CPU
+\item De GPU moet minimaal 160x120 individuele beeldpunten kunnen tekenen met 3-bit kleur mogelijkheden (rood, groen, blauw) of 8 grijswaarden)
+\item De communicatie tussen de CPU en de GPU moet met behulp van een SPI verbinding gedaan worden
+\item De communicatie tussen de externe RAM en de GPU moet met een parralele bus verbinding tot stand gebracht worden
+\item Als de schakeling geactiveerd wordt, moeten alle FSMs in hun begintoestand komen door middel van een reset-signaal
+\end{itemize}
 \end{document}

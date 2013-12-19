@@ -1,36 +1,94 @@
-#include "GPULib.h"
 #include "SPI.h"
+#include "Util.h"
 
 GPULib *GPU;
+InputLib *Input;
+unsigned long lastDrawReady;
+bool running;
+bool b_helper = true;
+bool done = false;
+bool first = true;
+bool readyfornext = false;
+Program *currentProgram;
+unsigned long lastFrame;
+unsigned long currentFrame;
+unsigned long frameTime;
+unsigned long lastBlinkTime = 0;
 
 void setup()
 {
-	GPU = new GPULib(100);
-	attachInterrupt(INT_READY_PIN, drawReady, RISING);
+	GPU = new GPULib();
+	Input = new InputLib();
+	//attachInterrupt(INT_READY_PIN, drawReady, RISING);	
+	SPI.setBitOrder(MSBFIRST);
+	SPI.setClockDivider(SPI_CLOCK_DIV16);
+	SPI.setDataMode(SPI_MODE0);
+	SPI.begin();
+	Serial.begin(115200);
+	running = true;
+	pinMode(LED_BUILTIN, OUTPUT);
+	Serial.println("Setup Complete!");
+	pinMode(INT_READY_PIN,INPUT);
+	currentProgram = new Demo(GPU,"Demo");
+	randomSeed(analogRead(0));
+
+	Input->keyboard.begin(KEYBOARDDATAPIN, KEYBOARDCLOCKPIN);
 }
 
 void loop()
 {
-	GPU->drawFill(byte(0));
-	GPU->drawRect(byte(0), byte(0), byte(80), byte(60), B00001111);
-	GPU->drawRect(byte(80), byte(60), byte(80), byte(60), B00001111);
-	GPU->transferQueue();
-	delay(1000);
-	drawReady();
-	delay(1000);
-	drawReady();
-	delay(1000);
-	drawReady();
-	delay(1000);
-	drawReady();
-	while(true){};
+	if (running)
+	{
+		readyfornext = digitalRead(INT_READY_PIN)==HIGH;
+		//Serial.print("RFN: ");
+		//Serial.println(readyfornext);
+		if(first && readyfornext){	
+			GPU->cleanUp();
+			//GPU->gpuReset();
+			GPU->loadSprites(sprites_font6x8_set,95,&readyfornext);
+			//GPU->cleanUp();
+			//GPU->drawFill(B000000);
+			//GPU->transferQueue();
+			first = false;
+			//Serial.println("First Fill.");
+		}
+
+		if(!first){
+			if(readyfornext && GPU->queueHead != NULL && !GPU->sending){
+				readyfornext = false;
+				//Serial.println("Instuction Sent.");
+				GPU->sendNextInstruction();			
+			}
+		
+			if(done || GPU->queueHead == NULL){
+				currentFrame = micros();
+				frameTime = currentFrame-lastFrame;			
+				lastFrame = currentFrame;
+				delayMicroseconds(10);
+				currentProgram->tick(frameTime);
+				done = false;
+			
+			}
+			if(lastBlinkTime+250<millis()){
+				b_helper = !b_helper;
+				digitalWrite(LED_BUILTIN, b_helper);
+				//delay(100);	
+				lastBlinkTime = millis();
+			}
+		}		
+	} else {
+		b_helper = !b_helper;
+		digitalWrite(LED_BUILTIN, b_helper);
+		delay(1000);	
+	}
 }
 
 void drawReady()
 {
-	if (GPU->currentIndex != GPU->numInstructions)
-	{
-		GPU->sendNextInstruction();
-		Serial.print("\n");
-	}
+	//if(!GPU->sending){
+		readyfornext = true;
+		Serial.println("Ready for next!");
+	//} else {
+	//	Serial.println("Ready for next discarded.");
+	//}
 }

@@ -4,46 +4,42 @@ use work.parameter_def.ALL;
 
 architecture behaviour of draw_pixel is
 signal busy : std_logic; -- used as a "state"
+signal ramaddr_tmp: std_logic_vector(SizeRAMAddr-1 downto 0);
+signal ramdata_tmp: std_logic_vector(SizeRAMData-1 downto 0);
+signal busy_tmp : std_logic;
+signal oe : std_logic;
 begin
-	process (clk)
-	variable next_done : std_logic;
-	variable next_ramaddr : std_logic_vector(SizeRAMAddr-1 downto 0);
-	variable next_ramdata : std_logic_vector(SizeRAMData-1 downto 0);
-	variable next_draw_write : std_logic;
-	variable next_busy : std_logic;
+draw_pixel_seq:	process (clk)
 	begin
-		if rising_edge(clk) then
-			next_ramaddr := (others => 'Z');
-			next_ramdata := (others => 'Z');
-			next_draw_write := '0';
-			next_done := '0';
-			next_busy := '0';
-			if(reset = '0') then --not resetting
-				if enable = '1' then --enabled
-					if draw_can_access = '1' then -- RAM is free to access
-						if busy = '0' then --we are not busy							
-							next_ramaddr := std_logic_vector(NOT asb & y & x); --combineer signalen
-							next_ramdata := color; -- zet data op de bus
-							next_draw_write := '1'; -- vertel de controller dat je wil schrijven
-							next_done := '0'; -- not done yet
-							next_busy := '1'; -- we are now busy
-						else --we are busy							
-							next_done := '1'; -- we are done now
-							next_busy := '0'; -- we are not busy anymore
-						end if;					
-					end if;	
-				end if;
+		if rising_edge(clk) then			
+			busy <= busy_tmp;
+		end if;
+	end process;
+
+	ramaddr <= ramaddr_tmp WHEN oe = '1' ELSE (others => 'Z');
+	ramdata <= color WHEN oe = '1' ELSE (others => 'Z');
+	ramaddr_tmp <= std_logic_vector((NOT asb) & y & x);	
+
+draw_pixel_combi:	process(reset, enable, draw_can_access, busy)
+	begin
+		if reset = '0' and enable = '1' and draw_can_access = '1' then -- RAM is free to access			
+			if busy = '0' then --we are not busy							
+				oe <= '1';
+				draw_write<= '1'; -- vertel de controller dat je wil schrijven
+				done <= '0'; -- not done yet
+				busy_tmp <= '1'; -- we are now busy
+			else --we are busy		
+				oe <= '0';				
+				done <= '1'; -- we are done now
+				busy_tmp <= '0'; -- we are not busy anymore
+				draw_write <= '0';
 			end if;
-			done <= next_done;
-			ramaddr <= next_ramaddr;
-			ramdata <= next_ramdata;
-			draw_write <= next_draw_write;
-			busy <= next_busy;
+		else
+			done <= '0';
+			draw_write <= '0';
+			busy_tmp <= '0';
+			oe <= '0';	
 		end if;
 	end process;
 end behaviour;
-
-
-
-
 

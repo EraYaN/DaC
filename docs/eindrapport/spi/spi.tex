@@ -1,0 +1,68 @@
+\documentclass{scrartcl} % scrartcl of scrreprt
+\input{../../library/preamble.tex}
+\input{../../library/style.tex}
+\addbibresource{../../library/bibliography.bib}
+
+\author{Xenia Wesdijk}
+\title{EPO3: Eindrapport - SPI}
+
+\begin{document}
+\section{SPI}
+\label{sec:spi}
+
+%specificaties
+\subsection{Specificaties}
+Voor de communicatie tussen de arduïno en onze GPU hebben we een SPI decoder nodig. De ingang SS staat voor Slave Select, deze wordt normaal gebruikt voor het geval dat je meerdere slave chips hebt, aangezien dit bij ons niet het geval is zal dit signaal altijd hoog zijn. Het signaal SCLK is voor het CLK signaal voor de communicatie. Als laatste ingang is er de MOSI, dit staat voor Master Out , Slave In, dit is de daadwerkelijke dat die verzonden wordt van de arduïno naar onze GPU. Voor de uitgangen hebben we MISO, Master Input, Slave Output, dit is om de volgende instructie aan te vragen van de arduïno. Dan zijn er nog de uitgangen naar de instructie decoder, de 8 bits data bus voor om alle data te sturen als de data ready hoog is.
+
+Ingangen: 
+\begin{itemize}
+	\item  MOSI
+	\item SS (1 bit altijd hoog)
+	\item SCLK (clk signaal)
+	\item readytosend (1 bit)
+\end{itemize}
+Uitgangen:
+\begin{itemize}
+	\item MISO
+	\item 8 bits data bus
+	\item data ready  
+\end{itemize}
+
+%Nog een afbeeldingen fixen van een blokschema mbv visio
+
+%Ontwerp & implementatie
+\subsection{Ontwerp en implementatie}
+Spi blijft stuk gaan, dus extra klok om zichzelf continu te blijven resetten.SPI zit voor decoder...!!!!
+
+%VHDL simulatie
+\subsection{VHDL simulatie}
+Allereerst is er een simulatie gemaakt met behulp van ModelSim. In de testbench die geschreven is voor de SPI module wordt er gewacht op de opgaande flank van de SPIklok
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{resource/waveSPI2.png}
+	\caption{Een fragment van de wave van de SPI module.}
+	\label{fig:waveSPI2}
+\end{figure}
+
+%Synthese AF
+\subsection{Synthese en lay-out}
+\label{sec:synthese en lay-out} 
+Na uitvoering van de synthese op de SPI module blijkt dat de SPI een redelijk compacte module is. Door bij de synthese gebruik te maken van compile\_ultra verkregen we een totaal celloppervlak van 695 transistoren. Na met row placer handmatig de cellen te hebben geplaatst, hierbij is de optie "vary distance" uitgeschakeld, leverde de lay-out met trout een totaal van 2628 transistoren op. Van deze tranasistoren worden er een aantal van 1385 transistoren daadwerkelijk gebruikt. Dit levert een effici\"entie op van 52.70\%.   %verwerk hier de gegevens die je krijgt na synthese 
+
+%Switchlevel test AF
+\subsection{Switch-level simulatie}
+De switch-level simulatie vergelijkt de simulatie op het transistor niveau met de simulatie op VHDL niveau. De resultaten van de gesynthetiseerde schakeling, die gesimuleerd is met SLS, wordt vergelken met de resultaten van de gesimuleerde testbench in ModelSim. Het verkregen switch-level resultaat, zie figuur \ref{fig:switchlevelSPI}, komt overeen met het al eerder verkregen ModelSim resultaat. Ook is er nog gebruik gemaakt van de optie compare. Deze gaf allemaal OK's terug (op de eerste na, maar dit hoort). Hieruit kunnen we concluderen dat de synthese van de SPI module goed is verlopen. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{resource/switchlevelSPI.png}
+	\caption{Het switch-level resultaat van de SPI module.}
+	\label{fig:switchlevelSPI}
+\end{figure}
+
+%Conclusie AF
+\subsection{Conclusie}
+Alle gemaakte simulaties van de SPI module leverde uiteindelijk het gewenste resultaat op. Naar aanlieiding hiervan kan dan dus de cunclusie worden getrokken dan de SoG-implementatie van de module, op de gefabriceerde chip, zou moeten werken. Weliswaar is er ook wel een minpuntje binnen deze module. Dit is de effici\"entie van de module. Helaas, zoals al te lezen was in \ref{sec:synthese en lay-out}, blijft de effici\"entie met 52.70\% wat aan de lage kant. Hierdoor neemt de module helaas meer ruimte in beslag op de chip, dan dat nodig zou zijn als we een hogere effici\"entiegraad hadden gehaald. De transistoren die nu nodig zijn voor de SPI module, maar niet gebruikt worden, had misschien nog iets anders leuks mee gedaan kunnen worden. 
+
+
+\end{document}
