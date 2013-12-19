@@ -18,7 +18,7 @@ Draw\_sprite is een module die coordinaten van pixels uit kan lezen uit het RAM 
 	\centering
 	\includegraphics[width=0.75\textwidth]{resource/draw_sprite.png}
 	\caption{Een blokschema van draw\_sprite, met de namen van de gebruikte in- en uitgangen en tussen haakjes het aantal bits}
-	\label{fig:draw-line-schema}
+	\label{fig:draw-sprite-schema}
 \end{figure}
 
 %Ontwerp en implementatie
@@ -28,7 +28,13 @@ Deze module wordt pas aangeroepen zodra enable 1 is en mag net als alle andere m
 %VHDL simulatie
 \subsection{VHDL simulatie}
 Voor de VHDL simulatie is ModelSim gebruikt, waarvoor een testbench is geschreven. In de testbench wordt eerst enable laag gehouden, waarbij hij inderdaad niets uitvoert wat er ook op de ingangen komt te staan.\\
-Vervolgens gaat afhankelijk van het startadres de draw sprite module de verschillende geheugenlocaties af en leest daar de kleur van uit. Dit blijft hij zodanig herhalen totdat hij bij de laatste aangegeven locatie komt die aangegeven zijn door middel van een breedte en hoote, waarna done '1' wordt.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{resource/draw_simulate.png}
+	\caption{De simulatie van draw sprite, nadat enable op '1' is gegaan}
+	\label{fig:draw-sprite-simulatie}
+\end{figure}
+Vervolgens gaat afhankelijk van het startadres de draw sprite module de verschillende geheugenlocaties af en leest daar de kleur van uit. Dit blijft hij zodanig herhalen totdat hij bij de laatste aangegeven locatie komt die aangegeven zijn door middel van een breedte en hoogte, waarna done '1' wordt
 
 %Synthese
 \subsection{Synthese en lay-out}
