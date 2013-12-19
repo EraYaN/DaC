@@ -11,44 +11,45 @@
 \label{ch:ontwerp}
 
 Het uiteindelijke ontwerp is te zien in figuur ~\ref{fig:Blokschema GPU}. In het schema staat hoe de GPU is verdeeld en staat wat voor interacties er onderling plaatsvindt tussen de blokken.
-Elk blok, behalve de State Registers, is een component van de GPU met zijn eigen in VHDL beschreven gedrag en heeft zo zijn eigen functie. Het blok State Registers is eigenlijk gewoon één signaal, maar het is zo weergegeven, omdat het visueel duidelijker weergeeft wat het ASB signaal doet, namelijk het geeft weer op welke screenbuffer er geschreven moet worden en van welke gelezen moet worden en dat is makkelijker te zien als blokje dan als een lijn. 
-\\ De GPU is verdeeld in 6 blokken: de SPI Decoder, de Instructie Decoder, de Draw Logic, de RAM Controller, de VGA Controller en de State Registers. Daarbij is het Draw Logic blok nog verdeeld in modules om de verschillende functies voor vormen te representeren. Er zijn vier modules: Draw Pixel, Draw Rectangle, Draw Line en Draw Sprite.
+Elk blok, behalve de State Registers, is een component van de GPU met zijn eigen in VHDL beschreven gedrag en met zijn eigen functie. Het blok State Registers is eigenlijk gewoon één signaal, maar het is zo weergegeven, omdat het visueel duidelijker weergeeft wat het ASB signaal doet, namelijk het geeft weer op welke screenbuffer er geschreven moet worden en van welke gelezen moet worden en dat is makkelijker te zien als blokje dan als een lijn. De screenbuffers zelf zitten in het externe SRAM. 
+\\ De GPU is verdeeld in 5 blokken: de SPI Decoder, de Instructie Decoder, de Draw Logic, de RAM Controller en de VGA Controller. Daarbij is het Draw Logic blok nog verdeeld in modules om de verschillende functies voor verschillende vormen te representeren. Er zijn vier modules: Draw Pixel, Draw Rectangle, Draw Line en Draw Sprite.
 \\Wat er precies gebeurt in de blokjes zal uitgelegd worden bij de hoofdstukken met de naam van het desbetreffende blok, maar in dit hoofdstuk zal de nadruk liggen op de interacties tussen de blokken.
 
 \section{Externe AVR --> SPI Decoder}
-De SPI decoder krijgt door middel van de SPI verbinding met de SPI module op de AVR de benodigde data om iets te tekenen binnen. Deze SPI verbinding bestaat uit een CLK, een MISO en een SS, er is hier geen MOSI gebruikt omdat er geen data terug gestuurd hoeft te worden. Deze CLK is de klok waarop het verzenden van data tussen de SPI modules is gesynchroniseerd. De MISO is voor het serieel verzenden van data van de CPU naar de GPU. De SS is voor het kiezen van de juiste slave waar de data heen gestuurd moet worden, maar er is hier maar één slave dus is SS altijd hoog.
+De SPI decoder krijgt door middel van de SPI verbinding met de SPI module op de AVR de benodigde data om iets te tekenen binnen. Deze SPI verbinding bestaat uit een CLK en een MISO signaal, er is hier geen MOSI signaal gebruikt, omdat er geen data terug gestuurd hoeft te worden. Het CLK signaal is de klok waarop het verzenden van data tussen de SPI modules is gesynchroniseerd. Het MISO signaal is voor het serieel verzenden van data van de CPU naar de GPU. Er is ook een SS signaal voor het kiezen van de juiste slave waar de data heen gestuurd moet worden, maar er is hier maar één slave dus is SS altijd hoog en hoeft niet door de GPU gestuurd te worden.
 
 \section{SPI decoder <--> Instructie Decoder}
 De SPI verstuurd de ontvangen data naar de Instructie Decoder in 8-bit pakketjes met een signaal dat aangeeft dat er nieuwe data beschikbaar is. De SPI krijgt dan een reset signaal van de Instructie Decoder als het pakketje volledig binnen is gekomen.
 
 \section{Instructie Decoder --> Externe AVR}
-De Instructie Decoder stuurt direct een interrupt signaal naar de AVR om aan te geven wanneer een pakketje is vertaald naar instructies.
+De Instructie Decoder stuurt direct een interrupt signaal naar de AVR om aan te geven wanneer een pakketje is vertaald naar instructies, dus nadat een instructie klaar is.
 
 \section{Instructie Decoder <--> Draw Logic}
 De Instructie Decoder stuurt dan de data vertaald in instructies naar de Draw Logic in de vorm van X, W, Y, H, Color, ID en Enable. Draw Logic geeft constant zijn status weer aan de Instructie Decoder middels een draw\_ready signaal dat aangeeft of Draw Logic zijn volgende instructie kan verwerken of nog steeds bezig is met een instructie.
 
 \section {Instructie Decoder <--> RAM Controller}
-Voor het inladen van sprites in het RAM stuurt de Instructie Decoder direct data naar de RAM Controller en daarbij stuurt de Instructie Decoder een decoder\_claim signaal om te voorkomen dat andere blokken tegelijkertijd dingen in het RAM gaat lezen of schrijven. RAM Controller stuurt constant het signaal decoder\_can\_acces naar de Instructie Decoder dat verteld of RAM Controller de volgende sprite kan inschrijven of nog steeds bezig is met een sprite.
+Voor het inladen van sprites in het externe SRAM stuurt de Instructie Decoder direct data naar de RAM Controller en daarbij stuurt de Instructie Decoder een decoder\_claim signaal om te voorkomen dat andere blokken tegelijkertijd dingen in of uit het externe SRAM gaan lezen of schrijven. De RAM Controller stuurt het signaal decoder\_can\_access naar de Instructie Decoder dat verteld of RAM Controller ergens mee bezig is.
 
 \section {Instructie Decoder --> Draw Logic \& VGA Controller}
-De Instructie Decoder stuurt het ASB signaal naar de Draw Logic en de VGA Controller om ervoor te zorgen dat de juiste instructie in het juiste screenbuffer wordt gelezen of geschreven.
+De Instructie Decoder stuurt het ASB signaal naar de Draw Logic en de VGA Controller om ervoor te zorgen dat de juiste instructie in het juiste screenbuffer wordt gelezen of geschreven. De Instructie Decoder bepaald hiermee in welk screenbuffer wordt geschreven en uit welke screenbuffer wordt gelezen.
 
 \section {Draw Logic <--> Modules}
 Draw Logic verstuurt de verkregen instructies van de Instructie Decoder naar de juiste module. De desbetreffende module stuurt dan de naar pixels verwerkte instructie terug naar de Draw Logic met een signaal dat het klaar is met het verwerken van de instructie en dus klaar is voor de volgende instructie.
 
 \section {Draw Logic <--> RAM Controller}
-Draw Logic stuurt de naar pixel verwerkte instructies van de modules in de vorm van Data (6-bit) en Addr (16-bit) naar de RAM Controller met het draw\_write signaal en draw\_read. Het draw\_signaal zorgt ervoor als het hoog is dat de data waarmee het verzonden is in het RAM geschreven wordt. En het draw\_read signaal is voor het uitlezen van de desbetreffende sprites die in het RAM geschreven staan.
-RAM Controller stuurt ook constant een draw\_can\_access signaal naar de Draw Logic, zodat het weet of de RAM Controller bezig is met instructies van andere blokken of vrij is.
+Draw Logic stuurt de naar pixel verwerkte instructies van de modules in de vorm van Data, de kleur, en Addr, het pixel coördinaat, naar de RAM Controller met het draw\_write signaal en draw\_read. Het draw\_write signaal geeft aan dat de Draw Logic in de screenbuffer wilt schrijven. En het draw\_read signaal is voor het uitlezen van de desbetreffende sprites die in het externe SRAM geschreven staan.
+RAM Controller stuurt ook een draw\_can\_access signaal naar de Draw Logic, zodat het weet of de RAM Controller bezig is met instructies van andere blokken of de RAM Controller vrij is.
 
 \section{RAM Controller <--> Externe SRAM}
-De RAM Controller stuurt de data met een write\_enable signaal, dat ervoor zorgt dat de data in het RAM geschreven wordt. Ook kan de RAM Controller de opgelsagen data uit de externe SRAM uitlezen.
+De RAM Controller stuurt de Data en Addr signalen van de Draw Logic, de Sprite data van de Instructie Decoder en de Addr signalen van de VGA Controller met een write\_enable signaal naar de externe SRAM. De Data en Addr signalen worden ingeschreven in de screenbuffer in het externe SRAM. De Sprite Data moet in het externe RAM geschreven worden.
+Ook moet de RAM Controller de opgeslagen data uit het externe SRAM uit kunnen lezen.
 
 \section{VGA Controller <--> RAM Controller}
-De VGA Controller stuurt de signalen vga\_read en vga\_claim naar de RAM Controller. Het vga\_read signaal om aan te geven dat de VGA Controller de data van één frame wil uitlezen. Het vga\_claim signaal is, zodat er niet gelezen of geschreven wordt door andere blokken, terwijl de VGA Controller zelf aan het lezen is.
-De RAM Controller stuurt de Data en Addr voor de frames naar de VGA Controller. Ook stuurt de RAM Controller constant een vga\_can\_access signaal naar de VGA Controller, zodat het weet wanneer de RAM Controller vrij is.
+De VGA Controller stuurt de signalen Addr, vga\_read en vga\_claim naar de RAM Controller. Het Addr signaal past de pixel coördinaten aan, zodat het past in de gekozen pixel beeld resolutie voor de monitor. Het vga\_read signaal geeft aan dat één van de screenbuffers uitgelezen en naar de VGA DAC gestuurd moet worden, om een schermafbeelding op de monitor te maken. Het vga\_claim signaal zorgt ervoor dat andere blokken geen toegang krijgen tot de RAM Controller, als voorbereiding voor het uitlezen van een screenbuffer.
+De RAM Controller stuurt een vga\_can\_access signaal naar de VGA Controller, zodat het weet wanneer de RAM Controller vrij is.
 
-\section{VGA Controller --> Externe DAC}
-De VGA Controller stuurt de Data en Addr signalen omgezet naar een VGA signaal naar de externe DAC, zodat er uiteindelijk op de monitor een schermafbeelding zal verschijnen op basis van de data ingestuurd van de CPU. 
+\section{VGA Controller --> Externe VGA DAC}
+De VGA Controller stuurt vgahsync, vgavsync en vga\_claim naar de Externe VGA DAC. De vgahsync en vgavsync zijn signalen die zorgen voor de juiste VGA timing die nodig is om de monitor juist aan te sturen voor een vloeiend beeld. De vga\_claim komt als het signaal vga\_enabled aan bij de VGA DAC, zodat het weet dat de er een screenbuffer uitgelezen gaat worden.
 
 
 %%%%%%%------------ONDERSTAANDE MOET NAAR BIJLAGE
@@ -96,7 +97,7 @@ In Tabel \ref{tab:spec-params} staat een overzicht van de gebruikte parameters e
   	\hline
 \end{tabular}
 \end{table}
-
+%Aanpassen deze figuur
 \begin{figure}[H]
 \centering
 	\includegraphics[scale=0.9, angle=90]{resource/systeemdrawing-detail.png}
