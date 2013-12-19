@@ -12,54 +12,53 @@
 
 
 Het testen van het ontwerp moet natuurlijk grondig gebeuren, dit zodat er in het uiteindelijke ontwerp geen fouten meer zitten en de chip de grootste slagingskans heeft. 
-Als eerste wordt er per module gekeken als alle modules goed werken gaan we ze een voor een aan elkaar maken. Als dit alles goed werkt is in zo verre het ontwerp voor de chip af.
-Voor ons project is er natuurlijk ook nog het probleem dat we de arduïno en een extern RAM gebruiken, deze moeten ook getest worden apart en in samenwerking met de chip.
-Als alles dan goed is gekeurd moet als laatste het ontwerp op een FPGA gezet worden en kunnen we het volledige ontwerp testen.
+Als eerste wordt er per module gekeken of deze naar behoren werkt. Als alle modules goed werken gaan we ze een voor een aan elkaar routen. Als dit alles goed werkt is in zo verre het ontwerp voor de chip af.
+Voor ons project is er natuurlijk ook nog het probleem dat we de AVR en een extern RAM gebruiken, deze moeten ook getest worden apart en in samenwerking met de chip.
+De volgende stap is  het ontwerp op een FPGA zetten en testen.
 
 \subsection{Modules}
 
-Voor het testen van de modules gaan de standaard procedures op van Go With The Flow, dit wil zeggen eerst in een ModelSim simulatie kijken of alles werkt na behoren. 
+Voor het testen van de modules gaan de standaard procedures op van Go With The Flow, dit wil zeggen eerst in een ModelSim simulatie kijken of alles werkt naar behoren. 
 Na het testen in ModelSim wordt er een layout gemaakt van het ontwerp. Als eerste wordt dit ontwerp geoptimaliseerd waarna er met behulp van Go With The Flow de VHDL-code wordt geëxtraheerd,
-dit is een structurele beschrijving van het ontwerp. Ook dit wordt getest met ModelSim als ook deze geen problemen vertoont wordt de code getest op switch level niveau. Als dit succesvol verloopt is de module goedgekeurd.
-Dit wordt voor elke module apart gedaan, de volgende stap is om de modules een voor een aan elkaar te hangen en kijken of alles nog steeds werkt.
+dit is een structurele beschrijving van het ontwerp. Ook deze VHDL-code wordt getest met ModelSim als ook deze geen problemen vertoont wordt de code getest op switch level niveau. Als dit succesvol verloopt is de module goedgekeurd.
+Dit wordt voor elke module apart gedaan, de volgende stap is om de modules een voor een aan elkaar te routen en kijken of alles goed samenwerkt.
 
 
 
 \subsection{Modules samenvoegen}
 
-Bij het samenvoegen van verschillende modules kunnen er dingen fout gaan. Een voorbeeld hiervan is dat er bepaalde timings van signalen van de ene module niet snel genoeg aankomen in de volgende module.
+Bij het samenvoegen van verschillende modules kunnen er fouten optreden. Een voorbeeld hiervan is dat er bepaalde timings van signalen van de ene module niet snel genoeg aankomen in de volgende module.
 Dit veroorzaakt dat de volgende module met de verkeerde signalen berekeningen zal gaan doen. Ook kan het zijn dat een module te snel informatie doorstuurt en dit niet verwerkt kan worden door de volgende module.
-Als dit soort dingen voorkomen dan zullen de modules moeten worden aangepast met bijvoorbeeld een wacht signaal dat verteld wanneer er wel en geen signaal door gestuurd mag worden. Pas als elke module apart weer goed is getest 
-en geoptimaliseerd kan er weer verder worden getest met de modules aan elkaar.\\
+Als dit soort fouten optreden dan zullen de modules moeten worden aangepast met bijvoorbeeld een wacht signaal dat verteld wanneer er wel en geen signaal door gestuurd mag worden. Pas als elke module apart weer goed is getest 
+en geoptimaliseerd is kan er weer verder worden getest met de modules aan elkaar.\\
 Ook bij het samenvoegen van modules wordt er eerst weer getest met ModelSim en een layout gemaakt die geoptimaliseerd wordt, weer wordt er een structurele VHDL-code geëxtraheerd en getest. Als dit allemaal werkt wordt er een volgende 
 module aan gehangen en begint het process weer opnieuw. Dit totdat alle modules goed samenwerken. Hierna kan het ontwerp op een FPGA gezet worden voor meer testen.\\
 Mocht er tijdens het samenvoegen van de modules blijken dat er teveel transistoren worden gebruikt, boven de 40.000 paren, dan wordt er eerst gekeken of ze beter geoptimaliseerd kunnen worden. Anders kunnen er onderdelen uit de Draw module gehaald worden,
- dit zorgt er alleen voor dat de GPU minder verschillende opdrachten kan uitvoeren.
+ dit zorgt er alleen voor dat de GPU minder verschillende soorten opdrachten kan uitvoeren.
 
 
-\subsection{Arduïno}
+\subsection{AVR}
 
-In het project dat wij hebben gekozen, het ontwerpen van een GPU, hebben we ook een CPU nodig. Voor deze taak gebruiken we een arduïno, deze moet met C-code worden geprogrameerd. Het voornaamsteprobleem hier is dat 
-de arduïno op een veel snellere klok werkt dan onze chip. Hiervoor hebben we een communicatie systeem nodig genaamd SPI. Met dit onderdeel moet veel getest worden want ook al zouden de arduïno en het ontwerp voor de chip beide goed werken 
+In het project dat wij hebben gekozen, het ontwerpen van een GPU, hebben we ook een CPU nodig. Voor deze taak gebruiken we een AVR, deze moet met C-code worden geprogrameerd. Het voornaamste probleem hier is dat 
+de AVR op een veel snellere klok werkt dan onze chip. Hiervoor hebben we een communicatie systeem nodig genaamd SPI. Met dit onderdeel moet veel getest worden want ook al zouden de AVR en het ontwerp voor de chip beide goed werken 
 kan het nog zo zijn dat door het verschil van klokfrequenties het hele systeem niet zou werken.\\
-Om dit te testen hebben we meerdere programma's en opdrachten voor de chip geprogrammeerd op de arduïno zodat we in verschillende situaties kunnen testen of onze chip het goed doet. Denk hierbij aan meerdere opdracht voor het tekenen van vierkantjes
-en lijnen op een scherm en alleen een aantal te laten roteren. Ook kunnen we testen door een computerspel op de arduïno te zetten zoals Snake. Dit zal onze GPU testen voor bewegende vierkantjes, rechthoeken en lijnen.\\
-Als na genoeg testen blijkt dat de communicatie tussen de chip en de arduïno geen problemen oplevert gaan we verder met het testen van het externe RAM geheugen.
+Om dit te testen hebben we meerdere programma's en opdrachten voor de chip geprogrammeerd op de AVR zodat we in verschillende situaties kunnen testen of onze chip het goed doet. Denk hierbij aan meerdere opdracht voor het tekenen van vierkantjes
+en lijnen op een scherm. Ook kunnen we testen door een computerspel op de AVR te zetten zoals Snake. Dit zal onze GPU testen voor bewegende vierkantjes, rechthoeken en lijnen.\\
+Als na genoeg testen blijkt dat de communicatie tussen de chip en de AVR geen problemen oplevert gaan we verder met het testen van het externe RAM geheugen.
 
 
 \subsection{Externe RAM}
 
 Het externe RAM gebruiken we voor screenbuffers, omdat dit vrij grote geheugens zijn zouden ze niet op de chip zelf passen dus moesten we een extern geheugen gebruiken. Dit moet ook getest worden in samenwerking met de chip. Want ook het Ram 
-geheugen werkt op een andere klokfrequentie, dit kan dezelfde problemen opleveren als de communicatie met de arduïno.\\ Op de chip hebben we een RAM-controller die de communicatie regelt tussen de chip en het RAM geheugen. Om te testen of dat goed gaat schrijven
+geheugen werkt op een andere klokfrequentie, dit kan dezelfde problemen opleveren als de communicatie met de AVR.\\ Op de chip hebben we een RAM-controller die de communicatie regelt tussen de chip en het RAM geheugen. Om te testen of dat goed gaat schrijven
 we de screenbuffers vol en met bijvoorbeeld vierkantjes en lijnen, als er tijdens het uitlezen het goede beeld wordt geprojecteerd gaat de communicatie dus goed.
 
 
 \subsection{volledig ontwerp}
 
-Als dan uiteindelijk elke module apart en samengevoegd goed samenwerken en op de chip passen en de comunnicatie tussen de chip en de arduïno en het externe RAM goed samenwerken, gaan we alles aan elkaar hangen en proberen we alles tegelijkertijd te testen. 
-Hierbij zullen waarschijnlijk geen grote bugs meer in voor komen als alles goed is getest en zullen we hooguit kleine aanpassingen moeten maken voor het ontwerp.\\ We zullen het ontwerp testen door meerdere spelletjes op de arduïno te programmeren en dan te kijken 
-of deze allemaal goed vertaald op het scherm komen. Verder zullen we ook de testen met willekeurige opdrachten voor het systeem door bijvoorbeeld bewegende pixels, roterende lijnen en rechthoeken als opdracht aan de chip te geven. Deze testen zullen in de laatste 2 weken 
-worden uitgevoerd.
+Als dan uiteindelijk elke module apart en samengevoegd goed samenwerken en op de chip passen en de comunnicatie tussen de chip en de AVR en het externe RAM goed werken, gaan we alles aan elkaar hangen en proberen we alles tegelijkertijd te testen. 
+Hierbij zullen waarschijnlijk geen grote bugs meer in voor komen als alles goed is getest en zullen we hooguit kleine aanpassingen moeten maken voor het ontwerp.\\ We zullen het ontwerp testen door meerdere spelletjes op de AVR te programmeren en dan te kijken 
+of deze allemaal goed op het scherm geprojecteerd worden. Verder zullen we ook de testen met willekeurige opdrachten voor het systeem door bijvoorbeeld bewegende pixels, roterende lijnen en rechthoeken als opdracht aan de chip te geven. Deze testen zullen in de laatste 2 weken worden uitgevoerd.
 
 
 \end{document}
