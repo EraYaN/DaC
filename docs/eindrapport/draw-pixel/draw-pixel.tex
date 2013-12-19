@@ -16,13 +16,15 @@
 \section{Drawpixel} %<----- fill in section name
 \label{sec:drawpixel} % <-----fill in lable name
 
-% describe function of block
-Drawpixel is het blok dat het tekenen van een pixel implementeert. Drawpixel ontvangt via de instructiedecoder std\_standard\_logic vectoren x , y en color van de CPU. In de specificaties wordt ingegaan  op de lengte van deze vectoren. In het gedeelte daaronder wordt de verdere implementatie en het testen beschreven.
-
 %specificaties blok (copy paste)
 \subsection{Specificaties}
 \label{ssec:specs_dp}
-Door deze module worden aparte pixels getekend, hiervoor zijn de x- en y-coördinaten en de kleur van de pixel nodig. Drawpixel dient asb, y en x in een vector te plaatsen van lengte SizeRAMAddr, gedefinieerd in de package file. X en y zijn ook vectoren met lengten gedefinieerd in de package. Ook dient de color vector naar ramdata geschreven te worden.  Er moet alleen bij enable \& draw\_can\_access = hoog naar RAM geschreven worden, waarbij draw\_write gedurende het schrijven hoog is. (voor de controller)  Nadat er geschreven is, moet done gedurende een klokslag hoog worden. Er mag alleen in het niet actieve RAM geschreven worden, dus wanneer asb '0' is. Het hele blok met zijn in- en uitgangen is te zien in figuur  \ref{fig:dp_blokschema}. 
+Door de draw\_pixel module worden aparte pixels getekend. Hiervoor worden de x- en y-coördinaten en de kleur van de pixel aangeleverd uit de CPU via de instructiedecoder.  Drawpixel dient: 
+\begin{itemize}
+\item asb, y en x in een vector te plaatsen van lengte SizeRAMAddr
+\item color naar een vector te schrijven van lengte SizeRAMdata
+\end{itemize}
+  Er mag alleen bij enable \& draw\_can\_access = hoog naar het RAM geschreven worden, waarbij draw\_write gedurende het schrijven hoog is.  Nadat er geschreven is, moet done gedurende een klokslag hoog worden. Vanwege de bidirectional bus moeten RAMaddr en RAMdata dan `Z' worden. Er mag alleen in het niet actieve RAM geschreven worden, dus wanneer asb '0' is. Het hele blok met zijn in- en uitgangen is te zien in figuur  \ref{fig:dp_blokschema}. 
 \begin{figure} [h!]
 \centering
 \includegraphics [width = \textwidth] {resource/dp_blokschema-rc}
@@ -42,11 +44,11 @@ De behaviour is opgedeeld in een sequentieel gedeelte waar de state 'busy' wordt
 %Testplan VHDL
 \subsection{VHDL-simulatie}
 \subsubsection{Test 1}
-De eerste test betreft het simuleren van de behaviour met een testbench. Dit betreft een lege entity en een behaviour waarin een x-vector, y-vector en color-vector aangeboden worden volgens de lengte in de package file.  Er is ingezoomd op een gedeelte van de wave, namelijk wanneer er geschreven wordt naar het RAM
+De eerste test betreft het simuleren van de behaviour met een testbench. Dit betreft een lege entity en een behaviour waarin een x-vector, y-vector en color-vector aangeboden worden volgens de lengte in de package file.  Er is ingezoomd op een gedeelte van de wave, namelijk wanneer er geschreven wordt naar het RAM. Te zien is dat er alleen wordt geschreven naar het RAM wanneer enable \& draw\_can\_access hoog zijn.  Draw\_write wordt tijdens dit schrijven hoog gehouden en na het schrijven gaat done gedurende 1 klokslag omhoog. Wanneer niet geschreven wordt,  zijn RAMAddr en RAMdata `Z'. Dit voldoet aan de specificaties. 
 
 \begin{figure} [h!]
 \centering
-\includegraphics [scale = 0.7] {resource/dp_sim}
+\includegraphics [width = \textwidth] {resource/dp_new_wave.jpg}
 \caption{Modelsim simulatie behavioural of drawpixel}
 \label{fig:dp_sim}
 \end{figure}
@@ -57,20 +59,18 @@ De tweede test betreft het testen van de synthesized VHDL. Op enkele begincondit
 Om nog een extra test uit te voeren kan er uit de layout VHDL geëxtraheerd worden. Wanneer die vervolgens gesimuleerd wordt met modelsim, is te controleren of de schakeling op layoutniveau net zo werkt als op VHDL-niveau. Deze is exact gelijk aan test 2. 
 %Synthese
 \subsection{Synthese}
-De synthese is nu uitgevoerd voor 6-bit kleur. 
-
+De synthese is nu uitgevoerd voor 6-bit kleur. Aanvankelijk bedroeg het aantal transistoren 3000 transistoren (correct werkend en volledig gecheckt), maar na een aantal overbodige flipflops te verwijderen werd dat minder. De laatste stand is 496 transistoren, waarbij 382 transistoren effectief. Dit geeft een efficientie van 77.02\%. 
 
 %Switchlevel test
 \subsection{Switchlevel}
 Op switchlevel niveau wordt de simulatie op transistor niveau vergeleken met de simulatie op vhdl niveau. Hierbij wordt er vanuit de list-file een command file gemaakt. Vervolgens wordt via layout\ simulate en show\_result een simulatie geopend. Nu kan figuur \ref{fig:dp_sim} hiermee op het oog vergeleken worden. De optie compare geeft de mogelijkheid om dit exact te doen met GoWithTheFlow. De ref-file van de simulatie in figuur \ref{fig:dp_sim} wordt dan vergeleken met de res-file van de switch level simulatie. Is de implementatie goed dan horen alle waardes overeen te komen, op de eerste na. In ons ontwerp bevinden zich echter 'Z'-uitgangen, die door de compare niet goed begrepen worden. De noodzaak van 'Z's is al toegelicht. Het switch level resultaat komt overeen met het modelsim resultaat. 
 
 
-
-
-
 %Conclusie
 \subsection{Conclusie}
-Alles was al gesimuleerd, gesynthetiseerd en getest toen bleek dat er meerdere pinnen voor de klok nodig zijn. Daardoor moest de kleur naar 3 bits. Nadat dat ook weer gesimuleerd, gesynthetiseerd en getest was bleek er ergens een fout te zitten, waardoor sprites niet werken. Pas als deze eruitgehaald is, en de nieuwe lengte van de color-vector bekend is, kan er weer gesynthetiseerd worden. Tot zover is dit verslag ook geschreven. 
+Elke simulatie van draw\_pixel geeft het gewenste resultaat, ook op synthesized en extracted niveau. Na het splitsen van de VHDL in een combinatorisch en sequentieel deel is het aantal transistoren aanzienlijk verminderd. Een nadeel van Place\&Route zou kunnen zijn dat er een vierkant blokje ontstaat. Wanneer de vorm aangepast wordt om op te totale chip te passen, kan dat een lagere efficicientie geven. In nader overleg is toch besloten om het vierkant te houden, omdat draw\_pixel zo'n klein blok dat gemakkelijk gepast kan worden. 
+
+
 
 
 

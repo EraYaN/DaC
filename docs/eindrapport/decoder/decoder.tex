@@ -66,7 +66,7 @@ Wanneer er een draw-instructie binnenkomt verzamelt de decoder eerst alle inform
 Wanneer de switch-instructie binnenkomt, wordt het signaal asb geïnverteerd en is de decoder meteen klaar.
 \\
 \\
-Zoals al vermeld bij SPI, zijn we er helaas niet in geslaagd om een helemaal correct functionerende SPI-interface te maken, om onbekende reden. Omdat de decoder direct afhankelijk is van de SPI-interface, loopt deze vast op het moment dat de SPI-module faalt. Om er voor te zorgen dat de decoder daarna zonder de hele GPU te resetten toch weer verder gaat, hebben we een timer ingebouwd die de SPI-module en de decoder ``soft-reset'', zodra deze afgelopen is. In de praktijk levert dit een zo nu en dan knipperend beeld en soms artifacts op, maar dat is beter dan een beeld dat steeds bevriest.
+Zoals al vermeld bij SPI, zijn we er helaas niet in geslaagd om een helemaal correct functionerende SPI-interface te maken, om onbekende reden. Omdat de decoder direct afhankelijk is van de SPI-interface, loopt deze vast op het moment dat de SPI-module faalt. Om er voor te zorgen dat de decoder daarna zonder de hele GPU te resetten toch weer verder gaat, hebben we een timer ingebouwd die de SPI-module en de decoder ``soft-reset'', zodra deze afgelopen is. In de praktijk levert dit een zo nu en dan knipperend beeld en soms artifacts op, maar dat is beter dan een beeld dat steeds bevriest. Naast deze maatregel resetten we de SPI-module ook na iedere ontvangen instructie
 
 %VHDL simulatie
 \subsection{VHDL simulatie}
@@ -81,7 +81,36 @@ Als eerst wordt een sprite naar het VRAM geladen. In figuur \ref{fig:decoder-mod
 	\label{fig:decoder-modelsim-lsprite}
 \end{figure}
 
+Vervolgens wordt een rechthoek getekend, het gedeelte van de waveform waarin dit gebeurt is te zien in figuur \ref{fig:decoder-modelsim-rect}. Te zien is dat color, x (x0), y (y0), w (x1) h (y1) op de juiste uitgangen worden gezet en dat vervolgens en(1) hoog wordt om draw\_rect te activeren.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{resource/decoder-modelsim-rect.png}
+	\caption{Een fragment van de decoder waveform, waarin een rectangle getekend wordt}
+	\label{fig:decoder-modelsim-rect}
+\end{figure}
+
+Even later wordt gesimuleerd dat draw\_rect zijn done-signaal hoog maakt (in de decoder heet dit signaal draw\_ready). De decoder moet dit signaal doorgeven naar de CPU, door middel van int\_ready. In figuur \ref{fig:decoder-modelsim-draw-ready} is te zien dat dit ook daadwerkelijk gebeurt.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{resource/decoder-modelsim-draw-ready.png}
+	\caption{Een fragment van de decoder waveform, waarin draw\_ready hoog wordt}
+	\label{fig:decoder-modelsim-draw-ready}
+\end{figure}
+
+De andere draw-modules worden op vergelijkbare manier aangestuurd en zijn allemaal werkend getest.
+
+Als laatst testen we de switch-instructie, waarin het screen buffer wordt gewisseld. In de waveform in figuur \ref{fig:decoder-modelsim-switch} is te zien dat het signaal asb inderdaad geïnverteerd wordt bij het binnenkomen van de switch-instructie. Vervolgens geeft de decoder netjes aan dat hij klaar is voor de volgende instructie, door middel van het signaal int\_ready.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{resource/decoder-modelsim-switch.png}
+	\caption{Een fragment van de decoder waveform, waarin van schermbuffer gewisseld wordt}
+	\label{fig:decoder-modelsim-switch}
+\end{figure}
+
+Uit deze drie tests mag geconcludeerd worden dat de decoder alle vereiste instructies kan verwerken. Ook de timeout is werkend getest en in de praktijk blijkt dat deze timer inderdaad zorgt dat de GPU niet meer vast loopt.
 
 %Synthese
 \subsection{Synthese}
