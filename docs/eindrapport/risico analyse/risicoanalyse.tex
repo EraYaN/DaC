@@ -4,13 +4,46 @@
 \addbibresource{../../library/bibliography.bib}
 
 \author{}
-\title{EPO3: Eindrapport - Risico analyse}
+\title{EPO3: Eindrapport - Risicoanalyse}
 
 \begin{document}
-\chapter{Risico analyse}
-\label{ch:risico analyse}
+\chapter{Risicoanalyse}
+\label{ch:risicoanalyse}
+
+Bij elk project zijn er bepaalde risico's aanwezig die ervoor kunnen zorgen dat het project niet optijd ingeleverd kan worden of dat de kwaliteit van het product naar beneden zal halen. Om deze redenen is het handig om voor dat er aan het project begonnen wordt eerst een risicoanalyse te doen. Vooral bij een groot project zoals dit waar we ook zelf steeds meer vrijgelaten worden om te doen wat ons goed lijkt. In de tabel hieronder is te zien wat een aantal risico's kunnen zijn bij ons project.
+
+\begin{table}[H]
+\centering
+\caption{Risicoanalyse}
+\begin{tabular}{| l| l| l| p{0.5\textwidth}|}
+\hline
+Risico		& Impact	& Plausibiliteit	& Oplossing\\
+\hline
+Tijdgebrek	& Groot	& Redelijk		& Ten eerste hebben we een weekspeling genomen, mocht er blijken dat dit niet genoeg zou zijn, kunnen er tijdens eerdere weken extra projecturen worden gepland. Verder als er in de projecturen een bepaalde taak niet af is wordt dat door die persoon thuis afgemaakt zover dat mogelijk is.\\
+\hline
+Ruimtegebrek op de chip	& Groot	& Laag	& De drawmodule die wij gaan implementeren is variabel van grootte, dit ligt eraan hoeveel functies we implementeren. Dit zorgt er dus voor dat we een functie kunnen verwijderen van de chip mocht het nodig zijn om extra ruimte te creëren.\\
+\hline
+Timings die niet kloppen	& Groot	& Redelijk	& De voornaamste oplossing hiervoor is om de resolutie naar beneden te schalen, het probleem hier mee is dat het beeld dat onze GPU dan produceert minder mooi zal zijn.\\
+\hline
+Motivatie gebrek	& Redelijk		& Laag	& De persoon/personen in kwestie hierop aanspreken. Mocht er niks veranderen dan zullen de taken moeten worden opgevangen door de rest van de groep\\
+\hline
+Miscommunicatie	& Variabel		& Laag	& Een vergadering aan het begin en einde van elk projectmoment. Dit zorgt ervoor dat er geen misverstanden zijn tussen mensen en dat er geen verkeerde onderdelen worden gemaakt.\\
+\hline
+Persoonlijke omstandigheden	& Variabel	& Laag	& Als de persoon/personen in kwestie nog kunnen werken aan het project maar niet tijdens de projectochtenden aanwezig kunnen zijn zullen zij moeten worden ingelicht van de voortgang en eventuele veranderingen, en natuurlijk moeten zij ook de groep inlichten van mogelijke veranderingen. Mocht er niet door de persoon/personen in kwestie gewerkt kunnen worden aan het project zullen die taken moeten worden opgevangen worden door de groep.\\
+\hline
+Te moeilijk onderwerp	& Groot	& Redelijk	& Als er vroeg wordt ontdekt dat het te moeilijk gaat worden om een werkende GPU af te leveren dan zou er nog van onderwerp kunnen verandert worden. Als we hier te laat achter komen proberen we het zo goed mogelijk te maken of extra hulp te vragen van de begeleiders in de projectzaal.\\
+\hline
+\end{tabular}
+\end{table}
 
 
+De kans dat we een tijdgebrek krijgen is vrij groot, dit komt vooral omdat we buiten onze chip en het verslag om we ook nog de CPU( de arduïno) moeten programmeren wat natuurlijk extra tijd in beslag neemt. De impact hiervan is natuurlijk groot aangezien we dan ons project misschien niet optijd af kunnen krijgen.
+
+Ruimtegebrek op de chip zal niet zeer plausibel zijn. Zoals al eerder gezegd is kunnen we onze Draw module zo groot of zo klein maken als we zelf willen, het enige probleem hiermee is dat als voor deze module weinig ruimte voor over blijft dat onze GPU dan minder verschillende soorten opdrachten kan uitvoeren.
+
+Aan het begin van het project zaten we ook nog met het probleem dat misschien de timings van de VGA en onze chip niet zouden gaan passen, dit betekent dat er een kans is dat we geen compleet beeld konden schrijven op de screenbuffer en hem daarna weer uitlezen. Als dit een probleem mocht worden konden we ervoor kiezen om de resolutie van het beeld te verlagen. Dit zal dan tijd besparen voor het schrijven en uitlezen en dus wel binnen de timings van de VGA passen. Een ander ding waar we aan het begin van het project me zaten was dat er een kans was dat een GPU ontwerpen misschien te moeilijk zou zijn en niet realistisch haalbaar binnen de tijd. Om er zeker van te zijn dat dit niet het geval was hebben we onze specificaties van het ontwerp erg zorgvuldig gedaan en hebben we veel onderzoek gedaan naar GPU's, hier vonden we oude verslagen over GPU's waar bepaalde knelpunten ondervonden werden. Met die extra informatie hebben we ook rekening gehouden tijdens het maken van onze specificaties zodat wij niet de zelfde fouten zouden maken.
+
+Qua groep kunnen er een aantal dingen voor komen waar niks vooraf aan te doen is, er kunnen natuurlijk persoonlijke omstandigheden optreden bij iemand. Dit is altijd jammer maar kan alleen achter opgevangen worden door de groep. Verder kan het zijn dat er mensen niet meer gemotiveerd zijn om te werken voor project of hun studie in het algemeen. Hier kan iemand natuurlijk wel op worden aangesproken en kan er gekeken worden voor oplossing. Als laatste groepsonderdeel is er nog miscommunicatie. Dit probleem zal je altijd meemaken in een groot project. Het kan zo zijn dat er een onderdeel verkeerd wordt gemaakt en zal moeten worden herschreven. Om dit te verkomen worden er agenda's en notules worden gemaakt, hierin is te vinden wie welk onderdeel doet en welke specificaties erbij horen.
 
 
 
