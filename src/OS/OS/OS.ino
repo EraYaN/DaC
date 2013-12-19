@@ -21,7 +21,7 @@ void setup()
 	Input = new InputLib();
 	//attachInterrupt(INT_READY_PIN, drawReady, RISING);	
 	SPI.setBitOrder(MSBFIRST);
-	SPI.setClockDivider(SPI_CLOCK_DIV32);
+	SPI.setClockDivider(SPI_CLOCK_DIV16);
 	SPI.setDataMode(SPI_MODE0);
 	SPI.begin();
 	Serial.begin(115200);
@@ -45,7 +45,7 @@ void loop()
 		if(first && readyfornext){	
 			GPU->cleanUp();
 			//GPU->gpuReset();
-			//GPU->loadSprites(sprites_font6x8_set,95,&readyfornext);
+			GPU->loadSprites(sprites_font6x8_set,95,&readyfornext);
 			//GPU->cleanUp();
 			//GPU->drawFill(B000000);
 			//GPU->transferQueue();

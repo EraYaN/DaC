@@ -26,7 +26,7 @@ end component;
 	signal x0, x1 : std_logic_vector(SizeX-1 downto 0);
 	signal y0, y1 : std_logic_vector(SizeY-1 downto 0);
 	signal color : std_logic_vector(SizeColor-1 downto 0);
-	signal draw_write : std_logic;
+	signal draw_write, done : std_logic;
 	
 	
 begin
@@ -34,15 +34,23 @@ begin
 	      '0' after 10 ns when clk /= '0' else '1' after 10 ns;
 	reset <= '1' after 0 ns,
 		   '0' after 40 ns;
-	enable <= '0' after 0 ns,
-	'1' after 60 ns;
 	draw_can_acces <= '1' after 0 ns;
-	color <= "1010" after 0 ns;
+	color <= "101010" after 0 ns;
 	asb <= '0' after 0 ns;
 	x0   <= "00001010" after 0 ns;
 	y0	<= "1010111" after 0 ns;
 	x1	<= "10101010" after 0 ns;
 	y1	<= "0001111" after 0 ns;
+
+	process
+	begin
+		wait until reset = '0';
+		wait until rising_edge(clk);
+		enable <= '1';
+		wait until done = '1';
+		wait until rising_edge(clk);
+		enable <= '0';
+	end process;
 	
 	connect: draw_line port map(
 	  	clk              => clk,   
@@ -55,7 +63,8 @@ begin
 		color            => color,
 		asb              => asb,  
 		draw_write       => draw_write,
-		draw_can_access  => draw_can_acces
+		draw_can_access  => draw_can_acces,
+		done			=> done
 		);
 	  
 end behaviour;

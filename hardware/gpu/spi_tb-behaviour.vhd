@@ -5,18 +5,16 @@ USE work.parameter_def.ALL;
 architecture behaviour of spi_tb is
 component spi is
 port (
-reset : in std_logic;
-clk : in std_logic;
-spi_clk : in std_logic;
-spi_mosi : in std_logic;
---SPI_MISO : out std_logic;
-spi_data_available : out std_logic;
---DataToTx : in std_logic_vector(SizeSPIData-1 downto 0);
---DataToTxLoad: in std_logic;
-spi_data_rx : out std_logic_vector(SizeSPIData-1 downto 0)
-);
+		reset : in std_logic;
+		spi_reset : in std_logic;
+		clk : in std_logic;
+		spi_clk : in std_logic;
+		spi_mosi : in std_logic;
+		spi_data_available : out std_logic;
+		spi_data_rx : out std_logic_vector(SizeSPIData-1 downto 0)
+	);
 end component;
-signal reset : std_logic;
+signal reset, spi_reset : std_logic;
 signal clk,spiclk,spiclk_en :std_logic;
 signal spi_clk :  std_logic;
 signal spi_mosi : std_logic;
@@ -49,13 +47,11 @@ end sendByte;
 begin
 	spi1: spi port map (
 	reset,
+	spi_reset,
 	clk,
 	spi_clk,
 	spi_mosi,
-	--SPI_MISO,
 	spi_data_available,
-	--DataToTx,
-	--DataToTxLoad,
 	spi_data_rx);
 	
 	-- clock period: 1/6250000 = 160 ns

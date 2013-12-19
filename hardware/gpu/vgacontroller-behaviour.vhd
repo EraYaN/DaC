@@ -31,7 +31,7 @@ BEGIN
     END IF;
   END PROCESS;
 
-  vga_combi: PROCESS(reset_n,h_count,v_count,vga_can_access,asb,v_row,h_col,ramdata)    
+  vga_combi: PROCESS(reset_n,h_count,v_count,vga_can_access,asb,v_row,h_col)    
    BEGIN  
     IF(reset_n = '0') THEN  --reset asserted	
 		new_h_count <= to_unsigned(h_period-3,h_count_size);         --reset horizontal counter

@@ -8,7 +8,7 @@ GPULib::GPULib()
 	queueHead = NULL;
 	queueTail = NULL;
 	sending = false;
-	lastSpriteID = 0;
+	nextSpriteID = 0;
 }
 
 GPULib::~GPULib()
@@ -85,16 +85,13 @@ void GPULib::switchScreenBuffer()
 	appendInstructionToQueue(instr);
 }
 
-void GPULib::gpuReset()
-{
-	Instruction *instr = new Instruction(1);
-	instr->packets[0] = 1;
-	appendInstructionToQueue(instr);
-}
-
 void GPULib::drawFill(byte color)
 {
-	drawFilledRect(0, 0, XMAX, YMAX, color);	
+	Instruction *instr = new Instruction(2);
+	instr->packets[0] = 1;
+	instr->packets[1] = color;
+	appendInstructionToQueue(instr);
+	//drawFilledRect(0, 0, XMAX, YMAX, color);	
 }
 
 void GPULib::drawPixel(byte x, byte y, byte color)
@@ -177,27 +174,20 @@ void GPULib::drawPoly(byte* x, byte* y, byte size, byte color){
 	drawLine(x[size-1],y[size-1],x[0],y[0], color); //close it
 }
 
-void GPULib::drawChar(char c, byte x, byte y, byte color){
-	const char* data = font8x8_basic[(int)c];
-	for (int cy=0; cy < 8; cy++) {
-		for (int cx=0; cx < 8; cx++) {
-			if(data[cy] & 1 << cx){
-				drawPixel(x+cx,y+cy,color);				
-			}
-		}
-	}
+void GPULib::drawChar6x8(char c, byte x, byte y, byte color){	
+	drawSprite(sprites_font6x8_set[c-32], x, y, color);	
 }
-void GPULib::drawString(const char* string, byte x, byte y, byte color){
+void GPULib::drawString6x8(const char* string, byte x, byte y, byte color){
 	int i = 0;
 	int dx = 0;
 	while(string[i]!='\0'){ // string[i]!='\0'
 		if(string[i]!=' ')		
-			drawChar(string[i],x+dx,y,color);
+			drawChar6x8(string[i],x+dx,y,color);
 		i++;
 		if(string[i]==' '){
 			dx+=3;
 		} else {
-			dx+=8;
+			dx+=6;
 		}
 
 	}
@@ -208,15 +198,15 @@ bool GPULib::loadSprites(Sprite *set[], int size, bool *readyfornext){
 	Serial.println("Started Sending!");
 	int spriteID = 0;
 	for(int i = 0; i<size; i++){
-		spriteID=lastSpriteID+1;
+		spriteID=nextSpriteID;
 		if(spriteID<SPRITESPART1){ // to the right of screenbuffer #0
-			address = 192u+192*spriteID;
+			address = 192u+256u*spriteID;
 		} else if(spriteID<SPRITESPART2) { // underneath screenbuffer #0
-			address = 120u*256+64*(spriteID-SPRITESPART1);
+			address = 120u*256u+64u*(spriteID-SPRITESPART1);
 		} else if(spriteID<SPRITESPART3) { // to the right of screenbuffer #1
-			address = 128u*256+192+192*(spriteID-SPRITESPART2);
+			address = 128u*256u+192u+256u*(spriteID-SPRITESPART2);
 		} else if(spriteID<SPRITESPART4){// underneath screenbuffer #1
-			address = 248u*256+64*(spriteID-SPRITESPART3);
+			address = 248u*256u+64u*(spriteID-SPRITESPART3);
 		} else {
 			return false;
 		}
@@ -225,8 +215,12 @@ bool GPULib::loadSprites(Sprite *set[], int size, bool *readyfornext){
 		//wait		
 		Serial.println("Waiting!");
 		}*/
-		Serial.println("Sending!");
+		Serial.print("Sending: ");
+		Serial.print(spriteID);
+		Serial.print(" @ ");
+		Serial.println(set[i]->address,BIN);
 		sendSprite(set[i]);
+		nextSpriteID++;
 	}
 	return true;
 }
@@ -239,12 +233,11 @@ void GPULib::sendSprite(Sprite *sprite){
 	for (int j=0; j<(instr->numPackets); j++)
 	{
 		SPI.transfer(instr->packets[j]);		
+	}	
+	//send data
+	for(int i = 0; i<sprite->size; i++){		
+		SPI.transfer(pgm_read_byte(&sprite->data[i]));
 	}
 	delete instr;
-	//send data
-	for(int i = 0; i<sprite->size; i++){
-		SPI.transfer(sprite->data[i]);
-	}
 	sending = false;
-
 }

@@ -23,7 +23,6 @@ entity decoder is
 		asb			: buffer	std_logic;	--Currently active screen buffer
 		--Direct CPU interaction
 		int_ready	: buffer	std_logic;	--Instruction processed signal
-		soft_reset	: out		std_logic; 
 		spi_reset : out std_logic;
 		--RAM Controller interaction
 		decoder_can_access	: in std_logic;		--Can access RAM?
@@ -33,9 +32,6 @@ entity decoder is
 		--RAM interaction
 		ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
 		ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);
-		decoder_debug_pn : out std_logic_vector(3 downto 0);
-		decoder_debug_i : out std_logic_vector(3 downto 0);
-		decoder_debug_c : out std_logic_vector(7 downto 0);
 		--VGA signals
 		vgavsync : in std_logic
 	);
