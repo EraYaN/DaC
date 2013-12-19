@@ -31,16 +31,16 @@ Door deze module worden aparte pixels getekend, hiervoor zijn de x- en y-coördi
 \end{figure}
 
 %VHDL
-\subsection{VHDL}
+\subsection{Ontwerp en specificatie}
 \label{ssec:vhdl_dp}
-\subsubsection{Entity}
+\subsubsection{VHDL-Entity}
 De entity is precies opgebouwd volgens  figuur  \ref{fig:dp_blokschema}. De in- en uitgangen zijn letterlijk overgenomen en zijn schaalbaar, zoals te zien in de figuur. Wanneer het vectoren betreft, die in de package omschreven worden, zijn het allemaal std\_logic\_vectoren. 
 
-\subsubsection{Behaviour}
+\subsubsection{VHDL-Behaviour}
 De behaviour is opgedeeld in een sequentieel gedeelte waar de state 'busy' wordt opgeslagen en een combinatorisch gedeelte waar de signalen oe, draw\_write, done en de state worden bepaald. Oe is een tussensignaal op basis waarvan bepaald wordt of ramaddr en ramdata geschreven worden. Het is belangrijk dat de uitgangen 'Z' worden indien oe = 1 niet klopt, omdat de draad waarop de uitgang gezet wordt een bidirectional bus is. Het sequentiele process wordt getriggered op de clk, het combinatorische process op een verandering in reset, enable, draw\_can\_access of busy. 
 
 %Testplan VHDL
-\subsection{Testplan}
+\subsection{VHDL-simulatie}
 De eerste test betreft het simuleren van de behaviour met een testbench. Dit betreft een lege entity en een behaviour waarin een x-vector, y-vector en color-vector aangeboden worden volgens de lengte in de package file. Er is gekozen om de modelsim-simulatie eenmalig per blok op te nemen. 
 \begin{figure} [h!]
 \centering
