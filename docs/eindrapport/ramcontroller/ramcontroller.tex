@@ -67,7 +67,7 @@ De waarheidstabellen waaraan deze schakeling zijn gegeven in \ref{tab:ramcontrol
 
 \subsection{Ontwerp \& Implementatie}
 De communicatie met de SRAM chip is tijdsgevoelig, in de datasheet van de SRAM chip staat de “time-constraints”.
-Aan de Figuren \label{fig:ramcontroller-read-cycle}, \label{fig:ramcontroller-write-cycle} en \label{fig:ramcontroller-time-constraints} is te zien dat deze SRAM chip dermate snel is dat wij nooit langer dan 1 klokslag nodig zullen hebben om een operatie op het RAM uit te voeren.
+Aan de Figuren \ref{fig:ramcontroller-read-cycle}, \ref{fig:ramcontroller-write-cycle} en \ref{fig:ramcontroller-time-constraints} is te zien dat deze SRAM chip dermate snel is dat wij nooit langer dan 1 klokslag nodig zullen hebben om een operatie op het RAM uit te voeren.
 De maximale delay die deze chip met zich mee brengt is 55 ns, dit is ver onder onze klokperiode van ongeveer 163 ns.
 We kunnen dus iedere halve klokcyclus het write enable signaal hoog maken als er geschreven dient te worden, deze 80 ns puls is nog steeds meer dan lang genoeg op te schrijven.
 Deze is ook makkelijk te realizeren door het schrijf signaal samen met de klok op een AND poort aan te sluiten.
@@ -125,8 +125,8 @@ Zoals te zien in in de layout (Figuur \ref{fig:ramcontroller-layout}) is dit een
 De switch level simulatie verliep vlekkeloos. Zie Figuur \ref{fig:ramcontroller-sl-sim}.
 \begin{figure}[H]
 \centering
-	\includegraphics[width=0.5\textwidth]{resources/wave_sls.png}
-	\caption{De RAM controller layout}
+	\includegraphics[width=0.8\textwidth]{resources/wave_sls.png}
+	\caption{De RAM controller switch level simulatie}
 	\label{fig:ramcontroller-sl-sim}
 \end{figure}
 
