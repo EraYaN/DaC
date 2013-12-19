@@ -9,8 +9,9 @@
 \begin{document}
 \chapter{Instructiedecoder}
 \label{ch:decoder}
-
-De instructiedecoder, of kortweg decoder is de drijvende kracht achter de GPU. Deze module verwerkt alle input die binnenkomt over de SPI-interface en zet deze om naar instructies voor de draw-modules in de GPU of onderneemt zelf de vereiste actie, natuurlijk afhankelijk van de inkomende data. De decoder accepteert een vaste set instructies, deze is uitgezet in tabel \ref{tab:decoder-instruction}
+%specs
+\subsection{Specificaties}
+De decoder accepteert een vaste set instructies, zoals in tabel \ref{tab:decoder-instruction}
 
 \begin{table}[H]
 	\centering
@@ -20,81 +21,61 @@ De instructiedecoder, of kortweg decoder is de drijvende kracht achter de GPU. D
 		\hline\hline
 		Code & Naam & Interne naam & Beschrijving \\
 		\hline
-		000 & Switch & switch & Schakelt over naar het andere screen buffer, het actieve screen buffer wordt intern bijgehouden, met een enkel register \\
-		001 & Soft reset & sreset & Reset de gehele GPU, de implementatie van deze reset kan, afhankelijk per module, verschillen van de standaard reset \\
-		010 & Draw pixel & pixel & Schakelt de draw-pixel module in om op de gegeven coördinaten een pixel te tekenen, met de gegeven kleur \\
-		011 & Draw rectangle & rect & Schakelt de draw-rect module in om op de gegeven coördinaten een rechthoek te tekenen met de gegeven kleur, breedte en hoogte \\
-		100 & Draw filled rectangle & frect & Schakelt de draw-filled-rect module in om op de gegeven coördinaten een gevulde rechthoek te tekenen, met de gegeven kleur, breedte en hoogte \\
-		101 & Draw line & line & Schakelt de draw-line module in om een lijn te tekenen van de eerste gegeven coördinaten naar de tweede gegeven coördinaten, met de gegeven kleur \\
-		110 & Draw sprite & sprite & Schakelt de draw-sprite module in om een sprite te tekenen op de gegeven coördinaten, met de gegeven kleur \\
-		111 & Load sprite & lsprite & Laadt de gegeven sprite in het VRAM rechthoek te tekenen met de gegeven kleur, breedte en hoogte \\
+		000 & Switch & i\_switch & Schakelt over naar het andere screen buffer \\
+		001 & Fill & i\_fill & Schakelt de draw-rect module in om het gehele scherm naar de gegeven kleur te vullen \\
+		010 & Draw pixel & i\_pixel & Schakelt de draw-pixel module in om op de gegeven coördinaten een pixel te tekenen, met de gegeven kleur \\
+		011 & Draw rectangle & i\_rect & Schakelt de draw-rect module in om op de gegeven coördinaten een rechthoek te tekenen met de gegeven kleur, breedte en hoogte \\
+		100 & Draw filled rectangle & i\_frect & Schakelt de draw-filled-rect module in om op de gegeven coördinaten een gevulde rechthoek te tekenen, met de gegeven kleur, breedte en hoogte \\
+		101 & Draw line & i\_line & Schakelt de draw-line module in om een lijn te tekenen van de eerste gegeven coördinaten naar de tweede gegeven coördinaten, met de gegeven kleur \\
+		110 & Draw sprite & i\_sprite & Schakelt de draw-sprite module in om een sprite te tekenen op de gegeven coördinaten, met de gegeven kleur \\
+		111 & Load sprite & i\_lsprite & Laadt de gegeven sprite in het VRAM rechthoek te tekenen met de gegeven kleur, breedte en hoogte \\
 		\end{tabular}
 \end{table}
 \small
 Een specificatie per instructie (het protocol) is gegeven in bijlage \ref{app:instructies}.
+\\\\
+Deze instructies komen binnen over de SPI-interface. Wanneer het signaal spi\_data\_available omhoog gaat, dient de decoder de data uit spi\_data\_rx te lezen en te interpreteren als een nieuwe instructie (zie tabel \ref{tab:decoder-instruction}) of data die bij de huidige instructie hoort.
+Wanneer er sprites geladen moeten worden dient de decoder de inkomende sprite-data (ramdata) weg te schrijven naar de correcte plaats in het VRAM (ramaddr), mits hij daar toegang toe heeft (decoder\_can\_access). Wanneer hij deze data gaat schrijven, dienen de signalen decoder\_write en decoder\_claim hoog te zijn. Het laden van sprites kan alleen direct na een reset. Bij het binnenkomen van de eerste instructie anders dan load sprite dient het signaal is\_init op laag gezet te worden, om aan te geven dat alle sprites geladen zijn.
+Als de decoder een draw-instructie binnen krijgt, dient hij de daarop volgende data op de correcte uitgangen te zetten en als laatst het correcte enable-bit (en) op hoog te zetten.
+Bij het verwerken van de switch-instructie, moet het signaal asb geïnverteerd worden, maar alleen als het signaal vga\_vsync hoog is. Dit voorkomt screen tearing.
+Als laatste, wanneer decoder en de rest van de GPU klaar zijn voor een nieuwe instructie, bijvoorbeeld na het laden van een sprite, een switch of wanneer het signaal draw\_ready hoog wordt, dient de decoder alle draw-modules uit te schakelen en de CPU in te lichten dat hij klaar is, door het signaal int\_ready hoog te maken.
+De hierboven beschreven in- en uitgangen staan als blokschema uitgewerkt in figuur \ref{fig:decoder-schema}. De workflow van de decoder zoals beschreven is schematisch weergegeven in figuur \ref{fig:decoder-flow}.
 
-%specs
-\subsection{Specificaties}
-
-\begin{table}[H]
+\begin{figure}[H]
 	\centering
-	\caption{Specificaties van de instructiedecoder}
-	\label{tab:decoder-specs}
-	\begin{tabular}{c c c}
-		\hline\hline
-	 	Naam & Modus & Type\\
-	 	\hline
-		clk & in & std\_logic \\
-		reset & in & std\_logic \\	
-		spi\_data\_rx & out & std\_logic\_vector(SizeSPIData-1 downto 0) \\
-		spi\_data\_available & in & std\_logic \\
-		draw\_ready & in & std\_logic\\ 	
-		x &  buffer & std\_logic\_vector(SizeX-1 downto 0) \\
-		w &  buffer & std\_logic\_vector(SizeX-1 downto 0) \\
-		y &  buffer & std\_logic\_vector(SizeY-1 downto 0) \\
-		h &  buffer & std\_logic\_vector(SizeY-1 downto 0) \\
-		color &  buffer & std\_logic\_vector(SizeColor-1 downto 0) \\
-		id &  buffer & std\_logic\_vector(SizeSpriteID-1 downto 0) \\
-		en & buffer & std\_logic\_vector(NumDrawModules-1 downto 0)\\
-		asb & buffer & std\_logic \\ 
-		int\_ready & out & std\_logic \\
-		soft\_reset & out & std\_logic \\
-		decoder\_can\_access & in & std\_logic \\
-		decoder\_write & buffer & std\_logic \\
-		decoder\_claim & out & std\_logic \\
-		is\_init & buffer & std\_logic \\
-		ramaddr & out & std\_logic\_vector(SizeRAMAddr-1 downto 0) \\
-		ramdata & out & std\_logic\_vector(SizeRAMData-1 downto 0) \\
-	  	\hline
-	\end{tabular}
-\end{table}
+	\includegraphics[width=\textwidth]{resource/decoder.png}
+	\caption{Een blokschema van de decoder, met de namen van de gebruikte in- en uitgangen en tussen haakjes het aantal bits}
+	\label{fig:decoder-schema}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{resource/decoder-flow.png}
+	\caption{De workflow van de decoder}
+	\label{fig:decoder-flow}
+\end{figure}
 
 %VHDL
-\subsection{VHDL}
-De decoder is geïmplementeerd als een FSM, al zijn sommige uitgangssignalen niet gebufferd, om registers te besparen. Het sequentiële deel van de FSM vernieuwt uiteraard alleen de (state) registers, waar het combinatorische gedeelte van de schakeling de daadwerkelijke instructieverwerking op zich neemt. In dit combinatorische gedeelte wordt afhankelijk van de huidige instructie, welke uit het eerste byte wat binnen komt over de SPI wordt afgeleid, en het huidige SPI-packet number bepaald wat voor informatie er ontvangen is. Voor pakketnummer 0 is dit bijvoorbeeld de instructie, voor nummer 1 de kleur, voor 2 het (eerste) x-coördinaat, enzovoort. Het type informatie per pakket verschilt uiteraard per instructie.
-\\\\
-Het combinatorische stuk van de decoder is grofweg op te delen is in drie stukken: het laden van sprites, het aansturen van de verschillende draw-modules en een stuk algemene controle.
+\subsection{Ontwerp en implementatie}
+De decoder is geïmplementeerd als een FSM. Het sequentiële deel van de FSM vernieuwt uiteraard alleen de (state) registers, waar het combinatorische gedeelte van de schakeling de daadwerkelijke instructieverwerking op zich neemt. In dit combinatorische gedeelte wordt afhankelijk van de huidige instructie, welke uit het eerste byte wat binnen komt over de SPI wordt afgeleid, en het huidige SPI-packet number bepaald wat voor informatie er ontvangen is. De instructie (current_instruction) en het pakketnummer (packet_num) zijn de state variabelen van de FSM. Wanneer er nog geen instructie geladen is, gebruikt de decoder het eerst volgende inkomende pakket om de volgende instructie uit te lezen. Wanneer de instructie bekend is, wordt met een counter het nummer van de daaropvolgende bytes bijgehouden. Deze bytes worden dan geïnterpreteerd afhankelijk van de huidige instructie en het pakketnummer. Wanneer het pakketnummer gelijk is aan het aantal pakketten dat bij een instructie hoort, onderneemt de decoder de benodigde actie, zoals het inschakelen van de juiste draw-module, en reset hij zichzelf daarna naar een state waarin hij wacht op de volgende instructie. Dit proces wordt op deze manier constant herhaald, wanneer de GPU ingeschakeld is.
 \\
-Bij het laden van sprites ontvangt de decoder enige relevante gegevens over die sprite, zoals de grootte en een aanwijzing over de locatie in het geheugen waar de sprite in kwestie moet worden opgeslagen. Als deze informatie binnen is worden de afzoderlijke pixels van de sprite (wel een pixel = `1', geen pixel = `0') ontvangen, waarna de decoder deze wegschrijft naar de juiste locatie in het VRAM.
+Bij het laden van sprites ontvangt de decoder alle relevante gegevens over die sprite (metadata). Deze metadata bestaat uit de breedte in pixels van de sprite, het aantal pakketten sprite-data wat ontvangen moet worden en een identificatienummer (id). Als deze informatie binnen is, wordt de sprite per zes bits weggeschreven naar het VRAM. Het te schrijven adres bestaat uit het id van de sprite, plus de waarde van een interne counter die het nummer van het huidige datablok bijhoudt.
 \\
-Wanneer er een draw-instructie binnenkomt verzamelt de decoder eerst alle informatie betreffende deze instructie, door deze gebufferd aan zijn uitgang te zetten. Daarna schakelt hij de module in kwestie in door het juiste bit in het enable-signaal hoog te maken.
+Wanneer er een draw-instructie binnenkomt verzamelt de decoder eerst alle informatie betreffende deze instructie, door deze gebufferd aan zijn uitgang te zetten. Hierbij moet gedacht worden aan de bijvoorbeeld x, y en kleur, afhankelijk van wat er getekend moet worden. Wanneer al deze data ontvangen is schakelt de decoder de correcte draw-module in door, het juiste bit in het enable-uitgangssignaal (en) hoog te maken.
 \\
-Het stuk algemene controle houdt in dat de decoder de CPU inlicht wanneer een draw-module zijn werk gedaan heeft en er dus een nieuwe instructie door mag komen. Ook houdt de decoder bij welk screen buffer actief is en kan hij een interne reset doorvoeren.
+Wanneer de switch-instructie binnenkomt, wordt het signaal asb geïnverteerd en is de decoder meteen klaar.
+\\
+\\
 
-%Testplan VHDL
-\subsection{Testplan}
-De decoder is getest met een testbench waarin SPI-data op de ingang van de decoder wordt gezet, voor iedere mogelijke instructie. Aan de waveform in ModelSim is dan vrij eenvoudig te zien of de module deze data dan ook vertaalt naar zinvolle instructies en hier naar handelt, of niet. Als dit zo is, kan de decoder samen met de overige modules in een grote GPU-testbench gesimuleerd worden en als ook dit lijkt te werken is het tijd voor een test op de FPGA. De decoder wordt niet afzonderlijk getest op de FPGA, omdat het veel werk zou zijn om hiervoor een implementatie en testprogramma te ontwerpen.
+
+
 
 %Synthese
-\subsection{Synthese}
+\subsection{Synthese en lay-out}
 
 
 %Switchlevel test
-\subsection{Switchlevel}
-
-
-%Extracted test
-\subsection{Extracted}
+\subsection{Switch-level simulatie}
 
 %Conclusie
 \subsection{Conclusie}

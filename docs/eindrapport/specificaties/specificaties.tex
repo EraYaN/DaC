@@ -12,15 +12,16 @@
 
 \section {Functie van de GPU}
 Een GPU is elektrische schakeling ontworpen om aan de hand van input data het geheugen te vormen en te wijzigen, zodat het maken van afbeeldingen voor een screen buffer snel genoeg gaat voor een vloeiende beeld op het beelscherm. De GPU die voor  dit project ontworpen en gefabriceerd wordt, zal dezelfde functie hebben als een algemene GPU, maar voor dit project zijn er bepaalde beperkingen voor de IC, die worden beschreven in de " Randvoorwaarden van de IC".
-\\De GPU zal opgebouwd moeten worden volgens het blokschema in figuur~\ref{overzichtGPU}.
+\\De GPU zal opgebouwd moeten worden volgens het blokschema in figuur~\ref{overzichtGPU} aan het einde van dit hoofdstuk.
 Zoals er in het blokschema gezien kan worden, zijn er een aantal externe interacties nodig om met de GPU een afbeelding op een monitor te laten schrijven. Ten eerste is er een CPU nodig om de benodigde data voor een schermafbeelding van één frame te sturen naar de GPU. Daarna zal de GPU deze data moeten omzetten naar zijn pixel equivalent en deze op het externe SRAM moeten schrijven, zodat de frame niet wordt vergeten bij het invoeren van de volgende frame. Ook moet de GPU het huidige frame uit het SRAM kunnen uitlezen, om deze vervolgens te modificeren tot een signaal dat door een VGA monitor verwerkt kan worden tot een schermafbeelding.
 
 \begin{figure}[H]
 \centering
-        \includegraphics[scale=0.75, angle=90]{Resource/system_overview.png}
+        \includegraphics[scale=0.9]{Resource/system_overview.png}
         \caption{overzicht GPU}
         \label{fig:overzichtGPU}
 \end{figure} 
+
 
 \section {Functionele Eisen}
 Om een GPU van acceptabel niveau te ontwerpen, zijn er deze funtionele eisen gesteld.
@@ -60,7 +61,6 @@ die de elektronica mag dissiperen voor de aansturing van de LEDs, etc.
 \item Nmos L×W = 1.6 × 23.2µm
 \item Pmos L×W = 1.6 × 29.6µm
 \end {itemize}
-
 
 
 \end{document}
