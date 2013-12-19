@@ -67,7 +67,9 @@ Wanneer de switch-instructie binnenkomt, wordt het signaal asb geïnverteerd en 
 \\
 \\
 
-
+%Synthese
+\subsection{Synthese}
+De decoder is een vrij omvangrijke module, hij slaat alle input die benodigd is voor de draw-modules op in registers en bevat daarnaast de nodige arithmiek voor het schrijven van sprites naar het VRAM en voor het optellen van de failsafe-counter. Deze registers en arithmiek resulteren in een groot gebruikt chipoppervlak. Synthese met compile_ultra levert een totaal celloppervlak op van 3139 transistoren. Handmatige plaatsing van de cellen op 20 rijen met een onderlinge afstand van 7 en de optie ``vary distance'' uitgeschakeld levert met Trout een lay-out op met een totaal van 22440 transistoren op, waarvan er 6285 daadwerkelijk worden gebruikt. Een efficiëntie van 28.01\% dus.
 
 
 %Synthese
