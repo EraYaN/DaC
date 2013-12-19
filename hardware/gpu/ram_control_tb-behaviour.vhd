@@ -33,8 +33,8 @@ signal draw_can_access, decoder_can_access, vga_can_access: std_logic;
 begin
 clk <=			'1' after 0 ns,
 			'0' after 10 ns when clk /= '0' else '1' after 10 ns;
-write_enable <=			'0' after 0 ns,
-			'1' after 320 ns;
+--write_enable <=			'0' after 0 ns,
+--			'1' after 320 ns;
 vga_claim <=			'0' after 0 ns,
 			'1' after 20 ns,
 			'0' after 60 ns;
@@ -100,5 +100,11 @@ lbl1: ramcontroller port map(
 
 
 end behaviour;
+
+
+
+
+
+
 
 

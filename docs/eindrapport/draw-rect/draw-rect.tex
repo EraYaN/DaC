@@ -28,7 +28,7 @@ Een overzicht van alle aansluitingen van de module zijn te vinden in figuur \ref
 
 %Ontwerp en implementatie
 \subsection{Ontwerp en implementatie}
-In Appendix is de VHDL entity van draw-rect te zien en in Appendix ? is de bijbehorende VHDL behaviour te zien. Zodra het ingangssignaal draw\_can\_access hoog is, is de RAM vrij om beschreven te worden en begint de module rechtsonderin met tekenen op coördinaat (x\tss{1},y\tss{1}). De module zet op de actieve klokflank de huidige coördinaat op het uitgangssignaal ramaddr (samen met het not asb signaal) en zet de kleur op het uitgangssignaal ramdata. Ook wordt er aan de RAM controller doorgegeven dat de module de data van ramaddr en ramdata op het RAM wilt schrijven door middel van het signaal draw\_write = '1'.
+In bijlage \ref{appsec:draw_rect.vhdl} is de VHDL entity van draw-rect te zien en in bijlage \ref{appsec:draw_rect-behaviour.vhdl} is de bijbehorende VHDL behaviour te zien. Zodra het ingangssignaal draw\_can\_access hoog is, is de RAM vrij om beschreven te worden en begint de module rechtsonderin met tekenen op coördinaat (x\tss{1},y\tss{1}). De module zet op de actieve klokflank de huidige coördinaat op het uitgangssignaal ramaddr (samen met het not asb signaal) en zet de kleur op het uitgangssignaal ramdata. Ook wordt er aan de RAM controller doorgegeven dat de module de data van ramaddr en ramdata op het RAM wilt schrijven door middel van het signaal draw\_write = '1'.
 \\\\
 Vervolgens gaat de module een stap naar links maken en bevindt zich dan op het punt (x\tss{1} -1, y\tss{1}). Deze stapjes worden net zolang herhaald, totdat de x-coördinaat het punt x0 heeft bereikt. Daarna wordt er een sprong terug gemaakt, één positie boven het punt waar de module is begonnen met tekenen, namelijk (x\tss{1}, y\tss{1} -1). Vervolgens herhaalt het proces zich tot het punt (x\tss{0}, y\tss{0}) is bereikt. Afhankelijk van het ingangssignalen enable en enablef kan de rechthoek al dan niet worden ingekleurd.
 \\\\
@@ -36,13 +36,21 @@ Nadat de module klaar is met het bepalen van de coördinaten van de rechthoek, w
 
 %VHDL simulatie
 \subsection{VHDL simulatie}
-Voor het testen van de VHDL code is een testbench geschreven en gesimuleerd in ModelSim. De behaviour van deze testbench is te vinden in Appendix ?. Aan de ingang worden o.a. twee coördinaten doorgegeven en een kleurcode. Enable en enablef werden gebruikt om aan te geven dat de rechthoek niet ingekleurd moest worden.
+Voor het testen van de VHDL code is een testbench geschreven en gesimuleerd in ModelSim. De behaviour van deze testbench is te vinden in bijlage \ref{appsec:draw_rect_tb-behaviour.vhdl}. Aan de ingang worden o.a. twee coördinaten doorgegeven en een kleurcode. Enable en enablef werden gebruikt om aan te geven dat de rechthoek niet ingekleurd moest worden.
 \\\\
-De simulatie werkte goed. Op de uitgangen ramdata en ramaddr kwamen de juiste signalen te staan. Nadat de module klaar was, kwam er een signaal done = '1' op de uitgang te staan. Ook waren de signalen synchroon met de clock. De volgende stap is het synthetiseren van de VHDL code.
+De simulatie werkte goed. Op de uitgangen ramdata en ramaddr kwamen de juiste signalen te staan. Nadat de module klaar was, kwam er een signaal done = '1' op de uitgang te staan. Ook waren de signalen synchroon met de clock. De volgende stap is het synthetiseren van de VHDL code. In figuur \ref{fig:draw_rect-vhdlsim} is een fragment van deze simulatie te zien in ModelSim.
+\\\\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{resources/draw_rect-vhdlsim.png}
+	\caption{Een fragment uit de waveform van de draw\_rect testbench}
+	\label{fig:draw_rect-vhdlsim}
+\end{figure}
 
 %Synthese
 \subsection{Synthese en lay-out}
-Het synthetiseren van de draw\_rect module verliep over het algemeen soepel. M.b.v. de Place \& route functie van het programma Seadali konden niet alle verbindingen worden gemaakt. Dit probleem is verholpen door handmatig met de row placer functie rijen op te schuiven en vervolgens Seadali laten routen met de trout functie. Hierbij kwam het programma op een totaal van ??? transistoren, waarvan er ??? daadwerkelijk werden gebruikt. De efficiëntie voor deze module bedraagt dus ???\%.
+Het synthetiseren van de draw\_rect module verliep over het algemeen soepel. M.b.v. de Place \& route functie van het programma Seadali konden niet alle verbindingen worden gemaakt. Dit probleem is verholpen door handmatig met de row placer functie rijen op te schuiven en vervolgens Seadali laten routen met de trout functie. Hierbij kwam het programma op een totaal van 4728 transistoren, waarvan er 2383 daadwerkelijk werden gebruikt. De efficiëntie voor deze module bedraagt dus 50.40\%.
 
 %Switchlevel test
 \subsection{Switch-level simulatie}
@@ -50,6 +58,6 @@ De gesynthetiseerde schakeling is gesimuleerd met SLS. Deze simulatie is vervolg
 
 %Conclusie
 \subsection{Conclusie}
-Aan de hand van de simulaties van de VHDL code, gesynthetiseerde schakeling en de lay-out kan geconcludeerd worden dat draw\_rect op alle gebieden voldoet aan de specificaties. De efficiëntie van de lay-out zou eventueel nog verhoogd kunnen worden als de VHDL code zou veranderen of de gesynthetiseerde schakeling beter geoptimaliseerd zou worden. Al met al is de module draw\_rect met een lay-out efficiëntie van ???\% een succes!
+Aan de hand van de simulaties van de VHDL code, gesynthetiseerde schakeling en de lay-out kan geconcludeerd worden dat draw\_rect op alle gebieden voldoet aan de specificaties. De efficiëntie van de lay-out zou eventueel nog verhoogd kunnen worden als de VHDL code zou veranderen of de gesynthetiseerde schakeling beter geoptimaliseerd zou worden. Al met al is de module draw\_rect met een lay-out efficiëntie van 50.40\% een succes!
 
 \end{document}

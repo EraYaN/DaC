@@ -1,0 +1,100 @@
+\documentclass{scrartcl}  % scrartcl of scrreprt
+\usepackage{SIunits}
+\input{../../library/preamble}  
+\input{../../library/style}
+\addbibresource{../../library/bibliography.bib}
+
+\author{ Jorden {Kerkhof}  }
+\title{EPO3: Eindrapport - VGA-controller}
+
+
+
+
+\begin{document}
+
+\section{VGA-controller}
+\label{sec:vga-controller}
+
+
+
+
+
+\subsection{Specificaties}
+
+De VGA-controller is een belangrijk component in ons systeem. Deze zorgt er namelijk voor dat alles wat berekend wordt in de module daadwerkelijk zichtbaar wordt gemaakt. De VGA-controller legt de verbinding tussen de rest van ons systeem en een scherm, hierdoor is fysiek te zien wat er gebeurt in het systeem. 
+
+De specificaties van de VGA-controller zijn uitgedrukt in de in- en uitgangen van dit component. Hieronder een overzichtelijk tabel daarvan. Bij de vectoren is de grootte gegeven in parameters. Deze parameters zijn terug te vinden in de beschrijving van het package file, welke eerder is besproken in dit verslag.
+
+\begin{table}[H]
+\centering
+\caption{Specificaties van de VGA Controller }
+\label{tab:spec-vgacontroller}
+\begin{tabular}{c c c}
+	\hline\hline
+ 	Naam & Modus & Type\\
+ 	\hline	
+	clk & in & std\_logic \\ 
+	reset\_n & in & std\_logic \\ 
+	vgahsync & out & std\_logic \\ 
+	vgavsync & out & std\_logic \\ 
+	vga\_claim & out & std\_logic \\ 
+	ramaddr & out & std\_logic\_vector(SizeRAMAddr-1 downto 0) \\
+	vga\_read & out & std\_logic \\
+	vga\_can\_access & in & std\_logic \\
+	asb & in & std\_logic \\
+  	\hline\hline
+\end{tabular}
+\end{table}
+
+
+\subsection{Ontwerp en implementatie}
+
+Aan het begin van de entity worden eerst een aantal constanten gecreeerd. Deze zijn afgesteld op de grootte van ons resolutie en hoe snel we het scherm willen verversen. In het ontwerp is al grotendeels besproken welke signalen binnenkomen in de VGA-controller. De ingangen zijn vrij standaard. De ingangen zijn clk(clock), reset\_n (negative reset), vga\_can\_access en asb( active screen buffer). . De uitgangen zijn vgahsync, vgavsync, vga\_claim, ramaddr en vga\_read. Vgahync en vgavsync zijn hier de horizontalen en verticale synchronisatie pulsen. De kleur wordt op het juiste moment direct verbonden van de RAMController naar de VGA-poort. Ramaddr is het adres van de pixel waar het scherm op dit moment is. Vga\_claim is een signaal dat aangeeft dat de vga-controller op dit moment toegang heeft tot de RAM. VGA\_read geeft aan dat de VGA-controller de RAM gegevens uitleest.
+\\\\
+ In de behaviour worden er als eerste  een aantal belangrijke constanten en signalen gedeclareerd. De periode van de horizontale en de verticale synchronisatie pulsen bepalen hoe lang er doorgeteld moet worden totdat je het hele scherm bent afgegaan. We hebben deze zo ingesteld dat ze iets groter zijn dan onze resolutie daadwerkelijk is. Dit om ervoor te zorgen dat als de vga-controller aan het tekenen is buiten het scherm dat de waarden even weer goed kunnen worden ingelezen. Omdat we een negatieve reset hebben, gaat de code werken als de reset hoog is. Vervolgens begint de vga-controller te synchroniseren. Hij begint buiten het scherm en zorgt ervoor dat de juiste data aan de ingangen staat. Vervolgens begint hij van links naar recht, van boven naar beneden het scherm in te vullen. Elk moment dat hij bij een bepaalde pixel is geeft hij dit adres door aan de RAM-controller. Deze leest uit de RAM welke kleur deze pixel moet hebben en stuurt dit rechtstreeks door naar de vga-controller. Deze stuurt dat gelijk door naar de uitgang zodat de correcte kleur op het goede moment en het juiste tijdstip wordt afgebeeld. 
+
+
+\subsection{VHDL simulatie}
+Om te testen of de vhdl-code werkte hebben we een testbench geschreven. Hier laten we de vga\_can\_access hoog worden, zodat de vga-controller in zijn werk zal gaan. De code voor de testbench is te vinden in \ref{???}. Hieronder een overzicht van de resultaten van de simulatie.
+\begin{figure}[H]
+\centering
+		\includegraphics[width=1\textwidth]{images/simmodvgafinal.png}
+		
+		\caption{Het resultaat van de simulatie in Modelsim.}
+		\label{fig:sim}
+\end{figure}
+Uit figuur \ref{fig:sim} kunnen we dus afleiden dat de vga-controller telkens een hele regel afgaat, vervolgens even verder gaat om de waarden in te lezen en een volgende regel weer helemaal afgaat. 
+
+\subsection{Synthese en lay-out}
+Voor de synthese hebben we het programma GoWithTheFlow gebruikt. Hier kwam een gesynthetiseerde versie uit, met een bijbehorend design.
+\begin{figure}[H]
+\centering
+		\includegraphics[width=1\textwidth]{images/circuitvgafinal.png}
+		
+		\caption{Het resultaat van de synthese van de VGA-Controller}
+		\label{fig:circuit}
+\end{figure}
+Hieruit bleek dat de uiteindelijke efficientie voor dit component 41,91\% is. Het liefst heb je natuurlijk een efficientie van 100\%. Helaas is dit ons niet gelukt, omdat wij ook rekening moeten houden met de grootte van het geheel. Aangezien wij een beperkt aantal transistoren tot onze beschikking hebben, hebben we getracht zo weining mogelijk transistoren te gebruiken. Uiteindelijk hebben een totaaloppervlakte van  4152 transistoren, waarvan er 1740 daadwerkelijk worden gebruikt. Dit is te verklaren doordat er in de entity heel wat constanten worden gedefineerd, speciaal alleen voor de vga-controller. Dit is lastig te synthetiseren en geeft een lagere effecientie van je transistorgebruik.
+Bij de extracted versie van de vhdl controleer je of de code ook nog werkt wanneer je hem hebt geïmplenteerd en omgezet in hardware componenten. Uit onze simulatie hiervan bleek dat de resultaten bijna precies overeen kwamen met de simulatie van de normale testbench. Het meest voorkomende fout, was wanneer de uitgang op high-impedance (`Z') werd gezet. Dit kon na de synthese niet goed worden uitgevoerd, en werd danwel een `1' of een `0'. Opzich geeft dit geen problemen omdat VGA\_claim ook op `0' staat. Er zal dus niks gebeuren richting de vga-poort.
+
+\subsection{Switch-level simulatie}
+De gesynthetiseerde code is gesimuleerd in SLS. De resultaten hiervan zijn te vinden in \ref{fig:switch}. 
+
+\begin{figure}[H]
+\centering
+		\includegraphics[width=1\textwidth]{images/simslsvga-final.png}
+		
+		\caption{De SLS simulatie van de gesynthetiseerde schakeling van VGA-Controller}
+		\label{fig:switch}
+\end{figure}
+Vervolgens zijn deze uitkomsten vergeleken met de resultaten van de originele testbench, welke gesimuleerd is in modelsim. Hieruit bleek dat beide codes hetzelfde resultaat opleverden en geen errors veroorzaakten. Dit houdt in dat de vga-controller goed synthetiseerbaar is. De hardware zal uiteindelijk geen problemen opleveren en zal dezelfde resultaten moeten afleveren als de simulatie van de testbench zou doen. 
+
+
+
+
+\subsection{Conclusie}
+Uit meerdere simulaties blijkt dat de code werkt. De resultaten van de simulatie komen overeen met de gewenste resultaten. Dit houdt in dat de code naar behoren werkt en goed te implementeren is. De code zal waarschijnlijk geen problemen geven als deze geïmplementeerd wordt.
+
+
+\end{document}
+
