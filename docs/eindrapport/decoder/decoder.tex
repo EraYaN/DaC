@@ -10,7 +10,7 @@
 \chapter{Instructiedecoder}
 \label{ch:decoder}
 %specs
-\subsection{Specificaties}
+\section{Specificaties}
 De decoder accepteert een vaste set instructies, zoals in tabel \ref{tab:decoder-instruction}
 
 \begin{table}[H]
@@ -56,7 +56,7 @@ De hierboven beschreven in- en uitgangen staan als blokschema uitgewerkt in figu
 \end{figure}
 
 %VHDL
-\subsection{Ontwerp en implementatie}
+\section{Ontwerp en implementatie}
 De decoder is geïmplementeerd als een FSM. Het sequentiële deel van de FSM vernieuwt uiteraard alleen de (state) registers, waar het combinatorische gedeelte van de schakeling de daadwerkelijke instructieverwerking op zich neemt. In dit combinatorische gedeelte wordt afhankelijk van de huidige instructie, welke uit het eerste byte wat binnen komt over de SPI wordt afgeleid, en het huidige SPI-packet number bepaald wat voor informatie er ontvangen is. De instructie (current\_instruction) en het pakketnummer (packet\_num) zijn de state variabelen van de FSM. Wanneer er nog geen instructie geladen is, gebruikt de decoder het eerst volgende inkomende pakket om de volgende instructie uit te lezen. Wanneer de instructie bekend is, wordt met een counter het nummer van de daaropvolgende bytes bijgehouden. Deze bytes worden dan geïnterpreteerd afhankelijk van de huidige instructie en het pakketnummer. Wanneer het pakketnummer gelijk is aan het aantal pakketten dat bij een instructie hoort, onderneemt de decoder de benodigde actie, zoals het inschakelen van de juiste draw-module, en reset hij zichzelf daarna naar een state waarin hij wacht op de volgende instructie. Dit proces wordt op deze manier constant herhaald, wanneer de GPU ingeschakeld is.
 \\\\
 Bij het laden van sprites ontvangt de decoder alle relevante gegevens over die sprite (metadata). Deze metadata bestaat uit de breedte in pixels van de sprite, het aantal pakketten sprite-data wat ontvangen moet worden en een identificatienummer (id). Als deze informatie binnen is, wordt de sprite per zes bits weggeschreven naar het VRAM. Het te schrijven adres bestaat uit het id van de sprite, plus de waarde van een interne counter die het nummer van het huidige datablok bijhoudt.
@@ -69,7 +69,7 @@ Wanneer de switch-instructie binnenkomt, wordt het signaal asb geïnverteerd en 
 Zoals al vermeld bij SPI, zijn we er helaas niet in geslaagd om een helemaal correct functionerende SPI-interface te maken, om onbekende reden. Omdat de decoder direct afhankelijk is van de SPI-interface, loopt deze vast op het moment dat de SPI-module faalt. Om er voor te zorgen dat de decoder daarna zonder de hele GPU te resetten toch weer verder gaat, hebben we een timer ingebouwd die de SPI-module en de decoder ``soft-reset'', zodra deze afgelopen is. In de praktijk levert dit een zo nu en dan knipperend beeld en soms artifacts op, maar dat is beter dan een beeld dat steeds bevriest. Naast deze maatregel resetten we de SPI-module ook na iedere ontvangen instructie
 
 %VHDL simulatie
-\subsection{VHDL simulatie}
+\section{VHDL simulatie}
 In ModelSim is een testbench gebruikt die verschillend bytes aan de ingang van de decoder zet, om te zien of de decoder ze omzet naar de juiste instructie en data.
 \\\\
 Als eerst wordt een sprite naar het VRAM geladen. In figuur \ref{fig:decoder-modelsim-lsprite} is te zien hoe de met spi\_data\_available de inkomende data naar het VRAM geschreven wordt. Wanneer het laatste pakket ontvangen wordt (nummer 4, zoals opgeslagen in x), heeft de counter (opgeslagen in h) dit aantal bereikt en bemerkt de decoder dat hij klaar is en gaat int\_ready omhoog.
@@ -113,15 +113,15 @@ Als laatst testen we de switch-instructie, waarin het screen buffer wordt gewiss
 Uit deze drie tests mag geconcludeerd worden dat de decoder alle vereiste instructies kan verwerken. Ook de timeout is werkend getest en in de praktijk blijkt dat deze timer inderdaad zorgt dat de GPU niet meer vast loopt.
 
 %Synthese
-\subsection{Synthese}
+\section{Synthese}
 De decoder is een vrij omvangrijke module, hij slaat alle input die benodigd is voor de draw-modules op in registers en bevat daarnaast de nodige arithmiek voor het schrijven van sprites naar het VRAM en voor het optellen van de failsafe-counter. Deze registers en arithmiek resulteren in een groot gebruikt chipoppervlak. Synthese met compile\_ultra levert een totaal celloppervlak op van 3139 transistoren. Handmatige plaatsing van de cellen op 20 rijen met een onderlinge afstand van 7 en de optie ``vary distance'' uitgeschakeld, levert met Trout een lay-out op met een totaal van 22440 transistoren op, waarvan er 6285 daadwerkelijk worden gebruikt. Een efficiëntie van 28.01\% dus.
 
 %Switchlevel test
-\subsection{Switch-level simulatie}
+\section{Switch-level simulatie}
 Zowel circuit als lay-out zijn gesimuleerd met SLS en vervolgens vergeleken met de originele ModelSim testbench. Beide keren leverde dit een correct resultaat op.
 
 %Conclusie
-\subsection{Conclusie}
+\section{Conclusie}
 Wanneer de decoder de juiste data binnen krijgt over de SPI-interface, functioneert hij geheel correct. Helaas is dit niet altijd het geval en hebben we maatregelen moeten treffen om hier omheen te werken. Dit, en het feit dat de decoder sowieso al een vrij complexe module is, heeft er voor gezorgd dat de decoder de een-na-grootste module in de GPU is. Een andere aanpak was geweest om de decoder op te splitsen in twee of meerdere delen en/of losse componenten op te delen. Op deze manier zouden de verschillende registers en/of adders eventueel ook nog kunnen worden hergebruikt.
 
 \end{document}

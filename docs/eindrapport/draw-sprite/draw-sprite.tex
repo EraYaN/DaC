@@ -23,18 +23,18 @@ Draw\_sprite is een module die coordinaten van pixels uit kan lezen uit het RAM 
 
 %Ontwerp en implementatie
 \subsection{Ontwerp en implementatie}
-Deze module wordt pas aangeroepen zodra enable 1 is en mag net als alle andere modules lezen uit het RAM en schrijven wanneer draw\_can\_access gelijk is aan '1'. Vervolgens zal deze met behulp van de startlocatie in het RAM waar de sprite staat en de breedte en hoogte ervan de pixels een voor 1 uitlezen en wegschrijven in de screenbuffer waarna het wordt getekend op het scherm door de met behulp van de VGA controller.
+Deze module wordt pas aangeroepen zodra enable 1 is en mag net als alle andere modules lezen uit het RAM en schrijven wanneer draw\_can\_access gelijk is aan `1'. Vervolgens zal deze met behulp van de startlocatie in het RAM waar de sprite staat en de breedte en hoogte ervan de pixels een voor 1 uitlezen en wegschrijven in de screenbuffer waarna het wordt getekend op het scherm door de met behulp van de VGA controller.
 
 %VHDL simulatie
 \subsection{VHDL simulatie}
 Voor de VHDL simulatie is ModelSim gebruikt, waarvoor een testbench is geschreven. In de testbench wordt eerst enable laag gehouden, waarbij hij inderdaad niets uitvoert wat er ook op de ingangen komt te staan.\\
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.75\textwidth]{resource/draw_simulate.png}
-	\caption{De simulatie van draw sprite, nadat enable op '1' is gegaan}
+	\includegraphics[width=0.75\textwidth]{resource/draw_sprite_simulate.png}
+	\caption{De simulatie van draw sprite, nadat enable op `1' is gegaan}
 	\label{fig:draw-sprite-simulatie}
 \end{figure}
-Vervolgens gaat afhankelijk van het startadres de draw sprite module de verschillende geheugenlocaties af en leest daar de kleur van uit. Dit blijft hij zodanig herhalen totdat hij bij de laatste aangegeven locatie komt die aangegeven zijn door middel van een breedte en hoogte, waarna done '1' wordt
+Vervolgens gaat afhankelijk van het startadres de draw sprite module de verschillende geheugenlocaties af en leest daar de kleur van uit. Dit blijft hij zodanig herhalen totdat hij bij de laatste aangegeven locatie komt die aangegeven zijn door middel van een breedte en hoogte, waarna done `1' wordt
 
 %Synthese
 \subsection{Synthese en lay-out}
