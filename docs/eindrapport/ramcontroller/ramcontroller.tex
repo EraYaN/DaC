@@ -8,8 +8,8 @@
 \title{EPO3: Eindrapport - RAM Controller}
 
 \begin{document}
-\section{RAM Controller} %<----- fill in section name
-\label{sec:ram-controller} % <-----fill in lable name
+\chapter{RAM Controller} %<----- fill in section name
+\label{ch:ram-controller} % <-----fill in label name
 
 % describe function of block
 De RAM controller regelt de *\_can\_access signalen naar de andere modules en het RAM Write-Enable signaal. Het RAM Write-Enabled signaal is active-low de andere zijn active-high.
@@ -24,7 +24,7 @@ De chip die door ons gekozen is heeft een maximale delay van 55 ns tussen adres 
 
 
 %specificaties blok (copy paste)
-\subsection{Specificaties}
+\section{Specificaties}
 De waarheidstabellen waaraan deze schakeling zijn gegeven in \ref{tab:ramcontroller-truth-re} en \ref{tab:ramcontroller-truth-ca}.
 
 \begin{table}[H]
@@ -65,7 +65,7 @@ De waarheidstabellen waaraan deze schakeling zijn gegeven in \ref{tab:ramcontrol
 \end{tabular}
 \end{table}
 
-\subsection{Ontwerp \& Implementatie}
+\section{Ontwerp \& Implementatie}
 De communicatie met de SRAM chip is tijdsgevoelig, in de datasheet van de SRAM chip staat de “time-constraints”.
 Aan de Figuren \ref{fig:ramcontroller-read-cycle}, \ref{fig:ramcontroller-write-cycle} en \ref{fig:ramcontroller-time-constraints} is te zien dat deze SRAM chip dermate snel is dat wij nooit langer dan 1 klokslag nodig zullen hebben om een operatie op het RAM uit te voeren.
 De maximale delay die deze chip met zich mee brengt is 55 ns, dit is ver onder onze klokperiode van ongeveer 163 ns.
@@ -98,7 +98,7 @@ Dit uiteindelijke signaal is low-active en word buiten de ramcontroller geïnver
 \end{figure}
 
 %VHDL Sim
-\subsection{VHDL simulatie}
+\section{VHDL simulatie}
 De VHDL is zeer kort en bondig. Het zorgt dat de uitgangen voldoen aan de waarheidstabellen.
 In de simulatie zien we dat inderdaad de waarheidstabel goed geimplementeerd is.
 
@@ -110,7 +110,7 @@ In de simulatie zien we dat inderdaad de waarheidstabel goed geimplementeerd is.
 \end{figure}
 
 %Synthese
-\subsection{Synthese \& Layout}
+\section{Synthese \& Layout}
 Zoals te zien in in de layout (Figuur \ref{fig:ramcontroller-layout}) is dit een zeer compacte module. De simulaties in modelsim van de extracted en sythesized VHDL geven één zelfde beeld.
 
 \begin{figure}[H]
@@ -121,7 +121,7 @@ Zoals te zien in in de layout (Figuur \ref{fig:ramcontroller-layout}) is dit een
 \end{figure}
 
 %Switchlevel test
-\subsection{Switchlevel}
+\section{Switchlevel}
 De switch level simulatie verliep vlekkeloos. Zie Figuur \ref{fig:ramcontroller-sl-sim}.
 \begin{figure}[H]
 \centering
@@ -131,7 +131,7 @@ De switch level simulatie verliep vlekkeloos. Zie Figuur \ref{fig:ramcontroller-
 \end{figure}
 
 %Conclusie
-\subsection{Conclusie}
+\section{Conclusie}
 Als we de resultaten van de SLS simulatie vergelijken met de resultaten uit modelsim dan komen die exact overeen.
 
 \end{document}

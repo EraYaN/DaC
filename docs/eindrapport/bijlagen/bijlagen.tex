@@ -1,4 +1,4 @@
-\documentclass{scrartcl}
+\documentclass{scrreprt}
 \input{../../library/preamble.tex}
 \input{../../library/style.tex}
 \addbibresource{../../library/bibliography.bib}
@@ -7,7 +7,6 @@
 \title{EPO3: Eindrapport - Bijlagen}
 
 \begin{document}
-%\renewcommand{\chapternumber}{\appendixname\;\thechapter} %<------VERSLAG GAAT HIERVAN KAPOT
 \begin{appendices}
 
 \chapter{Instructies}
@@ -19,6 +18,10 @@
 \section{Bresenham's line algorithm}
 \label{appsec:pseudocode-bresenham-line}
 \includecode[c]{Pseudocode Bresenham's line algorithm \cite{line-alg}}{resource/bresenham-line.pseudocode}
+
+\chapter{Broncode}
+\label{app:source}
+\subimport{../../../}{sourceBijlage}
 
 \end{appendices}
 \end{document}
