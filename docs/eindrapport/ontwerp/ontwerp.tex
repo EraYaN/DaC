@@ -25,10 +25,10 @@ De SPI verstuurd de ontvangen data naar de Instructie Decoder in 8-bit pakketjes
 De Instructie Decoder stuurt direct een interrupt signaal naar de AVR om aan te geven wanneer een pakketje is vertaald naar instructies, dus nadat een instructie klaar is.
 
 \section{Instructie Decoder <--> Draw Logic}
-De Instructie Decoder stuurt dan de data vertaald in instructies naar de Draw Logic in de vorm van X, W, Y, H, Color, ID en Enable. Draw Logic geeft constant zijn status weer aan de Instructie Decoder middels een draw\_ready signaal dat aangeeft of Draw Logic zijn volgende instructie kan verwerken of nog steeds bezig is met een instructie.
+De Instructie Decoder stuurt dan de data vertaald in instructies naar de Draw Logic in de vorm van X, W, Y, H, Color, ID en Enable. Draw Logic geeft zijn status weer aan de Instructie Decoder middels een draw\_ready signaal dat aangeeft of Draw Logic zijn volgende instructie kan verwerken of nog steeds bezig is met een instructie.
 
 \section {Instructie Decoder <--> RAM Controller}
-Voor het inladen van sprites in het externe SRAM stuurt de Instructie Decoder direct data naar de RAM Controller en daarbij stuurt de Instructie Decoder een decoder\_claim signaal om te voorkomen dat andere blokken tegelijkertijd dingen in of uit het externe SRAM gaan lezen of schrijven. De RAM Controller stuurt het signaal decoder\_can\_access naar de Instructie Decoder dat verteld of RAM Controller ergens mee bezig is.
+Voor het inladen van sprites in het externe SRAM stuurt de Instructie Decoder direct data naar de RAM Controller en daarbij stuurt de Instructie Decoder een decoder\_claim signaal om te voorkomen dat andere blokken tegelijkertijd dingen in of uit het externe SRAM gaan lezen of schrijven. De RAM Controller stuurt het signaal decoder\_can\_access naar de Instructie Decoder dat verteld of RAM Controller bezig is met instructies van een ander blok.
 
 \section {Instructie Decoder --> Draw Logic \& VGA Controller}
 De Instructie Decoder stuurt het ASB signaal naar de Draw Logic en de VGA Controller om ervoor te zorgen dat de juiste instructie in het juiste screenbuffer wordt gelezen of geschreven. De Instructie Decoder bepaald hiermee in welk screenbuffer wordt geschreven en uit welke screenbuffer wordt gelezen.
