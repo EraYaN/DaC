@@ -10,7 +10,7 @@
 \chapter{Draw}
 \label{ch:draw}
 
-De module draw is een overkoepelende module die op een overzichtelijk manier verschillende modules met elkaar verbindt. Het verbindt de decoder, RAM-chip en RAM-controller met de vier verschillende modules draw\_pixel, draw\_rect, draw\_line en draw\_sprite. Module draw is een structural beschrijving. De entity van deze module is te vinden in bijlage \ref{appsec:draw.vhd} 'en' de structural beschrijving is te vinden in bijlage \ref{appsec:draw_structural.vhd}. In figuur \ref{fig:draw} is een blokschema te zien van deze module.
+Dit is de verzameling van alle modules die wat kunnen tekenen op de screenbuffer.
 
 \begin{figure}[H]
 	\centering
@@ -19,7 +19,6 @@ De module draw is een overkoepelende module die op een overzichtelijk manier ver
 	\label{fig:draw}
 \end{figure}
 
-In de structural beschrijving van deze module is duidelijk te zien dat de vier modules zijn gebruikt als component. In de port map is te zien dat alle inputs (signalen van de decoder) en alle outputs (naar RAM-chip en RAM-controller) zijn verbonden met alle componenten. Tevens zorgt deze module ervoor dat de vector de juiste modules activeert.
-\\\\
-Deze module is uiteindelijk niet als geheel in de lay-out verwerkt. Om ruimte te besparen is deze module verwerkt in andere modules.
+In de volgende secties worden de draw modules verder uitgewerkt.
+
 \end{document}
