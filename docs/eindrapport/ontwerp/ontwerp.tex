@@ -13,7 +13,7 @@
 Het uiteindelijke ontwerp is te zien in figuur~\ref{fig:ontwerp-schema}. In het schema staat hoe de GPU is verdeeld en staat wat voor onderlinge interacties er plaatsvinden tussen de modules.
 Elke module is een component van de GPU met zijn eigen in VHDL beschreven gedrag en met zijn eigen functie. De screenbuffers zitten in het externe VRAM. 
 \\
-De GPU is verdeeld in 5 modules: de SPI, de Instructiedecoder, de Draw-logic, de RAM-controller en de VGA-controller. Daarbij is de Draw-logic module nog verdeeld in modules om de verschillende functies voor verschillende vormen te representeren. Er zijn vier modules: draw\_pixel, draw\_rect, draw\_line en draw\_sprite. Deze modules tekenen respectievelijk een pixel, rechthoek (contour of gevuld), lijn of sprite in het screen buffer.
+De GPU is verdeeld in 5 modules: de SPI, de Instructiedecoder, de Draw-logic, de RAM-controller en de VGA-controller. Daarbij is de Draw-logic module nog verdeeld in modules om de verschillende functies voor verschillende vormen te representeren. Er zijn vier modules: draw\_pixel, draw\_rect, draw\_line en draw\_sprite. Deze modules tekenen respectievelijk een pixel, rechthoek (contour of gevuld), lijn of sprite in de screenbuffer.
 \\
 Wat er precies gebeurt in de modules zal uitgelegd worden bij de hoofdstukken met de naam van de desbetreffende module. In dit hoofdstuk zal de nadruk liggen op de interacties tussen de modules.
 
@@ -37,7 +37,7 @@ Voor het inladen van sprites in het VRAM, geeft de instructiedecoder aan bij de 
 De instructiedecoder stuurt het ASB signaal naar de Draw-logic en de VGA-controller om ervoor te zorgen dat de juiste instructie in het juiste screenbuffer wordt gelezen of geschreven. De instructiedecoder bepaald hiermee in welk screenbuffer wordt geschreven en uit welke screenbuffer wordt gelezen.
 
 \section {Draw-logic <--> Modules}
-Draw-logic verstuurt de verkregen instructies van de instructiedecoder naar de juiste module. De desbetreffende module stuurt dan de naar pixels verwerkte instructie terug naar de Draw-logic met een signaal dat het klaar is met het verwerken van de instructie en dus klaar is voor de volgende instructie.
+Draw-logic verstuurt de verkregen instructies van de instructiedecoder naar de juiste module. De desbetreffende module stuurt dan, de naar pixels verwerkte instructie, terug naar de Draw-logic met een signaal dat het klaar is met het verwerken van de instructie en dus klaar is voor de volgende instructie.
 
 \section {Draw-logic <--> RAM-controller en VRAM}
 Draw-logic geeft bij de RAM-controller aan dat hij wil lezen of schrijven, zodat andere modules dat niet tegelijkertijd ook kunnen doen. Vervolgens kan de gactiveerde draw-module zijn pixeldata naar het VRAM schrijven, in het juiste screen buffer.
