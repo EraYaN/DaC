@@ -25,7 +25,7 @@ Naast het algemene kloksignaal heeft de SPI zijn eigen kloksignaal (SCLK). Op ie
 
 %Ontwerp & implementatie
 \section{Ontwerp en implementatie}
-De SPI-module is vrij simpel en bestaat eigenlijk alleen uit een stuk logica wat de inkomende bits synchroniseert met het systeemwijde kloksignaal, en een shift-register om waarin uit de acht ontvangen bits een byte gevormd wordt. Helaas zijn we er in de praktijk niet in geslaagd een SPI-module te maken die helemaal stabiel was. De reden is onbekend, maar de module gaat relatief vaak out-of-sync tijdens het ontvangen van een byte, waardoor de module `denkt' dat hij al een gehele byte ontvangen heeft, waar dat in werkelijkheid slechts zeven bits zijn. Om dit probleem te verzachten zit er een extra reset in de module, als ook een timer die de module reset, wanneer hij dreigt vast te lopen.
+De SPI-module is vrij simpel en bestaat eigenlijk alleen uit een stuk logica wat de inkomende bits synchroniseert met het systeemwijde kloksignaal, en een shift-register om waarin uit de acht ontvangen bits een byte gevormd wordt. Helaas zijn we er in de praktijk niet in geslaagd een SPI-module te maken die helemaal stabiel was. De reden is onbekend, maar de module gaat relatief vaak out-of-sync tijdens het ontvangen van een byte, waardoor de module 'denkt' dat hij al een gehele byte ontvangen heeft, waar dat in werkelijkheid slechts zeven bits zijn. Om dit probleem te verzachten zit er een extra reset in de module, alsmede een timer die de module reset, wanneer hij dreigt vast te lopen.
 
 %VHDL simulatie
 \section{VHDL simulatie}
@@ -41,9 +41,9 @@ Allereerst is er een simulatie gemaakt met behulp van ModelSim. In de testbench 
 %Synthese
 \section{Synthese en lay-out}
 \label{sec:spi-synth} 
-Na uitvoering van de synthese op de SPI module blijkt dat de SPI een redelijk compacte module is. Door bij de synthese gebruik te maken van compile\_ultra verkregen we een totaal celloppervlak van 695 transistoren. Na met row placer handmatig de cellen te hebben geplaatst, hierbij is de optie ``vary distance'' uitgeschakeld, leverde de lay-out met trout een totaal van 2630 transistoren op. Van deze transistoren worden er een aantal van 1385 transistoren daadwerkelijk gebruikt. Dit levert een efficiëntie op van 52.66\%.
-%Switchlevel test
+Na uitvoering van de synthese op de SPI module blijkt dat de SPI een redelijk compacte module is. Door bij de synthese gebruik te maken van compile\_ultra verkregen we een totaal celloppervlak van 695 transistoren. Na met row placer handmatig de cellen te hebben geplaatst, hierbij is de optie "vary distance'' uitgeschakeld, leverde de lay-out met trout een totaal van 2630 transistoren op. Van deze transistoren worden er een aantal van 1385 transistoren daadwerkelijk gebruikt. Dit levert een efficiëntie op van 52.66\%.
 
+%Switchlevel test
 \section{Switch-level simulatie}
 De switch-level simulatie vergelijkt de simulatie op het transistor niveau met de simulatie op VHDL niveau. De resultaten van de gesynthetiseerde schakeling, die gesimuleerd is met SLS, wordt vergeleken met de resultaten van de gesimuleerde testbench in ModelSim. Het verkregen switch-level resultaat, zie figuur \ref{fig:spi-sls}, komt overeen met het al eerder verkregen ModelSim resultaat. Ook is er nog gebruik gemaakt van de optie compare. Deze leverde het verwachte resultaat. Hieruit kunnen we concluderen dat de synthese van de SPI module goed is verlopen. 
 
@@ -56,7 +56,7 @@ De switch-level simulatie vergelijkt de simulatie op het transistor niveau met d
 
 %Conclusie AF
 \section{Conclusie}
-Alle gemaakte simulaties van de SPI module leverde uiteindelijk het gewenste resultaat op. Naar aanlieiding hiervan kan dan dus de cunclusie worden getrokken dan de SoG-implementatie van de module, op de gefabriceerde chip, zou moeten werken. Weliswaar is er ook wel een minpuntje binnen deze module. Dit is de effici\"entie van de module. Helaas, zoals al te lezen was in \ref{sec:spi-synth}, blijft de efficiëntie met 52.66\% wat aan de lage kant. Hierdoor neemt de module helaas meer ruimte in beslag op de chip, dan dat nodig zou zijn als we een hogere efficiëntiegraad hadden gehaald. De transistoren die nu nodig zijn voor de SPI module, maar niet gebruikt worden, had misschien nog iets anders zinvols mee gedaan kunnen worden. 
+Alle gemaakte simulaties van de SPI module leverde uiteindelijk het gewenste resultaat op. Naar aanlieiding hiervan kan dan dus de cunclusie worden getrokken dan de SoG-implementatie van de module, op de gefabriceerde chip, zou moeten werken. Weliswaar is er ook wel een minpuntje binnen deze module. Dit is de effici\"entie van de module. Helaas, zoals al te lezen was in \ref{sec:spi-synth}, blijft de efficiëntie met 52.66\% wat aan de lage kant. Hierdoor neemt de module helaas meer ruimte in beslag op de chip, dan dat nodig zou zijn als we een hogere efficiëntiegraad hadden gehaald. De transistoren die nu nodig zijn voor de SPI module, maar niet gebruikt worden, daar hadden we bij een andere module misschien nog gebruik van kunnen maken. 
 
 
 \end{document}
