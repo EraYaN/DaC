@@ -43,7 +43,7 @@ Nadat de module klaar is met het bepalen van de coördinaten van de rechthoek, w
 
 %VHDL simulatie
 \subsection{VHDL simulatie}
-Voor het testen van de VHDL code is een testbench geschreven en gesimuleerd in ModelSim. De behaviour van deze testbench is te vinden in bijlage \ref{appsec:draw_rect_tb-behaviour.vhdl}. Aan de ingang worden o.a. twee coördinaten doorgegeven en een kleurcode. Enable en enablef werden gebruikt om aan te geven dat de rechthoek niet ingekleurd moest worden.
+Voor het testen van de VHDL code is een testbench geschreven en gesimuleerd in ModelSim. Aan de ingang worden o.a. twee coördinaten doorgegeven en een kleurcode. Enable en enablef werden gebruikt om aan te geven dat de rechthoek niet ingekleurd moest worden.
 \\\\
 De simulatie werkte goed. Op de uitgangen ramdata en ramaddr kwamen de juiste signalen te staan. Nadat de module klaar was, kwam er een signaal done = '1' op de uitgang te staan. Ook waren de signalen synchroon met de clock. De volgende stap is het synthetiseren van de VHDL code. In figuur \ref{fig:draw_rect-vhdlsim} is een fragment van deze simulatie te zien in ModelSim.
 \\\\
