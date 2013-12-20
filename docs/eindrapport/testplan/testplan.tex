@@ -16,7 +16,7 @@ Als eerste wordt er per module gekeken of deze naar behoren werkt. Als alle modu
 Voor ons project is er natuurlijk ook nog het probleem dat we de AVR en een extern RAM gebruiken, deze moeten ook getest worden. Los van elkaar en in samenwerking met de chip.
 De volgende stap is  het ontwerp op een FPGA zetten en testen.
 
-\subsection{Modules}
+\section{Modules}
 
 Voor het testen van de modules gaan de standaard procedures op van Go With The Flow, dit wil zeggen eerst in een ModelSim simulatie kijken of alles werkt naar behoren. 
 Na het testen in ModelSim wordt er een layout gemaakt van het ontwerp. Als eerste wordt dit ontwerp geoptimaliseerd waarna er met behulp van Go With The Flow de VHDL-code wordt geëxtraheerd,
@@ -25,7 +25,7 @@ Dit wordt voor elke module apart gedaan, de volgende stap is om de modules een v
 
 
 
-\subsection{Modules samenvoegen}
+\section{Modules samenvoegen}
 
 Bij het samenvoegen van verschillende modules kunnen er fouten optreden. Een voorbeeld hiervan is dat er bepaalde timings van signalen van de ene module niet snel genoeg aankomen in de volgende module.
 Dit veroorzaakt dat de volgende module met de verkeerde signalen berekeningen zal gaan doen. Ook kan het zijn dat een module te snel informatie doorstuurt en dit niet verwerkt kan worden door de volgende module.
@@ -37,7 +37,7 @@ Mocht er tijdens het samenvoegen van de modules blijken dat er teveel transistor
  dit zorgt er alleen voor dat de GPU minder verschillende soorten opdrachten kan uitvoeren.
 
 
-\subsection{AVR}
+\section{AVR}
 
 In het project dat wij hebben gekozen, het ontwerpen van een GPU, hebben we ook een CPU nodig. Voor deze taak gebruiken we een AVR, deze moet met C-code worden geprogrameerd. Het voornaamste probleem hier is dat 
 de AVR op een veel snellere klok werkt dan onze chip. Hiervoor hebben we een communicatie systeem nodig genaamd SPI. Met dit onderdeel moet veel getest worden want ook al zouden de AVR en het ontwerp voor de chip beide goed werken 
@@ -47,14 +47,14 @@ en lijnen op een scherm. Ook kunnen we testen door een computerspel op de AVR te
 Als na genoeg testen blijkt dat de communicatie tussen de chip en de AVR geen problemen oplevert gaan we verder met het testen van het externe RAM geheugen.
 
 
-\subsection{Externe RAM}
+\section{Externe RAM}
 
 Het externe RAM gebruiken we voor screenbuffers, omdat dit vrij grote geheugens zijn zouden ze niet op de chip zelf passen dus moesten we een extern geheugen gebruiken. Dit moet ook getest worden in samenwerking met de chip. Want ook het Ram 
 geheugen werkt op een andere klokfrequentie, dit kan dezelfde problemen opleveren als de communicatie met de AVR.\\ Op de chip hebben we een RAM-controller die de communicatie regelt tussen de chip en het RAM geheugen. Om te testen of dat goed gaat schrijven
 we de screenbuffers vol en met bijvoorbeeld vierkantjes en lijnen, als er tijdens het uitlezen het goede beeld wordt geprojecteerd gaat de communicatie dus goed.
 
 
-\subsection{volledig ontwerp}
+\section{volledig ontwerp}
 
 Als dan uiteindelijk elke module apart en samengevoegd goed samenwerken en op de chip passen en de comunnicatie tussen de chip en de AVR en het externe RAM goed werken, gaan we alles aan elkaar hangen en proberen we alles tegelijkertijd te testen. 
 Hierbij zullen waarschijnlijk geen grote bugs meer in voor komen als alles goed is getest en zullen we hooguit kleine aanpassingen moeten maken voor het ontwerp.\\ We zullen het ontwerp testen door meerdere spelletjes op de AVR te programmeren en dan te kijken 

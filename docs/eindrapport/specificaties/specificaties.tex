@@ -13,8 +13,8 @@
 \section {Functie van de GPU}
 Een GPU is geïntegreerde schakeling, ontworpen om aan de hand van ingangsdata bepaalde vormen op een beeldscherm te tekenen, zodat een bruikbaar beeld ontstaat. De GPU moet dit met een dusdanige frequentie kunnen, dat de wijzigingen aan het beeld vloeiend overkomen op het menselijk oog en het beeld niet knippert. De GPU die voor dit project ontworpen en gefabriceerd wordt, zal een sterk versimpelde versie zijn van de GPU's die vandaag de dag in consumentenelektronica te vinden zijn.
 \\\\
-De GPU is ontworpen volgens het blokschema in figuur~\ref{fig:spec-overzicht} aan het einde van dit hoofdstuk.
-Zoals er in het blokschemate zien is, is er randapparatuur nodig om de GPU een afbeelding op een monitor te laten schrijven. Ten eerste is er een CPU met zijn eigen RAM nodig, om de benodigde data (instructies) voor een enkel frame te sturen naar de GPU. De GPU moet deze data omzetten naar een verzameling pixels en deze in een screen buffer in het externe SRAM schrijven. Er wordt gebruik gemaakt van twee screen buffers, zodat het huidige frame niet wordt overschreven met de data van het volgende frame. Ook moet de GPU het huidige frame van de screenbuffer uit het SRAM kunnen uitlezen, om deze vervolgens te om te zetten naar een signaal dat door een VGA monitor verwerkt kan worden tot een schermafbeelding. Dit externe SRAM is nodig, omdat er op de chip zelf niet genoeg transistoren aanwezig zijn om een VRAM te maken met de grootte die benodigd is om twee screen buffers op te kunnen slaan.
+De GPU is ontworpen in de context, zoals te zien in het blokschema in figuur~\ref{fig:spec-overzicht}.
+Zoals er in het blokschema te zien is, is er randapparatuur nodig om de GPU een afbeelding op een monitor te laten schrijven. Ten eerste is er een CPU met zijn eigen RAM nodig, om de benodigde data (instructies) voor een enkel frame te sturen naar de GPU. De GPU moet deze data omzetten naar een verzameling pixels en deze in een screen buffer in het externe SRAM schrijven. Er wordt gebruik gemaakt van twee screen buffers, zodat het huidige frame niet wordt overschreven met de data van het volgende frame. Ook moet de GPU het huidige frame van de screenbuffer uit het SRAM kunnen uitlezen, om deze vervolgens te om te zetten naar een signaal dat door een VGA monitor verwerkt kan worden tot een schermafbeelding. Dit externe SRAM is nodig, omdat er op de chip zelf niet genoeg transistoren aanwezig zijn om een VRAM te maken met de grootte die benodigd is om twee screen buffers op te kunnen slaan.
 
 %Aanpassen deze figuur
 \begin{figure}[H]
@@ -39,7 +39,7 @@ Om een GPU van acceptabel niveau te ontwerpen, zijn de volgende functionele eise
 	\item De communicatie tussen het externe VRAM en de GPU wordt met een parallelle bus (6 bist data, 16 bits adres) tot stand gebracht
 \end{itemize}
 
-\section {Randvoorwaarden van de IC}
+\section {Randvoorwaarden aan de chip}
 
 De bij dit project ontworpen chip wordt uitgevoerd met de Sea-of-Gates techniek. Dit houdt in dat er een vast aantal transistoren, pinnen en oppervlak beschikbaar wordt gesteld. Het is zaak dit aantal zo goed mogelijk te benutten voor een optimaal resultaat. Door deze voorwaarde moet bij het ontwerp rekening gehouden worden met een aantal randvoorwaarden/ontwerpeisen. Deze randvoorwaarden zijn gegeven in de projecthandleiding en hieronder voor de volledigheid nog eens opgesomd. \cite{epo3-manual}
 

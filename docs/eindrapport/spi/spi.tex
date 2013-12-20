@@ -12,57 +12,51 @@
 
 %specificaties
 \section{Specificaties}
-Voor de communicatie tussen de arduino en onze GPU is een protocol nodig. Er is gekozen deze communicatie met SPI af te handelen. De ingang SS staat voor Slave Select, deze wordt normaal gebruikt voor het geval dat je meerdere slave chips hebt, aangezien dit bij ons niet het geval is zal dit signaal altijd hoog zijn. Het signaal SCLK is voor het CLK signaal voor de communicatie. Als laatste ingang is er de MOSI, dit staat voor Master Out , Slave In, dit is de daadwerkelijke dat die verzonden wordt van de arduïno naar onze GPU. Voor de uitgangen hebben we MISO, Master Input, Slave Output, dit is om de volgende instructie aan te vragen van de arduïno. Dan zijn er nog de uitgangen naar de instructie decoder, de 8 bits data bus voor om alle data te sturen als de data ready hoog is.
+Voor de communicatie tussen de arduino en onze GPU is een protocol nodig. Er is gekozen deze communicatie met SPI af te handelen. Een simpele specificatie voldoet, aangezien er alleen data ontvangen hoeft te worden en er maar één SPI-slave in het systeem aanwezig is. In figuur~\ref{fig:spi-schema} is te zien welke in- en uitgangen de SPI-module dient te hebben.
 
-Ingangen: 
-\begin{itemize}
-	\item MOSI
-	\item SS (1 bit altijd hoog)
-	\item SCLK (clk signaal)
-	\item readytosend (1 bit)
-\end{itemize}
-Uitgangen:
-\begin{itemize}
-	\item MISO
-	\item 8 bits data bus
-	\item data ready  
-\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{resource/spi.png}
+	\caption{Een blokschema van de SPI-module, met de namen van de gebruikte in- en uitgangen en tussen haakjes het aantal bits}
+	\label{fig:spi-schema}
+\end{figure}
 
-%Nog een afbeeldingen fixen van een blokschema mbv visio
+Naast het algemene kloksignaal heeft de SPI zijn eigen kloksignaal (SCLK). Op iedere rijzende klokfland van dit signaal moet het bit dat op de MOSI ingang staat gelezen worden. Nadat er acht opeenvolgende bits gelezen zijn (en byte), moet het signaal spi\_data\_ready omhoog, waarbij tegelijker tijd de acht gelezen bits als een byte op de spi\_data\_rx komen te staan.
 
 %Ontwerp & implementatie
 \section{Ontwerp en implementatie}
-Spi blijft stuk gaan, dus extra klok om zichzelf continu te blijven resetten.SPI zit voor decoder...!!!!
+De SPI-module is vrij simpel en bestaat eigenlijk alleen uit een stuk logica wat de inkomende bits synchroniseert met het systeemwijde kloksignaal, en een shift-register om waarin uit de acht ontvangen bits een byte gevormd wordt. Helaas zijn we er in de praktijk niet in geslaagd een SPI-module te maken die helemaal stabiel was. De reden is onbekend, maar de module gaat relatief vaak out-of-sync tijdens het ontvangen van een byte, waardoor de module `denkt' dat hij al een gehele byte ontvangen heeft, waar dat in werkelijkheid slechts zeven bits zijn. Om dit probleem te verzachten zit er een extra reset in de module, als ook een timer die de module reset, wanneer hij dreigt vast te lopen.
 
 %VHDL simulatie
 \section{VHDL simulatie}
-Allereerst is er een simulatie gemaakt met behulp van ModelSim. In de testbench die geschreven is voor de SPI module wordt er gewacht op de opgaande flank van de SPIklok
+Allereerst is er een simulatie gemaakt met behulp van ModelSim. In de testbench die geschreven is voor de SPI module wordt één byte ontvangen. Zoals te zien in figuur~\ref{fig:spi-modelsim}, wordt het laatst via MOSI ontvangen bit inderdaad toegevoegd aan het signaal spi\_data\_rx. Wanneer op deze manier 8-bits ontvangen zijn gaat het signaal spi\_data\_available op hoog, om aan te geven dat er gelezen kan worden.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{resource/waveSPI2.png}
-	\caption{Een fragment van de wave van de SPI module.}
-	\label{fig:waveSPI2}
+	\caption{Een fragment van de wave van de SPI module}
+	\label{fig:spi-modelsim}
 \end{figure}
 
-%Synthese AF
+%Synthese
 \section{Synthese en lay-out}
-\label{sec:synthese en lay-out} 
-Na uitvoering van de synthese op de SPI module blijkt dat de SPI een redelijk compacte module is. Door bij de synthese gebruik te maken van compile\_ultra verkregen we een totaal celloppervlak van 695 transistoren. Na met row placer handmatig de cellen te hebben geplaatst, hierbij is de optie "vary distance" uitgeschakeld, leverde de lay-out met trout een totaal van 2628 transistoren op. Van deze tranasistoren worden er een aantal van 1385 transistoren daadwerkelijk gebruikt. Dit levert een effici\"entie op van 52.70\%.   %verwerk hier de gegevens die je krijgt na synthese 
+\label{sec:spi-synth} 
+Na uitvoering van de synthese op de SPI module blijkt dat de SPI een redelijk compacte module is. Door bij de synthese gebruik te maken van compile\_ultra verkregen we een totaal celloppervlak van 695 transistoren. Na met row placer handmatig de cellen te hebben geplaatst, hierbij is de optie ``vary distance'' uitgeschakeld, leverde de lay-out met trout een totaal van 2630 transistoren op. Van deze transistoren worden er een aantal van 1385 transistoren daadwerkelijk gebruikt. Dit levert een efficiëntie op van 52.66\%.
+%Switchlevel test
 
-%Switchlevel test AF
 \section{Switch-level simulatie}
-De switch-level simulatie vergelijkt de simulatie op het transistor niveau met de simulatie op VHDL niveau. De resultaten van de gesynthetiseerde schakeling, die gesimuleerd is met SLS, wordt vergelken met de resultaten van de gesimuleerde testbench in ModelSim. Het verkregen switch-level resultaat, zie figuur \ref{fig:switchlevelSPI}, komt overeen met het al eerder verkregen ModelSim resultaat. Ook is er nog gebruik gemaakt van de optie compare. Deze gaf allemaal OK's terug (op de eerste na, maar dit hoort). Hieruit kunnen we concluderen dat de synthese van de SPI module goed is verlopen. 
+De switch-level simulatie vergelijkt de simulatie op het transistor niveau met de simulatie op VHDL niveau. De resultaten van de gesynthetiseerde schakeling, die gesimuleerd is met SLS, wordt vergeleken met de resultaten van de gesimuleerde testbench in ModelSim. Het verkregen switch-level resultaat, zie figuur \ref{fig:spi-sls}, komt overeen met het al eerder verkregen ModelSim resultaat. Ook is er nog gebruik gemaakt van de optie compare. Deze leverde het verwachte resultaat. Hieruit kunnen we concluderen dat de synthese van de SPI module goed is verlopen. 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{resource/switchlevelSPI.png}
-	\caption{Het switch-level resultaat van de SPI module.}
-	\label{fig:switchlevelSPI}
+	\caption{Het switch-level resultaat van de SPI module}
+	\label{fig:spi-sls}
 \end{figure}
 
 %Conclusie AF
 \section{Conclusie}
-Alle gemaakte simulaties van de SPI module leverde uiteindelijk het gewenste resultaat op. Naar aanlieiding hiervan kan dan dus de cunclusie worden getrokken dan de SoG-implementatie van de module, op de gefabriceerde chip, zou moeten werken. Weliswaar is er ook wel een minpuntje binnen deze module. Dit is de effici\"entie van de module. Helaas, zoals al te lezen was in \ref{sec:synthese en lay-out}, blijft de effici\"entie met 52.70\% wat aan de lage kant. Hierdoor neemt de module helaas meer ruimte in beslag op de chip, dan dat nodig zou zijn als we een hogere effici\"entiegraad hadden gehaald. De transistoren die nu nodig zijn voor de SPI module, maar niet gebruikt worden, had misschien nog iets anders leuks mee gedaan kunnen worden. 
+Alle gemaakte simulaties van de SPI module leverde uiteindelijk het gewenste resultaat op. Naar aanlieiding hiervan kan dan dus de cunclusie worden getrokken dan de SoG-implementatie van de module, op de gefabriceerde chip, zou moeten werken. Weliswaar is er ook wel een minpuntje binnen deze module. Dit is de effici\"entie van de module. Helaas, zoals al te lezen was in \ref{sec:spi-synth}, blijft de efficiëntie met 52.66\% wat aan de lage kant. Hierdoor neemt de module helaas meer ruimte in beslag op de chip, dan dat nodig zou zijn als we een hogere efficiëntiegraad hadden gehaald. De transistoren die nu nodig zijn voor de SPI module, maar niet gebruikt worden, had misschien nog iets anders zinvols mee gedaan kunnen worden. 
 
 
 \end{document}

@@ -7,102 +7,59 @@
 \title{EPO3: Eindrapport - Ontwerp}
 
 \begin{document}
-\chapter{Systeem Overzicht}
+\chapter{Systeemoverzicht}
 \label{ch:ontwerp}
 
-Het uiteindelijke ontwerp is te zien in figuur ~\ref{fig:Blokschema GPU}. In het schema staat hoe de GPU is verdeeld en staat wat voor interacties er onderling plaatsvindt tussen de modules.
-Elke module, behalve de State Registers, is een component van de GPU met zijn eigen in VHDL beschreven gedrag en met zijn eigen functie. De module State Registers is eigenlijk gewoon één signaal, maar het is zo weergegeven, omdat het visueel duidelijker weergeeft wat het ASB signaal doet, namelijk het geeft weer op welke screenbuffer er geschreven moet worden en van welke gelezen moet worden en dat is makkelijker te zien als blokje dan als een lijn. De screenbuffers zelf zitten in het externe SRAM. 
-\\ De GPU is verdeeld in 5 modules: de SPI Decoder, de Instructie Decoder, de Draw Logic, de RAM Controller en de VGA Controller. Daarbij is de Draw Logic module nog verdeeld in modules om de verschillende functies voor verschillende vormen te representeren. Er zijn vier modules: Draw Pixel, Draw Rectangle, Draw Line en Draw Sprite.
-\\Wat er precies gebeurt in de modules zal uitgelegd worden bij de hoofdstukken met de naam van de desbetreffende module, maar in dit hoofdstuk zal de nadruk liggen op de interacties tussen de modules.
+Het uiteindelijke ontwerp is te zien in figuur~\ref{fig:ontwerp-schema}. In het schema staat hoe de GPU is verdeeld en staat wat voor onderlinge interacties er plaatsvinden tussen de modules.
+Elke module is een component van de GPU met zijn eigen in VHDL beschreven gedrag en met zijn eigen functie. De screenbuffers zitten in het externe VRAM. 
+\\
+De GPU is verdeeld in 5 modules: de SPI, de Instructiedecoder, de Draw-logic, de RAM-controller en de VGA-controller. Daarbij is de Draw-logic module nog verdeeld in modules om de verschillende functies voor verschillende vormen te representeren. Er zijn vier modules: draw\_pixel, draw\_rect, draw\_line en draw\_sprite. Deze modules tekenen respectievelijk een pixel, rechthoek (contour of gevuld), lijn of sprite in het screen buffer.
+\\
+Wat er precies gebeurt in de modules zal uitgelegd worden bij de hoofdstukken met de naam van de desbetreffende module. In dit hoofdstuk zal de nadruk liggen op de interacties tussen de modules.
 
-\section{Externe AVR --> SPI Decoder}
-De SPI decoder krijgt door middel van de SPI verbinding met de SPI module op de AVR de benodigde data om iets te tekenen binnen. Deze SPI verbinding bestaat uit een CLK en een MISO signaal, er is hier geen MOSI signaal gebruikt, omdat er geen data terug gestuurd hoeft te worden. Het CLK signaal is de klok waarop het verzenden van data tussen de SPI modules is gesynchroniseerd. Het MISO signaal is voor het serieel verzenden van data van de CPU naar de GPU. Er is ook een SS signaal voor het kiezen van de juiste slave waar de data heen gestuurd moet worden, maar er is hier maar één slave dus is SS altijd hoog en hoeft niet door de GPU gestuurd te worden.
+\section{CPU --> SPI}
+De SPI (slave) ontvangt via zijn verbinding met de SPI-module op de CPU (master) de benodigde data om iets te tekenen binnen, oftewel een instructie. Deze SPI-verbinding bestaat uit een CLK en een MOSI (master out, slave in) signaal, er is hier geen MISO (master in, slave out) signaal gebruikt, omdat er geen data teruggestuurd hoeft te worden naar de CPU. Het CLK signaal is de klok waarop het verzenden van data tussen de SPI modules is gesynchroniseerd. Een klokslag betekent dat er een nieuwe bit op de MOSI ingang is gezet, klaar om gelezen te worden. 
+SPI implementeert normaal gesproken ook een SS (slave select) ingang, maar aangezien wij met slechts één slave werken, hebben we op deze ingang bespaard.
 
-\section{SPI decoder <--> Instructie Decoder}
-De SPI verstuurd de ontvangen data naar de Instructie Decoder in 8-bit pakketjes met een signaal dat aangeeft dat er nieuwe data beschikbaar is. De SPI krijgt dan een reset signaal van de Instructie Decoder als het pakketje volledig binnen is gekomen.
+\section{SPI <--> Instructiedecoder}
+De SPI verstuurt de ontvangen data naar de instructiedecoder in 8-bit pakketjes, samen met een signaal dat aangeeft dat er nieuwe data beschikbaar is. De SPI krijgt dan een reset-signaal van de instructiedecoder, wanneer het pakketje volledig binnen is gekomen, om de stabiliteit te verhogen.
 
-\section{Instructie Decoder --> Externe AVR}
-De Instructie Decoder stuurt direct een interrupt signaal naar de AVR om aan te geven wanneer een pakketje is vertaald naar instructies, dus nadat een instructie klaar is.
+\section{Instructiedecoder --> CPU}
+De instructiedecoder stuurt direct een signaal naar de CPU om aan te geven wanneer de GPU klaar is voor een volgende instructie.
 
-\section{Instructie Decoder <--> Draw Logic}
-De Instructie Decoder stuurt dan de data vertaald in instructies naar de Draw Logic in de vorm van X, W, Y, H, Color, ID en Enable. Draw Logic geeft zijn status weer aan de Instructie Decoder middels een draw\_ready signaal dat aangeeft of Draw Logic zijn volgende instructie kan verwerken of nog steeds bezig is met een instructie.
+\section{Instructiedecoder <--> Draw-logic}
+Nadat de instructiedecoder alle instructiedata van de CPU ontvangen heeft, stuurt hij de data naar de Draw-logic en schakelt hij de correcte module in. Draw-logic geeft zijn status weer aan de instructiedecoder middels een draw\_ready signaal dat aangeeft of Draw-logic zijn volgende instructie kan verwerken of nog steeds bezig is met een instructie.
 
-\section {Instructie Decoder <--> RAM Controller}
-Voor het inladen van sprites in het externe SRAM stuurt de Instructie Decoder direct data naar de RAM Controller en daarbij stuurt de Instructie Decoder een decoder\_claim signaal om te voorkomen dat andere modules tegelijkertijd dingen in of uit het externe SRAM gaan lezen of schrijven. De RAM Controller stuurt het signaal decoder\_can\_access naar de Instructie Decoder dat verteld of RAM Controller bezig is met instructies van een andere module.
+\section {Instructiedecoder <--> RAM-controller en VRAM}
+Voor het inladen van sprites in het VRAM, geeft de instructiedecoder aan bij de RAM-controller dat hij wil schrijven, om te voorkomen dat andere modules tegelijkertijd dingen in of uit het VRAM gaan lezen of schrijven. De RAM-controller stuurt het signaal decoder\_can\_access naar de instructiedecoder dat verteld of RAM-controller bezig is met instructies van een andere module.
 
-\section {Instructie Decoder --> Draw Logic \& VGA Controller}
-De Instructie Decoder stuurt het ASB signaal naar de Draw Logic en de VGA Controller om ervoor te zorgen dat de juiste instructie in het juiste screenbuffer wordt gelezen of geschreven. De Instructie Decoder bepaald hiermee in welk screenbuffer wordt geschreven en uit welke screenbuffer wordt gelezen.
+\section {Instructiedecoder --> Draw-logic \& VGA-controller}
+De instructiedecoder stuurt het ASB signaal naar de Draw-logic en de VGA-controller om ervoor te zorgen dat de juiste instructie in het juiste screenbuffer wordt gelezen of geschreven. De instructiedecoder bepaald hiermee in welk screenbuffer wordt geschreven en uit welke screenbuffer wordt gelezen.
 
-\section {Draw Logic <--> Modules}
-Draw Logic verstuurt de verkregen instructies van de Instructie Decoder naar de juiste module. De desbetreffende module stuurt dan de naar pixels verwerkte instructie terug naar de Draw Logic met een signaal dat het klaar is met het verwerken van de instructie en dus klaar is voor de volgende instructie.
+\section {Draw-logic <--> Modules}
+Draw-logic verstuurt de verkregen instructies van de instructiedecoder naar de juiste module. De desbetreffende module stuurt dan de naar pixels verwerkte instructie terug naar de Draw-logic met een signaal dat het klaar is met het verwerken van de instructie en dus klaar is voor de volgende instructie.
 
-\section {Draw Logic <--> RAM Controller}
-Draw Logic stuurt de naar pixel verwerkte instructies van de modules in de vorm van Data, de kleur, en Addr, het pixel coördinaat, naar de RAM Controller met het draw\_write signaal en draw\_read. Het draw\_write signaal geeft aan dat de Draw Logic in de screenbuffer wilt schrijven. En het draw\_read signaal is voor het uitlezen van de desbetreffende sprites die in het externe SRAM geschreven staan.
-RAM Controller stuurt ook een draw\_can\_access signaal naar de Draw Logic, zodat het weet of de RAM Controller bezig is met instructies van andere modules of de RAM Controller vrij is.
+\section {Draw-logic <--> RAM-controller en VRAM}
+Draw-logic geeft bij de RAM-controller aan dat hij wil lezen of schrijven, zodat andere modules dat niet tegelijkertijd ook kunnen doen. Vervolgens kan de gactiveerde draw-module zijn pixeldata naar het VRAM schrijven, in het juiste screen buffer.
 
-\section{RAM Controller <--> Externe SRAM}
-De RAM Controller stuurt de Data en Addr signalen van de Draw Logic, de Sprite data van de Instructie Decoder en de Addr signalen van de VGA Controller met een write\_enable signaal naar de externe SRAM. De Data en Addr signalen worden ingeschreven in de screenbuffer in het externe SRAM. De Sprite Data moet in het externe RAM geschreven worden.
-Ook moet de RAM Controller de opgeslagen data uit het externe SRAM uit kunnen lezen.
+\section{RAM-controller <--> VRAM}
+Wanneer er geschreven kan worden naar het VRAM zet de RAM-controller het signaal write-enable op hoog, zodat de data die op dat moment op de ramdata-bus staat wordt geschreven naar het adres wat op dat moment in de ramaddr-bus staat.
 
-\section{VGA Controller <--> RAM Controller}
-De VGA Controller stuurt de signalen Addr, vga\_read en vga\_claim naar de RAM Controller. Het Addr signaal past de pixel coördinaten aan, zodat het past in de gekozen pixel beeld resolutie voor de monitor. Het vga\_read signaal geeft aan dat één van de screenbuffers uitgelezen en naar de VGA DAC gestuurd moet worden, om een schermafbeelding op de monitor te maken. Het vga\_claim signaal zorgt ervoor dat andere modules geen toegang krijgen tot de RAM Controller, als voorbereiding voor het uitlezen van een screenbuffer.
-De RAM Controller stuurt een vga\_can\_access signaal naar de VGA Controller, zodat het weet wanneer de RAM Controller vrij is.
+\section{VGA-controller <--> RAM-controller}
+Wanneer het volgende frame op het beeldscherm getekend moet worden, geeft de VGA-controller bij de RAM-controller aan dat hij wil lezen. Vervolgens wordt het gehele actieve schermbuffer uitgelezen en op de ramdata-bus gezet.
 
-\section{VGA Controller --> Externe VGA DAC}
-De VGA Controller stuurt vgahsync, vgavsync en vga\_claim naar de Externe VGA DAC. De vgahsync en vgavsync zijn signalen die zorgen voor de juiste VGA timing die nodig is om de monitor juist aan te sturen voor een vloeiend beeld. De vga\_claim komt als het signaal vga\_enabled aan bij de VGA DAC, zodat het weet dat de er een screenbuffer uitgelezen gaat worden.
+\section{VGA-controller --> Externe VGA-DAC}
+De VGA-controller stuurt vgahsync, vgavsync en vga\_claim naar de Externe VGA DAC. De vgahsync en vgavsync zijn signalen die zorgen voor de juiste VGA timing die nodig is om de monitor juist aan te sturen voor een vloeiend beeld. De vga\_claim komt als het signaal vga\_enabled aan bij de VGA-DAC, zodat het weet dat de er een screenbuffer uitgelezen gaat worden. De VGA-DAC zet de data uit de ramdata-bus op het beeldscherm.
 
-
-%%%%%%%------------ONDERSTAANDE MOET NAAR BIJLAGE
 \section{Parameters} 
-In Tabel \ref{tab:spec-params} staat een overzicht van de gebruikte parameters en generics uit onze GPU.
+In bijlage~\ref{app:parameters} staat een overzicht van de gebruikte parameters en generics uit onze GPU.
 
-\begin{table}[H]
-\centering
-\caption{De gebruikte parameters en generics}
-\label{tab:spec-params}
-\begin{tabular}{l l l l l}
-	\hline\hline
- 	 & Naam & Type & Waarde & Omschrijving\\
- 	\hline
-	%GLOBAL
-	pkg & InstrSize & integer & 3 & De grootte van een instructie\\ 
-	pkg & MaxNumPackets & integer & 3 & Maximaal aantal pakketjes in één instructie\\ 
-	pkg & SizeSpriteID & integer & 10 & Het aantal bits voor het SpriteID \\
-	pkg & SizeSpriteCounter & integer & 6 & Het aantal bits voor de sprite counter\\
-	pkg & TimoutCount & integer & $2**7-1$ & Het aantal ticks per timout\\
-	pkg & SizeTimeoutCounter & integer & 8 & Het aantal bits voor de timout counter\\
-	pkg & NumDrawModules & integer & 6 & Aantal Draw modules\\ 
-	pkg & SizeX & integer & 8 & Het aantal bits voor de X coordinaat\\
-	pkg & SizeY & integer & 7 & Het aantal bits voor de Y coordinaat\\
-	pkg & NumStateReg & integer & 1 & Aantal globale state registers\\
-	pkg & SizeRAMData & integer & 6 & Aantal bits per woord in het RAM\\
-	pkg & SizeRAMAddr & integer & 16 & Aantal adresbits voor het RAM\\
-	pkg & SizeColor & integer & 6 & Aantal bits kleur\\
-	pkg & SizeSPIData & integer & 8 & Aantal bits van de SPI pakketjes\\
-	pkg & ResolutionX & integer & 160 & Horizontale resolutie \\
-	pkg & ResolutionY & integer & 120 & Verticale resolutie \\
-	%VGA
-	vga & h\_pulse & integer & 24 & Aantal klokpulsen voor de horizontale syncpuls\\ 
-	vga & h\_bp & integer & 12 & Aantal klokpulsen voor de horizontale “backporch” \\ 
-	vga & h\_pixels & integer & 160 & Aantal klokpulsen voor de horizontale pixels \\ 
-	vga & h\_fp & integer & 4 & Aantal klokpulsen voor de horizontale “fontporch” \\ 
-	vga & h\_pol & std\_logic & ‘0’ & De polariteit van de horizontale syncpuls\\ 
-	vga & v\_pulse & integer & 2 & Aantal rijen voor de verticale syncpuls\\ 
-	vga & v\_bp & integer & 33 & Aantal rijen voor de verticale “backporch” \\ 
-	vga & v\_pixels & integer & 480 & Aantal rijen voor de verticale pixels\\ 
-	vga & v\_fp & integer & 10 & Aantal rijen voor de verticale “fontporch” \\ 
-	vga & v\_pol & std\_logic & ‘0’ & De polariteit van de verticale syncpuls\\ 
-	%SPI
-	spi & c & integer & 4 & Het aantal bits van de counter in de SPI module\\
-  	\hline
-\end{tabular}
-\end{table}
 %Aanpassen deze figuur
 \begin{figure}[H]
 \centering
 	\includegraphics[scale=0.9, angle=90]{resource/systeemdrawing-detail.png}
 	\caption{Ontwerp GPU}
-	\label{fig:Blokschema GPU}
+	\label{fig:ontwerp-schema}
 \end{figure}
 
 
@@ -348,12 +305,12 @@ In Tabel \ref{tab:spec-params} staat een overzicht van de gebruikte parameters e
 % \end{tabular}
 % \end{table}
 
-% \section{RAM Controller}
-% Omdat we een externe RAM gebruiken voor onze screenbuffers is het nodig om hiervoor communicatie op te stellen, zodat er in het juiste gedeelte van de RAM geschreven en gelezen wordt en dat dit niet tegelijkertijd gebeurd, omdat het RAM dat niet aankan. We hebben voor een externe RAM gekozen omdat er geen RAM geheugen groot genoeg gemaakt kon worden met de benodigde transistoren om bijvoorbeeld de screenbuffers te renderen. De RAM controller stuurt naar het draw-module een signaal write als het mag gaan schrijven in het RAM geheugen, de RAM controller krijgt dan de kleur en het adress binnen van het draw-module. Als de VGA controller mag gaan lezen krijgt het een signaal read binnen van de RAM controller dan zal er weer data naar de VGA controller verstuurd worden, kleur en adres.
+% \section{RAM-controller}
+% Omdat we een externe RAM gebruiken voor onze screenbuffers is het nodig om hiervoor communicatie op te stellen, zodat er in het juiste gedeelte van de RAM geschreven en gelezen wordt en dat dit niet tegelijkertijd gebeurd, omdat het RAM dat niet aankan. We hebben voor een externe RAM gekozen omdat er geen RAM geheugen groot genoeg gemaakt kon worden met de benodigde transistoren om bijvoorbeeld de screenbuffers te renderen. De RAM-controller stuurt naar het draw-module een signaal write als het mag gaan schrijven in het RAM geheugen, de RAM-controller krijgt dan de kleur en het adress binnen van het draw-module. Als de VGA-controller mag gaan lezen krijgt het een signaal read binnen van de RAM-controller dan zal er weer data naar de VGA-controller verstuurd worden, kleur en adres.
 
 % \begin{table}[H]
 % \centering
-% \caption{Specificaties van de RAM Controller (ramcontroller)}
+% \caption{Specificaties van de RAM-controller (ramcontroller)}
 % \label{tab:spec-ramcontroller}
 % \begin{tabular}{c c c}
 % 	\hline\hline
@@ -374,12 +331,12 @@ In Tabel \ref{tab:spec-params} staat een overzicht van de gebruikte parameters e
 % \end{tabular}
 % \end{table}
 
-% \section{VGA Controller}
+% \section{VGA-controller}
 % De VGA-controller leest het actieve screen buffer uit het RAM en zet de gelezen data om in beelduitvoer.
 
 % \begin{table}[H]
 % \centering
-% \caption{Specificaties van de VGA Controller (vgacontroller)}
+% \caption{Specificaties van de VGA-controller (vgacontroller)}
 % \label{tab:spec-vgacontroller}
 % \begin{tabular}{c c c}
 % 	\hline\hline
