@@ -12,7 +12,7 @@
 
 %Specs
 \subsection{Specificaties}
-Draw\_line is gespecificeerd als een module die, wanneer hij ingeschakeld is (en = `1') en toegang heeft tot het RAM (draw\_can\_access = `1') een lijn van de gewenste kleur (color), van (x0 en y0) en naar (x1 en y1) de gewenste coördinaten naar het VRAM schrijft. Hij doet dit in het niet-actieve screenbuffer (not asb), zodat de lijn na de volgende schermbufferwisseling door de VGA-controller op het scherm getekend wordt. De aansluitingen van de module zijn te vinden in figuur \ref{fig:draw-line-schema}.
+Draw\_line is gespecificeerd als een module die, wanneer hij ingeschakeld is (en = `1'), en toegang heeft tot het RAM (draw\_can\_access = `1') een lijn van de gewenste kleur (color), van (x0 en y0) en naar (x1 en y1) de gewenste coördinaten naar het VRAM schrijft. Hij doet dit in het niet-actieve screenbuffer (not asb), zodat de lijn na de volgende schermbuffwisseling door de VGA-controller op het scherm getekend wordt. De aansluitingen van de module zijn te vinden in figuur \ref{fig:draw-line-schema}.
 %Bij het schrijven van een pixel naar het VRAM dient het adres te bestaan uit het screen buffer waar naar geschreven moet worden (a), de y-coördinaat van de pixel (b) en de x-coördinaat van de pixel (b). Dit levert de volgende adresvorm op: (ayyyyyyyxxxxxxxx)
 
 \begin{figure}[H]
@@ -24,7 +24,7 @@ Draw\_line is gespecificeerd als een module die, wanneer hij ingeschakeld is (en
 
 %Ontwerp en implementatie
 \subsection{Ontwerp en implementatie}
-Voor dit doeleinde wordt gebruik gemaakt van het lijnalgoritme van Bresenham. Specifiek een voor hardware geöptimaliseerde en gesimplificeerde versie van dat algoritme. \cite{line-alg} Dit algoritme tekent in een loop een rij pixels van een punt naar een ander punt, waarvan de coördinaten per iteratie in de x-richting, y-richting, of beide richtingen verschuiven. De coördinaten van de nieuwe pixel worden berekend aan de hand van de afwijking tussen het verschil tussen de begin- en eindcoördinaat (dx en dy) en de laatst getekende pixel.
+Voor dit doeleinde wordt gebruik gemaakt van het lijnalgoritme van Bresenham. Specifiek een voor hardware geöptimaliseerde en gesimplificeerde versie van dat algoritme. \cite{line-alg} Dit algoritme tekent in een loop een rij pixels van een punt naar een ander punt, waarvan de coördinaten per iteratie in de x-richting, y-richting, of beide richtingen verschuiven. De coördinaten van de nieuwe pixel worden berekend aan de hand van het verschil tussen de begin- en eindcoördinaat (dx en dy) en de laatst getekende pixel.
 \\\\
 De implementatie van de module is een letterlijke implementatie van het eerdergenoemde algoritme. De pseudocode voor dit algoritme is voor de volledigheid opgenomen in bijlage \ref{appsec:pseudocode-bresenham-line}. Het enige probleem bij het omzetten van deze pseudocode naar een VHDL-beschrijving was het feit dat er geen loop gebruikt kan worden om te itereren, omdat er niet meerdere keren naar het VRAM geschreven kan worden per klokslag.
 \\
