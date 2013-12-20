@@ -98,7 +98,7 @@ begin
 		done := '0';
 
 		--action depending on state
-		if (current_spi_data_available = '1' and prev_spi_data_available = '0') or current_instruction = i_switch or current_instruction = i_fill then
+		if (current_spi_data_available = '1' and prev_spi_data_available = '0') or current_instruction = i_switch then
 			next_int_ready <= '0';
 			next_timeout_count <= (others => '0');
 			spi_reset <= '1';
@@ -251,7 +251,7 @@ begin
 				next_int_ready <= '1';
 			end if;
 
-			if done = '0' and not (current_instruction = i_lsprite and packet_num = 3) then
+			if done = '0' and not (current_instruction = i_lsprite and packet_num = 3) and current_instruction /= i_switch then
 				next_packet_num <= packet_num + 1;
 			elsif done = '1' then
 				next_packet_num <= to_unsigned(0,SizeNumPackets);
@@ -265,7 +265,7 @@ begin
 			next_int_ready <= '1';
 			next_packet_num <= to_unsigned(0,SizeNumPackets);
 			next_instruction <= i_none;
-		elsif packet_num /= 0 then
+		elsif packet_num /= 0 and current_instruction /= i_switch then
 			if timeout_count < TimeoutCount then
 				next_timeout_count <= timeout_count + 1;
 			else
@@ -281,6 +281,12 @@ begin
 	end process;
 
 end behaviour;
+
+
+
+
+
+
 
 
 

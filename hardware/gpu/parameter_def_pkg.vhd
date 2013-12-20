@@ -27,7 +27,7 @@ PACKAGE BODY parameter_def IS
 	constant SizeSpriteCounter : INTEGER := 6;
 	constant TimeoutCount : INTEGER := 2**7-1; --aantal ticks voor timeout
 	constant SizeTimeoutCounter : INTEGER := 7; --aantal bits voor timeout counter
-	constant NumDrawModules : INTEGER := 6; -- 0: fill; 1: pixel; 2: square; 3: fsquare; 4: line; 5: circle;
+	constant NumDrawModules : INTEGER := 4; -- 0: fill; 1: pixel; 2: square; 3: fsquare; 4: line; 5: circle;
 	constant SizeX : INTEGER := 8;
 	constant SizeY : INTEGER := 7;
 	constant NumStateReg : INTEGER := 1;
@@ -38,3 +38,8 @@ PACKAGE BODY parameter_def IS
 	constant ResolutionX : INTEGER := 160;
 	constant ResolutionY : INTEGER := 120;
 END parameter_def;
+
+
+
+
+

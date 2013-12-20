@@ -137,11 +137,17 @@ sr: sram port map (
 		sendByte(not"00111101",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 9
 		sendByte(not"00111101",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 10
 		sendByte(not"00100001",spi_mosi,spiclk_en, spibyte); -- sprite data --byte 11
+		wait until rising_edge(clk);
+		wait until rising_edge(clk);
 		wait until int_ready = '1' and rising_edge(clk);
-		wait until rising_edge(clk);		
+		wait until rising_edge(clk);
+		wait until rising_edge(clk);
 		sendByte("00000001",spi_mosi,spiclk_en, spibyte); -- fill --byte 12
 		sendByte("00111111",spi_mosi,spiclk_en, spibyte); -- white  --byte 13
+		wait until rising_edge(clk);
+		wait until rising_edge(clk);
 		wait until int_ready = '1' and rising_edge(clk);
+		wait until rising_edge(clk);
 		wait until rising_edge(clk);
 		sendByte("00000100",spi_mosi,spiclk_en, spibyte); -- frect --byte 14
 		sendByte("00101010",spi_mosi,spiclk_en, spibyte); -- grey  --byte 15
@@ -149,30 +155,44 @@ sr: sram port map (
 		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- Y0 = 50 --byte 17
 		sendByte("01111000",spi_mosi,spiclk_en, spibyte); -- X1 = 120 --byte 18
 		sendByte("01010000",spi_mosi,spiclk_en, spibyte); -- Y1 = 80 --byte 19
-		wait until int_ready = '1' and rising_edge(int_ready);
 		wait until rising_edge(clk);
+		wait until rising_edge(clk);
+		wait until int_ready = '1' and rising_edge(clk);
+		wait until rising_edge(clk);
+		wait until rising_edge(clk);	
 		sendByte("00000011",spi_mosi,spiclk_en, spibyte); -- rect --byte 20
 		sendByte("00000000",spi_mosi,spiclk_en, spibyte); -- black  --byte 21
 		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- X0 = 40 --byte 22
 		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- Y0 = 50 --byte 23
 		sendByte("01111000",spi_mosi,spiclk_en, spibyte); -- X1 = 120 --byte 24
 		sendByte("01010000",spi_mosi,spiclk_en, spibyte); -- Y1 = 80 --byte 25
-		wait until int_ready = '1' and rising_edge(int_ready);
 		wait until rising_edge(clk);
+		wait until rising_edge(clk);
+		wait until int_ready = '1' and rising_edge(clk);
+		wait until rising_edge(clk);
+		wait until rising_edge(clk);		
 		sendByte("00000000",spi_mosi,spiclk_en, spibyte); -- switch screenbuffers --byte 26
-		--wait until rising_edge(int_ready); --this one is too fast
-		wait until int_ready = '1' and rising_edge(int_ready);
 		wait until rising_edge(clk);
+		wait until rising_edge(clk);
+		wait until int_ready = '1' and rising_edge(clk);
+		wait until rising_edge(clk);
+		wait until rising_edge(clk);		
 		sendByte("00000001",spi_mosi,spiclk_en, spibyte); -- fill with 0000 (black)	--byte 27		
 		sendByte("00000000",spi_mosi,spiclk_en, spibyte); -- black  --byte 28
-		wait until int_ready = '1' and rising_edge(int_ready);
 		wait until rising_edge(clk);
+		wait until rising_edge(clk);
+		wait until int_ready = '1' and rising_edge(clk);
+		wait until rising_edge(clk);
+		wait until rising_edge(clk);		
 		sendByte("00000010",spi_mosi,spiclk_en, spibyte); -- line --byte 29
 		sendByte("00111111",spi_mosi,spiclk_en, spibyte); -- white --byte 30
 		sendByte("00101000",spi_mosi,spiclk_en, spibyte); -- X0 = 40 --byte 31
 		sendByte("00110010",spi_mosi,spiclk_en, spibyte); -- Y0 = 50 --byte 32
-		wait until int_ready = '1' and rising_edge(int_ready);
 		wait until rising_edge(clk);
+		wait until rising_edge(clk);
+		wait until int_ready = '1' and rising_edge(clk);
+		wait until rising_edge(clk);
+		wait until rising_edge(clk);		
 		sendByte("00000110",spi_mosi,spiclk_en, spibyte); -- sprite --byte 33
 		sendByte("00010101",spi_mosi,spiclk_en, spibyte); -- greyish --byte 34
 		sendByte("00001000",spi_mosi,spiclk_en, spibyte); -- X = 16 --byte 35
@@ -180,8 +200,11 @@ sr: sram port map (
 		sendByte("00000110",spi_mosi,spiclk_en, spibyte); -- W = 6 --byte 37
 		sendByte("00100000",spi_mosi,spiclk_en, spibyte); -- sprite len (8) and 2MSB addr --byte 38
 		sendByte("00000011",spi_mosi,spiclk_en, spibyte); -- sprite 8LSB addr --byte 39
-		wait until int_ready = '1';
-		wait until rising_edge(clk);		
+		wait until rising_edge(clk);
+		wait until rising_edge(clk);
+		wait until int_ready = '1' and rising_edge(clk);
+		wait until rising_edge(clk);
+		wait until rising_edge(clk);
 		--finish
 		dump <= TRUE;
 		wait until rising_edge(clk);
@@ -191,6 +214,12 @@ sr: sram port map (
 	end process;	
 	
 end behaviour;
+
+
+
+
+
+
 
 
 

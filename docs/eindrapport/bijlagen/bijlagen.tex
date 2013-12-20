@@ -8,54 +8,75 @@
 
 \begin{document}
 \begin{appendices}
-
+\renewcommand{\chapternumber}{\appendixname\space\thechapter} 
 \chapter{Parameters}
 \label{app:parameters}
 \begin{table}[H]
 	\centering
 	\caption{De gebruikte parameters en generics}
 	\label{tab:spec-params}
-	\begin{tabular}{l l l l l}
+	\begin{tabular}{l l l p{0.5\textwidth}}
 		\hline\hline
-	 	 & Naam & Type & Waarde & Omschrijving\\
+	 	 & Naam & Waarde & Omschrijving\\
 	 	\hline
 		%GLOBAL
-		pkg & InstrSize & integer & 3 & De grootte van een instructie\\ 
-		pkg & MaxNumPackets & integer & 3 & Maximaal aantal pakketjes in één instructie\\ 
-		pkg & SizeSpriteID & integer & 10 & Het aantal bits voor het SpriteID \\
-		pkg & SizeSpriteCounter & integer & 6 & Het aantal bits voor de sprite counter\\
-		pkg & TimoutCount & integer & $2\cdot10^{7}-1$ & Het aantal ticks per timout\\
-		pkg & SizeTimeoutCounter & integer & 8 & Het aantal bits voor de timout counter\\
-		pkg & NumDrawModules & integer & 6 & Aantal Draw modules\\ 
-		pkg & SizeX & integer & 8 & Het aantal bits voor de X coordinaat\\
-		pkg & SizeY & integer & 7 & Het aantal bits voor de Y coordinaat\\
-		pkg & NumStateReg & integer & 1 & Aantal globale state registers\\
-		pkg & SizeRAMData & integer & 6 & Aantal bits per woord in het RAM\\
-		pkg & SizeRAMAddr & integer & 16 & Aantal adresbits voor het RAM\\
-		pkg & SizeColor & integer & 6 & Aantal bits kleur\\
-		pkg & SizeSPIData & integer & 8 & Aantal bits van de SPI pakketjes\\
-		pkg & ResolutionX & integer & 160 & Horizontale resolutie \\
-		pkg & ResolutionY & integer & 120 & Verticale resolutie \\
+		pkg & InstrSize & 3 & De grootte van een instructie\\ 
+		pkg & MaxNumPackets & 7 & Maximaal aantal pakketjes in één instructie\\ 
+		pkg & SizeSpriteID & 10 & Het aantal bits voor het SpriteID \\
+		pkg & SizeSpriteCounter & 6 & Het aantal bits voor de sprite counter\\
+		pkg & TimoutCount & $2^{7}-1$ & Het aantal ticks per timout\\
+		pkg & SizeTimeoutCounter & 7 & Het aantal bits voor de timout counter\\
+		pkg & NumDrawModules & 4 & Aantal Draw modules\\ 
+		pkg & SizeX & 8 & Het aantal bits voor de X coordinaat\\
+		pkg & SizeY & 7 & Het aantal bits voor de Y coordinaat\\
+		pkg & SizeRAMData & 6 & Aantal bits per woord in het RAM\\
+		pkg & SizeRAMAddr & 16 & Aantal adresbits voor het RAM\\
+		pkg & SizeColor & 6 & Aantal bits kleur\\
+		pkg & SizeSPIData & 8 & Aantal bits van de SPI pakketjes\\
+		pkg & ResolutionX & 160 & Horizontale resolutie \\
+		pkg & ResolutionY & 120 & Verticale resolutie \\
 		%VGA
-		vga & h\_pulse & integer & 24 & Aantal klokpulsen voor de horizontale syncpuls\\ 
-		vga & h\_bp & integer & 12 & Aantal klokpulsen voor de horizontale “backporch” \\ 
-		vga & h\_pixels & integer & 160 & Aantal klokpulsen voor de horizontale pixels \\ 
-		vga & h\_fp & integer & 4 & Aantal klokpulsen voor de horizontale “fontporch” \\ 
-		vga & h\_pol & std\_logic & ‘0’ & De polariteit van de horizontale syncpuls\\ 
-		vga & v\_pulse & integer & 2 & Aantal rijen voor de verticale syncpuls\\ 
-		vga & v\_bp & integer & 33 & Aantal rijen voor de verticale “backporch” \\ 
-		vga & v\_pixels & integer & 480 & Aantal rijen voor de verticale pixels\\ 
-		vga & v\_fp & integer & 10 & Aantal rijen voor de verticale “fontporch” \\ 
-		vga & v\_pol & std\_logic & ‘0’ & De polariteit van de verticale syncpuls\\ 
+		vga & h\_pulse & 24 & Aantal klokpulsen voor de horizontale syncpuls\\ 
+		vga & h\_bp & 12 & Aantal klokpulsen voor de horizontale “backporch” \\ 
+		vga & h\_pixels & 160 & Aantal klokpulsen voor de horizontale pixels \\ 
+		vga & h\_fp & 4 & Aantal klokpulsen voor de horizontale “fontporch” \\ 
+		vga & h\_pol & ‘0’ & De polariteit van de horizontale syncpuls\\ 
+		vga & v\_pulse & 2 & Aantal rijen voor de verticale syncpuls\\ 
+		vga & v\_bp & 33 & Aantal rijen voor de verticale “backporch” \\ 
+		vga & v\_pixels & 480 & Aantal rijen voor de verticale pixels\\ 
+		vga & v\_fp & 10 & Aantal rijen voor de verticale “fontporch” \\ 
+		vga & v\_pol & ‘0’ & De polariteit van de verticale syncpuls\\ 
 		%SPI
-		spi & c & integer & 4 & Het aantal bits van de counter in de SPI module\\
+		spi & c & 3 & Het aantal bits van de counter in de SPI module\\
+		%SPRITE
+		sprite & SizeDCounter & 3 & Aantal bits van de datacounter\\
+		sprite & DCounterMax & 6 & De maximale waarde van de datacounter\\
+		sprite & DCounterStart & 6 & De startwaarde van de DCounter is de laadslag \\
 	  	\hline
 	\end{tabular}
 \end{table}
 
 \chapter{Instructies}
 \label{app:instructies}
-
+\begin{table}[H]
+	\centering
+	\caption{De gebruikte instructies en hun data in ons protocol}
+	\label{tab:spec-instr}
+	\begin{tabular}{l l p{0.75\textwidth}}
+		\hline\hline
+	 	\# & Naam & Pakketten (in <octets>)\\
+	 	\hline
+		0 & SWITCH & 0x00\\ 
+		1 & FILL & 0x01 <color>\\ 
+		2 & PIXEL & 0x02 <color> <x> <y>\\
+		3 & RECT & 0x03 <color> <x0> <y0> <x1> <y1>\\
+		4 & FRECT & 0x04 <color> <x0> <y0> <x1> <y1>\\
+		5 & LINE & 0x05 <color> <x0> <y0> <x1> <y1>\\
+		6 & SPRITE & 0x06 <color> <x> <y> <width in pixels> <6-bit length in addresses + 2 MSB bits off start address> <8 LSB bits of start address>\\ 
+		7 & LSPRITE &  0x07 <6-bit length in addresses + 2 MSB bits off start address> <8 LSB bits of start address> then length times <spritedata>\\
+	  	\hline
+	\end{tabular}
+\end{table}
 
 \chapter{Pseudocode}
 \label{app:pseudocode}
