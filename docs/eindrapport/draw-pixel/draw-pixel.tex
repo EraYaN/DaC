@@ -33,7 +33,7 @@ Door de draw\_pixel module worden aparte pixels getekend. Hiervoor worden de x- 
 \end{figure}
 
 %VHDL
-\subsection{Ontwerp en specificatie}
+\subsection{Ontwerp en implementatie}
 \label{ssec:vhdl_dp}
 \subsubsection{VHDL-Entity}
 De entity is precies opgebouwd volgens  figuur  \ref{fig:dp_blokschema}. De in- en uitgangen zijn letterlijk overgenomen en zijn schaalbaar, zoals te zien in de figuur. Wanneer het vectoren betreft, die in de package omschreven worden, zijn het allemaal std\_logic\_vectoren. 
@@ -58,8 +58,8 @@ De tweede test betreft het testen van de synthesized VHDL. Op enkele begincondit
 \subsubsection{Test 3}
 Om nog een extra test uit te voeren kan er uit de layout VHDL geëxtraheerd worden. Wanneer die vervolgens gesimuleerd wordt met modelsim, is te controleren of de schakeling op layoutniveau net zo werkt als op VHDL-niveau. Deze is exact gelijk aan test 2. 
 %Synthese
-\subsection{Synthese}
-De synthese is nu uitgevoerd voor 6-bit kleur. Aanvankelijk bedroeg het aantal transistoren 3000 transistoren (correct werkend en volledig gecheckt), maar na een aantal overbodige flipflops te verwijderen werd dat minder. De laatste stand is 388 transistoren, waarbij 382 transistoren effectief. Dit geeft een efficientie van 98.45\% in een langwerpige vorm. Deze is met de optie row placer gemaakt. (zie figuur \ref{fig:dp_layout}) De layout is klein opgenomen, omdat het slechts ter illustratie is hoe draw\_pixel er uit gaat zien op de chip. 
+\subsection{Synthese en lay-out}
+De synthese is nu uitgevoerd voor 6-bit kleur. Aanvankelijk bedroeg het aantal transistoren 3000 transistoren (correct werkend en volledig gecheckt), maar na een aantal overbodige flipflops te verwijderen werd dat minder. De laatste stand is 416 transistoren, waarbij 382 transistoren effectief. Dit geeft een efficientie van 91.83\% in een langwerpige vorm. Deze is met de optie row placer gemaakt. (zie figuur \ref{fig:dp_layout}) De layout is klein opgenomen, omdat het slechts ter illustratie is hoe draw\_pixel er uit gaat zien op de chip. 
 \begin{figure} [h!]
 \centering
 \includegraphics [scale = 0.135] {resource/dp_layout-rc.jpg}
@@ -69,8 +69,8 @@ De synthese is nu uitgevoerd voor 6-bit kleur. Aanvankelijk bedroeg het aantal t
 
 \newpage
 %Switchlevel test
-\subsection{Switchlevel}
-Op switchlevel niveau wordt de simulatie op transistor niveau vergeleken met de simulatie op vhdl niveau. Hierbij wordt er vanuit de list-file een command file gemaakt. Vervolgens wordt via layout\ simulate en show\_result een simulatie geopend. Nu kan figuur \ref{fig:dp_sim} hiermee op het oog vergeleken worden. De optie compare geeft de mogelijkheid om dit exact te doen met GoWithTheFlow. De ref-file van de simulatie in figuur \ref{fig:dp_sim} wordt dan vergeleken met de res-file van de switch level simulatie. Is de implementatie goed dan horen alle waardes overeen te komen, op de eerste na. In ons ontwerp bevinden zich echter 'Z'-uitgangen, die door de compare niet goed begrepen worden. De noodzaak van 'Z's is al toegelicht. Het switch level resultaat (zie figuur \ref{fig:dp_sw_lev} komt overeen met het modelsim resultaat.
+\subsection{Switch-level}
+Op switch-level niveau wordt de simulatie op transistor niveau vergeleken met de simulatie op vhdl niveau. Hierbij wordt er vanuit de list-file een command file gemaakt. Vervolgens wordt via layout\ simulate en show\_result een simulatie geopend. Nu kan figuur \ref{fig:dp_sim} hiermee op het oog vergeleken worden. De optie compare geeft de mogelijkheid om dit exact te doen met GoWithTheFlow. De ref-file van de simulatie in figuur \ref{fig:dp_sim} wordt dan vergeleken met de res-file van de switch level simulatie. Is de implementatie goed, dan horen alle waardes overeen te komen, op de eerste na. In ons ontwerp bevinden zich echter 'Z'-uitgangen, die door de compare niet goed begrepen worden. De noodzaak van 'Z's is al toegelicht. Het switch-level resultaat (zie figuur \ref{fig:dp_sw_lev} komt overeen met het modelsim resultaat.
 \begin{figure} [h!]
 \centering
 \includegraphics [width = \textwidth] {resource/dp_sw_lev-rc}
@@ -82,7 +82,7 @@ Op switchlevel niveau wordt de simulatie op transistor niveau vergeleken met de 
 
 %Conclusie
 \subsection{Conclusie}
-Elke simulatie van draw\_pixel geeft het gewenste resultaat, ook op synthesized en extracted niveau. Na het splitsen van de VHDL in een combinatorisch en sequentieel deel is het aantal transistoren aanzienlijk verminderd. Een nadeel van Place\&Route zou kunnen zijn dat er een vierkant blokje ontstaat. Wanneer de vorm aangepast wordt om op te totale chip te passen, kan dat een hogere efficicientie geven. Dat is uitgevoerd, met een hogere efficientie van 98.45\% tot gevolg. 
+Elke simulatie van draw\_pixel geeft het gewenste resultaat, ook op synthesized en extracted niveau. Na het splitsen van de VHDL in een combinatorisch en sequentieel deel is het aantal transistoren aanzienlijk verminderd. Een nadeel van Place\&Route zou kunnen zijn dat er een vierkant blokje ontstaat. Wanneer de vorm aangepast wordt om op te totale chip te passen, kan dat een hogere efficicientie geven. Dat is uitgevoerd, met een hogere efficientie van 91.83\% tot gevolg. 
 
 De VHDL beschrijving en testbench staan in Bijlagen \ref{appsec:draw-pixel.vhd}, \ref{appsec:draw-pixel-behaviour.vhd}, \ref{appsec:draw-pixel-tb.vhd} en \ref{appsec:draw-pixel-tb-behaviour.vhd}.
 
