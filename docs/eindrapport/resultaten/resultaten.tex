@@ -11,11 +11,11 @@
 \label{ch:resultaten}
 
 
-Nadat alle code geschreven, gesynthetyseerd en getest was is er gekeken na het totale eindresultaat van het project. De uiteindelijke layout van de chip samen met het aantal gebruikte transistoren en de bijbehorende efficiëntie. Ook is er getest met een FPGA.
+Nadat alle code geschreven, gesynthetiseerd en getest was is er gekeken naar het totale eindresultaat van het project. De uiteindelijke layout van de chip samen met het aantal gebruikte transistoren en de bijbehorende efficiëntie. Ook is er getest met een FPGA.
 
 \section{VHDL code}
 
-Als eerste is de VHDL-code getest met een wave die klopte volgens de verwachting, we hebben hier helaas niet heel veel tijd voor gehad om uitvoerig te testen. Er zijn namelijk veel verschillende soort opdrachten die onze GPU kan uitvoeren en om voor elke situatie te simuleren was geen tijd meer voor. Het resultaat van de test is hieronder te zien.
+Als eerste is de VHDL-code getest met een wave die klopte met onze verwachting. Helaas hebben we niet heel veel tijd gehad om dit nog verder uitvoerig te testen. Er zijn namelijk veel verschillende soort opdrachten die onze GPU kan uitvoeren en om voor elke situatie te simuleren was dus helaas geen tijd meer. Het resultaat van de test is hieronder te zien.
 
 \begin{figure}[H]
 	\centering
@@ -27,7 +27,7 @@ Als eerste is de VHDL-code getest met een wave die klopte volgens de verwachting
 
 \section{FPGA test}
 
-Nadat de VHDL-code getest was hebben we het ontwerp getest met behulp van een FPGA, op deze manier kregen werd er op een monitor een beeld geprojecteerd en kon er daadwerkelijk gezegd worden of de GPU de opdrachten goed uitvoerde. Ook konden we nu testen met de AVR en het externe RAM. Op deze manier kregen we meer inzicht in het totale ontwerp van de chip en konden er nog gemakkelijk veranderingen gemaakt worden in het ontwerp van de chip en de code in de AVR.\\  Het is lastig om een duidelijk resultaat te laten zien van de FPGA test aangezien het een bewegend beeld is, maar toch hebben we er een screenshot van gemaakt.
+Nadat de VHDL-code getest was hebben we het ontwerp getest met behulp van een FPGA, op deze manier werd er op een monitor een beeld geprojecteerd en kon er daadwerkelijk gezegd worden of de GPU de opdrachten goed uitvoerde. Ook konden we nu testen met de AVR en het externe RAM. Op deze manier kregen we meer inzicht in het totale ontwerp van de chip en konden er nog gemakkelijk veranderingen gemaakt worden in het ontwerp van de chip en de code in de AVR.\\  Het is lastig om een duidelijk resultaat te laten zien van de FPGA test aangezien het een bewegend beeld is, maar toch hebben we er een screenshot van gemaakt.
 
 \begin{figure}[H]
 	\centering
@@ -35,12 +35,12 @@ Nadat de VHDL-code getest was hebben we het ontwerp getest met behulp van een FP
 	\caption{Resultaat van VHDL-code test}
 \end{figure}
 
-In dit frame is te zien dat onze GPU instaat is om pixels,rechthoeken,lijnen en zelfs sprite te kunnen tekenen.
+In dit frame is te zien dat onze GPU in staat is om pixels, rechthoeken, lijnen en zelfs sprites te kunnen tekenen.
 
 
 \section{Synthese}
 
-Als laatste was er het synthetyseren van het totale ontwerp. Tijdens dit process kwamen we er achter dat de module Draw Line te groot was voor de chip, inprincipe zou alles gemakkelijk passen op de chip alleen zou er dan niks geroute kunnen worden. We hebben er toen dus voor gekozen om deze module eruit te halen. Deze module was wel succesvol getest op de FPGA. Hieronder is de uiteindelijk layout van ons ontwerp te zien.
+Als laatste was er het synthetiseren van het totale ontwerp. Tijdens dit proces kwamen we er achter dat de module Draw Line te groot was voor de chip, in principe zou alles gemakkelijk passen op de chip alleen zou er dan niks geroute kunnen worden. We hebben er nu dus voor gekozen om deze module eruit te laten. Deze module was wel succesvol getest op de FPGA. Hieronder is de uiteindelijk layout van ons ontwerp te zien.
 
 
 \begin{figure}[H]
@@ -49,7 +49,7 @@ Als laatste was er het synthetyseren van het totale ontwerp. Tijdens dit process
 	\caption{Resultaat van VHDL-code test}
 \end{figure}
 
-Het aantal gebruikte transistoren is 71854/16146, dit resulteert in een efficiëntie van 22,47\%. Het percentage had een stuk hoger kunnen liggen als we toch de module Draw Line hadden kunnen implementeren op de chip, deze module was namelijk ongeveer 25000 transistoren hiermee zou onze efficiëntie boven de 50\% uitkomen. Helaas was dit niet meer te routen met de programma's en technologie die wij tot onze beschikking hadden.
+Het aantal gebruikte transistoren is 71854. Hiervan worden 16146 transistoren ook daadwerkelijk gebruikt, dit resulteert in een efficiëntie van 22.47\%. Het percentage had een stuk hoger kunnen liggen als we toch de module Draw Line hadden kunnen implementeren op de chip, deze module was namelijk ongeveer 25000 transistoren hiermee zou onze efficiëntie boven de 50\% uitkomen. Helaas was dit niet meer te routen met de programma's en technologie die wij tot onze beschikking hadden.
 
 
 

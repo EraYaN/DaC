@@ -12,14 +12,9 @@
 \label{ch:ram-controller} % <-----fill in label name
 
 % describe function of block
-De RAM controller regelt de *\_can\_access signalen naar de andere modules en het RAM Write-Enable signaal. Het RAM Write-Enabled signaal is active-low de andere zijn active-high.
-De RAM controller zorgt er op deze manier dus voor dat niet twee modules op de RAM adres en data bussen tegelijk een waarde op de bus drukken.
-Dit doet hij voor de interne modules en de extrene SRAM chip.
-Wij gebruiken een 4Mb SRAM chip van Alliance Memory, namelijk de AS6C4008-55PCN. 
-Deze chip wordt geleverd in een DIP-32 package.
-Iedere SRAM chip die sneller reageert dan de helft van onze klokcyclus zou voldoen.
-Maar met onze huidige setup, met de VGA signalen buiten om, is het zaak dat de SRAM chip zo snel mogelijk na adres wijziging de data op de data pinnen heeft staan.
-De chip die door ons gekozen is heeft een maximale delay van 55 ns tussen adres wijziging n stabiele data op de uitgangen, dit geldt ook voor de write cyclus.
+De RAM controller regelt de *\_can\_access signalen naar de andere modules en het RAM Write-Enable signaal. Het RAM Write-Enabled signaal is active-low de andere zijn active-high. De RAM controller zorgt er op deze manier dus voor dat niet twee modules op de RAM adres en data bussen tegelijk een waarde op de bus drukken. Dit doet hij voor de interne modules en de extrene SRAM chip. Wij gebruiken een 4Mb SRAM chip van Alliance Memory, namelijk de AS6C4008-55PCN. Deze chip wordt geleverd in een DIP-32 package.
+Iedere SRAM chip die sneller reageert dan de helft van onze klokcyclus zou voldoen. Echter is het met onze huidige setup, met de VGA signalen buiten om, zaak dat de SRAM chip zo snel mogelijk na adres wijziging de data op de data pinnen heeft staan.
+De chip die door ons gekozen is heeft een maximale delay van 55 ns tussen adres wijziging en stabiele data op de uitgangen, dit geldt ook voor de write cyclus.
 
 
 
@@ -67,11 +62,11 @@ De waarheidstabellen waaraan deze schakeling zijn gegeven in \ref{tab:ramcontrol
 
 \section{Ontwerp \& Implementatie}
 De communicatie met de SRAM chip is tijdsgevoelig, in de datasheet van de SRAM chip staat de “time-constraints”.
-Aan de Figuren \ref{fig:ramcontroller-read-cycle}, \ref{fig:ramcontroller-write-cycle} en \ref{fig:ramcontroller-time-constraints} is te zien dat deze SRAM chip dermate snel is dat wij nooit langer dan 1 klokslag nodig zullen hebben om een operatie op het RAM uit te voeren.
+Aan de figuren \ref{fig:ramcontroller-read-cycle}, \ref{fig:ramcontroller-write-cycle} en \ref{fig:ramcontroller-time-constraints} is te zien dat deze SRAM chip dermate snel is dat wij nooit langer dan 1 klokslag nodig zullen hebben om een operatie op het RAM uit te voeren.
 De maximale delay die deze chip met zich mee brengt is 55 ns, dit is ver onder onze klokperiode van ongeveer 163 ns.
-We kunnen dus iedere halve klokcyclus het write enable signaal hoog maken als er geschreven dient te worden, deze 80 ns puls is nog steeds meer dan lang genoeg op te schrijven.
+We kunnen dus iedere halve klokcyclus het write enable signaal hoog maken als er geschreven dient te worden, deze 80 ns puls is nog steeds meer dan lang genoeg om te schrijven.
 Deze is ook makkelijk te realizeren door het schrijf signaal samen met de klok op een AND poort aan te sluiten.
-We hebben in ons ontwerp gedeelde adres en data bussen geintegreerd en de *\_can\_access signalen vertellen aan de modules op de bus of zij een signaal op de bus mogen duwen.
+We hebben in ons ontwerp gedeelde adres en data bussen geïntegreerd en de *\_can\_access signalen vertellen aan de modules op de bus of zij een signaal op de bus mogen duwen.
 Één van de voordelen is dat de adres lijnen en data lijnen niet door de ramcontroller geroute hoeven te worden.
 De ram controller hoeft zich dus alleen maar bezig te houden het het toegang verlenen en het maken van het write\_enable signaal dat naar de RAM chip gaat.
 Dit uiteindelijke signaal is low-active en word buiten de ramcontroller geïnverteerd.
@@ -110,8 +105,8 @@ In de simulatie zien we dat inderdaad de waarheidstabel goed geimplementeerd is.
 \end{figure}
 
 %Synthese
-\section{Synthese \& Layout}
-Zoals te zien in in de layout (Figuur \ref{fig:ramcontroller-layout}) is dit een zeer compacte module. De simulaties in modelsim van de extracted en sythesized VHDL geven één zelfde beeld.
+\section{Synthese \& Lay-out}
+Zoals te zien in in de lay-out (Figuur \ref{fig:ramcontroller-layout}) is dit een zeer compacte module. De simulaties in modelsim van de extracted en sythesized VHDL geven één zelfde beeld.
 
 \begin{figure}[H]
 \centering
@@ -121,8 +116,8 @@ Zoals te zien in in de layout (Figuur \ref{fig:ramcontroller-layout}) is dit een
 \end{figure}
 
 %Switchlevel test
-\section{Switchlevel}
-De switch level simulatie verliep vlekkeloos. Zie Figuur \ref{fig:ramcontroller-sl-sim}.
+\section{Switch-level}
+De switch-level simulatie verliep vlekkeloos. Zie Figuur \ref{fig:ramcontroller-sl-sim}.
 \begin{figure}[H]
 \centering
 	\includegraphics[width=0.8\textwidth]{resources/wave_sls.png}
@@ -132,7 +127,7 @@ De switch level simulatie verliep vlekkeloos. Zie Figuur \ref{fig:ramcontroller-
 
 %Conclusie
 \section{Conclusie}
-Als we de resultaten van de SLS simulatie vergelijken met de resultaten uit modelsim dan komen die exact overeen.
+Als we de resultaten van de SLS simulatie vergelijken met de resultaten uit modelsim dan komen deze exact overeen.
 
 De VHDL beschrijving en testbench staan in Bijlagen \ref{appsec:ramcontroller.vhd}, \ref{appsec:ramcontroller-behaviour.vhd}, \ref{appsec:ram-control-tb.vhd} en \ref{appsec:ram-control-tb-behaviour.vhd}
 
