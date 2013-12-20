@@ -24,7 +24,7 @@ component vgacontroller
 		vga_read : OUT STD_LOGIC;
 		vga_can_access : in std_logic;
 		asb : IN STD_LOGIC
-	); 
+	);  
 	 
 end component;
 
