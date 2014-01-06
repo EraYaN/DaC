@@ -16,4 +16,5 @@
 #define KEYBOARDDATAPIN 4
 #define KEYBOARDCLOCKPIN 3
 #define NUM_PROGRAMS 2
+#define MENU_Y_OFFSET 6
 #endif
