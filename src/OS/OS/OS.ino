@@ -9,7 +9,10 @@ bool b_helper = true;
 bool done = false;
 bool first = true;
 bool readyfornext = false;
-Program *currentProgram;
+Program *currentProgram; 
+Program *pMenu = new Menu(GPU, Input, "Menu");
+Program *pDemo = new Demo(GPU, Input, "Demo");
+Program *programs[NUM_PROGRAMS] = {pMenu, pDemo};
 unsigned long lastFrame;
 unsigned long currentFrame;
 unsigned long frameTime;
@@ -29,7 +32,7 @@ void setup()
 	pinMode(LED_BUILTIN, OUTPUT);
 	Serial.println("Setup Complete!");
 	pinMode(INT_READY_PIN,INPUT);
-	currentProgram = new Demo(GPU,"Demo");
+	currentProgram = pMenu;
 	randomSeed(analogRead(0));
 
 	Input->keyboard.begin(KEYBOARDDATAPIN, KEYBOARDCLOCKPIN);

@@ -43,7 +43,13 @@
     <ClCompile Include="font8x8_set_data.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="InputTester.cpp" />
+=======
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+>>>>>>> 4b77913aad75ec55095ec9680e7b1ba63f0b6d6e
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Visual Micro\.OS.vsarduino.h">
@@ -106,7 +112,13 @@
     <ClInclude Include="Util.h">
       <Filter>Headers</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="InputTester.h" />
+=======
+    <ClInclude Include="Menu.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+>>>>>>> 4b77913aad75ec55095ec9680e7b1ba63f0b6d6e
   </ItemGroup>
   <ItemGroup>
     <None Include="OS.ino" />
