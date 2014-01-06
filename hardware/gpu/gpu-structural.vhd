@@ -395,12 +395,15 @@ begin
 		spi_data_available=>spi_data_available,
 		spi_data_rx=>spi_data_rx	
 	);
-	osc101: osc10 port map(
-		E=>'1',
-		XI=>XI,
-		XO=>XO,
-		F=>clk
-	);	
+	--For SoG
+	--osc101: osc10 port map(
+	--	E=>'1',
+	--	XI=>XI,
+	--	XO=>XO,
+	--	F=>clk
+	--);
+	--For FPGA
+	clk<=XI;	
 vgavsync<=vgavsync_int;
 end structural;
 
