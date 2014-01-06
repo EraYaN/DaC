@@ -1,0 +1,38 @@
+Inleiding
+
+Systeemoverzicht  			
+
+Specificaties
+
+
+
+SPI
+-aan de hand van visio plaatjes
+
+Instructiedecoder
+
+Draw-blok
+-algemeen overzicht geven van draw_blok
+
+
+RAM-controller
+
+VGA-controller
+
+De GPU
+-samenvoegen, resultaten?
+
+
+
+
+Demonstratie
+
+
+Conclusie
+
+
+
+
+
+
+
