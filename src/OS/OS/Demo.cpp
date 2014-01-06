@@ -1,7 +1,7 @@
 #include "Util.h"
 void Demo::tick(unsigned long ctime){
 	GPU->cleanUp();	
-	GPU->drawFill(B000001);
+	GPU->drawFill(count%16);
 	for(int i =0; i < 2; i++){
 	
 		/*unsigned long inc = ctime/10000;
