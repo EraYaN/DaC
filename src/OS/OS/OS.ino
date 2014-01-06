@@ -10,9 +10,10 @@ bool done = false;
 bool first = true;
 bool readyfornext = false;
 Program *currentProgram; 
-Program *pMenu = new Menu(GPU, Input, "Menu");
-Program *pDemo = new Demo(GPU, Input, "Demo");
-Program *programs[NUM_PROGRAMS] = {pMenu, pDemo};
+Program *pDemo;
+Program *pInputTester;
+Program *programs[NUM_PROGRAMS] = {pDemo, pInputTester};
+Program *pMenu;
 unsigned long lastFrame;
 unsigned long currentFrame;
 unsigned long frameTime;
@@ -32,14 +33,19 @@ void setup()
 	pinMode(LED_BUILTIN, OUTPUT);
 	Serial.println("Setup Complete!");
 	pinMode(INT_READY_PIN,INPUT);
-	currentProgram = pMenu;
+	
 	randomSeed(analogRead(0));
 
 	Input->keyboard.begin(KEYBOARDDATAPIN, KEYBOARDCLOCKPIN);
+
+	pInputTester = new InputTester(GPU, Input, "InputTester");
+	pDemo = new Demo(GPU, Input, "Demo");
+	pMenu = new Menu(GPU, Input, "Menu", currentProgram, programs);
+	currentProgram = pInputTester;
 }
 
 void loop()
-{
+{	
 	if (running)
 	{
 		readyfornext = digitalRead(INT_READY_PIN)==HIGH;

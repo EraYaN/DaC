@@ -4,7 +4,7 @@
 
 class InputTester : public Program{	
 public: 
-	InputTester(GPULib *GPU, const char* programName) : Program(GPU,programName) {
+	InputTester(GPULib *GPU, InputLib *Input, const char* programName) : Program(GPU,Input,programName) {
 		
 	};
 	void start();

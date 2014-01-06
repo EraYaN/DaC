@@ -1,19 +1,30 @@
 #include "Util.h"
-void Demo::tick(unsigned long ctime){
+void InputTester::tick(unsigned long ctime){
 	GPU->cleanUp();	
-	GPU->drawFill(B000000);
-	for(int i =0; i < 2; i++){
-		if(
-	}
-	count++;
-	GPU->switchScreenBuffer();			
+	GPU->drawFill(B001100);
+	Serial.println("Tick");
+	Serial.print("Memory Free: ");
+	Serial.println(freeMemory());
+	Serial.flush();
+	//for(int i =0; i < 2; i++){
+	GPU->drawString6x8("Inputs Detected: ",2,2,B111111);
+		if(Input->isAvailable()){
+			int b = Input->getKey();
+			if(b >= 0){
+				Serial.println((char)b-32);
+				//GPU->drawChar6x8(max(0,b-32),10,2,B110000);
+			}
+		}
+		
+	//}
+	GPU->switchScreenBuffer();	
 }
-void Demo::start(){
+void InputTester::start(){
 	
 }
-void Demo::stop(){
+void InputTester::stop(){
 	
 }
-void Demo::reset(){
+void InputTester::reset(){
 	
 }

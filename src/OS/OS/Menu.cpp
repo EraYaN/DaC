@@ -32,3 +32,12 @@ void Menu::tick(unsigned long ctime){
 		}
 	}
 }
+void Menu::start(){
+	
+}
+void Menu::stop(){
+	
+}
+void Menu::reset(){
+	
+}
