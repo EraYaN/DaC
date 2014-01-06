@@ -43,6 +43,9 @@
     <ClCompile Include="font8x8_set_data.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Visual Micro\.OS.vsarduino.h">
@@ -103,6 +106,9 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="Util.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

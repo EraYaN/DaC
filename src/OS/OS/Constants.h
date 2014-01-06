@@ -15,4 +15,5 @@
 #define MAXSPRITEWIDTH XMAX //8-bit width
 #define KEYBOARDDATAPIN 4
 #define KEYBOARDCLOCKPIN 3
+#define NUM_PROGRAMS 2
 #endif
