@@ -148,24 +148,24 @@ architecture structural of gpu is
 	);
 	end component;
 	
-	--component draw_line
-	--port(
-	--	clk   : in    std_logic;
-	--	reset : in    std_logic;
-	--	enable: in    std_logic;
-	--	x0  : in    std_logic_vector(SizeX-1 downto 0);
-	--	y0  : in    std_logic_vector(SizeY-1 downto 0);
-	--	x1  : in    std_logic_vector(SizeX-1 downto 0);
-	--	y1  : in    std_logic_vector(SizeY-1 downto 0);
-	--	color : in std_logic_vector(SizeColor-1 downto 0);
-	--	asb : in std_logic;
-	--	done  : out   std_logic;
-	--	ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
-	--	ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);
-	--	draw_write :out std_logic;
-	--	draw_can_access : in std_logic
-	--);
-	--end component;
+	component draw_line
+	port(
+		clk   : in    std_logic;
+		reset : in    std_logic;
+		enable: in    std_logic;
+		x0  : in    std_logic_vector(SizeX-1 downto 0);
+		y0  : in    std_logic_vector(SizeY-1 downto 0);
+		x1  : in    std_logic_vector(SizeX-1 downto 0);
+		y1  : in    std_logic_vector(SizeY-1 downto 0);
+		color : in std_logic_vector(SizeColor-1 downto 0);
+		asb : in std_logic;
+		done  : out   std_logic;
+		ramaddr     :out   std_logic_vector(SizeRAMAddr-1 downto 0);
+		ramdata     :out   std_logic_vector(SizeRAMData-1 downto 0);
+		draw_write :out std_logic;
+		draw_can_access : in std_logic
+	);
+	end component;
 	
 	component draw_sprite is	
 	port(
@@ -233,16 +233,16 @@ architecture structural of gpu is
 	signal spi_data_rx : std_logic_vector(sizespidata-1 downto 0);
 
 	-- DRAW
-	signal pixel_done,fill_done,rect_done,sprite_done : std_logic;
-	signal pixel_write,fill_write,rect_write,sprite_write : std_logic;
+	signal pixel_done,fill_done,rect_done,line_done,sprite_done : std_logic;
+	signal pixel_write,fill_write,rect_write,line_write,sprite_write : std_logic;
 	signal sprite_read : std_logic;
 
 begin
 	reset_n <= not reset;
 	ramwe_n <= not ramwe;
 	vga_enabled<=vga_claim;
-	draw_ready <= pixel_done or rect_done or sprite_done;
-	draw_write <= pixel_write or rect_write or sprite_write;
+	draw_ready <= pixel_done or rect_done or line_done or sprite_done;
+	draw_write <= pixel_write or rect_write or line_write or sprite_write;
 	draw_read <= sprite_read;
 
 	--draw1: draw port map (
@@ -298,27 +298,27 @@ begin
 		draw_can_access=>draw_can_access
 	);
 	--Module 3
-	--line1: draw_line port map (
-	--	clk=>clk,
-	--	reset=>reset,
-	--	enable=>en(3),
-	--	x0=>x,
-	--	y0=>y,
-	--	x1=>w,
-	--	y1=>h,
-	--	color=>color,
-	--	asb=>asb,
-	--	done=>line_done,
-	--	ramaddr=>ramaddr,
-	--	ramdata=>ramdata,
-	--	draw_write=>line_write,
-	--	draw_can_access=>draw_can_access
-	--);
+	line1: draw_line port map (
+		clk=>clk,
+		reset=>reset,
+		enable=>en(3),
+		x0=>x,
+		y0=>y,
+		x1=>w,
+		y1=>h,
+		color=>color,
+		asb=>asb,
+		done=>line_done,
+		ramaddr=>ramaddr,
+		ramdata=>ramdata,
+		draw_write=>line_write,
+		draw_can_access=>draw_can_access
+	);
 	--Module 4
 	sprite1: draw_sprite port map (
 		clk=>clk,
 		reset=>reset,
-		enable=>en(3),
+		enable=>en(4),
 		id=>id,
 		x=>x,
 		y=>y,
