@@ -1,35 +1,28 @@
-Inleiding
-
-Systeemoverzicht  			
-
+Inleiding						
 Specificaties
-
-
+Systeemoverzicht  				Xenia en Peter		
+						
 
 SPI
--aan de hand van visio plaatjes
+-aan de hand van visio plaatjes					
+Instructiedecoder				Robin		
 
-Instructiedecoder
+
 
 Draw-blok
--algemeen overzicht geven van draw_blok
+-algemeen overzicht geven van draw blok
+-ingaan op onderdelen van het draw blok		Alex en Kees	
 
 
-RAM-controller
-
-VGA-controller
-
-De GPU
--samenvoegen, resultaten?
+RAM-controller							
+VGA-controller					Jorden en Efraim										
 
 
 
-
-Demonstratie
-
-
-Conclusie
-
+De GPU						
+-samenvoegen, resultaten?						
+Demonstratie m.b.v FPGA				
+Conclusie					Erwin en Tu		
 
 
 
