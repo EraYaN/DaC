@@ -6,13 +6,21 @@
 
 class InputLib
 {
+private:
+	long timestamp;
+	bool BLB,BLS,BRB,BRS;
 public:
-	InputLib() {};
-
-	//instructions and queue
-	bool isAvailable();
-	int getKey();
-
-	PS2Keyboard keyboard;
+	InputLib() : timestamp(0),BLB(false),BLS(false),BRB(false),BRS(false) {
+		pinMode(PIN_BLB,INPUT_PULLUP);
+		pinMode(PIN_BLS,INPUT_PULLUP);
+		pinMode(PIN_BRB,INPUT_PULLUP);
+		pinMode(PIN_BRS,INPUT_PULLUP);	
+	};
+	//void tick();
+	bool isButtonLeftBPressed();
+	bool isButtonLeftSPressed();
+	bool isButtonRightBPressed();
+	bool isButtonRightSPressed();
+	bool areAllButtonsPressed();
 };
 #endif

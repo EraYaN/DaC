@@ -17,7 +17,7 @@ class Demo : public Program{
 	byte xs[4];
 	byte ys[4];
 public: 
-	Demo(GPULib *GPU, InputLib *Input, const char* programName) : Program(GPU, Input, programName), count(0) {
+	Demo(GPULib *GPU, InputLib *Input) : Program(GPU, Input, "Demo"), count(0) {
 		xs[0] = 80;
 		xs[1] = 40;
 		xs[2] = 80;

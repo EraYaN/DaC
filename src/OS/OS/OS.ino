@@ -12,7 +12,7 @@ bool readyfornext = false;
 Program *currentProgram; 
 Program *pDemo;
 Program *pInputTester;
-Program *programs[NUM_PROGRAMS] = {pDemo, pInputTester};
+Program **programs[NUM_PROGRAMS] = {&pDemo, &pInputTester};
 Program *pMenu;
 unsigned long lastFrame;
 unsigned long currentFrame;
@@ -35,13 +35,13 @@ void setup()
 	pinMode(INT_READY_PIN,INPUT);
 	
 	randomSeed(analogRead(0));
-	delay(1000);
-	Input->keyboard.begin(KEYBOARDDATAPIN, KEYBOARDCLOCKPIN);
+	//delay(1000);
+	//Input->keyboard.begin(KEYBOARDDATAPIN, KEYBOARDCLOCKPIN);
 
-	pInputTester = new InputTester(GPU, Input, "InputTester");
-	pDemo = new Demo(GPU, Input, "Demo");
-	pMenu = new Menu(GPU, Input, "Menu", currentProgram, programs);
-	currentProgram = pDemo;
+	pInputTester = new InputTester(GPU, Input);
+	pDemo = new Demo(GPU, Input);
+	pMenu = new Menu(GPU, Input, &currentProgram, programs);
+	currentProgram = pMenu;
 }
 
 void loop()
@@ -63,13 +63,19 @@ void loop()
 		}
 
 		if(!first){
+			
 			if(readyfornext && GPU->queueHead != NULL && !GPU->sending){
 				readyfornext = false;
 				//Serial.println("Instuction Sent.");
 				GPU->sendNextInstruction();			
-			}
-		
+			}		
 			if(done || GPU->queueHead == NULL){
+				
+				if(Input->areAllButtonsPressed()){
+					Serial.println("Back to Menu!");
+					currentProgram->stop();
+					currentProgram = pMenu;
+				}
 				currentFrame = micros();
 				frameTime = currentFrame-lastFrame;			
 				lastFrame = currentFrame;
@@ -78,6 +84,7 @@ void loop()
 				done = false;
 			
 			}
+			//Input->tick();
 			if(lastBlinkTime+250<millis()){
 				b_helper = !b_helper;
 				digitalWrite(LED_BUILTIN, b_helper);

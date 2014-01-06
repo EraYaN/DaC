@@ -1,7 +1,8 @@
 #include "Util.h"
 void Demo::tick(unsigned long ctime){
 	GPU->cleanUp();	
-	GPU->drawFill(count%16);
+	GPU->drawFill(count%64);
+	
 	for(int i =0; i < 2; i++){
 	
 		/*unsigned long inc = ctime/10000;
@@ -40,7 +41,8 @@ void Demo::tick(unsigned long ctime){
 	
 		GPU->drawTriangle(2,4,30,100,60,90,B011010);
 		//GPU->drawSprite(sprites_font6x8_set[1], 8, 8, B111100);
-		GPU->drawString6x8("Hello World!",8,8,B111100);
+		GPU->drawString6x8("The quick brown fox",2,8,B111100);
+		GPU->drawString6x8("jumps over the lazy dog",2,16,B111100);
 		GPU->drawPoly(xs,ys,4,B000011);
 		//GPU->drawTriangle(40,60,30,70,50,80,B1010);
 		//char * buff = (char*)malloc(sizeof(char)*16);
