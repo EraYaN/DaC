@@ -185,9 +185,9 @@ void GPULib::drawString6x8(const char* string, byte x, byte y, byte color){
 			drawChar6x8(string[i],x+dx,y,color);
 		i++;
 		if(string[i]==' '){
-			dx+=3;
+			dx+=4;
 		} else {
-			dx+=6;
+			dx+=5;
 		}
 
 	}

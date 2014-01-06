@@ -35,13 +35,13 @@ void setup()
 	pinMode(INT_READY_PIN,INPUT);
 	
 	randomSeed(analogRead(0));
-
+	delay(1000);
 	Input->keyboard.begin(KEYBOARDDATAPIN, KEYBOARDCLOCKPIN);
 
 	pInputTester = new InputTester(GPU, Input, "InputTester");
 	pDemo = new Demo(GPU, Input, "Demo");
 	pMenu = new Menu(GPU, Input, "Menu", currentProgram, programs);
-	currentProgram = pInputTester;
+	currentProgram = pDemo;
 }
 
 void loop()
