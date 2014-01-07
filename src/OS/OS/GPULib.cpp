@@ -189,10 +189,18 @@ void GPULib::drawString6x8(const char* string, byte x, byte y, byte color){
 		} else {
 			dx+=6;
 		}
-
 	}
-
 }
+
+void GPULib::drawImage(Sprite* sprite, byte* x, byte* y)
+{
+	long numpixels = sprite->width*sprite->height;
+	for (int i=0; i<numpixels; i++)
+	{
+		drawPixel(i % sprite->width, i/sprite->width, sprite->data[i]);
+	}
+}
+
 bool GPULib::loadSprites(Sprite *set[], int size, bool *readyfornext){
 	uint16_t address = 0;
 	Serial.println("Started Sending!");

@@ -18,6 +18,7 @@
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="PS2Keyboard.cpp" />
     <ClCompile Include="MemoryFree.cpp" />
+    <ClCompile Include="bf4_1.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h" />
@@ -43,6 +44,7 @@
     <ClInclude Include="Util.h" />
     <ClInclude Include="Visual Micro\.OS.vsarduino.h" />
     <ClInclude Include="MemoryFree.h" />
+    <ClInclude Include="bf4_1_data.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="OS.ino" />
