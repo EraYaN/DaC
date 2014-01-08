@@ -3,7 +3,7 @@
 
 #include "Util.h"
 
-/*void InputLib::tick(){	
+void InputLib::tick(){	
 	if(timestamp+INPUT_TIMEOUT<millis()){
 		if(digitalRead(PIN_BLB)==0){
 			timestamp = millis();		
@@ -74,8 +74,8 @@ bool InputLib::areAllButtonsPressed(){
 		BRS = false;
 	}
 	return val;	
-}*/
-bool InputLib::isButtonLeftBPressed(){
+}
+/*bool InputLib::isButtonLeftBPressed(){
 	return digitalRead(PIN_BLB)==0;
 }
 bool InputLib::isButtonLeftSPressed(){
@@ -90,4 +90,4 @@ bool InputLib::isButtonRightSPressed(){
 bool InputLib::areAllButtonsPressed(){
 	bool val = isButtonLeftBPressed() && isButtonLeftSPressed() && isButtonRightBPressed() && isButtonRightSPressed();	
 	return val;	
-}
+}*/

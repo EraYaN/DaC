@@ -16,7 +16,7 @@ public:
 		pinMode(PIN_BRB,INPUT_PULLUP);
 		pinMode(PIN_BRS,INPUT_PULLUP);	
 	};
-	//void tick();
+	void tick();
 	bool isButtonLeftBPressed();
 	bool isButtonLeftSPressed();
 	bool isButtonRightBPressed();

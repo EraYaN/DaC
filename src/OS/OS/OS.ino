@@ -84,7 +84,7 @@ void loop()
 				done = false;
 			
 			}
-			//Input->tick();
+			Input->tick();
 			if(lastBlinkTime+250<millis()){
 				b_helper = !b_helper;
 				digitalWrite(LED_BUILTIN, b_helper);
