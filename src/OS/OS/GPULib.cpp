@@ -219,17 +219,10 @@ bool GPULib::loadSprites(Sprite *set[], int size, bool *readyfornext){
 			return false;
 		}
 		set[i]->address = address >> 6;
-		/*while(!(*readyfornext)){
-		//wait		
-		Serial.println("Waiting!");
-		}*/
-		Serial.print("Sending: ");
-		Serial.print(spriteID);
-		Serial.print(" @ ");
-		Serial.println(set[i]->address,BIN);
 		sendSprite(set[i]);
 		nextSpriteID++;
 	}
+	Serial.println("Sending Complete!");
 	return true;
 }
 void GPULib::sendSprite(Sprite *sprite){

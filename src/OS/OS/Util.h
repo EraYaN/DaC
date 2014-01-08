@@ -21,6 +21,8 @@
 
 #include "Demo.h"
 #include "InputTester.h"
+#include "Introduction.h"
+#include "Pong.h"
 
 //sprite sets
 #include "font4x4_set.h"
