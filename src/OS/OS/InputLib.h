@@ -3,44 +3,24 @@
 #pragma once
 #ifndef _INPUTLIB_
 #define _INPUTLIB_
-#include "PS2Keyboard.h"
-
-struct Keystroke {
-	//keystroke data
-	unsigned long timestamp;
-	byte key;
-
-	//queue data (linked list)
-	Keystroke *nextKeystroke;
-
-	//constructor
-	Keystroke(byte k) : key(k)
-	{
-		timestamp = micros();
-	}
-};
 
 class InputLib
 {
+private:
+	long timestamp;
+	bool BLB,BLS,BRB,BRS;
 public:
-	InputLib() {};
-
-	//instructions and queue
-	void clearQueue();
-	void cleanUp();
-	void transferQueue();
-	void sendNextInstruction();
-	void appendKeystrokeToQueue(Keystroke *k);
-	void shiftQueue();
-
-	//control registering
-	void bindKeyToControl(Control *control);
-
-	//tick
-	void tick();
-
-	Keystroke *queueHead, *queueTail; //head and tail of linked list
-	Control *currentControlToBind;
-	PS2Keyboard keyboard;
+	InputLib() : timestamp(0),BLB(false),BLS(false),BRB(false),BRS(false) {
+		pinMode(PIN_BLB,INPUT_PULLUP);
+		pinMode(PIN_BLS,INPUT_PULLUP);
+		pinMode(PIN_BRB,INPUT_PULLUP);
+		pinMode(PIN_BRS,INPUT_PULLUP);	
+	};
+	void tick(int timeout);
+	bool isButtonLeftBPressed();
+	bool isButtonLeftSPressed();
+	bool isButtonRightBPressed();
+	bool isButtonRightSPressed();
+	bool areAllButtonsPressed();
 };
 #endif

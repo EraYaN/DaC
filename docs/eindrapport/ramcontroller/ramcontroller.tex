@@ -71,6 +71,10 @@ We hebben in ons ontwerp gedeelde adres en data bussen geïntegreerd en de *\_ca
 De ram controller hoeft zich dus alleen maar bezig te houden het het toegang verlenen en het maken van het write\_enable signaal dat naar de RAM chip gaat.
 Dit uiteindelijke signaal is low-active en word buiten de ramcontroller geïnverteerd.
 
+De signalen op de RAM adresbus bestaan uit het screenbuffer waar van gelezen moet worden (a), de y-coördinaat van de pixel (y) en de x-coördinaat van de pixel (x).
+Dit levert de volgende adresvorm op: (ayyyyyyyxxxxxxxx).
+Tijdens het tekenen wordt NOT a gebruikt, dus de niet actieve screenbuffer
+
 \begin{figure}[H]
 \centering
 	\includegraphics[width=\textwidth]{resources/read_cycle-rc.pdf}

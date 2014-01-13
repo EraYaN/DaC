@@ -47,8 +47,8 @@ public:
 	//fake (software) draw	
 	void drawTriangle(byte x0, byte y0, byte x1, byte y1, byte x2, byte y2, byte color);
 	void drawPoly(byte* x, byte* y, byte size, byte color);
+	void drawImage(Sprite* sprite, byte* x, byte* y);
 	
-
 	//loading sprites
 	bool loadSprites(Sprite *set[], int size, bool *rfn);
 	void sendSprite(Sprite* set);

@@ -9,7 +9,13 @@ bool b_helper = true;
 bool done = false;
 bool first = true;
 bool readyfornext = false;
-Program *currentProgram;
+Program *currentProgram; 
+Program *pDemo;
+Program *pInputTester;
+Program *pPong;
+Program *pIntroduction;
+Program **programs[NUM_PROGRAMS] = {&pDemo, &pInputTester, &pPong, &pIntroduction};
+Program *pMenu;
 unsigned long lastFrame;
 unsigned long currentFrame;
 unsigned long frameTime;
@@ -19,7 +25,6 @@ void setup()
 {
 	GPU = new GPULib();
 	Input = new InputLib();
-	//attachInterrupt(INT_READY_PIN, drawReady, RISING);	
 	SPI.setBitOrder(MSBFIRST);
 	SPI.setClockDivider(SPI_CLOCK_DIV16);
 	SPI.setDataMode(SPI_MODE0);
@@ -27,47 +32,56 @@ void setup()
 	Serial.begin(115200);
 	running = true;
 	pinMode(LED_BUILTIN, OUTPUT);
-	Serial.println("Setup Complete!");
+
 	pinMode(INT_READY_PIN,INPUT);
-	currentProgram = new Demo(GPU,"Demo");
+	
 	randomSeed(analogRead(0));
 
-	Input->keyboard.begin(KEYBOARDDATAPIN, KEYBOARDCLOCKPIN);
+	pInputTester = new InputTester(GPU, Input);
+	pDemo = new Demo(GPU, Input);
+	pPong = new Pong(GPU, Input);
+	pIntroduction = new Introduction(GPU, Input);
+	pMenu = new Menu(GPU, Input, &currentProgram, programs);
+	
+	currentProgram = pMenu;
+
+	Serial.println("Setup Complete!");
 }
 
 void loop()
-{
+{	
 	if (running)
 	{
 		readyfornext = digitalRead(INT_READY_PIN)==HIGH;
-		//Serial.print("RFN: ");
-		//Serial.println(readyfornext);
 		if(first && readyfornext){	
 			GPU->cleanUp();
-			//GPU->gpuReset();
 			GPU->loadSprites(sprites_font6x8_set,95,&readyfornext);
-			//GPU->cleanUp();
-			//GPU->drawFill(B000000);
-			//GPU->transferQueue();
 			first = false;
-			//Serial.println("First Fill.");
 		}
 
-		if(!first){
+		if(!first){			
 			if(readyfornext && GPU->queueHead != NULL && !GPU->sending){
 				readyfornext = false;
-				//Serial.println("Instuction Sent.");
 				GPU->sendNextInstruction();			
-			}
-		
+			}		
 			if(done || GPU->queueHead == NULL){
+				//Serial.println(freeMemory());
+				if(Input->areAllButtonsPressed()){
+					currentProgram->reset();
+					currentProgram->stop();
+					currentProgram = pMenu;
+				}
 				currentFrame = micros();
 				frameTime = currentFrame-lastFrame;			
 				lastFrame = currentFrame;
-				delayMicroseconds(10);
+				//delayMicroseconds(10);
 				currentProgram->tick(frameTime);
-				done = false;
-			
+				done = false;			
+			}
+			if(currentProgram == pIntroduction || currentProgram == pMenu){
+				Input->tick(INPUT_TIMEOUT);
+			} else {
+				Input->tick(INPUT_TIMEOUT_INGAME);
 			}
 			if(lastBlinkTime+250<millis()){
 				b_helper = !b_helper;
@@ -81,14 +95,4 @@ void loop()
 		digitalWrite(LED_BUILTIN, b_helper);
 		delay(1000);	
 	}
-}
-
-void drawReady()
-{
-	//if(!GPU->sending){
-		readyfornext = true;
-		Serial.println("Ready for next!");
-	//} else {
-	//	Serial.println("Ready for next discarded.");
-	//}
 }

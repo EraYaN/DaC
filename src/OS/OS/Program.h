@@ -4,13 +4,12 @@
 class Program {
 protected:
 	GPULib *GPU;
-	const char* name;
-	byte id;
+	InputLib *Input;
 	ProgramState state;
-
-public: 
-	Program(GPULib *GPU, const char* programName) : GPU(GPU),name(programName) {};
-	Program(GPULib *GPU):GPU(GPU),name() {};
+public:
+	const char* name;	
+	Program(GPULib *GPU, InputLib *Input, const char* programName) : GPU(GPU),Input(Input),name(programName) {};
+	Program(GPULib *GPU, InputLib *Input):GPU(GPU),Input(Input),name() {};
 	virtual void start();
 	virtual void tick(unsigned long ctime);
 	virtual bool isRunning();

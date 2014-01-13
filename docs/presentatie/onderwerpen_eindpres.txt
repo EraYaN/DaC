@@ -1,0 +1,35 @@
+Onderwerpen					Namen			Tijd
+
+
+Inleiding						
+Specificaties
+Systeemoverzicht  				Xenia en Peter		6 minuten
+						
+
+SPI
+-aan de hand van visio plaatjes					        3-5 minuten
+Instructiedecoder				Robin		
+
+
+
+Draw-blok
+-algemeen overzicht geven van draw blok
+-ingaan op onderdelen van het draw blok		Alex en Kees	        6 minuten
+
+
+RAM-controller							
+VGA-controller					Jorden en Efraim 	6 minuten										
+
+
+
+De GPU						
+-samenvoegen, resultaten?						6 minuten	
+					
+Demonstratie m.b.v FPGA							---------
+Conclusie					Erwin en Tu		
+
+
+
+
+
+

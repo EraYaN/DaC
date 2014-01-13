@@ -15,4 +15,12 @@
 #define MAXSPRITEWIDTH XMAX //8-bit width
 #define KEYBOARDDATAPIN 4
 #define KEYBOARDCLOCKPIN 3
+#define NUM_PROGRAMS 4
+#define MENU_Y_OFFSET 6
+#define PIN_BLB 9
+#define PIN_BLS 10
+#define PIN_BRS 11
+#define PIN_BRB 12
+#define INPUT_TIMEOUT 250
+#define INPUT_TIMEOUT_INGAME 50
 #endif
